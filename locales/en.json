@@ -1,0 +1,4429 @@
+{
+  "meta": {
+    "title": "Eden ABA Therapy | ABA Therapy, Autism Support & Insurance Help in Northern Virginia",
+    "description": "Eden ABA Therapy provides compassionate ABA therapy, autism support, insurance verification, intake forms, parent resources, and location support for families in Northern Virginia."
+  },
+  "common": {
+    "english": "English",
+    "vietnamese": "Tiếng Việt",
+    "brandName": "Eden ABA Therapy",
+    "brandTagline": "Compassionate autism care",
+    "navAutismEvaluation": "Autism Evaluation",
+    "navABATherapy": "ABA Therapy",
+    "navLocations": "Locations",
+    "navHome": "Home",
+    "locationsPageTitle": "Find an Eden ABA Therapy location near you.",
+    "locationsIntro": "Search for Eden ABA Therapy care and view our Annandale location, hours, directions, and appointment options.",
+    "currentlyUsingLocation": "Search by zip code, city, or address",
+    "listView": "List View",
+    "mapView": "Map View",
+    "filters": "Filters",
+    "locationDetails": "Location Details",
+    "getDirections": "Get Directions",
+    "suggestHours": "Suggest new hours",
+    "distanceLabel": "Distance",
+    "hours": "Hours",
+    "navResources": "Resources",
+    "navAboutEden": "About Eden",
+    "navCareers": "Careers",
+    "startABA": "Start ABA Therapy",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "heroTitle": "A brighter path for children to grow, learn, and thrive.",
+    "heroSubtitle": "Eden ABA Therapy provides warm, family-centered ABA support using compassionate care, clear guidance, and child-friendly therapy experiences.",
+    "finderTitle": "Find ABA therapy near you",
+    "finderPlaceholder": "Zip Code, City, or Center name",
+    "findCare": "Find care",
+    "abaRightForMe": "Is ABA therapy right for me?",
+    "asdSupport": "Get ASD evaluation support",
+    "call": "Call",
+    "serviceHeadline": "Let's Talk About ABA Therapy.",
+    "serviceSubtitle": "Our team provides personalized ABA therapy designed to meet every child's unique needs. From communication and social skills to daily routines and positive behaviors, Eden ABA Therapy creates supportive care plans that help children grow with confidence.",
+    "services": [
+      [
+        "School Support ABA Therapy",
+        "Collaboration with families and school teams to support classroom readiness, communication, routines, and positive behavior strategies."
+      ],
+      [
+        "In-Home ABA Therapy",
+        "Personalized ABA therapy in the child's natural home environment to strengthen daily routines, communication, and independence."
+      ],
+      [
+        "Center-Based ABA Therapy",
+        "Structured therapy in a supportive clinical setting focused on skill-building, play, social engagement, and developmental progress."
+      ],
+      [
+        "Early Intervention ABA Therapy",
+        "Early support for young children to build communication, imitation, play, daily living skills, and positive learning routines."
+      ],
+      [
+        "Behavior Assessment",
+        "Detailed review of behavior patterns, triggers, communication needs, safety concerns, and family priorities before treatment planning."
+      ],
+      [
+        "Individualized ABA Programs",
+        "Customized treatment goals based on each child's strengths, developmental needs, caregiver priorities, and measurable progress data."
+      ],
+      [
+        "Social Skills Training",
+        "Support for peer interaction, turn-taking, greetings, play, shared attention, conversation, and friendship-building skills."
+      ],
+      [
+        "Parent Training & Support",
+        "Practical caregiver coaching to help parents use ABA strategies during meals, bedtime, transitions, community outings, and daily routines."
+      ]
+    ],
+    "serviceImageAlts": [
+      "Child learning at a desk with school support during ABA therapy collaboration",
+      "Parent and child practicing daily routines during in-home ABA therapy",
+      "Therapist and child in a play-based session at an ABA therapy clinic",
+      "Toddler engaged in early intervention play with a caregiver",
+      "Clinician observing a child and reviewing behavior assessment notes",
+      "Therapist working one-on-one with a child on individualized ABA goals",
+      "Children practicing social skills through peer play and turn-taking",
+      "Parent coaching session with a therapist for caregiver ABA training"
+    ],
+    "gettingStartedTitle": "How to get started with ABA therapy",
+    "gettingStartedP1": "If your child already has an autism diagnosis and you want to get started with ABA therapy, you can contact us to schedule an intake.",
+    "gettingStartedP2": "If your child has many of the early signs of autism and does not yet have a diagnosis, we can help guide you through diagnostic support options.",
+    "screeningToolsTitle": "No-cost online screening tools",
+    "forToddlers": "For toddlers:",
+    "takeMchat": "Take the M-CHAT",
+    "forOlderChildren": "For older children:",
+    "takeCast": "Take the CAST",
+    "assessmentTitle": "Schedule an autism assessment near you",
+    "assessmentText": "Eden ABA Therapy can help families understand next steps for autism evaluation and ABA therapy services.",
+    "diagnosticSupport": "Get diagnostic support",
+    "onlineSchedulerTitle": "Online Appointment Scheduler",
+    "onlineSchedulerText": "Book an appointment online with Eden ABA Therapy using our guided scheduling system. Families can share concerns, choose a service, provide contact details, and request a convenient appointment time.",
+    "onlineSchedulerFeatures": [
+      "Guided multi-step booking",
+      "Autism evaluation and ABA therapy appointment options",
+      "Smart intake routing",
+      "Insurance information collection",
+      "Confirmation and follow-up support"
+    ],
+    "careersEyebrow": "Recruiting system",
+    "careersTitle": "Careers page with searchable roles.",
+    "searchJobs": "Search jobs...",
+    "apply": "Apply",
+    "schedulerEyebrow": "Eden ABA Therapy",
+    "schedulerTitle": "Advanced Online Appointment Scheduler",
+    "schedulerSubtitle": "Schedule an appointment online with Eden ABA Therapy using our guided multi-step booking system.",
+    "guidedWizard": "Guided booking wizard",
+    "complete": "Complete",
+    "back": "Back",
+    "continue": "Continue",
+    "submitRequest": "Submit Request",
+    "bookAnother": "Book Another",
+    "requiredNotice": "Please complete all required fields before continuing.",
+    "intakeBadge": "Family-centered support",
+    "intakeTitle": "Help your child thrive with ABA therapy.",
+    "intakeSubtitle": "Complete our online interest form and our team will contact you to guide you through the next steps.",
+    "benefits": [
+      "Personalized ABA therapy plans",
+      "Support for families and caregivers",
+      "Compassionate care from intake to services"
+    ],
+    "whatNext": "What happens next?",
+    "whatNextText": "Eden ABA Therapy reviews your information, contacts you for intake, discusses insurance or documentation needs, and helps schedule the next appropriate step.",
+    "intakeFormTitle": "Start ABA Therapy",
+    "parentName": "Parent's Name (Required)",
+    "childFirstName": "Child's First Name",
+    "childLastName": "Child's Last Name",
+    "childBirthdate": "Child's Birthdate",
+    "phoneNumber": "Phone Number",
+    "emailAddress": "Email Address",
+    "preferredContact": "Preferred Contact Method",
+    "diagnosisQuestion": "Does your child have a diagnosis?",
+    "state": "State",
+    "message": "Message",
+    "appointmentIntake": "Appointment & Intake",
+    "appointmentIntakeText": "We'll contact you to schedule an appointment and complete the intake process.",
+    "secureConfidential": "Secure & Confidential",
+    "secureConfidentialText": "Your information is protected with strict privacy and security standards.",
+    "consentUpdates": "I consent to receive appointment reminders and intake updates from Eden ABA Therapy.",
+    "consentTerms": "I agree to the Privacy Policy and Terms of Service.",
+    "recaptcha": "protected by reCAPTCHA",
+    "liveChat": "Live Chat",
+    "edenAssistant": "Eden Assistant",
+    "chatSupport": "ABA • Speech • OT Support",
+    "chatPlaceholder": "Type your message...",
+    "sendMessage": "Send Message",
+    "emergencyNote": "Educational support only. For emergencies call 911.",
+    "typing": "Typing...",
+    "you": "You",
+    "chatGreeting": "Hi! I'm Eden's therapy assistant. I can answer questions about ABA therapy, speech therapy, occupational therapy, autism support, intake, insurance, scheduling, documents, parent training, and next steps. What would you like to know?",
+    "newsletterTitle": "Stay connected with our family newsletter",
+    "firstName": "First Name",
+    "email": "Email",
+    "joinNewsletter": "Join Family Newsletter",
+    "newsletterThanks": "Thank you",
+    "newsletterThanksEnd": "You're on the newsletter preview list.",
+    "footerDescription": "Eden ABA Therapy provides compassionate autism and ABA therapy services for children and families across Northern Virginia.",
+    "forParents": "For Parents",
+    "resources": "Resources",
+    "contactEden": "Contact Eden",
+    "serviceAreas": "Service Areas",
+    "officeHours": "Office Hours",
+    "googleReviews": "Google Reviews",
+    "allRights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "accessibility": "Accessibility",
+    "noticePrivacy": "Notice of Privacy Practices",
+    "headerEvaluation": {
+      "eyebrow": "Autism Evaluation",
+      "title": "Understand the next step for your child.",
+      "text": "Parent-friendly screening tools, developmental guidance, and evaluation support.",
+      "cards": [
+        [
+          "Early Screening",
+          "M-CHAT-R & CAST online tools"
+        ],
+        [
+          "Parent Guidance",
+          "Support understanding behaviors and milestones"
+        ],
+        [
+          "Secure Intake",
+          "Protected forms and document uploads"
+        ],
+        [
+          "Fast Scheduling",
+          "Assessment coordination and next steps"
+        ]
+      ]
+    },
+    "logo": {
+      "alt": "Eden ABA Therapy logo",
+      "fallbackLine1": "EDEN",
+      "fallbackLine2": "ABA THERAPY",
+      "defaultAlt": "Eden ABA Therapy"
+    },
+    "googleMap": {
+      "defaultTitle": "Eden ABA Therapy Google Map",
+      "annandaleTitle": "Eden ABA Therapy Annandale Google Map",
+      "apiKeyNotice": "For full interactive map controls (satellite view, Street View, zoom, and directions), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local and enable Maps JavaScript API in Google Cloud with billing enabled. You can still open Eden ABA Therapy in Google Maps.",
+      "openInGoogleMaps": "open Eden ABA Therapy in Google Maps"
+    },
+    "locationsDetail": {
+      "breadcrumbPrefix": "Eden ABA Therapy /",
+      "brandLabel": "Eden ABA Therapy",
+      "officePhone": "Office Phone:",
+      "fax": "Fax:",
+      "distanceOptions": [
+        "5 mi",
+        "10 mi",
+        "20 mi",
+        "50 mi"
+      ],
+      "annandale": {
+        "name": "Eden ABA Therapy – Annandale",
+        "street": "7700 Little River Turnpike",
+        "suite": "Suite 304",
+        "cityStateZip": "Annandale, VA 22003, United States",
+        "phone": "(703) 587-5238",
+        "fax": "571-445-8631",
+        "address": "7700 Little River Turnpike, Suite 304, Annandale, VA 22003, United States"
+      }
+    },
+    "homeIntakePlaceholders": {
+      "parentName": "Parent's Name",
+      "childFirstName": "Child's First Name",
+      "childLastName": "Child's Last Name",
+      "phone": "Phone",
+      "email": "Enter your email",
+      "message": "Tell us about your child and how we can help.",
+      "preferredContactOptions": [
+        "Phone Call",
+        "Text Message",
+        "Email"
+      ],
+      "diagnosisOptions": [
+        "Select Diagnosis Status",
+        "Yes",
+        "No",
+        "In Progress"
+      ],
+      "stateOptions": [
+        "Virginia",
+        "Maryland",
+        "Washington DC"
+      ]
+    },
+    "ariaLabels": {
+      "whatIsAutismSections": "What is autism page sections",
+      "abaTherapySections": "ABA therapy page sections"
+    },
+    "chatResponses": {
+      "emergency": "If there is immediate danger, call 911 now. If your child may hurt themselves or someone else, stay close only if it is safe, remove dangerous items if possible, and contact emergency services or your child's doctor. I can help with general safety planning, but emergencies need live professional help immediately.",
+      "aba": "ABA therapy, or Applied Behavior Analysis, is an evidence-based approach that helps children build communication, social, daily living, play, learning, and safety skills. A BCBA studies what happens before and after behavior, then creates a plan to teach replacement skills and reduce unsafe or interfering behaviors.",
+      "behavior": "For hitting, biting, tantrums, or aggression, the first step is to understand the reason: escape, attention, access to items, sensory needs, pain, communication frustration, or transitions. ABA usually teaches a replacement skill like requesting a break, asking for help, waiting, using words/AAC, or calming routines. If the behavior is dangerous, a BCBA should complete a behavior assessment and safety plan.",
+      "speech": "Speech therapy helps with communication. It may support expressive language, understanding directions, articulation, social communication, requesting, answering questions, and AAC tools like picture communication or speech devices. ABA and speech can work together when a child's behavior is connected to communication frustration.",
+      "occupational": "Occupational therapy helps children with daily living and sensory-motor skills. OT may support sensory regulation, fine motor skills, feeding, dressing, toileting routines, handwriting, body awareness, play skills, and school readiness. ABA can coordinate with OT by helping the child practice these skills consistently across home, clinic, and school.",
+      "insurance": "For insurance verification, the intake team usually needs the child's full name, date of birth, insurance company, member ID, policy holder name/date of birth, diagnosis report, and sometimes a referral. After that, benefits are checked for ABA coverage, deductible, copay, coinsurance, authorization requirements, and approved service hours.",
+      "intake": "To start ABA therapy, complete the Start ABA Therapy form with parent name, child name, birthdate, phone, email, diagnosis status, state, and your main concerns. After submission, the admissions team should review your information, verify insurance, request documents, and schedule an intake call or assessment.",
+      "scheduling": "The usual process is: intake call, document review, insurance verification, assessment scheduling, BCBA assessment, treatment plan, insurance authorization, then therapy start. Scheduling depends on location, staff availability, insurance approval, and recommended hours.",
+      "documents": "Helpful documents include the autism diagnosis report, insurance card front/back, referral if required, IEP or school evaluation, prior therapy reports, medication/allergy list, custody/legal documents if applicable, and any recent developmental or psychological evaluations.",
+      "parentTraining": "Parent training teaches caregivers how to use ABA strategies during daily routines. It can include communication practice, reinforcement, transitions, reducing problem behavior, bedtime routines, toileting, feeding routines, safety, and helping the child generalize skills outside therapy sessions.",
+      "cost": "The cost depends on the insurance plan, deductible, copay, coinsurance, authorization, and whether ABA is covered as medically necessary. The best next step is to verify benefits before services start so the family understands any expected responsibility.",
+      "school": "ABA can support school-related goals by helping with communication, transitions, behavior plans, social skills, classroom readiness, and daily routines. ABA does not replace the school IEP team, but the BCBA can often coordinate with caregivers and school providers when releases are signed.",
+      "default": "I can help with ABA therapy, speech therapy, occupational therapy, intake, insurance, scheduling, documents, parent training, behavior concerns, and autism support. Please tell me the child's age, main concern, and whether you are asking about ABA, speech, OT, insurance, or starting services."
+    }
+  },
+  "menu": [
+    {
+      "label": "Autism Evaluation",
+      "type": "evaluation",
+      "highlightTitle": "Autism Evaluation",
+      "highlightText": "Early autism screening and evaluation support for families across Northern Virginia.",
+      "columns": [
+        {
+          "title": "Screening & Evaluation",
+          "links": [
+            "M-CHAT-R Online Screener",
+            "CAST Online Screener",
+            "ADOS-2 Assessment",
+            "IDE Evaluation",
+            "Autism Screener FAQs",
+            "Parent Guidance"
+          ]
+        },
+        {
+          "title": "Family Support",
+          "links": [
+            "Parent Consultation",
+            "Insurance Support",
+            "Diagnostic Guidance",
+            "Contact Us"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "ABA Therapy",
+      "type": "simple",
+      "columns": [
+        {
+          "title": "ABA Therapy",
+          "links": [
+            "In-Home ABA",
+            "Clinic-Based ABA",
+            "Parent Training",
+            "School Support"
+          ]
+        },
+        {
+          "title": "Family Resources",
+          "links": [
+            "What is Autism?",
+            "What is ABA Therapy?",
+            "Insurance Coverage",
+            "Admissions Information"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Locations",
+      "type": "locations",
+      "columns": [
+        {
+          "title": "Eden Locations",
+          "links": [
+            "Fairfax",
+            "Centreville",
+            "Chantilly",
+            "Reston",
+            "Herndon"
+          ]
+        },
+        {
+          "title": "More Areas",
+          "links": [
+            "Alexandria",
+            "Arlington",
+            "Manassas",
+            "Woodbridge",
+            "View All Locations"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Resources",
+      "type": "simple",
+      "columns": [
+        {
+          "title": "Family Resources",
+          "links": [
+            "What is ABA?",
+            "Caregiver Guides",
+            "Blog",
+            "FAQs"
+          ]
+        },
+        {
+          "title": "Support",
+          "links": [
+            "Insurance Coverage",
+            "Parent Training",
+            "Admissions Information",
+            "Privacy Practices"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "About Eden",
+      "type": "compact",
+      "columns": [
+        {
+          "title": "About Eden",
+          "links": [
+            "Our Story",
+            "Our Team",
+            "Clinical Quality",
+            "About Us",
+            "Contact Us"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Careers",
+      "type": "compact",
+      "columns": [
+        {
+          "title": "Careers",
+          "links": [
+            "Search Open Roles",
+            "RBT Careers",
+            "BCBA Careers",
+            "Interview Guide",
+            "Career Resources"
+          ]
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "role": "Registered Behavior Technician",
+      "type": "Full-time / Part-time",
+      "location": "Fairfax, VA",
+      "dept": "Clinical"
+    },
+    {
+      "role": "Board Certified Behavior Analyst",
+      "type": "Full-time",
+      "location": "Northern Virginia",
+      "dept": "Clinical"
+    },
+    {
+      "role": "Intake Coordinator",
+      "type": "Full-time",
+      "location": "Hybrid",
+      "dept": "Operations"
+    },
+    {
+      "role": "Clinical Supervisor",
+      "type": "Full-time",
+      "location": "Fairfax, VA",
+      "dept": "Leadership"
+    }
+  ],
+  "serviceData": [
+    {
+      "tag": "Home",
+      "title": "In-Home ABA Therapy",
+      "age": "2–18",
+      "text": "Support in the child's daily environment with caregiver coaching and skill generalization.",
+      "features": [
+        "Daily routines",
+        "Communication",
+        "Behavior reduction",
+        "Family training"
+      ]
+    },
+    {
+      "tag": "Clinic",
+      "title": "Clinic-Based ABA",
+      "age": "2–12",
+      "text": "Structured learning environment for school readiness, social skills, and intensive treatment.",
+      "features": [
+        "1:1 sessions",
+        "Peer practice",
+        "BCBA oversight",
+        "Progress review"
+      ]
+    },
+    {
+      "tag": "School",
+      "title": "School Collaboration",
+      "age": "3–18",
+      "text": "Coordination with teachers and teams to support goals across school and community settings.",
+      "features": [
+        "IEP support",
+        "Transitions",
+        "Classroom goals",
+        "Teacher collaboration"
+      ]
+    },
+    {
+      "tag": "Family",
+      "title": "Parent Training",
+      "age": "All",
+      "text": "Practical coaching so caregivers can respond confidently and continue progress at home.",
+      "features": [
+        "Caregiver goals",
+        "Home plans",
+        "Crisis prevention",
+        "Consistency"
+      ]
+    }
+  ],
+  "intakeSteps": [
+    {
+      "title": "Family Inquiry",
+      "status": "Secure form"
+    },
+    {
+      "title": "Insurance Check",
+      "status": "Benefits review"
+    },
+    {
+      "title": "Consent & Uploads",
+      "status": "Documents"
+    },
+    {
+      "title": "Clinical Intake",
+      "status": "Care history"
+    },
+    {
+      "title": "Assessment",
+      "status": "BCBA review"
+    },
+    {
+      "title": "Start Therapy",
+      "status": "Care begins"
+    }
+  ],
+  "edenLocations": [
+    {
+      "name": "Eden ABA Therapy - Annandale",
+      "city": "Annandale",
+      "zip": "22003",
+      "address": "7700 Little River Turnpike, Suite 304, Annandale, VA 22003",
+      "phone": "(703) 587-5238",
+      "hours": [
+        [
+          "Monday",
+          "8:00 AM – 7:00 PM"
+        ],
+        [
+          "Tuesday",
+          "8:00 AM – 7:00 PM"
+        ],
+        [
+          "Wednesday",
+          "8:00 AM – 7:00 PM"
+        ],
+        [
+          "Thursday",
+          "8:00 AM – 7:00 PM"
+        ],
+        [
+          "Friday",
+          "8:00 AM – 7:00 PM"
+        ],
+        [
+          "Saturday",
+          "Closed"
+        ],
+        [
+          "Sunday",
+          "Closed"
+        ]
+      ]
+    },
+    {
+      "name": "Eden ABA Therapy - Fairfax",
+      "city": "Fairfax",
+      "zip": "22030",
+      "address": "Serving Fairfax County, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Centreville",
+      "city": "Centreville",
+      "zip": "20120",
+      "address": "Serving Centreville, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Chantilly",
+      "city": "Chantilly",
+      "zip": "20151",
+      "address": "Serving Chantilly, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Reston",
+      "city": "Reston",
+      "zip": "20190",
+      "address": "Serving Reston, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Herndon",
+      "city": "Herndon",
+      "zip": "20170",
+      "address": "Serving Herndon, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Alexandria",
+      "city": "Alexandria",
+      "zip": "22314",
+      "address": "Serving Alexandria, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Arlington",
+      "city": "Arlington",
+      "zip": "22201",
+      "address": "Serving Arlington, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Manassas",
+      "city": "Manassas",
+      "zip": "20110",
+      "address": "Serving Manassas, Virginia",
+      "phone": "571-478-0089"
+    },
+    {
+      "name": "Eden ABA Therapy - Woodbridge",
+      "city": "Woodbridge",
+      "zip": "22191",
+      "address": "Serving Woodbridge, Virginia",
+      "phone": "571-478-0089"
+    }
+  ],
+  "edenBusinessInfo": {
+    "address": "7700 Little River Turnpike, Suite 304, Annandale, VA 22003, United States",
+    "phone": "(703) 587-5238",
+    "fax": "571-445-8631",
+    "email": "info@edenabatherapy.com",
+    "hours": [
+      [
+        "Monday",
+        "8:00 AM – 7:00 PM"
+      ],
+      [
+        "Tuesday",
+        "8:00 AM – 7:00 PM"
+      ],
+      [
+        "Wednesday",
+        "8:00 AM – 7:00 PM"
+      ],
+      [
+        "Thursday",
+        "8:00 AM – 7:00 PM"
+      ],
+      [
+        "Friday",
+        "8:00 AM – 7:00 PM"
+      ],
+      [
+        "Saturday",
+        "Closed"
+      ],
+      [
+        "Sunday",
+        "Closed"
+      ]
+    ]
+  },
+  "hero": {
+    "animatedWords": [
+      "thrive",
+      "smile",
+      "achieve",
+      "connect",
+      "flourish"
+    ],
+    "line1": "A brighter path for children",
+    "line2": "to grow, learn, and",
+    "line3Prefix": "",
+    "subtitle": "Eden ABA Therapy provides warm, family-centered ABA support using compassionate care, clear guidance, and child-friendly therapy experiences."
+  },
+  "pages": {
+    "autismAwareness": {
+      "title": "Autism Awareness Counter",
+      "cdcBadge": "CDC estimate: 1 in 31 children identified with autism",
+      "intro": "A live educational estimate created to promote autism awareness, early support, and compassionate care for children and families.",
+      "tagline": "Eden ABA Therapy | Awareness, Guidance, and Family-Centered Support",
+      "currentTimePrefix": "Current Time:",
+      "stats": {
+        "birthsToday": {
+          "label": "Babies Born in the U.S. Today",
+          "note": "Estimated live count since midnight"
+        },
+        "prevalence": {
+          "label": "Estimated Future Autism Prevalence",
+          "note": "Based on a 1 in 31 prevalence estimate"
+        },
+        "birthsPerMinute": {
+          "label": "Estimated Births This Minute",
+          "value": "7",
+          "note": "Approximate national average per minute"
+        },
+        "earlySupport": {
+          "label": "What Early Support Can Improve",
+          "value": "Meaningful Progress",
+          "items": [
+            "Communication",
+            "Daily Living Skills",
+            "Social Engagement",
+            "Family Routines"
+          ]
+        }
+      },
+      "dayProgress": "Day Progress",
+      "dayProgressSuffix": "% of the day completed",
+      "factTitle": "Autism Awareness Fact",
+      "factText": "Autism awareness helps reduce stigma and promote inclusion in schools and communities.",
+      "imageAlts": {
+        "childActivity": "Child participating in therapy activity",
+        "therapistSupport": "Therapist supporting a child"
+      }
+    },
+    "insurancePayment": {
+      "eyebrow": "Insurance Support",
+      "title": "Paying for ABA therapy doesn't have to be stressful.",
+      "intro": "As a parent, you juggle a lot. Let Eden ABA Therapy help you navigate the financial side of your child's care. Most major insurance plans may cover ABA therapy, and our team can help verify benefits, explain coverage, and coordinate insurance details on your behalf.",
+      "providersHeading": "We can help review major insurance providers, including:",
+      "providers": [
+        "Aetna",
+        "Anthem",
+        "Blue Cross Blue Shield",
+        "Optum",
+        "UMR",
+        "UnitedHealthcare",
+        "Cigna",
+        "Virginia Medicaid",
+        "More"
+      ],
+      "verifyInsurance": "Verify Insurance",
+      "contactLearnMore": "Contact us to learn more",
+      "sidebarTitle": "Insurance help for Virginia families",
+      "sidebarItems": [
+        "Benefits review",
+        "Deductible, copay, and coinsurance guidance",
+        "Prior authorization support",
+        "In-network and out-of-network explanation",
+        "Clear next-step planning"
+      ]
+    },
+    "parentResources": {
+      "eyebrow": "Parent Resources",
+      "title": "Autism resources and screening support for families",
+      "intro": "Helpful tools for families exploring autism support, ABA therapy, insurance coverage, and the intake process.",
+      "bannerImageAlt": "Parent reviewing autism education and caregiver support resources",
+      "cards": [
+        [
+          "Autism screening tools",
+          "Parent-friendly M-CHAT-R and CAST screening pathways for early questions and next steps."
+        ],
+        [
+          "Caregiver guides",
+          "Simple guides for routines, communication, behavior support, insurance, and preparing documents."
+        ],
+        [
+          "Insurance verification",
+          "A clear workflow for benefits checks, authorizations, and documents needed before ABA starts."
+        ],
+        [
+          "Parent support",
+          "Live chat, appointment requests, and intake guidance so families know what to do next."
+        ]
+      ],
+      "cta": "Start with an intake form"
+    },
+    "clientReviews": {
+      "badge": "Sample family feedback",
+      "title": "Families Trust Eden ABA Therapy",
+      "intro": "Positive experiences from families who value compassionate, personalized ABA support.",
+      "reviews": [
+        "Eden ABA Therapy made the intake process simple and supportive.",
+        "The team helped us feel understood from the very first call.",
+        "Our child is building communication skills with more confidence.",
+        "The parent guidance has helped our routines at home.",
+        "We felt respected, heard, and supported throughout the process.",
+        "The therapists are patient, kind, and truly child-centered.",
+        "Eden helped us understand ABA in a way that felt clear.",
+        "Our family noticed meaningful progress in daily living skills.",
+        "The care team explained every step with compassion.",
+        "Scheduling and communication have been easy and professional.",
+        "Our child looks forward to learning with the therapy team.",
+        "We appreciate the focus on family goals and real progress.",
+        "The team made insurance and next steps less stressful.",
+        "Eden ABA Therapy feels warm, organized, and trustworthy.",
+        "The support has helped our child with social engagement.",
+        "We love how the team celebrates small wins.",
+        "The treatment approach feels personalized for our child.",
+        "Parent training helped us feel more confident at home.",
+        "The team is responsive, caring, and professional.",
+        "We are grateful for the guidance and encouragement.",
+        "Our child is learning important skills in a positive way.",
+        "The staff made us feel comfortable asking questions.",
+        "Eden's approach feels compassionate and family-centered.",
+        "We felt supported from evaluation through care planning."
+      ],
+      "cardLabels": [
+        "Sample family feedback",
+        "Parent experience highlight",
+        "Care experience",
+        "Family feedback"
+      ],
+      "parentReview": "Parent Review",
+      "startABA": "Start ABA Therapy",
+      "verifyInsurance": "Verify Insurance"
+    },
+    "aboutEden": {
+      "eyebrow": "About Eden ABA Therapy",
+      "title": "About Eden ABA Therapy",
+      "subtitle": "Compassionate autism care designed around each child and family.",
+      "heroIntro": "At Eden ABA Therapy, we believe every child deserves support that feels personal, respectful, and hopeful. Our team provides individualized ABA therapy services that help children build meaningful skills at home, in the clinic, and in everyday life.",
+      "startABA": "Start ABA Therapy",
+      "findCare": "Find ABA Therapy Near Me",
+      "heroImageAlt": "Therapist helping a child during therapy",
+      "whoWeAre": {
+        "eyebrow": "Who We Are",
+        "title": "Who We Are",
+        "text": "Eden ABA Therapy provides applied behavior analysis services for children with autism and developmental needs. Our approach combines clinical quality, family partnership, and compassionate care. Every treatment plan is built around the child's strengths, goals, communication style, and daily routines."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "cards": [
+          [
+            "Compassionate Care",
+            "We create a supportive environment where children feel safe, encouraged, and understood."
+          ],
+          [
+            "Evidence-Based ABA",
+            "Our therapy is guided by data, individualized goals, and proven ABA strategies that support real-life progress."
+          ],
+          [
+            "Family Partnership",
+            "We work closely with parents and caregivers so progress continues beyond therapy sessions."
+          ]
+        ]
+      },
+      "different": {
+        "title": "What Makes Eden Different?",
+        "text": "Eden ABA Therapy is different because we focus on the whole child, not just a diagnosis. We look at communication, independence, behavior, daily routines, play, social skills, and family goals together. Our team uses measurable progress tracking while keeping care warm, flexible, and human.",
+        "imageAlt": "Child and therapist learning together",
+        "bullets": [
+          "Individualized treatment plans",
+          "Parent training and caregiver support",
+          "Skill-building for daily life",
+          "Support for communication and social development",
+          "Data-guided clinical decisions",
+          "Respectful, child-centered therapy"
+        ]
+      },
+      "approach": {
+        "title": "Our Care Approach",
+        "cards": [
+          [
+            "Assessment & Goal Planning",
+            "We learn about each child's strengths, routines, and goals before creating a plan."
+          ],
+          [
+            "One-on-One ABA Therapy",
+            "Personalized therapy sessions focus on communication, behavior, independence, social skills, and daily living development."
+          ],
+          [
+            "Parent Support",
+            "Families receive practical coaching and tools to help reinforce progress at home and in the community."
+          ],
+          [
+            "Progress Monitoring",
+            "Our team reviews data, celebrates progress, and adjusts strategies to support ongoing growth."
+          ]
+        ]
+      },
+      "whoWeServe": {
+        "title": "Who We Serve",
+        "intro": "Eden ABA Therapy supports children with autism and developmental delays who may need help with communication, behavior, social interaction, play skills, daily routines, school readiness, and independence.",
+        "cards": [
+          [
+            "Early Learners",
+            "Helping young children build foundational communication, play, and learning skills."
+          ],
+          [
+            "School-Age Children",
+            "Supporting social development, behavior, independence, and school readiness."
+          ],
+          [
+            "Families Seeking Autism Support",
+            "Providing guidance, education, and partnership throughout the care journey."
+          ]
+        ]
+      },
+      "quality": {
+        "title": "Committed to Quality ABA Care",
+        "text": "Our team is committed to ethical, respectful, and clinically guided ABA therapy. We use progress data to understand what is working, adjust treatment when needed, and celebrate every meaningful step forward."
+      },
+      "cta": {
+        "title": "Ready to learn more about Eden ABA Therapy?",
+        "text": "Our team is here to guide your family through the next step with care, clarity, and compassion.",
+        "startABA": "Start ABA Therapy",
+        "contactEden": "Contact Eden ABA",
+        "findLocation": "Find a Location"
+      }
+    },
+    "autismAssessment": {
+      "hero": {
+        "badge": "Autism Evaluation & Screening",
+        "title": "Understand the Next Step for Your Child",
+        "subtitle": "Whether you're exploring concerns for the first time or your child already has an autism diagnosis, Eden ABA Therapy can help guide your family through screening, evaluation, and treatment options.",
+        "startScreening": "Start Screening",
+        "exploreEvaluations": "Explore Evaluations",
+        "trust": [
+          "Ages 18 months–11 years",
+          "Free Online Screeners",
+          "Autism Evaluations",
+          "ABA Therapy Support"
+        ],
+        "collageAlts": [
+          "Parent playing with toddler during a warm developmental moment",
+          "Parent reading with school-age child at home",
+          "Child building with colorful blocks during play",
+          "Therapist engaging with child in supportive play-based activity"
+        ]
+      },
+      "paths": {
+        "title": "I Think My Child Has Autism. What Should I Do Next?",
+        "subtitle": "Choose the path that best describes your family's current situation.",
+        "noDiagnosis": {
+          "title": "My Child Does Not Have an Autism Diagnosis",
+          "intro": "No-cost online screening tools:",
+          "options": [
+            [
+              "Toddlers: M-CHAT-R Online Screener",
+              "20-question autism screener for toddlers ages 16–30 months.",
+              "Take M-CHAT-R",
+              "mchat"
+            ],
+            [
+              "Older Children: CAST Online Screener",
+              "37-question autism screener for children ages 4–11.",
+              "Take CAST",
+              "cast"
+            ],
+            [
+              "Schedule an Autism Assessment",
+              "We provide autism evaluations for children ages 18 months to 6 years, including the ADOS-2 and IDE. Contact us to see which assessments are offered in your region.",
+              "Explore Diagnostic Support",
+              "assessment"
+            ]
+          ]
+        },
+        "hasDiagnosis": {
+          "title": "My Child Already Has an Autism Diagnosis",
+          "intro": "If your child already has an autism diagnosis, our team can help you begin ABA therapy and navigate insurance, intake, and treatment planning.",
+          "features": [
+            "Insurance verification",
+            "Personalized treatment plan",
+            "BCBA consultation",
+            "Family support"
+          ],
+          "button": "Get Started"
+        }
+      },
+      "howItWorks": {
+        "title": "How Eden Supports Your Evaluation Journey",
+        "subtitle": "From first questions to personalized care—we're with you at every step.",
+        "stepLabel": "Step",
+        "steps": [
+          [
+            "Free online screening",
+            "Start with the M-CHAT-R for toddlers or CAST for children ages 4–11 to identify whether further evaluation may be helpful."
+          ],
+          [
+            "Clinical review",
+            "Our team reviews screening results and connects with your family to discuss concerns and recommended next steps."
+          ],
+          [
+            "Diagnostic support",
+            "When appropriate, we help coordinate autism evaluations including ADOS-2 and developmental assessments in your region."
+          ],
+          [
+            "ABA therapy pathway",
+            "If your child is diagnosed, we guide you through insurance verification, BCBA consultation, and individualized treatment planning."
+          ]
+        ]
+      },
+      "cta": {
+        "title": "Ready to Find the Right Next Step?",
+        "text": "Eden ABA Therapy helps families navigate screening, evaluation, and ABA therapy with clarity and compassion.",
+        "startScreening": "Start Screening",
+        "contactEden": "Contact Eden ABA"
+      }
+    },
+    "mchatScreener": {
+      "copyright": "M-CHAT is © 2009 Robins, Fein, and Barton",
+      "hero": {
+        "badge": "Autism Screening Tool",
+        "title": "Online M-CHAT-R Autism Screening Test",
+        "subtitle": "The Modified Checklist for Autism in Toddlers, Revised (M-CHAT-R) helps identify children who may be at risk for Autism Spectrum Disorder (ASD).",
+        "startButton": "Start Screening",
+        "castButton": "Learn About CAST",
+        "trust": [
+          "Parent completed",
+          "Under 5 minutes",
+          "Ages 16–30 months",
+          "Free online screener"
+        ],
+        "collageAlts": [
+          "Mother playing with toddler during a warm developmental moment",
+          "Father reading a book with young child at home",
+          "Toddler stacking colorful blocks during play-based learning",
+          "Young child making eye contact with a caregiver"
+        ]
+      },
+      "whyEarly": {
+        "title": "Why Early Screening Matters",
+        "subtitle": "Identifying developmental differences early gives families more time to seek support, evaluation, and intervention when it can make the greatest difference.",
+        "cards": [
+          [
+            "Early Identification",
+            "The M-CHAT-R helps parents notice patterns in social engagement, communication, and play that may benefit from professional follow-up."
+          ],
+          [
+            "Earlier Support",
+            "When concerns are identified sooner, families can connect with pediatricians, evaluators, and therapy teams before challenges become harder to address."
+          ],
+          [
+            "Better Development Outcomes",
+            "Research shows that early intervention—including ABA therapy when appropriate—can support communication, learning, and daily living skills."
+          ]
+        ]
+      },
+      "timeline": {
+        "title": "How the M-CHAT-R Works",
+        "subtitle": "A simple, parent-friendly process designed for toddlers ages 16 to 30 months.",
+        "steps": [
+          [
+            "Step 1",
+            "Parent completes questionnaire",
+            "You answer brief yes/no questions about your child's everyday behavior at home—no clinic visit required to begin."
+          ],
+          [
+            "Step 2",
+            "20 yes/no questions",
+            "The screener covers social engagement, communication cues, joint attention, pretend play, and sensory or behavioral patterns."
+          ],
+          [
+            "Step 3",
+            "Responses scored automatically",
+            "Each answer receives a score of 0 or 1. Some items are reverse-scored. Your total ranges from 0 to 20."
+          ],
+          [
+            "Step 4",
+            "Review and recommendations",
+            "Your score helps guide whether monitoring, pediatric follow-up, or further evaluation may be helpful."
+          ]
+        ],
+        "supporting": "Most parents complete the M-CHAT-R in under five minutes. It is a screening tool—not a diagnosis."
+      },
+      "topics": {
+        "title": "What Questions Are Asked",
+        "subtitle": "The M-CHAT-R explores early behaviors that reflect how toddlers connect, communicate, play, and respond to the world.",
+        "cards": [
+          [
+            "Social Engagement",
+            "Does your child show interest in other children? Do they respond when you call their name?",
+            "social"
+          ],
+          [
+            "Communication Cues",
+            "Does your child point to ask for something or to show you something interesting? Do they use gestures to communicate?",
+            "communication"
+          ],
+          [
+            "Joint Attention",
+            "When you point at something, does your child look where you are pointing? Do they bring objects to show you?",
+            "jointAttention"
+          ],
+          [
+            "Imaginative Play",
+            "Does your child play pretend or make-believe, such as feeding a doll or pretending to cook?",
+            "imaginative"
+          ],
+          [
+            "Sensory Behaviors",
+            "Does your child make unusual finger movements, engage in repetitive motions, or show atypical sensory responses?",
+            "sensory"
+          ]
+        ],
+        "imageAlts": {
+          "social": "Toddler interacting with another child during social play",
+          "communication": "Child pointing to communicate with a parent",
+          "jointAttention": "Parent and toddler looking together at the same object",
+          "imaginative": "Toddler engaged in pretend play with a doll",
+          "sensory": "Young child exploring textures during sensory play"
+        }
+      },
+      "scoring": {
+        "title": "Understanding Your Child's Score",
+        "intro": "The M-CHAT-R includes 20 yes/no questions about a toddler's social interaction, communication, and play.",
+        "bullets": [
+          "Each response is scored as 0 or 1.",
+          "The total score ranges from 0 to 20.",
+          "For most questions, \"Yes\" usually scores 0 and \"No\" may score 1.",
+          "Some items are reverse-scored, where \"No\" scores 0 and \"Yes\" scores 1."
+        ],
+        "howTitle": "How scoring works",
+        "cards": [
+          [
+            "0–2",
+            "Low Risk",
+            "No further action needed unless other developmental concerns exist. Continue monitoring and speak with your pediatrician if worries persist.",
+            "green"
+          ],
+          [
+            "3–7",
+            "Monitor Further",
+            "Possible autism traits identified. Follow up with your pediatrician or seek a professional autism evaluation.",
+            "yellow"
+          ],
+          [
+            "8–20",
+            "Further Evaluation Recommended",
+            "Higher likelihood of autism traits. Immediate clinical assessment and developmental evaluation are recommended.",
+            "red"
+          ]
+        ],
+        "disclaimer": "M-CHAT-R is a screening tool and does not provide an autism diagnosis. A higher score suggests your child may benefit from additional evaluation, but it does not confirm autism."
+      },
+      "afterJourney": {
+        "title": "What Happens After the Screening",
+        "subtitle": "Eden ABA Therapy reviews every submission and contacts families within one business day.",
+        "steps": [
+          [
+            "Step 1",
+            "Screening Submitted",
+            "Your responses are securely received by our team."
+          ],
+          [
+            "Step 2",
+            "Clinical Review",
+            "A team member reviews your child's score and response patterns."
+          ],
+          [
+            "Step 3",
+            "Family Contacted",
+            "We reach out within one business day to discuss results."
+          ],
+          [
+            "Step 4",
+            "Recommended Next Steps",
+            "We guide you toward monitoring, evaluation, or support options."
+          ]
+        ],
+        "scoreCards": [
+          [
+            "Low Score",
+            "0–2",
+            "Usually no immediate follow-up needed",
+            [
+              "Most children in this range are unlikely to need urgent action.",
+              "Confirmation sent within one business day.",
+              "Continue monitoring unless other concerns remain."
+            ],
+            "low"
+          ],
+          [
+            "Medium Score",
+            "3–7",
+            "Closer monitoring recommended",
+            [
+              "Your child may benefit from pediatric follow-up.",
+              "A professional autism evaluation may be suggested.",
+              "Early conversations can help you plan next steps."
+            ],
+            "medium"
+          ],
+          [
+            "High Score",
+            "8–20",
+            "Further evaluation may be needed",
+            [
+              "This does not confirm autism.",
+              "An ADOS-2 assessment or developmental evaluation may be recommended.",
+              "Our team can help explain evaluation and ABA support options."
+            ],
+            "high"
+          ]
+        ]
+      },
+      "formSection": {
+        "title": "Start the Screener",
+        "subtitle": "Complete the form below, then answer 20 brief yes/no questions about your child's development."
+      },
+      "faq": {
+        "title": "M-CHAT-R Frequently Asked Questions",
+        "items": [
+          [
+            "What is the goal of the M-CHAT-R?",
+            "The goal is to identify toddlers who may benefit from early autism intervention services, including ABA therapy."
+          ],
+          [
+            "Why is it important to identify autism early?",
+            "Early identification allows families to access support, evaluation, and intervention sooner—when it can have the greatest impact on development."
+          ],
+          [
+            "What happens after I complete the M-CHAT-R?",
+            "A team member will contact the family within one business day to discuss results and possible next steps, which may include evaluation or support planning."
+          ],
+          [
+            "Can I complete the M-CHAT-R more than once?",
+            "Yes, families may retake it later if concerns continue and the child is still in the appropriate age range."
+          ],
+          [
+            "How reliable is the M-CHAT-R?",
+            "It is widely used and designed to be sensitive, but it is not perfect and should be followed by further evaluation if needed."
+          ],
+          [
+            "How accurate is the M-CHAT-R?",
+            "It can detect possible autism risk, but follow-up interviews or diagnostic testing are needed for an accurate diagnosis."
+          ]
+        ]
+      },
+      "finalCta": {
+        "headline": "Concerned About Your Child's Development?",
+        "text": "Early screening can help families access support sooner. Eden ABA Therapy is here to guide your next steps with warmth and clarity.",
+        "startButton": "Start Screening",
+        "contactButton": "Contact Eden ABA"
+      }
+    },
+    "mchatQuestionnaire": {
+      "questions": [
+        [
+          1,
+          "If you point at something across the room, does your child look at it?",
+          "No"
+        ],
+        [
+          2,
+          "Have you ever wondered if your child might be deaf?",
+          "Yes"
+        ],
+        [
+          3,
+          "Does your child play pretend or make-believe?",
+          "No"
+        ],
+        [
+          4,
+          "Does your child like climbing on things?",
+          "No"
+        ],
+        [
+          5,
+          "Does your child make unusual finger movements near their eyes?",
+          "Yes"
+        ],
+        [
+          6,
+          "Does your child point with one finger to ask for something or get help?",
+          "No"
+        ],
+        [
+          7,
+          "Does your child point with one finger to show you something interesting?",
+          "No"
+        ],
+        [
+          8,
+          "Is your child interested in other children?",
+          "No"
+        ],
+        [
+          9,
+          "Does your child show you things by bringing them to you or holding them up?",
+          "No"
+        ],
+        [
+          10,
+          "Does your child respond when you call their name?",
+          "No"
+        ],
+        [
+          11,
+          "When you smile at your child, does your child smile back?",
+          "No"
+        ],
+        [
+          12,
+          "Does your child get upset by everyday noises?",
+          "Yes"
+        ],
+        [
+          13,
+          "Does your child walk?",
+          "No"
+        ],
+        [
+          14,
+          "Does your child look you in the eye when you are talking, playing, or helping them?",
+          "No"
+        ],
+        [
+          15,
+          "Does your child try to copy what you do?",
+          "No"
+        ],
+        [
+          16,
+          "If you turn your head to look at something, does your child look to see what you are looking at?",
+          "No"
+        ],
+        [
+          17,
+          "Does your child try to get you to watch them?",
+          "No"
+        ],
+        [
+          18,
+          "Does your child understand when you tell them to do something?",
+          "No"
+        ],
+        [
+          19,
+          "If something new happens, does your child look at your face to see how you feel about it?",
+          "No"
+        ],
+        [
+          20,
+          "Does your child like movement activities?",
+          "No"
+        ]
+      ],
+      "followUpAreas": [
+        "Joint attention and pointing",
+        "Social engagement and response",
+        "Pretend play, imitation, and learning readiness",
+        "Sensory responses and repetitive behaviors",
+        "Movement and motor participation"
+      ],
+      "disclaimer": "The M-CHAT-R is a screening tool only. It does not diagnose autism or any medical condition. Results should be reviewed with a pediatrician or qualified clinician.",
+      "results": {
+        "lower": [
+          "Lower concern",
+          "Your responses fall in a lower-concern range. Continue monitoring development and speak with your pediatrician if concerns continue."
+        ],
+        "moderate": [
+          "Moderate concern",
+          "Your responses suggest follow-up may be helpful. Consider sharing these results with your child's pediatrician or a qualified developmental clinician."
+        ],
+        "elevated": [
+          "Elevated concern",
+          "Your responses fall in an elevated-concern range. A professional developmental evaluation is recommended."
+        ],
+        "nextSteps": {
+          "lower": "Lower concern: continue monitoring development and discuss concerns with your pediatrician if needed.",
+          "moderate": "Moderate concern: consider pediatric follow-up or an additional developmental screening review.",
+          "elevated": "Elevated concern: a professional developmental evaluation is recommended."
+        }
+      },
+      "form": {
+        "eyebrow": "Start here",
+        "title": "M-CHAT-R Autism Screening Tool",
+        "intro": "Complete the parent and child information below before beginning the 20-question screener.",
+        "placeholders": {
+          "parentFirstName": "Parent/Guardian First Name *",
+          "parentLastName": "Parent/Guardian Last Name *",
+          "email": "Email *",
+          "phone": "Phone Number *",
+          "childFirstName": "Child's First Name",
+          "childDateOfBirth": "Child's Date of Birth *",
+          "zipCode": "Zip Code *",
+          "preferredLocation": "Eden ABA Therapy Center *"
+        },
+        "locationOptions": [
+          "Annandale",
+          "Fairfax",
+          "Centreville / Chantilly",
+          "Alexandria / Arlington",
+          "Not sure yet"
+        ],
+        "consent": "I consent to receive occasional text messages regarding educational resources and follow-up related to my inquiry. Message and data rates may apply. Reply STOP to opt out or HELP for help.",
+        "validationError": "Please complete all required fields, enter a valid email, and check the consent box.",
+        "submit": "Begin M-CHAT-R Screening"
+      },
+      "questionsStage": {
+        "label": "M-CHAT-R: Question",
+        "of": "of",
+        "answers": [
+          "No",
+          "Yes"
+        ],
+        "previous": "Previous",
+        "answered": "of 20 answered",
+        "seeResults": "See Results",
+        "next": "Next"
+      },
+      "resultsStage": {
+        "eyebrow": "Screening complete",
+        "title": "Your M-CHAT-R Summary",
+        "totalScore": "Total score",
+        "percentageScore": "Percentage score:",
+        "whatThisMeans": "What this means",
+        "sendSuccess": "Results prepared for Eden ABA Therapy. Connect this button to your intake email/API endpoint.",
+        "retake": "Retake Screener",
+        "printResults": "Print Results",
+        "sendToEden": "Send Results to Eden Office",
+        "contactEden": "Contact Eden ABA Therapy"
+      },
+      "report": {
+        "printTitle": "M-CHAT-R Screening Report",
+        "printButton": "Print This Report",
+        "backToResults": "Back to Results",
+        "brandLabel": "Eden ABA Therapy",
+        "title": "M-CHAT-R Screening Report",
+        "generatedOn": "Generated on",
+        "screeningResult": "Screening result",
+        "familyInformation": "Family Information",
+        "scoreSummary": "Score Summary",
+        "riskPercentageLabel": "risk score",
+        "riskPercentageAria": "Risk percentage",
+        "totalScoreLabel": "Total score",
+        "severityMeter": "Color-coded severity meter",
+        "severityRanges": [
+          "0–2 Lower",
+          "3–7 Moderate",
+          "8–20 Elevated"
+        ],
+        "totalQuestions": "Total questions answered",
+        "riskScoredAnswers": "Risk-scored answers",
+        "nonRiskAnswers": "Non-risk answers",
+        "riskPercentage": "Risk percentage",
+        "parentResponseReview": "Parent Response Review",
+        "parentResponseIntro": "Each item below shows the parent answer and whether it matched the M-CHAT-R risk-scored response for that question.",
+        "questionPrefix": "Question",
+        "riskScored": "Risk-scored",
+        "nonRisk": "Non-risk",
+        "parentAnswer": "Parent answer:",
+        "riskScoredResponse": "Risk-scored response:",
+        "yes": "Yes",
+        "no": "No",
+        "staffNotes": "Helpful Notes for RBT/BCBA Review",
+        "staffNotesItems": [
+          "Number of risk-scored responses:",
+          "out of 20.",
+          "Risk level:",
+          "Areas that may need follow-up:",
+          "No specific high-risk cluster identified from this screening pattern.",
+          "This report is not a diagnosis and should not replace clinical judgment.",
+          "Review concerns with a pediatrician, qualified developmental clinician, BCBA, or intake team as appropriate."
+        ],
+        "suggestedNextSteps": "Suggested Next Steps",
+        "nextStepsShare": "Families may share this report with a pediatrician, developmental clinician, Eden ABA Therapy intake team, RBT, BCBA, or other qualified provider to support follow-up conversations.",
+        "medicalDisclaimer": "Medical Disclaimer",
+        "staffSignature": "Staff Signature / Notes",
+        "reviewedBy": "Reviewed by",
+        "date": "Date",
+        "notes": "Notes",
+        "reportFields": [
+          "Parent name",
+          "Child name",
+          "Child date of birth",
+          "Email",
+          "Phone",
+          "Zip code",
+          "Preferred location",
+          "Date/time generated"
+        ]
+      }
+    },
+    "insurance": {
+      "submitted": {
+        "title": "Your insurance information was submitted successfully!",
+        "intro": "Thank you for choosing Eden ABA Therapy. Our insurance verification team has received your information and will begin reviewing your benefits. We're passionate about helping families access compassionate, effective ABA therapy with less stress and more clarity.",
+        "followUp": "A member of our team will contact you soon to explain your coverage, answer questions, and guide you through the next step in starting services.",
+        "scheduleAppointment": "Schedule Appointment",
+        "returnHome": "Return Home"
+      },
+      "hero": {
+        "eyebrow": "Insurance Coverage",
+        "title": "Insurance Coverage for ABA Therapy",
+        "intro": "Eden ABA Therapy currently serves Virginia families only. We help families review ABA therapy benefits, authorization requirements, and possible family costs with clear, compassionate guidance.",
+        "verifyInsurance": "Verify Insurance",
+        "startABA": "Start ABA Therapy",
+        "supportTitle": "Virginia insurance support for ABA therapy",
+        "supportText": "Eden ABA Therapy helps families understand insurance benefits, prior authorization requirements, Medicaid/DMAS coverage questions, and possible out-of-pocket costs before starting care.",
+        "supportItems": [
+          "Benefit verification guidance",
+          "Prior authorization support",
+          "Clear next-step planning for Virginia families"
+        ],
+        "imageAlt": "Family reviewing therapy insurance support"
+      },
+      "virginia": {
+        "badge": "Virginia families only",
+        "title": "ABA Therapy Insurance Coverage in Virginia",
+        "intro": "Coverage for ABA therapy in Virginia may depend on the child's diagnosis, medical necessity, insurance plan type, Medicaid eligibility, prior authorization, deductible, copay, and out-of-pocket maximum.",
+        "prepareTitle": "What Families Should Prepare",
+        "prepareItems": [
+          "Child's diagnosis or evaluation documents, if available",
+          "Insurance card",
+          "Member ID and group number",
+          "Parent/guardian contact information",
+          "Pediatrician or referral information, if available",
+          "Any previous therapy or school support documents"
+        ],
+        "cards": [
+          [
+            "Virginia Medicaid / DMAS",
+            "Virginia Medicaid may cover medically necessary ABA-related behavioral therapy services for eligible children under EPSDT. Prior authorization and clinical documentation may be required. Eden ABA Therapy can help families understand what information may be needed before services begin."
+          ],
+          [
+            "Private Insurance in Virginia",
+            "Many Virginia-regulated private insurance plans include autism-related coverage, including ABA therapy, when medically necessary. Coverage can vary by employer plan, individual plan, network status, deductible, copay, and authorization rules."
+          ],
+          [
+            "Prior Authorization in Virginia",
+            "Some Virginia Medicaid and private insurance plans may require authorization before ABA therapy starts. This process usually includes diagnosis information, clinical recommendations, treatment goals, and requested service hours."
+          ]
+        ],
+        "helpTitle": "How Eden ABA Therapy Helps",
+        "helpItems": [
+          "Verify benefits",
+          "Review in-network or out-of-network details",
+          "Explain possible family costs",
+          "Help with authorization steps",
+          "Guide families through the next step toward ABA therapy"
+        ],
+        "plansTitle": "Insurance Plans We Can Help Review in Virginia",
+        "plansIntro": "If your plan is not listed, submit the form and our team can still review your benefits.",
+        "providers": [
+          "Aetna",
+          "Anthem HealthKeepers Plus",
+          "Blue Cross Blue Shield",
+          "CareFirst",
+          "Cigna",
+          "Optum",
+          "UnitedHealthcare",
+          "UMR",
+          "Virginia Medicaid",
+          "Molina",
+          "Kaiser Permanente",
+          "TRICARE",
+          "Humana",
+          "Magellan",
+          "Other Plans"
+        ],
+        "showMore": "Show More",
+        "showLess": "Show Less"
+      },
+      "priorAuth": {
+        "badge": "Prior authorization support",
+        "title": "What if my insurance requires prior authorization?",
+        "intro": "Some Virginia Medicaid and private insurance plans may require approval before ABA therapy begins. This review helps the insurance plan understand your child's clinical needs, recommended therapy hours, and treatment goals before services start.",
+        "steps": [
+          [
+            "Clinical assessment",
+            "A clinician reviews your child's strengths, needs, safety concerns, and family goals."
+          ],
+          [
+            "Recommended therapy hours",
+            "Your care team identifies the level of support that may be clinically appropriate."
+          ],
+          [
+            "Documentation submission",
+            "Insurance forms, diagnosis details, goals, and service requests may be sent for review."
+          ],
+          [
+            "Approval or next-step support",
+            "If more information is needed, Eden helps families understand the next step."
+          ]
+        ],
+        "disclaimer": "Eden ABA Therapy cannot guarantee authorization or coverage, but our team can help families gather information, understand plan requests, and move through the process with less stress.",
+        "cta": "Get help with insurance",
+        "imageAlt": "Child and caregiver in a supportive clinical therapy setting"
+      },
+      "faqTitle": "FAQs about ABA therapy insurance coverage",
+      "faqs": [
+        [
+          "Does insurance cover ABA therapy in Virginia?",
+          "ABA therapy may be covered in Virginia when it is medically necessary and the child meets the plan's requirements. Coverage may depend on diagnosis, medical necessity documentation, prior authorization, network status, Medicaid eligibility, employer plan type, deductible, copay, and coinsurance. Virginia Medicaid and Virginia-regulated private insurance plans can have different rules. Eden ABA Therapy can help review your family's benefits and explain what the plan says before services begin."
+        ],
+        [
+          "Do I need an autism diagnosis in Virginia?",
+          "Many Virginia Medicaid and private insurance plans may require an autism diagnosis or evaluation documentation before ABA therapy is authorized. Some plans may also request clinical recommendations, treatment goals, and records showing medical necessity. If your child is still being evaluated, Eden ABA Therapy can help you understand what documents may be helpful for the insurance review process. We cannot guarantee approval, but we can help your family prepare the information commonly requested."
+        ],
+        [
+          "What is prior authorization in Virginia?",
+          "Prior authorization is a review step that some Virginia Medicaid and private insurance plans may require before ABA therapy begins. The plan may ask for diagnosis information, assessment results, treatment recommendations, service hours, and measurable goals. The insurance plan reviews that information before deciding whether services can be approved under the policy. Eden ABA Therapy can help families understand what may be needed and guide them through the next steps."
+        ],
+        [
+          "Will Eden ABA Therapy verify my Virginia insurance?",
+          "Yes. Eden ABA Therapy can collect your insurance information and review benefits for Virginia families seeking ABA therapy. Our team can help explain eligibility, deductible, copay, coinsurance, network status, authorization requirements, and possible next steps. Verification gives families helpful information before starting care, but final decisions are made by the insurance plan."
+        ],
+        [
+          "Does verification guarantee coverage?",
+          "No. Insurance verification does not guarantee payment, approval, or continued coverage in Virginia. It is an estimate based on information available from the insurance plan at the time of review. Coverage may still depend on active eligibility, diagnosis, medical necessity, prior authorization, plan exclusions, provider network status, and family cost-sharing responsibilities. Eden ABA Therapy can help explain what we learn and what steps may come next."
+        ],
+        [
+          "What if my insurance is not listed?",
+          "If your Virginia insurance plan is not listed, you can still submit the form for review. Some plans use different network names, third-party administrators, Medicaid managed care organizations, or employer-specific benefit rules. Our team can review the information on your insurance card and help determine what questions to ask the plan. If ABA benefits are limited or unavailable, we can still discuss possible next steps and support options."
+        ]
+      ]
+    },
+    "locations": {
+      "breadcrumbSuffix": "Locations",
+      "brandLabel": "Eden ABA Therapy",
+      "annandaleMapTitle": "Eden ABA Therapy Annandale Google Map",
+      "heroImageAlt": "Welcoming Eden ABA Therapy clinic location for families in Northern Virginia"
+    },
+    "footer": {
+      "forParents": {
+        "title": "For Parents",
+        "links": [
+          "Autism Diagnostic Support",
+          "About Autism",
+          "About ABA Therapy",
+          "Insurance Coverage",
+          "Family Resources",
+          "Get Started"
+        ]
+      },
+      "resources": {
+        "title": "Resources",
+        "links": [
+          "M-CHAT-R Screener",
+          "CAST Screener",
+          "ADOS-2 Evaluation",
+          "Caregiver Guides",
+          "Blog & Articles",
+          "Frequently Asked Questions"
+        ]
+      },
+      "careers": {
+        "title": "Careers",
+        "links": [
+          "Open Positions",
+          "RBT Careers",
+          "BCBA Careers",
+          "Clinical Leadership",
+          "Interview Guide"
+        ]
+      },
+      "contact": {
+        "title": "Contact Eden",
+        "faxPrefix": "Fax:",
+        "email": "info@edenabatherapy.com"
+      },
+      "findCenter": {
+        "title": "Find Our Center",
+        "description": "Eden ABA Therapy proudly serves children and families throughout Northern Virginia from our centrally located Annandale clinic. Our team provides autism evaluations, ABA therapy, parent guidance, and ongoing support in a welcoming and family-focused environment.",
+        "addressLabel": "Address",
+        "phoneLabel": "Office Phone",
+        "faxLabel": "Fax",
+        "proximityNote": "Conveniently located near I-495 and easily accessible for families across Northern Virginia.",
+        "serviceNote": "Serving families throughout Northern Virginia."
+      },
+      "googleReviews": {
+        "title": "Google Reviews",
+        "leaveReview": "Leave a Google Review",
+        "basedOn": "Based on {count} Google reviews",
+        "reviewCountInline": "({count} Google reviews)"
+      },
+      "copyright": "Eden ABA Therapy. All rights reserved.",
+      "legalLinks": [
+        "Privacy Policy",
+        "Terms of Service",
+        "Accessibility",
+        "Notice of Privacy Practices"
+      ]
+    },
+    "intake": {
+      "badge": "Eden ABA Therapy Intake",
+      "title": "Intake Form - 6 Step Process",
+      "intro": "Complete each section one by one. Your progress stays on this page while the family moves through the full intake process.",
+      "heroImageAlt": "Family speaking with Eden ABA Therapy staff during admissions and intake planning",
+      "progress": "Progress",
+      "checklist": "Checklist",
+      "stepOf": "Step",
+      "of": "of",
+      "secureDraftNote": "Secure draft style preview. Final live submission can connect to your backend/API later.",
+      "previousStep": "← Previous Step",
+      "saveExit": "💾 Save & Exit",
+      "saveAlert": "Your intake progress has been saved on this device.",
+      "reviewSubmit": "Review & Submit ✓",
+      "submitAlert": "✅ Intake form completed. Next step: connect this button to your secure intake API, email notification, and document upload storage.",
+      "nextStep": "Next Step →",
+      "selectOption": "Select option",
+      "selected": "Selected:",
+      "submitting": "Submitting…",
+      "submitSuccess": "Your intake has been submitted successfully.",
+      "submitConfirmation": "Confirmation ID: {id}",
+      "submitSubmittedAt": "Submitted: {date}",
+      "submitError": "Submission failed. Your local draft is still saved in this browser. Please try again or contact Eden ABA Therapy.",
+      "exportBackupHint": "You can export a backup JSON copy using Export Packet above.",
+      "secureDraftNote": "Local draft autosave stores progress in this browser. Successful submission sends encrypted data to Eden ABA Therapy servers.",
+      "sections": [
+        {
+          "title": "Basic Information",
+          "subtitle": "Let's start with basic information about the child, parent/guardian, referral source, and requested services.",
+          "note": "Required fields are marked with an asterisk in the final intake build. A team member will contact the family after submission.",
+          "fields": [
+            [
+              "Child Legal Full Name",
+              "text",
+              "First Middle Last"
+            ],
+            [
+              "Preferred Name",
+              "text",
+              "Optional"
+            ],
+            [
+              "Date of Birth",
+              "date",
+              ""
+            ],
+            [
+              "Gender",
+              "select",
+              "Male|Female|Other|Prefer not to say"
+            ],
+            [
+              "Child Primary Language",
+              "text",
+              "English, Vietnamese, Spanish, etc."
+            ],
+            [
+              "Street Address",
+              "text",
+              "Enter street address"
+            ],
+            [
+              "City",
+              "text",
+              "City"
+            ],
+            [
+              "State",
+              "select",
+              "VA|MD|DC|Other"
+            ],
+            [
+              "ZIP Code",
+              "text",
+              "ZIP Code"
+            ],
+            [
+              "Parent / Guardian Full Name",
+              "text",
+              "First and Last Name"
+            ],
+            [
+              "Relationship to Child",
+              "select",
+              "Mother|Father|Guardian|Grandparent|Other"
+            ],
+            [
+              "Primary Phone Number",
+              "tel",
+              "(703) 000-0000"
+            ],
+            [
+              "Primary Email Address",
+              "email",
+              "name@example.com"
+            ],
+            [
+              "Emergency Contact Name",
+              "text",
+              "Name"
+            ],
+            [
+              "Emergency Contact Phone",
+              "tel",
+              "Phone"
+            ],
+            [
+              "Preferred Service Location",
+              "select",
+              "Home|Clinic|School/Daycare|Telehealth|Not Sure"
+            ]
+          ]
+        },
+        {
+          "title": "Medical Insurance",
+          "subtitle": "Collect diagnosis, provider, medication, allergy, safety, and insurance information for intake review.",
+          "note": "Families should have the insurance card, diagnosis report, and any referral ready for upload later.",
+          "fields": [
+            [
+              "Primary Diagnosis / Reason for Referral",
+              "select",
+              "Autism Spectrum Disorder|Developmental Delay|Behavior Concerns|Speech Delay|Other"
+            ],
+            [
+              "Date of Diagnosis",
+              "date",
+              ""
+            ],
+            [
+              "Diagnosing Provider / Facility",
+              "text",
+              "Provider name"
+            ],
+            [
+              "Primary Physician / Pediatrician",
+              "text",
+              "Doctor name"
+            ],
+            [
+              "Physician Phone Number",
+              "tel",
+              "Phone"
+            ],
+            [
+              "Current Medications",
+              "textarea",
+              "Medication, dosage, schedule"
+            ],
+            [
+              "Allergies",
+              "textarea",
+              "Food, medication, environmental, etc."
+            ],
+            [
+              "Seizure or Neurological Concerns",
+              "select",
+              "Yes|No|Not Sure"
+            ],
+            [
+              "Insurance Provider",
+              "select",
+              "Aetna|Anthem|Blue Cross Blue Shield|Cigna|Medicaid|United Healthcare|Tricare|Other"
+            ],
+            [
+              "Member ID / Policy ID",
+              "text",
+              "Member ID"
+            ],
+            [
+              "Group Number",
+              "text",
+              "Optional"
+            ],
+            [
+              "Policy Holder Name",
+              "text",
+              "Name"
+            ],
+            [
+              "Policy Holder Date of Birth",
+              "date",
+              ""
+            ],
+            [
+              "Insurance Phone Number",
+              "tel",
+              "Phone"
+            ]
+          ]
+        },
+        {
+          "title": "Legal Consent",
+          "subtitle": "Review legal guardian information, court orders, HIPAA, ABA consent, release of information, attendance, cancellation, custody, and safety acknowledgments.",
+          "note": "This step mirrors the consent dashboard from the uploaded intake form and keeps consent items grouped before final signature.",
+          "fields": [
+            [
+              "Legal Representative Full Name",
+              "text",
+              "First and Last Name"
+            ],
+            [
+              "Relationship to Child",
+              "select",
+              "Mother|Father|Guardian|Authorized Representative|Other"
+            ],
+            [
+              "Legal Representative Phone",
+              "tel",
+              "Phone"
+            ],
+            [
+              "Legal Representative Email",
+              "email",
+              "Email"
+            ],
+            [
+              "Any court orders, custody agreements, or restrictions?",
+              "select",
+              "Yes|No|Not Sure"
+            ],
+            [
+              "Court Order Details",
+              "textarea",
+              "Describe if applicable"
+            ],
+            [
+              "HIPAA Acknowledgment",
+              "checkbox",
+              "I acknowledge the Notice of Privacy Practices"
+            ],
+            [
+              "Consent for ABA Services",
+              "checkbox",
+              "I consent to ABA assessment and therapy services"
+            ],
+            [
+              "Parent / Guardian Agreement",
+              "checkbox",
+              "I agree to the parent/guardian responsibilities"
+            ],
+            [
+              "Release of Information Authorization",
+              "checkbox",
+              "I authorize information exchange for care coordination"
+            ],
+            [
+              "Attendance Policy",
+              "checkbox",
+              "I understand the attendance policy"
+            ],
+            [
+              "Cancellation Policy",
+              "checkbox",
+              "I understand the cancellation policy"
+            ],
+            [
+              "Safety & Incident Acknowledgment",
+              "checkbox",
+              "I understand safety and incident communication policies"
+            ],
+            [
+              "Parent / Guardian Signature",
+              "text",
+              "Type full legal name"
+            ],
+            [
+              "Date",
+              "date",
+              ""
+            ]
+          ]
+        },
+        {
+          "title": "Financial & Communication",
+          "subtitle": "Collect billing responsibility, preferred contact method, language needs, appointment reminders, and availability.",
+          "note": "Billing and communication preferences help the intake team coordinate benefits, authorizations, reminders, and appointments.",
+          "fields": [
+            [
+              "Financially Responsible Party",
+              "select",
+              "Parent|Guardian|Policy Holder|Self|Other"
+            ],
+            [
+              "Responsible Party Phone",
+              "tel",
+              "Phone"
+            ],
+            [
+              "Responsible Party Email",
+              "email",
+              "Email"
+            ],
+            [
+              "Payment Type",
+              "select",
+              "Insurance|Self-Pay / Private Pay|Both Insurance & Self-Pay|Not Sure"
+            ],
+            [
+              "Preferred Billing Method",
+              "select",
+              "Auto Pay|Credit / Debit Card|HSA / FSA|Invoice Only"
+            ],
+            [
+              "Preferred Language",
+              "select",
+              "English|Vietnamese|Spanish|Arabic|Other"
+            ],
+            [
+              "Interpreter Needed?",
+              "select",
+              "Yes|No|Sometimes"
+            ],
+            [
+              "Preferred Contact Method",
+              "select",
+              "Phone Call|Text Message|Email|Portal Message"
+            ],
+            [
+              "Best Time to Contact",
+              "select",
+              "Morning|Afternoon|Evening|Anytime"
+            ],
+            [
+              "Appointment Reminders",
+              "select",
+              "Text Message|Email|Phone Call|Portal Message"
+            ],
+            [
+              "Days Available",
+              "text",
+              "Monday, Tuesday, etc."
+            ],
+            [
+              "Times Available",
+              "text",
+              "Morning, afternoon, after school, etc."
+            ],
+            [
+              "Requested Weekly ABA Hours",
+              "select",
+              "Less than 10|10–15|15–20|20–25|25–30|30+|Not sure"
+            ]
+          ]
+        },
+        {
+          "title": "Family & Clinical",
+          "subtitle": "Gather family history, developmental history, behavior profile, communication needs, functional living skills, and treatment priorities.",
+          "note": "This step helps the clinical team prepare assessment targets and individualized treatment goals.",
+          "fields": [
+            [
+              "Primary Caregiver Full Name",
+              "text",
+              "Name"
+            ],
+            [
+              "Home Language",
+              "select",
+              "English|Vietnamese|Spanish|Arabic|Other"
+            ],
+            [
+              "Other Household Members",
+              "textarea",
+              "Names, relationships, ages"
+            ],
+            [
+              "Was your child born full-term?",
+              "select",
+              "Yes|No|Not Sure"
+            ],
+            [
+              "Developmental Regression?",
+              "select",
+              "Yes|No|Not Sure"
+            ],
+            [
+              "Past Services",
+              "textarea",
+              "ABA, Speech, OT, PT, school services, etc."
+            ],
+            [
+              "Current School / Daycare / Program",
+              "text",
+              "Optional"
+            ],
+            [
+              "Main Areas of Concern",
+              "textarea",
+              "Communication, behavior, play, toileting, feeding, safety, etc."
+            ],
+            [
+              "Behavior Severity Level",
+              "select",
+              "Mild concerns|Moderate concerns|Significant concerns|High safety concern|Not sure"
+            ],
+            [
+              "Known Triggers",
+              "textarea",
+              "Transitions, denied access, waiting, noise, demands, etc."
+            ],
+            [
+              "What helps calm your child?",
+              "textarea",
+              "Preferred items, breaks, music, quiet space, etc."
+            ],
+            [
+              "Primary Communication Method",
+              "select",
+              "Vocal speech|Gestures|PECS / pictures|AAC device|Sign language|Mixed communication|Not sure"
+            ],
+            [
+              "Toileting Status",
+              "select",
+              "Independent|Needs reminders|Needs help|In diapers/pull-ups|Training|Not started"
+            ],
+            [
+              "Top family goals for first 90 days",
+              "textarea",
+              "List 3–5 goals"
+            ]
+          ]
+        },
+        {
+          "title": "Uploads & Signature",
+          "subtitle": "Upload documents, review final information, and sign the intake verification.",
+          "note": "In the live version, uploaded documents should be stored securely and submitted to the intake team.",
+          "fields": [
+            [
+              "Insurance Card Front & Back",
+              "file",
+              ""
+            ],
+            [
+              "Parent / Guardian Photo ID",
+              "file",
+              ""
+            ],
+            [
+              "Diagnostic Evaluation Report",
+              "file",
+              ""
+            ],
+            [
+              "Referral / Prescription for ABA",
+              "file",
+              ""
+            ],
+            [
+              "IEP / IFSP / 504 Plan",
+              "file",
+              ""
+            ],
+            [
+              "School Evaluation / Psychoeducational Report",
+              "file",
+              ""
+            ],
+            [
+              "Medication List / Medical Plan",
+              "file",
+              ""
+            ],
+            [
+              "Court Orders / Custody Documents",
+              "file",
+              ""
+            ],
+            [
+              "Other Supporting Documents",
+              "file",
+              ""
+            ],
+            [
+              "Missing Documents Explanation",
+              "textarea",
+              "If any documents are pending, explain here"
+            ],
+            [
+              "Final Notes for Intake Team",
+              "textarea",
+              "Anything else our team should know?"
+            ],
+            [
+              "I certify the information is accurate",
+              "checkbox",
+              "Yes, the information is true and complete"
+            ],
+            [
+              "Final Signature",
+              "text",
+              "Type full legal name"
+            ],
+            [
+              "Date Signed",
+              "date",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    "scheduler": {
+      "introOnly": {
+        "eyebrow": "Online Scheduling",
+        "title": "Schedule an appointment online with Eden ABA Therapy.",
+        "intro": "Use our guided multi-step scheduler to request an ABA therapy evaluation, choose preferred times, and share insurance information for review.",
+        "scheduleOnline": "Schedule Online"
+      },
+      "introCard": {
+        "sections": [
+          {
+            "title": "What this scheduler helps with",
+            "items": [
+              "Request an ABA therapy evaluation",
+              "Share family and child information securely",
+              "Choose preferred appointment date and time",
+              "Provide insurance details for eligibility review",
+              "Submit everything directly to Eden ABA Therapy"
+            ]
+          },
+          {
+            "title": "Why families like it",
+            "items": [
+              "Simple guided process",
+              "Saves time before intake",
+              "Helps our team prepare before contacting you",
+              "Supports insurance verification",
+              "Works for online/Zoom or in-person appointments"
+            ]
+          },
+          {
+            "title": "Before you start",
+            "items": [
+              "Parent/guardian contact information",
+              "Child's basic information",
+              "Preferred appointment date",
+              "Insurance plan and member ID if available",
+              "Any concerns or questions you want our team to know"
+            ]
+          }
+        ],
+        "startButton": "Start Appointment Scheduler"
+      },
+      "wizard": {
+        "steps": [
+          "Triage",
+          "Service",
+          "Family",
+          "Schedule",
+          "Insurance",
+          "Review"
+        ],
+        "stepPrefix": "Step",
+        "availableTimes": [
+          "9:00 AM",
+          "9:30 AM",
+          "10:00 AM",
+          "10:30 AM",
+          "11:00 AM",
+          "11:30 AM",
+          "12:00 PM",
+          "12:30 PM",
+          "1:00 PM",
+          "1:30 PM",
+          "2:00 PM",
+          "2:30 PM",
+          "3:00 PM",
+          "3:30 PM",
+          "4:00 PM",
+          "4:30 PM"
+        ],
+        "notSelected": "Not selected",
+        "submitted": {
+          "title": "Appointment Submitted",
+          "referencePrefix": "Reference: EAT-",
+          "liveNote": "In the live version, this request will save to Supabase, create a Zoom meeting, notify Eden staff, and send confirmation to the family.",
+          "zoomPreview": "Zoom Meeting Preview",
+          "zoomUrl": "https://zoom.us/j/secure-eden-aba-intake",
+          "passcodeLabel": "Meeting Passcode:",
+          "passcode": "EDEN",
+          "appointmentLabel": "Appointment:"
+        },
+        "triage": {
+          "title": "AI Triage Before Booking",
+          "intro": "Tell us what your family needs so we can route the request correctly.",
+          "fields": [
+            [
+              "communication",
+              "Communication concerns"
+            ],
+            [
+              "behavior",
+              "Behavior concerns"
+            ],
+            [
+              "social",
+              "Social concerns"
+            ],
+            [
+              "urgency",
+              "Scheduling urgency"
+            ]
+          ],
+          "concernOptions": [
+            "Mild concern",
+            "Moderate concern",
+            "High concern",
+            "Priority"
+          ],
+          "parentNotes": "Parent notes",
+          "notesPlaceholder": "Describe your concerns, goals, behaviors, communication needs, or questions."
+        },
+        "service": {
+          "title": "Service Selection",
+          "intro": "Choose the service type and appointment style.",
+          "serviceLabel": "Service",
+          "serviceOptions": [
+            "ABA Therapy Evaluation",
+            "Parent Consultation",
+            "Insurance Review",
+            "ASD Evaluation Support"
+          ],
+          "locationLabel": "Location type",
+          "locationOptions": [
+            "Online / Zoom",
+            "In-Home",
+            "Office Appointment"
+          ],
+          "visitLabel": "Visit type",
+          "visitOptions": [
+            "New Patient",
+            "Returning Family",
+            "Provider Referral"
+          ]
+        },
+        "family": {
+          "title": "Parent and Patient Details",
+          "intro": "Add contact information and basic child details.",
+          "parentName": "Parent name *",
+          "email": "Email *",
+          "phone": "Phone *",
+          "childName": "Child name *",
+          "childBirthdate": "Child birthdate",
+          "ageGroups": [
+            "0-2",
+            "3-5",
+            "6-12",
+            "13+"
+          ],
+          "zipCode": "ZIP code *"
+        },
+        "schedule": {
+          "title": "Date and Time",
+          "intro": "Choose a preferred appointment date and available time.",
+          "preferredDate": "Preferred date",
+          "slotsAvailable": "✅ 16 slots available on selected date"
+        },
+        "insurance": {
+          "title": "Insurance and Concerns",
+          "intro": "Add insurance details and family concerns for intake review.",
+          "planLabel": "Insurance plan",
+          "planOptions": [
+            "Medicaid",
+            "Anthem",
+            "Aetna",
+            "Cigna",
+            "UnitedHealthcare",
+            "Other"
+          ],
+          "memberId": "Member ID *",
+          "referral": "Referral source *",
+          "eligibilityCheck": "Run insurance eligibility check",
+          "parentConcerns": "Parent concerns *"
+        },
+        "review": {
+          "title": "Review and Submit",
+          "intro": "Review your request before submitting it to Eden ABA Therapy.",
+          "triageSummary": "Triage Summary",
+          "urgency": "Urgency:",
+          "communication": "Communication:",
+          "behavior": "Behavior:",
+          "social": "Social:",
+          "appointment": "Appointment",
+          "familyInformation": "Family Information",
+          "childPrefix": "Child:",
+          "insurance": "Insurance",
+          "memberIdPrefix": "Member ID:",
+          "eligibilityRequested": "Eligibility check: Requested"
+        },
+        "sidebar": {
+          "title": "Clean summary panel",
+          "bookingStatus": "Booking Status",
+          "stepLabel": "Step",
+          "progressLabel": "Progress",
+          "nextAutomation": "Next automation",
+          "automationValue": "Supabase + Zoom + email/SMS",
+          "service": "Service",
+          "chosenTime": "Chosen Time",
+          "insurance": "Insurance",
+          "officeEmail": "Office Email"
+        }
+      }
+    },
+    "whatIsAutism": {
+      "breadcrumb": "ABA Therapy › Family Resource Center",
+      "title": "What is autism?",
+      "heroIntro": "Autism spectrum disorder is a neurodevelopmental condition that can affect communication, social interaction, learning, behavior, sensory processing, daily routines, and independence. Every autistic child has a unique profile of strengths and support needs, so families benefit from clear education, compassionate guidance, and individualized planning.",
+      "parentNotePrefix": "Parent-friendly note:",
+      "parentNote": "This page is educational and does not diagnose autism. If you have concerns, speak with your pediatrician or a qualified clinician.",
+      "screeningSupport": "Autism screening and support",
+      "startABA": "Start ABA Therapy",
+      "heroStats": [
+        [
+          "1 in 31",
+          "CDC estimate for children identified with autism"
+        ],
+        [
+          "Early support",
+          "Can help families understand needs sooner"
+        ],
+        [
+          "Spectrum",
+          "Autism looks different for every child"
+        ]
+      ],
+      "imageAlts": {
+        "hero": "Family meeting with autism specialist",
+        "learning": "Child participating in learning activities",
+        "community": "Families learning about developmental support",
+        "observation": "Parent observing child development",
+        "social": "Children developing social skills",
+        "language": "Speech and communication development",
+        "nonverbal": "Child practicing communication skills",
+        "sensory": "Sensory play and developmental activities",
+        "regulation": "Child learning calming strategies",
+        "daily": "Child learning daily living skills",
+        "school": "Child receiving classroom support",
+        "family": "Family support meeting with clinician",
+        "research": "Family discussing autism research",
+        "support": "Individualized developmental support",
+        "evaluation": "Autism evaluation and assessment",
+        "screening": "Autism screening process",
+        "aba": "ABA therapy session",
+        "parent": "Parent training and guidance",
+        "clinic": "Clinic based ABA therapy setting",
+        "home": "In home therapy support",
+        "progress": "Developmental progress and success",
+        "resources": "Family autism resources",
+        "cta": "Start autism support today"
+      },
+      "sectionNav": [
+        [
+          "Overview",
+          "what-is-autism-overview"
+        ],
+        [
+          "Early Signs",
+          "early-signs-autism"
+        ],
+        [
+          "Communication",
+          "communication-differences"
+        ],
+        [
+          "Sensory & Behavior",
+          "sensory-behavior"
+        ],
+        [
+          "Causes & Myths",
+          "causes-myths"
+        ],
+        [
+          "Diagnosis",
+          "autism-diagnosis"
+        ],
+        [
+          "ABA Support",
+          "aba-support"
+        ],
+        [
+          "Milestones",
+          "developmental-milestones"
+        ],
+        [
+          "Resources",
+          "parent-resources"
+        ]
+      ],
+      "overview": {
+        "eyebrow": "Understanding autism",
+        "title": "What Is Autism?",
+        "paragraphs": [
+          "Autism affects how the brain develops and how a person experiences the world. It may influence communication, relationships, play, sensory processing, emotional regulation, learning, flexibility, and daily living skills.",
+          "Autism is called a spectrum because support needs vary widely. One child may speak fluently but struggle with peer relationships and transitions. Another child may use few words or an AAC device and need more support with daily routines and safety."
+        ],
+        "callout": "A helpful autism resource should look at the whole child: strengths, needs, family priorities, communication style, culture, school demands, and daily routines."
+      },
+      "howCommon": {
+        "eyebrow": "How common is autism?",
+        "title": "Autism is increasingly recognized across families and communities",
+        "paragraphs": [
+          "Autism identification has increased over time as awareness, screening, access to evaluation, and professional understanding have improved. More families are learning that early developmental differences are worth discussing, not ignoring.",
+          "Prevalence estimates are population-level numbers. They do not predict an individual child's future, but they remind communities that autism support, inclusion, and access to care matter."
+        ],
+        "pillars": [
+          "Awareness",
+          "Early screening",
+          "Inclusive support"
+        ]
+      },
+      "spectrum": {
+        "eyebrow": "Across the spectrum",
+        "title": "Understanding Autism Across the Spectrum",
+        "intro": "Autism can include both strengths and challenges. Some children have strong memory, visual learning, pattern recognition, deep interests, honesty, creativity, or persistence. Support should reduce barriers while respecting the child's identity and dignity.",
+        "levels": [
+          [
+            "Level 1",
+            "Requires support",
+            "A child may communicate verbally and participate in many settings but still need help with flexibility, social communication, organization, transitions, or independence."
+          ],
+          [
+            "Level 2",
+            "Requires substantial support",
+            "A child may need more consistent support for communication, behavior, daily routines, social interaction, and adapting to changes."
+          ],
+          [
+            "Level 3",
+            "Requires very substantial support",
+            "A child may need intensive support across communication, safety, daily living, behavior regulation, and participation in everyday routines."
+          ]
+        ]
+      },
+      "earlySigns": {
+        "eyebrow": "Early signs of autism",
+        "title": "Early Signs of Autism",
+        "paragraphs": [
+          "Early signs may appear in communication, play, social interaction, sensory responses, or behavior. A single sign does not diagnose autism, but patterns across time and settings can signal that a developmental conversation is important.",
+          "Parents often notice differences during daily routines: meals, bath time, play, community outings, childcare, preschool, or transitions between activities."
+        ],
+        "cards": [
+          [
+            "Communication",
+            "Delayed language, reduced gestures, limited pointing, repeated words, or difficulty using communication for everyday needs."
+          ],
+          [
+            "Social interaction",
+            "Less response to name, fewer shared smiles, limited back-and-forth play, or difficulty sharing attention with caregivers."
+          ],
+          [
+            "Play behaviors",
+            "Limited pretend play, repetitive play patterns, lining up toys, or strong distress when play routines change."
+          ],
+          [
+            "Sensory patterns",
+            "Strong reactions to sounds, textures, lights, movement, or seeking extra sensory input through spinning, jumping, or deep pressure."
+          ]
+        ]
+      },
+      "communication": {
+        "eyebrow": "Social communication",
+        "title": "Social Communication Differences",
+        "paragraphs": [
+          "Social communication includes shared attention, gestures, facial expression, responding to name, taking turns, imitation, showing objects, and noticing how another person feels. Autistic children may communicate socially in different ways or need support learning these skills.",
+          "Some children may enjoy people but struggle to start interaction. Others may interact best through movement, music, preferred toys, visual routines, or quiet one-on-one play. Support should meet the child where they are."
+        ],
+        "verbalTitle": "Verbal and Nonverbal Communication Differences",
+        "cards": [
+          [
+            "Verbal communication differences",
+            "Some children use fewer words than expected, repeat words or phrases, have difficulty answering questions, or use language mainly to request preferred items."
+          ],
+          [
+            "Nonverbal communication differences",
+            "Some children may point less often, use fewer gestures, avoid showing objects, or have difficulty coordinating eye gaze, facial expressions, and body language."
+          ],
+          [
+            "Functional communication",
+            "Support often focuses on helping a child request help, ask for breaks, make choices, share interests, and communicate safely in daily routines."
+          ]
+        ]
+      },
+      "sensoryBehavior": {
+        "eyebrow": "Sensory, behavior, and regulation",
+        "title": "Repetitive Behaviors, Restricted Interests, Sensory Processing, and Regulation",
+        "intro": "Behavior is communication. Repetition, strong interests, sensory seeking, sensory avoidance, and emotional responses may help a child cope, communicate, learn, or manage a world that feels overwhelming.",
+        "cards": [
+          [
+            "Repetitive behaviors",
+            "Repetitive movements, repeated sounds, lining up objects, spinning items, or repeating routines may help a child regulate or understand their environment."
+          ],
+          [
+            "Restricted interests",
+            "A child may have deep interest in specific objects, topics, videos, numbers, letters, vehicles, or routines. These interests can become strengths when supported respectfully."
+          ],
+          [
+            "Emotional regulation",
+            "Transitions, denied access, communication frustration, sensory overload, fatigue, or uncertainty may lead to distress. Support should teach coping skills and replacement communication."
+          ],
+          [
+            "Executive function",
+            "Planning, shifting attention, waiting, following multi-step directions, and organizing tasks may be challenging and may require visual supports or structured routines."
+          ]
+        ],
+        "lifeCards": [
+          [
+            "Daily living skills",
+            "Toileting, dressing, feeding, toothbrushing, handwashing, sleep routines, and safety skills may require step-by-step teaching and consistent practice."
+          ],
+          [
+            "School challenges",
+            "Group instruction, transitions, peer play, waiting, classroom noise, and changes in routine can be difficult without individualized support."
+          ],
+          [
+            "Autism and family life",
+            "Families may navigate appointments, school meetings, behavior concerns, insurance questions, sibling routines, and decisions about services. Support should include caregivers."
+          ]
+        ]
+      },
+      "causesMyths": {
+        "causesTitle": "What Causes Autism?",
+        "causesText": "Autism does not have one single cause. Research suggests autism is related to differences in brain development influenced by genetics and other biological or environmental factors before or around birth. Families should avoid blame-based explanations.",
+        "eyebrow": "Causes, genetics, environment",
+        "title": "Genetics, Environmental Influences, and Common Myths",
+        "genetics": "Genetic factors can contribute to autism likelihood, and autism can run in families. Genetics are complex and do not mean parents caused the condition.",
+        "geneticsLabel": "Genetics and autism:",
+        "environment": "Researchers study many prenatal and early developmental factors. These influences are complex and should be discussed with healthcare professionals using evidence-based information.",
+        "environmentLabel": "Environmental influences:",
+        "mythFacts": [
+          [
+            "Myth: Autism looks the same for every child.",
+            "Fact: Autism is a spectrum. Children can have different strengths, challenges, communication styles, sensory needs, and levels of support."
+          ],
+          [
+            "Myth: Screening tools diagnose autism.",
+            "Fact: Screeners can identify possible concerns, but diagnosis requires professional evaluation by a qualified clinician."
+          ],
+          [
+            "Myth: Autism is caused by parenting.",
+            "Fact: Autism is a neurodevelopmental condition. Parenting style does not cause autism."
+          ],
+          [
+            "Myth: Children cannot make progress.",
+            "Fact: With individualized support, many children build meaningful communication, daily living, social, and learning skills."
+          ]
+        ]
+      },
+      "diagnosis": {
+        "eyebrow": "Evaluation pathway",
+        "title": "How Autism Is Diagnosed",
+        "intro": "Diagnosis should be completed by qualified professionals. Families may move through screening, developmental evaluation, and formal diagnostic assessment depending on age, symptoms, records, and clinical recommendations.",
+        "steps": [
+          [
+            "Screening Tools",
+            "Screeners such as the M-CHAT-R can help identify whether follow-up may be helpful. They are not diagnostic tools and should be discussed with a pediatrician or qualified clinician."
+          ],
+          [
+            "Developmental Evaluation",
+            "A clinician may review developmental history, parent concerns, communication, play, sensory patterns, adaptive skills, and behavior across settings."
+          ],
+          [
+            "Formal Diagnostic Assessment",
+            "A formal evaluation may include standardized tools, observation, caregiver interview, medical history, and review of school or therapy records."
+          ]
+        ],
+        "stepPrefix": "Step"
+      },
+      "abaSupport": {
+        "eyebrow": "ABA therapy support",
+        "title": "What Is ABA Therapy and How Can It Help?",
+        "paragraphs": [
+          "Applied Behavior Analysis uses the science of learning and behavior to teach meaningful skills and reduce barriers that interfere with safety, independence, communication, and participation. A good ABA plan is individualized, ethical, compassionate, and family-centered.",
+          "Benefits may include stronger communication, safer replacement behaviors, daily living skills, social engagement, school readiness, and more confident family routines."
+        ],
+        "services": [
+          [
+            "Clinic-Based Therapy",
+            "A structured setting can support school readiness, communication practice, social opportunities, play development, and consistent therapy routines."
+          ],
+          [
+            "In-Home Therapy",
+            "Home-based sessions can help children practice skills during real family routines such as meals, transitions, bedtime, dressing, and play."
+          ],
+          [
+            "Parent Training",
+            "Caregiver coaching helps families use strategies consistently and confidently between therapy sessions."
+          ],
+          [
+            "School Support Services",
+            "With appropriate permissions, care teams may coordinate with schools to support classroom routines, communication, safety, and generalization."
+          ]
+        ]
+      },
+      "milestones": {
+        "eyebrow": "Developmental milestones by age",
+        "title": "Developmental Milestones by Age",
+        "intro": "Milestones are general guides, not strict rules. If a child misses milestones, loses skills, or shows persistent differences in communication, play, social interaction, or daily routines, families should talk with a pediatrician.",
+        "ages": [
+          [
+            "18 months",
+            "18 month developmental milestones",
+            [
+              "Points to show interest",
+              "Uses several words",
+              "Imitates simple actions",
+              "Looks to caregiver for reassurance"
+            ]
+          ],
+          [
+            "2 years",
+            "2 year developmental milestones",
+            [
+              "Uses two-word phrases",
+              "Follows simple directions",
+              "Begins pretend play",
+              "Shows interest in other children"
+            ]
+          ],
+          [
+            "3 years",
+            "3 year developmental milestones",
+            [
+              "Uses short sentences",
+              "Takes turns with help",
+              "Plays simple make-believe",
+              "Separates more easily from caregivers"
+            ]
+          ],
+          [
+            "4 years",
+            "4 year developmental milestones",
+            [
+              "Engages in imaginative play",
+              "Answers simple questions",
+              "Plays with peers",
+              "Follows multi-step routines"
+            ]
+          ],
+          [
+            "5 years",
+            "5 year developmental milestones",
+            [
+              "Participates in structured learning",
+              "Communicates needs clearly",
+              "Shows growing independence",
+              "Uses social problem-solving with support"
+            ]
+          ]
+        ]
+      },
+      "faqOne": {
+        "eyebrow": "FAQ section 1",
+        "title": "Frequently Asked Questions About Autism",
+        "items": [
+          [
+            "Is autism a medical diagnosis?",
+            "Autism spectrum disorder is a developmental diagnosis made by qualified professionals. A diagnosis usually considers developmental history, direct observation, caregiver interview, communication, behavior, adaptive functioning, and symptoms across settings."
+          ],
+          [
+            "Can a child have autism and still make eye contact?",
+            "Yes. Autism does not look the same for every child. Some autistic children make eye contact often, some make it inconsistently, and some find it uncomfortable or distracting."
+          ],
+          [
+            "Can autism be noticed before age two?",
+            "Some developmental differences may be noticed in infancy or toddlerhood, while other signs become clearer later. Families should discuss concerns with a pediatrician whenever they arise."
+          ],
+          [
+            "Does a screening result confirm autism?",
+            "No. Screening tools can identify possible concerns but cannot diagnose autism. Results should be reviewed with a pediatrician or qualified clinician."
+          ]
+        ]
+      },
+      "parentResources": {
+        "eyebrow": "Additional parent resources",
+        "title": "Parent Resources for the Next Step",
+        "intro": "Families do not have to figure out autism support alone. Helpful next steps include writing down developmental concerns, asking for screening, collecting records, contacting insurance, exploring evaluation options, and learning about therapy supports.",
+        "checklist": [
+          "Ask your pediatrician about screening",
+          "Gather school and therapy records",
+          "Document examples of concerns",
+          "Explore M-CHAT-R or CAST screening",
+          "Review insurance benefits",
+          "Request family-centered support"
+        ]
+      },
+      "faqTwo": {
+        "eyebrow": "FAQ section 2",
+        "title": "Questions About Support and Services",
+        "items": [
+          [
+            "What should parents do first if they are concerned?",
+            "Write down examples of what you notice, ask your pediatrician about developmental screening, gather school or therapy records if available, and request evaluation guidance when concerns continue."
+          ],
+          [
+            "How can ABA therapy support daily life?",
+            "ABA therapy may help children build communication, daily living skills, social interaction, play, safety, emotional regulation, and independence through individualized goals."
+          ],
+          [
+            "Does Eden ABA Therapy diagnose autism?",
+            "Eden ABA Therapy can help families understand screening, intake, documentation, and next steps. Formal diagnosis should be completed by qualified diagnostic professionals."
+          ],
+          [
+            "Can parents be involved in therapy?",
+            "Yes. Parent training is an important part of effective support because children use skills across home, school, clinic, and community settings."
+          ]
+        ]
+      },
+      "cta": {
+        "eyebrow": "Start autism support today",
+        "title": "Get clear guidance for your child's next step.",
+        "text": "Eden ABA Therapy can help families understand autism screening, ABA therapy options, parent training, insurance review, and service planning across Northern Virginia.",
+        "screeningSupport": "Autism screening support",
+        "startABA": "Start ABA Therapy"
+      }
+    },
+    "abaTherapy": {
+      "breadcrumb": "Services › ABA Therapy",
+      "title": "ABA Therapy at Eden ABA Therapy",
+      "heroIntro": "Eden ABA Therapy provides evidence-based Applied Behavior Analysis support for children diagnosed with autism spectrum disorder. Our programs focus on communication, independence, social engagement, safety, learning readiness, and family-centered progress.",
+      "getStarted": "Get Started",
+      "findCenter": "Find a Center",
+      "heroImageAlt": "ABA therapy support for a child",
+      "structuredData": {
+        "breadcrumbHome": "Home",
+        "breadcrumbAba": "ABA Therapy",
+        "therapyName": "Applied Behavior Analysis Therapy"
+      },
+      "therapyTypesTitle": "Eden offers several types of ABA therapy for autism:",
+      "therapyCards": [
+        [
+          "Center-Based Therapy",
+          "Structured therapy in a supportive clinical setting where children can practice communication, play, school readiness, social skills, and independence.",
+          "Available through Eden ABA Therapy intake review."
+        ],
+        [
+          "Eden ABA Academy",
+          "A learning-focused program concept for children who need routines, readiness skills, peer practice, communication support, and consistent clinical oversight.",
+          "Best matched after assessment and family consultation."
+        ],
+        [
+          "ABA at Home",
+          "In-home support helps children practice skills in daily routines such as meals, bedtime, transitions, play, safety, and communication with caregivers.",
+          "Serving families across Northern Virginia when available."
+        ]
+      ],
+      "sidebarTitle": "Categories",
+      "sidebarLinks": [
+        [
+          "What is ABA therapy?",
+          "what-is-aba-therapy"
+        ],
+        [
+          "What are target behaviors in ABA?",
+          "target-behaviors"
+        ],
+        [
+          "How does ABA therapy help?",
+          "how-aba-helps"
+        ],
+        [
+          "Signs ABA may help",
+          "signs-child-may-benefit"
+        ],
+        [
+          "ABA by age group",
+          "aba-by-age-group"
+        ],
+        [
+          "Communication development",
+          "communication-development-aba"
+        ],
+        [
+          "Reach practical goals",
+          "practical-goals"
+        ],
+        [
+          "Progress measurement",
+          "aba-progress-measured"
+        ],
+        [
+          "The typical ABA day",
+          "typical-day"
+        ],
+        [
+          "First 90 days",
+          "first-90-days-aba"
+        ],
+        [
+          "How are parents involved in ABA therapy?",
+          "parent-involvement"
+        ],
+        [
+          "Home and school success",
+          "home-school-success"
+        ],
+        [
+          "Is ABA therapy effective?",
+          "effectiveness"
+        ],
+        [
+          "Myths vs facts",
+          "aba-myths-facts"
+        ],
+        [
+          "ABA assessment process",
+          "aba-assessment-process"
+        ],
+        [
+          "How much does ABA therapy cost?",
+          "cost"
+        ],
+        [
+          "Parent questions",
+          "questions-before-aba"
+        ]
+      ],
+      "sectionImageAlt": "ABA therapy educational section",
+      "whatIsAba": {
+        "title": "What is ABA therapy?",
+        "paragraphs": [
+          "Applied Behavior Analysis, often called ABA, is a research-backed therapy that uses the science of learning and behavior to help children build meaningful skills for everyday life. ABA looks at what happens before and after behavior so clinicians can understand why behavior occurs and teach safer, more effective ways to communicate and participate.",
+          "At Eden ABA Therapy, goals are individualized and family-centered. A BCBA reviews your child's strengths, needs, communication style, routines, safety concerns, and learning profile before creating a treatment plan."
+        ]
+      },
+      "targetBehaviors": {
+        "title": "What are target behaviors in ABA?",
+        "text": "A target behavior is a skill to build or a behavior to reduce. Some goals may focus on requesting help, making eye contact when appropriate, following directions, waiting, tolerating transitions, or playing with peers. Other goals may focus on reducing aggression, self-injury, elopement, severe tantrums, or unsafe behaviors.",
+        "callout": "The purpose is not to change who your child is. The purpose is to teach useful skills, support safety, and help your child communicate needs more successfully."
+      },
+      "howAbaHelps": {
+        "title": "How does ABA therapy help?",
+        "intro": "ABA therapy helps children develop functional skills they can use at home, school, and in the community. Families also receive guidance to support generalization across daily routines and different people.",
+        "skillCards": [
+          [
+            "Communication skills",
+            "Develop requesting, answering, following directions, gestures, AAC use, and spoken language when appropriate."
+          ],
+          [
+            "School readiness skills",
+            "Build imitation, matching, waiting, transitions, group routines, attention, and learning-to-learn behaviors."
+          ],
+          [
+            "Behavior support",
+            "Teach safer replacement skills and reduce unsafe patterns such as aggression, elopement, self-injury, or severe tantrums."
+          ],
+          [
+            "Social skills",
+            "Support turn-taking, shared play, greetings, peer interaction, conversation, and relationship-building."
+          ]
+        ]
+      },
+      "signsBenefit": {
+        "title": "Signs Your Child May Benefit From ABA Therapy",
+        "intro": "Families often ask when ABA therapy may be appropriate. A child may benefit when communication, safety, daily routines, school readiness, or social participation are difficult enough to affect everyday life. These signs do not replace a clinical assessment, but they can help parents decide when to ask for guidance.",
+        "cards": [
+          [
+            "Difficulty communicating needs",
+            "Your child may become frustrated when they cannot ask for help, request a break, make choices, or tell caregivers what they need."
+          ],
+          [
+            "Safety or behavior concerns",
+            "ABA may help when a child engages in elopement, aggression, self-injury, severe tantrums, or other unsafe patterns that need careful support."
+          ],
+          [
+            "Hard transitions and routines",
+            "Some children need support moving between activities, tolerating waiting, following routines, or coping when plans change."
+          ],
+          [
+            "Limited play or social interaction",
+            "ABA can help build shared attention, imitation, peer play, turn-taking, greetings, and flexible participation with others."
+          ]
+        ],
+        "nextStepTitle": "Helpful next step",
+        "nextStepText": "If these patterns sound familiar, Eden ABA Therapy can help your family understand intake, documentation, insurance review, and assessment planning.",
+        "startABA": "Start ABA Therapy",
+        "learnAutism": "Learn More About Autism"
+      },
+      "byAgeGroup": {
+        "title": "ABA Therapy By Age Group",
+        "intro": "ABA therapy goals should change as children grow. Younger children may focus on foundational communication and play, while older children may work on school participation, independence, self-advocacy, and life skills.",
+        "cards": [
+          [
+            "Toddlers",
+            "Early ABA goals may focus on joint attention, imitation, play, early communication, responding to name, and simple daily routines."
+          ],
+          [
+            "Preschool",
+            "Preschool-age support may target school readiness, peer play, transitions, functional communication, and independence during routines."
+          ],
+          [
+            "School-age children",
+            "School-age ABA may help with classroom participation, emotional regulation, social problem-solving, homework routines, and self-management."
+          ],
+          [
+            "Older children",
+            "Goals may expand toward self-advocacy, safety awareness, community skills, independence, and daily living routines."
+          ]
+        ]
+      },
+      "communication": {
+        "title": "Communication Development Through ABA",
+        "intro": "Communication goals in ABA are not limited to spoken words. A child may learn to request help, ask for a break, make choices, use gestures, follow directions, use AAC, or communicate emotions more safely. The goal is functional communication that reduces frustration and improves participation in daily life.",
+        "goals": [
+          "Requesting and choosing",
+          "Asking for help or breaks",
+          "Following directions",
+          "Using AAC or visuals",
+          "Greeting and turn-taking",
+          "Communicating feelings"
+        ]
+      },
+      "practicalGoals": {
+        "title": "Reach practical goals with ABA therapy",
+        "intro": "No two children are the same. A strong ABA plan uses measurable goals that matter in real life and reflect your family's priorities.",
+        "examples": [
+          "Increase functional communication to request help, breaks, toys, attention, or preferred items.",
+          "Follow daily routines such as handwashing, dressing, cleaning up, waiting, and transitions.",
+          "Build safe replacement behaviors for aggression, elopement, property destruction, or severe tantrums.",
+          "Practice social interaction such as turn-taking, shared attention, peer play, and greetings.",
+          "Improve school readiness through matching, imitation, sitting for short routines, and group participation."
+        ]
+      },
+      "progress": {
+        "title": "How ABA Progress Is Measured",
+        "intro": "ABA therapy uses data to understand whether strategies are helping. Progress is not based only on impressions; the BCBA reviews patterns over time and adjusts the treatment plan when your child needs a different level of support.",
+        "cards": [
+          [
+            "Baseline data",
+            "The team first documents current skills and behavior patterns so progress can be compared over time."
+          ],
+          [
+            "Session data",
+            "Therapists collect information during teaching, play, routines, and behavior support activities."
+          ],
+          [
+            "Goal mastery",
+            "A skill is considered mastered only when it is used consistently enough to be meaningful for daily life."
+          ],
+          [
+            "Treatment updates",
+            "The BCBA reviews data and updates goals when your child needs more support, different strategies, or new challenges."
+          ]
+        ],
+        "tableHeaders": [
+          "Initial assessment",
+          "Ongoing progress review"
+        ],
+        "initialItems": [
+          "Baseline skill levels",
+          "Family interview",
+          "Observation of routines",
+          "Initial behavior patterns"
+        ],
+        "ongoingItems": [
+          "Session data trends",
+          "Goal mastery",
+          "Parent feedback",
+          "BCBA treatment updates"
+        ]
+      },
+      "typicalDay": {
+        "title": "What does a typical ABA therapy day look like?",
+        "intro": "A typical day may include play, structured practice, natural environment teaching, parent updates, progress tracking, and safety planning. Each session is adjusted to your child's needs.",
+        "steps": [
+          [
+            "Step 1",
+            "Warm welcome and check-in",
+            "Your family shares updates, priorities, and any changes from home or school before the session begins."
+          ],
+          [
+            "Step 2",
+            "Play-based connection",
+            "The therapist builds rapport through preferred toys, movement, songs, games, and child-led interests."
+          ],
+          [
+            "Step 3",
+            "Skill practice",
+            "Goals are practiced in small achievable steps, with support faded as the child becomes more independent."
+          ],
+          [
+            "Step 4",
+            "Natural environment teaching",
+            "Skills are practiced during real routines, play, communication, transitions, and social opportunities."
+          ],
+          [
+            "Step 5",
+            "Caregiver coaching",
+            "Parents learn practical strategies that can be used at home, in the community, and during daily routines."
+          ],
+          [
+            "Step 6",
+            "Progress review",
+            "The BCBA reviews data, celebrates progress, and updates the treatment plan as your child's needs change."
+          ]
+        ]
+      },
+      "firstNinetyDays": {
+        "title": "What Parents Can Expect During the First 90 Days",
+        "intro": "The first months of ABA therapy are usually focused on learning your child's needs, building trust, teaching early goals, and helping caregivers understand what is happening in treatment.",
+        "phases": [
+          [
+            "Days 1–30",
+            "Assessment, rapport, and baseline",
+            "Your team focuses on getting to know your child, identifying motivators, collecting baseline data, and finalizing early priorities."
+          ],
+          [
+            "Days 31–60",
+            "Skill teaching begins",
+            "Therapy goals become more active, parent coaching starts, and the BCBA reviews early response to teaching strategies."
+          ],
+          [
+            "Days 61–90",
+            "Refinement and progress review",
+            "The team reviews data, adjusts goals, expands generalization, and discusses what is working across home and school routines."
+          ]
+        ]
+      },
+      "parentInvolvement": {
+        "title": "How are parents involved in ABA therapy?",
+        "intro": "Families play a vital role in every successful ABA program. Parent guidance helps caregivers understand strategies, practice skills during daily routines, and support progress outside therapy sessions.",
+        "bullets": [
+          "Set personalized goals that reflect home, school, and community needs",
+          "Learn evidence-based strategies for transitions, safety, communication, and routines",
+          "Coordinate care with doctors, schools, speech therapy, occupational therapy, and other providers when appropriate",
+          "Build consistency so children can use skills with different people and in different places"
+        ]
+      },
+      "homeSchool": {
+        "title": "How ABA Supports Success at Home and School",
+        "intro": "A strong ABA program teaches skills in ways that can carry into real routines. The goal is for children to use communication, independence, safety, and social skills with different people and in different settings.",
+        "home": {
+          "title": "Home routines",
+          "text": "ABA may support meals, hygiene, toileting, bedtime, chores, transitions, sibling play, and safe communication during everyday family routines."
+        },
+        "school": {
+          "title": "School readiness",
+          "text": "ABA may help children practice waiting, group instruction, following directions, peer interaction, transitions, and classroom participation."
+        },
+        "findCenter": "Find a Center Near You",
+        "scheduleEvaluation": "Schedule an Autism Evaluation"
+      },
+      "effectiveness": {
+        "title": "Is ABA therapy effective?",
+        "intro": "ABA is widely used to support children with autism because it uses individualized goals, ongoing progress data, parent involvement, and evidence-based teaching strategies. The best outcomes happen when treatment is personalized, compassionate, consistent, and reviewed frequently.",
+        "methods": [
+          [
+            "Discrete Trial Teaching",
+            "DTT breaks new skills into small steps with clear prompts, practice, feedback, and reinforcement."
+          ],
+          [
+            "Natural Environment Teaching",
+            "NET uses play, routines, and child interests to teach skills in real-life situations."
+          ]
+        ]
+      },
+      "mythsFacts": {
+        "title": "Common ABA Therapy Myths vs Facts",
+        "intro": "Parents deserve a clear, modern understanding of ABA therapy. These quick myth-and-fact cards help families know what ethical, individualized ABA should look like.",
+        "items": [
+          [
+            "ABA is only table work.",
+            "Modern ABA can be play-based, naturalistic, routine-based, and built around the child's interests."
+          ],
+          [
+            "ABA looks the same for every child.",
+            "Ethical ABA is individualized around the child's strengths, needs, communication style, family priorities, and culture."
+          ],
+          [
+            "ABA only reduces problem behavior.",
+            "Many goals focus on communication, independence, safety, social participation, play, and daily living skills."
+          ],
+          [
+            "Parents are not part of ABA.",
+            "Caregiver collaboration is essential because children need to use skills outside therapy sessions."
+          ]
+        ],
+        "mythPrefix": "Myth:",
+        "factPrefix": "Fact:"
+      },
+      "assessment": {
+        "title": "Understanding the ABA Assessment Process",
+        "intro": "Before therapy begins, the BCBA learns about your child's strengths, needs, communication, routines, safety concerns, school history, and family priorities. The assessment becomes the foundation for treatment planning.",
+        "steps": [
+          [
+            "1",
+            "Family interview",
+            "Parents share concerns, routines, strengths, priorities, safety needs, and goals for home, school, and community."
+          ],
+          [
+            "2",
+            "Direct observation",
+            "The clinician observes communication, play, transitions, learning readiness, and behavior patterns."
+          ],
+          [
+            "3",
+            "Skill review",
+            "The team evaluates communication, adaptive skills, daily routines, social engagement, and independence."
+          ],
+          [
+            "4",
+            "Plan development",
+            "Findings are used to create measurable goals, recommended service intensity, and family guidance."
+          ]
+        ]
+      },
+      "treatmentPlans": {
+        "title": "How BCBAs Create Individualized Treatment Plans",
+        "intro": "A BCBA uses assessment results, family input, observation, developmental priorities, and data to create a plan that is specific, measurable, and meaningful. The plan should explain what will be taught, how progress will be measured, and how caregivers will be supported.",
+        "checklist": [
+          "Family priorities",
+          "Current skill levels",
+          "Behavior and safety needs",
+          "Communication profile",
+          "School and home routines",
+          "Progress review schedule"
+        ]
+      },
+      "earlyIntervention": {
+        "title": "Long-Term Benefits of Early Intervention",
+        "intro": "Early support can help families understand developmental needs sooner and build foundational skills during important learning years. ABA therapy may support communication, daily routines, safety, play, social participation, and school readiness when goals are individualized and reviewed regularly.",
+        "callout": "Early support is not about rushing a child. It is about giving the child and family practical tools sooner."
+      },
+      "cost": {
+        "title": "How much does ABA therapy cost?",
+        "intro": "ABA therapy costs depend on insurance coverage, authorization requirements, deductible, copay, coinsurance, medical necessity, provider network status, and the number of approved therapy hours. Eden ABA Therapy can help collect insurance information, review benefits, and explain next steps before services begin.",
+        "getStarted": "Get Started",
+        "checkInsurance": "Check my insurance coverage"
+      },
+      "parentQuestions": {
+        "title": "Questions Parents Should Ask Before Starting ABA Therapy",
+        "intro": "Choosing an ABA provider is an important decision. These questions help families compare programs, understand supervision, and feel prepared before starting services.",
+        "items": [
+          [
+            "How is progress measured?",
+            "Ask how data is collected, reviewed, and shared with parents."
+          ],
+          [
+            "How often will goals be updated?",
+            "A good program should review goals regularly and adjust based on data and family priorities."
+          ],
+          [
+            "How will parents be coached?",
+            "Ask what parent training looks like, how often it occurs, and how strategies are practiced at home."
+          ],
+          [
+            "Who supervises therapy?",
+            "Ask how often the BCBA observes sessions, reviews treatment data, and supports the therapy team."
+          ],
+          [
+            "How are school and provider teams involved?",
+            "Ask how communication can happen with teachers, speech therapy, OT, physicians, and other providers when appropriate."
+          ]
+        ]
+      },
+      "successFactors": {
+        "title": "Success Factors That Improve ABA Outcomes",
+        "intro": "Meaningful progress is more likely when therapy is consistent, individualized, collaborative, and connected to real family routines.",
+        "items": [
+          "Consistent attendance",
+          "Active parent participation",
+          "Clear measurable goals",
+          "BCBA supervision",
+          "Coordination with schools and providers",
+          "Regular data review",
+          "Compassionate teaching",
+          "Generalization across settings"
+        ]
+      },
+      "additionalFaqs": {
+        "title": "Frequently Asked Questions About Starting ABA",
+        "items": [
+          [
+            "How many hours of ABA therapy will my child need?",
+            "Recommended hours depend on assessment results, medical necessity, family goals, school schedule, age, safety concerns, and insurance authorization requirements."
+          ],
+          [
+            "Can ABA therapy help with communication?",
+            "Yes. ABA can support functional communication such as requesting help, making choices, asking for breaks, following directions, using AAC, and reducing frustration related to communication difficulties."
+          ],
+          [
+            "Can ABA support school readiness?",
+            "ABA may help children practice waiting, transitions, following instructions, peer interaction, group routines, and learning-to-learn skills that support classroom participation."
+          ],
+          [
+            "What does a BCBA do?",
+            "A BCBA completes assessment, designs the treatment plan, supervises therapy, reviews data, updates goals, and supports parent training."
+          ],
+          [
+            "What should I bring to the first ABA visit?",
+            "Helpful documents include diagnosis reports, insurance cards, pediatrician notes, IEP or school records, prior therapy reports, and a list of your biggest family concerns."
+          ]
+        ]
+      },
+      "relatedResources": {
+        "title": "Related ABA Therapy Resources",
+        "intro": "Use these related pages to continue learning, check coverage, find a center, or begin the intake process.",
+        "cards": [
+          [
+            "Autism Evaluation",
+            "Understand screening, diagnostic guidance, and next steps.",
+            "Schedule an Autism Evaluation"
+          ],
+          [
+            "What Is Autism?",
+            "Learn about autism signs, diagnosis, support levels, and family resources.",
+            "Read Autism Guide"
+          ],
+          [
+            "M-CHAT-R Screener",
+            "Use a parent-friendly toddler screening tool and review score ranges.",
+            "Start Screener"
+          ],
+          [
+            "Insurance Coverage",
+            "Review Virginia insurance support, authorization, and benefits guidance.",
+            "Check Insurance Coverage"
+          ],
+          [
+            "Locations",
+            "Find Eden ABA Therapy service areas and center information.",
+            "Find a Center Near You"
+          ],
+          [
+            "Start Intake",
+            "Share your family's information and begin the next step.",
+            "Get Started"
+          ]
+        ]
+      }
+    },
+    "castScreener": {
+      "meta": {
+        "title": "Online CAST Autism Screening Tool | Eden ABA Therapy",
+        "description": "Complete the CAST autism screening tool for children ages 4 to 11. Learn how CAST scoring works and what next steps may be recommended."
+      },
+      "hero": {
+        "breadcrumb": [
+          "Screeners",
+          "CAST"
+        ],
+        "badge": "Older Children Screening Tool",
+        "title": "Online CAST Autism Screening Tool",
+        "subtitle": "The Childhood Autism Spectrum Test (CAST) is a 37-question screening tool for children ages 4 to 11. Completed by a parent or caregiver, it helps identify early signs of autism spectrum disorder (ASD) by looking at a child's behavior and communication skills.",
+        "startButton": "Start CAST Screener",
+        "mchatButton": "M-CHAT-R Screener",
+        "notice": "If your child is younger than 4, please complete the M-CHAT-R screening tool instead of the CAST.",
+        "imageAlt": "Parent or caregiver spending warm quality time with a school-age child"
+      },
+      "howItWorks": {
+        "title": "How the CAST Works",
+        "startButton": "Start CAST Screener",
+        "cards": [
+          [
+            "Who completes the CAST?",
+            "A parent, caregiver, or teacher who is familiar with the child's day-to-day behavior should complete the CAST."
+          ],
+          [
+            "How long does the CAST take?",
+            "It takes about 5–10 minutes to complete all 37 questions."
+          ],
+          [
+            "What does the CAST ask about?",
+            "The CAST covers social engagement (such as playing with other children), verbal and nonverbal communication, imaginative play, and repetitive behaviors or narrow interests."
+          ]
+        ]
+      },
+      "scoring": {
+        "title": "CAST Scoring",
+        "intro": "The CAST is a 37-question yes-or-no screening tool that looks at behaviors and communication patterns associated with autism spectrum disorder (ASD). Each response is scored based on how closely it aligns with characteristics commonly seen in autistic children.",
+        "methodTitle": "CAST Scoring Method",
+        "methodText": "Each response receives a score of 0 or 1, depending on whether it reflects a potential sign or trait of autism. The total score can range from 0 to 31. Only 31 of the 37 questions are scored; the remaining 6 are control questions.",
+        "cards": [
+          [
+            "0–14",
+            "Low likelihood of autism traits",
+            "No further action needed unless other concerns exist",
+            "green"
+          ],
+          [
+            "15–30",
+            "Possible autism traits",
+            "Follow up with a professional autism evaluation",
+            "yellow"
+          ],
+          [
+            "31+",
+            "High likelihood of autism",
+            "Immediate clinical assessment is recommended",
+            "red"
+          ]
+        ],
+        "disclaimer": "The CAST is a screening tool, not a diagnostic test. A high score does not mean your child has autism. It means your child may benefit from a more detailed evaluation, such as the ADOS-2."
+      },
+      "after": {
+        "title": "What to Expect After the CAST",
+        "intro": "Once you complete the CAST, we're here to guide you the rest of the way.",
+        "startButton": "Start CAST Screener",
+        "steps": [
+          [
+            "Step 1",
+            "Review of Your Child's CAST Results",
+            "Within one business day, a team member will contact you to review your child's results and discuss any concerns you may have."
+          ],
+          [
+            "Step 2",
+            "Comprehensive Evaluation",
+            "If your child's CAST score suggests signs of autism, we may recommend a follow-up evaluation like the ADOS-2. Results may be shared with your child's doctor, who can make the final diagnosis."
+          ],
+          [
+            "Step 3",
+            "Personalized Autism Care Plan",
+            "If your child is diagnosed with autism, we'll walk you through next steps, including insurance verification, a BCBA consultation, and individualized ABA therapy goals."
+          ]
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions About the CAST",
+        "items": [
+          [
+            "Why is it important to identify autism early?",
+            "Recognizing autism spectrum disorder early can help children access autism services and Early Intensive Behavioral Intervention, including ABA therapy."
+          ],
+          [
+            "What happens after I complete the CAST?",
+            "After submitting your CAST screening, a team member will contact you within one business day to review your results. Based on your child's score, we may recommend a follow-up evaluation, such as the ADOS-2."
+          ],
+          [
+            "Who should complete the CAST?",
+            "A parent, caregiver, or teacher who knows the child's day-to-day behavior should complete the CAST."
+          ],
+          [
+            "What age is the CAST for?",
+            "The CAST is designed for children ages 4 to 11."
+          ],
+          [
+            "Is the CAST a diagnosis?",
+            "No. The CAST is a screening tool. It does not diagnose autism. It helps identify whether a child may benefit from further evaluation."
+          ],
+          [
+            "What should I do if my child scores high?",
+            "A high score means your child may benefit from a professional autism evaluation. Our team can help explain next steps and guide your family toward appropriate support."
+          ]
+        ]
+      },
+      "finalCta": {
+        "title": "Need Help Understanding Your Child's Next Step?",
+        "text": "Eden ABA Therapy can help your family understand screening results, evaluation options, and ABA therapy support.",
+        "startButton": "Start CAST Screener",
+        "contactButton": "Contact Eden ABA"
+      }
+    },
+    "castQuestionnaire": {
+      "intro": {
+        "title": "CAST Autism Screening Tool",
+        "paragraph1": "The Childhood Autism Spectrum Test (CAST) was developed by the Autism Research Centre at the University of Cambridge to help screen for autism spectrum symptoms in children.",
+        "paragraph2": "The CAST is used to screen for autism-related symptoms in children ages 4 and older. It can help identify social communication differences, repetitive behaviors, narrow interests, and other traits that may suggest a child could benefit from a professional autism evaluation.",
+        "noteLabel": "Important note:",
+        "note": "The CAST is a screening tool, not a diagnostic test. A high score does not mean a child has autism. It means the child may benefit from a more detailed evaluation, such as the ADOS-2.",
+        "beginButton": "Begin CAST Questionnaire",
+        "imageAlts": [
+          "School-age child reading with a parent at home",
+          "Child playing with peers during a group activity",
+          "Parent helping school-age child with a learning activity"
+        ]
+      },
+      "options": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "progress": {
+        "label": "Question",
+        "of": "of",
+        "answered": "answered"
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next",
+        "toContact": "Continue to Contact Details",
+        "backToQuestions": "Back to Questions"
+      },
+      "contact": {
+        "title": "Please confirm where we should send your CAST screener results.",
+        "requiredNote": "Fields marked with * are required.",
+        "fields": {
+          "parentFirstName": "Parent/Guardian First Name*",
+          "parentLastName": "Parent/Guardian Last Name*",
+          "email": "Email*",
+          "phone": "Phone Number*",
+          "postalCode": "Postal Code*",
+          "childFirstName": "Child First Name",
+          "childDateOfBirth": "Child Date of Birth",
+          "preferredLocation": "Preferred Eden ABA Location"
+        },
+        "locationPlaceholder": "Select a location",
+        "locationOptions": [
+          "Fairfax",
+          "Centreville",
+          "Chantilly",
+          "Reston",
+          "Herndon",
+          "Annandale"
+        ],
+        "consent": "I consent to receive occasional text messages from Eden ABA Therapy regarding educational resources and follow-up related to my inquiry. Message and data rates may apply. Reply STOP to opt out or HELP for help.",
+        "submit": "Submit CAST Screener",
+        "validationError": "Please complete all required fields, enter a valid email and phone number, and accept the consent statement.",
+        "questionsError": "Please answer all 38 CAST questions before submitting."
+      },
+      "confirmation": {
+        "title": "Thank You",
+        "message": "Thank you for completing the CAST screener. A member of our team will review your responses and contact you within one business day to discuss possible next steps.",
+        "scheduleCta": "Schedule an Autism Evaluation"
+      }
+    },
+    "ados2Assessment": {
+      "meta": {
+        "title": "ADOS-2 Autism Assessment | Eden ABA Therapy",
+        "description": "Learn about the ADOS-2 autism assessment, what it measures, who it is for, and how Eden ABA Therapy helps families understand next steps after autism screening."
+      },
+      "hero": {
+        "breadcrumb": [
+          "Autism Evaluation",
+          "ADOS-2"
+        ],
+        "badge": "Professional Autism Evaluation",
+        "title": "The ADOS-2: Professional Autism Evaluation",
+        "subtitle": "The Autism Diagnostic Observation Schedule, Second Edition (ADOS-2) is a face-to-face, play-based assessment used to evaluate children for possible autism spectrum disorder (ASD). During the assessment, a trained clinician observes how your child communicates, plays, and interacts. Results can help inform the autism diagnostic process.",
+        "scheduleButton": "Schedule the ADOS-2",
+        "findCenterButton": "Find a Center",
+        "imageAlt": "Clinician engaging a young child in a warm play-based developmental assessment"
+      },
+      "whatIs": {
+        "title": "What is the ADOS-2?",
+        "intro": "The ADOS-2 is a standardized, play-based assessment and a trusted tool for helping evaluate possible autism in children.",
+        "cards": [
+          [
+            "A Gold Standard",
+            "The ADOS-2 is considered a gold-standard measure for evaluating children for ASD. It is backed by research and helps professionals identify autism-related characteristics."
+          ],
+          [
+            "Play-Based",
+            "The ADOS-2 is not like a typical doctor's visit. During the assessment, the clinician engages your child in activities tailored to their age, communication skills, and developmental level."
+          ],
+          [
+            "Scoring",
+            "After the assessment, scores are calculated to show how closely your child's behaviors in key areas match autism characteristics. A summary may be shared with your child's pediatrician or referring provider to support the diagnostic process."
+          ]
+        ]
+      },
+      "measure": {
+        "title": "What does the ADOS-2 measure?",
+        "intro": "The ADOS-2 looks at areas of a child's development often linked to autism. During the evaluation, a trained clinician observes how your child communicates, plays, and interacts.",
+        "areas": [
+          [
+            "Social communication",
+            "Making eye contact, using gestures, or sharing enjoyment with others."
+          ],
+          [
+            "Play and imagination",
+            "How your child uses toys and whether they engage in pretend play."
+          ],
+          [
+            "Language use",
+            "How your child talks and responds in social situations."
+          ],
+          [
+            "Repetitive behaviors or strong interests",
+            "Repeated movements or intense focus on specific topics."
+          ]
+        ],
+        "closing": "Behaviors most closely associated with autism are scored to show how your child's responses compare to common autism characteristics.",
+        "imageAlt": "Therapist using picture cards during a play-based assessment with a child"
+      },
+      "modules": {
+        "title": "ADOS-2 Modules Explained",
+        "intro": "The ADOS-2 includes five modules, each matched to a child's age and language abilities.",
+        "list": [
+          [
+            "Toddler Module",
+            "For children 12 to 30 months old."
+          ],
+          [
+            "Module 1",
+            "For children who do not yet speak in phrases."
+          ],
+          [
+            "Module 2",
+            "For children who speak in phrases but are not yet verbally fluent."
+          ],
+          [
+            "Module 3",
+            "For verbally fluent children."
+          ],
+          [
+            "Module 4",
+            "For verbally fluent adolescents and adults."
+          ]
+        ],
+        "edenNoteLabel": "Eden ABA note:",
+        "edenNote": "At Eden ABA Therapy, assessment availability may vary by region. Clinicians select the appropriate module based on the child's communication skills, age, and developmental stage."
+      },
+      "results": {
+        "title": "Understanding the ADOS-2 Results",
+        "intro": "Once the ADOS-2 is complete, the clinician scores the assessment using a standardized system. Behaviors most associated with autism are totaled, and the results show how closely the child's responses compare to common autism characteristics.",
+        "additional": "The ADOS-2 is one piece of the bigger picture. Parent concerns, developmental history, clinical observation, and provider review are also important parts of the evaluation process.",
+        "imageAlt": "Parent and clinician reviewing developmental assessment information together",
+        "steps": [
+          [
+            "Step 1",
+            "Assessment completed",
+            "Your child completes the play-based ADOS-2 activities with a trained clinician."
+          ],
+          [
+            "Step 2",
+            "Clinician scores results",
+            "Responses are scored using the standardized ADOS-2 system."
+          ],
+          [
+            "Step 3",
+            "Results reviewed",
+            "The summary is reviewed alongside developmental history and parent concerns."
+          ],
+          [
+            "Step 4",
+            "Next steps discussed",
+            "Your family receives guidance on recommended follow-up and care options."
+          ]
+        ]
+      },
+      "whoCan": {
+        "title": "Who can take the ADOS-2?",
+        "intro": "The ADOS-2 may be appropriate for children who are showing possible signs of autism, such as limited eye contact, delayed communication, differences in play, repetitive behaviors, or social communication challenges.",
+        "onlineBadge": "Online",
+        "professionalBadge": "Professional",
+        "learnMore": "Learn more",
+        "options": [
+          [
+            "Online",
+            "The M-CHAT-R",
+            "Online autism screener for toddlers.",
+            "mchat"
+          ],
+          [
+            "Online",
+            "The CAST",
+            "Online autism screener for older children.",
+            "cast"
+          ],
+          [
+            "Professional",
+            "The ADOS-2",
+            "Play-based, in-person ASD assessment.",
+            "ados"
+          ],
+          [
+            "Professional",
+            "IDE",
+            "Initial Diagnostic Evaluation, in person or via telehealth if available.",
+            "ide"
+          ]
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions About the ADOS-2",
+        "items": [
+          [
+            "Why is it important to get an autism diagnosis for your child?",
+            "A formal autism diagnosis may help your child access certain developmental therapies, school supports, and services such as ABA therapy."
+          ],
+          [
+            "Who conducts the ADOS-2?",
+            "The ADOS-2 is conducted by a trained clinician who meets the publisher's criteria for administering and scoring the tool."
+          ],
+          [
+            "What happens during the ADOS-2?",
+            "The clinician completes a set of play-based activities while observing key behaviors associated with autism. Activities may vary depending on the child's age, communication skills, and developmental level."
+          ],
+          [
+            "Does the ADOS-2 diagnose autism?",
+            "The ADOS-2 does not diagnose autism by itself. It provides important information that helps a qualified provider make diagnostic decisions."
+          ],
+          [
+            "What happens after the ADOS-2?",
+            "The results summary may be reviewed by your child's treating provider. They will consider all available information to determine whether your child meets diagnostic criteria for autism and what next steps may be recommended."
+          ],
+          [
+            "Who can administer the ADOS-2?",
+            "Only professionals trained in the tool and qualified under the publisher's standards should administer the ADOS-2."
+          ],
+          [
+            "How often can the ADOS-2 be administered?",
+            "The ADOS-2 can be administered more than once, but repeated assessments are usually spaced out and recommended only when new developmental questions arise or earlier results were inconclusive."
+          ],
+          [
+            "Does insurance cover the ADOS-2?",
+            "Coverage and cost may vary by location, provider, and insurance plan. Families should contact Eden ABA Therapy to confirm availability and options in their region."
+          ]
+        ]
+      },
+      "schedule": {
+        "title": "Schedule the ADOS-2",
+        "intro": "Contact your nearest Eden ABA Therapy location or complete the form below to request an autism evaluation. This form helps us match your family with the right center and next step.",
+        "form": {
+          "fields": {
+            "parentFirstName": "Parent/Guardian First Name*",
+            "parentLastName": "Parent/Guardian Last Name*",
+            "email": "Email*",
+            "phone": "Phone Number*",
+            "childFirstName": "Child First Name",
+            "childDateOfBirth": "Child Date of Birth",
+            "postalCode": "Postal Code*",
+            "preferredLocation": "Preferred Location",
+            "completedScreener": "Has your child completed an online screener?",
+            "hasDiagnosis": "Has your child already received an autism diagnosis?",
+            "message": "Message / Concerns"
+          },
+          "locationPlaceholder": "Select a location",
+          "selectPlaceholder": "Please select",
+          "locationOptions": [
+            "Fairfax",
+            "Centreville",
+            "Chantilly",
+            "Reston",
+            "Herndon",
+            "Annandale"
+          ],
+          "screenerOptions": [
+            "Yes — M-CHAT-R",
+            "Yes — CAST",
+            "Yes — both",
+            "No, not yet"
+          ],
+          "diagnosisOptions": [
+            "Yes",
+            "No",
+            "Evaluation in progress",
+            "Not sure"
+          ],
+          "consent": "I consent to receive occasional text messages from Eden ABA Therapy regarding educational resources and follow-up related to my inquiry. Message and data rates may apply. Reply STOP to opt out or HELP for help.",
+          "submit": "Request ADOS-2 Appointment",
+          "validationError": "Please complete all required fields, enter a valid email and phone number, and accept the consent statement.",
+          "successMessage": "Thank you. Your ADOS-2 appointment request has been received. A member of our team will contact you within one business day."
+        }
+      },
+      "finalCta": {
+        "title": "Need Help Understanding Your Child's Evaluation Options?",
+        "text": "Eden ABA Therapy can help your family understand screening results, autism evaluation options, and next steps for care.",
+        "startScreener": "Start Online Screener",
+        "contactEden": "Contact Eden ABA"
+      }
+    },
+    "ideEvaluation": {
+      "meta": {
+        "title": "Initial Diagnostic Evaluation for Autism | Eden ABA Therapy",
+        "description": "Learn about Initial Diagnostic Evaluations for autism, what they include, who they are for, and how Eden ABA Therapy helps families understand next steps."
+      },
+      "hero": {
+        "breadcrumb": [
+          "Autism Evaluation",
+          "IDE"
+        ],
+        "badge": "Professional Diagnostic Support",
+        "title": "Initial Diagnostic Evaluation: Autism Diagnostic Support",
+        "subtitle": "At Eden ABA Therapy, we provide diagnostic support for families wondering if their child could have autism spectrum disorder (ASD). Initial Diagnostic Evaluations help determine whether a child meets diagnostic criteria for autism and what next steps may be recommended.",
+        "availabilityNote": "IDE availability may vary by region. Contact Eden ABA Therapy to learn which evaluation options are available near you.",
+        "scheduleButton": "Schedule Evaluation",
+        "findCenterButton": "Find a Center",
+        "imageAlt": "Licensed clinician engaging a young child in a warm, play-based diagnostic activity"
+      },
+      "whatIs": {
+        "title": "What is an Initial Diagnostic Evaluation (IDE)?",
+        "intro": "There is no single test that can diagnose autism spectrum disorder. Instead, licensed professionals use multiple sources of information to determine whether a child meets criteria for ASD. An IDE is focused on autism-related concerns and may include caregiver input, direct observation, standardized tools, and a results review.",
+        "subheading": "Here's what to expect during the process:",
+        "steps": [
+          [
+            "Parent Interview",
+            "Caregivers share information about the child's medical history, developmental milestones, daily behaviors, and current concerns."
+          ],
+          [
+            "Direct Observation",
+            "The clinician engages the child in interactive activities to observe how they communicate, play, and respond."
+          ],
+          [
+            "Autism-Specific Tools",
+            "Standardized tools and questionnaires may be used to gather information about behaviors associated with autism."
+          ],
+          [
+            "Results Review Session",
+            "The clinician explains findings, discusses whether the child meets criteria for autism, and provides individualized recommendations for next steps. Families may also receive a written diagnostic report to share with pediatricians, teachers, or other providers."
+          ]
+        ]
+      },
+      "whoCan": {
+        "title": "Who can complete an IDE?",
+        "intro": "An IDE may be appropriate for children ages 18 months through 6 years who are showing possible signs of autism.",
+        "signs": [
+          "Limited eye contact or difficulty responding to their name",
+          "Delays in speech or language development",
+          "Repetitive movements like hand-flapping or rocking",
+          "Becoming upset by changes in routine",
+          "Strong focus on specific topics or objects",
+          "Difficulties forming relationships or playing with peers"
+        ],
+        "referralText": "Children are often referred for an IDE after completing an autism screener like the M-CHAT-R or CAST, or when concerns come up during a pediatrician visit.",
+        "complexNote": "For children with multiple or complex developmental needs, a more comprehensive evaluation may be recommended. Eden ABA Therapy can help families understand what type of evaluation may be the best fit.",
+        "relatedCards": [
+          [
+            "M-CHAT-R Online Screener",
+            "Online autism screener for toddlers ages 16–30 months.",
+            "mchat"
+          ],
+          [
+            "CAST Online Screener",
+            "Online autism screener for children ages 4–11.",
+            "cast"
+          ]
+        ]
+      },
+      "measure": {
+        "title": "What does an IDE measure?",
+        "intro": "An Initial Diagnostic Evaluation examines key areas of development that are closely related to autism.",
+        "areas": [
+          [
+            "Social Communication",
+            "The clinician observes how your child uses eye contact, gestures, facial expressions, and whether they share enjoyment or interest with others."
+          ],
+          [
+            "Play and Imagination",
+            "The evaluation looks at how your child engages with toys, participates in pretend play, and builds simple stories or scenarios."
+          ],
+          [
+            "Language and Communication",
+            "The clinician assesses expressive skills, such as talking, asking questions, and responding to others, as well as receptive skills like understanding and following directions."
+          ],
+          [
+            "Restricted or Repetitive Behaviors",
+            "The clinician notes repeated movements, intense interests, sensory differences, or sensitivities to changes in routines or environments."
+          ],
+          [
+            "Emotional Responses",
+            "The clinician observes how your child manages transitions, handles frustration, and reacts to unexpected changes or new experiences."
+          ]
+        ]
+      },
+      "tools": {
+        "title": "What tools are used during an IDE?",
+        "intro": "Not every child will need every tool. Clinicians choose tools based on the child's age, developmental history, communication skills, and needs. These tools help support the diagnostic process and guide individualized recommendations.",
+        "listLabel": "Tools may include:",
+        "items": [
+          "Autism Diagnostic Interview-Revised",
+          "Autism Diagnostic Observation Schedule",
+          "Childhood Autism Rating Scale",
+          "Tele-ASD-PEDS",
+          "Parent questionnaires",
+          "Developmental history review",
+          "Direct child observation"
+        ],
+        "imageAlt": "Child-friendly evaluation materials including picture cards and pretend play toys"
+      },
+      "where": {
+        "title": "Where are IDEs performed?",
+        "intro": "IDEs may be offered in select locations through in-center evaluation or telehealth, depending on availability and regional requirements. No matter the setting, evaluations should include caregiver input, developmental history, direct observation, and other relevant information.",
+        "howTitle": "How it works",
+        "virtual": {
+          "title": "Virtual evaluation",
+          "text": "A virtual evaluation may allow the child to be observed in a familiar home environment. The clinician may coach the caregiver through simple activities while observing behaviors and interactions."
+        },
+        "inCenter": {
+          "title": "In-center evaluation",
+          "text": "For families who prefer or require in-person support, the clinician may guide structured activities while observing the child's responses directly. Parents may be asked to participate in portions of the assessment and complete parent-report measures."
+        },
+        "cta": "Contact us to learn which autism assessment services are available in your area."
+      },
+      "insurance": {
+        "title": "Does insurance cover an IDE?",
+        "text": "Insurance coverage for IDEs may vary by location, insurance plan, and provider requirements. Eden ABA Therapy can help families review available options and understand whether evaluation services may be covered.",
+        "button": "Insurance & Financial Assistance"
+      },
+      "after": {
+        "title": "What happens after an IDE?",
+        "intro": "After the evaluation, families typically meet with the clinician for a feedback session. During this meeting, families may receive:",
+        "checklist": [
+          "A detailed diagnostic report with test results and clinical observations",
+          "Diagnostic insights explaining whether the child shows characteristics of autism",
+          "Individualized recommendations for next steps, which may include ABA therapy, speech therapy, occupational therapy, school supports, or other interventions"
+        ],
+        "additional": "At the family's request, the report may be shared with the child's pediatrician, school team, or other providers to support referrals, planning, and ongoing care."
+      },
+      "timing": {
+        "title": "When is the right time for an IDE?",
+        "cards": [
+          [
+            "Does an IDE diagnose autism?",
+            "An IDE helps evaluate whether autism is present. If a child meets diagnostic criteria, a diagnosis of autism may be provided by the evaluating professional. If the child does not meet criteria, other recommendations or referrals may be provided."
+          ],
+          [
+            "Why is early autism diagnosis important?",
+            "Early diagnosis can help families access early intervention, therapy services, school supports, and insurance-covered care. Many therapies, including ABA therapy, may require a formal diagnosis for coverage."
+          ],
+          [
+            "What can we expect during an IDE?",
+            "The process is designed to be as comfortable as possible for the child. It may include a parent interview, parent questionnaires, child observation, and standardized testing."
+          ],
+          [
+            "What's the difference between an IDE and the ADOS-2?",
+            "An IDE is a broader diagnostic evaluation completed by a qualified professional and may include developmental history, behavioral observations, parent questionnaires, and standardized tools. The ADOS-2 is one assessment tool that may be used to gather information about autism-related behaviors, but it does not diagnose autism by itself."
+          ]
+        ]
+      },
+      "getStarted": {
+        "title": "Ready to get started?",
+        "intro": "Eden ABA Therapy is here to help guide your family through the diagnostic process so your child can access the care and support they need. Complete the brief form, and a team member will contact you to discuss your child's needs."
+      },
+      "form": {
+        "fields": {
+          "parentFirstName": "Parent/Guardian First Name*",
+          "parentLastName": "Parent/Guardian Last Name*",
+          "email": "Email*",
+          "phone": "Phone Number*",
+          "childDateOfBirth": "Child's Date of Birth",
+          "childFirstName": "Child's First Name",
+          "zipCode": "Zip Code*",
+          "preferredLocation": "Preferred Eden ABA Location*",
+          "completedScreener": "Has your child completed M-CHAT-R or CAST?",
+          "concerns": "What concerns do you have?",
+          "hasDiagnosis": "Has your child already received a diagnosis?"
+        },
+        "locationPlaceholder": "Select a location",
+        "selectPlaceholder": "Please select",
+        "locationOptions": [
+          "Fairfax",
+          "Centreville",
+          "Chantilly",
+          "Reston",
+          "Herndon",
+          "Annandale"
+        ],
+        "screenerOptions": [
+          "Yes — M-CHAT-R",
+          "Yes — CAST",
+          "Yes — both",
+          "No, not yet"
+        ],
+        "diagnosisOptions": [
+          "Yes",
+          "No",
+          "Evaluation in progress",
+          "Not sure"
+        ],
+        "consent": "I consent to receive occasional text messages from Eden ABA Therapy regarding educational resources and follow-up related to my inquiry. Message and data rates may apply. Reply STOP to opt out or HELP for help.",
+        "submit": "Submit",
+        "validationError": "Please complete all required fields, enter a valid email and phone number, select a location, and accept the consent statement.",
+        "successMessage": "Thank you. Your IDE evaluation request has been received. A member of our team will contact you within one business day."
+      },
+      "faq": {
+        "title": "FAQs About Initial Diagnostic Evaluations",
+        "items": [
+          [
+            "What happens after the IDE?",
+            "The clinician who completes the IDE will schedule a feedback appointment to review results and recommendations. A written report may also be provided. At your request, the report can be shared with other providers to support planning and next steps."
+          ],
+          [
+            "Do you offer virtual autism evaluations?",
+            "Evaluation options may vary by region. Some families may be able to complete parts of the evaluation through telehealth, while others may complete the evaluation in person. Contact Eden ABA Therapy to learn what options are available near you."
+          ],
+          [
+            "Why is it important to get an autism diagnosis?",
+            "A formal diagnosis may help children access therapies such as ABA, speech therapy, or occupational therapy. It may also be necessary for school services and insurance coverage. Early diagnosis can open the door to early intervention and long-term support."
+          ]
+        ]
+      }
+    },
+    "parentGuidance": {
+      "meta": {
+        "title": "Parent Guidance: Autism Evaluation & Next Steps | Eden ABA Therapy",
+        "description": "A warm, parent-friendly guide to autism signs, developmental milestones, screening tools, diagnostic evaluations, insurance steps, and ABA therapy options from Eden ABA Therapy."
+      },
+      "hero": {
+        "breadcrumb": ["Autism Evaluation", "Parent Guidance"],
+        "badge": "Parent Guidance",
+        "title": "A Parent's Guide to Autism Evaluation and Next Steps",
+        "subtitle": "If you are wondering whether your child may have autism, Eden ABA Therapy can help you understand early signs, screening tools, diagnostic evaluations, insurance steps, and treatment options.",
+        "buttons": {
+          "screener": "Start Autism Screener",
+          "schedule": "Schedule Online Appointment",
+          "evaluations": "Learn About Evaluations"
+        },
+        "imageAlt": "Parent gently supporting a young child during a warm, play-based developmental moment"
+      },
+      "whatIsAutism": {
+        "title": "What Is Autism?",
+        "intro": "Autism spectrum disorder is a neurodevelopmental condition that can affect communication, social interaction, play, learning, behavior, and sensory experiences. Autism is called a spectrum because every child is different. Some children need significant daily support, while others need less support but may still benefit from guidance, therapy, or school accommodations.",
+        "cards": [
+          {
+            "title": "Communication Differences",
+            "text": "Some children may use fewer words, gestures, or facial expressions. Others may have strong vocabulary but struggle with back-and-forth conversation."
+          },
+          {
+            "title": "Social Interaction",
+            "text": "A child may find it harder to read social cues, join peer play, share interests, or respond to others in expected ways."
+          },
+          {
+            "title": "Repetitive Behaviors",
+            "text": "Repeating words, lining up toys, strong routines, or focused interests can be part of how a child learns and self-regulates."
+          },
+          {
+            "title": "Sensory Differences",
+            "text": "Some children are more sensitive to sounds, textures, or lights. Others may seek movement, touch, or sensory input."
+          }
+        ]
+      },
+      "earlySigns": {
+        "title": "Early Signs of Autism",
+        "intro": "Spotting early signs can help families seek support sooner. Signs can look different depending on a child's age, communication skills, and development.",
+        "cta": "Take a Free Screener",
+        "cards": [
+          {
+            "title": "Social Communication",
+            "examples": [
+              "Limited eye contact",
+              "Does not consistently respond to name",
+              "Limited sharing of interests",
+              "Difficulty playing with peers",
+              "Prefers to play alone"
+            ]
+          },
+          {
+            "title": "Communication Behaviors",
+            "examples": [
+              "Delayed speech",
+              "Limited gestures",
+              "Repeats words or phrases",
+              "Difficulty starting or keeping a conversation",
+              "Uses fewer facial expressions or gestures"
+            ]
+          },
+          {
+            "title": "Repetitive or Restricted Behaviors",
+            "examples": [
+              "Hand-flapping, rocking, spinning, or repetitive movements",
+              "Lines up toys or objects",
+              "Strong focus on specific topics or objects",
+              "Upset by changes in routine"
+            ]
+          },
+          {
+            "title": "Sensory Differences",
+            "examples": [
+              "Covers ears around loud sounds",
+              "Strong reactions to textures, lights, or noises",
+              "Seeks certain sensory experiences",
+              "Becomes overwhelmed in busy environments"
+            ]
+          },
+          {
+            "title": "Daily Living and Motor Skills",
+            "examples": [
+              "Sleep challenges",
+              "Feeding selectivity",
+              "Difficulty with dressing, writing, or coordination",
+              "Trouble with transitions or changes"
+            ]
+          }
+        ]
+      },
+      "milestones": {
+        "title": "Developmental Milestones by Age",
+        "intro": "Milestones help parents and professionals understand how a child is developing compared with typical age expectations. Missing milestones does not automatically mean autism, but it may be a reason to talk with a pediatrician or request an evaluation.",
+        "imageAlt": "Young child playing and learning in a warm, supportive setting",
+        "ages": [
+          {
+            "label": "18 months",
+            "items": [
+              "Looks to caregiver for support",
+              "Uses a few words",
+              "Follows simple directions",
+              "Points, scribbles, walks, and imitates simple actions"
+            ]
+          },
+          {
+            "label": "2 years",
+            "items": [
+              "Uses simple two-word phrases",
+              "Points to objects",
+              "Notices when others are upset",
+              "Runs, kicks a ball, and uses simple pretend play"
+            ]
+          },
+          {
+            "label": "3 years",
+            "items": [
+              "Joins other children in play",
+              "Asks simple questions",
+              "Uses short conversations",
+              "Calms after separation with support",
+              "Uses basic fine motor skills"
+            ]
+          },
+          {
+            "label": "4 years",
+            "items": [
+              "Engages in pretend play",
+              "Forms sentences of four or more words",
+              "Seeks playmates",
+              "Recognizes colors",
+              "Catches a ball and uses writing tools"
+            ]
+          },
+          {
+            "label": "5 years",
+            "items": [
+              "Follows game rules",
+              "Takes turns",
+              "Counts to 10",
+              "Recognizes letters",
+              "Helps with simple chores",
+              "Buttons clothing and hops on one foot"
+            ]
+          }
+        ]
+      },
+      "causes": {
+        "title": "What Causes Autism?",
+        "intro": "Autism does not have one single known cause. Research suggests autism develops from a combination of genetic and environmental influences that affect early brain development. These factors may increase likelihood, but they do not mean a parent caused autism.",
+        "mythLabel": "Myth",
+        "factLabel": "Fact",
+        "mythFacts": [
+          {
+            "myth": "Autism is caused by parenting.",
+            "fact": "Autism is a neurodevelopmental condition. Parenting style does not cause autism."
+          },
+          {
+            "myth": "Vaccines cause autism.",
+            "fact": "Reliable medical research, including studies reviewed by the CDC and American Academy of Pediatrics, does not support a link between vaccines and autism."
+          },
+          {
+            "myth": "All autistic children are the same.",
+            "fact": "Autism is a spectrum. Strengths, challenges, and support needs look different for every child."
+          }
+        ],
+        "notes": [
+          "Genetics can play a role in autism risk.",
+          "Family history may increase likelihood for some children.",
+          "Some prenatal or early developmental factors may be associated with increased likelihood.",
+          "Families should rely on pediatricians and trusted medical sources such as the CDC, NIH, and AAP for accurate information."
+        ]
+      },
+      "supportLevels": {
+        "title": "Understanding Autism Support Levels",
+        "intro": "Modern diagnosis uses autism spectrum disorder and may describe support needs as Level 1, Level 2, or Level 3 based on the DSM-5 framework used by qualified clinicians.",
+        "note": "Support levels are not labels of worth or potential. They help professionals understand what support a child may need right now.",
+        "levels": [
+          {
+            "badge": "Level 1",
+            "title": "Requires support",
+            "text": "May have social communication challenges, difficulty with flexibility, or trouble starting interactions without support."
+          },
+          {
+            "badge": "Level 2",
+            "title": "Requires substantial support",
+            "text": "May show more noticeable communication challenges, restricted interests, and difficulty coping with change."
+          },
+          {
+            "badge": "Level 3",
+            "title": "Requires very substantial support",
+            "text": "May have significant communication challenges and behaviors that strongly affect daily functioning."
+          }
+        ]
+      },
+      "diagnosis": {
+        "title": "How Is Autism Diagnosed?",
+        "note": "There is no blood test, brain scan, or single physical exam that diagnoses autism. Diagnosis is based on developmental history, behavior observation, and professional evaluation.",
+        "steps": [
+          {
+            "title": "Notice developmental differences",
+            "text": "Parents or caregivers observe social, communication, or behavioral patterns that raise concern."
+          },
+          {
+            "title": "Use screening tools",
+            "text": "Online screeners such as M-CHAT-R or CAST can help identify whether further evaluation may be recommended."
+          },
+          {
+            "title": "Complete a professional evaluation",
+            "text": "A qualified clinician conducts a structured autism evaluation using observation and standardized tools."
+          },
+          {
+            "title": "Review history and observations",
+            "text": "The provider reviews developmental history, direct observations, standardized measures, and caregiver input."
+          },
+          {
+            "title": "Receive results and next steps",
+            "text": "The family receives findings, support recommendations, and guidance on services such as early intervention or ABA therapy."
+          }
+        ],
+        "tools": [
+          {
+            "title": "M-CHAT-R for toddlers",
+            "text": "A parent-completed screening tool often used around 16–30 months.",
+            "button": "Take M-CHAT-R",
+            "action": "mchat"
+          },
+          {
+            "title": "CAST for older children",
+            "text": "A screening questionnaire for school-age children.",
+            "button": "Take CAST",
+            "action": "cast"
+          },
+          {
+            "title": "ADOS-2 Assessment",
+            "text": "A play-based assessment used by trained professionals.",
+            "button": "Learn About ADOS-2",
+            "action": "ados"
+          },
+          {
+            "title": "IDE Evaluation",
+            "text": "A broader diagnostic evaluation with interviews, observation, and recommendations.",
+            "button": "Learn About IDE",
+            "action": "ide"
+          }
+        ]
+      },
+      "whichScreener": {
+        "title": "Which Autism Screener Should I Use?",
+        "note": "Screeners do not diagnose autism. They help parents decide whether to pursue a full evaluation with a qualified professional.",
+        "cards": [
+          {
+            "title": "M-CHAT-R",
+            "audience": "For toddlers",
+            "text": "Best for children around 16–30 months when parents want to check early social and communication signs.",
+            "button": "Take M-CHAT-R"
+          },
+          {
+            "title": "CAST",
+            "audience": "For older children",
+            "text": "Best for children around ages 4–11 when parents notice social, communication, or behavioral differences.",
+            "button": "Take CAST"
+          }
+        ]
+      },
+      "evaluationOptions": {
+        "title": "Professional Autism Evaluation Options",
+        "cards": [
+          {
+            "title": "ADOS-2 Assessment",
+            "text": "A play-based assessment used by trained professionals to observe communication, play, social interaction, and autism-related behaviors.",
+            "button": "Learn About ADOS-2"
+          },
+          {
+            "title": "IDE Evaluation",
+            "text": "A broader diagnostic evaluation that may include caregiver interviews, developmental history, direct observation, standardized tools, and recommendations.",
+            "button": "Learn About IDE"
+          }
+        ]
+      },
+      "insurance": {
+        "title": "Medicaid, Insurance, and Autism Services",
+        "intro": "Many families use private insurance, Medicaid, or other coverage to access autism evaluations and ABA therapy. Coverage rules vary by state, plan, diagnosis, and medical necessity requirements.",
+        "points": [
+          "Families may need a formal autism diagnosis for ABA therapy coverage.",
+          "Insurance may require prior authorization before services begin.",
+          "Medicaid coverage varies by state and program.",
+          "Virginia families should verify benefits with their plan and state Medicaid guidance.",
+          "Families should verify benefits before starting services.",
+          "Eden ABA Therapy can help families understand insurance steps."
+        ],
+        "cta": "Verify Insurance"
+      },
+      "nextSteps": {
+        "title": "What Should I Do Next?",
+        "buttons": {
+          "screener": "Start Screener",
+          "schedule": "Schedule Online Appointment",
+          "aba": "Start ABA Therapy"
+        },
+        "cards": [
+          {
+            "title": "If your child is a toddler",
+            "text": "Take the M-CHAT-R screener to check early social and communication signs.",
+            "link": "Take the M-CHAT-R screener"
+          },
+          {
+            "title": "If your child is older",
+            "text": "Take the CAST screener to explore whether a full evaluation may be helpful.",
+            "link": "Take the CAST screener"
+          },
+          {
+            "title": "If you want professional guidance",
+            "text": "Schedule an autism evaluation or online appointment with Eden ABA Therapy.",
+            "link": "Schedule an online appointment"
+          },
+          {
+            "title": "If your child already has a diagnosis",
+            "text": "Start ABA therapy intake and insurance verification.",
+            "link": "Start ABA therapy intake"
+          }
+        ]
+      },
+      "abaHelp": {
+        "title": "How ABA Therapy Can Help",
+        "intro": "ABA therapy helps children build meaningful skills such as communication, daily living routines, social interaction, play, safety, school readiness, and independence. Therapy should be individualized, compassionate, and family-centered.",
+        "cards": [
+          "Communication",
+          "Social Skills",
+          "Daily Living",
+          "Safety",
+          "School Readiness",
+          "Family Guidance"
+        ],
+        "cta": "Learn About ABA Therapy"
+      },
+      "faqs": {
+        "title": "Parent Guidance FAQs",
+        "items": [
+          {
+            "q": "Does a screener diagnose autism?",
+            "a": "No. A screener helps identify whether further evaluation may be helpful. Only a qualified professional can diagnose autism based on developmental history and clinical observation."
+          },
+          {
+            "q": "When should I talk to a doctor?",
+            "a": "Talk to your pediatrician if you notice developmental delays, loss of skills, limited communication, or social differences. Early conversations can lead to screening and support sooner."
+          },
+          {
+            "q": "Can autism be diagnosed early?",
+            "a": "Many children can be reliably evaluated around 18–24 months by qualified professionals, especially when parents and pediatricians act on early concerns."
+          },
+          {
+            "q": "Does my child need a diagnosis for ABA therapy?",
+            "a": "Many insurance plans require a formal autism diagnosis before covering ABA therapy. Eden ABA Therapy can help families understand intake and insurance requirements."
+          },
+          {
+            "q": "What if I am not sure which step to take?",
+            "a": "Start with a screener or schedule an online appointment so the Eden ABA Therapy team can help guide your family toward the right next step."
+          }
+        ]
+      },
+      "helpfulResources": {
+        "title": "Helpful Resources",
+        "intro": "These trusted sources offer evidence-based information about autism, early intervention, and coverage options.",
+        "links": [
+          {
+            "label": "CDC — Autism Spectrum Disorder",
+            "url": "https://www.cdc.gov/autism/index.html"
+          },
+          {
+            "label": "NIH — Autism Information",
+            "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
+          },
+          {
+            "label": "American Academy of Pediatrics — Autism",
+            "url": "https://www.healthychildren.org/English/health-issues/conditions/Autism/Pages/default.aspx"
+          },
+          {
+            "label": "Medicaid.gov",
+            "url": "https://www.medicaid.gov/"
+          },
+          {
+            "label": "Virginia DMAS — Medicaid & Health Programs",
+            "url": "https://www.dmas.virginia.gov/"
+          },
+          {
+            "label": "CDC — Learn the Signs. Act Early.",
+            "url": "https://www.cdc.gov/ncbddd/actearly/index.html"
+          },
+          {
+            "label": "Autism Speaks — Family Resources",
+            "url": "https://www.autismspeaks.org/tool-kit"
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "You Do Not Have to Figure This Out Alone",
+        "text": "Whether you are noticing early signs, looking for an autism evaluation, or ready to begin ABA therapy, Eden ABA Therapy is here to help your family take the next step.",
+        "buttons": {
+          "schedule": "Schedule Online Appointment",
+          "screener": "Start Autism Screener",
+          "contact": "Contact Eden ABA"
+        }
+      }
+    },
+    "autismScreenerFaqs": {
+      "meta": {
+        "title": "Autism Screening & Evaluation FAQs | Eden ABA Therapy",
+        "description": "Find answers to common questions about autism screeners, autism evaluations, M-CHAT-R, CAST, ADOS-2, IDE evaluations, ABA therapy, insurance, and next steps for families."
+      },
+      "hero": {
+        "breadcrumb": [
+          "Autism Evaluation",
+          "FAQs"
+        ],
+        "badge": "Parent Resource Center",
+        "title": "Autism Screening & Evaluation FAQs",
+        "subtitle": "Find answers to common questions about autism signs, online screeners, diagnostic evaluations, ABA therapy, insurance, and next steps for your child.",
+        "findCareButton": "Find Care",
+        "viewLocationsButton": "View Locations",
+        "imageAlt": "Parent and young child engaging in a warm, play-based learning activity"
+      },
+      "faqSection": {
+        "title": "FAQs About Autism Screening, Evaluation, and ABA Therapy",
+        "searchPlaceholder": "Try searching: \"ABA\"",
+        "emptyState": "No FAQs found. Try removing a filter or changing your search.",
+        "resultsLabel": "Showing {count} FAQs"
+      },
+      "newsletter": {
+        "title": "Stay Connected With Our Family Newsletter",
+        "intro": "Get helpful autism resources, therapy tips, family guidance, and Eden ABA updates in your inbox.",
+        "fields": {
+          "firstName": "First Name",
+          "lastName": "Last Name",
+          "email": "Email"
+        },
+        "typeLabel": "Newsletter sign-up type",
+        "types": {
+          "parent": "Parent / Caregiver",
+          "professional": "Professional / Provider"
+        },
+        "consent": "By subscribing, you agree to receive emails from Eden ABA Therapy. You can unsubscribe anytime. We respect your privacy.",
+        "submit": "Join Family Newsletter",
+        "success": "Thank you for subscribing to the Eden ABA Therapy family newsletter."
+      },
+      "cta": {
+        "title": "Your Child Is Accepted Here",
+        "intro": "At Eden ABA Therapy, we provide compassionate, evidence-based ABA therapy for children with autism. Our programs are designed to help children build communication, independence, social, and daily living skills while supporting the whole family.",
+        "autismButton": "Learn More About Autism",
+        "abaButton": "What Is ABA Therapy?",
+        "imageAlt": "Child smiling while playing and learning in a supportive therapy setting"
+      },
+      "linkLabels": {
+        "mchat": "Take the M-CHAT-R screener",
+        "cast": "Take the CAST screener",
+        "ados": "Learn about ADOS-2",
+        "ide": "Learn about IDE evaluations",
+        "insurance": "Insurance & financial assistance",
+        "locations": "View Eden ABA locations",
+        "aba": "What is ABA therapy?",
+        "autism": "Learn about autism",
+        "intake": "Get started with Eden ABA"
+      }
+    }
+  },
+  "insuranceForm": {
+    "secureEyebrow": "Secure insurance request",
+    "title": "Prepare for a brighter future with ABA therapy",
+    "intro": "Complete the secure form below and our team will contact you about insurance benefits and next steps.",
+    "placeholders": {
+      "parentFirstName": "Parent/Guardian First Name *",
+      "parentLastName": "Parent/Guardian Last Name *",
+      "email": "Email *",
+      "phone": "Phone Number *",
+      "childFullName": "Child's Full Name *",
+      "childDob": "Child Date of Birth MM/DD/YYYY *",
+      "zipCode": "ZIP Code *",
+      "insuranceProvider": "Insurance Provider *",
+      "medicaidIdRequired": "Medicaid ID *",
+      "medicaidIdOptional": "Medicaid ID, if applicable"
+    },
+    "insuranceOptions": [
+      "Virginia Medicaid / Cardinal Care",
+      "Private Insurance",
+      "TRICARE",
+      "Other"
+    ],
+    "ssnNotice": "SSN is intentionally not collected here. Add SSN only if legally and compliance approved.",
+    "consent": "I agree to be contacted by Eden ABA Therapy about insurance verification and services.",
+    "errors": {
+      "incomplete": "Please complete all required fields before submitting.",
+      "submitFailed": "Unable to submit insurance request.",
+      "submitRetry": "Unable to submit insurance request. Please try again."
+    },
+    "submitLoading": "Submitting your insurance request...",
+    "submitButton": "Submit Insurance Request",
+    "successMessage": "Insurance request submitted. Eden ABA Therapy will review eligibility and benefits securely.",
+    "scheduleAppointment": "Schedule Appointment",
+    "returnHome": "Return Home"
+  }
+}
