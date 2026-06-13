@@ -1,5 +1,6 @@
 "use client";
 
+import EdenLogo from "@/components/EdenLogo";
 import { INTAKE_EMAIL, INTAKE_PHONE, REQUIRED_DOC_LABELS } from "@/lib/intake/constants";
 
 /**
@@ -12,10 +13,15 @@ export default function DocumentsPanel({ meta, data, onClearDraft }) {
   return (
     <div className="space-y-5">
       <div className="rounded-2xl border border-[#dfe8e2] bg-white p-6 shadow-lg">
-        <h2 className="text-2xl font-black text-[#06461f]">▤ My Documents</h2>
-        <p className="mt-2 text-sm leading-7 text-[#243142]">
-          Document tracking works locally in this browser. Files are selected locally — upload on submit requires secure backend integration (POST /api/intake).
-        </p>
+        <div className="flex items-start gap-4">
+          <EdenLogo size="intakePanel" className="shrink-0" />
+          <div>
+            <h2 className="text-2xl font-black text-[#06461f]">▤ My Documents</h2>
+            <p className="mt-2 text-sm leading-7 text-[#243142]">
+              Document tracking works locally in this browser. Files are selected locally — upload on submit requires secure backend integration (POST /api/intake).
+            </p>
+          </div>
+        </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-[#dfe8e2] bg-[#fbfefc] p-4">
             <b className="block text-2xl text-[#08751f]">{uploaded}</b>

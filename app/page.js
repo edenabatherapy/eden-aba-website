@@ -1,21 +1,43 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import InsuranceVerificationForm from "@/components/InsuranceVerificationForm";
-import MChatScreenerPage from "@/components/MChatScreenerPage";
+import ChildJourneyRoadmap from "@/components/ChildJourneyRoadmap";
+import FamilySupportPathSection from "@/components/FamilySupportPathSection";
+import ImpactDataChartSection from "@/components/sections/ImpactDataChartSection";
+import InsuranceContactLanding from "@/components/sections/InsuranceContactLanding";
+import EdenResourceIntelligenceHub from "@/components/EdenResourceIntelligenceHub";
+import InsuranceMadeSimpleSection from "@/components/InsuranceMadeSimpleSection";
+import ScreenerFormPage from "@/components/ScreenerFormPage";
 import AutismEvaluationPage from "@/components/AutismEvaluationPage";
-import CastScreenerPage from "@/components/CastScreenerPage";
 import CastQuestionnaire from "@/components/CastQuestionnaire";
 import Ados2AssessmentPage from "@/components/Ados2AssessmentPage";
 import IdeEvaluationPage from "@/components/IdeEvaluationPage";
 import AutismScreenerFaqsPage from "@/components/AutismScreenerFaqsPage";
 import ParentGuidancePage from "@/components/ParentGuidancePage";
+import AdmissionsPage from "@/components/AdmissionsPage";
+import OutcomesFamilyStoriesPage from "@/components/OutcomesFamilyStoriesPage";
+import CenterBasedAbaTherapyPage from "@/components/CenterBasedAbaTherapyPage";
+import HomeBasedAbaTherapyPage from "@/components/HomeBasedAbaTherapyPage";
+import CommunityBasedAbaTherapyPage from "@/components/CommunityBasedAbaTherapyPage";
+import VirtualAbaTherapyPage from "@/components/VirtualAbaTherapyPage";
+import ResourcePlaceholderPage from "@/components/ResourcePlaceholderPage";
+import AbaTherapyMegaMenu from "@/components/AbaTherapyMegaMenu";
+import AboutEdenMegaMenu, { aboutEdenDefaultPreview } from "@/components/AboutEdenMegaMenu";
+import CareersMegaMenu, { careersDefaultPreview } from "@/components/CareersMegaMenu";
+import ResourcesMegaMenu, { resourcesDefaultPreview } from "@/components/ResourcesMegaMenu";
 import AdvancedIntakeForm from "@/components/intake/AdvancedIntakeForm";
+import HomepageInterestForm from "@/components/HomepageInterestForm";
+import RecaptchaNotice from "@/components/RecaptchaNotice";
+import EdenLogo from "@/components/EdenLogo";
 import GoogleReviews from "@/components/GoogleReviews";
+import HomepageHero from "@/components/HomepageHero";
 import FooterFindCenter from "@/components/FooterFindCenter";
 import GoogleMapInteractive from "@/components/GoogleMapInteractive";
 import { getButtonClasses } from "@/lib/button-styles";
+import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { getDirectionsUrl } from "@/lib/eden-location";
 import {
   ArrowRight,
@@ -67,12 +89,11 @@ import {
   getEdenLocations,
   getEdenBusinessInfo,
   STORAGE_KEY,
+  DEFAULT_LANGUAGE,
 } from "@/lib/i18n";
-import { handleMenuLink } from "@/lib/navigation";
-import { getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
+import { handleFooterLink, handleMenuLink } from "@/lib/navigation";
+import { applyPageToBrowserUrl, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
-
-const logoPath = "/logo.png";
 
 const brandColors = {
   forest: "#1f7a2e",
@@ -92,9 +113,7 @@ const HEADER_EVAL_ICONS = [ClipboardCheck, Users, ShieldCheck, CalendarDays];
 const IMG = SITE_IMAGES;
 
 
-function LanguageSwitcher({ language, setLanguage }) {
-  const t = getTranslation(language);
-
+function LanguageSwitcher({ language, setLanguage, t, className = "" }) {
   const chooseLanguage = (nextLanguage) => {
     setLanguage(nextLanguage);
     if (typeof window !== "undefined") {
@@ -102,32 +121,36 @@ function LanguageSwitcher({ language, setLanguage }) {
     }
   };
 
+  const buttonClass =
+    "inline-flex h-full min-h-[2.25rem] w-full items-center justify-center rounded-full px-2.5 text-[10px] font-black leading-none transition min-[1280px]:min-h-[2.625rem] min-[1280px]:px-3.5 min-[1280px]:text-xs 2xl:px-4 2xl:text-xs";
+
   return (
-    <div className="flex overflow-hidden rounded-full border border-[#49b8c8]/40 bg-white p-1 shadow-lg shadow-[#128c8c]/10">
-      <button type="button" onClick={() => chooseLanguage("en")} aria-pressed={language === "en"} className={`rounded-full px-4 py-2 text-xs font-black transition ${language === "en" ? "bg-[#1f7a2e] text-white" : "text-[#0b4f4f] hover:bg-[#49b8c8]/10"}`}>
-        {t.english}
+    <div
+      className={`grid h-10 w-[10rem] shrink-0 grid-cols-2 gap-0 overflow-hidden rounded-full border border-[#49b8c8]/40 bg-white p-0.5 font-sans shadow-lg shadow-[#128c8c]/10 lg:w-[10.5rem] min-[1280px]:h-11 min-[1280px]:w-[11rem] min-[1280px]:p-1 2xl:w-[13rem] ${className}`}
+      role="group"
+      aria-label={t?.languageLabel || "Language"}
+      suppressHydrationWarning
+    >
+      <button
+        type="button"
+        onClick={() => chooseLanguage("en")}
+        aria-pressed={language === "en"}
+        lang="en"
+        className={`${buttonClass} ${language === "en" ? "bg-[#1f7a2e] text-white" : "text-[#0b4f4f] hover:bg-[#49b8c8]/10"}`}
+      >
+        {t?.english || "English"}
       </button>
-      <button type="button" onClick={() => chooseLanguage("vi")} aria-pressed={language === "vi"} className={`rounded-full px-4 py-2 text-xs font-black transition ${language === "vi" ? "bg-[#1f7a2e] text-white" : "text-[#0b4f4f] hover:bg-[#49b8c8]/10"}`}>
-        {t.vietnamese}
+      <button
+        type="button"
+        onClick={() => chooseLanguage("vi")}
+        aria-pressed={language === "vi"}
+        lang="vi"
+        className={`${buttonClass} ${language === "vi" ? "bg-[#1f7a2e] text-white" : "text-[#0b4f4f] hover:bg-[#49b8c8]/10"}`}
+      >
+        Tiếng Việt
       </button>
     </div>
   );
-}
-
-function LogoImage({ t, alt, className = "h-14 w-auto" }) {
-  const [failed, setFailed] = useState(false);
-  const altText = alt || t?.logo?.alt || t?.logo?.defaultAlt || "Eden ABA Therapy";
-
-  if (failed) {
-    return (
-      <div className={`grid place-items-center rounded-2xl bg-white px-4 py-2 text-center font-black leading-tight text-emerald-800 shadow-sm ${className}`}>
-        <span className="text-sm">{t?.logo?.fallbackLine1 || "EDEN"}</span>
-        <span className="text-[10px] tracking-wide">{t?.logo?.fallbackLine2 || "ABA THERAPY"}</span>
-      </div>
-    );
-  }
-
-  return <img src={logoPath} alt={altText} className={className} onError={() => setFailed(true)} />;
 }
 
 function Button({ children, variant = "primary", className = "", type = "button", ...props }) {
@@ -189,163 +212,385 @@ function InfoCard({ Icon, title, text }) {
   );
 }
 
+function parseMenuLinkEntry(displayEntry, enEntry) {
+  const enMeta = typeof enEntry === "object" && enEntry !== null ? enEntry : null;
+  const displayMeta = typeof displayEntry === "object" && displayEntry !== null ? displayEntry : null;
+
+  return {
+    key: enMeta?.key || enMeta?.label || enEntry,
+    displayLabel: displayMeta?.label || displayEntry,
+    badge: enMeta?.badge || null,
+    comingSoon: Boolean(enMeta?.comingSoon),
+  };
+}
+
+function MenuLinkBadge({ badge }) {
+  if (!badge) return null;
+
+  return (
+    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold leading-snug tracking-wide text-emerald-700/80">
+      {badge}
+    </span>
+  );
+}
+
+function buildMenuDisplayTitleResolver(menuGroup, enGroup) {
+  const titleByEnglishLabel = {};
+  const column = menuGroup?.columns?.[0];
+  const enColumn = enGroup?.columns?.[0];
+
+  if (!column || !enColumn) {
+    return (item) => item.title;
+  }
+
+  column.links.forEach((link, linkIdx) => {
+    const enLink = enColumn.links[linkIdx];
+    const englishLabel = typeof enLink === "object" && enLink !== null ? enLink.label : enLink;
+    const displayLabel = typeof link === "object" && link !== null ? link.label : link;
+    titleByEnglishLabel[englishLabel] = displayLabel;
+  });
+
+  return (item) => titleByEnglishLabel[item.title] || item.title;
+}
+
+function buildAbaDisplayTitleResolver(menuGroup, enGroup) {
+  return buildMenuDisplayTitleResolver(menuGroup, enGroup);
+}
+
+function buildSectionTitleResolver(menuGroup, enGroup) {
+  const titleByEnglishSection = {};
+  enGroup?.columns?.forEach((enCol, idx) => {
+    titleByEnglishSection[enCol.title] = menuGroup?.columns?.[idx]?.title ?? enCol.title;
+  });
+  return (enSectionTitle) => titleByEnglishSection[enSectionTitle] ?? enSectionTitle;
+}
+
 function Header({ onStart, onNavigate, language, setLanguage }) {
   const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const t = getTranslation(language);
   const menuItems = getMenu(language);
   const enMenu = getMenu("en");
   const evalHeader = t.headerEvaluation;
 
-  const onMenuLink = (enLinkLabel) => {
-    handleMenuLink(enLinkLabel, { onNavigate, onStart });
-  };
-
-  const goHome = () => {
-    onNavigate?.("home");
+  const closeMenus = () => {
+    setOpenDropdown(null);
     setOpen(false);
   };
 
+  const navigate = (page, options) => {
+    onNavigate?.(page, options);
+    closeMenus();
+  };
+
+  const onMenuLink = (enLinkLabel) => {
+    handleMenuLink(enLinkLabel, {
+      onNavigate: navigate,
+      onStart: () => {
+        onStart?.();
+        closeMenus();
+      },
+    });
+  };
+
+  const goHome = () => {
+    navigate("home");
+  };
+
+  const toggleDropdown = (menuKey) => {
+    setOpenDropdown((current) => (current === menuKey ? null : menuKey));
+  };
+
+  useEffect(() => {
+    if (!openDropdown) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (event.target.closest("[data-nav-menu]")) return;
+      setOpenDropdown(null);
+    };
+    const handleEscape = (event) => {
+      if (event.key === "Escape") setOpenDropdown(null);
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [openDropdown]);
+
+  const navItemClass =
+    "shrink-0 whitespace-nowrap rounded-full px-1.5 py-1.5 text-[10px] font-extrabold leading-tight text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800 lg:px-2 lg:py-1.5 lg:text-[11px] xl:px-2.5 xl:text-xs 2xl:px-3 2xl:py-2 2xl:text-sm";
+
+  const abaMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "ABA Therapy");
+  const abaEnGroup = enMenu.find((group) => group.label === "ABA Therapy");
+  const getAbaDisplayTitle = buildAbaDisplayTitleResolver(abaMenuGroup, abaEnGroup);
+  const abaServicesLabel = abaMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "SERVICES";
+
+  const aboutMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "About Eden");
+  const aboutEnGroup = enMenu.find((group) => group.label === "About Eden");
+  const getAboutDisplayTitle = buildMenuDisplayTitleResolver(aboutMenuGroup, aboutEnGroup);
+  const aboutSectionLabel = aboutMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "ABOUT EDEN";
+  const aboutDefaultDescription =
+    t.aboutEdenMegaMenuDefaultDescription || aboutEdenDefaultPreview.description;
+
+  const careersMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "Careers");
+  const careersEnGroup = enMenu.find((group) => group.label === "Careers");
+  const getCareersDisplayTitle = buildMenuDisplayTitleResolver(careersMenuGroup, careersEnGroup);
+  const careersSectionLabel = careersMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "CAREERS";
+  const careersDefaultDescription =
+    t.careersMegaMenuDefaultDescription || careersDefaultPreview.description;
+  const careersDefaultTitle =
+    t.careersMegaMenuDefaultTitle || careersDefaultPreview.title;
+
+  const resourcesMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "Resources");
+  const resourcesEnGroup = enMenu.find((group) => group.label === "Resources");
+  const getResourcesDisplayTitle = buildMenuDisplayTitleResolver(resourcesMenuGroup, resourcesEnGroup);
+  const getResourcesSectionTitle = buildSectionTitleResolver(resourcesMenuGroup, resourcesEnGroup);
+  const resourcesDefaultDescription =
+    t.resourcesMegaMenuDefaultDescription || resourcesDefaultPreview.description;
+  const resourcesDefaultTitle =
+    t.resourcesMegaMenuDefaultTitle || resourcesDefaultPreview.title;
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#49b8c8]/20 bg-white/92 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
-        <button type="button" onClick={goHome} className="flex items-center gap-3 text-left transition hover:opacity-90">
-          <LogoImage t={t} className="h-14 w-auto" />
-          <div className="hidden sm:block">
-            <p className="text-lg font-black tracking-tight text-[#1f7a2e]">{t.brandName}</p>
-            <p className="text-xs font-bold text-[#128c8c]">{t.brandTagline}</p>
+      <div className="mx-auto grid w-full max-w-[100rem] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 px-3 py-2.5 sm:gap-x-3 sm:px-4 lg:gap-x-4 lg:px-5 xl:px-6 2xl:gap-x-5 2xl:px-8">
+        {/* LEFT — logo + brand */}
+        <button
+          type="button"
+          onClick={goHome}
+          className="flex shrink-0 items-center gap-1.5 pr-1 text-left transition hover:opacity-90 sm:gap-2 sm:pr-2 lg:pr-3"
+          aria-label="Eden ABA Therapy home"
+        >
+          <EdenLogo size="compact" priority className="h-8 max-h-8 shrink-0 lg:h-9 lg:max-h-9 2xl:h-10 2xl:max-h-10" />
+          <div className="hidden min-w-0 sm:block">
+            <p className="truncate text-xs font-black leading-tight tracking-tight text-[#1f7a2e] 2xl:text-base">
+              {t.brandName}
+            </p>
+            <p className="truncate text-[9px] font-bold leading-tight text-[#128c8c] 2xl:text-[11px]">
+              {t.brandTagline}
+            </p>
           </div>
         </button>
 
-        <nav className="hidden items-center gap-1 xl:flex">
-          <button
-            type="button"
-            onClick={goHome}
-            className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-extrabold text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800"
-          >
-            {t.navHome}
-          </button>
-          {menuItems.map((group, groupIdx) => {
-            const enGroup = enMenu[groupIdx];
-            const isLocations = enGroup?.label === "Locations";
+        {/* CENTER — Home + main navigation */}
+        <nav
+          className="relative z-0 hidden min-w-0 items-center justify-center lg:flex"
+          aria-label="Main navigation"
+        >
+          <div className="flex max-w-full flex-nowrap items-center justify-center gap-1 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
+            <button type="button" onClick={goHome} className={navItemClass}>
+              {t.navHome}
+            </button>
+            {menuItems.map((group, groupIdx) => {
+              const enGroup = enMenu[groupIdx];
+              const menuKey = enGroup?.label || group.label;
+              const isLocations = enGroup?.label === "Locations";
+              const isAbaTherapy = enGroup?.label === "ABA Therapy";
+              const isAboutEden = enGroup?.label === "About Eden";
+              const isCareers = enGroup?.label === "Careers";
+              const isResources = enGroup?.label === "Resources";
+              const isMegaMenu = isAbaTherapy || isAboutEden || isCareers || isResources;
+              const isDropdownOpen = openDropdown === menuKey;
+              const dropdownPanelClass = isDropdownOpen
+                ? "visible translate-y-0 opacity-100"
+                : "invisible translate-y-2 opacity-0";
 
-            return (
-              <div key={group.label} className="group relative">
-                {isLocations ? (
-                  <button
-                    type="button"
-                    onClick={() => onNavigate?.("locations")}
-                    className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-extrabold text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800"
-                  >
-                    {group.label}
-                  </button>
-                ) : (
-                  <button className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-extrabold text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800 group-hover:bg-emerald-50 group-hover:text-emerald-900">
-                    {group.label}
-                    <ChevronDown size={15} />
-                  </button>
-                )}
+              return (
+                <div key={group.label} className="group relative shrink-0" data-nav-menu>
+                  {isLocations ? (
+                    <button
+                      type="button"
+                      onClick={() => navigate("locations")}
+                      className={`flex items-center gap-0.5 ${navItemClass}`}
+                    >
+                      {group.label}
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown(menuKey)}
+                      aria-expanded={isDropdownOpen}
+                      aria-haspopup="true"
+                      className={`flex items-center gap-0.5 ${navItemClass} group-hover:bg-emerald-50 group-hover:text-emerald-900 ${isDropdownOpen ? "bg-emerald-50 text-emerald-900" : ""}`}
+                    >
+                      {group.label}
+                      <ChevronDown size={12} className="shrink-0 opacity-70 2xl:size-[14px]" />
+                    </button>
+                  )}
 
-                {!isLocations && (
-                  <div className="invisible absolute left-1/2 top-12 w-[560px] -translate-x-1/2 translate-y-3 rounded-[1.4rem] border border-slate-100 bg-white p-5 opacity-0 shadow-2xl shadow-slate-900/10 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    <div className="grid gap-5 md:grid-cols-2">
-                      {group.type === "evaluation" && (
-                        <div className="overflow-hidden rounded-[1.8rem] bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-700 text-white shadow-xl">
-                          <div className="border-b border-white/10 p-5">
-                            <p className="text-xs font-black uppercase tracking-[0.25em] text-emerald-100">
-                              {evalHeader.eyebrow}
-                            </p>
-                            <h3 className="mt-3 text-2xl font-black leading-tight">
-                              {evalHeader.title}
-                            </h3>
-                            <p className="mt-3 text-sm leading-6 text-emerald-50">
-                              {evalHeader.text}
-                            </p>
+                  {!isLocations && (
+                    <div
+                      className={`absolute left-1/2 top-[calc(100%+0.25rem)] z-50 -translate-x-1/2 transition-all group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${dropdownPanelClass} ${
+                        isMegaMenu ? "w-auto" : "w-[560px] rounded-[1.4rem] border border-slate-100 bg-white p-5 shadow-2xl shadow-slate-900/10"
+                      }`}
+                    >
+                      {isAbaTherapy ? (
+                        <AbaTherapyMegaMenu
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          getDisplayTitle={getAbaDisplayTitle}
+                          servicesLabel={abaServicesLabel}
+                        />
+                      ) : isAboutEden ? (
+                        <AboutEdenMegaMenu
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          onStart={() => onStart()}
+                          getDisplayTitle={getAboutDisplayTitle}
+                          sectionLabel={aboutSectionLabel}
+                          defaultTitle={aboutMenuGroup?.label || "About Eden"}
+                          defaultPreview={{
+                            ...aboutEdenDefaultPreview,
+                            description: aboutDefaultDescription,
+                          }}
+                        />
+                      ) : isCareers ? (
+                        <CareersMegaMenu
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          getDisplayTitle={getCareersDisplayTitle}
+                          sectionLabel={careersSectionLabel}
+                          defaultTitle={careersDefaultTitle}
+                          defaultPreview={{
+                            ...careersDefaultPreview,
+                            description: careersDefaultDescription,
+                          }}
+                        />
+                      ) : isResources ? (
+                        <ResourcesMegaMenu
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          getDisplayTitle={getResourcesDisplayTitle}
+                          getSectionTitle={getResourcesSectionTitle}
+                          defaultTitle={resourcesDefaultTitle}
+                          defaultPreview={{
+                            ...resourcesDefaultPreview,
+                            description: resourcesDefaultDescription,
+                          }}
+                        />
+                      ) : (
+                        <div className="grid gap-5 md:grid-cols-2">
+                        {group.type === "evaluation" && (
+                          <div className="overflow-hidden rounded-[1.8rem] bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-700 text-white shadow-xl">
+                            <div className="border-b border-white/10 p-5">
+                              <p className="text-xs font-black uppercase tracking-[0.25em] text-emerald-100">
+                                {evalHeader.eyebrow}
+                              </p>
+                              <h3 className="mt-3 text-2xl font-black leading-tight">{evalHeader.title}</h3>
+                              <p className="mt-3 text-sm leading-6 text-emerald-50">{evalHeader.text}</p>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3 p-5">
+                              {evalHeader.cards.map(([cardTitle, cardText], cardIdx) => {
+                                const Icon = HEADER_EVAL_ICONS[cardIdx];
+                                const isScheduling = cardIdx === 3;
+                                const isParentGuidance = cardIdx === 1;
+                                const cardBody = (
+                                  <>
+                                    <Icon className="text-yellow-300" size={26} />
+                                    <p className="mt-3 text-sm font-black">{cardTitle}</p>
+                                    <p className="mt-1 text-xs text-emerald-50">{cardText}</p>
+                                  </>
+                                );
+                                return isScheduling ? (
+                                  <button
+                                    key={cardTitle}
+                                    type="button"
+                                    onClick={() => navigate("autism-assessment")}
+                                    className="rounded-2xl bg-white/10 p-4 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                                  >
+                                    {cardBody}
+                                  </button>
+                                ) : isParentGuidance ? (
+                                  <button
+                                    key={cardTitle}
+                                    type="button"
+                                    onClick={() => navigate("parent-guidance")}
+                                    className="rounded-2xl bg-white/10 p-4 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                                  >
+                                    {cardBody}
+                                  </button>
+                                ) : (
+                                  <div key={cardTitle} className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+                                    {cardBody}
+                                  </div>
+                                );
+                              })}
+                            </div>
                           </div>
+                        )}
 
-                          <div className="grid grid-cols-2 gap-3 p-5">
-                            {evalHeader.cards.map(([cardTitle, cardText], cardIdx) => {
-                              const Icon = HEADER_EVAL_ICONS[cardIdx];
-                              const isScheduling = cardIdx === 3;
-                              const isParentGuidance = cardIdx === 1;
-                              const cardBody = (
-                                <>
-                                  <Icon className="text-yellow-300" size={26} />
-                                  <p className="mt-3 text-sm font-black">{cardTitle}</p>
-                                  <p className="mt-1 text-xs text-emerald-50">{cardText}</p>
-                                </>
-                              );
-                              return isScheduling ? (
+                        {group.columns.map((col, colIdx) => (
+                          <div key={col.title}>
+                            <p className="mb-2 border-b border-slate-100 pb-2 text-xs font-black uppercase tracking-widest text-slate-500">
+                              {col.title}
+                            </p>
+
+                            {col.links.map((link, linkIdx) => {
+                              const enLink = enGroup.columns[colIdx].links[linkIdx];
+                              const { key, displayLabel, badge, comingSoon } = parseMenuLinkEntry(link, enLink);
+
+                              if (comingSoon) {
+                                return (
+                                  <div
+                                    key={key}
+                                    aria-disabled="true"
+                                    className="block w-full cursor-default rounded-xl px-2 py-2.5 text-left"
+                                  >
+                                    <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                      <span className="text-sm font-black text-slate-600">{displayLabel}</span>
+                                      <MenuLinkBadge badge={badge} />
+                                    </span>
+                                  </div>
+                                );
+                              }
+
+                              return (
                                 <button
-                                  key={cardTitle}
+                                  key={key}
                                   type="button"
-                                  onClick={() => onNavigate?.("autism-assessment")}
-                                  className="rounded-2xl bg-white/10 p-4 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                                  onClick={() => onMenuLink(enLink)}
+                                  className="block w-full rounded-xl px-2 py-2.5 text-left text-sm font-black text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800"
                                 >
-                                  {cardBody}
+                                  {displayLabel}
                                 </button>
-                              ) : isParentGuidance ? (
-                                <button
-                                  key={cardTitle}
-                                  type="button"
-                                  onClick={() => onNavigate?.("parent-guidance")}
-                                  className="rounded-2xl bg-white/10 p-4 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-                                >
-                                  {cardBody}
-                                </button>
-                              ) : (
-                                <div key={cardTitle} className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-                                  {cardBody}
-                                </div>
                               );
                             })}
                           </div>
+                        ))}
                         </div>
                       )}
-
-                      {group.columns.map((col, colIdx) => (
-                        <div key={col.title}>
-                          <p className="mb-2 border-b border-slate-100 pb-2 text-xs font-black uppercase tracking-widest text-slate-500">
-                            {col.title}
-                          </p>
-
-                          {col.links.map((link, linkIdx) => {
-                            const enLink = enGroup.columns[colIdx].links[linkIdx];
-                            return (
-                              <button
-                                key={enLink}
-                                type="button"
-                                onClick={() => onMenuLink(enLink)}
-                                className="block w-full rounded-xl px-2 py-2.5 text-left text-sm font-black text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800"
-                              >
-                                {link}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      ))}
                     </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </nav>
 
-        <div className="hidden items-center gap-3 xl:flex">
-          <Button onClick={() => onStart()}>
-            {t.startABA} <ArrowRight size={16} />
-          </Button>
-          <LanguageSwitcher language={language} setLanguage={setLanguage} />
-        </div>
+        {/* RIGHT — language (desktop) / menu toggle (mobile) */}
+        <div className="flex shrink-0 items-center justify-end gap-2">
+          <div className="hidden lg:flex">
+            <LanguageSwitcher language={language} setLanguage={setLanguage} t={t} />
+          </div>
 
-        <button onClick={() => setOpen(!open)} className="rounded-full border border-emerald-100 p-2 xl:hidden">
-          {open ? <X /> : <Menu />}
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            className="rounded-full border border-emerald-100 p-2 lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X /> : <Menu />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
         {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden border-t border-emerald-100 bg-white xl:hidden">
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden border-t border-emerald-100 bg-white lg:hidden"
+          >
             <div className="grid gap-2 p-4">
               <button
                 type="button"
@@ -357,14 +602,17 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
               {menuItems.map((group, groupIdx) => {
                 const enGroup = enMenu[groupIdx];
                 const isLocations = enGroup?.label === "Locations";
+                const isAbaTherapy = enGroup?.label === "ABA Therapy";
+                const isAboutEden = enGroup?.label === "About Eden";
+                const isCareers = enGroup?.label === "Careers";
+                const isResources = enGroup?.label === "Resources";
 
                 return isLocations ? (
                   <button
                     key={group.label}
                     type="button"
                     onClick={() => {
-                      onNavigate?.("locations");
-                      setOpen(false);
+                      navigate("locations");
                     }}
                     className="rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950"
                   >
@@ -373,269 +621,114 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
                 ) : (
                   <details key={group.label} className="rounded-2xl bg-emerald-50/50 p-3">
                     <summary className="cursor-pointer font-black text-emerald-950">{group.label}</summary>
-                    {group.columns.flatMap((col, colIdx) =>
-                      col.links.map((link, linkIdx) => {
-                        const enLink = enGroup.columns[colIdx].links[linkIdx];
-                        return (
-                          <button
-                            key={enLink}
-                            type="button"
-                            onClick={() => {
-                              onMenuLink(enLink);
-                              setOpen(false);
-                            }}
-                            className="block w-full py-2 pl-3 text-left text-sm font-semibold text-slate-700"
-                          >
-                            {link}
-                          </button>
-                        );
-                      })
+                    {isAbaTherapy ? (
+                      <div className="pt-3">
+                        <AbaTherapyMegaMenu
+                          variant="mobile"
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          getDisplayTitle={getAbaDisplayTitle}
+                          servicesLabel={abaServicesLabel}
+                          onClose={() => setOpen(false)}
+                        />
+                      </div>
+                    ) : isAboutEden ? (
+                      <div className="pt-3">
+                        <AboutEdenMegaMenu
+                          variant="mobile"
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          onStart={() => {
+                            onStart();
+                            setOpen(false);
+                          }}
+                          getDisplayTitle={getAboutDisplayTitle}
+                          sectionLabel={aboutSectionLabel}
+                          defaultTitle={aboutMenuGroup?.label || "About Eden"}
+                          defaultPreview={{
+                            ...aboutEdenDefaultPreview,
+                            description: aboutDefaultDescription,
+                          }}
+                          onClose={() => setOpen(false)}
+                        />
+                      </div>
+                    ) : isCareers ? (
+                      <div className="pt-3">
+                        <CareersMegaMenu
+                          variant="mobile"
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          getDisplayTitle={getCareersDisplayTitle}
+                          sectionLabel={careersSectionLabel}
+                          defaultTitle={careersDefaultTitle}
+                          defaultPreview={{
+                            ...careersDefaultPreview,
+                            description: careersDefaultDescription,
+                          }}
+                          onClose={() => setOpen(false)}
+                        />
+                      </div>
+                    ) : isResources ? (
+                      <div className="pt-3">
+                        <ResourcesMegaMenu
+                          variant="mobile"
+                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+                          getDisplayTitle={getResourcesDisplayTitle}
+                          getSectionTitle={getResourcesSectionTitle}
+                          defaultTitle={resourcesDefaultTitle}
+                          defaultPreview={{
+                            ...resourcesDefaultPreview,
+                            description: resourcesDefaultDescription,
+                          }}
+                          onClose={() => setOpen(false)}
+                        />
+                      </div>
+                    ) : (
+                      group.columns.flatMap((col, colIdx) =>
+                        col.links.map((link, linkIdx) => {
+                          const enLink = enGroup.columns[colIdx].links[linkIdx];
+                          const { key, displayLabel, badge, comingSoon } = parseMenuLinkEntry(link, enLink);
+
+                          if (comingSoon) {
+                            return (
+                              <div
+                                key={key}
+                                aria-disabled="true"
+                                className="block w-full cursor-default py-2 pl-3 text-left"
+                              >
+                                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                  <span className="text-sm font-semibold text-slate-600">{displayLabel}</span>
+                                  <MenuLinkBadge badge={badge} />
+                                </span>
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <button
+                              key={key}
+                              type="button"
+                              onClick={() => {
+                                onMenuLink(enLink);
+                                setOpen(false);
+                              }}
+                              className="block w-full py-2 pl-3 text-left text-sm font-semibold text-slate-700"
+                            >
+                              {displayLabel}
+                            </button>
+                          );
+                        }),
+                      )
                     )}
                   </details>
                 );
               })}
 
               <div className="mt-3 flex justify-center">
-                <LanguageSwitcher language={language} setLanguage={setLanguage} />
+                <LanguageSwitcher language={language} setLanguage={setLanguage} t={t} />
               </div>
-
-              <Button onClick={() => onStart()} className="mt-2 w-full">
-                {t.startABA}
-              </Button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
-  );
-}
-
-function LocationSearchBox({ onStart, onFindCare, t }) {
-  const [query, setQuery] = useState("");
-
-  const openLocationsPage = () => {
-    if (typeof onFindCare === "function") {
-      onFindCare(query);
-    }
-
-    if (typeof window !== "undefined") {
-      window.location.hash = "locations";
-      window.dispatchEvent(new CustomEvent("eden:navigate", { detail: "locations" }));
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    openLocationsPage();
-  };
-
-  return (
-    <div className="mt-10 max-w-4xl rounded-[2rem] bg-white p-6 shadow-2xl shadow-[#128c8c]/10 ring-1 ring-[#49b8c8]/30">
-      <form onSubmit={handleSubmit}>
-        <label className="mb-4 block text-lg font-black text-[#0b4f4f]">{t.finderTitle}</label>
-        <div className="grid gap-3 md:grid-cols-[1fr_auto]">
-          <div className="relative">
-            <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-emerald-600" size={22} />
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              className="w-full rounded-full border border-slate-200 bg-slate-50 py-4 pl-14 pr-5 text-base font-bold text-slate-800 outline-none transition focus:border-emerald-500 focus:bg-white focus:ring-4 focus:ring-emerald-100"
-              placeholder={t.finderPlaceholder}
-            />
-          </div>
-          <a
-            href="#locations"
-            onClick={(event) => {
-              event.preventDefault();
-              event.stopPropagation();
-              openLocationsPage();
-            }}
-            className="inline-flex items-center justify-center rounded-full bg-[#1f7a2e] px-8 py-4 font-black text-white shadow-lg shadow-[#128c8c]/20 transition hover:bg-[#ff8a1f]"
-          >
-            {t.findCare} <ArrowRight className="ml-2 inline" size={18} />
-          </a>
-        </div>
-      </form>
-
-      <div className="mt-5 flex flex-wrap gap-5 text-sm font-bold text-slate-600">
-        <button type="button" onClick={onStart} className="inline-flex items-center gap-2 hover:text-emerald-700">
-          <CheckCircle2 size={16} className="text-emerald-600" /> {t.abaRightForMe}
-        </button>
-        <button type="button" onClick={onStart} className="inline-flex items-center gap-2 hover:text-emerald-700">
-          <CheckCircle2 size={16} className="text-emerald-600" /> {t.asdSupport}
-        </button>
-      </div>
-    </div>
-  );
-}
-
-function AutismAwarenessCounter({ t }) {
-  const a = t.pages.autismAwareness;
-  const s = a.stats;
-  const [now, setNow] = useState(null);
-
-  useEffect(() => {
-    setNow(new Date());
-    const timer = window.setInterval(() => setNow(new Date()), 1000);
-    return () => window.clearInterval(timer);
-  }, []);
-
-  if (!now) {
-    return (
-      <section className="relative overflow-hidden bg-[#eef9f4] px-4 py-20 lg:px-8">
-        <div className="relative mx-auto max-w-5xl text-center">
-          <h2 className="text-4xl font-black italic tracking-tight text-[#128c8c] md:text-5xl">
-            {a.title}
-          </h2>
-        </div>
-      </section>
-    );
-  }
-
-  const midnight = new Date(now);
-  midnight.setHours(0, 0, 0, 0);
-  const secondsToday = Math.max(0, Math.floor((now.getTime() - midnight.getTime()) / 1000));
-  const minutesToday = secondsToday / 60;
-  const birthsToday = Math.floor(minutesToday * 7);
-  const estimatedAutismPrevalence = Math.floor(birthsToday / 31);
-  const dayProgress = Math.min(100, (secondsToday / 86400) * 100);
-  const timeLabel = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit", second: "2-digit" });
-
-  return (
-    <section className="relative overflow-hidden bg-[#eef9f4] px-4 py-20 lg:px-8">
-      <div className="absolute -left-20 top-16 h-72 w-72 rounded-full bg-[#49b8c8]/20 blur-3xl" />
-      <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-[#f7c72f]/25 blur-3xl" />
-
-      {/* TODO: Replace with final brand photo — warm family-focused autism care decoration. */}
-      <img
-        src={IMG.home.awarenessDecoLeft}
-        alt={a.imageAlts.childActivity}
-        className="pointer-events-none absolute left-6 top-24 hidden h-40 w-40 rounded-full object-cover opacity-70 shadow-2xl ring-8 ring-white lg:block xl:h-52 xl:w-52"
-      />
-      {/* TODO: Replace with final brand photo — therapist supporting child in welcoming environment. */}
-      <img
-        src={IMG.home.awarenessDecoRight}
-        alt={a.imageAlts.therapistSupport}
-        className="pointer-events-none absolute right-8 bottom-24 hidden h-40 w-40 rounded-full object-cover opacity-70 shadow-2xl ring-8 ring-white lg:block xl:h-52 xl:w-52"
-      />
-
-      <div className="relative mx-auto max-w-5xl text-center">
-        <div className="mx-auto inline-flex rounded-full border border-[#49b8c8]/40 bg-white px-5 py-3 text-sm font-black text-[#128c8c] shadow-lg shadow-[#128c8c]/10">
-          {a.cdcBadge}
-        </div>
-
-        <h2 className="mt-7 text-4xl font-black italic tracking-tight text-[#128c8c] md:text-5xl">
-          {a.title}
-        </h2>
-        <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-slate-700">
-          {a.intro}
-        </p>
-        <p className="mt-4 text-base font-black text-[#1f7a2e]">
-          {a.tagline}
-        </p>
-        <p className="mt-5 text-2xl font-black text-[#128c8c]">
-          {a.currentTimePrefix} {timeLabel}
-        </p>
-
-        <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-[1.8rem] bg-white p-7 shadow-xl shadow-[#128c8c]/10">
-            <p className="text-base font-bold text-slate-700">{s.birthsToday.label}</p>
-            <p className="mt-4 text-5xl font-black text-[#128c8c]">{birthsToday.toLocaleString()}</p>
-            <p className="mt-3 text-sm font-semibold leading-6 text-slate-500">{s.birthsToday.note}</p>
-          </div>
-
-          <div className="rounded-[1.8rem] bg-white p-7 shadow-xl shadow-[#128c8c]/10">
-            <p className="text-base font-bold text-slate-700">{s.prevalence.label}</p>
-            <p className="mt-4 text-5xl font-black text-[#128c8c]">{estimatedAutismPrevalence.toLocaleString()}</p>
-            <p className="mt-3 text-sm font-semibold leading-6 text-slate-500">{s.prevalence.note}</p>
-          </div>
-
-          <div className="rounded-[1.8rem] bg-white p-7 shadow-xl shadow-[#128c8c]/10">
-            <p className="text-base font-bold text-slate-700">{s.birthsPerMinute.label}</p>
-            <p className="mt-4 text-5xl font-black text-[#128c8c]">{s.birthsPerMinute.value}</p>
-            <p className="mt-3 text-sm font-semibold leading-6 text-slate-500">{s.birthsPerMinute.note}</p>
-          </div>
-
-          <div className="rounded-[1.8rem] bg-white p-7 shadow-xl shadow-[#128c8c]/10">
-            <p className="text-base font-bold text-slate-700">{s.earlySupport.label}</p>
-            <p className="mt-4 text-3xl font-black leading-tight text-[#128c8c]">{s.earlySupport.value}</p>
-            <div className="mt-4 grid gap-1 text-sm font-semibold text-slate-600">
-              {s.earlySupport.items.map((item) => <span key={item}>{item}</span>)}
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-8 max-w-4xl rounded-[1.8rem] bg-white p-6 shadow-xl shadow-[#128c8c]/10">
-          <p className="font-black text-[#0b4f4f]">{a.dayProgress}</p>
-          <div className="mt-4 h-4 overflow-hidden rounded-full bg-slate-200">
-            <div className="h-full rounded-full bg-gradient-to-r from-[#1f7a2e] via-[#128c8c] to-[#f7c72f] transition-all duration-500" style={{ width: `${dayProgress}%` }} />
-          </div>
-          <p className="mt-3 text-sm font-semibold text-slate-500">{dayProgress.toFixed(1)}{a.dayProgressSuffix}</p>
-        </div>
-
-        <div className="mx-auto mt-8 max-w-4xl rounded-[1.8rem] bg-white p-7 shadow-xl shadow-[#128c8c]/10">
-          <h3 className="font-black text-[#0b4f4f]">{a.factTitle}</h3>
-          <p className="mt-3 text-base font-semibold leading-7 text-slate-700">
-            {a.factText}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Hero({ onStart, onFindCare, language }) {
-  const t = getTranslation(language);
-  const animatedWords = t.hero.animatedWords;
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setWordIndex((current) => (current + 1) % animatedWords.length);
-    }, 2000);
-
-    return () => window.clearInterval(interval);
-  }, [animatedWords.length]);
-  return (
-    <section id="top" className="relative overflow-hidden bg-gradient-to-br from-[#fff8df] via-white to-[#49b8c8]/15">
-      <div className="absolute right-0 top-0 h-[34rem] w-[34rem] rounded-full bg-[#f7c72f]/35 blur-3xl" />
-      <div className="absolute -left-32 bottom-0 h-[32rem] w-[32rem] rounded-full bg-[#49b8c8]/35 blur-3xl" />
-      <div className="absolute left-1/2 top-28 h-40 w-40 -translate-x-1/2 rounded-full bg-[#ff8a1f]/20 blur-2xl" />
-      <div className="mx-auto max-w-5xl px-4 py-20 lg:px-8 lg:py-28 text-center">
-        <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mx-auto max-w-4xl">
-          
-          <h1 className="text-5xl font-black leading-[0.95] tracking-tight text-[#0b4f4f] md:text-7xl">
-            <span className="block">{t.hero.line1}</span>
-            <span className="block">{t.hero.line2}</span>
-            <span className="inline-flex items-baseline justify-center text-[#1f7a2e]">
-              <span className="relative inline-flex min-w-[7.5ch] items-baseline justify-center align-baseline">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={animatedWords[wordIndex]}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
-                    className="inline-block leading-[0.95]"
-                  >
-                    {animatedWords[wordIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-            </span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg font-semibold leading-8 text-slate-700">
-            {t.hero.subtitle}
-          </p>
-          <div className="mx-auto mt-10 max-w-3xl">
-            <LocationSearchBox onStart={onStart} onFindCare={onFindCare} t={t} />
-          </div>
-        </motion.div>
-
-        
-      </div>
-    </section>
   );
 }
 
@@ -734,9 +827,11 @@ function LocationsPage({ t, onStart }) {
       <section className="bg-[#f7f7f7] px-4 py-14 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {view === "map" ? (
-            <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
-              <GoogleMapInteractive t={t} address={location.address} title={pl.annandaleMapTitle} className="h-[320px] w-full sm:h-[420px] md:h-[560px]" />
-            </div>
+            <GoogleMapInteractive
+              t={t}
+              address={location.address}
+              title={pl.annandaleMapTitle}
+            />
           ) : (
             <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
               <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-900/5">
@@ -798,9 +893,11 @@ function LocationsPage({ t, onStart }) {
                 </div>
               </article>
 
-              <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
-                <GoogleMapInteractive t={t} address={location.address} title={pl.annandaleMapTitle} className="h-full min-h-[320px] w-full sm:min-h-[420px] md:min-h-[520px]" />
-              </div>
+              <GoogleMapInteractive
+                t={t}
+                address={location.address}
+                title={pl.annandaleMapTitle}
+              />
             </div>
           )}
         </div>
@@ -1180,7 +1277,7 @@ function ABATherapyEducationPage({ t, onStart }) {
   const firstNinetyDays = p.firstNinetyDays.phases;
   const abaMyths = p.mythsFacts.items;
   const parentQuestions = p.parentQuestions.items;
-  const RELATED_RESOURCE_ROUTES = ["#autism-assessment", "/what-is-autism", "/m-chat-r-online-screener", "#insurance-coverage", "#locations", "#intake"];
+  const RELATED_RESOURCE_ROUTES = ["#autism-assessment", "/what-is-autism", "/m-chat-r", "#insurance-coverage", "#locations", "#intake"];
   const relatedResources = p.relatedResources.cards.map(([title, text, cta], i) => [title, text, RELATED_RESOURCE_ROUTES[i], cta]);
   const additionalFaqs = p.additionalFaqs.items;
 
@@ -2291,6 +2388,154 @@ function AutismScreenerFaqsPageWrapper({ t, onStart, onLocations, onMchat, onCas
   );
 }
 
+function AdmissionsPageWrapper({
+  t,
+  onStart,
+  onIntake,
+  onDiagnosticSupport,
+  onAba,
+  onInsurance,
+  onLocations,
+  onAbaRightForMe,
+  onAsdSupport,
+  onContact,
+}) {
+  return (
+    <AdmissionsPage
+      t={t}
+      onStart={onStart}
+      onIntake={onIntake}
+      onDiagnosticSupport={onDiagnosticSupport}
+      onAba={onAba}
+      onInsurance={onInsurance}
+      onLocations={onLocations}
+      onAbaRightForMe={onAbaRightForMe}
+      onAsdSupport={onAsdSupport}
+      onContact={onContact}
+    />
+  );
+}
+
+function OutcomesFamilyStoriesPageWrapper({
+  t,
+  onStart,
+  onSchedule,
+  onLocations,
+  onAdmissions,
+  onAba,
+}) {
+  return (
+    <OutcomesFamilyStoriesPage
+      t={t}
+      onStart={onStart}
+      onSchedule={onSchedule}
+      onLocations={onLocations}
+      onAdmissions={onAdmissions}
+      onAba={onAba}
+    />
+  );
+}
+
+function CenterBasedAbaTherapyPageWrapper({
+  t,
+  onStart,
+  onLocations,
+  onAba,
+  onHomeBased,
+  onCommunityBased,
+  onSchoolBased,
+  onVirtual,
+}) {
+  return (
+    <CenterBasedAbaTherapyPage
+      t={t}
+      onStart={onStart}
+      onLocations={onLocations}
+      onAba={onAba}
+      onHomeBased={onHomeBased}
+      onCommunityBased={onCommunityBased}
+      onSchoolBased={onSchoolBased}
+      onVirtual={onVirtual}
+    />
+  );
+}
+
+function HomeBasedAbaTherapyPageWrapper({
+  t,
+  onStart,
+  onLocations,
+  onSchedule,
+  onCenterBased,
+  onSchoolBased,
+  onCommunityBased,
+  onVirtual,
+}) {
+  return (
+    <HomeBasedAbaTherapyPage
+      t={t}
+      onStart={onStart}
+      onLocations={onLocations}
+      onSchedule={onSchedule}
+      onCenterBased={onCenterBased}
+      onSchoolBased={onSchoolBased}
+      onCommunityBased={onCommunityBased}
+      onVirtual={onVirtual}
+    />
+  );
+}
+
+function CommunityBasedAbaTherapyPageWrapper({
+  t,
+  onStart,
+  onLocations,
+  onSchedule,
+  onHomeBased,
+  onCenterBased,
+  onSchoolBased,
+  onVirtual,
+  onInsurance,
+}) {
+  return (
+    <CommunityBasedAbaTherapyPage
+      t={t}
+      onStart={onStart}
+      onLocations={onLocations}
+      onSchedule={onSchedule}
+      onHomeBased={onHomeBased}
+      onCenterBased={onCenterBased}
+      onSchoolBased={onSchoolBased}
+      onVirtual={onVirtual}
+      onInsurance={onInsurance}
+    />
+  );
+}
+
+function VirtualAbaTherapyPageWrapper({
+  t,
+  onStart,
+  onLocations,
+  onSchedule,
+  onInsurance,
+  onHomeBased,
+  onCenterBased,
+  onCommunityBased,
+  onSchoolBased,
+}) {
+  return (
+    <VirtualAbaTherapyPage
+      t={t}
+      onStart={onStart}
+      onLocations={onLocations}
+      onSchedule={onSchedule}
+      onInsurance={onInsurance}
+      onHomeBased={onHomeBased}
+      onCenterBased={onCenterBased}
+      onCommunityBased={onCommunityBased}
+      onSchoolBased={onSchoolBased}
+    />
+  );
+}
+
 function ParentGuidancePageWrapper({
   t,
   onMchat,
@@ -2319,25 +2564,34 @@ function ParentGuidancePageWrapper({
   );
 }
 
-function CastOnlineScreenerPage({ t, onStart, onMchat, onScheduleEvaluation }) {
+function MChatRFormPage({ t }) {
+  const mchatOption = t.pages.autismAssessment.paths.noDiagnosis.options.find(([, , , key]) => key === "mchat");
+  const hero = t.pages.mchatScreener.hero;
+
   return (
-    <CastScreenerPage
-      t={t}
-      onStart={onStart}
-      onMchat={onMchat}
-      questionnaire={<CastQuestionnaire t={t} onScheduleEvaluation={onScheduleEvaluation} />}
-    />
+    <ScreenerFormPage
+      badge={hero.badge}
+      title={mchatOption?.[0] || hero.title}
+      subtitle={mchatOption?.[1] || hero.subtitle}
+      footerNote={t.pages.mchatScreener.copyright}
+    >
+      <MChatQuestionnaire t={t} />
+    </ScreenerFormPage>
   );
 }
 
-function MChatROnlineScreenerPage({ t, onStart, onCast }) {
+function CastFormPage({ t, onScheduleEvaluation }) {
+  const castOption = t.pages.autismAssessment.paths.noDiagnosis.options.find(([, , , key]) => key === "cast");
+  const hero = t.pages.castScreener.hero;
+
   return (
-    <MChatScreenerPage
-      t={t}
-      onStart={onStart}
-      onCast={onCast}
-      questionnaire={<MChatQuestionnaire t={t} />}
-    />
+    <ScreenerFormPage
+      badge={hero.badge}
+      title={castOption?.[0] || hero.title}
+      subtitle={castOption?.[1] || hero.subtitle}
+    >
+      <CastQuestionnaire t={t} onScheduleEvaluation={onScheduleEvaluation} />
+    </ScreenerFormPage>
   );
 }
 
@@ -2526,14 +2780,17 @@ function InsuranceVerificationPage({ t, onSchedule, onHome, onStart }) {
         </div>
       </section>
 
+      <InsuranceContactLanding t={t} onStartVerification={scrollToVerify} />
+
       <section className="px-4 py-20 lg:px-8"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]"><div><h2 className="text-4xl font-black text-[#0b4f4f] md:text-5xl">{ins.faqTitle}</h2></div><div className="grid gap-3">{faqs.map(([question, answer]) => <div key={question} className="rounded-[1.4rem] border border-slate-100 bg-white shadow-sm"><button type="button" onClick={() => setOpenFaq(openFaq === question ? "" : question)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-black text-[#0b4f4f]">{question}<ChevronDown className={openFaq === question ? "rotate-180 transition" : "transition"} size={20} /></button>{openFaq === question && <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-base font-medium leading-8 text-slate-700">{answer}</div>}</div>)}</div></div></section>
 
       <section id="verify-form" className="bg-[#fff8df] px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <InsuranceVerificationForm
-            t={formT}
+            t={t}
             onSchedule={onSchedule}
             onHome={onHome}
+            onStart={onStart}
           />
         </div>
       </section>
@@ -2580,9 +2837,8 @@ function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
   const firstRow = reviews.slice(0, 12);
   const secondRow = reviews.slice(12);
   const labels = c.cardLabels;
-  const initials = ["A.", "M.", "S.", "L.", "R.", "J.", "K.", "N.", "T.", "P.", "D.", "H."];
 
-  const ReviewCard = ({ text, index }) => (
+  const ReviewCard = ({ review, index }) => (
     <article className="mx-3 w-[520px] shrink-0 rounded-[1.7rem] border border-[#49b8c8]/20 bg-white p-5 shadow-xl shadow-[#128c8c]/10 md:w-[600px]">
       <div className="flex items-center justify-between gap-4">
         <div className="flex gap-1 text-[#f7c72f]">
@@ -2592,14 +2848,14 @@ function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
           {labels[index % labels.length]}
         </span>
       </div>
-      <p className="mt-4 truncate whitespace-nowrap overflow-hidden text-ellipsis text-base font-semibold leading-7 text-slate-700">“{text}”</p>
+      <p className="mt-4 truncate whitespace-nowrap overflow-hidden text-ellipsis text-base font-semibold leading-7 text-slate-700" suppressHydrationWarning>“{review.text}”</p>
       <div className="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4">
         <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[#1f7a2e] to-[#128c8c] text-sm font-black text-white">
-          {initials[index % initials.length]}
+          {review.name.charAt(0).toUpperCase()}
         </div>
         <div>
-          <p className="text-sm font-black text-[#0b4f4f]">{c.parentReview}</p>
-          <p className="text-xs font-bold text-slate-500">{labels[index % labels.length]}</p>
+          <p className="text-sm font-black text-[#0b4f4f]">{review.name}</p>
+          <p className="text-xs font-bold text-slate-500">{c.parentRole}</p>
         </div>
       </div>
     </article>
@@ -2636,10 +2892,10 @@ function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#eef9f4] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#eef9f4] to-transparent" />
         <div className="eden-marquee-left flex w-max">
-          {[...firstRow, ...firstRow].map((review, index) => <ReviewCard key={`top-${index}`} text={review} index={index} />)}
+          {[...firstRow, ...firstRow].map((review, index) => <ReviewCard key={`top-${index}`} review={review} index={index} />)}
         </div>
         <div className="eden-marquee-right flex w-max">
-          {[...secondRow, ...secondRow].map((review, index) => <ReviewCard key={`bottom-${index}`} text={review} index={index + 12} />)}
+          {[...secondRow, ...secondRow].map((review, index) => <ReviewCard key={`bottom-${index}`} review={review} index={index + 12} />)}
         </div>
       </div>
 
@@ -2651,192 +2907,13 @@ function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
   );
 }
 
-function InsurancePaymentSection({ t, onStart }) {
-  const ip = t.pages.insurancePayment;
-  const providerColors = [
-    "border-[#58b82e]/30 bg-[#58b82e]/10 text-[#1f7a2e]",
-    "border-[#128c8c]/30 bg-[#128c8c]/10 text-[#0b4f4f]",
-    "border-[#49b8c8]/40 bg-[#49b8c8]/15 text-[#0b4f4f]",
-    "border-[#1f7a2e]/30 bg-[#1f7a2e]/10 text-[#1f7a2e]",
-    "border-[#b6d930]/50 bg-[#b6d930]/20 text-[#0b4f4f]",
-    "border-[#ff8a1f]/40 bg-[#ff8a1f]/15 text-[#8a3f00]",
-    "border-[#f7c72f]/60 bg-[#fff8df] text-[#0b4f4f]",
-    "border-[#49b8c8]/40 bg-[#ddf4f4] text-[#0b4f4f]",
-    "border-[#f7c72f]/70 bg-[#f7c72f]/25 text-[#0b4f4f]",
-  ];
-  const providers = ip.providers.map((name, index) => ({
-    name,
-    color: providerColors[index % providerColors.length],
-  }));
-
-  return (
-    <section className="relative overflow-hidden bg-[#eef9f4] px-4 py-20 lg:px-8">
-      <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#49b8c8]/20 blur-3xl" />
-      <div className="absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-[#f7c72f]/25 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[3rem] border border-[#49b8c8]/20 bg-white shadow-2xl shadow-[#128c8c]/10">
-        <div className="grid gap-8 p-8 lg:grid-cols-[1.15fr_0.85fr] lg:p-12">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-[#128c8c]">{ip.eyebrow}</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-[#0b4f4f] md:text-5xl">
-              {ip.title}
-            </h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">
-              {ip.intro}
-            </p>
-            <h3 className="mt-8 text-xl font-black text-[#128c8c]">
-              {ip.providersHeading}
-            </h3>
-            <div className="mt-5 flex flex-wrap gap-3">
-              {providers.map((provider) => (
-                <span key={provider.name} className={`rounded-full border px-4 py-3 text-sm font-black shadow-sm ${provider.color}`}>
-                  {provider.name}
-                </span>
-              ))}
-            </div>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button onClick={onStart}>{ip.verifyInsurance} <ArrowRight size={18} /></Button>
-              <button type="button" onClick={onStart} className="font-black text-[#128c8c] underline-offset-4 hover:underline">
-                {ip.contactLearnMore}
-              </button>
-            </div>
-          </div>
-
-          <div className="rounded-[2.2rem] bg-gradient-to-br from-[#1f7a2e] via-[#128c8c] to-[#0b4f4f] p-8 text-white shadow-xl">
-            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-[#f7c72f] text-[#0b4f4f]">
-              <ShieldCheck size={34} />
-            </div>
-            <h3 className="mt-6 text-3xl font-black">{ip.sidebarTitle}</h3>
-            <div className="mt-6 grid gap-4 text-sm font-semibold leading-7 text-teal-50">
-              {ip.sidebarItems.map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-2xl bg-white/10 p-4">
-                  <CheckCircle2 className="shrink-0 text-[#f7c72f]" size={20} />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function EligibilityChecker({ t, onStart, onAssessment, onCast, onMchat, onSchedule }) {
-  return (
-    <section className="bg-gradient-to-br from-[#1f7a2e] via-[#128c8c] to-[#0b4f4f] px-4 py-24 text-white lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-5xl font-black leading-tight tracking-tight md:text-6xl">
-            {t.gettingStartedTitle}
-          </h2>
-
-          <p className="mx-auto mt-8 max-w-4xl text-lg font-semibold leading-8 text-white/95">
-            {t.gettingStartedP1}
-          </p>
-
-          <p className="mx-auto mt-7 max-w-4xl text-lg font-semibold leading-8 text-white/95">
-            {t.gettingStartedP2}
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-8 lg:grid-cols-3">
-          <div className="rounded-[2rem] bg-[#0b4f4f] p-8 shadow-2xl shadow-[#0b4f4f]/30 ring-1 ring-white/10 md:p-10">
-            <div className="mb-8 grid h-16 w-16 place-items-center rounded-2xl bg-white/10 text-lime-300">
-              <ClipboardCheck size={42} />
-            </div>
-
-            <h3 className="text-3xl font-black tracking-tight text-white md:text-4xl">
-              {t.screeningToolsTitle}
-            </h3>
-
-            <div className="mt-8">
-              <p className="text-lg font-bold text-white">{t.forToddlers}</p>
-              <button
-                type="button"
-                onClick={onMchat || (() => { window.location.href = "/m-chat-r-online-screener"; })}
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#f7c72f] px-7 py-4 text-base font-black text-[#0b4f4f] shadow-lg transition hover:bg-[#ff8a1f] hover:text-white"
-              >
-                {t.takeMchat} <ArrowRight size={18} />
-              </button>
-            </div>
-
-            <div className="mt-8">
-              <p className="text-lg font-bold text-white">{t.forOlderChildren}</p>
-              <button
-                type="button"
-                onClick={onCast}
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#f7c72f] px-7 py-4 text-base font-black text-[#0b4f4f] shadow-lg transition hover:bg-[#ff8a1f] hover:text-white"
-              >
-                {t.takeCast} <ArrowRight size={18} />
-              </button>
-            </div>
-          </div>
-
-          <div className="rounded-[2rem] bg-white p-8 text-slate-800 shadow-2xl shadow-emerald-950/20 md:p-10">
-            <div className="mb-8 grid h-16 w-16 place-items-center rounded-2xl bg-emerald-50 text-lime-600">
-              <MapPin size={42} />
-            </div>
-
-            <h3 className="text-3xl font-black tracking-tight text-emerald-950 md:text-4xl">
-              {t.assessmentTitle}
-            </h3>
-
-            <p className="mt-6 text-lg font-semibold leading-8 text-slate-700">
-              {t.assessmentText}
-            </p>
-
-            <button
-              type="button"
-              onClick={onAssessment || onStart}
-              className="mt-14 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1f7a2e] px-7 py-4 text-base font-black text-white shadow-lg transition hover:bg-[#ff8a1f]"
-            >
-              {t.diagnosticSupport} <ArrowRight size={18} />
-            </button>
-          </div>
-
-          <div className="rounded-[2rem] bg-white p-8 text-slate-800 shadow-2xl shadow-emerald-950/20 ring-2 ring-[#f7c72f]/40 md:p-10">
-            <div className="mb-8 grid h-16 w-16 place-items-center rounded-2xl bg-[#fff8df] text-[#ff8a1f]">
-              <CalendarDays size={42} />
-            </div>
-
-            <h3 className="text-3xl font-black tracking-tight text-emerald-950 md:text-4xl">
-              {t.onlineSchedulerTitle}
-            </h3>
-
-            <p className="mt-6 text-lg font-semibold leading-8 text-slate-700">
-              {t.onlineSchedulerText}
-            </p>
-
-            <ul className="mt-6 grid gap-2.5">
-              {t.onlineSchedulerFeatures.map((feature) => (
-                <li key={feature} className="flex items-start gap-2.5 text-sm font-semibold leading-6 text-slate-700">
-                  <CheckCircle2 className="mt-0.5 shrink-0 text-[#128c8c]" size={18} />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              type="button"
-              onClick={onSchedule}
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#f7c72f] px-7 py-4 text-base font-black text-[#0b4f4f] shadow-lg transition hover:bg-[#ff8a1f] hover:text-white"
-            >
-              {t.pages.scheduler.introOnly.scheduleOnline} <ArrowRight size={18} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ParentResourcesSection({ t, onStart }) {
+function ParentResourcesSection({ t, onStart, id }) {
   const pr = t.pages.parentResources;
   const RESOURCE_ICONS = [ClipboardCheck, FileText, ShieldCheck, MessageCircle];
   const resources = pr.cards.map(([title, text], i) => [RESOURCE_ICONS[i], title, text]);
 
   return (
-    <section className="bg-white px-4 py-20 lg:px-8">
+    <section id={id} className="bg-white px-4 py-20 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-[#128c8c]">{pr.eyebrow}</p>
@@ -3099,154 +3176,14 @@ function EnterprisePlatformSuite() {
   );
 }
 
-function LiveChatAssistant({ t }) {
-  const [open, setOpen] = useState(false);
-  const [input, setInput] = useState("");
-  const [isTyping, setIsTyping] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      sender: "Eden Assistant",
-      text: t.chatGreeting,
-    },
-  ]);
-
-  const r = t.chatResponses;
-
-  useEffect(() => {
-    setMessages([{ sender: "Eden Assistant", text: t.chatGreeting }]);
-  }, [t.chatGreeting]);
-
-  const answerQuestion = (question) => {
-    const q = question.toLowerCase();
-
-    if (q.includes("emergency") || q.includes("911") || q.includes("danger") || q.includes("suicide") || q.includes("kill") || q.includes("hurt himself") || q.includes("hurt herself")) {
-      return r.emergency;
-    }
-
-    if (q.includes("what is aba") || q.includes("aba therapy") || q.includes("applied behavior") || q.includes("behavior therapy")) {
-      return r.aba;
-    }
-
-    if (q.includes("hit") || q.includes("hitting") || q.includes("aggression") || q.includes("bite") || q.includes("biting") || q.includes("tantrum") || q.includes("meltdown") || q.includes("throw")) {
-      return r.behavior;
-    }
-
-    if (q.includes("speech") || q.includes("talk") || q.includes("language") || q.includes("nonverbal") || q.includes("communication") || q.includes("aac")) {
-      return r.speech;
-    }
-
-    if (q.includes("occupational") || q.includes(" ot") || q.includes("sensory") || q.includes("fine motor") || q.includes("handwriting") || q.includes("feeding") || q.includes("dressing") || q.includes("toilet")) {
-      return r.occupational;
-    }
-
-    if (q.includes("insurance") || q.includes("medicaid") || q.includes("anthem") || q.includes("aetna") || q.includes("cigna") || q.includes("united") || q.includes("coverage") || q.includes("authorization") || q.includes("copay")) {
-      return r.insurance;
-    }
-
-    if (q.includes("start") || q.includes("intake") || q.includes("begin") || q.includes("apply") || q.includes("enroll") || q.includes("form")) {
-      return r.intake;
-    }
-
-    if (q.includes("assessment") || q.includes("schedule") || q.includes("appointment") || q.includes("availability") || q.includes("hours")) {
-      return r.scheduling;
-    }
-
-    if (q.includes("document") || q.includes("upload") || q.includes("diagnosis") || q.includes("iep") || q.includes("evaluation") || q.includes("referral")) {
-      return r.documents;
-    }
-
-    if (q.includes("parent training") || q.includes("caregiver") || q.includes("parents help") || q.includes("home")) {
-      return r.parentTraining;
-    }
-
-    if (q.includes("cost") || q.includes("price") || q.includes("pay") || q.includes("expensive")) {
-      return r.cost;
-    }
-
-    if (q.includes("school") || q.includes("iep") || q.includes("teacher")) {
-      return r.school;
-    }
-
-    return r.default;
-  };
-
-  
-
-  return (
-    <div className="fixed bottom-5 right-5 z-[9999]">
-      {open && (
-        <div className="mb-3 w-[370px] overflow-hidden rounded-[2rem] border border-emerald-100 bg-white text-slate-900 shadow-2xl sm:w-[420px]">
-          <div className="bg-emerald-800 p-5 text-white">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <h3 className="font-black">{t.edenAssistant}</h3>
-                <p className="text-xs font-bold text-emerald-50">{t.chatSupport}</p>
-              </div>
-              <button type="button" onClick={() => setOpen(false)} className="rounded-full bg-white/10 p-2"><X size={16} /></button>
-            </div>
-            </div>
-
-          <div ref={(el) => { if (el) el.scrollTop = el.scrollHeight; }} className="max-h-96 space-y-3 overflow-y-auto bg-slate-50 p-4">
-            {messages.map((msg, index) => (
-              <div key={`${msg.sender}-${index}`} className={`rounded-2xl p-3 text-sm leading-6 ${msg.sender === "You" ? "ml-10 bg-emerald-700 text-white" : "mr-6 bg-white text-slate-800 shadow-sm"}`}>
-                <p className="mb-1 text-xs font-black opacity-70">{msg.sender === "You" ? t.you : msg.sender}</p>
-                <p>{msg.text}</p>
-              </div>
-            ))}
-          {isTyping && <div className="mr-6 rounded-2xl bg-white p-3 text-sm font-bold text-slate-500 shadow-sm">{t.typing}</div>}
-          </div>
-
-          <div className="border-t border-slate-100 bg-white p-4">
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const clean = input.trim();
-                if (!clean) return;
-                setIsTyping(true);
-                const reply = answerQuestion(clean);
-                setTimeout(() => {
-                  setMessages((old) => [...old, { sender: "You", text: clean }, { sender: "Eden Assistant", text: reply }]);
-                  setInput("");
-                  setIsTyping(false);
-                }, 400);
-              }}
-            >
-              <textarea
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault();
-                    e.currentTarget.form?.requestSubmit();
-                  }
-                }}
-                className="min-h-20 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-emerald-500"
-                placeholder={t.chatPlaceholder}
-              />
-              <button type="submit" className="mt-3 w-full rounded-full bg-emerald-700 px-6 py-3 text-sm font-black text-white hover:bg-emerald-800">
-                {t.sendMessage}
-              </button>
-            </form>
-            <p className="mt-3 text-center text-[11px] leading-4 text-slate-500">{t.emergencyNote}</p>
-          </div>
-        </div>
-      )}
-
-      <button type="button" onClick={() => setOpen(!open)} className="rounded-full bg-yellow-400 px-6 py-4 font-black text-emerald-950 shadow-2xl">
-        💬 {t.liveChat}
-      </button>
-    </div>
-  );
-}
-
 function NewsletterBanner({ t }) {
-  const [firstName, setFirstName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [joined, setJoined] = useState(false);
 
   return (
     <section className="bg-white px-4 py-14 lg:px-8">
-      <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-6 py-12 text-center shadow-2xl shadow-[#128c8c]/20 md:px-10 md:py-16">
+      <div className="mx-auto w-full max-w-[100rem] rounded-[2.5rem] bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-6 py-12 text-center shadow-2xl shadow-[#128c8c]/20 md:px-10 md:py-16">
         <h2 className="mx-auto max-w-4xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
           {t.newsletterTitle}
         </h2>
@@ -3254,16 +3191,17 @@ function NewsletterBanner({ t }) {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            if (!firstName.trim() || !email.trim()) return;
+            if (!fullName.trim() || !email.trim()) return;
             setJoined(true);
           }}
-          className="mx-auto mt-9 flex max-w-5xl flex-col gap-4 md:flex-row md:items-center md:justify-center"
+          className="mx-auto mt-9 flex w-full max-w-none flex-col gap-4 md:flex-row md:items-center md:justify-center"
         >
           <input
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
+            value={fullName}
+            onChange={(event) => setFullName(event.target.value)}
             className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none shadow-lg transition focus:ring-4 focus:ring-lime-300/30"
-            placeholder={t.firstName}
+            placeholder={t.fullName}
+            autoComplete="name"
           />
 
           <input
@@ -3272,6 +3210,7 @@ function NewsletterBanner({ t }) {
             onChange={(event) => setEmail(event.target.value)}
             className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none shadow-lg transition focus:ring-4 focus:ring-lime-300/30"
             placeholder={t.email}
+            autoComplete="email"
           />
 
           <button
@@ -3284,7 +3223,7 @@ function NewsletterBanner({ t }) {
 
         {joined && (
           <p className="mt-5 text-sm font-bold text-lime-200">
-            {t.newsletterThanks}, {firstName}! {t.newsletterThanksEnd}
+            {t.newsletterThanks}, {fullName}! {t.newsletterThanksEnd}
           </p>
         )}
       </div>
@@ -3292,49 +3231,64 @@ function NewsletterBanner({ t }) {
   );
 }
 
-function Footer({ t }) {
+function Footer({ t, onNavigate, onStart }) {
   const f = t.pages.footer;
+  const enFooter = getTranslation("en").pages.footer;
+
+  const footerLink = (displayLabel, enLabel) => (
+    <button
+      key={enLabel}
+      type="button"
+      onClick={() => handleFooterLink(enLabel, { onNavigate, onStart })}
+      className="text-left transition hover:text-lime-300"
+    >
+      {displayLabel}
+    </button>
+  );
+
   return (
     <footer className="bg-gradient-to-br from-[#032f2b] via-[#0b4f4f] to-[#1f7a2e] px-4 pt-16 text-white lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-5">
           <div className="lg:col-span-1">
-            <LogoImage t={t} alt={t.logo?.defaultAlt || t.brandName} className="h-20 w-auto rounded-2xl bg-white p-2" />
+            <EdenLogo size="footer" onDark className="rounded-2xl" />
             <p className="mt-6 text-base leading-8 text-emerald-50">
               {t.footerDescription}
             </p>
 
-            <a
-              href="#intake"
-              onClick={(event) => {
-                event.preventDefault();
-                window.location.hash = "intake";
-                window.dispatchEvent(new CustomEvent("eden:navigate", { detail: "intake" }));
-              }}
+            <button
+              type="button"
+              onClick={() => onNavigate?.("intake")}
               className="mt-6 inline-flex items-center rounded-full bg-lime-500 px-6 py-3 text-sm font-black text-emerald-950 transition hover:bg-lime-400"
             >
               {t.startABA}
-            </a>
+            </button>
           </div>
 
           <div>
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.forParents.title}</h4>
             <div className="mt-5 grid gap-3 text-sm font-bold text-emerald-50">
-              {f.forParents.links.map((link) => <a key={link} href="#">{link}</a>)}
+              {f.forParents.links.map((link, index) =>
+                footerLink(link, enFooter.forParents.links[index]),
+              )}
             </div>
           </div>
 
           <div>
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.resources.title}</h4>
             <div className="mt-5 grid gap-3 text-sm font-bold text-emerald-50">
-              {f.resources.links.map((link) => <a key={link} href="#">{link}</a>)}
+              {f.resources.links.map((link, index) =>
+                footerLink(link, enFooter.resources.links[index]),
+              )}
             </div>
           </div>
 
           <div>
             <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.careers.title}</h4>
             <div className="mt-5 grid gap-3 text-sm font-bold text-emerald-50">
-              {f.careers.links.map((link) => <a key={link} href="#">{link}</a>)}
+              {f.careers.links.map((link, index) =>
+                footerLink(link, enFooter.careers.links[index]),
+              )}
             </div>
           </div>
 
@@ -3421,18 +3375,33 @@ function SchedulerIntroCard({ t, onStart }) {
         ))}
       </div>
       <div className="mt-8 text-center">
+        <EdenLogo size="compact" onDark className="mx-auto mb-5" />
         <Button onClick={onStart} variant="gold">{intro.startButton} <ArrowRight size={18} /></Button>
       </div>
     </div>
   );
 }
 
-function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler }) {
+function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, autoStartWizard = false }) {
   const sched = t.pages.scheduler;
   const w = sched.wizard;
+  const {
+    recaptchaRef,
+    recaptchaError,
+    verifying,
+    verifyingMessage,
+    canSubmit: recaptchaReady,
+    handleTokenChange,
+    resetRecaptcha,
+    requireRecaptcha,
+    verifyRecaptchaWithServer,
+  } = useReCaptchaV2();
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
-  const [showWizard, setShowWizard] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [referenceNumber, setReferenceNumber] = useState(null);
+  const [showWizard, setShowWizard] = useState(autoStartWizard);
   const [form, setForm] = useState({
     communication: w.triage.concernOptions[1],
     behavior: w.triage.concernOptions[1],
@@ -3483,7 +3452,50 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler }
 
   const resetForm = () => {
     setSubmitted(false);
+    setReferenceNumber(null);
+    setSubmitError("");
     setStep(1);
+    resetRecaptcha();
+  };
+
+  const submitAppointment = async () => {
+    if (requiredMissing()) return;
+
+    if (!requireRecaptcha()) {
+      setSubmitError(t.startAbaRecaptchaIncomplete || "Please complete the security verification.");
+      return;
+    }
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const recaptcha = await verifyRecaptchaWithServer();
+      if (!recaptcha.success) {
+        setSubmitError(t.recaptchaFailed || "Security verification failed. Please try again.");
+        return;
+      }
+
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, recaptchaToken: recaptcha.token }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) {
+        setSubmitError(result.message || t.recaptchaFailed);
+        return;
+      }
+
+      setReferenceNumber(result.referenceNumber);
+      setSubmitted(true);
+    } catch {
+      setSubmitError(t.schedulerSubmitError || t.recaptchaFailed);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (introOnly) {
@@ -3505,6 +3517,7 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler }
     <section className="bg-[#f7f7f7] px-4 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mx-auto mb-10 max-w-4xl text-center">
+          <EdenLogo size="auth" className="mx-auto mb-6" />
           <p className="font-black uppercase tracking-[0.25em] text-[#128c8c]">{t.schedulerEyebrow}</p>
           <h1 className="mt-3 text-4xl font-black tracking-tight text-slate-950 md:text-6xl">{t.schedulerTitle}</h1>
           <p className="mt-3 text-lg leading-8 text-slate-700">{t.schedulerSubtitle}</p>
@@ -3559,18 +3572,19 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler }
               <AnimatePresence mode="wait">
                 <motion.div
                   key={submitted ? "submitted" : step}
-                  initial={{ opacity: 0, y: 14 }}
+                  initial={false}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -14 }}
                   transition={{ duration: 0.25 }}
                 >
                   {submitted ? (
                     <div className="rounded-[1.8rem] bg-emerald-50 p-8 text-center ring-1 ring-emerald-100">
-                      <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-600 text-white">
+                      <EdenLogo size="success" className="mx-auto" />
+                      <div className="mx-auto mt-5 grid h-16 w-16 place-items-center rounded-full bg-emerald-600 text-white">
                         <Check size={34} />
                       </div>
                       <h3 className="mt-5 text-3xl font-black text-emerald-900">{w.submitted.title}</h3>
-                      <p className="mt-2 font-bold text-emerald-800">{w.submitted.referencePrefix}{Math.floor(1000000 + Math.random() * 9000000)}</p>
+                      <p className="mt-2 font-bold text-emerald-800">{w.submitted.referencePrefix}{referenceNumber}</p>
                       <p className="mx-auto mt-4 max-w-2xl leading-7 text-slate-700">{w.submitted.liveNote}</p>
                       <div className="mx-auto mt-6 max-w-xl rounded-2xl bg-white p-5 text-left shadow-sm">
                         <p className="font-black text-slate-950">{w.submitted.zoomPreview}</p>
@@ -3673,6 +3687,16 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler }
                             <div className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100"><p className="font-black">{w.review.familyInformation}</p><p className="mt-2 text-sm">{form.parentName || "—"}</p><p className="text-sm">{form.email || "—"}</p><p className="text-sm">{form.phone || "—"}</p><p className="text-sm">{w.review.childPrefix} {form.childName || "—"}</p></div>
                             <div className="rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-100"><p className="font-black">{w.review.insurance}</p><p className="mt-2 text-sm">{form.insurance}</p><p className="text-sm">{w.review.memberIdPrefix} {form.memberId || "—"}</p><p className="text-sm">{w.review.eligibilityRequested}</p></div>
                           </div>
+                          <ReCaptchaVerification
+                            ref={recaptchaRef}
+                            onTokenChange={handleTokenChange}
+                            error={recaptchaError}
+                            disabled={submitting || verifying}
+                            className="mt-6"
+                          />
+                          {verifying ? (
+                            <p className="mt-3 text-sm font-bold text-slate-600">{verifyingMessage}</p>
+                          ) : null}
                         </div>
                       )}
                     </>
@@ -3687,13 +3711,23 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler }
                 {submitted ? (
                   <Button onClick={resetForm}>{t.bookAnother}</Button>
                 ) : step === 6 ? (
-                  <Button onClick={() => setSubmitted(true)}>{t.submitRequest}</Button>
+                  <Button disabled={submitting || verifying || requiredMissing() || !recaptchaReady} onClick={submitAppointment}>
+                    {verifying ? verifyingMessage : submitting ? t.schedulerSubmitting : t.submitRequest}
+                  </Button>
                 ) : (
                   <Button disabled={requiredMissing()} onClick={nextStep}>{t.continue} <ArrowRight size={16} /></Button>
                 )}
               </div>
+              {submitError && (
+                <p className="mt-3 text-center text-sm font-bold text-red-600">{submitError}</p>
+              )}
               {!submitted && requiredMissing() && step > 2 && (
                 <p className="mt-3 text-center text-sm font-bold text-red-600">{t.requiredNotice}</p>
+              )}
+              {!submitted && step === 6 && (
+                <div className="mt-4">
+                  <RecaptchaNotice t={t} label={t.recaptcha} />
+                </div>
               )}
             </div>
           </div>
@@ -3754,11 +3788,8 @@ TWILIO_PHONE_NUMBER=
 
 export default function EdenABAWebsite() {
   const [darkMode, setDarkMode] = useState(false);
-  const [consentUpdates, setConsentUpdates] = useState(false);
-  const [consentTerms, setConsentTerms] = useState(false);
-  const [recaptchaChecked, setRecaptchaChecked] = useState(false);
   const [currentPage, setCurrentPage] = useState("home");
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
   const t = getTranslation(language);
 
   const syncPageFromLocation = (event, { scroll = true } = {}) => {
@@ -3778,29 +3809,31 @@ export default function EdenABAWebsite() {
     }
   };
 
-  const goToPage = (page) => {
+  const goToPage = (page, { path: pathOverride, scrollTo } = {}) => {
     if (typeof window !== "undefined") {
-      const path = getPagePath(page);
-      if (path) {
-        window.history.pushState(null, "", path);
-      } else if (page === "home") {
-        window.history.pushState(null, "", "/");
-      } else {
-        window.location.hash = page;
-      }
+      applyPageToBrowserUrl(page, { pathOverride });
+      window.dispatchEvent(new CustomEvent("eden:navigate", { detail: page }));
     }
 
     setCurrentPage(page);
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      if (scrollTo) {
+        window.requestAnimationFrame(() => {
+          document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      }
     }
   };
 
-  useLayoutEffect(() => {
-    syncPageFromLocation(undefined, { scroll: false });
-  }, []);
-
   useEffect(() => {
+    const savedLanguage = localStorage.getItem(STORAGE_KEY);
+    if (savedLanguage === "en" || savedLanguage === "vi") {
+      setLanguage(savedLanguage);
+    }
+
+    syncPageFromLocation(null, { scroll: false });
+
     const handleNavigate = (event) => syncPageFromLocation(event);
 
     window.addEventListener("eden:navigate", handleNavigate);
@@ -3814,19 +3847,27 @@ export default function EdenABAWebsite() {
   }, []);
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem(STORAGE_KEY);
-    if (savedLanguage === "en" || savedLanguage === "vi") {
-      setLanguage(savedLanguage);
-    }
-  }, []);
+    if (typeof window === "undefined") return;
+    if (currentPage !== "what-is-autism") return;
+    if (window.location.pathname !== "/resources/early-signs-of-autism") return;
+
+    window.requestAnimationFrame(() => {
+      document.getElementById("early-signs-autism")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [currentPage]);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.documentElement.lang = language;
       const pageMeta =
-        currentPage === "cast-online-screener" && t.pages.castScreener?.meta
+        currentPage === "cast" && t.pages.castScreener?.meta
           ? t.pages.castScreener.meta
-          : currentPage === "ados-2-assessment" && t.pages.ados2Assessment?.meta
+          : currentPage === "m-chat-r" && t.pages.mchatScreener?.hero
+            ? {
+                title: `${t.pages.mchatScreener.hero.title} | Eden ABA Therapy`,
+                description: t.pages.mchatScreener.hero.subtitle,
+              }
+            : currentPage === "ados-2-assessment" && t.pages.ados2Assessment?.meta
             ? t.pages.ados2Assessment.meta
             : currentPage === "ide-evaluation" && t.pages.ideEvaluation?.meta
               ? t.pages.ideEvaluation.meta
@@ -3834,7 +3875,23 @@ export default function EdenABAWebsite() {
                 ? t.pages.autismScreenerFaqs.meta
                 : currentPage === "parent-guidance" && t.pages.parentGuidance?.meta
                   ? t.pages.parentGuidance.meta
-                  : getMeta(language);
+                  : currentPage === "admissions" && t.pages.admissions?.meta
+                    ? t.pages.admissions.meta
+                    : currentPage === "outcomes-family-stories" && t.pages.outcomesFamilyStories?.meta
+                      ? t.pages.outcomesFamilyStories.meta
+                      : currentPage === "center-based-aba-therapy" && t.pages.centerBasedAbaTherapy?.meta
+                        ? t.pages.centerBasedAbaTherapy.meta
+                        : currentPage === "home-based-aba-therapy" && t.pages.homeBasedAbaTherapy?.meta
+                          ? t.pages.homeBasedAbaTherapy.meta
+                          : currentPage === "community-based-aba-therapy" && t.pages.communityBasedAbaTherapy?.meta
+                            ? t.pages.communityBasedAbaTherapy.meta
+                            : currentPage === "virtual-aba-therapy" && t.pages.virtualAbaTherapy?.meta
+                              ? t.pages.virtualAbaTherapy.meta
+                              : currentPage === "careers" && t.pages.careers?.meta
+                                ? t.pages.careers.meta
+                                : t.pages.resourcePlaceholders?.[currentPage]?.meta
+                                  ? t.pages.resourcePlaceholders[currentPage].meta
+                                  : getMeta(language);
       document.title = pageMeta.title;
       const description = pageMeta.description;
       let descriptionMeta = document.querySelector('meta[name="description"]');
@@ -3859,9 +3916,8 @@ export default function EdenABAWebsite() {
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
         <WhatIsAutismPage t={t} onStart={() => goToPage("intake")} onAssessment={() => goToPage("autism-assessment")} />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3878,9 +3934,8 @@ export default function EdenABAWebsite() {
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
         <ABATherapyEducationPage t={t} onStart={() => goToPage("intake")} />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3897,9 +3952,8 @@ export default function EdenABAWebsite() {
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
         <LocationsPage t={t} onStart={() => goToPage("intake")} />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3916,9 +3970,8 @@ export default function EdenABAWebsite() {
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
         <AboutEdenPage t={t} onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3934,10 +3987,9 @@ export default function EdenABAWebsite() {
           {darkMode ? t.lightMode : t.darkMode}
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <AdvancedIntakeForm t={t} />
-        <LiveChatAssistant t={t} />
+        <AdvancedIntakeForm t={t} language={language} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3953,10 +4005,9 @@ export default function EdenABAWebsite() {
           {darkMode ? t.lightMode : t.darkMode}
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <OnlineAppointmentSchedulerCTA t={t} />
-        <LiveChatAssistant t={t} />
+        <OnlineAppointmentSchedulerCTA t={t} autoStartWizard />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3973,9 +4024,8 @@ export default function EdenABAWebsite() {
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
         <InsuranceVerificationPage t={t} onSchedule={() => goToPage("schedule-appointment")} onHome={() => goToPage("home")} onStart={() => goToPage("intake")} />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -3994,18 +4044,17 @@ export default function EdenABAWebsite() {
         <AutismEvaluationPage
           t={t}
           onStart={() => goToPage("intake")}
-          onMchat={() => goToPage("m-chat-r-online-screener")}
-          onCast={() => goToPage("cast-online-screener")}
+          onMchat={() => goToPage("m-chat-r")}
+          onCast={() => goToPage("cast")}
           onAdos={() => goToPage("ados-2-assessment")}
         />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
 
-  if (currentPage === "m-chat-r-online-screener") {
+  if (currentPage === "m-chat-r") {
     return (
       <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
         <button
@@ -4016,15 +4065,14 @@ export default function EdenABAWebsite() {
           {darkMode ? t.lightMode : t.darkMode}
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <MChatROnlineScreenerPage t={t} onStart={() => goToPage("intake")} onCast={() => goToPage("cast-online-screener")} />
-        <LiveChatAssistant t={t} />
+        <MChatRFormPage t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
 
-  if (currentPage === "cast-online-screener") {
+  if (currentPage === "cast") {
     return (
       <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
         <button
@@ -4035,15 +4083,9 @@ export default function EdenABAWebsite() {
           {darkMode ? t.lightMode : t.darkMode}
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <CastOnlineScreenerPage
-          t={t}
-          onStart={() => goToPage("intake")}
-          onMchat={() => goToPage("m-chat-r-online-screener")}
-          onScheduleEvaluation={() => goToPage("autism-assessment")}
-        />
-        <LiveChatAssistant t={t} />
+        <CastFormPage t={t} onScheduleEvaluation={() => goToPage("autism-assessment")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -4062,15 +4104,14 @@ export default function EdenABAWebsite() {
         <Ados2AssessmentPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
-          onMchat={() => goToPage("m-chat-r-online-screener")}
-          onCast={() => goToPage("cast-online-screener")}
+          onMchat={() => goToPage("m-chat-r")}
+          onCast={() => goToPage("cast")}
           onLocations={() => goToPage("locations")}
           onEvaluationHub={() => goToPage("autism-assessment")}
           onIde={() => goToPage("ide-evaluation")}
         />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -4089,16 +4130,178 @@ export default function EdenABAWebsite() {
         <IdeEvaluationPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
-          onMchat={() => goToPage("m-chat-r-online-screener")}
-          onCast={() => goToPage("cast-online-screener")}
+          onMchat={() => goToPage("m-chat-r")}
+          onCast={() => goToPage("cast")}
           onAdos={() => goToPage("ados-2-assessment")}
           onLocations={() => goToPage("locations")}
           onInsurance={() => goToPage("insurance-coverage")}
           onContact={() => goToPage("intake")}
         />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "center-based-aba-therapy") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <CenterBasedAbaTherapyPageWrapper
+          t={t}
+          onStart={() => goToPage("intake")}
+          onLocations={() => goToPage("locations")}
+          onAba={() => goToPage("aba-therapy")}
+          onHomeBased={() => goToPage("home-based-aba-therapy")}
+          onCommunityBased={() => goToPage("community-based-aba-therapy")}
+          onSchoolBased={() => goToPage("aba-therapy")}
+          onVirtual={() => goToPage("virtual-aba-therapy")}
+        />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "home-based-aba-therapy") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <HomeBasedAbaTherapyPageWrapper
+          t={t}
+          onStart={() => goToPage("intake")}
+          onLocations={() => goToPage("locations")}
+          onSchedule={() => goToPage("schedule-appointment")}
+          onCenterBased={() => goToPage("center-based-aba-therapy")}
+          onSchoolBased={() => goToPage("aba-therapy")}
+          onCommunityBased={() => goToPage("community-based-aba-therapy")}
+          onVirtual={() => goToPage("virtual-aba-therapy")}
+        />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "community-based-aba-therapy") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <CommunityBasedAbaTherapyPageWrapper
+          t={t}
+          onStart={() => goToPage("intake")}
+          onLocations={() => goToPage("locations")}
+          onSchedule={() => goToPage("schedule-appointment")}
+          onHomeBased={() => goToPage("home-based-aba-therapy")}
+          onCenterBased={() => goToPage("center-based-aba-therapy")}
+          onSchoolBased={() => goToPage("aba-therapy")}
+          onVirtual={() => goToPage("virtual-aba-therapy")}
+          onInsurance={() => goToPage("insurance-coverage")}
+        />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "virtual-aba-therapy") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <VirtualAbaTherapyPageWrapper
+          t={t}
+          onStart={() => goToPage("intake")}
+          onLocations={() => goToPage("locations")}
+          onSchedule={() => goToPage("schedule-appointment")}
+          onInsurance={() => goToPage("insurance-coverage")}
+          onHomeBased={() => goToPage("home-based-aba-therapy")}
+          onCenterBased={() => goToPage("center-based-aba-therapy")}
+          onCommunityBased={() => goToPage("community-based-aba-therapy")}
+          onSchoolBased={() => goToPage("aba-therapy")}
+        />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "outcomes-family-stories") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <OutcomesFamilyStoriesPageWrapper
+          t={t}
+          onStart={() => goToPage("intake")}
+          onSchedule={() => goToPage("schedule-appointment")}
+          onLocations={() => goToPage("locations")}
+          onAdmissions={() => goToPage("admissions")}
+          onAba={() => goToPage("aba-therapy")}
+        />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "admissions") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <AdmissionsPageWrapper
+          t={t}
+          onStart={() => goToPage("intake")}
+          onIntake={() => goToPage("intake")}
+          onDiagnosticSupport={() => goToPage("autism-assessment")}
+          onAba={() => goToPage("aba-therapy")}
+          onInsurance={() => goToPage("insurance-coverage")}
+          onLocations={() => goToPage("locations")}
+          onAbaRightForMe={() => goToPage("aba-therapy")}
+          onAsdSupport={() => goToPage("autism-assessment")}
+          onContact={() => goToPage("intake")}
+        />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -4116,8 +4319,8 @@ export default function EdenABAWebsite() {
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
         <ParentGuidancePageWrapper
           t={t}
-          onMchat={() => goToPage("m-chat-r-online-screener")}
-          onCast={() => goToPage("cast-online-screener")}
+          onMchat={() => goToPage("m-chat-r")}
+          onCast={() => goToPage("cast")}
           onAdos={() => goToPage("ados-2-assessment")}
           onIde={() => goToPage("ide-evaluation")}
           onSchedule={() => goToPage("schedule-appointment")}
@@ -4126,9 +4329,112 @@ export default function EdenABAWebsite() {
           onAba={() => goToPage("aba-therapy")}
           onStart={() => goToPage("intake")}
         />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (currentPage === "careers") {
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Careers t={t} />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      </main>
+    );
+  }
+
+  if (
+    currentPage === "parent-training" ||
+    currentPage === "autism-diagnosis-resources" ||
+    currentPage === "new-parent-checklist" ||
+    currentPage === "afterschool-programs" ||
+    currentPage === "resources-blog" ||
+    currentPage === "resources-webinars" ||
+    currentPage === "family-centered-care" ||
+    currentPage === "community-impact" ||
+    currentPage === "about-mission-values" ||
+    currentPage === "about-leadership-team" ||
+    currentPage === "about-clinical-excellence" ||
+    currentPage === "careers-rbt" ||
+    currentPage === "careers-bcba" ||
+    currentPage === "careers-life-at-eden" ||
+    currentPage === "careers-interview-guide" ||
+    currentPage === "careers-resources"
+  ) {
+    const content = t.pages.resourcePlaceholders?.[currentPage];
+    const onPrimary = () => {
+      if (currentPage === "autism-diagnosis-resources") {
+        goToPage("autism-assessment");
+        return;
+      }
+      if (currentPage === "new-parent-checklist") {
+        goToPage("admissions", { path: "/resources/getting-started-with-eden" });
+        return;
+      }
+      if (currentPage === "resources-webinars") {
+        goToPage("schedule-appointment");
+        return;
+      }
+      if (currentPage === "resources-blog") {
+        goToPage("home");
+        if (typeof window !== "undefined") {
+          window.requestAnimationFrame(() => {
+            document.getElementById("parent-resources")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        }
+        return;
+      }
+      if (currentPage === "family-centered-care" || currentPage === "community-impact") {
+        goToPage("about-us", { path: "/about-eden/our-story" });
+        return;
+      }
+      if (
+        currentPage === "about-mission-values" ||
+        currentPage === "about-clinical-excellence"
+      ) {
+        goToPage("about-us", { path: "/about-eden/our-story" });
+        return;
+      }
+      if (currentPage === "about-leadership-team") {
+        goToPage("intake");
+        return;
+      }
+      if (
+        currentPage === "careers-rbt" ||
+        currentPage === "careers-bcba" ||
+        currentPage === "careers-life-at-eden" ||
+        currentPage === "careers-interview-guide" ||
+        currentPage === "careers-resources"
+      ) {
+        goToPage("careers");
+        return;
+      }
+      goToPage("intake");
+    };
+
+    return (
+      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+        <button
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
+        >
+          {darkMode ? t.lightMode : t.darkMode}
+        </button>
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <ResourcePlaceholderPage content={content} onStart={onPrimary} onContact={() => goToPage("intake")} />
+        <NewsletterBanner t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -4148,17 +4454,16 @@ export default function EdenABAWebsite() {
           t={t}
           onStart={() => goToPage("intake")}
           onLocations={() => goToPage("locations")}
-          onMchat={() => goToPage("m-chat-r-online-screener")}
-          onCast={() => goToPage("cast-online-screener")}
+          onMchat={() => goToPage("m-chat-r")}
+          onCast={() => goToPage("cast")}
           onAdos={() => goToPage("ados-2-assessment")}
           onIde={() => goToPage("ide-evaluation")}
           onInsurance={() => goToPage("insurance-coverage")}
           onAba={() => goToPage("aba-therapy")}
           onAutism={() => goToPage("what-is-autism")}
         />
-        <LiveChatAssistant t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} />
+        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
       </main>
     );
   }
@@ -4173,19 +4478,35 @@ export default function EdenABAWebsite() {
         {darkMode ? t.lightMode : t.darkMode}
       </button>
       <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-      <Hero onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} language={language} />
-      <AutismAwarenessCounter t={t} />
-      <ServiceExplorer t={t} />
-      <InsurancePaymentSection t={t} onStart={() => goToPage("insurance-coverage")} />
-      <EligibilityChecker
-        t={t}
-        onStart={() => goToPage("intake")}
-        onAssessment={() => goToPage("autism-assessment")}
-        onCast={() => goToPage("cast-online-screener")}
-        onMchat={() => goToPage("m-chat-r-online-screener")}
-        onSchedule={() => goToPage("schedule-appointment")}
+      <HomepageHero onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} language={language} />
+      <ChildJourneyRoadmap
+        t={t.pages.childJourney}
+        onCtaClick={() => {
+          const target = document.getElementById("getting-started");
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            return;
+          }
+          goToPage("schedule-appointment");
+        }}
       />
-      <ParentResourcesSection t={t} onStart={() => goToPage("intake")} />
+      <ImpactDataChartSection t={t} />
+      <ServiceExplorer t={t} />
+      <InsuranceMadeSimpleSection
+        t={t.pages.insurancePayment}
+        onVerify={() => goToPage("insurance-coverage")}
+        onSpeakIntake={() => goToPage("intake")}
+      />
+      <EdenResourceIntelligenceHub t={t} />
+      <FamilySupportPathSection
+        t={t}
+        onMchat={() => goToPage("m-chat-r")}
+        onCast={() => goToPage("cast")}
+        onDiagnosticSupport={() => goToPage("autism-assessment")}
+        onScheduleConsultation={() => goToPage("schedule-appointment")}
+        onStartIntake={() => goToPage("intake")}
+      />
+      <ParentResourcesSection id="parent-resources" t={t} onStart={() => goToPage("intake")} />
       <Careers t={t} />
       <OnlineAppointmentSchedulerCTA t={t} />
       <ClientReviewMarquee t={t} onStart={() => goToPage("intake")} onVerifyInsurance={() => goToPage("insurance-coverage")} />
@@ -4223,164 +4544,11 @@ export default function EdenABAWebsite() {
             </div>
           </div>
 
-          <div className="rounded-[2.25rem] border border-white/70 bg-white p-6 shadow-2xl shadow-emerald-950/25 lg:p-8">
-            <div className="mb-6 flex items-start justify-between gap-4 border-b border-slate-100 pb-5">
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.22em] text-teal-700">{t.brandName}</p>
-                <h3 className="mt-2 text-3xl font-black text-emerald-950">{t.intakeFormTitle}</h3>
-              </div>
-              <div className="hidden rounded-2xl bg-teal-50 p-3 text-teal-700 sm:block">
-                <ShieldCheck size={30} />
-              </div>
-            </div>
-
-            <form className="grid gap-4 md:grid-cols-2">
-              <div className="md:col-span-2">
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.parentName}</label>
-                <input className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" placeholder={t.homeIntakePlaceholders.parentName} />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.childFirstName}</label>
-                <input className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" placeholder={t.homeIntakePlaceholders.childFirstName} />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.childLastName}</label>
-                <input className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" placeholder={t.homeIntakePlaceholders.childLastName} />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.childBirthdate}</label>
-                <input type="date" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.phoneNumber}</label>
-                <input className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" placeholder={t.homeIntakePlaceholders.phone} />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.emailAddress}</label>
-                <input type="email" className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" placeholder={t.homeIntakePlaceholders.email} />
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.preferredContact}</label>
-                <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100">
-                  {t.homeIntakePlaceholders.preferredContactOptions.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.diagnosisQuestion}</label>
-                <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100">
-                  {t.homeIntakePlaceholders.diagnosisOptions.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.state}</label>
-                <select className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100">
-                  {t.homeIntakePlaceholders.stateOptions.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="mb-2 block text-sm font-black text-slate-700">{t.message}</label>
-                <textarea className="min-h-36 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100" placeholder={t.homeIntakePlaceholders.message} />
-              </div>
-
-              <div className="md:col-span-2 rounded-2xl border border-teal-100 bg-gradient-to-br from-teal-50 via-white to-emerald-50 p-5 shadow-lg shadow-teal-900/5">
-                <div className="grid gap-5">
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1 grid h-11 w-11 shrink-0 place-items-center rounded-full bg-teal-700 text-white shadow-lg">
-                      <CalendarDays size={21} />
-                    </div>
-                    <div>
-                      <p className="text-base font-black text-emerald-950">{t.appointmentIntake}</p>
-                      <p className="mt-1 text-sm font-bold leading-6 text-slate-700">
-                        {t.appointmentIntakeText}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="h-px bg-teal-100" />
-
-                  <div className="flex items-start gap-4">
-                    <div className="mt-1 grid h-11 w-11 shrink-0 place-items-center rounded-full bg-teal-700 text-white shadow-lg">
-                      <LockKeyhole size={21} />
-                    </div>
-                    <div>
-                      <p className="text-base font-black text-emerald-950">{t.secureConfidential}</p>
-                      <p className="mt-1 text-sm font-bold leading-6 text-slate-700">
-                        {t.secureConfidentialText}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="md:col-span-2 space-y-4 text-sm leading-6 text-slate-700">
-                <label className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    checked={consentUpdates}
-                    onChange={(e) => setConsentUpdates(e.target.checked)}
-                    className="mt-1 h-5 w-5 accent-teal-700"
-                  />
-                  <span>{t.consentUpdates}</span>
-                </label>
-
-                <label className="flex items-start gap-3">
-                  <input
-                    type="checkbox"
-                    checked={consentTerms}
-                    onChange={(e) => setConsentTerms(e.target.checked)}
-                    className="mt-1 h-5 w-5 accent-teal-700"
-                  />
-                  <span>{t.consentTerms}</span>
-                </label>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setRecaptchaChecked((value) => !value)}
-                className={`md:col-span-2 rounded-xl border p-4 text-left transition ${
-                  recaptchaChecked
-                    ? "border-teal-500 bg-teal-50 ring-4 ring-teal-100"
-                    : "border-slate-200 bg-slate-50 hover:border-teal-300"
-                }`}
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className={`grid h-10 w-10 place-items-center rounded border-2 bg-white ${recaptchaChecked ? "border-teal-600" : "border-slate-300"}`}>
-                      {recaptchaChecked && <Check size={20} className="text-teal-700" />}
-                    </div>
-                    <span className="text-sm font-black text-slate-700">{t.recaptcha}</span>
-                  </div>
-                  <div className="h-9 w-9 rounded bg-gradient-to-br from-sky-400 to-blue-600" />
-                </div>
-              </button>
-
-              <div className="md:col-span-2">
-                <button className="w-full rounded-xl bg-[#f7c72f] px-6 py-4 text-lg font-black text-[#0b4f4f] shadow-lg transition hover:bg-[#ff8a1f] hover:text-white">
-                  {t.submitRequest}
-                </button>
-              </div>
-            </form>
-          </div>
+          <HomepageInterestForm t={t} />
         </div>
       </section>
-      <LiveChatAssistant t={t} />
       <NewsletterBanner t={t} />
-      <Footer t={t} />
+      <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
     </main>
   );
 }

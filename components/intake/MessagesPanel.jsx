@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import EdenLogo from "@/components/EdenLogo";
 import { INTAKE_EMAIL, INTAKE_PHONE } from "@/lib/intake/constants";
 
 /**
@@ -13,10 +14,15 @@ export default function MessagesPanel({ data, meta, onChange, onSaveMessage }) {
   return (
     <div className="space-y-5">
       <div className="rounded-2xl border border-[#dfe8e2] bg-white p-6 shadow-lg">
-        <h2 className="text-2xl font-black text-[#06461f]">✉ Messages</h2>
-        <p className="mt-2 text-sm leading-7 text-[#243142]">
-          Prepare a message for the intake team. Messages save locally until you export or connect the form to a secure backend.
-        </p>
+        <div className="flex items-start gap-4">
+          <EdenLogo size="intakePanel" className="shrink-0" />
+          <div>
+            <h2 className="text-2xl font-black text-[#06461f]">✉ Messages</h2>
+            <p className="mt-2 text-sm leading-7 text-[#243142]">
+              Prepare a message for the intake team. Messages save locally until you export or connect the form to a secure backend.
+            </p>
+          </div>
+        </div>
         <div className="mt-5 grid gap-3">
           <label className="grid gap-2 text-sm font-bold">
             Subject

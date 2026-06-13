@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import EdenLogo from "@/components/EdenLogo";
 import { CONSENT_DOCS } from "@/lib/intake/consent-docs";
 import IntakeField from "./IntakeField";
 
@@ -34,7 +35,10 @@ export default function ConsentModal({ consentId, data, onChange, onClose }) {
     <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/55 p-6" role="dialog" aria-modal="true" aria-labelledby="consent-modal-title">
       <div className="max-h-[90vh] w-full max-w-3xl overflow-auto rounded-2xl border border-[#dfe8e2] bg-white shadow-2xl">
         <div className="flex items-center justify-between border-b border-[#e4ece6] px-6 py-4">
-          <p className="text-sm font-extrabold text-[#08751f]">📄 Step 3 of 6: Legal & Consent</p>
+          <div className="flex items-center gap-3">
+            <EdenLogo size="intakePanel" />
+            <p className="text-sm font-extrabold text-[#08751f]">Step 3 of 6: Legal & Consent</p>
+          </div>
           <button type="button" onClick={onClose} className="rounded-lg px-2 text-2xl text-[#667085] hover:bg-slate-100" aria-label="Close consent modal">
             ×
           </button>

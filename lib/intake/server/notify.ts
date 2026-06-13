@@ -1,58 +1,69 @@
 import { getIntakeConfig } from "./config";
+import type { IntakeSubmissionSummary } from "./submission-summary";
+import { summaryToEmailText } from "./submission-summary";
 
 /**
- * Notify Eden ABA staff without including PHI in email body.
- * Uses Resend HTTP API when RESEND_API_KEY is configured.
- *
- * HIPAA: Email vendor BAA, TLS in transit, and staff mailbox access controls
- * are still required for production compliance.
+ * Email a copy of the intake submission to the Eden ABA intake team.
+ * Uses Resend when RESEND_API_KEY is configured.
  */
-export async function notifyStaffIntakeSubmitted(params: {
-  confirmationId: string;
-  submittedAt: string;
-  fileCount: number;
-}): Promise<{ sent: boolean; reason?: string }> {
+export async function notifyStaffIntakeSubmitted(
+  summary: IntakeSubmissionSummary,
+  fileCount = 0,
+): Promise<{ sent: boolean; reason?: string }> {
   const { resendApiKey, staffEmail, fromEmail } = getIntakeConfig();
 
   if (!resendApiKey) {
-    return { sent: false, reason: "RESEND_API_KEY not configured — notification skipped." };
+    return {
+      sent: false,
+      reason: "RESEND_API_KEY not configured — intake email notification skipped.",
+    };
   }
 
-  const submittedDisplay = new Date(params.submittedAt).toLocaleString("en-US", {
-    timeZone: "America/New_York",
-    dateStyle: "full",
-    timeStyle: "short",
-  });
-
-  const subject = "New Eden ABA intake submitted";
+  const subject = `New Eden ABA intake — ${summary.childName || summary.parentName || summary.confirmationId}`;
   const text = [
-    "A new intake form was submitted through the Eden ABA Therapy website.",
+    summaryToEmailText(summary),
     "",
-    `Confirmation ID: ${params.confirmationId}`,
-    `Submitted: ${submittedDisplay} (US/Eastern display)`,
-    `Documents attached: ${params.fileCount}`,
+    fileCount > 0 ? `Encrypted documents attached with submission: ${fileCount}` : "No documents attached with this submission.",
     "",
-    "Open your secure intake admin system to review encrypted records.",
-    "This notification intentionally does not include PHI.",
+    "This message is intended for Eden ABA Therapy intake staff only.",
   ].join("\n");
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [staffEmail],
-      subject,
-      text,
-    }),
-  });
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [staffEmail],
+        subject,
+        text,
+      }),
+    });
 
-  if (!response.ok) {
-    return { sent: false, reason: "Staff notification could not be sent." };
+    const payload = (await response.json()) as { message?: string; name?: string };
+
+    if (!response.ok) {
+      const detail = payload.message || payload.name || `Resend HTTP ${response.status}`;
+      console.error("[intake-delivery] staff email failed", {
+        status: response.status,
+        detail,
+        confirmationId: summary.confirmationId,
+      });
+      return { sent: false, reason: detail };
+    }
+
+    return { sent: true };
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : "Unknown email error";
+    const stack = error instanceof Error ? error.stack : undefined;
+    console.error("[intake-delivery] staff email exception", {
+      detail,
+      stack,
+      confirmationId: summary.confirmationId,
+    });
+    return { sent: false, reason: detail };
   }
-
-  return { sent: true };
 }

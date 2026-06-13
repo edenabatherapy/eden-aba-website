@@ -1,0 +1,587 @@
+.career-meaning-animation {
+  --eden-green: #087c4f;
+  --eden-teal: #008c83;
+  --eden-soft-green: #dff7e9;
+  --eden-cream: #fffaf0;
+  --eden-yellow: #f4d35e;
+  --eden-navy: #23314d;
+
+  position: relative;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  color: var(--eden-green);
+}
+
+.career-meaning-animation--compact {
+  width: 56px;
+  height: 56px;
+}
+
+.career-meaning-animation__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.career-meaning-animation__stroke {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Default careers — briefcase */
+.cma-careers__case {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+  animation: cmaCareersPulse 3.2s ease-in-out infinite;
+}
+
+.cma-careers__handle {
+  stroke: var(--eden-teal);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.cma-careers__spark {
+  fill: var(--eden-yellow);
+  opacity: 0;
+  animation: cmaSpark 2.8s ease-in-out infinite;
+}
+
+.cma-careers__spark--2 {
+  animation-delay: 0.6s;
+}
+
+/* Search Open Roles — magnifying glass scanning cards */
+.cma-search__card {
+  fill: var(--eden-cream);
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  opacity: 0.55;
+}
+
+.cma-search__card--1 {
+  animation: cmaSearchCard 3.4s ease-in-out infinite;
+}
+
+.cma-search__card--2 {
+  animation: cmaSearchCard 3.4s ease-in-out infinite 0.35s;
+}
+
+.cma-search__card--3 {
+  animation: cmaSearchCard 3.4s ease-in-out infinite 0.7s;
+}
+
+.cma-search__lens {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 2;
+  transform-origin: 30px 28px;
+  animation: cmaSearchLens 3.4s ease-in-out infinite;
+}
+
+.cma-search__handle {
+  stroke: var(--eden-green);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.cma-search__scan {
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+  animation: cmaSearchScan 3.4s ease-in-out infinite;
+}
+
+/* RBT — child support + growing blocks */
+.cma-rbt__head {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.4;
+}
+
+.cma-rbt__block {
+  fill: var(--eden-teal);
+  opacity: 0.35;
+  transform-origin: center bottom;
+}
+
+.cma-rbt__block--1 {
+  animation: cmaRbtBlock 2.8s ease-in-out infinite;
+}
+
+.cma-rbt__block--2 {
+  animation: cmaRbtBlock 2.8s ease-in-out infinite 0.25s;
+}
+
+.cma-rbt__block--3 {
+  animation: cmaRbtBlock 2.8s ease-in-out infinite 0.5s;
+}
+
+.cma-rbt__dot {
+  fill: var(--eden-yellow);
+  opacity: 0.35;
+}
+
+.cma-rbt__dot--1 {
+  animation: cmaRbtDot 2.8s ease-in-out infinite;
+}
+
+.cma-rbt__dot--2 {
+  animation: cmaRbtDot 2.8s ease-in-out infinite 0.25s;
+}
+
+.cma-rbt__dot--3 {
+  animation: cmaRbtDot 2.8s ease-in-out infinite 0.5s;
+}
+
+/* BCBA — clipboard + chart */
+.cma-bcba__board {
+  fill: var(--eden-cream);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+}
+
+.cma-bcba__line {
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  opacity: 0.45;
+}
+
+.cma-bcba__check {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 10;
+  stroke-dashoffset: 10;
+}
+
+.cma-bcba__check--1 {
+  animation: cmaBcbaCheck 3.2s ease-in-out infinite;
+}
+
+.cma-bcba__check--2 {
+  animation: cmaBcbaCheck 3.2s ease-in-out infinite 0.4s;
+}
+
+.cma-bcba__bar {
+  fill: var(--eden-teal);
+  transform-origin: center bottom;
+}
+
+.cma-bcba__bar--1 {
+  animation: cmaBcbaBar 3s ease-in-out infinite;
+}
+
+.cma-bcba__bar--2 {
+  animation: cmaBcbaBar 3s ease-in-out infinite 0.2s;
+}
+
+.cma-bcba__bar--3 {
+  animation: cmaBcbaBar 3s ease-in-out infinite 0.4s;
+}
+
+.cma-bcba__baseline {
+  stroke: var(--eden-navy);
+  stroke-width: 1.2;
+  opacity: 0.35;
+}
+
+/* Life at Eden — team + heart + leaf */
+.cma-life__link {
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: cmaLifeLink 3.4s ease-in-out infinite;
+}
+
+.cma-life__node {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.4;
+}
+
+.cma-life__node--center {
+  fill: var(--eden-teal);
+  animation: cmaLifeCenter 3.4s ease-in-out infinite;
+}
+
+.cma-life__heart {
+  fill: var(--eden-yellow);
+  opacity: 0;
+  transform-origin: 24px 27px;
+  animation: cmaLifeHeart 3.4s ease-in-out infinite;
+}
+
+.cma-life__leaf {
+  fill: var(--eden-teal);
+  opacity: 0;
+  animation: cmaLifeLeaf 3.4s ease-in-out infinite 0.5s;
+}
+
+/* Interview Guide — calendar + bubbles */
+.cma-interview__calendar {
+  fill: var(--eden-cream);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+}
+
+.cma-interview__day {
+  fill: var(--eden-soft-green);
+}
+
+.cma-interview__day--active {
+  fill: var(--eden-teal);
+  animation: cmaInterviewDay 3s ease-in-out infinite;
+}
+
+.cma-interview__check {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  animation: cmaInterviewCheck 3s ease-in-out infinite;
+}
+
+.cma-interview__bubble {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  animation: cmaInterviewBubble 3.2s ease-in-out infinite;
+}
+
+.cma-interview__dot {
+  fill: var(--eden-green);
+  opacity: 0.45;
+  animation: cmaInterviewDot 1.6s ease-in-out infinite;
+}
+
+.cma-interview__dot:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+
+.cma-interview__dot:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+/* Career Resources — folder + docs */
+.cma-resources__folder {
+  fill: var(--eden-yellow);
+  stroke: var(--eden-green);
+  stroke-width: 1.4;
+  opacity: 0.85;
+}
+
+.cma-resources__doc {
+  fill: #fff;
+  stroke: var(--eden-teal);
+  stroke-width: 1.3;
+}
+
+.cma-resources__doc--1 {
+  animation: cmaResourcesDoc 3.2s ease-in-out infinite;
+}
+
+.cma-resources__doc--2 {
+  animation: cmaResourcesDoc 3.2s ease-in-out infinite 0.3s;
+}
+
+.cma-resources__line {
+  stroke: var(--eden-teal);
+  stroke-width: 1.2;
+  opacity: 0.5;
+}
+
+.cma-resources__path {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.4;
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  animation: cmaResourcesPath 3.2s ease-in-out infinite;
+}
+
+.cma-resources__node {
+  fill: var(--eden-teal);
+  animation: cmaResourcesNode 3.2s ease-in-out infinite;
+}
+
+@keyframes cmaCareersPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cmaSpark {
+  0%,
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cmaSearchCard {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cmaSearchLens {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-6px, -4px);
+  }
+
+  50% {
+    transform: translate(-10px, 2px);
+  }
+
+  75% {
+    transform: translate(-4px, 6px);
+  }
+}
+
+@keyframes cmaSearchScan {
+  0%,
+  100% {
+    stroke-dashoffset: 10;
+    opacity: 0.2;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes cmaRbtBlock {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleY(0.75);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes cmaRbtDot {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(2px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cmaBcbaCheck {
+  0%,
+  45% {
+    stroke-dashoffset: 10;
+    opacity: 0;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes cmaBcbaBar {
+  0%,
+  100% {
+    transform: scaleY(0.65);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cmaLifeLink {
+  0%,
+  100% {
+    stroke-dashoffset: 12;
+    opacity: 0.35;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes cmaLifeCenter {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes cmaLifeHeart {
+  0%,
+  40% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  55%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+@keyframes cmaLifeLeaf {
+  0%,
+  50% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  70%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cmaInterviewDay {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes cmaInterviewCheck {
+  0%,
+  45% {
+    stroke-dashoffset: 8;
+    opacity: 0;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes cmaInterviewBubble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cmaInterviewDot {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes cmaResourcesDoc {
+  0%,
+  100% {
+    transform: translateY(2px);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+@keyframes cmaResourcesPath {
+  0%,
+  100% {
+    stroke-dashoffset: 8;
+    opacity: 0.3;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes cmaResourcesNode {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-meaning-animation *,
+  .career-meaning-animation *::before,
+  .career-meaning-animation *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

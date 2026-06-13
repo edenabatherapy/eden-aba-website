@@ -25,8 +25,23 @@
     "hours": "Hours",
     "navResources": "Resources",
     "navAboutEden": "About Eden",
+    "aboutEdenMegaMenuDefaultDescription": "Learn about Eden ABA Therapy's mission, team, clinical quality, family-centered care, and community connection.",
+    "resourcesMegaMenuDefaultDescription": "Explore our guides, articles, and resources to support your autism journey.",
+    "resourcesMegaMenuDefaultTitle": "Helpful tools for every step",
+    "careersMegaMenuDefaultDescription": "Explore meaningful career paths at Eden ABA Therapy, from RBT and BCBA roles to team culture, interview support, and professional growth.",
+    "careersMegaMenuDefaultTitle": "Careers at Eden",
     "navCareers": "Careers",
     "startABA": "Start ABA Therapy",
+    "navIntakeForm": "Intake Form",
+    "completeIntakeFormTitle": "Complete Intake Form",
+    "completeIntakeFormText": "Securely submit information before services begin to help our team prepare and streamline the onboarding process.",
+    "completeIntakeFormBenefits": [
+      "Secure online submission",
+      "Upload required documents",
+      "Faster onboarding process",
+      "Reduced paperwork delays"
+    ],
+    "startIntakeForm": "Start Intake Form",
     "darkMode": "Dark Mode",
     "lightMode": "Light Mode",
     "heroTitle": "A brighter path for children to grow, learn, and thrive.",
@@ -86,23 +101,209 @@
     "gettingStartedTitle": "How to get started with ABA therapy",
     "gettingStartedP1": "If your child already has an autism diagnosis and you want to get started with ABA therapy, you can contact us to schedule an intake.",
     "gettingStartedP2": "If your child has many of the early signs of autism and does not yet have a diagnosis, we can help guide you through diagnostic support options.",
-    "screeningToolsTitle": "No-cost online screening tools",
+    "familySupportPath": {
+      "eyebrow": "Your family's journey",
+      "title": "Your Path to Support Starts Here",
+      "subtitle": "Getting started should feel clear, not overwhelming. Whether your child already has an autism diagnosis or you are still looking for answers, Eden ABA Therapy helps families understand the next step, connect with the right resources, and move forward with confidence.",
+      "benefitsLabel": "Benefits",
+      "journeyLabel": "Signs → Diagnosis → Consultation → Intake",
+      "steps": [
+        {
+          "step": "STEP 01",
+          "title": "Understand Early Signs",
+          "description": "Autism screening tools help families identify developmental patterns that may benefit from further evaluation. While screening does not provide a diagnosis, it offers valuable insight and helps determine whether professional assessment is recommended.",
+          "benefits": [
+            "Learn about communication and social development milestones",
+            "Identify potential areas of concern early",
+            "Access evidence-informed screening resources",
+            "Gain clarity before pursuing a formal evaluation"
+          ],
+          "button": "Take M-CHAT-R",
+          "buttons": [
+            "Take M-CHAT-R",
+            "Take CAST"
+          ]
+        },
+        {
+          "step": "STEP 02",
+          "title": "Receive Professional Answers",
+          "description": "A comprehensive autism evaluation provides a detailed understanding of your child's strengths, developmental needs, and whether autism spectrum disorder criteria are met.",
+          "benefits": [
+            "Connect with qualified diagnostic specialists",
+            "Obtain documentation for services and support",
+            "Build a personalized care roadmap",
+            "Create a foundation for therapy planning"
+          ],
+          "button": "Find Diagnostic Support"
+        },
+        {
+          "step": "STEP 03",
+          "title": "Schedule an ABA Consultation",
+          "description": "Meet with our experienced team to discuss your child's needs, goals, and available therapy options. We will help determine the most appropriate next steps for your family.",
+          "benefits": [
+            "Request an ABA therapy evaluation",
+            "Discuss clinic, home, school, or telehealth options",
+            "Review insurance and service availability",
+            "Receive guidance tailored to your child"
+          ],
+          "button": "Schedule Consultation"
+        },
+        {
+          "step": "STEP 04",
+          "title": "Complete Family Intake",
+          "description": "Submit important family, child, and insurance information securely before services begin. This allows our team to prepare and helps reduce delays during onboarding.",
+          "benefits": [
+            "Secure online information submission",
+            "Faster onboarding process",
+            "Supports insurance eligibility review",
+            "Helps our clinical team prepare"
+          ],
+          "button": "Start Intake"
+        }
+      ]
+    },
+    "professionalOrganizations": {
+      "eyebrow": "Community connections",
+      "title": "Professional Organizations & Community Resources",
+      "subtitle": "Eden ABA Therapy stays connected with respected autism, ABA, advocacy, and family-support organizations to support informed, family-centered care.",
+      "disclaimer": "Logos represent professional organizations and autism resources. Display does not imply endorsement unless membership, affiliation, or partnership is confirmed.",
+      "organizations": {
+        "CASP": {
+          "summary": "The Council of Autism Service Providers supports autism service providers through best practices, advocacy, and quality-focused resources."
+        },
+        "ABAI": {
+          "summary": "The Association for Behavior Analysis International connects behavior analysis researchers, practitioners, educators, and students worldwide."
+        },
+        "APBA": {
+          "summary": "The Association of Professional Behavior Analysts supports the professional practice of behavior analysis through advocacy and education."
+        },
+        "Autism Society": {
+          "summary": "The Autism Society provides advocacy, education, resources, and community support for autistic individuals and families."
+        },
+        "MABA": {
+          "summary": "The Maryland Association for Behavior Analysis supports behavior analysis professionals through education, events, and professional resources."
+        },
+        "OAR": {
+          "summary": "The Organization for Autism Research funds practical autism research and provides evidence-based resources for families and educators."
+        },
+        "TACA": {
+          "summary": "The Autism Community in Action provides education, support, and resources for families living with autism."
+        },
+        "VABA": {
+          "summary": "The Virginia Association for Behavior Analysis supports behavior analysis professionals in Virginia through advocacy, education, and membership resources."
+        }
+      }
+    },
+    "resourceIntelligenceHub": {
+      "eyebrow": "Resource intelligence",
+      "title": "Eden Resource Intelligence Hub",
+      "subtitle": "A smart, interactive resource center combining trusted autism organizations, family guidance, care navigation, and Eden ABA Therapy impact insights.",
+      "zone1Title": "Animated Impact Analytics",
+      "zone2Title": "Professional Organizations & Community Resources",
+      "zone2Subtitle": "Trusted autism, ABA, advocacy, research, and family-support organizations.",
+      "zone3Title": "Smart Family Resource Matcher",
+      "zone3Subtitle": "Select your child's age, main concern, and what your family needs most.",
+      "analyticsBadge": "Presentation metrics",
+      "formulaLabel": "Formula",
+      "categoryLabel": "Resource category",
+      "metricsNote": "These metrics are homepage presentation values. Confirm exact internal numbers before publishing.",
+      "disclaimer": "Professional organization logos are shown as educational and resource references. Display does not imply endorsement, partnership, accreditation, or membership unless formally confirmed.",
+      "recommendedTitle": "Recommended resources",
+      "recommendedEmpty": "Complete all three selections to see personalized guidance.",
+      "ctaStartAba": "Start ABA Therapy",
+      "ctaVerifyInsurance": "Verify Insurance",
+      "ctaExploreResources": "Explore Parent Resources",
+      "ctaSchedule": "Schedule Consultation",
+      "stats": {
+        "families": "Families Supported",
+        "satisfaction": "Parent Satisfaction",
+        "insurance": "Insurance Plans Accepted",
+        "hours": "Therapy Hours Delivered"
+      },
+      "insights": {
+        "trust": "Family Trust Index",
+        "access": "Access Score",
+        "hoursAvg": "Avg. Therapy Hours / Family",
+        "impact": "Overall Impact Score"
+      },
+      "orgCategories": {
+        "CASP": "Autism service provider organization",
+        "ABAI": "Behavior analysis professional organization",
+        "APBA": "Professional behavior analyst association",
+        "Autism Society": "Autism advocacy and family support",
+        "MABA": "State behavior analysis association",
+        "OAR": "Autism research and education",
+        "TACA": "Family education and autism support",
+        "VABA": "Virginia behavior analysis association"
+      },
+      "matcher": {
+        "ageLabel": "Child age range",
+        "concernLabel": "Main concern",
+        "needLabel": "Family need",
+        "selectPlaceholder": "Select an option",
+        "age": {
+          "under3": "Under 3",
+          "3to5": "3–5",
+          "6to12": "6–12",
+          "13plus": "13+"
+        },
+        "concern": {
+          "communication": "Communication",
+          "social": "Social skills",
+          "behavior": "Behavior support",
+          "school": "School readiness",
+          "diagnosis": "Diagnosis questions"
+        },
+        "need": {
+          "evaluation": "Evaluation",
+          "aba": "ABA therapy",
+          "insurance": "Insurance help",
+          "parentResources": "Parent resources",
+          "community": "Community support"
+        }
+      },
+      "recommendations": {
+        "evaluationGuidance": "Evaluation guidance and screening pathways",
+        "abaSupport": "ABA therapy support and consultation options",
+        "insuranceVerification": "Insurance verification and benefits review",
+        "parentResources": "Parent resources and early-intervention guides",
+        "autismSociety": "Autism Society advocacy and community resources",
+        "oarResources": "OAR evidence-based autism research resources",
+        "tacaResources": "TACA family education and support resources",
+        "scheduleConsultation": "Schedule an ABA consultation with Eden ABA Therapy"
+      }
+    },
+    "screeningToolsTitle": "No-cost Online Screening Tools",
+    "screeningToolsDescription": "Access free autism screening tools from home to help determine whether a professional evaluation may be beneficial.",
+    "screeningToolsBenefits": [
+      "Quick online screening",
+      "Evidence-based tools",
+      "Immediate guidance",
+      "Free and confidential"
+    ],
     "forToddlers": "For toddlers:",
     "takeMchat": "Take the M-CHAT",
     "forOlderChildren": "For older children:",
     "takeCast": "Take the CAST",
-    "assessmentTitle": "Schedule an autism assessment near you",
-    "assessmentText": "Eden ABA Therapy can help families understand next steps for autism evaluation and ABA therapy services.",
-    "diagnosticSupport": "Get diagnostic support",
-    "onlineSchedulerTitle": "Online Appointment Scheduler",
-    "onlineSchedulerText": "Book an appointment online with Eden ABA Therapy using our guided scheduling system. Families can share concerns, choose a service, provide contact details, and request a convenient appointment time.",
-    "onlineSchedulerFeatures": [
-      "Guided multi-step booking",
-      "Autism evaluation and ABA therapy appointment options",
-      "Smart intake routing",
-      "Insurance information collection",
-      "Confirmation and follow-up support"
+    "featureCardBenefitsLabel": "Benefits",
+    "assessmentTitle": "Schedule an Autism Assessment Near You",
+    "assessmentText": "Connect with experienced autism specialists who can provide comprehensive evaluations and personalized recommendations.",
+    "assessmentBenefits": [
+      "Licensed diagnostic specialists",
+      "Flexible scheduling options",
+      "In-person and virtual evaluations",
+      "Personalized next-step guidance"
     ],
+    "diagnosticSupport": "Get Diagnostic Support",
+    "onlineSchedulerTitle": "Online Appointment Scheduler",
+    "onlineSchedulerText": "Book autism evaluation or ABA therapy appointments online through a simple guided scheduling process.",
+    "onlineSchedulerFeatures": [
+      "24/7 online booking",
+      "Easy step-by-step process",
+      "Appointment confirmations",
+      "Convenient scheduling options"
+    ],
+    "scheduleAppointment": "Schedule Appointment",
     "careersEyebrow": "Recruiting system",
     "careersTitle": "Careers page with searchable roles.",
     "searchJobs": "Search jobs...",
@@ -145,6 +346,23 @@
     "consentUpdates": "I consent to receive appointment reminders and intake updates from Eden ABA Therapy.",
     "consentTerms": "I agree to the Privacy Policy and Terms of Service.",
     "recaptcha": "protected by reCAPTCHA",
+    "recaptchaPrivacy": "Privacy",
+    "recaptchaTerms": "Terms",
+    "recaptchaGoogleLegal": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
+    "languageLabel": "Language",
+    "recaptchaFailed": "Security verification failed. Please refresh the page and try again, or contact Eden ABA Therapy for help.",
+    "startAbaRecaptchaFailed": "We could not verify your request. Please refresh and try again.",
+    "startAbaRecaptchaIncomplete": "Please complete the reCAPTCHA verification.",
+    "contactFormErrors": {
+      "incomplete": "Please complete all required fields before submitting.",
+      "consentRequired": "You must agree to the Privacy Policy and Terms of Service.",
+      "submitRetry": "Unable to submit your request. Please try again."
+    },
+    "contactFormSuccessTitle": "Request received",
+    "contactFormSuccessText": "Thank you. Eden ABA Therapy will contact you soon to guide you through the next steps.",
+    "contactFormSubmitting": "Submitting your request...",
+    "schedulerSubmitting": "Submitting appointment request...",
+    "schedulerSubmitError": "Unable to submit your appointment request. Please try again.",
     "liveChat": "Live Chat",
     "edenAssistant": "Eden Assistant",
     "chatSupport": "ABA • Speech • OT Support",
@@ -155,7 +373,7 @@
     "you": "You",
     "chatGreeting": "Hi! I'm Eden's therapy assistant. I can answer questions about ABA therapy, speech therapy, occupational therapy, autism support, intake, insurance, scheduling, documents, parent training, and next steps. What would you like to know?",
     "newsletterTitle": "Stay connected with our family newsletter",
-    "firstName": "First Name",
+    "fullName": "Full Name",
     "email": "Email",
     "joinNewsletter": "Join Family Newsletter",
     "newsletterThanks": "Thank you",
@@ -204,8 +422,13 @@
     "googleMap": {
       "defaultTitle": "Eden ABA Therapy Google Map",
       "annandaleTitle": "Eden ABA Therapy Annandale Google Map",
+      "mapViewLabel": "Map",
+      "satelliteViewLabel": "Satellite",
+      "hybridViewLabel": "Hybrid",
+      "mapTypeGroupLabel": "Map type",
+      "loadingLabel": "Loading map…",
       "apiKeyNotice": "For full interactive map controls (satellite view, Street View, zoom, and directions), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local and enable Maps JavaScript API in Google Cloud with billing enabled. You can still open Eden ABA Therapy in Google Maps.",
-      "openInGoogleMaps": "open Eden ABA Therapy in Google Maps"
+      "openInGoogleMaps": "Open in Google Maps"
     },
     "locationsDetail": {
       "breadcrumbPrefix": "Eden ABA Therapy /",
@@ -274,53 +497,36 @@
   },
   "menu": [
     {
-      "label": "Autism Evaluation",
-      "type": "evaluation",
-      "highlightTitle": "Autism Evaluation",
-      "highlightText": "Early autism screening and evaluation support for families across Northern Virginia.",
-      "columns": [
-        {
-          "title": "Screening & Evaluation",
-          "links": [
-            "M-CHAT-R Online Screener",
-            "CAST Online Screener",
-            "ADOS-2 Assessment",
-            "IDE Evaluation",
-            "Autism Screener FAQs",
-            "Parent Guidance"
-          ]
-        },
-        {
-          "title": "Family Support",
-          "links": [
-            "Parent Consultation",
-            "Insurance Support",
-            "Diagnostic Guidance",
-            "Contact Us"
-          ]
-        }
-      ]
-    },
-    {
       "label": "ABA Therapy",
       "type": "simple",
       "columns": [
         {
-          "title": "ABA Therapy",
+          "title": "Services",
           "links": [
-            "In-Home ABA",
-            "Clinic-Based ABA",
-            "Parent Training",
-            "School Support"
-          ]
-        },
-        {
-          "title": "Family Resources",
-          "links": [
-            "What is Autism?",
-            "What is ABA Therapy?",
-            "Insurance Coverage",
-            "Admissions Information"
+            "Home-Based ABA Therapy",
+            "Center-Based ABA Therapy",
+            "Community-Based ABA Therapy",
+            "School-Based ABA Therapy",
+            "Virtual ABA Therapy",
+            "Afterschool Programs",
+            {
+              "key": "occupational-therapy-coming-soon",
+              "label": "Occupational Therapy",
+              "badge": "Coming Soon to Eden Family",
+              "comingSoon": true
+            },
+            {
+              "key": "speech-language-therapy-coming-soon",
+              "label": "Speech & Language Therapy",
+              "badge": "Coming Soon to Eden Family",
+              "comingSoon": true
+            },
+            {
+              "key": "feeding-swallowing-therapy-coming-soon",
+              "label": "Feeding & Swallowing Therapy",
+              "badge": "Coming Soon to Eden Family",
+              "comingSoon": true
+            }
           ]
         }
       ]
@@ -353,24 +559,53 @@
     },
     {
       "label": "Resources",
-      "type": "simple",
+      "type": "compact",
       "columns": [
         {
-          "title": "Family Resources",
+          "title": "Learn About Autism",
           "links": [
-            "What is ABA?",
-            "Caregiver Guides",
-            "Blog",
+            "What Is Autism?",
+            "Early Signs of Autism",
+            "Autism Diagnosis Guide",
+            "Autism by Age & Development"
+          ]
+        },
+        {
+          "title": "Evaluations & Diagnosis",
+          "links": [
+            "Screening & Evaluation",
+            "M-CHAT-R Online Screener",
+            "ADOS-2 Assessment",
+            "School & IEP Evaluations"
+          ]
+        },
+        {
+          "title": "ABA Therapy",
+          "links": [
+            "What Is ABA Therapy?",
+            "Parent Training",
+            "Parent Guides",
+            "Family Training & Support",
+            "How ABA Therapy Works",
+            "ABA Success Stories"
+          ]
+        },
+        {
+          "title": "Getting Started",
+          "links": [
+            "Insurance Coverage",
+            "Admissions Process",
+            "Getting Started with Eden",
+            "New Parent Checklist",
+            "Schedule Appointment",
             "FAQs"
           ]
         },
         {
-          "title": "Support",
+          "title": "Learning Center",
           "links": [
-            "Insurance Coverage",
-            "Parent Training",
-            "Admissions Information",
-            "Privacy Practices"
+            "Blog & Articles",
+            "Webinars & Videos"
           ]
         }
       ]
@@ -383,9 +618,10 @@
           "title": "About Eden",
           "links": [
             "Our Story",
-            "Our Team",
-            "Clinical Quality",
-            "About Us",
+            "Our Mission & Values",
+            "Leadership Team",
+            "Clinical Excellence",
+            "Community Impact",
             "Contact Us"
           ]
         }
@@ -401,6 +637,7 @@
             "Search Open Roles",
             "RBT Careers",
             "BCBA Careers",
+            "Life at Eden",
             "Interview Guide",
             "Career Resources"
           ]
@@ -650,11 +887,13 @@
   },
   "hero": {
     "animatedWords": [
+      "grow",
+      "learn",
       "thrive",
-      "smile",
-      "achieve",
+      "blossom",
+      "communicate",
       "connect",
-      "flourish"
+      "smile"
     ],
     "line1": "A brighter path for children",
     "line2": "to grow, learn, and",
@@ -664,10 +903,14 @@
   "pages": {
     "autismAwareness": {
       "title": "Autism Awareness Counter",
+      "titleParts": ["Autism", "Awareness", "Counter"],
       "cdcBadge": "CDC estimate: 1 in 31 children identified with autism",
       "intro": "A live educational estimate created to promote autism awareness, early support, and compassionate care for children and families.",
       "tagline": "Eden ABA Therapy | Awareness, Guidance, and Family-Centered Support",
       "currentTimePrefix": "Current Time:",
+      "updatesInRealtime": "Updates in real-time",
+      "liveClockLabel": "Current Time",
+      "sourceFooter": "Source: Centers for Disease Control and Prevention (CDC) – Data based on ADDM Network Report.",
       "stats": {
         "birthsToday": {
           "label": "Babies Born in the U.S. Today",
@@ -681,6 +924,26 @@
           "label": "Estimated Births This Minute",
           "value": "7",
           "note": "Approximate national average per minute"
+        },
+        "childrenIdentified": {
+          "label": "Children Identified With Autism",
+          "value": "1 in 31",
+          "note": "CDC estimate"
+        },
+        "increasePrevalence": {
+          "label": "Increase In Prevalence (2000–2020)",
+          "value": "317%",
+          "note": "Growth over two decades"
+        },
+        "earlyDiagnosis": {
+          "label": "Early Diagnosis Matters",
+          "value": "5x",
+          "note": "Better outcomes with early intervention"
+        },
+        "accessSupport": {
+          "label": "Access To Support Can Change Lives",
+          "value": "80%",
+          "note": "Improvement with consistent, evidence-based support"
         },
         "earlySupport": {
           "label": "What Early Support Can Improve",
@@ -703,31 +966,151 @@
       }
     },
     "insurancePayment": {
-      "eyebrow": "Insurance Support",
-      "title": "Paying for ABA therapy doesn't have to be stressful.",
-      "intro": "As a parent, you juggle a lot. Let Eden ABA Therapy help you navigate the financial side of your child's care. Most major insurance plans may cover ABA therapy, and our team can help verify benefits, explain coverage, and coordinate insurance details on your behalf.",
-      "providersHeading": "We can help review major insurance providers, including:",
-      "providers": [
-        "Aetna",
-        "Anthem",
-        "Blue Cross Blue Shield",
-        "Optum",
-        "UMR",
-        "UnitedHealthcare",
-        "Cigna",
-        "Virginia Medicaid",
-        "More"
+      "badge": "WE'VE GOT YOU COVERED",
+      "headingInsurance": "Insurance",
+      "headingMade": "Made",
+      "headingAccent": "Simple",
+      "headingLine1": "Insurance Made",
+      "description": "We handle the complexity so you can focus on what matters most—your child's progress.",
+      "benefits": [
+        {
+          "prefix": "We ",
+          "highlight": "verify",
+          "suffix": " your ABA therapy benefits"
+        },
+        {
+          "prefix": "We help ",
+          "highlight": "explain",
+          "suffix": " deductibles, copays, and authorization steps"
+        },
+        {
+          "prefix": "We work with families ",
+          "highlight": "before",
+          "suffix": " therapy begins"
+        },
+        {
+          "prefix": "Our intake team ",
+          "highlight": "guides",
+          "suffix": " you through the process"
+        }
       ],
-      "verifyInsurance": "Verify Insurance",
-      "contactLearnMore": "Contact us to learn more",
-      "sidebarTitle": "Insurance help for Virginia families",
-      "sidebarItems": [
-        "Benefits review",
-        "Deductible, copay, and coinsurance guidance",
-        "Prior authorization support",
-        "In-network and out-of-network explanation",
-        "Clear next-step planning"
-      ]
+      "benefitCards": [
+        {
+          "title": "Fast & Accurate",
+          "description": "Benefit verification typically completed within 24–48 hours."
+        },
+        {
+          "title": "Maximize Benefits",
+          "description": "We identify your full coverage so you understand what's available."
+        },
+        {
+          "title": "Hassle-Free",
+          "description": "We handle insurance details from start to finish on your behalf."
+        },
+        {
+          "title": "Ongoing Support",
+          "description": "Dedicated support throughout your child's therapy journey."
+        }
+      ],
+      "verifyCta": "Verify My Insurance",
+      "speakCta": "Speak With Our Intake Team",
+      "secureNote": "Secure & Private — Your information is safe with us.",
+      "trustIndicators": [
+        { "label": "HIPAA Compliant" },
+        { "label": "Secure & Private" },
+        { "label": "Your information is safe with us" }
+      ],
+      "featureCard": {
+        "title": "We Handle the Complex, You Focus on Progress",
+        "items": [
+          {
+            "title": "Step-by-Step Guidance",
+            "description": "Clear guidance through verification and authorization."
+          },
+          {
+            "title": "Transparent Communication",
+            "description": "Plain-language updates on coverage and next steps."
+          },
+          {
+            "title": "Benefit Maximization",
+            "description": "Help identifying eligible services and plan details."
+          },
+          {
+            "title": "Dedicated Support",
+            "description": "A responsive intake team for questions along the way."
+          }
+        ],
+        "footer": "We work with major insurance providers across Virginia and beyond.",
+        "viewAllLink": "View all providers"
+      },
+      "processSteps": [
+        { "title": "Submit your insurance information" },
+        { "title": "Eden verifies your benefits" },
+        { "title": "We explain your next steps" }
+      ],
+      "verificationSteps": [
+        { "title": "Submit Info", "description": "Share insurance details securely" },
+        { "title": "We Verify", "description": "Our team checks your benefits" },
+        { "title": "Review Benefits", "description": "Understand coverage & costs" },
+        { "title": "Plan Your Care", "description": "Move forward with confidence" }
+      ],
+      "cardBadge": "Most verifications in 24–48 hours",
+      "cardTitle": "Insurance Verification",
+      "cardSubtitle": "Quick, accurate, and hassle-free.",
+      "fastVerification": "Fast verification, usually within",
+      "fastVerificationHours": "24–48 hours",
+      "whatYouReceive": {
+        "title": "What you'll receive",
+        "items": [
+          "Coverage summary",
+          "Deductibles & copays",
+          "Authorization requirements",
+          "Out-of-pocket estimates"
+        ]
+      },
+      "reportHighlight": {
+        "title": "Clear, Easy-to-Understand Report",
+        "description": "A family-friendly summary of your benefits and recommended next steps."
+      },
+      "providersSection": {
+        "title": "We Work With Major Insurance Providers",
+        "viewAll": "View all",
+        "manyMore": "+ Many More"
+      },
+      "supportSection": {
+        "title": "More Ways We Support You",
+        "cards": [
+          {
+            "title": "Appointment Assistance",
+            "description": "Help scheduling evaluations and intake appointments."
+          },
+          {
+            "title": "Claims Support",
+            "description": "Guidance on claims questions and documentation."
+          },
+          {
+            "title": "Plan Changes",
+            "description": "Support when your insurance or coverage changes."
+          },
+          {
+            "title": "Resource Center",
+            "description": "Access to family guides and educational resources."
+          }
+        ]
+      },
+      "privacyBar": {
+        "title": "Your Privacy Matters",
+        "text": "Your information is encrypted and handled with care.",
+        "link": "HIPAA & Privacy Practices"
+      },
+      "trustBadges": [
+        { "label": "Secure Submission" },
+        { "label": "HIPAA-Conscious Process" },
+        { "label": "Family Support" },
+        { "label": "Fast Response" }
+      ],
+      "disclaimer": "Coverage and authorization requirements vary by plan. Our team will help",
+      "disclaimerHighlight": "verify your specific benefits."
     },
     "parentResources": {
       "eyebrow": "Parent Resources",
@@ -754,35 +1137,147 @@
       ],
       "cta": "Start with an intake form"
     },
+    "childJourney": {
+      "eyebrowIcon": "♡",
+      "eyebrow": "Your Child's Journey",
+      "title": "Your Child's Journey to Success",
+      "subtitle": "From the first screening to ongoing therapy progress, Eden ABA guides your family through every step with clarity, care, and support.",
+      "imageAlt": "Therapist supporting a child during ABA therapy session",
+      "steps": [
+        {
+          "title": "Free Autism Screening",
+          "description": "Start with a free online screening tool to better understand your child's developmental needs."
+        },
+        {
+          "title": "Comprehensive Assessment",
+          "description": "Meet with experienced specialists for a detailed autism evaluation and personalized recommendations."
+        },
+        {
+          "title": "Insurance Verification & Approval",
+          "description": "Our team helps verify your benefits and supports the authorization process."
+        },
+        {
+          "title": "Begin ABA Therapy",
+          "description": "Your child begins a personalized ABA therapy plan designed around their unique goals."
+        },
+        {
+          "title": "Progress Tracking & Growth",
+          "description": "Track milestones, review progress, and celebrate meaningful developmental gains."
+        }
+      ],
+      "cta": {
+        "line1": "Every step brings your child closer to a brighter future.",
+        "line2": "We're here for your family.",
+        "button": "Start Your Child's Journey"
+      },
+      "trustBadges": [
+        "Compassionate Care",
+        "Expert Clinicians",
+        "Family-Centered Approach",
+        "Proven Results"
+      ]
+    },
     "clientReviews": {
       "badge": "Sample family feedback",
       "title": "Families Trust Eden ABA Therapy",
       "intro": "Positive experiences from families who value compassionate, personalized ABA support.",
       "reviews": [
-        "Eden ABA Therapy made the intake process simple and supportive.",
-        "The team helped us feel understood from the very first call.",
-        "Our child is building communication skills with more confidence.",
-        "The parent guidance has helped our routines at home.",
-        "We felt respected, heard, and supported throughout the process.",
-        "The therapists are patient, kind, and truly child-centered.",
-        "Eden helped us understand ABA in a way that felt clear.",
-        "Our family noticed meaningful progress in daily living skills.",
-        "The care team explained every step with compassion.",
-        "Scheduling and communication have been easy and professional.",
-        "Our child looks forward to learning with the therapy team.",
-        "We appreciate the focus on family goals and real progress.",
-        "The team made insurance and next steps less stressful.",
-        "Eden ABA Therapy feels warm, organized, and trustworthy.",
-        "The support has helped our child with social engagement.",
-        "We love how the team celebrates small wins.",
-        "The treatment approach feels personalized for our child.",
-        "Parent training helped us feel more confident at home.",
-        "The team is responsive, caring, and professional.",
-        "We are grateful for the guidance and encouragement.",
-        "Our child is learning important skills in a positive way.",
-        "The staff made us feel comfortable asking questions.",
-        "Eden's approach feels compassionate and family-centered.",
-        "We felt supported from evaluation through care planning."
+        {
+          "text": "Eden ABA Therapy made the intake process simple and supportive.",
+          "name": "Sarah Johnson"
+        },
+        {
+          "text": "The team helped us feel understood from the very first call.",
+          "name": "Michael Thompson"
+        },
+        {
+          "text": "Our child is building communication skills with more confidence.",
+          "name": "Emily Carter"
+        },
+        {
+          "text": "The parent guidance has helped our routines at home.",
+          "name": "David Miller"
+        },
+        {
+          "text": "We felt respected, heard, and supported throughout the process.",
+          "name": "Jennifer Martinez"
+        },
+        {
+          "text": "The therapists are patient, kind, and truly child-centered.",
+          "name": "Daniel Nguyen"
+        },
+        {
+          "text": "Eden helped us understand ABA in a way that felt clear.",
+          "name": "Linh Tran"
+        },
+        {
+          "text": "Our family noticed meaningful progress in daily living skills.",
+          "name": "Mai Pham"
+        },
+        {
+          "text": "The care team explained every step with compassion.",
+          "name": "Anh Nguyen"
+        },
+        {
+          "text": "Scheduling and communication have been easy and professional.",
+          "name": "Kevin Chen"
+        },
+        {
+          "text": "Our child looks forward to learning with the therapy team.",
+          "name": "Grace Kim"
+        },
+        {
+          "text": "We appreciate the focus on family goals and real progress.",
+          "name": "Sophia Lee"
+        },
+        {
+          "text": "The team made insurance and next steps less stressful.",
+          "name": "Jason Park"
+        },
+        {
+          "text": "Eden ABA Therapy feels warm, organized, and trustworthy.",
+          "name": "Michelle Wong"
+        },
+        {
+          "text": "The support has helped our child with social engagement.",
+          "name": "Priya Shah"
+        },
+        {
+          "text": "We love how the team celebrates small wins.",
+          "name": "Carlos Ramirez"
+        },
+        {
+          "text": "The treatment approach feels personalized for our child.",
+          "name": "Sarah Johnson"
+        },
+        {
+          "text": "Parent training helped us feel more confident at home.",
+          "name": "Michael Thompson"
+        },
+        {
+          "text": "The team is responsive, caring, and professional.",
+          "name": "Emily Carter"
+        },
+        {
+          "text": "We are grateful for the guidance and encouragement.",
+          "name": "David Miller"
+        },
+        {
+          "text": "Our child is learning important skills in a positive way.",
+          "name": "Jennifer Martinez"
+        },
+        {
+          "text": "The staff made us feel comfortable asking questions.",
+          "name": "Daniel Nguyen"
+        },
+        {
+          "text": "Eden's approach feels compassionate and family-centered.",
+          "name": "Linh Tran"
+        },
+        {
+          "text": "We felt supported from evaluation through care planning.",
+          "name": "Mai Pham"
+        }
       ],
       "cardLabels": [
         "Sample family feedback",
@@ -790,7 +1285,7 @@
         "Care experience",
         "Family feedback"
       ],
-      "parentReview": "Parent Review",
+      "parentRole": "Parent",
       "startABA": "Start ABA Therapy",
       "verifyInsurance": "Verify Insurance"
     },
@@ -1561,6 +2056,64 @@
         "imageAlt": "Child and caregiver in a supportive clinical therapy setting"
       },
       "faqTitle": "FAQs about ABA therapy insurance coverage",
+      "contactLanding": {
+        "eyebrow": "Eden ABA Therapy · Insurance",
+        "headline": "Contact Our Insurance Verification Team",
+        "subtitle": "Speak with Eden ABA Therapy’s insurance team to get help with Medicaid eligibility, insurance benefits, required documents, and next steps for ABA therapy services.",
+        "ctaSubmitRequest": "Submit Request",
+        "ctaStartVerification": "Start Verification",
+        "formTitle": "Request Insurance Support",
+        "formSubtitle": "Complete the form below and a member of our insurance verification team will reach out with personalized guidance.",
+        "parentName": "Parent/Guardian Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "childName": "Child Name",
+        "zipCode": "ZIP Code",
+        "insuranceType": "Insurance Type",
+        "message": "Message",
+        "insuranceOptions": [
+          "Virginia Medicaid",
+          "Commercial Insurance",
+          "Not Sure"
+        ],
+        "submit": "Submit Insurance Question",
+        "submitting": "Submitting…",
+        "success": "Thank you. Eden ABA Therapy’s insurance team will contact you shortly.",
+        "imageAlt": "Family receiving insurance support from Eden ABA Therapy",
+        "selectInsurance": "Select insurance type",
+        "validationError": "Please complete all required fields with a valid email and phone number.",
+        "messagePlaceholder": "Share your insurance questions, plan details, or documents you have ready."
+      },
+      "contactTeam": {
+        "eyebrow": "Insurance Support",
+        "headline": "Speak With Our Insurance Verification Team",
+        "subtitle": "Our team can help families understand Medicaid eligibility, insurance benefits, required documents, and next steps for ABA therapy services.",
+        "ctaStartVerification": "Start Insurance Verification",
+        "ctaContactTeam": "Contact Our Team",
+        "formTitle": "Contact Our Insurance Team",
+        "formSubtitle": "Share a few details and Eden ABA Therapy’s insurance specialists will follow up with personalized guidance.",
+        "parentName": "Parent/Guardian Name",
+        "email": "Email",
+        "phone": "Phone",
+        "childName": "Child Name",
+        "zipCode": "ZIP Code",
+        "insuranceType": "Insurance Type",
+        "message": "Message",
+        "insuranceOptions": [
+          "Virginia Medicaid",
+          "Commercial Insurance",
+          "Not Sure"
+        ],
+        "submit": "Submit Insurance Question",
+        "submitting": "Submitting…",
+        "success": "Thank you. Eden ABA Therapy’s insurance team will contact you shortly.",
+        "imageAlt": "Family receiving compassionate insurance guidance from Eden ABA Therapy",
+        "trustItems": [
+          "Medicaid & commercial plan guidance",
+          "Document checklist support",
+          "Clear next steps for ABA services"
+        ]
+      },
       "faqs": [
         [
           "Does insurance cover ABA therapy in Virginia?",
@@ -1664,7 +2217,7 @@
       "checklist": "Checklist",
       "stepOf": "Step",
       "of": "of",
-      "secureDraftNote": "Secure draft style preview. Final live submission can connect to your backend/API later.",
+      "secureDraftNote": "Local draft autosave stores progress in this browser. Successful submission sends encrypted data to Eden ABA Therapy servers.",
       "previousStep": "← Previous Step",
       "saveExit": "💾 Save & Exit",
       "saveAlert": "Your intake progress has been saved on this device.",
@@ -1678,8 +2231,8 @@
       "submitConfirmation": "Confirmation ID: {id}",
       "submitSubmittedAt": "Submitted: {date}",
       "submitError": "Submission failed. Your local draft is still saved in this browser. Please try again or contact Eden ABA Therapy.",
+      "recaptchaFailed": "Security verification failed. Please refresh the page and try again, or contact Eden ABA Therapy for help.",
       "exportBackupHint": "You can export a backup JSON copy using Export Packet above.",
-      "secureDraftNote": "Local draft autosave stores progress in this browser. Successful submission sends encrypted data to Eden ABA Therapy servers.",
       "sections": [
         {
           "title": "Basic Information",
@@ -3924,13 +4477,196 @@
         ]
       }
     },
+    "admissions": {
+      "meta": {
+        "title": "Admissions: Starting ABA Therapy | Eden ABA Therapy",
+        "description": "Start ABA therapy at Eden ABA Therapy. Our admissions team guides families through intake, diagnosis review, insurance verification, screening resources, and compassionate, individualized care."
+      },
+      "hero": {
+        "breadcrumb": "Admissions",
+        "badge": "Admissions & Family Support",
+        "title": "Admissions: Starting ABA Therapy",
+        "paragraph1": "At Eden ABA Therapy, we know that raising a child diagnosed with autism spectrum disorder (ASD) can come with many emotions, questions, and decisions, especially when you are just getting started. Whether your child was recently diagnosed or you are still exploring options, our team is here to help.",
+        "paragraph2": "Our friendly admissions team will guide you through each step of the process. We make getting started simple, supportive, and clear so your child can begin applied behavior analysis (ABA) therapy in a compassionate place where they can grow, learn, and reach meaningful milestones.",
+        "supportLine": "Top ABA Therapy support near you available through Eden ABA Therapy.",
+        "primaryButton": "Get started",
+        "secondaryButton": "Diagnostic support & screeners",
+        "imageAlt": "Eden ABA Therapy therapist working warmly with young children in a supportive learning environment"
+      },
+      "testimonials": {
+        "title": "Families love working with Eden ABA Therapy",
+        "items": [
+          {
+            "quote": "The team has been kind, patient, and supportive from the very beginning. They explained the admissions process clearly, answered our questions, and helped us feel confident about starting ABA therapy for our child. We felt welcomed, respected, and supported every step of the way.",
+            "name": "Parent Testimonial",
+            "source": "Family feedback"
+          },
+          {
+            "quote": "Eden ABA Therapy made the process feel simple and less overwhelming. From the first call to intake support, the team communicated clearly and helped us understand what to expect. We are grateful for the care, guidance, and compassion shown to our family.",
+            "name": "Family Testimonial",
+            "source": "Family feedback"
+          },
+          {
+            "quote": "We appreciated how organized and responsive the admissions team was. Insurance questions were explained in a way we could understand, and we never felt rushed through the intake process.",
+            "name": "Caregiver Testimonial",
+            "source": "Family feedback"
+          },
+          {
+            "quote": "The staff made us feel comfortable asking questions about ABA therapy, scheduling, and next steps. Our child is now building skills with a team that truly cares.",
+            "name": "Parent Testimonial",
+            "source": "Family feedback"
+          }
+        ]
+      },
+      "steps": {
+        "titlePrefix": "Getting started with ABA therapy is as simple as",
+        "titleHighlight": "1, 2, 3",
+        "intro": "Whether your child just received an autism diagnosis or you are still figuring things out, we are here to help. At Eden ABA Therapy, getting started with ABA therapy is simple, supportive, and built around your child's needs.",
+        "cards": [
+          {
+            "title": "Step 1: Connect with our team",
+            "text": "Fill out our short online form or contact our admissions team to get started. After that, someone from our team will reach out to learn more about your child, answer your questions, and explain the next steps.",
+            "button": "Get started with ABA therapy"
+          },
+          {
+            "title": "Step 2: Review diagnosis and support needs",
+            "text": "If your child already has an autism diagnosis, we will review the information and discuss therapy options. If your child does not have a diagnosis yet, we can guide you toward screening and evaluation resources that may help determine the next step.",
+            "button": "Learn about diagnostic support"
+          },
+          {
+            "title": "Step 3: Begin ABA therapy",
+            "text": "Once intake steps are completed and insurance benefits are reviewed, your child will be connected with a care team. A Board Certified Behavior Analyst (BCBA) will help create an individualized ABA therapy plan based on your child's goals, strengths, and needs.",
+            "button": "Explore ABA therapy"
+          }
+        ]
+      },
+      "pathChoice": {
+        "title": "Not sure where to begin? Here's how to move forward based on your child's current diagnostic status:",
+        "cards": [
+          {
+            "title": "My child has an autism diagnosis",
+            "text": "Fill out our online interest form. We will then contact you to discuss your child's needs, review your current diagnosis or documentation, answer questions, and explain how to get started with ABA therapy.",
+            "button": "Fill in application"
+          },
+          {
+            "title": "My child does not have an autism diagnosis",
+            "text": "Complete an interest form or contact our team so we can help guide you toward appropriate screening and evaluation resources. We are here to help you navigate the diagnostic process so your child can access the care and support they need.",
+            "button": "Get diagnostic support"
+          }
+        ]
+      },
+      "whyChoose": {
+        "title": "Why Eden ABA Therapy?",
+        "intro": "At Eden ABA Therapy, we are here to support your whole family. Our goal is to make the admissions process clear, compassionate, and helpful while connecting your child with individualized ABA therapy support.",
+        "cta": "Learn more about ABA at Eden",
+        "resourceNote": "Have questions? Contact us today. We are here to help.",
+        "features": [
+          {
+            "title": "Family Guidance",
+            "text": "Parents and caregivers are an important part of every child's success. We provide family guidance so caregivers can better understand progress, ask questions, and learn ways to support therapy goals at home, during routines, meals, playtime, and daily activities."
+          },
+          {
+            "title": "Autism Evaluation Support",
+            "text": "If your child does not have an autism diagnosis yet, we can help you understand possible screening and evaluation pathways. Our team can guide you toward M-CHAT-R screeners, CAST tools, ADOS-2 assessments, IDE evaluations, and other next steps so your child can receive the support they need."
+          },
+          {
+            "title": "Immediate Access to Care",
+            "text": "When families are ready to begin, they should not feel lost or alone. Eden ABA Therapy works to make the admissions process organized, responsive, and supportive so children can begin services as soon as possible after the required intake steps are complete."
+          },
+          {
+            "title": "Low Therapist-to-Child Ratio",
+            "text": "Children benefit from focused attention and consistent support. ABA therapy often includes individualized, one-on-one support from compassionate and qualified clinicians who help children build meaningful skills in communication, daily living, social interaction, and independence."
+          },
+          {
+            "title": "Individualized Care",
+            "text": "Every child is unique, so their therapy plan should be unique too. Our team takes time to learn what is important to your family, whether that includes communication, daily living skills, social interaction, school readiness, independence, or reducing challenging behaviors. Your BCBA will work closely with your family to set goals that fit your child's needs and your family's values."
+          },
+          {
+            "title": "Resource Library",
+            "text": "You do not have to figure everything out on your own. Eden ABA Therapy provides helpful, family-friendly resources, guidance, and education so parents can better understand autism, ABA therapy, the admissions process, insurance steps, and ways to support their child at home and in the community."
+          }
+        ]
+      },
+      "insurance": {
+        "title": "We accept many insurance providers",
+        "titleBefore": "We accept many ",
+        "titleEmphasis": "insurance providers",
+        "providers": [
+          "Cigna",
+          "Aetna",
+          "Anthem BCBS",
+          "Optum",
+          "UMR",
+          "Allegiance",
+          "Medica",
+          "Carelon",
+          "Blue Cross Blue Shield",
+          "Virginia Medicaid",
+          "+ Additional providers"
+        ],
+        "text": "You have enough on your plate. At Eden ABA Therapy, our team can help verify insurance benefits and explain possible out-of-pocket costs so you do not have to navigate the process alone. We work directly with families and insurance plans to make ABA therapy access as clear and supportive as possible.",
+        "button": "Insurance & financial assistance"
+      },
+      "findCare": {
+        "title": "Get started with ABA therapy at Eden ABA Therapy",
+        "subtitle": "Find ABA therapy support for children diagnosed with autism near you.",
+        "searchLabel": "Find ABA therapy near me:",
+        "zipPlaceholder": "Zip code",
+        "cityPlaceholder": "City",
+        "centerPlaceholder": "Center name",
+        "searchButton": "Find center",
+        "statesLabel": "Or search by state:",
+        "states": [
+          "Virginia",
+          "Texas",
+          "Colorado",
+          "Arizona",
+          "Illinois",
+          "North Carolina",
+          "Minnesota",
+          "South Carolina",
+          "Pennsylvania",
+          "Indiana"
+        ],
+        "divider": "Or get started online:",
+        "interestForm": "Online interest form",
+        "helperLinks": {
+          "abaRight": "Is ABA therapy right for my child?",
+          "asdSupport": "Get ASD diagnostic support"
+        }
+      },
+      "finalCta": {
+        "title": "Get started with ABA therapy at Eden ABA Therapy",
+        "subtitle": "Find ABA therapy support for children diagnosed with autism near you.",
+        "searchLabel": "Find ABA therapy near me:",
+        "searchPlaceholder": "Zip code, city, or center name",
+        "searchButton": "Find care",
+        "divider": "Or get started online:",
+        "interestForm": "Online interest form",
+        "helperLinks": {
+          "abaRight": "Is ABA therapy right for my child?",
+          "asdSupport": "Get ASD diagnostic support"
+        }
+      },
+      "newsletter": {
+        "title": "Stay connected with our family newsletter",
+        "intro": "Get helpful autism resources, ABA therapy tips, admissions updates, and family guidance from Eden ABA Therapy.",
+        "namePlaceholder": "Full Name",
+        "emailPlaceholder": "Email",
+        "submit": "Join Family Newsletter",
+        "success": "Thank you for joining the Eden ABA Therapy family newsletter."
+      }
+    },
     "parentGuidance": {
       "meta": {
         "title": "Parent Guidance: Autism Evaluation & Next Steps | Eden ABA Therapy",
         "description": "A warm, parent-friendly guide to autism signs, developmental milestones, screening tools, diagnostic evaluations, insurance steps, and ABA therapy options from Eden ABA Therapy."
       },
       "hero": {
-        "breadcrumb": ["Autism Evaluation", "Parent Guidance"],
+        "breadcrumb": [
+          "Autism Evaluation",
+          "Parent Guidance"
+        ],
         "badge": "Parent Guidance",
         "title": "A Parent's Guide to Autism Evaluation and Next Steps",
         "subtitle": "If you are wondering whether your child may have autism, Eden ABA Therapy can help you understand early signs, screening tools, diagnostic evaluations, insurance steps, and treatment options.",
@@ -4389,41 +5125,1641 @@
         "autism": "Learn about autism",
         "intake": "Get started with Eden ABA"
       }
+    },
+    "outcomesFamilyStories": {
+      "meta": {
+        "title": "Outcomes & Family Stories | Eden ABA Therapy",
+        "description": "Explore ABA therapy outcomes, family success stories, progress measurement, school readiness, and evidence-informed care at Eden ABA Therapy in Northern Virginia."
+      },
+      "hero": {
+        "breadcrumb": [
+          "ABA Therapy",
+          "Admissions Information",
+          "Outcomes & Family Stories"
+        ],
+        "badge": "Admissions Information",
+        "title": "Outcomes & Family Stories",
+        "subtitle": "Discover how individualized ABA therapy helps children build communication, independence, confidence, and life skills while supporting families throughout their autism journey.",
+        "primaryButton": "Explore Success Stories",
+        "secondaryButton": "Find ABA Services",
+        "imageAlt": "Therapist and child practicing communication skills during a warm ABA therapy session"
+      },
+      "stories": {
+        "title": "Real Progress. Real Families.",
+        "intro": "Every child’s journey is unique. These stories reflect the kinds of growth families often experience when therapy is personalized, consistent, and supported by a caring clinical team.",
+        "disclaimer": "Stories are shared with permission and represent individual experiences. Outcomes vary based on each child’s needs, goals, and family participation.",
+        "items": [
+          {
+            "parent": "Maria L.",
+            "childAge": "Child age 4",
+            "category": "Communication Skills",
+            "story": "When we started, our son rarely used words to ask for what he needed. Within months of consistent therapy, he began using short phrases, pointing with purpose, and responding when we called his name.",
+            "achievements": [
+              "Started using 2–3 word requests",
+              "Improved eye contact during play",
+              "Less frustration during daily routines"
+            ]
+          },
+          {
+            "parent": "James & Priya R.",
+            "childAge": "Child age 5",
+            "category": "School Readiness",
+            "story": "Kindergarten felt overwhelming at first. Eden helped our daughter practice sitting for group activities, following simple directions, and transitioning between tasks with less anxiety.",
+            "achievements": [
+              "Follows classroom routines with prompts",
+              "Participates in small-group activities",
+              "Uses a visual schedule at home"
+            ]
+          },
+          {
+            "parent": "Daniel K.",
+            "childAge": "Child age 3",
+            "category": "Potty Training",
+            "story": "Toilet training had been stressful for our whole family. The team broke the skill into small, achievable steps and coached us on how to stay consistent between sessions.",
+            "achievements": [
+              "Successful bathroom routine at home",
+              "Fewer accidents during the day",
+              "Increased independence with dressing"
+            ]
+          },
+          {
+            "parent": "Aisha M.",
+            "childAge": "Child age 6",
+            "category": "Social Skills",
+            "story": "Our daughter wanted to play with peers but did not know how to join in. Therapy focused on turn-taking, sharing, and practicing greetings in structured play settings.",
+            "achievements": [
+              "Initiates play with siblings",
+              "Takes turns during games",
+              "Uses polite phrases with peers"
+            ]
+          },
+          {
+            "parent": "Christopher & Elena V.",
+            "childAge": "Child age 7",
+            "category": "Emotional Regulation",
+            "story": "Meltdowns were happening several times a day. We learned calming strategies, replacement behaviors, and how to respond consistently so our son could recover more quickly.",
+            "achievements": [
+              "Uses a calm-down kit independently",
+              "Shorter recovery after upsets",
+              "More flexible with schedule changes"
+            ]
+          },
+          {
+            "parent": "Jennifer T.",
+            "childAge": "Child age 8",
+            "category": "Independent Living Skills",
+            "story": "We wanted our son to do more for himself at home. Therapy targets included dressing, brushing teeth, packing his backpack, and completing morning routines with less support.",
+            "achievements": [
+              "Morning routine with minimal prompts",
+              "Prepares simple snacks",
+              "Organizes belongings before school"
+            ]
+          }
+        ]
+      },
+      "measure": {
+        "title": "What Success Looks Like",
+        "items": [
+          {
+            "title": "Communication Development",
+            "description": "We track how children express needs, respond to others, and build functional language across home and community settings.",
+            "milestonesLabel": "Example milestones",
+            "milestones": [
+              "Requesting preferred items",
+              "Answering simple questions",
+              "Using gestures or AAC tools"
+            ],
+            "whyItMatters": "Communication reduces frustration and helps children participate more fully in daily life."
+          },
+          {
+            "title": "Social Interaction",
+            "description": "Social goals focus on engagement, joint attention, play skills, and meaningful interaction with caregivers and peers.",
+            "milestonesLabel": "Example milestones",
+            "milestones": [
+              "Turn-taking in play",
+              "Responding to name",
+              "Sharing attention during activities"
+            ],
+            "whyItMatters": "Social connection supports friendships, learning, and confidence in group settings."
+          },
+          {
+            "title": "Daily Living Skills",
+            "description": "Independence with routines like dressing, hygiene, meals, and transitions is measured through repeated practice and generalization.",
+            "milestonesLabel": "Example milestones",
+            "milestones": [
+              "Toileting progress",
+              "Mealtime participation",
+              "Following multi-step routines"
+            ],
+            "whyItMatters": "Daily living skills help families manage routines with less stress and more predictability."
+          },
+          {
+            "title": "Emotional Regulation",
+            "description": "Therapists monitor how children cope with change, sensory input, and challenging moments using individualized support plans.",
+            "milestonesLabel": "Example milestones",
+            "milestones": [
+              "Using coping strategies",
+              "Shorter meltdown duration",
+              "Tolerating transitions"
+            ],
+            "whyItMatters": "Regulation skills help children feel safer, calmer, and more ready to learn."
+          },
+          {
+            "title": "Independence",
+            "description": "We celebrate steps toward doing tasks with less prompting, from play choices to self-care and community participation.",
+            "milestonesLabel": "Example milestones",
+            "milestones": [
+              "Completing tasks with fewer prompts",
+              "Making choices independently",
+              "Generalizing skills across settings"
+            ],
+            "whyItMatters": "Independence builds confidence and prepares children for school and community life."
+          },
+          {
+            "title": "Family Confidence",
+            "description": "Parents and caregivers are partners in therapy. We track how supported families feel implementing strategies at home.",
+            "milestonesLabel": "Example milestones",
+            "milestones": [
+              "Using strategies between sessions",
+              "Understanding progress reports",
+              "Feeling prepared for transitions"
+            ],
+            "whyItMatters": "When families feel confident, progress continues beyond the therapy room."
+          }
+        ]
+      },
+      "tracking": {
+        "title": "How We Measure Progress",
+        "flowTitle": "Progress pathway",
+        "flowSteps": [
+          "Assessment",
+          "Goal Planning",
+          "Therapy Sessions",
+          "Progress Reviews",
+          "Family Guidance",
+          "Achievement Milestones"
+        ],
+        "points": [
+          {
+            "title": "Assessments",
+            "text": "We begin with a thoughtful review of your child’s strengths, needs, and current skills to establish a clear starting point."
+          },
+          {
+            "title": "Goal setting",
+            "text": "Families and clinicians collaborate on meaningful, measurable goals that reflect daily life, school, and long-term priorities."
+          },
+          {
+            "title": "Progress reviews",
+            "text": "BCBAs review data regularly to determine what is working, what should be adjusted, and when skills are ready to expand."
+          },
+          {
+            "title": "Parent feedback",
+            "text": "Your observations at home and in the community help us refine strategies and celebrate real-world progress."
+          },
+          {
+            "title": "BCBA oversight",
+            "text": "Board Certified Behavior Analysts supervise treatment plans, train therapists, and ensure care remains individualized."
+          },
+          {
+            "title": "Skill mastery tracking",
+            "text": "We document skill acquisition and generalization so families can see growth over time—not just session by session."
+          }
+        ]
+      },
+      "dashboard": {
+        "title": "Meaningful Outcomes",
+        "intro": "Eden ABA Therapy monitors progress across communication, social engagement, daily living skills, and family participation. The figures below are illustrative examples of the types of goals families often work toward.",
+        "note": "Demonstration metrics only. Individual results vary based on each child’s profile, treatment intensity, and family involvement.",
+        "metrics": [
+          {
+            "label": "Communication Goal Achievement",
+            "value": 89
+          },
+          {
+            "label": "Parent Satisfaction",
+            "value": 97
+          },
+          {
+            "label": "Social Engagement Growth",
+            "value": 85
+          },
+          {
+            "label": "Daily Living Skill Progress",
+            "value": 83
+          },
+          {
+            "label": "School Readiness Development",
+            "value": 87
+          }
+        ],
+        "bars": [
+          {
+            "label": "Family Participation in Care Plans",
+            "value": 95
+          },
+          {
+            "label": "Goals Updated Based on Progress Data",
+            "value": 91
+          }
+        ]
+      },
+      "school": {
+        "title": "Preparing Children for School Success",
+        "intro": "School readiness is about more than academics. We help children build the routines, communication, and independence they need to participate confidently in classroom environments.",
+        "focusAreas": [
+          "Following classroom routines",
+          "Peer interaction and group participation",
+          "Independence with transitions",
+          "Listening and responding to instructions",
+          "Readiness for new settings and schedules"
+        ],
+        "beforeLabel": "Before focused support",
+        "beforeItems": [
+          "Difficulty staying seated during group time",
+          "Limited peer interaction",
+          "Needs frequent adult redirection",
+          "Challenging transitions between activities",
+          "Relies heavily on caregiver prompts"
+        ],
+        "afterLabel": "With consistent ABA support",
+        "afterItems": [
+          "Participates in structured group activities",
+          "Initiates or joins peer play with support",
+          "Follows visual schedules and classroom routines",
+          "Transitions with fewer disruptions",
+          "Builds independence with daily school tasks"
+        ],
+        "imageAlt": "Child practicing school readiness activities with a supportive therapist"
+      },
+      "family": {
+        "title": "Supporting the Entire Family",
+        "intro": "ABA therapy works best when families feel equipped, informed, and supported. Eden ABA Therapy provides coaching, guidance, and practical tools caregivers can use every day.",
+        "metrics": [
+          {
+            "value": "92%",
+            "label": "Caregiver Strategy Use",
+            "detail": "Families report using therapy strategies between sessions"
+          },
+          {
+            "value": "88%",
+            "label": "Reduced Daily Stress",
+            "detail": "Parents feel routines are more manageable at home"
+          },
+          {
+            "value": "94%",
+            "label": "Progress Understanding",
+            "detail": "Families feel clear about goals and next steps"
+          },
+          {
+            "value": "90%",
+            "label": "Home Consistency",
+            "detail": "Caregivers apply recommendations across settings"
+          }
+        ],
+        "pillars": [
+          {
+            "title": "Parent coaching",
+            "text": "BCBAs and therapists model strategies and help caregivers practice skills during meaningful daily routines."
+          },
+          {
+            "title": "Family guidance",
+            "text": "We explain progress in plain language and connect families with resources that support the whole journey."
+          },
+          {
+            "title": "Consistency at home",
+            "text": "When home and therapy teams align, children generalize skills faster and with greater confidence."
+          },
+          {
+            "title": "Caregiver confidence",
+            "text": "Families learn how to respond to challenges, reinforce success, and advocate for their child’s needs."
+          }
+        ]
+      },
+      "evidence": {
+        "title": "Continuous Improvement Through Data",
+        "intro": "Eden ABA Therapy uses an evidence-informed approach grounded in applied behavior analysis, clinical oversight, and ongoing quality review. We focus on responsible, transparent care—not exaggerated claims.",
+        "closing": "Our team regularly reviews treatment data, program quality, and family feedback to refine care plans. We do not present fabricated research studies; instead, we emphasize measurable goals, ethical practice, and continuous improvement.",
+        "imageAlt": "Clinical team reviewing individualized progress data with a family",
+        "cards": [
+          {
+            "title": "Outcome Monitoring",
+            "text": "Therapists collect data during sessions so clinicians can see trends, celebrate mastery, and adjust goals when needed."
+          },
+          {
+            "title": "Clinical Review",
+            "text": "BCBAs supervise treatment integrity, therapist training, and alignment with each child’s individualized plan."
+          },
+          {
+            "title": "Program Evaluation",
+            "text": "Leadership and clinical staff review service quality, documentation standards, and family experience on an ongoing basis."
+          },
+          {
+            "title": "Family Feedback",
+            "text": "Parent input helps us improve communication, scheduling, coaching, and the overall admissions and care experience."
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "intro": "Learn how Eden ABA Therapy measures progress, involves families, and supports children as goals evolve over time.",
+        "items": [
+          {
+            "q": "How do you measure ABA progress?",
+            "a": "Progress is measured through session data, skill tracking, and regular BCBA review. We look at whether your child is acquiring skills, using them in new settings, and maintaining gains over time."
+          },
+          {
+            "q": "How often are goals updated?",
+            "a": "Goals are reviewed on an ongoing basis and updated when your child masters a skill, needs additional support, or when family priorities change. Major plan reviews typically occur at structured intervals throughout treatment."
+          },
+          {
+            "q": "How involved are parents?",
+            "a": "Parents are essential partners. We provide coaching, progress updates, and practical strategies you can use at home, school, and in the community."
+          },
+          {
+            "q": "How long does ABA therapy last?",
+            "a": "Duration depends on your child’s needs, goals, and recommended treatment intensity. Some families need shorter-term support; others benefit from longer ongoing care with evolving goals."
+          },
+          {
+            "q": "How do you evaluate school readiness?",
+            "a": "We assess routines, communication, independence, peer interaction, and transition skills that matter in classroom settings. Goals are individualized rather than one-size-fits-all."
+          },
+          {
+            "q": "What happens after therapy goals are met?",
+            "a": "When goals are met, we may reduce support, shift focus to maintenance and generalization, or transition to the next stage of skills. Families receive guidance so progress continues beyond active treatment."
+          },
+          {
+            "q": "Can outcomes differ between children?",
+            "a": "Yes. Every child develops at their own pace. Factors such as age, communication level, treatment intensity, and family participation all influence progress. We set realistic, individualized expectations from the start."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to Start Your Child's Success Story?",
+        "text": "Connect with our admissions team to learn how ABA therapy can support your child's development and help your family thrive.",
+        "scheduleButton": "Schedule Consultation",
+        "admissionsButton": "Contact Admissions",
+        "findCenterButton": "Find a Center"
+      }
+    },
+    "centerBasedAbaTherapy": {
+      "meta": {
+        "title": "Center-Based ABA Therapy for Autism | Eden ABA Therapy",
+        "description": "Center-based ABA therapy at Eden ABA Therapy provides structured, clinic-based autism support with individualized teaching, peer practice, BCBA supervision, and family collaboration in Northern Virginia."
+      },
+      "hero": {
+        "eyebrow": "Center-Based ABA Therapy Services",
+        "breadcrumb": [
+          "ABA Therapy",
+          "Services",
+          "Center-Based ABA Therapy"
+        ],
+        "title": "Center-Based ABA Therapy for Autism Support",
+        "paragraph": "Center-based ABA therapy provides children with autism a structured, supportive environment where learning can happen through consistent routines, individualized teaching, and hands-on clinical support. In a dedicated ABA therapy center, children work one-on-one with trained therapy staff while practicing communication, social, behavior, school-readiness, and daily living skills in a setting designed for progress.",
+        "cta": "Search for ABA Therapy Centers Near Me",
+        "imageAlt": "Therapist and child practicing skills in a welcoming Eden ABA therapy center"
+      },
+      "centers": {
+        "title": "Our ABA Therapy Centers",
+        "text": "Our ABA therapy centers are designed to give children a safe, organized, and engaging place to learn. Center-based services allow children to receive individualized ABA therapy while also having opportunities to practice skills with peers, follow structured routines, and participate in developmentally appropriate activities. Treatment is typically guided by Board Certified Behavior Analysts and delivered with support from trained behavior technicians.",
+        "cta": "Find ABA Therapy Near Me",
+        "imageAlt": "Bright, welcoming Eden ABA therapy center with play-based learning spaces"
+      },
+      "whatIs": {
+        "title": "What Is Center-Based ABA Therapy?",
+        "paragraphs": [
+          "Center-based ABA therapy is Applied Behavior Analysis delivered in a clinic or learning center instead of the home, school, or community. The setting is intentionally arranged to reduce distractions, support consistent teaching, and give children access to therapy rooms, learning materials, social practice opportunities, and clinical resources.",
+          "ABA is a behavioral treatment that uses evidence-based strategies to increase helpful skills and reduce behaviors that interfere with learning or safety. Goals may include communication, social interaction, independence, classroom readiness, emotional regulation, play skills, and behavior reduction.",
+          "According to guidance from the CDC, ABA can encourage desired behaviors, discourage undesired behaviors, and track progress over time. Autism Speaks notes that ABA can be individualized, provided in multiple settings, and include one-on-one or group teaching. Eden ABA Therapy follows professional practice standards that emphasize individualized, clinically appropriate treatment supervised by qualified behavior analysts."
+        ],
+        "researchLabel": "Evidence-informed care",
+        "researchNote": "Registered Behavior Technicians (RBTs) and behavior technicians typically deliver direct therapy under ongoing BCBA supervision, consistent with BACB practice standards. Treatment plans should be individualized to each child's needs, as recommended by professional ABA practice guidance."
+      },
+      "benefits": {
+        "title": "What Are the Benefits of Center-Based ABA Therapy?",
+        "intro": "Clinic-based ABA therapy may support children who benefit from structure, repetition, and access to therapy materials in a dedicated learning environment. Benefits can vary by child, program intensity, and family participation.",
+        "subtitle": "Benefits of center-based ABA therapy may include:",
+        "items": [
+          {
+            "title": "Peer Interaction",
+            "text": "Children can practice social communication, turn-taking, group participation, and play skills with peers in a supervised setting."
+          },
+          {
+            "title": "Structured Routine",
+            "text": "A predictable daily schedule may help children build consistency, transitions, independence, and learning readiness."
+          },
+          {
+            "title": "Clinical Support",
+            "text": "Center teams can provide access to therapy materials, observation spaces, supervision, and additional staff support when needed."
+          },
+          {
+            "title": "Fewer Distractions",
+            "text": "A clinic-based environment can reduce common home distractions and help children focus on skill development."
+          },
+          {
+            "title": "School Readiness",
+            "text": "Center-based therapy can include group activities, following instructions, transitions, sitting for tasks, and classroom-like routines."
+          },
+          {
+            "title": "Parent Collaboration",
+            "text": "Families can receive updates, caregiver training, and practical strategies designed to support progress outside the center."
+          }
+        ],
+        "testimonial": {
+          "quote": "The consistency of the center helped our son follow routines more confidently. We noticed improvements in communication and focus after several months of structured support.",
+          "attribution": "Eden ABA Therapy Parent"
+        }
+      },
+      "fit": {
+        "title": "Is In-Center ABA Therapy Right for Your Child?",
+        "text": "Center-based ABA therapy may be a good fit for children who benefit from structure, repetition, peer interaction, and a learning environment designed specifically for therapy. A clinical team should assess each child's needs and recommend the setting that best supports communication, behavior, independence, and family goals.",
+        "cta": "Find a Location"
+      },
+      "serviceSettings": {
+        "title": "Service Settings",
+        "intro": "We provide ABA therapy in different settings to meet your child's specific needs.",
+        "items": [
+          {
+            "title": "Home-Based ABA Therapy",
+            "text": "Skill-building in the child's natural home environment with caregiver coaching and generalization support.",
+            "cta": "Learn more",
+            "active": false
+          },
+          {
+            "title": "Community-Based ABA Therapy",
+            "text": "Practice skills in community settings such as parks, stores, and social outings with clinical support.",
+            "cta": "Learn more",
+            "active": false
+          },
+          {
+            "title": "School-Based ABA Therapy",
+            "text": "Collaboration with school teams to support classroom goals, transitions, and educational participation.",
+            "cta": "Learn more",
+            "active": false
+          },
+          {
+            "title": "Virtual ABA Therapy",
+            "text": "Telehealth and remote parent coaching options when appropriate for the child's plan and family needs.",
+            "cta": "Learn more",
+            "active": false
+          }
+        ]
+      },
+      "programs": {
+        "title": "Who We Serve + Program Options",
+        "intro": "Our center-based ABA programs support children at different developmental stages, from early learners to adolescents.",
+        "secondary": "Services can be adapted for children who need help with communication, behavior, social skills, independence, transitions, school readiness, or daily routines.",
+        "items": [
+          {
+            "title": "Early Intervention ABA Therapy",
+            "text": "Play-based support for young learners building communication, play, and daily routines.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "ABA Therapy for Children",
+            "text": "Individualized programs focused on school readiness, social skills, and independence.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Adolescent ABA Programs",
+            "text": "Support for older children and teens working on life skills, regulation, and transitions.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Social Skills Support",
+            "text": "Structured practice with peers for communication, play, and group participation.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Parent Training",
+            "text": "Caregiver coaching designed to help families support progress at home and in the community.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Specialty Services",
+            "text": "Additional clinical support based on individualized assessment and family goals.",
+            "cta": "Learn More"
+          }
+        ]
+      },
+      "findCenter": {
+        "title": "Find a Center Near You",
+        "text": "Families looking for center-based ABA therapy can search by zip code or city to find nearby ABA services. The goal is to connect each child with a welcoming clinical environment, a supportive care team, and an individualized plan built around meaningful progress.",
+        "placeholder": "Search by zip or city",
+        "button": "Find ABA Therapy Near Me"
+      },
+      "gallery": {
+        "title": "Our Photo Gallery",
+        "intro": "Take a look at the welcoming, structured environments where Eden ABA Therapy supports children and families.",
+        "alts": [
+          "Therapy room with learning materials and child-friendly furniture",
+          "Therapist engaging a child in play-based ABA activities",
+          "Group learning area designed for social and school-readiness practice",
+          "Parent meeting space for caregiver collaboration and updates",
+          "Bright clinic hallway with welcoming, family-friendly design",
+          "Skill-building session with individualized teaching materials"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "intro": "Common questions about center-based ABA therapy, supervision, and how clinic-based services compare to other settings.",
+        "items": [
+          {
+            "q": "What happens at a center-based ABA therapy session?",
+            "a": "Sessions may include one-on-one teaching, play-based learning, communication practice, behavior support, peer activities, daily living skills, and caregiver updates."
+          },
+          {
+            "q": "How is center-based ABA different from home-based ABA?",
+            "a": "Center-based ABA happens in a clinic setting with structured rooms, therapy materials, peer opportunities, and clinical supervision. Home-based ABA focuses on skills in the child's natural home environment."
+          },
+          {
+            "q": "Who supervises ABA therapy?",
+            "a": "ABA programs are commonly supervised by Board Certified Behavior Analysts, while direct therapy may be delivered by trained behavior technicians or Registered Behavior Technicians under supervision."
+          },
+          {
+            "q": "What skills can children learn in center-based ABA?",
+            "a": "Goals may include communication, social skills, play skills, following directions, transitions, classroom readiness, independence, and reducing challenging behaviors."
+          },
+          {
+            "q": "Is center-based ABA right for every child?",
+            "a": "Not always. The best setting depends on the child's needs, family goals, availability, and clinical recommendation."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Begin Center-Based ABA Services at Eden ABA Therapy",
+        "text": "Find clinic-based ABA therapy for children with autism near you. Our admissions team can help you explore intake, insurance, and the right program for your family.",
+        "startButton": "Get Started",
+        "findButton": "Find a Center"
+      }
+    },
+    "homeBasedAbaTherapy": {
+      "meta": {
+        "title": "Home-Based ABA Therapy for Autism | In-Home ABA Services | Eden ABA Therapy",
+        "description": "Home-based ABA therapy brings evidence-based in-home autism support to Northern Virginia families. Individualized treatment, caregiver coaching, BCBA supervision, and flexible scheduling in your child's natural environment."
+      },
+      "hero": {
+        "eyebrow": "ABA Therapy in the Comfort of Your Home",
+        "breadcrumb": [
+          "ABA Therapy",
+          "Services",
+          "Home-Based ABA Therapy"
+        ],
+        "title": "In-Home ABA Therapy & Autism Support",
+        "paragraphs": [
+          "Home-based ABA therapy brings evidence-based autism treatment directly into your child's everyday environment. By providing Applied Behavior Analysis services in the home, children can practice communication, social, behavioral, and daily living skills where they naturally occur.",
+          "Our experienced clinical team develops individualized treatment plans designed around your child's unique strengths, challenges, developmental goals, and family priorities. Therapy is delivered by highly trained professionals under ongoing clinical supervision, helping children learn meaningful skills while empowering caregivers to support progress throughout daily routines."
+        ],
+        "cta": "Find ABA Therapy Near Me",
+        "imageAlt": "Therapist and child practicing home-based ABA therapy in a comfortable family setting"
+      },
+      "whatIs": {
+        "title": "What Is In-Home ABA Therapy?",
+        "paragraphs": [
+          "Home-based ABA therapy is Applied Behavior Analysis delivered within a child's home environment. Rather than traveling to a clinic, therapy takes place where children spend much of their day, allowing learning opportunities to occur naturally during everyday activities and routines.",
+          "Research-supported ABA programs use positive reinforcement, data collection, skill-building strategies, and individualized treatment planning to help children develop communication, independence, social interaction, emotional regulation, and adaptive living skills.",
+          "Sessions are often implemented by Registered Behavior Technicians (RBTs) under the supervision of Board Certified Behavior Analysts (BCBAs), ensuring treatment follows established clinical standards and remains tailored to each child's progress.",
+          "Because therapy occurs within familiar surroundings, children may feel more comfortable practicing skills that directly impact daily life, including mealtime routines, toileting, hygiene, transitions, play, communication, and family interactions."
+        ],
+        "calloutTitle": "Why Families Choose Home-Based ABA",
+        "calloutItems": [
+          "Learning occurs in the child's natural environment.",
+          "Family members can actively participate in treatment.",
+          "Skills can be practiced during everyday routines.",
+          "Individualized goals are customized for real-world situations.",
+          "Treatment plans can be adapted as needs change."
+        ]
+      },
+      "benefits": {
+        "title": "Benefits of Home-Based ABA Therapy",
+        "items": [
+          {
+            "title": "Family Involvement",
+            "text": "Parents and caregivers have direct opportunities to observe therapy, learn strategies, and reinforce skills between sessions."
+          },
+          {
+            "title": "Real-Life Skill Practice",
+            "text": "Children practice important daily living skills exactly where they are used, helping promote generalization and independence."
+          },
+          {
+            "title": "Familiar Environment",
+            "text": "Receiving therapy at home may reduce stress associated with unfamiliar settings and transportation."
+          },
+          {
+            "title": "Personalized Learning",
+            "text": "Programs are individualized around the child's home routines, interests, strengths, and developmental needs."
+          },
+          {
+            "title": "Flexible Scheduling",
+            "text": "Home-based services can often accommodate family schedules while reducing travel demands."
+          },
+          {
+            "title": "Natural Communication Opportunities",
+            "text": "Therapists can support communication during meals, play, household activities, sibling interactions, and community preparation."
+          },
+          {
+            "title": "Improved Skill Generalization",
+            "text": "Children learn how to use newly acquired skills within the environments they encounter most often."
+          },
+          {
+            "title": "Parent Training & Coaching",
+            "text": "Families receive practical tools and strategies to support continued progress outside formal therapy sessions."
+          }
+        ]
+      },
+      "whyChoose": {
+        "title": "Why Families Choose Home ABA Services",
+        "intro": "Many children learn best when skills are practiced in the same environment where they will ultimately be used. Home-based ABA therapy allows treatment to be integrated into everyday routines and family life.",
+        "skillsLabel": "Children can work on:",
+        "skills": [
+          "Communication skills",
+          "Following directions",
+          "Self-help skills",
+          "Emotional regulation",
+          "Daily routines",
+          "Play skills",
+          "Social interactions",
+          "Safety awareness",
+          "Independent living skills",
+          "School readiness skills"
+        ],
+        "checklist": [
+          "Individualized Treatment Plans",
+          "Family Collaboration",
+          "Real-World Learning",
+          "Flexible Scheduling",
+          "Familiar Environment",
+          "Ongoing Clinical Supervision",
+          "Progress Monitoring",
+          "Goal-Based Therapy"
+        ]
+      },
+      "preparing": {
+        "title": "Preparing for Home-Based ABA Therapy",
+        "intro": "Creating a supportive therapy environment can help maximize learning opportunities and treatment effectiveness.",
+        "cards": [
+          {
+            "title": "Dedicated Learning Space",
+            "text": "A consistent therapy area helps reduce distractions and establish routine. The ideal space is safe, comfortable, and free from unnecessary interruptions."
+          },
+          {
+            "title": "Learning Materials & Tools",
+            "text": "Therapists may use developmentally appropriate toys, visual supports, communication tools, sensory materials, games, and educational resources tailored to treatment goals."
+          },
+          {
+            "title": "Caregiver Participation",
+            "text": "Family involvement is one of the greatest strengths of home-based ABA therapy. Caregivers are encouraged to collaborate with clinicians, ask questions, and learn strategies that support progress between sessions."
+          },
+          {
+            "title": "Consistency Across Routines",
+            "text": "Practicing skills during meals, playtime, transitions, bedtime routines, and household activities helps strengthen learning and generalization."
+          }
+        ]
+      },
+      "comparison": {
+        "title": "Home-Based ABA vs Center-Based ABA Therapy",
+        "homeHeader": "Home-Based ABA",
+        "centerHeader": "Center-Based ABA",
+        "rows": [
+          [
+            "Therapy in child's home",
+            "Structured clinic environment"
+          ],
+          [
+            "High caregiver involvement",
+            "Peer interaction opportunities"
+          ],
+          [
+            "Natural environment learning",
+            "Dedicated therapy rooms"
+          ],
+          [
+            "Daily routine integration",
+            "School readiness activities"
+          ],
+          [
+            "Flexible scheduling",
+            "Reduced distractions"
+          ],
+          [
+            "Real-life skill practice",
+            "Access to additional clinical resources"
+          ]
+        ],
+        "note": "Many children benefit from a combination of settings. Clinical recommendations should always be individualized based on the child's needs."
+      },
+      "internalLinks": {
+        "centerBased": "Center-Based ABA Therapy",
+        "schoolBased": "School-Based ABA Therapy",
+        "communityBased": "Community-Based ABA Therapy",
+        "virtual": "Virtual ABA Therapy"
+      },
+      "programs": {
+        "title": "Who We Serve + Program Options",
+        "items": [
+          {
+            "title": "Early Intervention ABA Therapy",
+            "text": "Support for toddlers and preschool-aged children during critical developmental years."
+          },
+          {
+            "title": "ABA Therapy for School-Age Children",
+            "text": "Programs focused on communication, independence, behavior support, and social development."
+          },
+          {
+            "title": "Adolescent ABA Programs",
+            "text": "Age-appropriate support designed for teens preparing for greater independence and life transitions."
+          },
+          {
+            "title": "Parent Training Services",
+            "text": "Coaching and education that helps caregivers support skill development beyond therapy sessions."
+          },
+          {
+            "title": "Behavioral Support Programs",
+            "text": "Targeted interventions addressing challenging behaviors that interfere with learning or daily functioning."
+          },
+          {
+            "title": "Social Skills Development",
+            "text": "Programs focused on peer interaction, conversation skills, emotional awareness, and relationship building."
+          }
+        ]
+      },
+      "fit": {
+        "title": "Is Home-Based ABA Therapy Right for Your Child?",
+        "paragraphs": [
+          "Every child learns differently. Home-based ABA therapy may be a strong fit for children who benefit from learning in familiar surroundings, require intensive caregiver involvement, or need support with routines that occur primarily at home.",
+          "A comprehensive assessment helps determine whether home-based, center-based, school-based, community-based, or hybrid services are the most appropriate option."
+        ],
+        "cta": "Schedule an ABA Consultation"
+      },
+      "findNear": {
+        "title": "Find In-Home ABA Therapy Near You",
+        "paragraphs": [
+          "Families searching for in-home ABA therapy deserve access to compassionate, evidence-based care close to home.",
+          "Our team partners with caregivers to develop individualized treatment plans designed around meaningful goals, family priorities, and everyday success. Whether your child is beginning therapy for the first time or transitioning from another setting, we work to create a supportive and collaborative treatment experience."
+        ],
+        "placeholder": "Search by zip or city",
+        "button": "Find ABA Therapy Near Me"
+      },
+      "trust": {
+        "title": "Evidence-Informed Home-Based ABA Care",
+        "text": "Eden ABA Therapy provides individualized, evidence-based intervention designed to improve meaningful skills in natural settings. Treatment may help support communication, behavior, independence, and daily routines when clinically appropriate. We follow professional practice guidance and use language that reflects what research and clinical standards support—not guaranteed outcomes.",
+        "sources": [
+          "CDC Autism Resources — developmental guidance and early intervention information",
+          "Medicaid ABA Coverage Guidance — state-specific benefit and eligibility considerations",
+          "Autism Speaks — family education on ABA and autism services",
+          "BACB Professional Standards — RBT and BCBA supervision requirements",
+          "Council of Autism Service Providers (CASP) — clinical practice standards for ABA providers"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "intro": "Common questions about in-home ABA therapy, insurance, supervision, and how home-based services compare to other settings.",
+        "items": [
+          {
+            "q": "What is home-based ABA therapy?",
+            "a": "Home-based ABA therapy delivers Applied Behavior Analysis services in the child's home environment, allowing skills to be taught and practiced during everyday routines."
+          },
+          {
+            "q": "Who provides in-home ABA therapy?",
+            "a": "Treatment is commonly delivered by Registered Behavior Technicians (RBTs) under the supervision of Board Certified Behavior Analysts (BCBAs)."
+          },
+          {
+            "q": "Is home ABA therapy covered by insurance?",
+            "a": "Coverage varies by state, insurance plan, and Medicaid program. Many commercial insurance providers and Medicaid plans offer ABA therapy benefits for eligible children."
+          },
+          {
+            "q": "What skills can children learn during home ABA therapy?",
+            "a": "Programs may address communication, social interaction, emotional regulation, self-help skills, daily living activities, safety awareness, and independence."
+          },
+          {
+            "q": "How involved are parents in treatment?",
+            "a": "Parent participation is encouraged because caregivers play an important role in supporting skill development and long-term success."
+          },
+          {
+            "q": "Is home-based ABA therapy as effective as center-based ABA therapy?",
+            "a": "Both settings can be effective when treatment is individualized and clinically appropriate. The best option depends on the child's goals, learning style, family needs, and clinical recommendations."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Begin Home-Based ABA Services at Eden ABA Therapy",
+        "text": "Connect with compassionate in-home ABA therapy near you. Our team can help you explore intake, insurance verification, and the right service setting for your family.",
+        "startButton": "Get Started",
+        "findButton": "Find ABA Therapy Near Me"
+      }
+    },
+    "communityBasedAbaTherapy": {
+      "meta": {
+        "title": "Community-Based ABA Therapy for Autism | Eden ABA Therapy",
+        "description": "Community-based ABA therapy helps children with autism practice communication, social, safety, and independence skills in parks, stores, libraries, and everyday community settings across Northern Virginia."
+      },
+      "hero": {
+        "eyebrow": "ABA Therapy Services in Common Environments",
+        "breadcrumb": [
+          "ABA Therapy",
+          "Services",
+          "Community-Based ABA Therapy"
+        ],
+        "title": "Building Real-Life Skills Through Community-Based ABA Therapy",
+        "paragraphs": [
+          "Children learn best when they can practice skills where they naturally occur. Community-Based ABA Therapy helps children with autism develop communication, social, behavioral, and independent living skills in everyday environments such as parks, grocery stores, libraries, restaurants, community centers, and recreational programs.",
+          "Unlike clinic-only instruction, community-based ABA allows children to apply learned skills in real-world situations while receiving individualized support from trained behavior professionals. Our goal is to help children become more confident, independent, and successful participants in their communities."
+        ],
+        "cta": "Find ABA Therapy Near Me",
+        "imageAlt": "Therapist supporting a child during community-based ABA therapy in a natural outdoor setting"
+      },
+      "whatIs": {
+        "title": "What Is Community-Based ABA Therapy?",
+        "paragraphs": [
+          "Community-Based ABA Therapy is an evidence-based treatment model that delivers Applied Behavior Analysis services in natural environments outside the home or clinic."
+        ],
+        "goalsLabel": "Sessions are designed to help children:",
+        "goals": [
+          "Use communication skills with unfamiliar people",
+          "Follow directions in public settings",
+          "Participate in community activities",
+          "Build friendships and peer relationships",
+          "Develop independence during everyday tasks",
+          "Practice coping skills during unexpected situations"
+        ],
+        "researchNote": "Research shows that skill generalization may improve when children practice behaviors across multiple environments rather than only within structured therapy settings."
+      },
+      "whyMatters": {
+        "title": "Why Community-Based ABA Therapy Matters",
+        "paragraphs": [
+          "Many children can demonstrate skills successfully during therapy but struggle to use those same skills in daily life. Community-based services help bridge that gap by teaching children how to apply learned behaviors in natural settings."
+        ],
+        "benefitsLabel": "Benefits may include:",
+        "benefits": [
+          "Improved social participation",
+          "Increased communication confidence",
+          "Better adaptability to new situations",
+          "Stronger community engagement",
+          "Greater independence",
+          "Improved quality of life"
+        ],
+        "closing": "Community-based instruction is specifically designed to promote functional skill use where those skills matter most."
+      },
+      "howSupports": {
+        "title": "How Community-Based ABA Therapy Supports Children With Autism",
+        "paragraphs": [
+          "Children receive individualized support from Registered Behavior Technicians (RBTs) under the supervision of a Board Certified Behavior Analyst (BCBA). Treatment plans focus on measurable goals that align with the child's needs and family priorities."
+        ],
+        "focusLabel": "Community sessions may target:",
+        "focusAreas": [
+          "Communication",
+          "Social interaction",
+          "Safety awareness",
+          "Emotional regulation",
+          "Daily living skills",
+          "Community participation",
+          "Self-advocacy"
+        ],
+        "closing": "Evidence-based ABA interventions can help reduce barriers that interfere with learning, communication, and social interaction while promoting meaningful independence."
+      },
+      "skills": {
+        "title": "What Skills Can Children Learn During Community-Based ABA Therapy?",
+        "items": [
+          {
+            "title": "Social Skills Development",
+            "intro": "Community environments provide opportunities for children to practice social interaction in authentic situations.",
+            "bullets": [
+              "Introduce themselves to peers",
+              "Join group activities",
+              "Take turns during games",
+              "Understand social boundaries",
+              "Build and maintain friendships"
+            ],
+            "closing": "Practicing these skills in natural environments may help improve social confidence and peer relationships."
+          },
+          {
+            "title": "Functional Communication",
+            "intro": "Communication becomes more meaningful when children use it in everyday situations.",
+            "bullets": [
+              "Ask for help",
+              "Request preferred items",
+              "Initiate conversations",
+              "Answer questions appropriately",
+              "Communicate needs effectively"
+            ],
+            "closing": "These experiences can support long-term communication success across multiple settings."
+          },
+          {
+            "title": "Community Safety Skills",
+            "intro": "Safety is a critical focus of community-based ABA services.",
+            "bullets": [
+              "Parking lot safety",
+              "Street crossing skills",
+              "Following community rules",
+              "Stranger awareness",
+              "Responding to emergencies",
+              "Staying with caregivers in public places"
+            ],
+            "closing": "Safety training may increase independence while reducing risk in community settings."
+          },
+          {
+            "title": "Behavior Self-Management",
+            "intro": "Real-world situations provide opportunities to practice coping and self-regulation skills.",
+            "bullets": [
+              "Managing frustration",
+              "Waiting appropriately",
+              "Handling transitions",
+              "Coping with sensory challenges",
+              "Following expectations in public"
+            ],
+            "closing": "Learning these skills in natural environments can help improve long-term behavioral success."
+          },
+          {
+            "title": "Generalization of Skills",
+            "intro": "One of the primary goals of ABA therapy is skill generalization.",
+            "bullets": [
+              "Using communication skills in multiple settings",
+              "Following directions from different people",
+              "Applying social skills with new peers",
+              "Adapting behaviors across environments"
+            ],
+            "closing": "This process helps ensure skills transfer beyond therapy sessions and into everyday life."
+          },
+          {
+            "title": "Recreation and Community Participation",
+            "intro": "Community involvement promotes inclusion and confidence.",
+            "bullets": [
+              "Parks and playgrounds",
+              "Sports programs",
+              "Libraries",
+              "Community events",
+              "Recreational classes",
+              "Youth organizations"
+            ],
+            "closing": "Participation encourages social engagement while supporting healthy community involvement."
+          },
+          {
+            "title": "Independent Living Skills",
+            "intro": "Community-based ABA helps children develop greater self-sufficiency.",
+            "bullets": [
+              "Making purchases",
+              "Ordering food",
+              "Following schedules",
+              "Navigating community locations",
+              "Completing age-appropriate responsibilities",
+              "Making independent choices"
+            ],
+            "closing": "These experiences may prepare children for greater independence throughout adolescence and adulthood."
+          }
+        ]
+      },
+      "howHelps": {
+        "title": "How Does Community-Based ABA Therapy Help Children With Autism?",
+        "paragraphs": [
+          "Community-based ABA therapy emphasizes skill generalization and meaningful behavior improvements in the places where daily life happens. Rather than learning skills only in a clinic, children practice communication, social interaction, safety, and independence where those skills will be used.",
+          "Treatment is individualized and supervised by qualified behavior analysts, following evidence-based practice standards. Eden ABA Therapy focuses on helping families build functional skills that may support participation, confidence, and long-term success in community settings."
+        ]
+      },
+      "medicaid": {
+        "title": "Is Community-Based ABA Therapy Covered by Medicaid?",
+        "paragraphs": [
+          "Many Medicaid programs cover medically necessary ABA services for eligible children with autism and related developmental needs. Medicaid-funded ABA services may include behavioral interventions designed to improve communication, social interaction, adaptive functioning, and community participation when prescribed as medically necessary.",
+          "Families should verify coverage requirements based on their state Medicaid plan and provider network."
+        ],
+        "cta": "Verify Insurance Coverage"
+      },
+      "serviceSettings": {
+        "title": "Explore Other ABA Therapy Settings",
+        "intro": "We provide ABA therapy in different settings to meet your child's specific needs.",
+        "items": [
+          {
+            "title": "Home-Based ABA Therapy",
+            "text": "Skill-building in the child's natural home environment with caregiver coaching and generalization support.",
+            "cta": "Learn more",
+            "active": false
+          },
+          {
+            "title": "Center-Based ABA Therapy",
+            "text": "Structured clinic-based therapy with peer opportunities, dedicated therapy rooms, and clinical resources.",
+            "cta": "Learn more",
+            "active": false
+          },
+          {
+            "title": "School-Based ABA Therapy",
+            "text": "Collaboration with school teams to support classroom goals, transitions, and educational participation.",
+            "cta": "Learn more",
+            "active": false
+          },
+          {
+            "title": "Virtual ABA Therapy",
+            "text": "Telehealth and remote parent coaching options when appropriate for the child's plan and family needs.",
+            "cta": "Learn more",
+            "active": false
+          }
+        ]
+      },
+      "getStarted": {
+        "title": "Get Started With Community-Based ABA Therapy",
+        "paragraphs": [
+          "Community-Based ABA Therapy helps children move beyond structured learning environments and successfully apply skills in everyday life. By combining evidence-based ABA strategies with meaningful real-world experiences, children can build skills that support long-term independence."
+        ],
+        "buildsLabel": "Children may build:",
+        "builds": [
+          "Communication skills",
+          "Social confidence",
+          "Community participation",
+          "Self-regulation abilities",
+          "Long-term independence"
+        ],
+        "closing": "Our team works closely with families to create individualized treatment plans that support meaningful growth both inside and outside of therapy.",
+        "placeholder": "Search by zip or city",
+        "button": "Find Community-Based ABA Therapy Near Me"
+      },
+      "finalCta": {
+        "title": "Begin Community-Based ABA Services at Eden ABA Therapy",
+        "text": "Connect with compassionate community-based ABA therapy near you. Our team can help you explore intake, insurance verification, and the right service setting for your family.",
+        "startButton": "Get Started",
+        "scheduleButton": "Schedule a Consultation"
+      }
+    },
+    "virtualAbaTherapy": {
+      "meta": {
+        "title": "Virtual ABA Therapy for Autism | Telehealth ABA Services | Eden ABA Therapy",
+        "description": "Virtual ABA therapy at Eden ABA Therapy delivers evidence-based telehealth autism support with caregiver coaching, BCBA supervision, and flexible scheduling from your home in Northern Virginia."
+      },
+      "illustrations": {
+        "hero": "Illustration of a family participating in a secure virtual ABA therapy session at home with a live video connection",
+        "compare": "Illustration comparing virtual telehealth ABA sessions with in-person clinic-based therapy",
+        "familyCoaching": "Illustration of a parent and child receiving virtual family coaching through a laptop at home",
+        "progressDashboard": "Eden ABA family portal dashboard showing treatment progress and goal tracking",
+        "insurance": "Illustration representing telehealth insurance verification and coverage eligibility"
+      },
+      "hero": {
+        "eyebrow": "ABA Therapy Through Secure Telehealth",
+        "breadcrumb": [
+          "ABA Therapy",
+          "Services",
+          "Virtual ABA Therapy"
+        ],
+        "title": "Virtual ABA Therapy for Children with Autism",
+        "paragraphs": [
+          "Telehealth ABA services allow children to receive evidence-based behavioral intervention through secure online technology. Virtual ABA Therapy combines individualized treatment planning, caregiver collaboration, and BCBA supervision to help children strengthen communication, social interaction, adaptive living skills, and behavior regulation in everyday environments.",
+          "Telehealth services can reduce barriers to care while allowing families to actively participate in treatment and skill generalization when clinically appropriate."
+        ],
+        "cta": "Find ABA Therapy Near Me"
+      },
+      "supporting": {
+        "title": "Supporting Development Through Virtual ABA Services",
+        "paragraphs": [
+          "Virtual ABA Therapy allows clinicians to provide treatment, coaching, and behavioral consultation using live video technology. Services are tailored to each child's developmental needs and may include direct intervention, caregiver training, behavioral assessments, and ongoing treatment monitoring.",
+          "Programs are designed to promote functional skills that can be practiced naturally throughout daily routines, increasing opportunities for learning beyond scheduled therapy sessions."
+        ]
+      },
+      "compare": {
+        "title": "How Does Virtual ABA Therapy Differ From In-Person Therapy?",
+        "virtualHeader": "Virtual / Telehealth",
+        "inPersonHeader": "In-Person",
+        "rows": [
+          [
+            "Delivered via secure video in the child's natural environment, typically at home",
+            "Delivered at a clinic, school, or therapy center with therapist and child in the same space"
+          ],
+          [
+            "Real-time interaction between clinicians, caregivers, and the child through telehealth",
+            "Same-room interaction with more immediate peer and group opportunities"
+          ],
+          [
+            "May support access when travel, health concerns, or geography create barriers",
+            "Structured setting with dedicated therapy materials and peer interaction"
+          ],
+          [
+            "Peer interaction opportunities may be more limited than in clinic-based groups",
+            "Face-to-face role-play and group activities may occur more readily on-site"
+          ]
+        ]
+      },
+      "howItWorks": {
+        "title": "How Does Virtual ABA Therapy Work?",
+        "intro": "Virtual ABA Therapy uses secure video conferencing technology to connect families with qualified behavior analysts and treatment providers in real time.",
+        "items": [
+          "Teach communication skills",
+          "Support social development",
+          "Address challenging behaviors",
+          "Coach caregivers on intervention strategies",
+          "Monitor treatment progress",
+          "Adjust individualized behavior plans"
+        ],
+        "closing": "Because therapy occurs within the child's natural environment, clinicians can observe real-life situations and help families implement strategies where skills are needed most."
+      },
+      "benefits": {
+        "title": "Benefits of Virtual ABA Therapy",
+        "items": [
+          {
+            "title": "Increased Access to Services",
+            "text": "Telehealth may expand access to ABA services when in-person options are limited by location or scheduling."
+          },
+          {
+            "title": "Reduced Travel Time",
+            "text": "Families can participate from home, which may reduce transportation demands and session disruptions."
+          },
+          {
+            "title": "Flexible Scheduling Options",
+            "text": "Virtual sessions can often accommodate varied family schedules when clinically appropriate."
+          },
+          {
+            "title": "Enhanced Caregiver Participation",
+            "text": "Parents and caregivers can observe, learn, and practice strategies during live coaching sessions."
+          },
+          {
+            "title": "Support Within Home Routines",
+            "text": "Skills can be taught and reinforced where they naturally occur throughout the day."
+          },
+          {
+            "title": "Consistent BCBA Collaboration",
+            "text": "Treatment remains supervised by Board Certified Behavior Analysts following professional practice standards."
+          }
+        ]
+      },
+      "familyCoaching": {
+        "title": "Family Coaching and Parent Training",
+        "paragraphs": [
+          "Research consistently demonstrates that caregiver involvement can play a critical role in long-term treatment outcomes. Virtual ABA Therapy allows parents and caregivers to become active participants in their child's intervention program."
+        ],
+        "learnLabel": "Through structured coaching, families learn how to:",
+        "learnItems": [
+          "Encourage communication development",
+          "Reinforce positive behaviors",
+          "Build daily living skills",
+          "Improve consistency across environments",
+          "Manage challenging situations effectively",
+          "Promote independence throughout everyday routines"
+        ],
+        "closing": "Our goal is to empower families with practical strategies that can be incorporated into daily life and maintained beyond therapy sessions.",
+        "cta": "Schedule a Consultation"
+      },
+      "insurance": {
+        "title": "Insurance Coverage and Telehealth Eligibility",
+        "paragraphs": [
+          "Access to ABA services often depends on individual insurance benefits, state regulations, and medical necessity requirements. Many commercial insurance plans and Medicaid programs now recognize telehealth as an approved method of delivering certain behavioral health services when prescribed as medically necessary.",
+          "Our team assists families in understanding benefits, verifying coverage, and exploring available options for telehealth ABA services."
+        ],
+        "varyLabel": "Coverage may vary based on:",
+        "varyItems": [
+          "State-specific telehealth regulations",
+          "Insurance carrier requirements",
+          "Clinical recommendations",
+          "Authorization guidelines",
+          "Service eligibility criteria"
+        ],
+        "cta": "Verify Insurance Coverage"
+      },
+      "serviceSettings": {
+        "title": "Explore Additional ABA Therapy Services",
+        "intro": "Families often benefit from a combination of service settings depending on their child's goals and needs.",
+        "items": [
+          {
+            "title": "School-Based ABA Therapy",
+            "text": "Support for academic, behavioral, and social success within educational environments.",
+            "cta": "Learn more"
+          },
+          {
+            "title": "Community-Based ABA Therapy",
+            "text": "Development of real-world social, communication, and adaptive living skills within community settings.",
+            "cta": "Learn more"
+          },
+          {
+            "title": "Home-Based ABA Therapy",
+            "text": "Personalized intervention delivered within the child's natural home environment.",
+            "cta": "Learn more"
+          },
+          {
+            "title": "Center-Based ABA Therapy",
+            "text": "Structured learning opportunities with access to specialized programs, peer interactions, and clinical resources.",
+            "cta": "Learn more"
+          }
+        ]
+      },
+      "findNear": {
+        "title": "Find Virtual ABA Therapy Near You",
+        "paragraphs": [
+          "Eden ABA Therapy offers flexible telehealth options designed to support families who may benefit from receiving services from home. Our team can help you explore whether virtual, in-person, or hybrid services are the best fit for your child.",
+          "Contact us to learn more about virtual ABA therapy, insurance options, and individualized treatment recommendations."
+        ],
+        "placeholder": "Search by zip or city",
+        "button": "Find ABA Therapy Near Me"
+      },
+      "trust": {
+        "title": "Evidence-Informed Telehealth ABA Care",
+        "text": "Eden ABA Therapy provides individualized, evidence-based intervention designed to support meaningful skill development when telehealth is clinically appropriate. We follow professional practice guidance from leading autism and ABA organizations and use language that reflects what research and clinical standards support—not guaranteed outcomes.",
+        "sources": [
+          "CDC Autism Resources — early intervention and family support guidance",
+          "CMS / Medicaid — telehealth and autism service coverage considerations",
+          "Autism Speaks — ABA therapy and telehealth family education",
+          "BACB — telehealth practice and supervision standards",
+          "Council of Autism Service Providers (CASP) — clinical practice standards"
+        ]
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "intro": "Common questions about virtual ABA therapy, supervision, insurance, and how telehealth compares to in-person services.",
+        "items": [
+          {
+            "q": "What is virtual ABA therapy?",
+            "a": "Virtual ABA therapy delivers Applied Behavior Analysis services through secure telehealth technology, allowing clinicians to provide treatment, coaching, and consultation in the child's natural environment."
+          },
+          {
+            "q": "How is telehealth ABA different from in-person therapy?",
+            "a": "Telehealth ABA uses live video sessions typically from home, while in-person therapy occurs at a clinic or center. Both can be effective when individualized and clinically appropriate; the best option depends on the child's goals and family needs."
+          },
+          {
+            "q": "Who supervises virtual ABA sessions?",
+            "a": "ABA programs are commonly supervised by Board Certified Behavior Analysts, while direct services may be delivered by trained behavior technicians or Registered Behavior Technicians under ongoing supervision."
+          },
+          {
+            "q": "Is virtual ABA covered by insurance or Medicaid?",
+            "a": "Coverage varies by state, insurance plan, and Medicaid program. Many plans offer telehealth benefits for medically necessary behavioral health services when eligible."
+          },
+          {
+            "q": "How involved are parents in virtual ABA?",
+            "a": "Parent and caregiver participation is encouraged because families play an important role in supporting skill development, consistency, and generalization between sessions."
+          },
+          {
+            "q": "Is virtual ABA appropriate for every child?",
+            "a": "Not always. A comprehensive assessment helps determine whether virtual, in-person, or hybrid services best support the child's communication, behavior, and independence goals."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Start Virtual ABA Therapy With Confidence",
+        "paragraphs": [
+          "Virtual ABA Therapy can provide meaningful support for children and families seeking flexible, evidence-based autism services. Through individualized treatment planning, caregiver collaboration, and ongoing BCBA oversight, telehealth services can help children build skills that may improve independence and participation in daily life.",
+          "Whether your family is exploring ABA services for the first time or seeking an alternative service delivery model, our team is here to guide you through every step of the process."
+        ],
+        "scheduleButton": "Schedule a Consultation Today",
+        "startButton": "Get Started"
+      }
+    },
+    "resourcePlaceholders": {
+      "parent-training": {
+        "meta": {
+          "title": "Parent Training | Eden ABA Therapy",
+          "description": "Learn how Eden ABA Therapy supports families with parent training, caregiver coaching, and practical strategies for home and community."
+        },
+        "breadcrumb": "Resources / Parent Training",
+        "title": "Parent Training",
+        "intro": "Eden ABA Therapy helps caregivers build practical skills to support communication, behavior, daily routines, and progress between therapy sessions.",
+        "comingSoonLabel": "Family training resources",
+        "comingSoon": "Expanded parent training guides and workshop content are being prepared for this section. Our clinical team already provides caregiver coaching as part of ABA services.",
+        "highlights": [
+          "Caregiver coaching aligned with your child's treatment plan",
+          "Strategies for communication and daily routines at home",
+          "Collaboration with your BCBA and therapy team"
+        ],
+        "primaryCta": "Start ABA Therapy",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "autism-diagnosis-resources": {
+        "meta": {
+          "title": "Autism Diagnosis Resources | Eden ABA Therapy",
+          "description": "Helpful autism diagnosis resources for Northern Virginia families exploring screening, evaluation, and next steps with Eden ABA Therapy."
+        },
+        "breadcrumb": "Resources / Autism Diagnosis",
+        "title": "Autism Diagnosis Resources",
+        "intro": "Families often need clear guidance on screening tools, diagnostic evaluations, records, and what happens after an autism diagnosis.",
+        "comingSoonLabel": "Diagnosis resource library",
+        "comingSoon": "This resource hub will expand with family-friendly guides on diagnostic pathways, records, and coordinating care after evaluation.",
+        "highlights": [
+          "Screening and evaluation navigation support",
+          "Guidance on records and next steps after diagnosis",
+          "Connections to Eden evaluation and ABA services"
+        ],
+        "primaryCta": "Explore Autism Evaluation",
+        "secondaryCta": "Start ABA Therapy"
+      },
+      "new-parent-checklist": {
+        "meta": {
+          "title": "New Parent Checklist | Eden ABA Therapy",
+          "description": "A practical checklist for new autism caregivers preparing documents, questions, and next steps with Eden ABA Therapy."
+        },
+        "breadcrumb": "Resources / Getting Started",
+        "title": "New Parent Checklist",
+        "intro": "Starting your autism care journey can feel overwhelming. This checklist helps new caregivers organize key documents, questions, and first steps.",
+        "comingSoonLabel": "Checklist coming soon",
+        "comingSoon": "Eden ABA Therapy is preparing a downloadable new parent checklist with intake documents, evaluation records, and questions to ask your care team.",
+        "highlights": [
+          "Documents to gather before intake",
+          "Questions for evaluators and therapists",
+          "First-week preparation tips for families"
+        ],
+        "primaryCta": "Getting Started with Eden",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "afterschool-programs": {
+        "meta": {
+          "title": "Afterschool Programs | Eden ABA Therapy",
+          "description": "Learn about Eden ABA Therapy afterschool programs supporting social skills, routines, and meaningful progress after the school day."
+        },
+        "breadcrumb": "Services / Afterschool Programs",
+        "title": "Afterschool Programs",
+        "intro": "Eden ABA Therapy afterschool programs provide structured support for communication, social participation, homework routines, and safe transitions after school.",
+        "comingSoonLabel": "Program details coming soon",
+        "comingSoon": "Expanded afterschool program information, enrollment guidance, and scheduling details are being prepared for this section.",
+        "highlights": [
+          "Social and communication skill-building after school",
+          "Structured routines for homework and transitions",
+          "BCBA-supervised, individualized support"
+        ],
+        "primaryCta": "Start ABA Therapy",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "resources-blog": {
+        "meta": {
+          "title": "Blog & Articles | Eden ABA Therapy",
+          "description": "Autism and ABA therapy articles, family guidance, and educational resources from Eden ABA Therapy in Northern Virginia."
+        },
+        "breadcrumb": "Resources / Learning Center",
+        "title": "Blog & Articles",
+        "intro": "Evidence-informed articles for families learning about autism, ABA therapy, insurance, school support, and everyday progress.",
+        "comingSoonLabel": "Articles coming soon",
+        "comingSoon": "Eden ABA Therapy is preparing a family-friendly article library with practical guidance on autism, therapy, and caregiver support.",
+        "highlights": [
+          "Autism education for families",
+          "ABA therapy explainers and tips",
+          "Insurance, intake, and service updates"
+        ],
+        "primaryCta": "Explore Parent Resources",
+        "secondaryCta": "Start ABA Therapy"
+      },
+      "resources-webinars": {
+        "meta": {
+          "title": "Webinars & Videos | Eden ABA Therapy",
+          "description": "Watch upcoming Eden ABA Therapy webinars and videos on autism support, parent training, and ABA therapy topics."
+        },
+        "breadcrumb": "Resources / Learning Center",
+        "title": "Webinars & Videos",
+        "intro": "Short educational videos and webinars help families understand autism, therapy options, and how to support progress at home.",
+        "comingSoonLabel": "Video library in progress",
+        "comingSoon": "Webinar replays and caregiver video guides will be published here as Eden ABA Therapy expands its learning center.",
+        "highlights": [
+          "Family-friendly educational videos",
+          "Webinars on autism and ABA topics",
+          "Practical caregiver strategies"
+        ],
+        "primaryCta": "Schedule a Consultation",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "family-centered-care": {
+        "meta": {
+          "title": "Family-Centered Care | Eden ABA Therapy",
+          "description": "Learn how Eden ABA Therapy partners with families through compassionate, family-centered autism care and individualized ABA support."
+        },
+        "breadcrumb": "About Eden / Family-Centered Care",
+        "title": "Family-Centered Care",
+        "intro": "Eden ABA Therapy designs every treatment plan around the child and family — honoring daily routines, caregiver priorities, communication styles, and meaningful goals at home and in the community.",
+        "comingSoonLabel": "Family partnership resources",
+        "comingSoon": "Expanded family-centered care stories and caregiver guides are being prepared for this section. Our clinical team already partners closely with parents throughout assessment, therapy, and progress planning.",
+        "highlights": [
+          "Individualized goals shaped by family priorities",
+          "Caregiver coaching and practical home strategies",
+          "Collaboration between families and the clinical team"
+        ],
+        "primaryCta": "Explore About Eden",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "community-impact": {
+        "meta": {
+          "title": "Community Impact | Eden ABA Therapy",
+          "description": "Discover how Eden ABA Therapy supports Northern Virginia families and community connections through autism services, advocacy, and professional partnerships."
+        },
+        "breadcrumb": "About Eden / Community Impact",
+        "title": "Community Impact",
+        "intro": "Eden ABA Therapy stays connected with families, schools, and respected autism and ABA organizations across Northern Virginia to support informed, community-rooted care.",
+        "comingSoonLabel": "Community stories & partnerships",
+        "comingSoon": "Community impact highlights and partnership stories will be published here as Eden ABA Therapy expands its public community resources.",
+        "highlights": [
+          "Connections with trusted autism and ABA organizations",
+          "Support for families across Northern Virginia service areas",
+          "Commitment to ethical, community-informed ABA care"
+        ],
+        "primaryCta": "Explore Our Story",
+        "secondaryCta": "Start ABA Therapy"
+      },
+      "about-mission-values": {
+        "meta": {
+          "title": "Our Mission & Values | Eden ABA Therapy",
+          "description": "Learn about Eden ABA Therapy's mission, core values, and family-centered commitment to compassionate autism care in Northern Virginia."
+        },
+        "breadcrumb": "About Eden / Mission & Values",
+        "title": "Our Mission & Values",
+        "intro": "Eden ABA Therapy is guided by a clear mission: provide compassionate, evidence-based ABA therapy while honoring each child's strengths, family priorities, and path to meaningful progress.",
+        "comingSoonLabel": "Mission & values resources",
+        "comingSoon": "Expanded mission and values content is being prepared for this section. Our clinical team already embeds these principles in every assessment, treatment plan, and family partnership.",
+        "highlights": [
+          "Compassionate, individualized autism care",
+          "Family partnership at the center of every plan",
+          "Ethical, evidence-based clinical practice"
+        ],
+        "primaryCta": "Explore Our Story",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "about-leadership-team": {
+        "meta": {
+          "title": "Leadership Team | Eden ABA Therapy",
+          "description": "Meet the Eden ABA Therapy leadership team supporting clinical quality, family guidance, and compassionate ABA services in Northern Virginia."
+        },
+        "breadcrumb": "About Eden / Leadership Team",
+        "title": "Leadership Team",
+        "intro": "Eden's leadership team brings together experienced BCBAs, clinical supervisors, and care coordinators who guide assessment, treatment planning, and family support.",
+        "comingSoonLabel": "Leadership profiles coming soon",
+        "comingSoon": "Leadership bios and team highlights are being prepared for this section. Families already work directly with Eden's clinical supervisors and intake team throughout services.",
+        "highlights": [
+          "Experienced BCBA clinical leadership",
+          "Supervision and quality oversight for therapy teams",
+          "Responsive intake and family coordination support"
+        ],
+        "primaryCta": "Start ABA Therapy",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "about-clinical-excellence": {
+        "meta": {
+          "title": "Clinical Excellence | Eden ABA Therapy",
+          "description": "Explore how Eden ABA Therapy delivers evidence-based ABA therapy, ethical clinical standards, and measurable progress for children and families."
+        },
+        "breadcrumb": "About Eden / Clinical Excellence",
+        "title": "Clinical Excellence",
+        "intro": "Clinical excellence at Eden means ethical, individualized ABA therapy supported by ongoing data collection, BCBA supervision, and meaningful progress toward family-centered goals.",
+        "comingSoonLabel": "Clinical quality resources",
+        "comingSoon": "Expanded clinical excellence content is being prepared for this section. Eden's team already follows evidence-based practices, supervision standards, and ethical care guidelines.",
+        "highlights": [
+          "Evidence-based ABA treatment models",
+          "BCBA supervision and ongoing clinical review",
+          "Data-informed progress monitoring and family updates"
+        ],
+        "primaryCta": "Explore Our Story",
+        "secondaryCta": "Start ABA Therapy"
+      },
+      "careers-rbt": {
+        "meta": {
+          "title": "RBT Careers | Eden ABA Therapy",
+          "description": "Explore Registered Behavior Technician career opportunities at Eden ABA Therapy in Northern Virginia."
+        },
+        "breadcrumb": "Careers / RBT Careers",
+        "title": "RBT Careers",
+        "intro": "Join Eden ABA Therapy as a Registered Behavior Technician and help children build communication, daily living, and social skills through compassionate, evidence-based ABA therapy.",
+        "comingSoonLabel": "RBT career resources",
+        "comingSoon": "Expanded RBT career guides, training pathways, and role overviews are being prepared for this section. Search open RBT roles on our careers page today.",
+        "highlights": [
+          "Hands-on clinical experience with BCBA supervision",
+          "Flexible full-time and part-time opportunities",
+          "Supportive team culture focused on family-centered care"
+        ],
+        "primaryCta": "Search Open Roles",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "careers-bcba": {
+        "meta": {
+          "title": "BCBA Careers | Eden ABA Therapy",
+          "description": "Explore Board Certified Behavior Analyst career opportunities at Eden ABA Therapy in Northern Virginia."
+        },
+        "breadcrumb": "Careers / BCBA Careers",
+        "title": "BCBA Careers",
+        "intro": "Lead clinical excellence at Eden ABA Therapy as a Board Certified Behavior Analyst — designing individualized treatment plans, supervising teams, and partnering with families.",
+        "comingSoonLabel": "BCBA career resources",
+        "comingSoon": "Expanded BCBA career guides and leadership pathways are being prepared for this section. Search open BCBA roles on our careers page today.",
+        "highlights": [
+          "Clinical leadership with meaningful family impact",
+          "Collaborative supervision and quality standards",
+          "Opportunities across Northern Virginia service settings"
+        ],
+        "primaryCta": "Search Open Roles",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "careers-life-at-eden": {
+        "meta": {
+          "title": "Life at Eden | Eden ABA Therapy",
+          "description": "Learn what it's like to work at Eden ABA Therapy — our team culture, clinical values, and commitment to compassionate autism care in Northern Virginia."
+        },
+        "breadcrumb": "Careers / Life at Eden",
+        "title": "Life at Eden",
+        "intro": "At Eden ABA Therapy, our team is united by a shared mission: helping children and families thrive through ethical, family-centered ABA services.",
+        "comingSoonLabel": "Team culture & stories",
+        "comingSoon": "Employee stories, team highlights, and day-in-the-life content are being prepared for this section. We are proud to build a supportive workplace rooted in clinical quality and compassion.",
+        "highlights": [
+          "Family-centered clinical culture",
+          "Professional growth and BCBA-led supervision",
+          "Collaborative team serving Northern Virginia families"
+        ],
+        "primaryCta": "Search Open Roles",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "careers-interview-guide": {
+        "meta": {
+          "title": "Interview Guide | Eden ABA Therapy Careers",
+          "description": "Prepare for your Eden ABA Therapy interview with tips on what to expect, how to showcase your clinical experience, and questions to ask our team."
+        },
+        "breadcrumb": "Careers / Interview Guide",
+        "title": "Interview Guide",
+        "intro": "We want your interview experience to feel clear, respectful, and informative — whether you are applying for an RBT, BCBA, or operations role.",
+        "comingSoonLabel": "Interview preparation resources",
+        "comingSoon": "A full interview guide with role-specific tips and FAQs is being prepared for this section. Search open roles to begin your application.",
+        "highlights": [
+          "What to expect during Eden ABA interviews",
+          "How to highlight relevant clinical and caregiver experience",
+          "Questions to ask about supervision, culture, and growth"
+        ],
+        "primaryCta": "Search Open Roles",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      },
+      "careers-resources": {
+        "meta": {
+          "title": "Career Resources | Eden ABA Therapy",
+          "description": "Career resources for ABA professionals exploring roles at Eden ABA Therapy — certifications, onboarding, and professional development."
+        },
+        "breadcrumb": "Careers / Career Resources",
+        "title": "Career Resources",
+        "intro": "Helpful resources for RBTs, BCBAs, and clinical support professionals considering a career with Eden ABA Therapy.",
+        "comingSoonLabel": "Professional development library",
+        "comingSoon": "Certification guides, onboarding checklists, and professional development resources are being prepared for this section.",
+        "highlights": [
+          "RBT and BCBA certification pathways",
+          "Onboarding and clinical orientation overview",
+          "Professional development and supervision support"
+        ],
+        "primaryCta": "Search Open Roles",
+        "secondaryCta": "Contact Eden ABA Therapy"
+      }
+    },
+    "careers": {
+      "meta": {
+        "title": "Careers | Eden ABA Therapy",
+        "description": "Search open roles at Eden ABA Therapy — RBT, BCBA, and clinical support opportunities in Northern Virginia."
+      }
     }
   },
   "insuranceForm": {
     "secureEyebrow": "Secure insurance request",
     "title": "Prepare for a brighter future with ABA therapy",
     "intro": "Complete the secure form below and our team will contact you about insurance benefits and next steps.",
+    "manualVerificationNotice": "Instant Medicaid lookup is not connected yet. Submitting this form sends your information securely to Eden ABA staff for verification through an approved Virginia Medicaid provider portal, clearinghouse, or MediCall — not the public member website.",
+    "verificationTypeLabel": "Verification Type",
+    "verificationTypes": {
+      "child": "Child / Dependent",
+      "adult": "Adult / Self"
+    },
     "placeholders": {
       "parentFirstName": "Parent/Guardian First Name *",
       "parentLastName": "Parent/Guardian Last Name *",
       "email": "Email *",
       "phone": "Phone Number *",
-      "childFullName": "Child's Full Name *",
+      "childFullName": "Child Full Name *",
       "childDob": "Child Date of Birth MM/DD/YYYY *",
+      "adultFullName": "Adult Full Name *",
+      "adultDob": "Adult Date of Birth MM/DD/YYYY *",
       "zipCode": "ZIP Code *",
       "insuranceProvider": "Insurance Provider *",
+      "medicaidId": "Medicaid ID",
       "medicaidIdRequired": "Medicaid ID *",
-      "medicaidIdOptional": "Medicaid ID, if applicable"
+      "medicaidIdOptional": "Medicaid ID, if applicable",
+      "ssn": "Social Security Number"
     },
+    "orLabel": "OR",
     "insuranceOptions": [
       "Virginia Medicaid / Cardinal Care",
       "Private Insurance",
       "TRICARE",
       "Other"
     ],
-    "ssnNotice": "SSN is intentionally not collected here. Add SSN only if legally and compliance approved.",
+    "securityNotice": "Your information is submitted securely to Eden ABA Therapy for insurance verification and benefit review.",
     "consent": "I agree to be contacted by Eden ABA Therapy about insurance verification and services.",
     "errors": {
       "incomplete": "Please complete all required fields before submitting.",
-      "submitFailed": "Unable to submit insurance request.",
-      "submitRetry": "Unable to submit insurance request. Please try again."
+      "dobRequired": "Please enter the date of birth.",
+      "nameRequired": "Full name is required.",
+      "idRequired": "Please enter either Medicaid ID or Social Security Number.",
+      "consentRequired": "Please agree before submitting.",
+      "submitFailed": "Verification failed.",
+      "submitRetry": "Something went wrong. Please try again.",
+      "recaptchaFailed": "Security verification failed. Please refresh the page and try again, or contact Eden ABA Therapy for help."
     },
-    "submitLoading": "Submitting your insurance request...",
-    "submitButton": "Submit Insurance Request",
-    "successMessage": "Insurance request submitted. Eden ABA Therapy will review eligibility and benefits securely.",
-    "scheduleAppointment": "Schedule Appointment",
-    "returnHome": "Return Home"
+    "submitLoading": "Verifying eligibility…",
+    "submitLoadingManual": "Submitting request…",
+    "submitButton": "Verify Insurance",
+    "submitButtonManual": "Submit Verification Request",
+    "result": {
+      "verifiedBadge": "Insurance Verified ✓",
+      "pendingBadge": "Pending Staff Review",
+      "title": "Verification Results",
+      "titlePending": "Verification Request Received",
+      "verificationStatus": "Verification Status",
+      "memberName": "Member Name",
+      "dateOfBirth": "Date of Birth",
+      "programType": "Program Type",
+      "subprogramType": "Subprogram Type",
+      "currentEnrollmentChoice": "Current Enrollment Choice",
+      "effectiveDate": "Effective Date",
+      "futureEnrollmentChoice": "Future Enrollment Choice",
+      "eligibilityStatus": "Eligibility Status",
+      "notes": "Notes",
+      "pending": "Pending",
+      "noneListed": "None listed",
+      "pendingDetailsMessage": "Medicaid plan details will appear here after Eden staff complete verification through an approved provider portal, clearinghouse, or MediCall workflow.",
+      "pendingExplanation": "Your request has been received. Eden ABA Therapy staff will verify eligibility through approved Medicaid verification workflows.",
+      "continueIntake": "Continue Intake →",
+      "verifyAnotherClient": "Verify Another Client"
+    }
   }
 }

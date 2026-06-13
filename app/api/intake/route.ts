@@ -1,150 +1,101 @@
 import { NextResponse } from "next/server";
-import { generateConfirmationId } from "@/lib/intake/server/confirmation";
-import { assertIntakeBackendReady, getIntakeConfig } from "@/lib/intake/server/config";
-import { notifyStaffIntakeSubmitted } from "@/lib/intake/server/notify";
-import { storeIntakeSubmission } from "@/lib/intake/server/storage";
-import { validateIntakeSubmission } from "@/lib/intake/server/validate-intake";
-import { fileToBuffer, sanitizeFilename, validateUploadedFile } from "@/lib/intake/server/validate-files";
+import type { EdenChatIntakeFields } from "@/lib/openai/parse-chat-intake";
+import { assertIntakeBackendReady } from "@/lib/intake/server/config";
+import { submitEdenChatIntake } from "@/lib/intake/server/submit-chat-intake";
+import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function bodyToChatFields(body: Record<string, unknown>): EdenChatIntakeFields {
+  const str = (value: unknown) => String(value ?? "").trim();
+
+  return {
+    parentGuardianName: str(body.parentGuardianName ?? body.parentName ?? body.guardianName),
+    childName: str(body.childName ?? body.childFullName),
+    childAge: str(body.childAge ?? body.age),
+    diagnosisStatus: str(body.autismDiagnosisStatus ?? body.diagnosisStatus),
+    state: str(body.state),
+    city: str(body.city),
+    serviceType: str(body.preferredServiceType ?? body.serviceType),
+    goals: str(body.primaryConcernsOrGoals ?? body.goals ?? body.concerns),
+    insuranceProvider: str(body.insuranceProvider ?? body.insurance),
+    phoneNumber: str(body.phoneNumber ?? body.phone),
+    emailAddress: str(body.emailAddress ?? body.email),
+    preferredContactMethod: str(body.preferredContactMethod ?? body.contactMethod),
+    conversationSummary: str(body.conversationSummary ?? body.summary),
+  };
+}
+
 /**
- * POST /api/intake
- *
- * Accepts multipart/form-data:
- * - intake: JSON string (form field values, no file bytes)
- * - documentMeta: JSON string (client-side upload metadata)
- * - file0..fileN or any file field: uploaded documents
- *
- * Stores encrypted intake data and files on the server filesystem.
- * Sends a PHI-free staff notification when email service is configured.
- *
- * HIPAA organizational requirements still needed:
- * - Role-based access to storage
- * - Audit log monitoring & retention policy
- * - Breach notification procedures
- * - Signed BAAs with hosting, email, and backup vendors
+ * POST /api/intake — Eden Chat JSON submissions (application/json, source: eden-chat)
+ * Uses the same encrypted storage + Sheets/email delivery pipeline as multipart intake.
  */
 export async function POST(request: Request) {
-  try {
-    assertIntakeBackendReady();
-  } catch (error) {
-    return NextResponse.json(
-      {
-        ok: false,
-        message:
-          error instanceof Error
-            ? error.message
-            : "Intake backend is not configured. Set INTAKE_ENCRYPTION_KEY in .env.local.",
-      },
-      { status: 503 }
-    );
-  }
+  const contentType = request.headers.get("content-type") || "";
 
-  const config = getIntakeConfig();
-
-  try {
-    const formData = await request.formData();
-
-    const intakeRaw = formData.get("intake");
-    if (typeof intakeRaw !== "string") {
-      return NextResponse.json({ ok: false, message: "Missing intake JSON payload." }, { status: 400 });
-    }
-
-    let intake: Record<string, unknown>;
+  if (contentType.includes("application/json")) {
     try {
-      intake = JSON.parse(intakeRaw);
+      assertIntakeBackendReady();
+    } catch (error) {
+      return NextResponse.json(
+        {
+          ok: false,
+          message:
+            error instanceof Error
+              ? error.message
+              : "Intake backend is not configured. Set INTAKE_ENCRYPTION_KEY in .env.local.",
+        },
+        { status: 503 },
+      );
+    }
+
+    let body: Record<string, unknown>;
+    try {
+      body = await request.json();
     } catch {
-      return NextResponse.json({ ok: false, message: "Invalid intake JSON payload." }, { status: 400 });
+      return NextResponse.json({ ok: false, message: "Invalid JSON body." }, { status: 400 });
     }
 
-    let documentMeta: Record<string, unknown> = {};
-    const metaRaw = formData.get("documentMeta");
-    if (typeof metaRaw === "string" && metaRaw.trim()) {
-      try {
-        documentMeta = JSON.parse(metaRaw);
-      } catch {
-        return NextResponse.json({ ok: false, message: "Invalid document metadata." }, { status: 400 });
-      }
+    if (body.source !== "eden-chat") {
+      return NextResponse.json(
+        {
+          ok: false,
+          message: 'JSON intake requests must include "source": "eden-chat".',
+        },
+        { status: 400 },
+      );
     }
 
-    const validation = validateIntakeSubmission(intake);
-    if (validation.ok === false) {
-      return NextResponse.json({ ok: false, message: validation.message }, { status: 400 });
+    const recaptchaToken =
+      typeof body.recaptchaToken === "string" ? body.recaptchaToken : null;
+    const recaptcha = await verifyRecaptchaV2Token(recaptchaToken);
+    if (recaptcha.ok === false) {
+      return recaptchaV2FailureResponse(recaptcha);
     }
 
-    const uploadedFiles: Array<{
-      fieldName: string;
-      safeName: string;
-      mimeType: string;
-      buffer: Buffer;
-    }> = [];
-
-    let totalBytes = 0;
-
-    for (const [key, value] of formData.entries()) {
-      if (key === "intake" || key === "documentMeta") continue;
-      if (!(value instanceof File)) continue;
-
-      try {
-        validateUploadedFile(key, value, config.maxFileBytes);
-        const safeName = sanitizeFilename(value.name);
-        const buffer = await fileToBuffer(value);
-        totalBytes += buffer.length;
-        if (totalBytes > config.maxTotalBytes) {
-          return NextResponse.json(
-            { ok: false, message: "Total upload size exceeds the allowed limit." },
-            { status: 400 }
-          );
-        }
-        uploadedFiles.push({
-          fieldName: key,
-          safeName,
-          mimeType: value.type || "application/octet-stream",
-          buffer,
-        });
-      } catch (fileError) {
-        return NextResponse.json(
-          {
-            ok: false,
-            message: fileError instanceof Error ? fileError.message : "Invalid file upload.",
-          },
-          { status: 400 }
-        );
-      }
-    }
-
-    const confirmationId = generateConfirmationId();
-
-    const stored = await storeIntakeSubmission({
-      confirmationId,
-      intake,
-      documentMeta,
-      files: uploadedFiles,
+    const fields = bodyToChatFields(body);
+    const submitResult = await submitEdenChatIntake(fields, {
+      conversationSummary: fields.conversationSummary,
     });
 
-    await notifyStaffIntakeSubmitted({
-      confirmationId: stored.confirmationId,
-      submittedAt: stored.submittedAt,
-      fileCount: stored.fileCount,
-    });
+    if (submitResult.ok === false) {
+      return NextResponse.json({ ok: false, message: submitResult.message }, { status: 400 });
+    }
 
     return NextResponse.json({
       ok: true,
-      confirmationId: stored.confirmationId,
-      submittedAt: stored.submittedAt,
-      fileCount: stored.fileCount,
-      message: "Your intake has been submitted successfully.",
+      confirmationId: submitResult.confirmationId,
+      submittedAt: submitResult.submittedAt,
+      fileCount: 0,
+      message: submitResult.message,
     });
-  } catch {
-    // Do not log request body or PHI.
-    return NextResponse.json(
-      {
-        ok: false,
-        message: "Unable to submit intake at this time. Your local draft is still saved in this browser.",
-      },
-      { status: 500 }
-    );
   }
+
+  return handleMultipartIntake(request);
+}
+
+async function handleMultipartIntake(request: Request) {
+  const { default: multipartHandler } = await import("./multipart");
+  return multipartHandler(request);
 }

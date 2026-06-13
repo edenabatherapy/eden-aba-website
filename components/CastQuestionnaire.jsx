@@ -8,7 +8,7 @@ import { SITE_IMAGES } from "@/lib/site-images";
 import EdenButton from "@/components/EdenButton";
 
 const slide = {
-  initial: { opacity: 0, x: 24 },
+  initial: false,
   animate: { opacity: 1, x: 0 },
   exit: { opacity: 0, x: -24 },
   transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
@@ -131,7 +131,7 @@ export default function CastQuestionnaire({ t, onScheduleEvaluation }) {
     return (
       <div className="mx-auto max-w-3xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           animate={{ opacity: 1, y: 0 }}
           className="rounded-[2rem] border border-[#0E6B4F]/10 bg-white p-8 text-center shadow-2xl md:p-12"
         >
@@ -153,7 +153,7 @@ export default function CastQuestionnaire({ t, onScheduleEvaluation }) {
       {/* INTRO */}
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="rounded-[2rem] border border-[#0E6B4F]/10 bg-white p-8 shadow-xl md:p-10"
@@ -276,7 +276,7 @@ export default function CastQuestionnaire({ t, onScheduleEvaluation }) {
           {/* CONTACT */}
           {stage === "contact" && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               className="rounded-[2rem] border border-[#0E6B4F]/10 bg-white p-6 shadow-2xl md:p-10"
             >

@@ -25,8 +25,23 @@
     "hours": "Giờ làm việc",
     "navResources": "Tài nguyên",
     "navAboutEden": "Về Eden",
+    "aboutEdenMegaMenuDefaultDescription": "Tìm hiểu sứ mệnh, đội ngũ, chất lượng lâm sàng, chăm sóc lấy gia đình làm trung tâm và kết nối cộng đồng của Eden ABA Therapy.",
+    "resourcesMegaMenuDefaultDescription": "Khám phá hướng dẫn, bài viết và tài nguyên hỗ trợ hành trình tự kỷ của gia đình bạn.",
+    "resourcesMegaMenuDefaultTitle": "Công cụ hữu ích cho mọi bước",
+    "careersMegaMenuDefaultDescription": "Khám phá các con đường nghề nghiệp ý nghĩa tại Eden ABA Therapy — từ vai trò RBT và BCBA đến văn hóa đội ngũ, hỗ trợ phỏng vấn và phát triển chuyên môn.",
+    "careersMegaMenuDefaultTitle": "Nghề nghiệp tại Eden",
     "navCareers": "Tuyển dụng",
     "startABA": "Bắt đầu liệu pháp ABA",
+    "navIntakeForm": "Mẫu tiếp nhận",
+    "completeIntakeFormTitle": "Hoàn thành mẫu tiếp nhận",
+    "completeIntakeFormText": "Gửi thông tin một cách an toàn trước khi bắt đầu dịch vụ để giúp đội ngũ chuẩn bị và đơn giản hóa quy trình tiếp nhận.",
+    "completeIntakeFormBenefits": [
+      "Gửi trực tuyến an toàn",
+      "Tải lên tài liệu cần thiết",
+      "Quy trình tiếp nhận nhanh hơn",
+      "Giảm trì hoãn giấy tờ"
+    ],
+    "startIntakeForm": "Bắt đầu mẫu tiếp nhận",
     "darkMode": "Chế độ tối",
     "lightMode": "Chế độ sáng",
     "heroTitle": "Con đường tươi sáng để trẻ lớn lên, học hỏi và phát triển.",
@@ -86,23 +101,209 @@
     "gettingStartedTitle": "Cách bắt đầu với liệu pháp ABA",
     "gettingStartedP1": "Nếu con bạn đã được chẩn đoán rối loạn phổ tự kỷ và gia đình muốn bắt đầu liệu pháp ABA, bạn có thể liên hệ với chúng tôi để lên lịch tiếp nhận hồ sơ ban đầu.",
     "gettingStartedP2": "Nếu con bạn có nhiều dấu hiệu sớm của rối loạn phổ tự kỷ nhưng chưa được chẩn đoán, chúng tôi có thể hướng dẫn gia đình về các lựa chọn hỗ trợ đánh giá và chẩn đoán.",
+    "familySupportPath": {
+      "eyebrow": "Hành trình của gia đình bạn",
+      "title": "Con đường hỗ trợ của bạn bắt đầu tại đây",
+      "subtitle": "Bắt đầu nên rõ ràng, không áp lực. Dù con bạn đã có chẩn đoán tự kỷ hay gia đình vẫn đang tìm câu trả lời, Eden ABA Therapy giúp hiểu bước tiếp theo, kết nối đúng nguồn lực và tiến lên với sự tự tin.",
+      "benefitsLabel": "Lợi ích",
+      "journeyLabel": "Dấu hiệu → Chẩn đoán → Tư vấn → Tiếp nhận",
+      "steps": [
+        {
+          "step": "BƯỚC 01",
+          "title": "Hiểu dấu hiệu sớm",
+          "description": "Công cụ sàng lọc tự kỷ giúp gia đình nhận biết các mẫu phát triển có thể cần đánh giá thêm. Sàng lọc không thay chẩn đoán, nhưng mang lại thông tin hữu ích và giúp xác định có nên đánh giá chuyên môn hay không.",
+          "benefits": [
+            "Tìm hiểu các cột mốc giao tiếp và phát triển xã hội",
+            "Nhận diện sớm các lĩnh vực cần quan tâm",
+            "Tiếp cận tài nguyên sàng lọc dựa trên bằng chứng",
+            "Có thêm sự rõ ràng trước khi đánh giá chính thức"
+          ],
+          "button": "Làm M-CHAT-R",
+          "buttons": [
+            "Làm M-CHAT-R",
+            "Làm CAST"
+          ]
+        },
+        {
+          "step": "BƯỚC 02",
+          "title": "Nhận câu trả lời chuyên môn",
+          "description": "Đánh giá tự kỷ toàn diện giúp hiểu rõ điểm mạnh, nhu cầu phát triển của con và liệu có đáp ứng tiêu chí rối loạn phổ tự kỷ hay không.",
+          "benefits": [
+            "Kết nối với chuyên gia chẩn đoán có trình độ",
+            "Có tài liệu phục vụ dịch vụ và hỗ trợ",
+            "Xây dựng lộ trình chăm sóc cá nhân",
+            "Tạo nền tảng cho kế hoạch liệu pháp"
+          ],
+          "button": "Tìm hỗ trợ chẩn đoán"
+        },
+        {
+          "step": "BƯỚC 03",
+          "title": "Đặt lịch tư vấn ABA",
+          "description": "Gặp đội ngũ kinh nghiệm của chúng tôi để thảo luận nhu cầu, mục tiêu và các lựa chọn liệu pháp. Chúng tôi giúp xác định bước tiếp theo phù hợp nhất cho gia đình.",
+          "benefits": [
+            "Yêu cầu đánh giá liệu pháp ABA",
+            "Thảo luận phòng khám, tại nhà, trường hoặc telehealth",
+            "Xem xét bảo hiểm và khả năng cung cấp dịch vụ",
+            "Nhận hướng dẫn phù hợp với con bạn"
+          ],
+          "button": "Đặt lịch tư vấn"
+        },
+        {
+          "step": "BƯỚC 04",
+          "title": "Hoàn tất tiếp nhận gia đình",
+          "description": "Gửi thông tin gia đình, con và bảo hiểm một cách bảo mật trước khi bắt đầu dịch vụ. Điều này giúp đội ngũ chuẩn bị và giảm trì hoãn trong quá trình onboarding.",
+          "benefits": [
+            "Gửi thông tin trực tuyến an toàn",
+            "Quy trình onboarding nhanh hơn",
+            "Hỗ trợ xem xét đủ điều kiện bảo hiểm",
+            "Giúp đội ngũ lâm sàng chuẩn bị"
+          ],
+          "button": "Bắt đầu tiếp nhận"
+        }
+      ]
+    },
+    "professionalOrganizations": {
+      "eyebrow": "Kết nối cộng đồng",
+      "title": "Tổ chức chuyên môn & nguồn lực cộng đồng",
+      "subtitle": "Eden ABA Therapy duy trì kết nối với các tổ chức tự kỷ, ABA, vận động và hỗ trợ gia đình uy tín để hỗ trợ chăm sóc lấy gia đình làm trung tâm, dựa trên thông tin đáng tin cậy.",
+      "disclaimer": "Logo đại diện cho các tổ chức chuyên môn và nguồn lực tự kỷ. Việc hiển thị không ngụ ý chứng thực trừ khi tư cách thành viên, liên kết hoặc đối tác được xác nhận.",
+      "organizations": {
+        "CASP": {
+          "summary": "Hội đồng Nhà cung cấp Dịch vụ Tự kỷ hỗ trợ các nhà cung cấp dịch vụ tự kỷ thông qua thực hành tốt nhất, vận động và tài nguyên tập trung chất lượng."
+        },
+        "ABAI": {
+          "summary": "Hiệp hội Phân tích Hành vi Quốc tế kết nối các nhà nghiên cứu, chuyên gia thực hành, nhà giáo dục và sinh viên phân tích hành vi trên toàn thế giới."
+        },
+        "APBA": {
+          "summary": "Hiệp hội Nhà phân tích Hành vi Chuyên nghiệp hỗ trợ thực hành chuyên môn phân tích hành vi thông qua vận động và giáo dục."
+        },
+        "Autism Society": {
+          "summary": "Hội Tự kỷ cung cấp vận động, giáo dục, tài nguyên và hỗ trợ cộng đồng cho người tự kỷ và gia đình."
+        },
+        "MABA": {
+          "summary": "Hiệp hội Phân tích Hành vi Maryland hỗ trợ các chuyên gia phân tích hành vi thông qua giáo dục, sự kiện và tài nguyên chuyên môn."
+        },
+        "OAR": {
+          "summary": "Tổ chức Nghiên cứu Tự kỷ tài trợ nghiên cứu thực tiễn về tự kỷ và cung cấp tài nguyên dựa trên bằng chứng cho gia đình và nhà giáo dục."
+        },
+        "TACA": {
+          "summary": "Cộng đồng Tự kỷ Hành động cung cấp giáo dục, hỗ trợ và tài nguyên cho các gia đình có con tự kỷ."
+        },
+        "VABA": {
+          "summary": "Hiệp hội Phân tích Hành vi Virginia hỗ trợ các chuyên gia phân tích hành vi tại Virginia thông qua vận động, giáo dục và tài nguyên thành viên."
+        }
+      }
+    },
+    "resourceIntelligenceHub": {
+      "eyebrow": "Trung tâm thông tin tài nguyên",
+      "title": "Trung tâm Thông tin Tài nguyên Eden",
+      "subtitle": "Trung tâm tài nguyên tương tác thông minh kết hợp các tổ chức tự kỷ đáng tin cậy, hướng dẫn gia đình, điều hướng chăm sóc và thông tin tác động của Eden ABA Therapy.",
+      "zone1Title": "Phân tích Tác động (Hoạt hình)",
+      "zone2Title": "Tổ chức Chuyên môn & Tài nguyên Cộng đồng",
+      "zone2Subtitle": "Các tổ chức ngành và vận động — tài nguyên gia đình có thể thấy hữu ích về tự kỷ, ABA và hỗ trợ gia đình.",
+      "zone3Title": "Công cụ Ghép Tài nguyên Gia đình Thông minh",
+      "zone3Subtitle": "Chọn độ tuổi của con, mối quan tâm chính và nhu cầu của gia đình.",
+      "analyticsBadge": "Chỉ số trình bày",
+      "formulaLabel": "Công thức",
+      "categoryLabel": "Danh mục tài nguyên",
+      "metricsNote": "Các chỉ số này là giá trị trình bày trên trang chủ. Xác nhận số liệu nội bộ chính xác trước khi xuất bản.",
+      "disclaimer": "Logo tổ chức chuyên môn được hiển thị như tài liệu tham khảo giáo dục. Việc hiển thị không ngụ ý chứng thực, đối tác, cấp phép hoặc tư cách thành viên trừ khi được xác nhận chính thức.",
+      "recommendedTitle": "Tài nguyên được đề xuất",
+      "recommendedEmpty": "Hoàn thành cả ba lựa chọn để xem hướng dẫn cá nhân hóa.",
+      "ctaStartAba": "Bắt đầu liệu pháp ABA",
+      "ctaVerifyInsurance": "Xác minh bảo hiểm",
+      "ctaExploreResources": "Khám phá tài nguyên phụ huynh",
+      "ctaSchedule": "Đặt lịch tư vấn",
+      "stats": {
+        "families": "Gia đình được hỗ trợ",
+        "satisfaction": "Hài lòng của phụ huynh",
+        "insurance": "Gói bảo hiểm được chấp nhận",
+        "hours": "Giờ trị liệu đã cung cấp"
+      },
+      "insights": {
+        "trust": "Chỉ số Tin cậy Gia đình",
+        "access": "Điểm Tiếp cận",
+        "hoursAvg": "Giờ trị liệu TB / Gia đình",
+        "impact": "Điểm Tác động Tổng thể"
+      },
+      "orgCategories": {
+        "CASP": "Tổ chức nhà cung cấp dịch vụ tự kỷ",
+        "ABAI": "Tổ chức chuyên môn phân tích hành vi",
+        "APBA": "Hiệp hội nhà phân tích hành vi chuyên nghiệp",
+        "Autism Society": "Vận động tự kỷ và hỗ trợ gia đình",
+        "MABA": "Hiệp hội phân tích hành vi tiểu bang",
+        "OAR": "Nghiên cứu và giáo dục tự kỷ",
+        "TACA": "Giáo dục gia đình và hỗ trợ tự kỷ",
+        "VABA": "Hiệp hội phân tích hành vi Virginia"
+      },
+      "matcher": {
+        "ageLabel": "Độ tuổi của trẻ",
+        "concernLabel": "Mối quan tâm chính",
+        "needLabel": "Nhu cầu gia đình",
+        "selectPlaceholder": "Chọn một tùy chọn",
+        "age": {
+          "under3": "Dưới 3 tuổi",
+          "3to5": "3–5 tuổi",
+          "6to12": "6–12 tuổi",
+          "13plus": "13+ tuổi"
+        },
+        "concern": {
+          "communication": "Giao tiếp",
+          "social": "Kỹ năng xã hội",
+          "behavior": "Hỗ trợ hành vi",
+          "school": "Sẵn sàng đi học",
+          "diagnosis": "Câu hỏi về chẩn đoán"
+        },
+        "need": {
+          "evaluation": "Đánh giá",
+          "aba": "Trị liệu ABA",
+          "insurance": "Hỗ trợ bảo hiểm",
+          "parentResources": "Tài nguyên phụ huynh",
+          "community": "Hỗ trợ cộng đồng"
+        }
+      },
+      "recommendations": {
+        "evaluationGuidance": "Hướng dẫn đánh giá và lộ trình sàng lọc",
+        "abaSupport": "Hỗ trợ trị liệu ABA và tùy chọn tư vấn",
+        "insuranceVerification": "Xác minh bảo hiểm và rà soát quyền lợi",
+        "parentResources": "Tài nguyên phụ huynh và hướng dẫn can thiệp sớm",
+        "autismSociety": "Tài nguyên vận động và cộng đồng của Autism Society",
+        "oarResources": "Tài nguyên nghiên cứu tự kỷ dựa trên bằng chứng từ OAR",
+        "tacaResources": "Tài nguyên giáo dục và hỗ trợ gia đình từ TACA",
+        "scheduleConsultation": "Đặt lịch tư vấn ABA với Eden ABA Therapy"
+      }
+    },
     "screeningToolsTitle": "Công cụ sàng lọc trực tuyến miễn phí",
+    "screeningToolsDescription": "Truy cập công cụ sàng lọc tự kỷ miễn phí tại nhà để giúp xác định liệu đánh giá chuyên môn có thể hữu ích hay không.",
+    "screeningToolsBenefits": [
+      "Sàng lọc trực tuyến nhanh chóng",
+      "Công cụ dựa trên bằng chứng",
+      "Hướng dẫn ngay lập tức",
+      "Miễn phí và bảo mật"
+    ],
     "forToddlers": "Dành cho trẻ nhỏ:",
     "takeMchat": "Làm M-CHAT",
     "forOlderChildren": "Dành cho trẻ lớn hơn:",
     "takeCast": "Làm CAST",
+    "featureCardBenefitsLabel": "Lợi ích",
     "assessmentTitle": "Lên lịch đánh giá tự kỷ gần bạn",
-    "assessmentText": "Eden ABA Therapy giúp gia đình hiểu các bước tiếp theo cho đánh giá tự kỷ và dịch vụ ABA.",
+    "assessmentText": "Kết nối với các chuyên gia tự kỷ giàu kinh nghiệm, những người có thể cung cấp đánh giá toàn diện và khuyến nghị cá nhân hóa.",
+    "assessmentBenefits": [
+      "Chuyên gia chẩn đoán được cấp phép",
+      "Tùy chọn lịch linh hoạt",
+      "Đánh giá trực tiếp và trực tuyến",
+      "Hướng dẫn bước tiếp theo cá nhân hóa"
+    ],
     "diagnosticSupport": "Nhận hỗ trợ chẩn đoán",
     "onlineSchedulerTitle": "Lên lịch hẹn trực tuyến",
-    "onlineSchedulerText": "Đặt lịch hẹn trực tuyến với Eden ABA Therapy qua hệ thống đặt lịch có hướng dẫn. Gia đình có thể chia sẻ mối quan tâm, chọn dịch vụ, cung cấp thông tin liên hệ và yêu cầu thời gian hẹn thuận tiện.",
+    "onlineSchedulerText": "Đặt lịch đánh giá tự kỷ hoặc liệu pháp ABA trực tuyến qua quy trình đặt lịch có hướng dẫn đơn giản.",
     "onlineSchedulerFeatures": [
-      "Đặt lịch nhiều bước có hướng dẫn",
-      "Tùy chọn đánh giá tự kỷ và liệu pháp ABA",
-      "Phân loại tiếp nhận thông minh",
-      "Thu thập thông tin bảo hiểm",
-      "Xác nhận và hỗ trợ theo dõi"
+      "Đặt lịch trực tuyến 24/7",
+      "Quy trình từng bước dễ dàng",
+      "Xác nhận lịch hẹn",
+      "Tùy chọn lịch thuận tiện"
     ],
+    "scheduleAppointment": "Đặt lịch hẹn",
     "careersEyebrow": "Hệ thống tuyển dụng",
     "careersTitle": "Trang cơ hội nghề nghiệp với chức năng tìm kiếm vị trí ứng tuyển.",
     "searchJobs": "Tìm việc...",
@@ -145,6 +346,23 @@
     "consentUpdates": "Tôi đồng ý nhận nhắc lịch hẹn và cập nhật intake từ Eden ABA Therapy.",
     "consentTerms": "Tôi đồng ý với Chính sách Quyền riêng tư và Điều khoản Dịch vụ.",
     "recaptcha": "được bảo vệ bởi reCAPTCHA",
+    "recaptchaPrivacy": "Quyền riêng tư",
+    "recaptchaTerms": "Điều khoản",
+    "recaptchaGoogleLegal": "Trang web này được bảo vệ bởi reCAPTCHA và áp dụng Chính sách quyền riêng tư cùng Điều khoản dịch vụ của Google.",
+    "languageLabel": "Ngôn ngữ",
+    "recaptchaFailed": "Xác minh bảo mật không thành công. Vui lòng làm mới trang và thử lại, hoặc liên hệ Eden ABA Therapy để được hỗ trợ.",
+    "startAbaRecaptchaFailed": "Chúng tôi không thể xác minh yêu cầu của bạn. Vui lòng làm mới trang và thử lại.",
+    "startAbaRecaptchaIncomplete": "Vui lòng hoàn tất xác minh reCAPTCHA.",
+    "contactFormErrors": {
+      "incomplete": "Vui lòng điền đầy đủ các trường bắt buộc trước khi gửi.",
+      "consentRequired": "Bạn phải đồng ý với Chính sách Quyền riêng tư và Điều khoản Dịch vụ.",
+      "submitRetry": "Không thể gửi yêu cầu của bạn. Vui lòng thử lại."
+    },
+    "contactFormSuccessTitle": "Đã nhận yêu cầu",
+    "contactFormSuccessText": "Cảm ơn bạn. Eden ABA Therapy sẽ liên hệ với bạn sớm để hướng dẫn các bước tiếp theo.",
+    "contactFormSubmitting": "Đang gửi yêu cầu của bạn...",
+    "schedulerSubmitting": "Đang gửi yêu cầu đặt lịch...",
+    "schedulerSubmitError": "Không thể gửi yêu cầu đặt lịch. Vui lòng thử lại.",
     "liveChat": "Trò chuyện trực tuyến",
     "edenAssistant": "Trợ lý Eden",
     "chatSupport": "Hỗ trợ ABA • Âm ngữ trị liệu • Hoạt động trị liệu",
@@ -155,7 +373,7 @@
     "you": "Bạn",
     "chatGreeting": "Xin chào! Tôi là trợ lý trị liệu của Eden. Tôi có thể trả lời câu hỏi về ABA, trị liệu ngôn ngữ, trị liệu hoạt động, hỗ trợ tự kỷ, intake, bảo hiểm, đặt lịch, tài liệu, đào tạo phụ huynh và các bước tiếp theo. Bạn muốn biết điều gì?",
     "newsletterTitle": "Kết nối với bản tin gia đình của chúng tôi",
-    "firstName": "Tên",
+    "fullName": "Họ và tên",
     "email": "Email",
     "joinNewsletter": "Tham gia bản tin gia đình",
     "newsletterThanks": "Cảm ơn",
@@ -204,8 +422,10 @@
     "googleMap": {
       "defaultTitle": "Bản đồ Google Eden ABA Therapy",
       "annandaleTitle": "Bản đồ Google Eden ABA Therapy Annandale",
+      "mapViewLabel": "Bản đồ",
+      "satelliteViewLabel": "Vệ tinh",
       "apiKeyNotice": "Để có đầy đủ điều khiển bản đồ tương tác (vệ tinh, Street View, phóng to và chỉ đường), hãy thêm NEXT_PUBLIC_GOOGLE_MAPS_API_KEY vào .env.local và bật Maps JavaScript API trên Google Cloud với thanh toán. Bạn vẫn có thể",
-      "openInGoogleMaps": "mở Eden ABA Therapy trên Google Maps"
+      "openInGoogleMaps": "Mở trên Google Maps"
     },
     "locationsDetail": {
       "breadcrumbPrefix": "Eden ABA Therapy /",
@@ -274,53 +494,36 @@
   },
   "menu": [
     {
-      "label": "Đánh giá tự kỷ",
-      "type": "evaluation",
-      "highlightTitle": "Đánh giá tự kỷ",
-      "highlightText": "Sàng lọc và hỗ trợ đánh giá tự kỷ sớm cho gia đình tại Bắc Virginia.",
-      "columns": [
-        {
-          "title": "Sàng lọc & Đánh giá",
-          "links": [
-            "Công cụ sàng lọc M-CHAT-R trực tuyến",
-            "Công cụ sàng lọc CAST trực tuyến",
-            "Đánh giá ADOS-2",
-            "Đánh giá IDE",
-            "FAQ sàng lọc tự kỷ",
-            "Hướng dẫn phụ huynh"
-          ]
-        },
-        {
-          "title": "Hỗ trợ gia đình",
-          "links": [
-            "Tư vấn phụ huynh",
-            "Hỗ trợ bảo hiểm",
-            "Hướng dẫn chẩn đoán",
-            "Liên hệ chúng tôi"
-          ]
-        }
-      ]
-    },
-    {
       "label": "Liệu pháp ABA",
       "type": "simple",
       "columns": [
         {
-          "title": "Liệu pháp ABA",
+          "title": "Dịch vụ",
           "links": [
-            "ABA tại nhà",
-            "ABA tại phòng khám",
-            "Đào tạo phụ huynh",
-            "Hỗ trợ trường học"
-          ]
-        },
-        {
-          "title": "Tài nguyên gia đình",
-          "links": [
-            "Tự kỷ là gì?",
-            "Liệu pháp ABA là gì?",
-            "Phạm vi bảo hiểm",
-            "Thông tin tiếp nhận"
+            "Liệu pháp ABA tại nhà",
+            "Liệu pháp ABA tại trung tâm",
+            "Liệu pháp ABA tại cộng đồng",
+            "Liệu pháp ABA tại trường",
+            "Liệu pháp ABA trực tuyến",
+            "Chương trình ngoại khóa",
+            {
+              "key": "occupational-therapy-coming-soon",
+              "label": "Trị liệu hoạt động",
+              "badge": "Coming Soon to Eden Family",
+              "comingSoon": true
+            },
+            {
+              "key": "speech-language-therapy-coming-soon",
+              "label": "Trị liệu ngôn ngữ & lời nói",
+              "badge": "Coming Soon to Eden Family",
+              "comingSoon": true
+            },
+            {
+              "key": "feeding-swallowing-therapy-coming-soon",
+              "label": "Trị liệu ăn uống & nuốt",
+              "badge": "Coming Soon to Eden Family",
+              "comingSoon": true
+            }
           ]
         }
       ]
@@ -353,24 +556,53 @@
     },
     {
       "label": "Tài nguyên",
-      "type": "simple",
+      "type": "compact",
       "columns": [
         {
-          "title": "Tài nguyên gia đình",
+          "title": "Tìm hiểu về tự kỷ",
           "links": [
-            "ABA là gì?",
-            "Hướng dẫn người chăm sóc",
-            "Blog",
+            "Tự kỷ là gì?",
+            "Dấu hiệu sớm của tự kỷ",
+            "Hướng dẫn chẩn đoán tự kỷ",
+            "Tự kỷ theo độ tuổi & phát triển"
+          ]
+        },
+        {
+          "title": "Đánh giá & Chẩn đoán",
+          "links": [
+            "Sàng lọc & Đánh giá",
+            "Công cụ sàng lọc M-CHAT-R trực tuyến",
+            "Đánh giá ADOS-2",
+            "Đánh giá trường học & IEP"
+          ]
+        },
+        {
+          "title": "Liệu pháp ABA",
+          "links": [
+            "Liệu pháp ABA là gì?",
+            "Đào tạo phụ huynh",
+            "Tài liệu phụ huynh",
+            "Đào tạo & hỗ trợ gia đình",
+            "Liệu pháp ABA hoạt động như thế nào",
+            "Câu chuyện thành công ABA"
+          ]
+        },
+        {
+          "title": "Bắt đầu",
+          "links": [
+            "Phạm vi bảo hiểm",
+            "Quy trình tiếp nhận",
+            "Bắt đầu với Eden",
+            "Danh sách kiểm tra cho phụ huynh mới",
+            "Đặt lịch hẹn",
             "Câu hỏi thường gặp"
           ]
         },
         {
-          "title": "Hỗ trợ",
+          "title": "Trung tâm học tập",
           "links": [
-            "Phạm vi bảo hiểm",
-            "Đào tạo phụ huynh",
-            "Thông tin tiếp nhận",
-            "Thực hành quyền riêng tư"
+            "Blog & Bài viết",
+            "Webinar & Video"
           ]
         }
       ]
@@ -383,9 +615,10 @@
           "title": "Về Eden",
           "links": [
             "Câu chuyện của chúng tôi",
-            "Đội ngũ",
-            "Chất lượng lâm sàng",
-            "Về chúng tôi",
+            "Sứ mệnh & Giá trị",
+            "Đội ngũ lãnh đạo",
+            "Xuất sắc lâm sàng",
+            "Tác động cộng đồng",
             "Liên hệ"
           ]
         }
@@ -401,6 +634,7 @@
             "Tìm vị trí đang tuyển",
             "Nghề nghiệp RBT",
             "Nghề nghiệp BCBA",
+            "Cuộc sống tại Eden",
             "Hướng dẫn phỏng vấn",
             "Tài nguyên nghề nghiệp"
           ]
@@ -650,11 +884,13 @@
   },
   "hero": {
     "animatedWords": [
-      "phát triển",
-      "mỉm cười",
-      "đạt được",
+      "lớn lên",
+      "học hỏi",
+      "thăng hoa",
+      "nở rộ",
+      "giao tiếp",
       "kết nối",
-      "thăng hoa"
+      "mỉm cười"
     ],
     "line1": "Con đường tươi sáng cho trẻ em",
     "line2": "lớn lên, học hỏi và",
@@ -664,10 +900,14 @@
   "pages": {
     "autismAwareness": {
       "title": "Bộ đếm Nhận thức về Tự kỷ",
+      "titleParts": ["Tự kỷ", "Nhận thức", "Bộ đếm"],
       "cdcBadge": "Ước tính CDC: 1 trong 31 trẻ được xác định có tự kỷ",
       "intro": "Ước tính giáo dục trực tiếp được tạo ra để thúc đẩy nhận thức về tự kỷ, hỗ trợ sớm và chăm sóc tận tâm cho trẻ em và gia đình.",
       "tagline": "Eden ABA Therapy | Nhận thức, Hướng dẫn và Hỗ trợ Lấy gia đình làm trung tâm",
       "currentTimePrefix": "Thời gian hiện tại:",
+      "updatesInRealtime": "Cập nhật theo thời gian thực",
+      "liveClockLabel": "Thời gian hiện tại",
+      "sourceFooter": "Nguồn: Trung tâm Kiểm soát và Phòng ngừa Dịch bệnh (CDC) – Dữ liệu dựa trên Báo cáo Mạng lưới ADDM.",
       "stats": {
         "birthsToday": {
           "label": "Trẻ sinh ra tại Mỹ hôm nay",
@@ -681,6 +921,26 @@
           "label": "Ước tính số sinh trong phút này",
           "value": "7",
           "note": "Trung bình quốc gia xấp xỉ mỗi phút"
+        },
+        "childrenIdentified": {
+          "label": "Trẻ em được xác định có tự kỷ",
+          "value": "1 trong 31",
+          "note": "Ước tính CDC"
+        },
+        "increasePrevalence": {
+          "label": "Gia tăng tỷ lệ mắc (2000–2020)",
+          "value": "317%",
+          "note": "Tăng trưởng trong hai thập kỷ"
+        },
+        "earlyDiagnosis": {
+          "label": "Chẩn đoán sớm rất quan trọng",
+          "value": "5x",
+          "note": "Kết quả tốt hơn với can thiệp sớm"
+        },
+        "accessSupport": {
+          "label": "Tiếp cận hỗ trợ có thể thay đổi cuộc sống",
+          "value": "80%",
+          "note": "Cải thiện với hỗ trợ nhất quán, dựa trên bằng chứng"
         },
         "earlySupport": {
           "label": "Hỗ trợ sớm có thể cải thiện",
@@ -703,31 +963,165 @@
       }
     },
     "insurancePayment": {
-      "eyebrow": "Hỗ trợ bảo hiểm",
-      "title": "Chi trả liệu pháp ABA không nhất thiết phải căng thẳng.",
-      "intro": "Là phụ huynh, bạn phải đảm nhận rất nhiều việc. Hãy để Eden ABA Therapy giúp bạn điều hướng khía cạnh tài chính của việc chăm sóc con. Hầu hết các gói bảo hiểm lớn có thể chi trả liệu pháp ABA, và đội ngũ của chúng tôi có thể giúp xác minh quyền lợi, giải thích phạm vi bảo hiểm và phối hợp chi tiết bảo hiểm thay mặt bạn.",
-      "providersHeading": "Chúng tôi có thể giúp xem xét các nhà cung cấp bảo hiểm lớn, bao gồm:",
-      "providers": [
-        "Aetna",
-        "Anthem",
-        "Blue Cross Blue Shield",
-        "Optum",
-        "UMR",
-        "UnitedHealthcare",
-        "Cigna",
-        "Virginia Medicaid",
-        "Thêm"
+      "badge": "CHÚNG TÔI HỖ TRỢ BẠN",
+      "headingInsurance": "Bảo hiểm",
+      "headingMade": "Được",
+      "headingAccent": "Đơn giản hóa",
+      "headingLine1": "Bảo hiểm được",
+      "description": "Chúng tôi xử lý phần phức tạp để bạn tập trung vào điều quan trọng nhất—sự tiến bộ của con bạn.",
+      "benefits": [
+        {
+          "prefix": "Chúng tôi ",
+          "highlight": "xác minh",
+          "suffix": " quyền lợi liệu pháp ABA của bạn"
+        },
+        {
+          "prefix": "Chúng tôi giúp ",
+          "highlight": "giải thích",
+          "suffix": " khấu trừ, đồng thanh toán và các bước ủy quyền"
+        },
+        {
+          "prefix": "Chúng tôi làm việc với gia đình ",
+          "highlight": "trước khi",
+          "suffix": " trị liệu bắt đầu"
+        },
+        {
+          "prefix": "Đội intake ",
+          "highlight": "hướng dẫn",
+          "suffix": " bạn qua từng bước"
+        }
       ],
-      "verifyInsurance": "Xác minh bảo hiểm",
-      "contactLearnMore": "Liên hệ để tìm hiểu thêm",
-      "sidebarTitle": "Hỗ trợ bảo hiểm cho gia đình Virginia",
-      "sidebarItems": [
-        "Xem xét quyền lợi",
-        "Hướng dẫn khấu trừ, đồng thanh toán và đồng chi trả",
-        "Hỗ trợ ủy quyền trước",
-        "Giải thích trong mạng và ngoài mạng",
-        "Lập kế hoạch bước tiếp theo rõ ràng"
-      ]
+      "benefitCards": [
+        {
+          "title": "Nhanh & Chính xác",
+          "description": "Xác minh quyền lợi thường hoàn tất trong 24–48 giờ."
+        },
+        {
+          "title": "Tối đa hóa quyền lợi",
+          "description": "Chúng tôi xác định phạm vi bảo hiểm đầy đủ để bạn hiểu rõ quyền lợi."
+        },
+        {
+          "title": "Không phiền phức",
+          "description": "Chúng tôi xử lý chi tiết bảo hiểm từ đầu đến cuối thay mặt bạn."
+        },
+        {
+          "title": "Hỗ trợ liên tục",
+          "description": "Hỗ trợ tận tâm trong suốt hành trình trị liệu của con bạn."
+        }
+      ],
+      "verifyCta": "Xác minh bảo hiểm của tôi",
+      "speakCta": "Nói chuyện với đội intake",
+      "secureNote": "An toàn. Riêng tư. Thông tin của bạn được bảo vệ.",
+      "trustIndicators": [
+        { "label": "Tuân thủ HIPAA" },
+        { "label": "An toàn & Riêng tư" },
+        { "label": "Thông tin của bạn được bảo vệ an toàn" }
+      ],
+      "featureCard": {
+        "title": "Chúng tôi xử lý phần phức tạp, bạn tập trung vào tiến bộ",
+        "items": [
+          {
+            "title": "Hướng dẫn từng bước",
+            "description": "Hướng dẫn rõ ràng qua xác minh và ủy quyền."
+          },
+          {
+            "title": "Giao tiếp minh bạch",
+            "description": "Cập nhật bằng ngôn ngữ dễ hiểu về phạm vi bảo hiểm và bước tiếp theo."
+          },
+          {
+            "title": "Tối đa hóa quyền lợi",
+            "description": "Hỗ trợ xác định dịch vụ đủ điều kiện và chi tiết gói bảo hiểm."
+          },
+          {
+            "title": "Hỗ trợ tận tâm",
+            "description": "Đội intake phản hồi nhanh cho mọi câu hỏi trong quá trình."
+          }
+        ],
+        "footer": "Chúng tôi làm việc với các nhà cung cấp bảo hiểm lớn tại Virginia và khu vực lân cận.",
+        "viewAllLink": "Xem tất cả nhà cung cấp"
+      },
+      "processSteps": [
+        {
+          "title": "Gửi thông tin bảo hiểm của bạn"
+        },
+        {
+          "title": "Eden xác minh quyền lợi của bạn"
+        },
+        {
+          "title": "Chúng tôi giải thích các bước tiếp theo"
+        }
+      ],
+      "verificationSteps": [
+        { "title": "Gửi thông tin", "description": "Chia sẻ chi tiết bảo hiểm an toàn" },
+        { "title": "Chúng tôi xác minh", "description": "Đội ngũ kiểm tra quyền lợi của bạn" },
+        { "title": "Xem xét quyền lợi", "description": "Hiểu phạm vi bảo hiểm & chi phí" },
+        { "title": "Lập kế hoạch chăm sóc", "description": "Tiến hành với sự tự tin" }
+      ],
+      "cardBadge": "Hầu hết xác minh trong 24–48 giờ",
+      "cardTitle": "Xác minh bảo hiểm",
+      "cardSubtitle": "Nhanh chóng, chính xác và không phiền phức.",
+      "fastVerification": "Xác minh nhanh, thường trong",
+      "fastVerificationHours": "24–48 giờ",
+      "whatYouReceive": {
+        "title": "Bạn sẽ nhận được",
+        "items": [
+          "Tóm tắt phạm vi bảo hiểm",
+          "Khấu trừ & đồng thanh toán",
+          "Yêu cầu ủy quyền",
+          "Ước tính chi phí tự trả"
+        ]
+      },
+      "reportHighlight": {
+        "title": "Báo cáo rõ ràng, dễ hiểu",
+        "description": "Tóm tắt thân thiện với gia đình về quyền lợi và các bước tiếp theo được đề xuất."
+      },
+      "providersSection": {
+        "title": "Chúng tôi làm việc với các nhà cung cấp bảo hiểm lớn",
+        "viewAll": "Xem tất cả",
+        "manyMore": "+ Nhiều hơn nữa"
+      },
+      "supportSection": {
+        "title": "Thêm cách chúng tôi hỗ trợ bạn",
+        "cards": [
+          {
+            "title": "Hỗ trợ lịch hẹn",
+            "description": "Giúp đặt lịch đánh giá và intake."
+          },
+          {
+            "title": "Hỗ trợ yêu cầu bồi thường",
+            "description": "Hướng dẫn về câu hỏi và tài liệu yêu cầu bồi thường."
+          },
+          {
+            "title": "Thay đổi gói bảo hiểm",
+            "description": "Hỗ trợ khi bảo hiểm hoặc phạm vi bảo hiểm thay đổi."
+          },
+          {
+            "title": "Trung tâm tài nguyên",
+            "description": "Truy cập hướng dẫn gia đình và tài nguyên giáo dục."
+          }
+        ]
+      },
+      "privacyBar": {
+        "title": "Quyền riêng tư của bạn quan trọng",
+        "text": "Thông tin của bạn được mã hóa và xử lý cẩn thận.",
+        "link": "HIPAA & Thực hành Quyền riêng tư"
+      },
+      "trustBadges": [
+        {
+          "label": "Gửi an toàn"
+        },
+        {
+          "label": "Quy trình nhận thức HIPAA"
+        },
+        {
+          "label": "Hỗ trợ gia đình"
+        },
+        {
+          "label": "Phản hồi nhanh"
+        }
+      ],
+      "disclaimer": "Yêu cầu về phạm vi bảo hiểm và ủy quyền khác nhau theo gói. Đội ngũ sẽ giúp",
+      "disclaimerHighlight": "xác minh quyền lợi cụ thể của bạn."
     },
     "parentResources": {
       "eyebrow": "Tài nguyên phụ huynh",
@@ -754,35 +1148,147 @@
       ],
       "cta": "Bắt đầu với mẫu intake"
     },
+    "childJourney": {
+      "eyebrowIcon": "♡",
+      "eyebrow": "Hành trình của con bạn",
+      "title": "Hành trình thành công của con bạn",
+      "subtitle": "Từ sàng lọc đầu tiên đến tiến bộ trị liệu liên tục, Eden ABA đồng hành cùng gia đình qua từng bước với sự rõ ràng, tận tâm và hỗ trợ.",
+      "imageAlt": "Nhà trị liệu hỗ trợ trẻ trong buổi liệu pháp ABA",
+      "steps": [
+        {
+          "title": "Sàng lọc tự kỷ miễn phí",
+          "description": "Bắt đầu với công cụ sàng lọc trực tuyến miễn phí để hiểu rõ hơn nhu cầu phát triển của con bạn."
+        },
+        {
+          "title": "Đánh giá toàn diện",
+          "description": "Gặp các chuyên gia giàu kinh nghiệm để được đánh giá tự kỷ chi tiết và khuyến nghị cá nhân hóa."
+        },
+        {
+          "title": "Xác minh bảo hiểm & phê duyệt",
+          "description": "Đội ngũ giúp xác minh quyền lợi và hỗ trợ quy trình ủy quyền."
+        },
+        {
+          "title": "Bắt đầu liệu pháp ABA",
+          "description": "Con bạn bắt đầu kế hoạch liệu pháp ABA cá nhân hóa theo mục tiêu riêng."
+        },
+        {
+          "title": "Theo dõi tiến bộ & phát triển",
+          "description": "Theo dõi cột mốc, xem xét tiến bộ và ăn mừng những bước phát triển có ý nghĩa."
+        }
+      ],
+      "cta": {
+        "line1": "Mỗi bước đưa con bạn đến gần hơn một tương lai tươi sáng.",
+        "line2": "Chúng tôi luôn ở đây cho gia đình bạn.",
+        "button": "Bắt đầu hành trình của con bạn"
+      },
+      "trustBadges": [
+        "Chăm sóc tận tâm",
+        "Chuyên gia lâm sàng",
+        "Lấy gia đình làm trung tâm",
+        "Kết quả đã được chứng minh"
+      ]
+    },
     "clientReviews": {
       "badge": "Phản hồi mẫu từ gia đình",
       "title": "Gia đình tin tưởng Eden ABA Therapy",
       "intro": "Trải nghiệm tích cực từ các gia đình đánh giá cao hỗ trợ ABA tận tâm và cá nhân hóa.",
       "reviews": [
-        "Eden ABA Therapy giúp quy trình intake đơn giản và hỗ trợ.",
-        "Đội ngũ giúp chúng tôi cảm thấy được thấu hiểu ngay từ cuộc gọi đầu tiên.",
-        "Con chúng tôi đang xây dựng kỹ năng giao tiếp với nhiều tự tin hơn.",
-        "Hướng dẫn dành cho phụ huynh đã giúp thói quen tại nhà của chúng tôi.",
-        "Chúng tôi cảm thấy được tôn trọng, lắng nghe và hỗ trợ trong suốt quá trình.",
-        "Các nhà trị liệu kiên nhẫn, tử tế và thực sự lấy trẻ làm trung tâm.",
-        "Eden giúp chúng tôi hiểu ABA một cách rõ ràng.",
-        "Gia đình chúng tôi nhận thấy tiến bộ có ý nghĩa trong kỹ năng sinh hoạt hằng ngày.",
-        "Đội chăm sóc giải thích từng bước với sự tận tâm.",
-        "Lên lịch và giao tiếp đều dễ dàng và chuyên nghiệp.",
-        "Con chúng tôi mong chờ được học cùng đội trị liệu.",
-        "Chúng tôi đánh giá cao sự tập trung vào mục tiêu gia đình và tiến bộ thực tế.",
-        "Đội ngũ giúp bảo hiểm và các bước tiếp theo bớt căng thẳng.",
-        "Eden ABA Therapy mang lại cảm giác ấm áp, có tổ chức và đáng tin cậy.",
-        "Hỗ trợ đã giúp con chúng tôi với tương tác xã hội.",
-        "Chúng tôi yêu cách đội ngũ ăn mừng những chiến thắng nhỏ.",
-        "Phương pháp điều trị cảm thấy được cá nhân hóa cho con chúng tôi.",
-        "Đào tạo phụ huynh giúp chúng tôi tự tin hơn tại nhà.",
-        "Đội ngũ phản hồi nhanh, quan tâm và chuyên nghiệp.",
-        "Chúng tôi biết ơn sự hướng dẫn và khích lệ.",
-        "Con chúng tôi đang học các kỹ năng quan trọng theo cách tích cực.",
-        "Nhân viên giúp chúng tôi thoải mái khi đặt câu hỏi.",
-        "Cách tiếp cận của Eden cảm thấy tận tâm và lấy gia đình làm trung tâm.",
-        "Chúng tôi được hỗ trợ từ đánh giá đến lập kế hoạch chăm sóc."
+        {
+          "text": "Eden ABA Therapy giúp quy trình intake đơn giản và hỗ trợ.",
+          "name": "Sarah Johnson"
+        },
+        {
+          "text": "Đội ngũ giúp chúng tôi cảm thấy được thấu hiểu ngay từ cuộc gọi đầu tiên.",
+          "name": "Michael Thompson"
+        },
+        {
+          "text": "Con chúng tôi đang xây dựng kỹ năng giao tiếp với nhiều tự tin hơn.",
+          "name": "Emily Carter"
+        },
+        {
+          "text": "Hướng dẫn dành cho phụ huynh đã giúp thói quen tại nhà của chúng tôi.",
+          "name": "David Miller"
+        },
+        {
+          "text": "Chúng tôi cảm thấy được tôn trọng, lắng nghe và hỗ trợ trong suốt quá trình.",
+          "name": "Jennifer Martinez"
+        },
+        {
+          "text": "Các nhà trị liệu kiên nhẫn, tử tế và thực sự lấy trẻ làm trung tâm.",
+          "name": "Daniel Nguyen"
+        },
+        {
+          "text": "Eden giúp chúng tôi hiểu ABA một cách rõ ràng.",
+          "name": "Linh Tran"
+        },
+        {
+          "text": "Gia đình chúng tôi nhận thấy tiến bộ có ý nghĩa trong kỹ năng sinh hoạt hằng ngày.",
+          "name": "Mai Pham"
+        },
+        {
+          "text": "Đội chăm sóc giải thích từng bước với sự tận tâm.",
+          "name": "Anh Nguyen"
+        },
+        {
+          "text": "Lên lịch và giao tiếp đều dễ dàng và chuyên nghiệp.",
+          "name": "Kevin Chen"
+        },
+        {
+          "text": "Con chúng tôi mong chờ được học cùng đội trị liệu.",
+          "name": "Grace Kim"
+        },
+        {
+          "text": "Chúng tôi đánh giá cao sự tập trung vào mục tiêu gia đình và tiến bộ thực tế.",
+          "name": "Sophia Lee"
+        },
+        {
+          "text": "Đội ngũ giúp bảo hiểm và các bước tiếp theo bớt căng thẳng.",
+          "name": "Jason Park"
+        },
+        {
+          "text": "Eden ABA Therapy mang lại cảm giác ấm áp, có tổ chức và đáng tin cậy.",
+          "name": "Michelle Wong"
+        },
+        {
+          "text": "Hỗ trợ đã giúp con chúng tôi với tương tác xã hội.",
+          "name": "Priya Shah"
+        },
+        {
+          "text": "Chúng tôi yêu cách đội ngũ ăn mừng những chiến thắng nhỏ.",
+          "name": "Carlos Ramirez"
+        },
+        {
+          "text": "Phương pháp điều trị cảm thấy được cá nhân hóa cho con chúng tôi.",
+          "name": "Sarah Johnson"
+        },
+        {
+          "text": "Đào tạo phụ huynh giúp chúng tôi tự tin hơn tại nhà.",
+          "name": "Michael Thompson"
+        },
+        {
+          "text": "Đội ngũ phản hồi nhanh, quan tâm và chuyên nghiệp.",
+          "name": "Emily Carter"
+        },
+        {
+          "text": "Chúng tôi biết ơn sự hướng dẫn và khích lệ.",
+          "name": "David Miller"
+        },
+        {
+          "text": "Con chúng tôi đang học các kỹ năng quan trọng theo cách tích cực.",
+          "name": "Jennifer Martinez"
+        },
+        {
+          "text": "Nhân viên giúp chúng tôi thoải mái khi đặt câu hỏi.",
+          "name": "Daniel Nguyen"
+        },
+        {
+          "text": "Cách tiếp cận của Eden cảm thấy tận tâm và lấy gia đình làm trung tâm.",
+          "name": "Linh Tran"
+        },
+        {
+          "text": "Chúng tôi được hỗ trợ từ đánh giá đến lập kế hoạch chăm sóc.",
+          "name": "Mai Pham"
+        }
       ],
       "cardLabels": [
         "Phản hồi mẫu từ gia đình",
@@ -790,7 +1296,7 @@
         "Trải nghiệm chăm sóc",
         "Phản hồi gia đình"
       ],
-      "parentReview": "Đánh giá phụ huynh",
+      "parentRole": "Phụ huynh",
       "startABA": "Bắt đầu liệu pháp ABA",
       "verifyInsurance": "Xác minh bảo hiểm"
     },
@@ -1561,6 +2067,64 @@
         "imageAlt": "Trẻ và người chăm sóc trong môi trường trị liệu lâm sàng hỗ trợ"
       },
       "faqTitle": "Câu hỏi thường gặp về phạm vi bảo hiểm liệu pháp ABA",
+      "contactLanding": {
+        "eyebrow": "Eden ABA Therapy · Bảo hiểm",
+        "headline": "Liên hệ đội xác minh bảo hiểm",
+        "subtitle": "Liên hệ đội bảo hiểm Eden ABA Therapy để được hỗ trợ về điều kiện Medicaid, quyền lợi bảo hiểm, tài liệu cần thiết và các bước tiếp theo cho dịch vụ liệu pháp ABA.",
+        "ctaSubmitRequest": "Gửi yêu cầu",
+        "ctaStartVerification": "Bắt đầu xác minh",
+        "formTitle": "Yêu cầu hỗ trợ bảo hiểm",
+        "formSubtitle": "Hoàn thành biểu mẫu bên dưới và đội xác minh bảo hiểm sẽ liên hệ với hướng dẫn phù hợp.",
+        "parentName": "Tên phụ huynh/người giám hộ",
+        "email": "Địa chỉ email",
+        "phone": "Số điện thoại",
+        "childName": "Tên trẻ",
+        "zipCode": "Mã ZIP",
+        "insuranceType": "Loại bảo hiểm",
+        "message": "Tin nhắn",
+        "insuranceOptions": [
+          "Medicaid Virginia",
+          "Bảo hiểm thương mại",
+          "Không chắc"
+        ],
+        "submit": "Gửi câu hỏi bảo hiểm",
+        "submitting": "Đang gửi…",
+        "success": "Cảm ơn bạn. Đội bảo hiểm Eden ABA Therapy sẽ liên hệ với bạn sớm.",
+        "imageAlt": "Gia đình nhận hỗ trợ bảo hiểm từ Eden ABA Therapy",
+        "selectInsurance": "Chọn loại bảo hiểm",
+        "validationError": "Vui lòng điền đầy đủ các trường bắt buộc với email và số điện thoại hợp lệ.",
+        "messagePlaceholder": "Chia sẻ câu hỏi bảo hiểm, thông tin gói hoặc tài liệu bạn đã có."
+      },
+      "contactTeam": {
+        "eyebrow": "Hỗ trợ bảo hiểm",
+        "headline": "Liên hệ đội xác minh bảo hiểm của chúng tôi",
+        "subtitle": "Đội ngũ của chúng tôi có thể giúp gia đình hiểu điều kiện Medicaid, quyền lợi bảo hiểm, tài liệu cần thiết và các bước tiếp theo cho dịch vụ liệu pháp ABA.",
+        "ctaStartVerification": "Bắt đầu xác minh bảo hiểm",
+        "ctaContactTeam": "Liên hệ đội ngũ",
+        "formTitle": "Liên hệ đội bảo hiểm",
+        "formSubtitle": "Chia sẻ một vài thông tin và chuyên viên bảo hiểm của Eden ABA Therapy sẽ liên hệ với hướng dẫn phù hợp.",
+        "parentName": "Tên phụ huynh/người giám hộ",
+        "email": "Email",
+        "phone": "Điện thoại",
+        "childName": "Tên trẻ",
+        "zipCode": "Mã ZIP",
+        "insuranceType": "Loại bảo hiểm",
+        "message": "Tin nhắn",
+        "insuranceOptions": [
+          "Medicaid Virginia",
+          "Bảo hiểm thương mại",
+          "Không chắc"
+        ],
+        "submit": "Gửi câu hỏi bảo hiểm",
+        "submitting": "Đang gửi…",
+        "success": "Cảm ơn bạn. Đội bảo hiểm Eden ABA Therapy sẽ liên hệ với bạn sớm.",
+        "imageAlt": "Gia đình nhận hướng dẫn bảo hiểm tận tâm từ Eden ABA Therapy",
+        "trustItems": [
+          "Hướng dẫn Medicaid và bảo hiểm thương mại",
+          "Hỗ trợ danh sách tài liệu",
+          "Các bước tiếp theo rõ ràng cho dịch vụ ABA"
+        ]
+      },
       "faqs": [
         [
           "Bảo hiểm có chi trả liệu pháp ABA tại Virginia không?",
@@ -1677,6 +2241,7 @@
       "submitConfirmation": "Mã xác nhận: {id}",
       "submitSubmittedAt": "Đã gửi: {date}",
       "submitError": "Gửi không thành công. Bản nháp cục bộ vẫn được lưu trong trình duyệt này. Vui lòng thử lại hoặc liên hệ Eden ABA Therapy.",
+      "recaptchaFailed": "Xác minh bảo mật không thành công. Vui lòng làm mới trang và thử lại, hoặc liên hệ Eden ABA Therapy để được hỗ trợ.",
       "exportBackupHint": "Bạn có thể xuất bản sao JSON dự phòng bằng nút Export Packet ở trên.",
       "secureDraftNote": "Bản nháp cục bộ lưu tiến trình trong trình duyệt này. Gửi thành công sẽ chuyển dữ liệu mã hóa tới máy chủ Eden ABA Therapy.",
       "sections": [
@@ -3923,13 +4488,196 @@
         ]
       }
     },
+    "admissions": {
+      "meta": {
+        "title": "Tiếp nhận: Bắt đầu liệu pháp ABA | Eden ABA Therapy",
+        "description": "Bắt đầu liệu pháp ABA tại Eden ABA Therapy. Đội tiếp nhận hướng dẫn gia đình qua intake, xem xét chẩn đoán, xác minh bảo hiểm, tài nguyên sàng lọc và chăm sóc cá nhân hóa, tận tâm."
+      },
+      "hero": {
+        "breadcrumb": "Tiếp nhận",
+        "badge": "Tiếp nhận & Hỗ trợ gia đình",
+        "title": "Tiếp nhận: Bắt đầu liệu pháp ABA",
+        "paragraph1": "Tại Eden ABA Therapy, chúng tôi hiểu rằng nuôi dạy trẻ được chẩn đoán rối loạn phổ tự kỷ (ASD) có thể mang đến nhiều cảm xúc, câu hỏi và quyết định, đặc biệt khi bạn mới bắt đầu. Dù con bạn vừa được chẩn đoán hay bạn vẫn đang khám phá lựa chọn, đội ngũ của chúng tôi sẵn sàng hỗ trợ.",
+        "paragraph2": "Đội tiếp nhận thân thiện sẽ hướng dẫn bạn qua từng bước. Chúng tôi giữ quy trình bắt đầu đơn giản, hỗ trợ và rõ ràng để con bạn có thể bắt đầu phân tích hành vi ứng dụng (ABA) trong môi trường tận tâm, nơi trẻ có thể lớn lên, học hỏi và đạt các cột mốc ý nghĩa.",
+        "supportLine": "Hỗ trợ liệu pháp ABA hàng đầu gần bạn thông qua Eden ABA Therapy.",
+        "primaryButton": "Bắt đầu",
+        "secondaryButton": "Hỗ trợ chẩn đoán & sàng lọc",
+        "imageAlt": "Nhà trị liệu Eden ABA Therapy làm việc ấm áp với trẻ nhỏ trong môi trường học tập hỗ trợ"
+      },
+      "testimonials": {
+        "title": "Gia đình yêu thích làm việc với Eden ABA Therapy",
+        "items": [
+          {
+            "quote": "Đội ngũ tử tế, kiên nhẫn và hỗ trợ ngay từ đầu. Họ giải thích quy trình tiếp nhận rõ ràng, trả lời câu hỏi và giúp chúng tôi tự tin khi bắt đầu liệu pháp ABA cho con. Chúng tôi cảm thấy được chào đón, tôn trọng và hỗ trợ ở mọi bước.",
+            "name": "Phản hồi phụ huynh",
+            "source": "Phản hồi gia đình"
+          },
+          {
+            "quote": "Eden ABA Therapy giúp quy trình đơn giản và bớt choáng ngợp. Từ cuộc gọi đầu tiên đến hỗ trợ intake, đội ngũ giao tiếp rõ ràng và giúp chúng tôi hiểu điều gì sẽ xảy ra. Chúng tôi biết ơn sự chăm sóc, hướng dẫn và đồng cảm dành cho gia đình.",
+            "name": "Phản hồi gia đình",
+            "source": "Phản hồi gia đình"
+          },
+          {
+            "quote": "Chúng tôi đánh giá cao sự tổ chức và phản hồi nhanh của đội tiếp nhận. Câu hỏi về bảo hiểm được giải thích rõ ràng và chúng tôi không cảm thấy bị vội trong quy trình intake.",
+            "name": "Phản hồi người chăm sóc",
+            "source": "Phản hồi gia đình"
+          },
+          {
+            "quote": "Nhân viên giúp chúng tôi thoải mái khi hỏi về liệu pháp ABA, lịch trình và các bước tiếp theo. Con chúng tôi đang xây dựng kỹ năng với đội ngũ thực sự quan tâm.",
+            "name": "Phản hồi phụ huynh",
+            "source": "Phản hồi gia đình"
+          }
+        ]
+      },
+      "steps": {
+        "titlePrefix": "Bắt đầu liệu pháp ABA đơn giản như",
+        "titleHighlight": "1, 2, 3",
+        "intro": "Dù con bạn vừa được chẩn đoán tự kỷ hay bạn vẫn đang tìm hiểu, chúng tôi sẵn sàng giúp đỡ. Tại Eden ABA Therapy, bắt đầu liệu pháp ABA đơn giản, hỗ trợ và xoay quanh nhu cầu của con bạn.",
+        "cards": [
+          {
+            "title": "Bước 1: Kết nối với đội ngũ",
+            "text": "Điền mẫu trực tuyến ngắn hoặc liên hệ đội tiếp nhận. Sau đó, ai đó từ đội ngũ sẽ liên hệ để tìm hiểu thêm về con bạn, trả lời câu hỏi và giải thích bước tiếp theo.",
+            "button": "Bắt đầu liệu pháp ABA"
+          },
+          {
+            "title": "Bước 2: Xem xét chẩn đoán và nhu cầu hỗ trợ",
+            "text": "Nếu con bạn đã có chẩn đoán tự kỷ, chúng tôi sẽ xem xét thông tin và thảo luận lựa chọn trị liệu. Nếu chưa có chẩn đoán, chúng tôi có thể hướng dẫn bạn đến tài nguyên sàng lọc và đánh giá.",
+            "button": "Tìm hiểu hỗ trợ chẩn đoán"
+          },
+          {
+            "title": "Bước 3: Bắt đầu liệu pháp ABA",
+            "text": "Sau khi hoàn tất intake và xem xét quyền lợi bảo hiểm, con bạn sẽ được kết nối với đội chăm sóc. BCBA sẽ giúp tạo kế hoạch ABA cá nhân hóa theo mục tiêu, điểm mạnh và nhu cầu của con.",
+            "button": "Khám phá liệu pháp ABA"
+          }
+        ]
+      },
+      "pathChoice": {
+        "title": "Không chắc bắt đầu từ đâu? Đây là cách tiến lên dựa trên tình trạng chẩn đoán hiện tại của con bạn:",
+        "cards": [
+          {
+            "title": "Con tôi đã có chẩn đoán tự kỷ",
+            "text": "Điền mẫu quan tâm trực tuyến. Chúng tôi sẽ liên hệ để thảo luận nhu cầu của con, xem xét chẩn đoán hoặc tài liệu hiện tại, trả lời câu hỏi và giải thích cách bắt đầu liệu pháp ABA.",
+            "button": "Điền đơn đăng ký"
+          },
+          {
+            "title": "Con tôi chưa có chẩn đoán tự kỷ",
+            "text": "Hoàn tất mẫu quan tâm hoặc liên hệ đội ngũ để được hướng dẫn đến tài nguyên sàng lọc và đánh giá phù hợp. Chúng tôi giúp bạn điều hướng quy trình chẩn đoán để con tiếp cận chăm sóc cần thiết.",
+            "button": "Nhận hỗ trợ chẩn đoán"
+          }
+        ]
+      },
+      "whyChoose": {
+        "title": "Vì sao chọn Eden ABA Therapy?",
+        "intro": "Tại Eden ABA Therapy, chúng tôi hỗ trợ cả gia đình. Mục tiêu của chúng tôi là giữ quy trình tiếp nhận rõ ràng, tận tâm và hữu ích đồng thời kết nối con bạn với hỗ trợ ABA cá nhân hóa.",
+        "cta": "Tìm hiểu thêm về ABA tại Eden",
+        "resourceNote": "Có câu hỏi? Liên hệ hôm nay. Chúng tôi sẵn sàng hỗ trợ.",
+        "features": [
+          {
+            "title": "Hướng dẫn gia đình",
+            "text": "Phụ huynh và người chăm sóc là phần quan trọng của thành công của mỗi trẻ. Chúng tôi cung cấp hướng dẫn để người chăm sóc hiểu tiến bộ, đặt câu hỏi và học cách hỗ trợ mục tiêu trị liệu tại nhà."
+          },
+          {
+            "title": "Hỗ trợ đánh giá tự kỷ",
+            "text": "Nếu con bạn chưa có chẩn đoán tự kỷ, chúng tôi có thể giúp bạn hiểu các lộ trình sàng lọc và đánh giá có thể. Đội ngũ hướng dẫn bước tiếp theo để con nhận hỗ trợ cần thiết."
+          },
+          {
+            "title": "Tiếp cận chăm sóc kịp thời",
+            "text": "Khi gia đình sẵn sàng bắt đầu, họ không nên cảm thấy lạc lõng. Eden ABA Therapy giữ quy trình tiếp nhận có tổ chức, phản hồi nhanh và hỗ trợ để trẻ có thể bắt đầu dịch vụ sớm nhất có thể."
+          },
+          {
+            "title": "Tỷ lệ nhà trị liệu-trẻ thấp",
+            "text": "Trẻ em hưởng lợi từ sự chú ý tập trung và hỗ trợ nhất quán. Liệu pháp ABA thường bao gồm hỗ trợ một-một từ các nhà lâm sàng tận tâm và đủ điều kiện."
+          },
+          {
+            "title": "Chăm sóc cá nhân hóa",
+            "text": "Mỗi trẻ là duy nhất, nên kế hoạch trị liệu cũng vậy. Đội ngũ tìm hiểu điều quan trọng với gia đình bạn và BCBA làm việc cùng gia đình để đặt mục tiêu phù hợp."
+          },
+          {
+            "title": "Thư viện tài nguyên",
+            "text": "Bạn không phải tự mình tìm hiểu mọi thứ. Eden ABA Therapy cung cấp tài nguyên, hướng dẫn và giáo dục thân thiện với gia đình về tự kỷ, ABA và quy trình tiếp nhận."
+          }
+        ]
+      },
+      "insurance": {
+        "title": "Chúng tôi chấp nhận nhiều nhà cung cấp bảo hiểm",
+        "titleBefore": "Chúng tôi chấp nhận nhiều ",
+        "titleEmphasis": "nhà cung cấp bảo hiểm",
+        "providers": [
+          "Cigna",
+          "Aetna",
+          "Anthem BCBS",
+          "Optum",
+          "UMR",
+          "Allegiance",
+          "Medica",
+          "Carelon",
+          "Blue Cross Blue Shield",
+          "Medicaid Virginia",
+          "+ Nhà cung cấp khác"
+        ],
+        "text": "Bạn đã có đủ việc phải lo. Tại Eden ABA Therapy, đội ngũ có thể giúp xác minh quyền lợi bảo hiểm và giải thích chi phí tự trả để bạn không phải tự điều hướng một mình.",
+        "button": "Bảo hiểm & hỗ trợ tài chính"
+      },
+      "findCare": {
+        "title": "Bắt đầu liệu pháp ABA tại Eden ABA Therapy",
+        "subtitle": "Tìm hỗ trợ liệu pháp ABA cho trẻ được chẩn đoán tự kỷ gần bạn.",
+        "searchLabel": "Tìm liệu pháp ABA gần tôi:",
+        "zipPlaceholder": "Mã ZIP",
+        "cityPlaceholder": "Thành phố",
+        "centerPlaceholder": "Tên trung tâm",
+        "searchButton": "Tìm trung tâm",
+        "statesLabel": "Hoặc tìm theo bang:",
+        "states": [
+          "Virginia",
+          "Texas",
+          "Colorado",
+          "Arizona",
+          "Illinois",
+          "North Carolina",
+          "Minnesota",
+          "South Carolina",
+          "Pennsylvania",
+          "Indiana"
+        ],
+        "divider": "Hoặc bắt đầu trực tuyến:",
+        "interestForm": "Mẫu quan tâm trực tuyến",
+        "helperLinks": {
+          "abaRight": "Liệu pháp ABA có phù hợp với con tôi?",
+          "asdSupport": "Nhận hỗ trợ chẩn đoán ASD"
+        }
+      },
+      "finalCta": {
+        "title": "Bắt đầu liệu pháp ABA tại Eden ABA Therapy",
+        "subtitle": "Tìm hỗ trợ liệu pháp ABA cho trẻ được chẩn đoán tự kỷ gần bạn.",
+        "searchLabel": "Tìm liệu pháp ABA gần tôi:",
+        "searchPlaceholder": "Mã ZIP, thành phố hoặc tên trung tâm",
+        "searchButton": "Tìm chăm sóc",
+        "divider": "Hoặc bắt đầu trực tuyến:",
+        "interestForm": "Mẫu quan tâm trực tuyến",
+        "helperLinks": {
+          "abaRight": "Liệu pháp ABA có phù hợp với con tôi?",
+          "asdSupport": "Nhận hỗ trợ chẩn đoán ASD"
+        }
+      },
+      "newsletter": {
+        "title": "Kết nối với bản tin gia đình của chúng tôi",
+        "intro": "Nhận tài nguyên tự kỷ hữu ích, mẹo ABA, cập nhật tiếp nhận và hướng dẫn gia đình từ Eden ABA Therapy.",
+        "namePlaceholder": "Họ và tên",
+        "emailPlaceholder": "Email",
+        "submit": "Tham gia bản tin gia đình",
+        "success": "Cảm ơn bạn đã tham gia bản tin gia đình Eden ABA Therapy."
+      }
+    },
     "parentGuidance": {
       "meta": {
         "title": "Hướng dẫn phụ huynh: Đánh giá tự kỷ & Bước tiếp theo | Eden ABA Therapy",
         "description": "Hướng dẫn thân thiện cho phụ huynh về dấu hiệu tự kỷ, cột mốc phát triển, công cụ sàng lọc, đánh giá chẩn đoán, bảo hiểm và liệu pháp ABA từ Eden ABA Therapy."
       },
       "hero": {
-        "breadcrumb": ["Đánh giá tự kỷ", "Hướng dẫn phụ huynh"],
+        "breadcrumb": [
+          "Đánh giá tự kỷ",
+          "Hướng dẫn phụ huynh"
+        ],
         "badge": "Hướng dẫn phụ huynh",
         "title": "Hướng dẫn phụ huynh về đánh giá tự kỷ và các bước tiếp theo",
         "subtitle": "Nếu bạn đang tự hỏi liệu con mình có thể mắc tự kỷ, Eden ABA Therapy có thể giúp bạn hiểu dấu hiệu sớm, công cụ sàng lọc, đánh giá chẩn đoán, các bước bảo hiểm và lựa chọn điều trị.",
@@ -3944,10 +4692,22 @@
         "title": "Tự kỷ là gì?",
         "intro": "Rối loạn phổ tự kỷ là tình trạng phát triển thần kinh có thể ảnh hưởng đến giao tiếp, tương tác xã hội, chơi, học tập, hành vi và trải nghiệm cảm giác. Tự kỷ được gọi là phổ vì mỗi trẻ đều khác nhau. Một số trẻ cần hỗ trợ hàng ngày đáng kể, trong khi trẻ khác cần ít hỗ trợ hơn nhưng vẫn có thể hưởng lợi từ hướng dẫn, liệu pháp hoặc điều chỉnh ở trường.",
         "cards": [
-          { "title": "Khác biệt giao tiếp", "text": "Một số trẻ dùng ít từ, cử chỉ hoặc biểu cảm khuôn mặt hơn. Trẻ khác có vốn từ tốt nhưng gặp khó khăn trong hội thoại qua lại." },
-          { "title": "Tương tác xã hội", "text": "Trẻ có thể khó đọc tín hiệu xã hội, tham gia chơi cùng bạn bè, chia sẻ sở thích hoặc phản hồi theo cách thông thường." },
-          { "title": "Hành vi lặp lại", "text": "Lặp lại từ, xếp đồ chơi, thói quen mạnh hoặc sở thích tập trung có thể là cách trẻ học và tự điều chỉnh." },
-          { "title": "Khác biệt cảm giác", "text": "Một số trẻ nhạy cảm hơn với âm thanh, kết cấu hoặc ánh sáng. Trẻ khác có thể tìm kiếm chuyển động, chạm hoặc kích thích cảm giác." }
+          {
+            "title": "Khác biệt giao tiếp",
+            "text": "Một số trẻ dùng ít từ, cử chỉ hoặc biểu cảm khuôn mặt hơn. Trẻ khác có vốn từ tốt nhưng gặp khó khăn trong hội thoại qua lại."
+          },
+          {
+            "title": "Tương tác xã hội",
+            "text": "Trẻ có thể khó đọc tín hiệu xã hội, tham gia chơi cùng bạn bè, chia sẻ sở thích hoặc phản hồi theo cách thông thường."
+          },
+          {
+            "title": "Hành vi lặp lại",
+            "text": "Lặp lại từ, xếp đồ chơi, thói quen mạnh hoặc sở thích tập trung có thể là cách trẻ học và tự điều chỉnh."
+          },
+          {
+            "title": "Khác biệt cảm giác",
+            "text": "Một số trẻ nhạy cảm hơn với âm thanh, kết cấu hoặc ánh sáng. Trẻ khác có thể tìm kiếm chuyển động, chạm hoặc kích thích cảm giác."
+          }
         ]
       },
       "earlySigns": {
@@ -3955,11 +4715,53 @@
         "intro": "Nhận biết dấu hiệu sớm có thể giúp gia đình tìm hỗ trợ sớm hơn. Dấu hiệu có thể khác nhau tùy theo tuổi, kỹ năng giao tiếp và sự phát triển của trẻ.",
         "cta": "Làm sàng lọc miễn phí",
         "cards": [
-          { "title": "Giao tiếp xã hội", "examples": ["Ít giao tiếp bằng mắt", "Không phản hồi tên một cách nhất quán", "Ít chia sẻ sở thích", "Khó chơi cùng bạn bè", "Thích chơi một mình"] },
-          { "title": "Hành vi giao tiếp", "examples": ["Chậm nói", "Ít cử chỉ", "Lặp lại từ hoặc cụm từ", "Khó bắt đầu hoặc duy trì hội thoại", "Ít biểu cảm khuôn mặt hoặc cử chỉ"] },
-          { "title": "Hành vi lặp lại hoặc hạn chế", "examples": ["Vẫy tay, lắc người, quay hoặc chuyển động lặp lại", "Xếp đồ chơi hoặc vật thể", "Tập trung mạnh vào chủ đề hoặc vật cụ thể", "Buồn khi thói quen thay đổi"] },
-          { "title": "Khác biệt cảm giác", "examples": ["Bịt tai khi có tiếng ồn", "Phản ứng mạnh với kết cấu, ánh sáng hoặc tiếng ồn", "Tìm kiếm trải nghiệm cảm giác nhất định", "Quá tải trong môi trường ồn ào"] },
-          { "title": "Kỹ năng sinh hoạt và vận động", "examples": ["Khó ngủ", "Kén ăn", "Khó mặc quần áo, viết hoặc phối hợp", "Khó chuyển đổi hoặc thay đổi"] }
+          {
+            "title": "Giao tiếp xã hội",
+            "examples": [
+              "Ít giao tiếp bằng mắt",
+              "Không phản hồi tên một cách nhất quán",
+              "Ít chia sẻ sở thích",
+              "Khó chơi cùng bạn bè",
+              "Thích chơi một mình"
+            ]
+          },
+          {
+            "title": "Hành vi giao tiếp",
+            "examples": [
+              "Chậm nói",
+              "Ít cử chỉ",
+              "Lặp lại từ hoặc cụm từ",
+              "Khó bắt đầu hoặc duy trì hội thoại",
+              "Ít biểu cảm khuôn mặt hoặc cử chỉ"
+            ]
+          },
+          {
+            "title": "Hành vi lặp lại hoặc hạn chế",
+            "examples": [
+              "Vẫy tay, lắc người, quay hoặc chuyển động lặp lại",
+              "Xếp đồ chơi hoặc vật thể",
+              "Tập trung mạnh vào chủ đề hoặc vật cụ thể",
+              "Buồn khi thói quen thay đổi"
+            ]
+          },
+          {
+            "title": "Khác biệt cảm giác",
+            "examples": [
+              "Bịt tai khi có tiếng ồn",
+              "Phản ứng mạnh với kết cấu, ánh sáng hoặc tiếng ồn",
+              "Tìm kiếm trải nghiệm cảm giác nhất định",
+              "Quá tải trong môi trường ồn ào"
+            ]
+          },
+          {
+            "title": "Kỹ năng sinh hoạt và vận động",
+            "examples": [
+              "Khó ngủ",
+              "Kén ăn",
+              "Khó mặc quần áo, viết hoặc phối hợp",
+              "Khó chuyển đổi hoặc thay đổi"
+            ]
+          }
         ]
       },
       "milestones": {
@@ -3967,11 +4769,55 @@
         "intro": "Cột mốc giúp phụ huynh và chuyên gia hiểu trẻ đang phát triển như thế nào so với kỳ vọng theo tuổi. Thiếu cột mốc không tự động có nghĩa là tự kỷ, nhưng có thể là lý do để nói chuyện với bác sĩ nhi khoa hoặc yêu cầu đánh giá.",
         "imageAlt": "Trẻ nhỏ chơi và học trong môi trường ấm áp, hỗ trợ",
         "ages": [
-          { "label": "18 tháng", "items": ["Nhìn người chăm sóc để được hỗ trợ", "Dùng vài từ", "Làm theo hướng dẫn đơn giản", "Chỉ tay, nguệch nguộc, đi bộ và bắt chước hành động đơn giản"] },
-          { "label": "2 tuổi", "items": ["Dùng cụm hai từ đơn giản", "Chỉ vào vật thể", "Nhận thấy khi người khác buồn", "Chạy, đá bóng và chơi giả vờ đơn giản"] },
-          { "label": "3 tuổi", "items": ["Tham gia chơi cùng trẻ khác", "Hỏi câu hỏi đơn giản", "Dùng hội thoại ngắn", "Bình tĩnh sau khi tách khỏi người chăm sóc với sự hỗ trợ", "Dùng kỹ năng vận động tinh cơ bản"] },
-          { "label": "4 tuổi", "items": ["Chơi giả vờ", "Tạo câu từ bốn từ trở lên", "Tìm bạn chơi", "Nhận biết màu sắc", "Bắt bóng và dùng dụng cụ viết"] },
-          { "label": "5 tuổi", "items": ["Làm theo luật trò chơi", "Lần lượt", "Đếm đến 10", "Nhận biết chữ cái", "Giúp việc nhà đơn giản", "Cài cúc áo và nhảy một chân"] }
+          {
+            "label": "18 tháng",
+            "items": [
+              "Nhìn người chăm sóc để được hỗ trợ",
+              "Dùng vài từ",
+              "Làm theo hướng dẫn đơn giản",
+              "Chỉ tay, nguệch nguộc, đi bộ và bắt chước hành động đơn giản"
+            ]
+          },
+          {
+            "label": "2 tuổi",
+            "items": [
+              "Dùng cụm hai từ đơn giản",
+              "Chỉ vào vật thể",
+              "Nhận thấy khi người khác buồn",
+              "Chạy, đá bóng và chơi giả vờ đơn giản"
+            ]
+          },
+          {
+            "label": "3 tuổi",
+            "items": [
+              "Tham gia chơi cùng trẻ khác",
+              "Hỏi câu hỏi đơn giản",
+              "Dùng hội thoại ngắn",
+              "Bình tĩnh sau khi tách khỏi người chăm sóc với sự hỗ trợ",
+              "Dùng kỹ năng vận động tinh cơ bản"
+            ]
+          },
+          {
+            "label": "4 tuổi",
+            "items": [
+              "Chơi giả vờ",
+              "Tạo câu từ bốn từ trở lên",
+              "Tìm bạn chơi",
+              "Nhận biết màu sắc",
+              "Bắt bóng và dùng dụng cụ viết"
+            ]
+          },
+          {
+            "label": "5 tuổi",
+            "items": [
+              "Làm theo luật trò chơi",
+              "Lần lượt",
+              "Đếm đến 10",
+              "Nhận biết chữ cái",
+              "Giúp việc nhà đơn giản",
+              "Cài cúc áo và nhảy một chân"
+            ]
+          }
         ]
       },
       "causes": {
@@ -3980,9 +4826,18 @@
         "mythLabel": "Hiểu lầm",
         "factLabel": "Sự thật",
         "mythFacts": [
-          { "myth": "Tự kỷ do cách nuôi dạy.", "fact": "Tự kỷ là tình trạng phát triển thần kinh. Phong cách nuôi dạy không gây ra tự kỷ." },
-          { "myth": "Vaccine gây tự kỷ.", "fact": "Nghiên cứu y khoa đáng tin cậy, bao gồm các nghiên cứu được CDC và AAP xem xét, không ủng hộ mối liên hệ giữa vaccine và tự kỷ." },
-          { "myth": "Mọi trẻ tự kỷ đều giống nhau.", "fact": "Tự kỷ là phổ. Điểm mạnh, thách thức và nhu cầu hỗ trợ khác nhau ở mỗi trẻ." }
+          {
+            "myth": "Tự kỷ do cách nuôi dạy.",
+            "fact": "Tự kỷ là tình trạng phát triển thần kinh. Phong cách nuôi dạy không gây ra tự kỷ."
+          },
+          {
+            "myth": "Vaccine gây tự kỷ.",
+            "fact": "Nghiên cứu y khoa đáng tin cậy, bao gồm các nghiên cứu được CDC và AAP xem xét, không ủng hộ mối liên hệ giữa vaccine và tự kỷ."
+          },
+          {
+            "myth": "Mọi trẻ tự kỷ đều giống nhau.",
+            "fact": "Tự kỷ là phổ. Điểm mạnh, thách thức và nhu cầu hỗ trợ khác nhau ở mỗi trẻ."
+          }
         ],
         "notes": [
           "Di truyền có thể đóng vai trò trong nguy cơ tự kỷ.",
@@ -3996,41 +4851,106 @@
         "intro": "Chẩn đoán hiện đại sử dụng rối loạn phổ tự kỷ và có thể mô tả nhu cầu hỗ trợ là Mức 1, Mức 2 hoặc Mức 3 theo khung DSM-5 do chuyên gia đủ điều kiện sử dụng.",
         "note": "Mức hỗ trợ không phải nhãn về giá trị hay tiềm năng. Chúng giúp chuyên gia hiểu trẻ cần hỗ trợ gì ngay bây giờ.",
         "levels": [
-          { "badge": "Mức 1", "title": "Cần hỗ trợ", "text": "Có thể gặp thách thức giao tiếp xã hội, khó linh hoạt hoặc khó bắt đầu tương tác nếu không có hỗ trợ." },
-          { "badge": "Mức 2", "title": "Cần hỗ trợ đáng kể", "text": "Có thể có thách thức giao tiếp rõ ràng hơn, sở thích hạn chế và khó đối phó với thay đổi." },
-          { "badge": "Mức 3", "title": "Cần hỗ trợ rất lớn", "text": "Có thể có thách thức giao tiếp đáng kể và hành vi ảnh hưởng mạnh đến sinh hoạt hàng ngày." }
+          {
+            "badge": "Mức 1",
+            "title": "Cần hỗ trợ",
+            "text": "Có thể gặp thách thức giao tiếp xã hội, khó linh hoạt hoặc khó bắt đầu tương tác nếu không có hỗ trợ."
+          },
+          {
+            "badge": "Mức 2",
+            "title": "Cần hỗ trợ đáng kể",
+            "text": "Có thể có thách thức giao tiếp rõ ràng hơn, sở thích hạn chế và khó đối phó với thay đổi."
+          },
+          {
+            "badge": "Mức 3",
+            "title": "Cần hỗ trợ rất lớn",
+            "text": "Có thể có thách thức giao tiếp đáng kể và hành vi ảnh hưởng mạnh đến sinh hoạt hàng ngày."
+          }
         ]
       },
       "diagnosis": {
         "title": "Tự kỷ được chẩn đoán như thế nào?",
         "note": "Không có xét nghiệm máu, chụp não hay khám thể chất đơn lẻ nào chẩn đoán tự kỷ. Chẩn đoán dựa trên tiền sử phát triển, quan sát hành vi và đánh giá chuyên môn.",
         "steps": [
-          { "title": "Nhận thấy khác biệt phát triển", "text": "Phụ huynh hoặc người chăm sóc quan sát các mẫu xã hội, giao tiếp hoặc hành vi đáng lo ngại." },
-          { "title": "Dùng công cụ sàng lọc", "text": "Sàng lọc trực tuyến như M-CHAT-R hoặc CAST có thể giúp xác định có nên đánh giá thêm không." },
-          { "title": "Hoàn thành đánh giá chuyên môn", "text": "Bác sĩ lâm sàng đủ điều kiện thực hiện đánh giá tự kỷ có cấu trúc bằng quan sát và công cụ chuẩn hóa." },
-          { "title": "Xem xét tiền sử và quan sát", "text": "Nhà cung cấp xem xét tiền sử phát triển, quan sát trực tiếp, thang đo chuẩn hóa và ý kiến người chăm sóc." },
-          { "title": "Nhận kết quả và bước tiếp theo", "text": "Gia đình nhận kết quả, khuyến nghị hỗ trợ và hướng dẫn về dịch vụ như can thiệp sớm hoặc liệu pháp ABA." }
+          {
+            "title": "Nhận thấy khác biệt phát triển",
+            "text": "Phụ huynh hoặc người chăm sóc quan sát các mẫu xã hội, giao tiếp hoặc hành vi đáng lo ngại."
+          },
+          {
+            "title": "Dùng công cụ sàng lọc",
+            "text": "Sàng lọc trực tuyến như M-CHAT-R hoặc CAST có thể giúp xác định có nên đánh giá thêm không."
+          },
+          {
+            "title": "Hoàn thành đánh giá chuyên môn",
+            "text": "Bác sĩ lâm sàng đủ điều kiện thực hiện đánh giá tự kỷ có cấu trúc bằng quan sát và công cụ chuẩn hóa."
+          },
+          {
+            "title": "Xem xét tiền sử và quan sát",
+            "text": "Nhà cung cấp xem xét tiền sử phát triển, quan sát trực tiếp, thang đo chuẩn hóa và ý kiến người chăm sóc."
+          },
+          {
+            "title": "Nhận kết quả và bước tiếp theo",
+            "text": "Gia đình nhận kết quả, khuyến nghị hỗ trợ và hướng dẫn về dịch vụ như can thiệp sớm hoặc liệu pháp ABA."
+          }
         ],
         "tools": [
-          { "title": "M-CHAT-R cho trẻ mới biết đi", "text": "Công cụ sàng lọc do phụ huynh hoàn thành, thường dùng khoảng 16–30 tháng.", "button": "Làm M-CHAT-R", "action": "mchat" },
-          { "title": "CAST cho trẻ lớn hơn", "text": "Bảng câu hỏi sàng lọc cho trẻ độ tuổi đi học.", "button": "Làm CAST", "action": "cast" },
-          { "title": "Đánh giá ADOS-2", "text": "Đánh giá dựa trên trò chơi do chuyên gia được đào tạo thực hiện.", "button": "Tìm hiểu ADOS-2", "action": "ados" },
-          { "title": "Đánh giá IDE", "text": "Đánh giá chẩn đoán rộng hơn với phỏng vấn, quan sát và khuyến nghị.", "button": "Tìm hiểu IDE", "action": "ide" }
+          {
+            "title": "M-CHAT-R cho trẻ mới biết đi",
+            "text": "Công cụ sàng lọc do phụ huynh hoàn thành, thường dùng khoảng 16–30 tháng.",
+            "button": "Làm M-CHAT-R",
+            "action": "mchat"
+          },
+          {
+            "title": "CAST cho trẻ lớn hơn",
+            "text": "Bảng câu hỏi sàng lọc cho trẻ độ tuổi đi học.",
+            "button": "Làm CAST",
+            "action": "cast"
+          },
+          {
+            "title": "Đánh giá ADOS-2",
+            "text": "Đánh giá dựa trên trò chơi do chuyên gia được đào tạo thực hiện.",
+            "button": "Tìm hiểu ADOS-2",
+            "action": "ados"
+          },
+          {
+            "title": "Đánh giá IDE",
+            "text": "Đánh giá chẩn đoán rộng hơn với phỏng vấn, quan sát và khuyến nghị.",
+            "button": "Tìm hiểu IDE",
+            "action": "ide"
+          }
         ]
       },
       "whichScreener": {
         "title": "Tôi nên dùng công cụ sàng lọc nào?",
         "note": "Sàng lọc không chẩn đoán tự kỷ. Chúng giúp phụ huynh quyết định có nên theo đuổi đánh giá đầy đủ với chuyên gia đủ điều kiện.",
         "cards": [
-          { "title": "M-CHAT-R", "audience": "Cho trẻ mới biết đi", "text": "Phù hợp nhất cho trẻ khoảng 16–30 tháng khi phụ huynh muốn kiểm tra dấu hiệu giao tiếp và xã hội sớm.", "button": "Làm M-CHAT-R" },
-          { "title": "CAST", "audience": "Cho trẻ lớn hơn", "text": "Phù hợp nhất cho trẻ khoảng 4–11 tuổi khi phụ huynh nhận thấy khác biệt xã hội, giao tiếp hoặc hành vi.", "button": "Làm CAST" }
+          {
+            "title": "M-CHAT-R",
+            "audience": "Cho trẻ mới biết đi",
+            "text": "Phù hợp nhất cho trẻ khoảng 16–30 tháng khi phụ huynh muốn kiểm tra dấu hiệu giao tiếp và xã hội sớm.",
+            "button": "Làm M-CHAT-R"
+          },
+          {
+            "title": "CAST",
+            "audience": "Cho trẻ lớn hơn",
+            "text": "Phù hợp nhất cho trẻ khoảng 4–11 tuổi khi phụ huynh nhận thấy khác biệt xã hội, giao tiếp hoặc hành vi.",
+            "button": "Làm CAST"
+          }
         ]
       },
       "evaluationOptions": {
         "title": "Lựa chọn đánh giá tự kỷ chuyên nghiệp",
         "cards": [
-          { "title": "Đánh giá ADOS-2", "text": "Đánh giá dựa trên trò chơi do chuyên gia được đào tạo thực hiện để quan sát giao tiếp, chơi, tương tác xã hội và hành vi liên quan đến tự kỷ.", "button": "Tìm hiểu ADOS-2" },
-          { "title": "Đánh giá IDE", "text": "Đánh giá chẩn đoán rộng hơn có thể bao gồm phỏng vấn người chăm sóc, tiền sử phát triển, quan sát trực tiếp, công cụ chuẩn hóa và khuyến nghị.", "button": "Tìm hiểu IDE" }
+          {
+            "title": "Đánh giá ADOS-2",
+            "text": "Đánh giá dựa trên trò chơi do chuyên gia được đào tạo thực hiện để quan sát giao tiếp, chơi, tương tác xã hội và hành vi liên quan đến tự kỷ.",
+            "button": "Tìm hiểu ADOS-2"
+          },
+          {
+            "title": "Đánh giá IDE",
+            "text": "Đánh giá chẩn đoán rộng hơn có thể bao gồm phỏng vấn người chăm sóc, tiền sử phát triển, quan sát trực tiếp, công cụ chuẩn hóa và khuyến nghị.",
+            "button": "Tìm hiểu IDE"
+          }
         ]
       },
       "insurance": {
@@ -4048,47 +4968,114 @@
       },
       "nextSteps": {
         "title": "Tôi nên làm gì tiếp theo?",
-        "buttons": { "screener": "Bắt đầu sàng lọc", "schedule": "Đặt lịch trực tuyến", "aba": "Bắt đầu liệu pháp ABA" },
+        "buttons": {
+          "screener": "Bắt đầu sàng lọc",
+          "schedule": "Đặt lịch trực tuyến",
+          "aba": "Bắt đầu liệu pháp ABA"
+        },
         "cards": [
-          { "title": "Nếu con bạn mới biết đi", "text": "Làm sàng lọc M-CHAT-R để kiểm tra dấu hiệu giao tiếp và xã hội sớm.", "link": "Làm sàng lọc M-CHAT-R" },
-          { "title": "Nếu con bạn lớn hơn", "text": "Làm sàng lọc CAST để xem đánh giá đầy đủ có hữu ích không.", "link": "Làm sàng lọc CAST" },
-          { "title": "Nếu bạn muốn hướng dẫn chuyên nghiệp", "text": "Đặt lịch đánh giá tự kỷ hoặc cuộc hẹn trực tuyến với Eden ABA Therapy.", "link": "Đặt lịch trực tuyến" },
-          { "title": "Nếu con bạn đã có chẩn đoán", "text": "Bắt đầu intake liệu pháp ABA và xác minh bảo hiểm.", "link": "Bắt đầu intake ABA" }
+          {
+            "title": "Nếu con bạn mới biết đi",
+            "text": "Làm sàng lọc M-CHAT-R để kiểm tra dấu hiệu giao tiếp và xã hội sớm.",
+            "link": "Làm sàng lọc M-CHAT-R"
+          },
+          {
+            "title": "Nếu con bạn lớn hơn",
+            "text": "Làm sàng lọc CAST để xem đánh giá đầy đủ có hữu ích không.",
+            "link": "Làm sàng lọc CAST"
+          },
+          {
+            "title": "Nếu bạn muốn hướng dẫn chuyên nghiệp",
+            "text": "Đặt lịch đánh giá tự kỷ hoặc cuộc hẹn trực tuyến với Eden ABA Therapy.",
+            "link": "Đặt lịch trực tuyến"
+          },
+          {
+            "title": "Nếu con bạn đã có chẩn đoán",
+            "text": "Bắt đầu intake liệu pháp ABA và xác minh bảo hiểm.",
+            "link": "Bắt đầu intake ABA"
+          }
         ]
       },
       "abaHelp": {
         "title": "Liệu pháp ABA có thể giúp gì",
         "intro": "Liệu pháp ABA giúp trẻ xây dựng kỹ năng có ý nghĩa như giao tiếp, sinh hoạt hàng ngày, tương tác xã hội, chơi, an toàn, sẵn sàng đi học và độc lập. Liệu pháp nên được cá nhân hóa, nhân ái và lấy gia đình làm trung tâm.",
-        "cards": ["Giao tiếp", "Kỹ năng xã hội", "Sinh hoạt hàng ngày", "An toàn", "Sẵn sàng đi học", "Hướng dẫn gia đình"],
+        "cards": [
+          "Giao tiếp",
+          "Kỹ năng xã hội",
+          "Sinh hoạt hàng ngày",
+          "An toàn",
+          "Sẵn sàng đi học",
+          "Hướng dẫn gia đình"
+        ],
         "cta": "Tìm hiểu liệu pháp ABA"
       },
       "faqs": {
         "title": "FAQ hướng dẫn phụ huynh",
         "items": [
-          { "q": "Sàng lọc có chẩn đoán tự kỷ không?", "a": "Không. Sàng lọc giúp xác định có nên đánh giá thêm không. Chỉ chuyên gia đủ điều kiện mới có thể chẩn đoán tự kỷ dựa trên tiền sử phát triển và quan sát lâm sàng." },
-          { "q": "Khi nào tôi nên nói chuyện với bác sĩ?", "a": "Nói chuyện với bác sĩ nhi khoa nếu bạn nhận thấy chậm phát triển, mất kỹ năng, giao tiếp hạn chế hoặc khác biệt xã hội." },
-          { "q": "Tự kỷ có thể được chẩn đoán sớm không?", "a": "Nhiều trẻ có thể được đánh giá đáng tin cậy khoảng 18–24 tháng bởi chuyên gia đủ điều kiện, đặc biệt khi phụ huynh và bác sĩ nhi khoa hành động sớm." },
-          { "q": "Con tôi có cần chẩn đoán để được liệu pháp ABA không?", "a": "Nhiều gói bảo hiểm yêu cầu chẩn đoán tự kỷ chính thức trước khi chi trả liệu pháp ABA. Eden ABA Therapy có thể giúp gia đình hiểu yêu cầu intake và bảo hiểm." },
-          { "q": "Nếu tôi không chắc nên làm bước nào?", "a": "Bắt đầu với sàng lọc hoặc đặt lịch trực tuyến để đội ngũ Eden ABA Therapy hướng dẫn gia đình bạn bước tiếp theo phù hợp." }
+          {
+            "q": "Sàng lọc có chẩn đoán tự kỷ không?",
+            "a": "Không. Sàng lọc giúp xác định có nên đánh giá thêm không. Chỉ chuyên gia đủ điều kiện mới có thể chẩn đoán tự kỷ dựa trên tiền sử phát triển và quan sát lâm sàng."
+          },
+          {
+            "q": "Khi nào tôi nên nói chuyện với bác sĩ?",
+            "a": "Nói chuyện với bác sĩ nhi khoa nếu bạn nhận thấy chậm phát triển, mất kỹ năng, giao tiếp hạn chế hoặc khác biệt xã hội."
+          },
+          {
+            "q": "Tự kỷ có thể được chẩn đoán sớm không?",
+            "a": "Nhiều trẻ có thể được đánh giá đáng tin cậy khoảng 18–24 tháng bởi chuyên gia đủ điều kiện, đặc biệt khi phụ huynh và bác sĩ nhi khoa hành động sớm."
+          },
+          {
+            "q": "Con tôi có cần chẩn đoán để được liệu pháp ABA không?",
+            "a": "Nhiều gói bảo hiểm yêu cầu chẩn đoán tự kỷ chính thức trước khi chi trả liệu pháp ABA. Eden ABA Therapy có thể giúp gia đình hiểu yêu cầu intake và bảo hiểm."
+          },
+          {
+            "q": "Nếu tôi không chắc nên làm bước nào?",
+            "a": "Bắt đầu với sàng lọc hoặc đặt lịch trực tuyến để đội ngũ Eden ABA Therapy hướng dẫn gia đình bạn bước tiếp theo phù hợp."
+          }
         ]
       },
       "helpfulResources": {
         "title": "Tài nguyên hữu ích",
         "intro": "Các nguồn đáng tin cậy này cung cấp thông tin dựa trên bằng chứng về tự kỷ, can thiệp sớm và lựa chọn bảo hiểm.",
         "links": [
-          { "label": "CDC — Rối loạn phổ tự kỷ", "url": "https://www.cdc.gov/autism/index.html" },
-          { "label": "NIH — Thông tin tự kỷ", "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd" },
-          { "label": "AAP — Tự kỷ", "url": "https://www.healthychildren.org/English/health-issues/conditions/Autism/Pages/default.aspx" },
-          { "label": "Medicaid.gov", "url": "https://www.medicaid.gov/" },
-          { "label": "Virginia DMAS — Medicaid", "url": "https://www.dmas.virginia.gov/" },
-          { "label": "CDC — Learn the Signs. Act Early.", "url": "https://www.cdc.gov/ncbddd/actearly/index.html" },
-          { "label": "Autism Speaks — Tài nguyên gia đình", "url": "https://www.autismspeaks.org/tool-kit" }
+          {
+            "label": "CDC — Rối loạn phổ tự kỷ",
+            "url": "https://www.cdc.gov/autism/index.html"
+          },
+          {
+            "label": "NIH — Thông tin tự kỷ",
+            "url": "https://www.nimh.nih.gov/health/topics/autism-spectrum-disorders-asd"
+          },
+          {
+            "label": "AAP — Tự kỷ",
+            "url": "https://www.healthychildren.org/English/health-issues/conditions/Autism/Pages/default.aspx"
+          },
+          {
+            "label": "Medicaid.gov",
+            "url": "https://www.medicaid.gov/"
+          },
+          {
+            "label": "Virginia DMAS — Medicaid",
+            "url": "https://www.dmas.virginia.gov/"
+          },
+          {
+            "label": "CDC — Learn the Signs. Act Early.",
+            "url": "https://www.cdc.gov/ncbddd/actearly/index.html"
+          },
+          {
+            "label": "Autism Speaks — Tài nguyên gia đình",
+            "url": "https://www.autismspeaks.org/tool-kit"
+          }
         ]
       },
       "finalCta": {
         "title": "Bạn không phải tự mình tìm ra cách",
         "text": "Dù bạn đang nhận thấy dấu hiệu sớm, tìm đánh giá tự kỷ hay sẵn sàng bắt đầu liệu pháp ABA, Eden ABA Therapy ở đây để giúp gia đình bạn bước tiếp theo.",
-        "buttons": { "schedule": "Đặt lịch trực tuyến", "screener": "Bắt đầu sàng lọc tự kỷ", "contact": "Liên hệ Eden ABA" }
+        "buttons": {
+          "schedule": "Đặt lịch trực tuyến",
+          "screener": "Bắt đầu sàng lọc tự kỷ",
+          "contact": "Liên hệ Eden ABA"
+        }
       }
     },
     "autismScreenerFaqs": {
@@ -4149,12 +5136,1285 @@
         "autism": "Learn about autism",
         "intake": "Get started with Eden ABA"
       }
+    },
+    "outcomesFamilyStories": {
+      "meta": {
+        "title": "Kết quả & Câu chuyện gia đình | Eden ABA Therapy",
+        "description": "Khám phá kết quả liệu pháp ABA, câu chuyện thành công của gia đình, đo lường tiến bộ, sẵn sàng đi học và chăm sóc dựa trên bằng chứng tại Eden ABA Therapy."
+      },
+      "hero": {
+        "breadcrumb": [
+          "Liệu pháp ABA",
+          "Thông tin tiếp nhận",
+          "Kết quả & Câu chuyện gia đình"
+        ],
+        "badge": "Thông tin tiếp nhận",
+        "title": "Kết quả & Câu chuyện gia đình",
+        "subtitle": "Khám phá cách liệu pháp ABA cá nhân hóa giúp trẻ xây dựng giao tiếp, độc lập, tự tin và kỹ năng sống trong khi hỗ trợ gia đình suốt hành trình tự kỷ.",
+        "primaryButton": "Khám phá câu chuyện thành công",
+        "secondaryButton": "Tìm dịch vụ ABA",
+        "imageAlt": "Nhà trị liệu và trẻ luyện kỹ năng giao tiếp trong buổi liệu pháp ABA ấm áp"
+      },
+      "stories": {
+        "title": "Tiến bộ thật. Gia đình thật.",
+        "intro": "Hành trình của mỗi trẻ là duy nhất. Những câu chuyện này phản ánh loại phát triển mà gia đình thường trải nghiệm khi liệu pháp được cá nhân hóa, nhất quán và được hỗ trợ bởi đội ngũ lâm sàng tận tâm.",
+        "disclaimer": "Câu chuyện được chia sẻ với sự cho phép và đại diện cho trải nghiệm cá nhân. Kết quả khác nhau tùy theo nhu cầu, mục tiêu và sự tham gia của gia đình.",
+        "items": [
+          {
+            "parent": "Maria L.",
+            "childAge": "Trẻ 4",
+            "category": "Kỹ năng giao tiếp",
+            "story": "Khi bắt đầu, con trai chúng tôi hiếm khi dùng lời để yêu cầu. Sau vài tháng liệu pháp nhất quán, con bắt đầu dùng cụm từ ngắn, chỉ tay có mục đích và phản hồi khi được gọi tên.",
+            "achievements": [
+              "Bắt đầu dùng yêu cầu 2–3 từ",
+              "Cải thiện giao tiếp bằng mắt khi chơi",
+              "Ít căng thẳng trong thói quen hàng ngày"
+            ]
+          },
+          {
+            "parent": "James & Priya R.",
+            "childAge": "Trẻ 5",
+            "category": "Sẵn sàng đi học",
+            "story": "Mẫu giáo ban đầu khiến con gái choáng ngợp. Eden giúp con luyện ngồi trong hoạt động nhóm, làm theo hướng dẫn đơn giản và chuyển đổi nhiệm vụ với ít lo lắng hơn.",
+            "achievements": [
+              "Làm theo thói quen lớp với gợi ý",
+              "Tham gia hoạt động nhóm nhỏ",
+              "Dùng lịch trực quan ở nhà"
+            ]
+          },
+          {
+            "parent": "Daniel K.",
+            "childAge": "Trẻ 3",
+            "category": "Tập vệ sinh",
+            "story": "Tập vệ sinh từng gây căng thẳng cho cả gia đình. Đội ngũ chia kỹ năng thành các bước nhỏ và hướng dẫn chúng tôi duy trì nhất quán giữa các buổi.",
+            "achievements": [
+              "Thói quen vệ sinh thành công ở nhà",
+              "Ít tai nạn ban ngày hơn",
+              "Tăng độc lập khi mặc quần áo"
+            ]
+          },
+          {
+            "parent": "Aisha M.",
+            "childAge": "Trẻ 6",
+            "category": "Kỹ năng xã hội",
+            "story": "Con gái muốn chơi cùng bạn nhưng không biết cách tham gia. Liệu pháp tập trung vào luân phiên, chia sẻ và luyện chào hỏi trong môi trường chơi có cấu trúc.",
+            "achievements": [
+              "Chủ động chơi với anh chị em",
+              "Luân phiên trong trò chơi",
+              "Dùng cụm từ lịch sự với bạn"
+            ]
+          },
+          {
+            "parent": "Christopher & Elena V.",
+            "childAge": "Trẻ 7",
+            "category": "Điều hòa cảm xúc",
+            "story": "Cơn meltdown xảy ra nhiều lần mỗi ngày. Chúng tôi học chiến lược bình tĩnh, hành vi thay thế và cách phản hồi nhất quán để con phục hồi nhanh hơn.",
+            "achievements": [
+              "Tự dùng bộ dụng cụ bình tĩnh",
+              "Phục hồi nhanh hơn sau cơn upset",
+              "Linh hoạt hơn với thay đổi lịch trình"
+            ]
+          },
+          {
+            "parent": "Jennifer T.",
+            "childAge": "Trẻ 8",
+            "category": "Kỹ năng sống độc lập",
+            "story": "Chúng tôi muốn con tự làm nhiều việc hơn ở nhà. Mục tiêu bao gồm mặc quần áo, đánh răng, xếp ba lô và hoàn thành thói quen buổi sáng với ít hỗ trợ hơn.",
+            "achievements": [
+              "Thói quen buổi sáng với ít gợi ý",
+              "Chuẩn bị đồ ăn nhẹ đơn giản",
+              "Sắp xếp đồ đạc trước khi đi học"
+            ]
+          }
+        ]
+      },
+      "measure": {
+        "title": "Thành công trông như thế nào",
+        "items": [
+          {
+            "title": "Phát triển giao tiếp",
+            "description": "We track how children express needs, respond to others, and build functional language across home and community settings.",
+            "milestonesLabel": "Ví dụ cột mốc",
+            "milestones": [
+              "Requesting preferred items",
+              "Answering simple questions",
+              "Using gestures or AAC tools"
+            ],
+            "whyItMatters": "Communication reduces frustration and helps children participate more fully in daily life."
+          },
+          {
+            "title": "Tương tác xã hội",
+            "description": "Social goals focus on engagement, joint attention, play skills, and meaningful interaction with caregivers and peers.",
+            "milestonesLabel": "Ví dụ cột mốc",
+            "milestones": [
+              "Turn-taking in play",
+              "Responding to name",
+              "Sharing attention during activities"
+            ],
+            "whyItMatters": "Social connection supports friendships, learning, and confidence in group settings."
+          },
+          {
+            "title": "Kỹ năng sống hàng ngày",
+            "description": "Independence with routines like dressing, hygiene, meals, and transitions is measured through repeated practice and generalization.",
+            "milestonesLabel": "Ví dụ cột mốc",
+            "milestones": [
+              "Toileting progress",
+              "Mealtime participation",
+              "Following multi-step routines"
+            ],
+            "whyItMatters": "Daily living skills help families manage routines with less stress and more predictability."
+          },
+          {
+            "title": "Điều hòa cảm xúc",
+            "description": "Therapists monitor how children cope with change, sensory input, and challenging moments using individualized support plans.",
+            "milestonesLabel": "Ví dụ cột mốc",
+            "milestones": [
+              "Using coping strategies",
+              "Shorter meltdown duration",
+              "Tolerating transitions"
+            ],
+            "whyItMatters": "Regulation skills help children feel safer, calmer, and more ready to learn."
+          },
+          {
+            "title": "Độc lập",
+            "description": "We celebrate steps toward doing tasks with less prompting, from play choices to self-care and community participation.",
+            "milestonesLabel": "Ví dụ cột mốc",
+            "milestones": [
+              "Completing tasks with fewer prompts",
+              "Making choices independently",
+              "Generalizing skills across settings"
+            ],
+            "whyItMatters": "Independence builds confidence and prepares children for school and community life."
+          },
+          {
+            "title": "Tự tin gia đình",
+            "description": "Parents and caregivers are partners in therapy. We track how supported families feel implementing strategies at home.",
+            "milestonesLabel": "Ví dụ cột mốc",
+            "milestones": [
+              "Using strategies between sessions",
+              "Understanding progress reports",
+              "Feeling prepared for transitions"
+            ],
+            "whyItMatters": "When families feel confident, progress continues beyond the therapy room."
+          }
+        ]
+      },
+      "tracking": {
+        "title": "Cách chúng tôi đo lường tiến bộ",
+        "flowTitle": "Lộ trình tiến bộ",
+        "flowSteps": [
+          "Đánh giá",
+          "Lập kế hoạch mục tiêu",
+          "Buổi liệu pháp",
+          "Xem xét tiến bộ",
+          "Hướng dẫn gia đình",
+          "Cột mốc thành tựu"
+        ],
+        "points": [
+          {
+            "title": "Đánh giá",
+            "text": "Chúng tôi bắt đầu bằng việc xem xét cẩn thận điểm mạnh, nhu cầu và kỹ năng hiện tại của con bạn để thiết lập điểm xuất phát rõ ràng."
+          },
+          {
+            "title": "Thiết lập mục tiêu",
+            "text": "Gia đình và đội lâm sàng cùng xây dựng mục tiêu có ý nghĩa, đo lường được phản ánh cuộc sống hàng ngày, trường học và ưu tiên dài hạn."
+          },
+          {
+            "title": "Xem xét tiến bộ",
+            "text": "BCBA xem xét dữ liệu thường xuyên để xác định điều gì hiệu quả, cần điều chỉnh gì và khi nào kỹ năng sẵn sàng mở rộng."
+          },
+          {
+            "title": "Phản hồi phụ huynh",
+            "text": "Quan sát của bạn ở nhà và cộng đồng giúp chúng tôi tinh chỉnh chiến lược và ghi nhận tiến bộ thực tế."
+          },
+          {
+            "title": "Giám sát BCBA",
+            "text": "BCBA giám sát kế hoạch điều trị, đào tạo nhà trị liệu và đảm bảo chăm sóc luôn cá nhân hóa."
+          },
+          {
+            "title": "Theo dõi thành thạo kỹ năng",
+            "text": "Chúng tôi ghi nhận việc học kỹ năng và khái quát hóa để gia đình thấy sự phát triển theo thời gian."
+          }
+        ]
+      },
+      "dashboard": {
+        "title": "Kết quả có ý nghĩa",
+        "intro": "Eden ABA Therapy theo dõi tiến bộ về giao tiếp, tương tác xã hội, kỹ năng sống hàng ngày và sự tham gia của gia đình. Các con số dưới đây là ví dụ minh họa các loại mục tiêu gia đình thường hướng tới.",
+        "note": "Chỉ là số liệu minh họa. Kết quả cá nhân khác nhau tùy hồ sơ trẻ, cường độ điều trị và sự tham gia của gia đình.",
+        "metrics": [
+          {
+            "label": "Communication Goal Achievement",
+            "value": 89
+          },
+          {
+            "label": "Parent Satisfaction",
+            "value": 97
+          },
+          {
+            "label": "Social Engagement Growth",
+            "value": 85
+          },
+          {
+            "label": "Daily Living Skill Progress",
+            "value": 83
+          },
+          {
+            "label": "School Readiness Development",
+            "value": 87
+          }
+        ],
+        "bars": [
+          {
+            "label": "Gia đình tham gia kế hoạch chăm sóc",
+            "value": 95
+          },
+          {
+            "label": "Mục tiêu cập nhật theo dữ liệu tiến bộ",
+            "value": 91
+          }
+        ]
+      },
+      "school": {
+        "title": "Chuẩn bị trẻ thành công ở trường",
+        "intro": "School readiness is about more than academics. We help children build the routines, communication, and independence they need to participate confidently in classroom environments.",
+        "focusAreas": [
+          "Làm theo thói quen lớp học",
+          "Tương tác bạn bè và tham gia nhóm",
+          "Độc lập khi chuyển đổi",
+          "Lắng nghe và phản hồi hướng dẫn",
+          "Sẵn sàng với môi trường và lịch trình mới"
+        ],
+        "beforeLabel": "Trước khi có hỗ trợ tập trung",
+        "beforeItems": [
+          "Difficulty staying seated during group time",
+          "Limited peer interaction",
+          "Needs frequent adult redirection",
+          "Challenging transitions between activities",
+          "Relies heavily on caregiver prompts"
+        ],
+        "afterLabel": "Với hỗ trợ ABA nhất quán",
+        "afterItems": [
+          "Participates in structured group activities",
+          "Initiates or joins peer play with support",
+          "Follows visual schedules and classroom routines",
+          "Transitions with fewer disruptions",
+          "Builds independence with daily school tasks"
+        ],
+        "imageAlt": "Trẻ luyện hoạt động sẵn sàng đi học với nhà trị liệu hỗ trợ"
+      },
+      "family": {
+        "title": "Hỗ trợ toàn bộ gia đình",
+        "intro": "Liệu pháp ABA hiệu quả nhất khi gia đình cảm thấy được trang bị, thông tin đầy đủ và hỗ trợ. Eden ABA Therapy cung cấp huấn luyện, hướng dẫn và công cụ thực tế cho người chăm sóc.",
+        "metrics": [
+          {
+            "value": "92%",
+            "label": "Sử dụng chiến lược",
+            "detail": "Gia đình báo cáo áp dụng chiến lược giữa các buổi"
+          },
+          {
+            "value": "88%",
+            "label": "Giảm căng thẳng hàng ngày",
+            "detail": "Phụ huynh cảm thấy thói quen ở nhà dễ quản lý hơn"
+          },
+          {
+            "value": "94%",
+            "label": "Hiểu tiến bộ",
+            "detail": "Gia đình rõ ràng về mục tiêu và bước tiếp theo"
+          },
+          {
+            "value": "90%",
+            "label": "Nhất quán ở nhà",
+            "detail": "Người chăm sóc áp dụng khuyến nghị ở nhiều môi trường"
+          }
+        ],
+        "pillars": [
+          {
+            "title": "Huấn luyện phụ huynh",
+            "text": "BCBA và nhà trị liệu mô phỏng chiến lược và giúp người chăm sóc luyện tập trong thói quen hàng ngày."
+          },
+          {
+            "title": "Hướng dẫn gia đình",
+            "text": "Chúng tôi giải thích tiến bộ bằng ngôn ngữ dễ hiểu và kết nối gia đình với tài nguyên hỗ trợ."
+          },
+          {
+            "title": "Nhất quán ở nhà",
+            "text": "Khi nhà và đội liệu pháp phối hợp, trẻ khái quát hóa kỹ năng nhanh hơn và tự tin hơn."
+          },
+          {
+            "title": "Tự tin người chăm sóc",
+            "text": "Gia đình học cách phản hồi thách thức, củng cố thành công và bảo vệ quyền lợi con."
+          }
+        ]
+      },
+      "evidence": {
+        "title": "Cải tiến liên tục thông qua dữ liệu",
+        "intro": "Eden ABA Therapy sử dụng phương pháp dựa trên bằng chứng, giám sát lâm sàng và đánh giá chất lượng liên tục. Chúng tôi tập trung vào chăm sóc minh bạch, có trách nhiệm.",
+        "closing": "Đội ngũ thường xuyên xem xét dữ liệu điều trị, chất lượng chương trình và phản hồi gia đình. Chúng tôi không đưa ra nghiên cứu giả mạo; thay vào đó nhấn mạnh mục tiêu đo lường được và cải tiến liên tục.",
+        "imageAlt": "Đội lâm sàng xem xét dữ liệu tiến bộ cá nhân hóa với gia đình",
+        "cards": [
+          {
+            "title": "Theo dõi kết quả",
+            "text": "Nhà trị liệu thu thập dữ liệu trong buổi để nhìn thấy xu hướng, ghi nhận thành thạo và điều chỉnh mục tiêu."
+          },
+          {
+            "title": "Xem xét lâm sàng",
+            "text": "BCBA giám sát tính toàn vẹn điều trị, đào tạo nhà trị liệu và kế hoạch cá nhân hóa."
+          },
+          {
+            "title": "Đánh giá chương trình",
+            "text": "Lãnh đạo và nhân viên lâm sàng xem xét chất lượng dịch vụ, tiêu chuẩn tài liệu và trải nghiệm gia đình."
+          },
+          {
+            "title": "Phản hồi gia đình",
+            "text": "Ý kiến phụ huynh giúp cải thiện giao tiếp, lịch trình, huấn luyện và trải nghiệm tiếp nhận."
+          }
+        ]
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "intro": "Tìm hiểu cách Eden ABA Therapy đo lường tiến bộ, thu hút gia đình và hỗ trợ trẻ khi mục tiêu phát triển.",
+        "items": [
+          {
+            "q": "Làm thế nào để đo tiến bộ ABA?",
+            "a": "Tiến bộ được đo qua dữ liệu buổi, theo dõi kỹ năng và xem xét BCBA thường xuyên. Chúng tôi xem trẻ có học kỹ năng, dùng ở môi trường mới và duy trì tiến bộ không."
+          },
+          {
+            "q": "Mục tiêu được cập nhật bao lâu một lần?",
+            "a": "Mục tiêu được xem xét liên tục và cập nhật khi trẻ thành thạo kỹ năng, cần thêm hỗ trợ hoặc ưu tiên gia đình thay đổi."
+          },
+          {
+            "q": "Phụ huynh tham gia như thế nào?",
+            "a": "Phụ huynh là đối tác thiết yếu. Chúng tôi cung cấp huấn luyện, cập nhật tiến bộ và chiến lược thực tế ở nhà, trường và cộng đồng."
+          },
+          {
+            "q": "Liệu pháp ABA kéo dài bao lâu?",
+            "a": "Thời gian phụ thuộc nhu cầu, mục tiêu và cường độ điều trị được khuyến nghị. Một số gia đình cần hỗ trợ ngắn hạn; số khác cần chăm sóc dài hạn với mục tiêu phát triển."
+          },
+          {
+            "q": "Làm thế nào đánh giá sẵn sàng đi học?",
+            "a": "Chúng tôi đánh giá thói quen, giao tiếp, độc lập, tương tác bạn bè và kỹ năng chuyển đổi quan trọng trong lớp học. Mục tiêu được cá nhân hóa."
+          },
+          {
+            "q": "Điều gì xảy ra sau khi đạt mục tiêu?",
+            "a": "Khi đạt mục tiêu, chúng tôi có thể giảm hỗ trợ, chuyển sang duy trì và khái quát hóa, hoặc chuyển sang giai đoạn kỹ năng tiếp theo."
+          },
+          {
+            "q": "Kết quả có khác nhau giữa các trẻ không?",
+            "a": "Có. Mỗi trẻ phát triển theo nhịp riêng. Tuổi, mức giao tiếp, cường độ điều trị và sự tham gia gia đình đều ảnh hưởng tiến bộ."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Sẵn sàng bắt đầu câu chuyện thành công của con bạn?",
+        "text": "Liên hệ đội tiếp nhận để tìm hiểu cách liệu pháp ABA hỗ trợ sự phát triển của con và giúp gia đình bạn phát triển.",
+        "scheduleButton": "Đặt lịch tư vấn",
+        "admissionsButton": "Liên hệ tiếp nhận",
+        "findCenterButton": "Tìm trung tâm"
+      }
+    },
+    "centerBasedAbaTherapy": {
+      "meta": {
+        "title": "Liệu pháp ABA tại trung tâm cho tự kỷ | Eden ABA Therapy",
+        "description": "Liệu pháp ABA tại trung tâm tại Eden ABA Therapy cung cấp hỗ trợ tự kỷ có cấu trúc với giảng dạy cá nhân hóa, luyện tập với bạn bè, giám sát BCBA và hợp tác gia đình."
+      },
+      "hero": {
+        "eyebrow": "Dịch vụ liệu pháp ABA tại trung tâm",
+        "breadcrumb": [
+          "Liệu pháp ABA",
+          "Dịch vụ",
+          "ABA tại trung tâm"
+        ],
+        "title": "Liệu pháp ABA tại trung tâm hỗ trợ tự kỷ",
+        "paragraph": "Center-based ABA therapy provides children with autism a structured, supportive environment where learning can happen through consistent routines, individualized teaching, and hands-on clinical support. In a dedicated ABA therapy center, children work one-on-one with trained therapy staff while practicing communication, social, behavior, school-readiness, and daily living skills in a setting designed for progress.",
+        "cta": "Tìm trung tâm liệu pháp ABA gần tôi",
+        "imageAlt": "Nhà trị liệu và trẻ luyện kỹ năng trong trung tâm Eden ABA ấm áp"
+      },
+      "centers": {
+        "title": "Trung tâm liệu pháp ABA của chúng tôi",
+        "text": "Our ABA therapy centers are designed to give children a safe, organized, and engaging place to learn. Center-based services allow children to receive individualized ABA therapy while also having opportunities to practice skills with peers, follow structured routines, and participate in developmentally appropriate activities. Treatment is typically guided by Board Certified Behavior Analysts and delivered with support from trained behavior technicians.",
+        "cta": "Tìm liệu pháp ABA gần tôi",
+        "imageAlt": "Bright, welcoming Eden ABA therapy center with play-based learning spaces"
+      },
+      "whatIs": {
+        "title": "Liệu pháp ABA tại trung tâm là gì?",
+        "paragraphs": [
+          "Center-based ABA therapy is Applied Behavior Analysis delivered in a clinic or learning center instead of the home, school, or community. The setting is intentionally arranged to reduce distractions, support consistent teaching, and give children access to therapy rooms, learning materials, social practice opportunities, and clinical resources.",
+          "ABA is a behavioral treatment that uses evidence-based strategies to increase helpful skills and reduce behaviors that interfere with learning or safety. Goals may include communication, social interaction, independence, classroom readiness, emotional regulation, play skills, and behavior reduction.",
+          "According to guidance from the CDC, ABA can encourage desired behaviors, discourage undesired behaviors, and track progress over time. Autism Speaks notes that ABA can be individualized, provided in multiple settings, and include one-on-one or group teaching. Eden ABA Therapy follows professional practice standards that emphasize individualized, clinically appropriate treatment supervised by qualified behavior analysts."
+        ],
+        "researchLabel": "Evidence-informed care",
+        "researchNote": "Registered Behavior Technicians (RBTs) and behavior technicians typically deliver direct therapy under ongoing BCBA supervision, consistent with BACB practice standards. Treatment plans should be individualized to each child's needs, as recommended by professional ABA practice guidance."
+      },
+      "benefits": {
+        "title": "Lợi ích của liệu pháp ABA tại trung tâm",
+        "intro": "Clinic-based ABA therapy may support children who benefit from structure, repetition, and access to therapy materials in a dedicated learning environment. Benefits can vary by child, program intensity, and family participation.",
+        "subtitle": "Benefits of center-based ABA therapy may include:",
+        "items": [
+          {
+            "title": "Peer Interaction",
+            "text": "Children can practice social communication, turn-taking, group participation, and play skills with peers in a supervised setting."
+          },
+          {
+            "title": "Structured Routine",
+            "text": "A predictable daily schedule may help children build consistency, transitions, independence, and learning readiness."
+          },
+          {
+            "title": "Clinical Support",
+            "text": "Center teams can provide access to therapy materials, observation spaces, supervision, and additional staff support when needed."
+          },
+          {
+            "title": "Fewer Distractions",
+            "text": "A clinic-based environment can reduce common home distractions and help children focus on skill development."
+          },
+          {
+            "title": "School Readiness",
+            "text": "Center-based therapy can include group activities, following instructions, transitions, sitting for tasks, and classroom-like routines."
+          },
+          {
+            "title": "Parent Collaboration",
+            "text": "Families can receive updates, caregiver training, and practical strategies designed to support progress outside the center."
+          }
+        ],
+        "testimonial": {
+          "quote": "The consistency of the center helped our son follow routines more confidently. We noticed improvements in communication and focus after several months of structured support.",
+          "attribution": "Eden ABA Therapy Parent"
+        }
+      },
+      "fit": {
+        "title": "Liệu pháp ABA tại trung tâm có phù hợp với con bạn?",
+        "text": "Center-based ABA therapy may be a good fit for children who benefit from structure, repetition, peer interaction, and a learning environment designed specifically for therapy. A clinical team should assess each child's needs and recommend the setting that best supports communication, behavior, independence, and family goals.",
+        "cta": "Find a Location"
+      },
+      "serviceSettings": {
+        "title": "Hình thức dịch vụ",
+        "intro": "We provide ABA therapy in different settings to meet your child's specific needs.",
+        "items": [
+          {
+            "title": "Liệu pháp ABA tại nhà",
+            "text": "Xây dựng kỹ năng trong môi trường tự nhiên của trẻ với huấn luyện người chăm sóc.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          },
+          {
+            "title": "Liệu pháp ABA tại cộng đồng",
+            "text": "Luyện kỹ năng ở công viên, cửa hàng và các hoạt động xã hội với hỗ trợ lâm sàng.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          },
+          {
+            "title": "Liệu pháp ABA tại trường",
+            "text": "Hợp tác với đội ngũ trường để hỗ trợ mục tiêu lớp học và chuyển tiếp.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          },
+          {
+            "title": "Liệu pháp ABA trực tuyến",
+            "text": "Tùy chọn telehealth và huấn luyện phụ huynh từ xa khi phù hợp với kế hoạch của trẻ.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          }
+        ]
+      },
+      "programs": {
+        "title": "Đối tượng phục vụ & Chương trình",
+        "intro": "Our center-based ABA programs support children at different developmental stages, from early learners to adolescents.",
+        "secondary": "Services can be adapted for children who need help with communication, behavior, social skills, independence, transitions, school readiness, or daily routines.",
+        "items": [
+          {
+            "title": "Early Intervention ABA Therapy",
+            "text": "Play-based support for young learners building communication, play, and daily routines.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "ABA Therapy for Children",
+            "text": "Individualized programs focused on school readiness, social skills, and independence.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Adolescent ABA Programs",
+            "text": "Support for older children and teens working on life skills, regulation, and transitions.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Social Skills Support",
+            "text": "Structured practice with peers for communication, play, and group participation.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Parent Training",
+            "text": "Caregiver coaching designed to help families support progress at home and in the community.",
+            "cta": "Learn More"
+          },
+          {
+            "title": "Specialty Services",
+            "text": "Additional clinical support based on individualized assessment and family goals.",
+            "cta": "Learn More"
+          }
+        ]
+      },
+      "findCenter": {
+        "title": "Tìm trung tâm gần bạn",
+        "text": "Families looking for center-based ABA therapy can search by zip code or city to find nearby ABA services. The goal is to connect each child with a welcoming clinical environment, a supportive care team, and an individualized plan built around meaningful progress.",
+        "placeholder": "Search by zip or city",
+        "button": "Find ABA Therapy Near Me"
+      },
+      "gallery": {
+        "title": "Thư viện ảnh",
+        "intro": "Take a look at the welcoming, structured environments where Eden ABA Therapy supports children and families.",
+        "alts": [
+          "Therapy room with learning materials and child-friendly furniture",
+          "Therapist engaging a child in play-based ABA activities",
+          "Group learning area designed for social and school-readiness practice",
+          "Parent meeting space for caregiver collaboration and updates",
+          "Bright clinic hallway with welcoming, family-friendly design",
+          "Skill-building session with individualized teaching materials"
+        ]
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "intro": "Common questions about center-based ABA therapy, supervision, and how clinic-based services compare to other settings.",
+        "items": [
+          {
+            "q": "What happens at a center-based ABA therapy session?",
+            "a": "Sessions may include one-on-one teaching, play-based learning, communication practice, behavior support, peer activities, daily living skills, and caregiver updates."
+          },
+          {
+            "q": "How is center-based ABA different from home-based ABA?",
+            "a": "Center-based ABA happens in a clinic setting with structured rooms, therapy materials, peer opportunities, and clinical supervision. Home-based ABA focuses on skills in the child's natural home environment."
+          },
+          {
+            "q": "Who supervises ABA therapy?",
+            "a": "ABA programs are commonly supervised by Board Certified Behavior Analysts, while direct therapy may be delivered by trained behavior technicians or Registered Behavior Technicians under supervision."
+          },
+          {
+            "q": "What skills can children learn in center-based ABA?",
+            "a": "Goals may include communication, social skills, play skills, following directions, transitions, classroom readiness, independence, and reducing challenging behaviors."
+          },
+          {
+            "q": "Is center-based ABA right for every child?",
+            "a": "Not always. The best setting depends on the child's needs, family goals, availability, and clinical recommendation."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Bắt đầu dịch vụ ABA tại trung tâm tại Eden ABA Therapy",
+        "text": "Find clinic-based ABA therapy for children with autism near you. Our admissions team can help you explore intake, insurance, and the right program for your family.",
+        "startButton": "Get Started",
+        "findButton": "Find a Center"
+      }
+    },
+    "homeBasedAbaTherapy": {
+      "meta": {
+        "title": "Liệu pháp ABA tại nhà cho tự kỷ | Dịch vụ ABA tại nhà | Eden ABA Therapy",
+        "description": "Liệu pháp ABA tại nhà mang hỗ trợ tự kỷ dựa trên bằng chứng đến gia đình Bắc Virginia. Kế hoạch cá nhân hóa, huấn luyện người chăm sóc, giám sát BCBA và lịch trình linh hoạt trong môi trường tự nhiên của trẻ."
+      },
+      "hero": {
+        "eyebrow": "Liệu pháp ABA trong sự thoải mái tại nhà",
+        "breadcrumb": [
+          "Liệu pháp ABA",
+          "Dịch vụ",
+          "Liệu pháp ABA tại nhà"
+        ],
+        "title": "Liệu pháp ABA tại nhà & Hỗ trợ tự kỷ",
+        "paragraphs": [
+          "Liệu pháp ABA tại nhà mang điều trị tự kỷ dựa trên bằng chứng trực tiếp vào môi trường hằng ngày của con bạn. Bằng cách cung cấp dịch vụ Phân tích Hành vi Ứng dụng tại nhà, trẻ có thể luyện tập giao tiếp, kỹ năng xã hội, hành vi và sinh hoạt hằng ngày nơi chúng tự nhiên xảy ra.",
+          "Đội ngũ lâm sàng kinh nghiệm của chúng tôi phát triển kế hoạch điều trị cá nhân hóa xoay quanh điểm mạnh, thách thức, mục tiêu phát triển và ưu tiên gia đình của trẻ. Liệu pháp được thực hiện bởi chuyên gia được đào tạo bài bản dưới giám sát lâm sàng liên tục, giúp trẻ học kỹ năng có ý nghĩa đồng thời trao quyền cho người chăm sóc hỗ trợ tiến bộ trong thói quen hằng ngày."
+        ],
+        "cta": "Tìm liệu pháp ABA gần tôi",
+        "imageAlt": "Nhà trị liệu và trẻ thực hành liệu pháp ABA tại nhà trong không gian gia đình thoải mái"
+      },
+      "whatIs": {
+        "title": "Liệu pháp ABA tại nhà là gì?",
+        "paragraphs": [
+          "Liệu pháp ABA tại nhà là Phân tích Hành vi Ứng dụng được thực hiện trong môi trường nhà của trẻ. Thay vì đi đến phòng khám, liệu pháp diễn ra nơi trẻ dành phần lớn thời gian trong ngày, cho phép cơ hội học tập xảy ra tự nhiên trong các hoạt động và thói quen hằng ngày.",
+          "Chương trình ABA được nghiên cứu hỗ trợ sử dụng củng cố tích cực, thu thập dữ liệu, chiến lược xây dựng kỹ năng và lập kế hoạch điều trị cá nhân hóa để giúp trẻ phát triển giao tiếp, độc lập, tương tác xã hội, điều hòa cảm xúc và kỹ năng sinh hoạt thích ứng.",
+          "Buổi trị liệu thường do Kỹ thuật viên Hành vi Đăng ký (RBT) thực hiện dưới giám sát của Nhà phân tích Hành vi BCertified (BCBA), đảm bảo điều trị tuân theo tiêu chuẩn lâm sàng và phù hợp với tiến bộ của từng trẻ.",
+          "Vì liệu pháp diễn ra trong môi trường quen thuộc, trẻ có thể cảm thấy thoải mái hơn khi luyện tập kỹ năng ảnh hưởng trực tiếp đến cuộc sống hằng ngày, bao gồm bữa ăn, vệ sinh, chuyển tiếp, vui chơi, giao tiếp và tương tác gia đình."
+        ],
+        "calloutTitle": "Vì sao gia đình chọn ABA tại nhà",
+        "calloutItems": [
+          "Học tập diễn ra trong môi trường tự nhiên của trẻ.",
+          "Thành viên gia đình có thể tham gia tích cực vào điều trị.",
+          "Kỹ năng có thể được luyện tập trong thói quen hằng ngày.",
+          "Mục tiêu cá nhân hóa phù hợp với tình huống thực tế.",
+          "Kế hoạch điều trị có thể điều chỉnh khi nhu cầu thay đổi."
+        ]
+      },
+      "benefits": {
+        "title": "Lợi ích của liệu pháp ABA tại nhà",
+        "items": [
+          {
+            "title": "Sự tham gia của gia đình",
+            "text": "Phụ huynh và người chăm sóc có cơ hội trực tiếp quan sát liệu pháp, học chiến lược và củng cố kỹ năng giữa các buổi."
+          },
+          {
+            "title": "Luyện tập kỹ năng thực tế",
+            "text": "Trẻ luyện tập kỹ năng sinh hoạt hằng ngày đúng nơi chúng được sử dụng, giúp thúc đẩy khái quát hóa và độc lập."
+          },
+          {
+            "title": "Môi trường quen thuộc",
+            "text": "Nhận liệu pháp tại nhà có thể giảm căng thẳng liên quan đến môi trường lạ và di chuyển."
+          },
+          {
+            "title": "Học tập cá nhân hóa",
+            "text": "Chương trình được cá nhân hóa theo thói quen tại nhà, sở thích, điểm mạnh và nhu cầu phát triển của trẻ."
+          },
+          {
+            "title": "Lịch trình linh hoạt",
+            "text": "Dịch vụ tại nhà thường có thể phù hợp với lịch gia đình đồng thời giảm nhu cầu di chuyển."
+          },
+          {
+            "title": "Cơ hội giao tiếp tự nhiên",
+            "text": "Nhà trị liệu có thể hỗ trợ giao tiếp trong bữa ăn, vui chơi, hoạt động gia đình, tương tác anh chị em và chuẩn bị cộng đồng."
+          },
+          {
+            "title": "Cải thiện khái quát hóa kỹ năng",
+            "text": "Trẻ học cách sử dụng kỹ năng mới trong các môi trường chúng gặp thường xuyên nhất."
+          },
+          {
+            "title": "Huấn luyện & hướng dẫn phụ huynh",
+            "text": "Gia đình nhận công cụ và chiến lược thực tế để hỗ trợ tiến bộ ngoài buổi trị liệu chính thức."
+          }
+        ]
+      },
+      "whyChoose": {
+        "title": "Vì sao gia đình chọn dịch vụ ABA tại nhà",
+        "intro": "Nhiều trẻ học tốt nhất khi kỹ năng được luyện tập trong cùng môi trường nơi chúng sẽ sử dụng. Liệu pháp ABA tại nhà cho phép điều trị được tích hợp vào thói quen hằng ngày và cuộc sống gia đình.",
+        "skillsLabel": "Trẻ có thể làm việc với:",
+        "skills": [
+          "Kỹ năng giao tiếp",
+          "Làm theo chỉ dẫn",
+          "Kỹ năng tự giúp đỡ",
+          "Điều hòa cảm xúc",
+          "Thói quen hằng ngày",
+          "Kỹ năng vui chơi",
+          "Tương tác xã hội",
+          "Nhận thức an toàn",
+          "Kỹ năng sống độc lập",
+          "Kỹ năng sẵn sàng đi học"
+        ],
+        "checklist": [
+          "Kế hoạch điều trị cá nhân hóa",
+          "Hợp tác gia đình",
+          "Học tập thực tế",
+          "Lịch trình linh hoạt",
+          "Môi trường quen thuộc",
+          "Giám sát lâm sàng liên tục",
+          "Theo dõi tiến bộ",
+          "Liệu pháp theo mục tiêu"
+        ]
+      },
+      "preparing": {
+        "title": "Chuẩn bị cho liệu pháp ABA tại nhà",
+        "intro": "Tạo môi trường trị liệu hỗ trợ có thể giúp tối đa hóa cơ hội học tập và hiệu quả điều trị.",
+        "cards": [
+          {
+            "title": "Không gian học tập riêng",
+            "text": "Khu vực trị liệu nhất quán giúp giảm xao nhãng và thiết lập thói quen. Không gian lý tưởng an toàn, thoải mái và không bị gián đoạn không cần thiết."
+          },
+          {
+            "title": "Vật liệu & công cụ học tập",
+            "text": "Nhà trị liệu có thể sử dụng đồ chơi phù hợp lứa tuổi, hỗ trợ trực quan, công cụ giao tiếp, vật liệu cảm giác, trò chơi và tài nguyên giáo dục phù hợp mục tiêu điều trị."
+          },
+          {
+            "title": "Sự tham gia của người chăm sóc",
+            "text": "Sự tham gia của gia đình là một trong những điểm mạnh lớn nhất của ABA tại nhà. Người chăm sóc được khuyến khích hợp tác với nhà lâm sàng, đặt câu hỏi và học chiến lược hỗ trợ tiến bộ giữa các buổi."
+          },
+          {
+            "title": "Nhất quán trong thói quen",
+            "text": "Luyện tập kỹ năng trong bữa ăn, vui chơi, chuyển tiếp, thói quen đi ngủ và hoạt động gia đình giúp củng cố học tập và khái quát hóa."
+          }
+        ]
+      },
+      "comparison": {
+        "title": "ABA tại nhà so với ABA tại trung tâm",
+        "homeHeader": "ABA tại nhà",
+        "centerHeader": "ABA tại trung tâm",
+        "rows": [
+          [
+            "Liệu pháp tại nhà trẻ",
+            "Môi trường phòng khám có cấu trúc"
+          ],
+          [
+            "Người chăm sóc tham gia cao",
+            "Cơ hội tương tác với bạn bè"
+          ],
+          [
+            "Học tập trong môi trường tự nhiên",
+            "Phòng trị liệu chuyên dụng"
+          ],
+          [
+            "Tích hợp thói quen hằng ngày",
+            "Hoạt động sẵn sàng đi học"
+          ],
+          [
+            "Lịch trình linh hoạt",
+            "Giảm xao nhãng"
+          ],
+          [
+            "Luyện tập kỹ năng thực tế",
+            "Tiếp cận tài nguyên lâm sàng bổ sung"
+          ]
+        ],
+        "note": "Nhiều trẻ hưởng lợi từ sự kết hợp các môi trường. Khuyến nghị lâm sàng luôn nên được cá nhân hóa dựa trên nhu cầu của trẻ."
+      },
+      "internalLinks": {
+        "centerBased": "Liệu pháp ABA tại trung tâm",
+        "schoolBased": "Liệu pháp ABA tại trường",
+        "communityBased": "Liệu pháp ABA tại cộng đồng",
+        "virtual": "Liệu pháp ABA trực tuyến"
+      },
+      "programs": {
+        "title": "Chúng tôi phục vụ ai + Tùy chọn chương trình",
+        "items": [
+          {
+            "title": "Can thiệp sớm ABA",
+            "text": "Hỗ trợ trẻ mẫu giáo và mầm non trong những năm phát triển quan trọng."
+          },
+          {
+            "title": "ABA cho trẻ độ tuổi đi học",
+            "text": "Chương trình tập trung vào giao tiếp, độc lập, hỗ trợ hành vi và phát triển xã hội."
+          },
+          {
+            "title": "Chương trình ABA cho thanh thiếu niên",
+            "text": "Hỗ trợ phù hợp lứa tuổi cho thanh thiếu niên chuẩn bị độc lập và chuyển tiếp cuộc sống."
+          },
+          {
+            "title": "Dịch vụ đào tạo phụ huynh",
+            "text": "Huấn luyện và giáo dục giúp người chăm sóc hỗ trợ phát triển kỹ năng ngoài buổi trị liệu."
+          },
+          {
+            "title": "Chương trình hỗ trợ hành vi",
+            "text": "Can thiệp nhắm vào hành vi thách thức cản trở học tập hoặc sinh hoạt hằng ngày."
+          },
+          {
+            "title": "Phát triển kỹ năng xã hội",
+            "text": "Chương trình tập trung vào tương tác bạn bè, kỹ năng hội thoại, nhận thức cảm xúc và xây dựng mối quan hệ."
+          }
+        ]
+      },
+      "fit": {
+        "title": "Liệu pháp ABA tại nhà có phù hợp với con bạn?",
+        "paragraphs": [
+          "Mỗi trẻ học khác nhau. Liệu pháp ABA tại nhà có thể phù hợp với trẻ hưởng lợi từ học trong môi trường quen thuộc, cần sự tham gia cao của người chăm sóc, hoặc cần hỗ trợ với thói quen chủ yếu diễn ra tại nhà.",
+          "Đánh giá toàn diện giúp xác định liệu dịch vụ tại nhà, tại trung tâm, tại trường, tại cộng đồng hay kết hợp có phù hợp nhất."
+        ],
+        "cta": "Đặt lịch tư vấn ABA"
+      },
+      "findNear": {
+        "title": "Tìm liệu pháp ABA tại nhà gần bạn",
+        "paragraphs": [
+          "Gia đình tìm kiếm liệu pháp ABA tại nhà xứng đáng được tiếp cận chăm sóc nhân ái, dựa trên bằng chứng gần nhà.",
+          "Đội ngũ của chúng tôi hợp tác với người chăm sóc để phát triển kế hoạch điều trị cá nhân hóa xoay quanh mục tiêu có ý nghĩa, ưu tiên gia đình và thành công hằng ngày."
+        ],
+        "placeholder": "Tìm theo mã zip hoặc thành phố",
+        "button": "Tìm liệu pháp ABA gần tôi"
+      },
+      "trust": {
+        "title": "Chăm sóc ABA tại nhà dựa trên bằng chứng",
+        "text": "Eden ABA Therapy cung cấp can thiệp cá nhân hóa, dựa trên bằng chứng, được thiết kế để cải thiện kỹ năng có ý nghĩa trong môi trường tự nhiên. Điều trị có thể hỗ trợ giao tiếp, hành vi, độc lập và thói quen hằng ngày khi phù hợp lâm sàng.",
+        "sources": [
+          "Tài nguyên tự kỷ CDC — hướng dẫn phát triển và can thiệp sớm",
+          "Hướng dẫn bảo hiểm Medicaid ABA — quyền lợi và điều kiện theo tiểu bang",
+          "Autism Speaks — giáo dục gia đình về ABA và dịch vụ tự kỷ",
+          "Tiêu chuẩn chuyên môn BACB — yêu cầu giám sát RBT và BCBA",
+          "Council of Autism Service Providers (CASP) — tiêu chuẩn thực hành lâm sàng"
+        ]
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "intro": "Câu hỏi phổ biến về liệu pháp ABA tại nhà, bảo hiểm, giám sát và so sánh với các môi trường khác.",
+        "items": [
+          {
+            "q": "Liệu pháp ABA tại nhà là gì?",
+            "a": "Liệu pháp ABA tại nhà cung cấp dịch vụ Phân tích Hành vi Ứng dụng trong môi trường nhà của trẻ, cho phép dạy và luyện tập kỹ năng trong thói quen hằng ngày."
+          },
+          {
+            "q": "Ai cung cấp liệu pháp ABA tại nhà?",
+            "a": "Điều trị thường do RBT thực hiện dưới giám sát của BCBA."
+          },
+          {
+            "q": "ABA tại nhà có được bảo hiểm chi trả không?",
+            "a": "Phạm vi chi trả khác nhau theo tiểu bang, gói bảo hiểm và chương trình Medicaid. Nhiều nhà cung cấp bảo hiểm thương mại và Medicaid cung cấp quyền lợi ABA cho trẻ đủ điều kiện."
+          },
+          {
+            "q": "Trẻ có thể học những kỹ năng gì trong ABA tại nhà?",
+            "a": "Chương trình có thể bao gồm giao tiếp, tương tác xã hội, điều hòa cảm xúc, kỹ năng tự giúp đỡ, sinh hoạt hằng ngày, nhận thức an toàn và độc lập."
+          },
+          {
+            "q": "Phụ huynh tham gia điều trị như thế nào?",
+            "a": "Sự tham gia của phụ huynh được khuyến khích vì người chăm sóc đóng vai trò quan trọng trong hỗ trợ phát triển kỹ năng và thành công lâu dài."
+          },
+          {
+            "q": "ABA tại nhà có hiệu quả như ABA tại trung tâm không?",
+            "a": "Cả hai môi trường đều có thể hiệu quả khi điều trị được cá nhân hóa và phù hợp lâm sàng. Lựa chọn tốt nhất phụ thuộc mục tiêu, phong cách học, nhu cầu gia đình và khuyến nghị lâm sàng."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Bắt đầu dịch vụ ABA tại nhà tại Eden ABA Therapy",
+        "text": "Kết nối với liệu pháp ABA tại nhà nhân ái gần bạn. Đội ngũ của chúng tôi có thể giúp bạn khám phá intake, xác minh bảo hiểm và môi trường dịch vụ phù hợp.",
+        "startButton": "Bắt đầu",
+        "findButton": "Tìm liệu pháp ABA gần tôi"
+      }
+    },
+    "communityBasedAbaTherapy": {
+      "meta": {
+        "title": "Liệu pháp ABA tại cộng đồng cho tự kỷ | Eden ABA Therapy",
+        "description": "Liệu pháp ABA tại cộng đồng giúp trẻ tự kỷ luyện tập giao tiếp, kỹ năng xã hội, an toàn và độc lập tại công viên, cửa hàng, thư viện và các môi trường cộng đồng hằng ngày."
+      },
+      "hero": {
+        "eyebrow": "Dịch vụ ABA trong môi trường cộng đồng",
+        "breadcrumb": [
+          "Liệu pháp ABA",
+          "Dịch vụ",
+          "Liệu pháp ABA tại cộng đồng"
+        ],
+        "title": "Xây dựng kỹ năng thực tế qua liệu pháp ABA tại cộng đồng",
+        "paragraphs": [
+          "Trẻ học tốt nhất khi có thể luyện tập kỹ năng nơi chúng tự nhiên xảy ra. Liệu pháp ABA tại cộng đồng giúp trẻ tự kỷ phát triển giao tiếp, kỹ năng xã hội, hành vi và sinh hoạt độc lập trong các môi trường hằng ngày như công viên, siêu thị, thư viện, nhà hàng, trung tâm cộng đồng và chương trình giải trí.",
+          "Khác với chỉ dạy tại phòng khám, ABA tại cộng đồng cho phép trẻ áp dụng kỹ năng đã học trong tình huống thực tế với hỗ trợ cá nhân hóa từ chuyên gia hành vi được đào tạo. Mục tiêu của chúng tôi là giúp trẻ tự tin, độc lập và thành công hơn trong cộng đồng."
+        ],
+        "cta": "Tìm liệu pháp ABA gần tôi",
+        "imageAlt": "Nhà trị liệu hỗ trợ trẻ trong buổi ABA tại cộng đồng ở môi trường ngoài trời tự nhiên"
+      },
+      "whatIs": {
+        "title": "Liệu pháp ABA tại cộng đồng là gì?",
+        "paragraphs": [
+          "Liệu pháp ABA tại cộng đồng là mô hình điều trị dựa trên bằng chứng, cung cấp dịch vụ Phân tích Hành vi Ứng dụng trong môi trường tự nhiên bên ngoài nhà hoặc phòng khám."
+        ],
+        "goalsLabel": "Buổi trị liệu được thiết kế giúp trẻ:",
+        "goals": [
+          "Dùng kỹ năng giao tiếp với người không quen",
+          "Làm theo chỉ dẫn ở nơi công cộng",
+          "Tham gia hoạt động cộng đồng",
+          "Xây dựng tình bạn và quan hệ bạn bè",
+          "Phát triển độc lập trong công việc hằng ngày",
+          "Luyện kỹ năng đối phó trong tình huống bất ngờ"
+        ],
+        "researchNote": "Nghiên cứu cho thấy khái quát hóa kỹ năng có thể cải thiện khi trẻ luyện tập hành vi ở nhiều môi trường thay vì chỉ trong cài đặt trị liệu có cấu trúc."
+      },
+      "whyMatters": {
+        "title": "Vì sao liệu pháp ABA tại cộng đồng quan trọng",
+        "paragraphs": [
+          "Nhiều trẻ thể hiện kỹ năng thành công trong trị liệu nhưng gặp khó khăn khi dùng những kỹ năng đó trong đời sống hằng ngày. Dịch vụ tại cộng đồng giúp thu hẹp khoảng cách bằng cách dạy trẻ áp dụng hành vi đã học trong môi trường tự nhiên."
+        ],
+        "benefitsLabel": "Lợi ích có thể bao gồm:",
+        "benefits": [
+          "Cải thiện tham gia xã hội",
+          "Tăng tự tin giao tiếp",
+          "Thích ứng tốt hơn với tình huống mới",
+          "Gắn kết cộng đồng mạnh hơn",
+          "Độc lập hơn",
+          "Cải thiện chất lượng cuộc sống"
+        ],
+        "closing": "Giảng dạy tại cộng đồng được thiết kế đặc biệt để thúc đẩy sử dụng kỹ năng chức năng nơi chúng quan trọng nhất."
+      },
+      "howSupports": {
+        "title": "Liệu pháp ABA tại cộng đồng hỗ trợ trẻ tự kỷ như thế nào",
+        "paragraphs": [
+          "Trẻ nhận hỗ trợ cá nhân hóa từ RBT dưới giám sát của BCBA. Kế hoạch điều trị tập trung vào mục tiêu đo lường được phù hợp nhu cầu trẻ và ưu tiên gia đình."
+        ],
+        "focusLabel": "Buổi cộng đồng có thể nhắm đến:",
+        "focusAreas": [
+          "Giao tiếp",
+          "Tương tác xã hội",
+          "Nhận thức an toàn",
+          "Điều hòa cảm xúc",
+          "Kỹ năng sinh hoạt hằng ngày",
+          "Tham gia cộng đồng",
+          "Tự vận động"
+        ],
+        "closing": "Can thiệp ABA dựa trên bằng chứng có thể giúp giảm rào cản cản trở học tập, giao tiếp và tương tác xã hội đồng thời thúc đẩy độc lập có ý nghĩa."
+      },
+      "skills": {
+        "title": "Trẻ có thể học những kỹ năng gì trong ABA tại cộng đồng?",
+        "items": [
+          {
+            "title": "Phát triển kỹ năng xã hội",
+            "intro": "Môi trường cộng đồng tạo cơ hội luyện tập tương tác xã hội trong tình huống thực tế.",
+            "bullets": [
+              "Giới thiệu bản thân với bạn bè",
+              "Tham gia hoạt động nhóm",
+              "Luân phiên trong trò chơi",
+              "Hiểu ranh giới xã hội",
+              "Xây dựng và duy trì tình bạn"
+            ],
+            "closing": "Luyện tập các kỹ năng này trong môi trường tự nhiên có thể giúp cải thiện tự tin xã hội và quan hệ bạn bè."
+          },
+          {
+            "title": "Giao tiếp chức năng",
+            "intro": "Giao tiếp trở nên có ý nghĩa hơn khi trẻ sử dụng trong tình huống hằng ngày.",
+            "bullets": [
+              "Xin giúp đỡ",
+              "Yêu cầu vật phẩm ưa thích",
+              "Bắt đầu cuộc trò chuyện",
+              "Trả lời câu hỏi phù hợp",
+              "Truyền đạt nhu cầu hiệu quả"
+            ],
+            "closing": "Những trải nghiệm này có thể hỗ trợ thành công giao tiếp lâu dài ở nhiều môi trường."
+          },
+          {
+            "title": "Kỹ năng an toàn cộng đồng",
+            "intro": "An toàn là trọng tâm quan trọng của dịch vụ ABA tại cộng đồng.",
+            "bullets": [
+              "An toàn bãi đậu xe",
+              "Kỹ năng băng qua đường",
+              "Tuân thủ quy tắc cộng đồng",
+              "Nhận thức người lạ",
+              "Ứng phó khẩn cấp",
+              "Ở gần người chăm sóc ở nơi công cộng"
+            ],
+            "closing": "Huấn luyện an toàn có thể tăng độc lập đồng thời giảm rủi ro trong môi trường cộng đồng."
+          },
+          {
+            "title": "Tự quản lý hành vi",
+            "intro": "Tình huống thực tế tạo cơ hội luyện kỹ năng đối phó và tự điều hòa.",
+            "bullets": [
+              "Quản lý sự thất vọng",
+              "Chờ đợi phù hợp",
+              "Xử lý chuyển tiếp",
+              "Đối phó thách thức cảm giác",
+              "Tuân thủ kỳ vọng ở nơi công cộng"
+            ],
+            "closing": "Học các kỹ năng này trong môi trường tự nhiên có thể cải thiện thành công hành vi lâu dài."
+          },
+          {
+            "title": "Khái quát hóa kỹ năng",
+            "intro": "Một trong những mục tiêu chính của liệu pháp ABA là khái quát hóa kỹ năng.",
+            "bullets": [
+              "Dùng kỹ năng giao tiếp ở nhiều môi trường",
+              "Làm theo chỉ dẫn từ người khác nhau",
+              "Áp dụng kỹ năng xã hội với bạn mới",
+              "Thích ứng hành vi qua các môi trường"
+            ],
+            "closing": "Quá trình này giúp đảm bảo kỹ năng chuyển giao ngoài buổi trị liệu vào đời sống hằng ngày."
+          },
+          {
+            "title": "Giải trí và tham gia cộng đồng",
+            "intro": "Tham gia cộng đồng thúc đẩy hòa nhập và tự tin.",
+            "bullets": [
+              "Công viên và sân chơi",
+              "Chương trình thể thao",
+              "Thư viện",
+              "Sự kiện cộng đồng",
+              "Lớp giải trí",
+              "Tổ chức thanh thiếu niên"
+            ],
+            "closing": "Sự tham gia khuyến khích tương tác xã hội đồng thời hỗ trợ gắn kết cộng đồng lành mạnh."
+          },
+          {
+            "title": "Kỹ năng sống độc lập",
+            "intro": "ABA tại cộng đồng giúp trẻ phát triển tự lực hơn.",
+            "bullets": [
+              "Mua sắm",
+              "Gọi món",
+              "Theo lịch trình",
+              "Điều hướng địa điểm cộng đồng",
+              "Hoàn thành trách nhiệm phù hợp lứa tuổi",
+              "Đưa ra lựa chọn độc lập"
+            ],
+            "closing": "Những trải nghiệm này có thể chuẩn bị trẻ cho độc lập lớn hơn trong tuổi vị thành niên và trưởng thành."
+          }
+        ]
+      },
+      "howHelps": {
+        "title": "Liệu pháp ABA tại cộng đồng giúp trẻ tự kỷ như thế nào?",
+        "paragraphs": [
+          "Liệu pháp ABA tại cộng đồng nhấn mạnh khái quát hóa kỹ năng và cải thiện hành vi có ý nghĩa ở những nơi cuộc sống hằng ngày diễn ra. Thay vì chỉ học kỹ năng tại phòng khám, trẻ luyện tập giao tiếp, tương tác xã hội, an toàn và độc lập nơi chúng sẽ được sử dụng.",
+          "Điều trị được cá nhân hóa và giám sát bởi nhà phân tích hành vi đủ điều kiện, theo tiêu chuẩn thực hành dựa trên bằng chứng. Eden ABA Therapy tập trung giúp gia đình xây dựng kỹ năng chức năng có thể hỗ trợ tham gia, tự tin và thành công lâu dài trong cộng đồng."
+        ]
+      },
+      "medicaid": {
+        "title": "Liệu pháp ABA tại cộng đồng có được Medicaid chi trả không?",
+        "paragraphs": [
+          "Nhiều chương trình Medicaid chi trả dịch vụ ABA cần thiết y khoa cho trẻ đủ điều kiện mắc tự kỷ và nhu cầu phát triển liên quan. Dịch vụ ABA do Medicaid tài trợ có thể bao gồm can thiệp hành vi được thiết kế cải thiện giao tiếp, tương tác xã hội, chức năng thích ứng và tham gia cộng đồng khi được chỉ định cần thiết y khoa.",
+          "Gia đình nên xác minh yêu cầu phạm vi chi trả dựa trên gói Medicaid tiểu bang và mạng nhà cung cấp."
+        ],
+        "cta": "Xác minh phạm vi bảo hiểm"
+      },
+      "serviceSettings": {
+        "title": "Khám phá các môi trường ABA khác",
+        "intro": "Chúng tôi cung cấp liệu pháp ABA ở các môi trường khác nhau để đáp ứng nhu cầu cụ thể của con bạn.",
+        "items": [
+          {
+            "title": "Liệu pháp ABA tại nhà",
+            "text": "Xây dựng kỹ năng trong môi trường nhà tự nhiên với huấn luyện người chăm sóc và hỗ trợ khái quát hóa.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          },
+          {
+            "title": "Liệu pháp ABA tại trung tâm",
+            "text": "Liệu pháp có cấu trúc tại phòng khám với cơ hội bạn bè, phòng trị liệu chuyên dụng và tài nguyên lâm sàng.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          },
+          {
+            "title": "Liệu pháp ABA tại trường",
+            "text": "Hợp tác với đội ngũ trường học hỗ trợ mục tiêu lớp học, chuyển tiếp và tham gia giáo dục.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          },
+          {
+            "title": "Liệu pháp ABA trực tuyến",
+            "text": "Telehealth và huấn luyện phụ huynh từ xa khi phù hợp với kế hoạch trẻ và nhu cầu gia đình.",
+            "cta": "Tìm hiểu thêm",
+            "active": false
+          }
+        ]
+      },
+      "getStarted": {
+        "title": "Bắt đầu với liệu pháp ABA tại cộng đồng",
+        "paragraphs": [
+          "Liệu pháp ABA tại cộng đồng giúp trẻ vượt ra ngoài môi trường học có cấu trúc và áp dụng kỹ năng thành công trong đời sống hằng ngày. Kết hợp chiến lược ABA dựa trên bằng chứng với trải nghiệm thực tế có ý nghĩa, trẻ có thể xây dựng kỹ năng hỗ trợ độc lập lâu dài."
+        ],
+        "buildsLabel": "Trẻ có thể xây dựng:",
+        "builds": [
+          "Kỹ năng giao tiếp",
+          "Tự tin xã hội",
+          "Tham gia cộng đồng",
+          "Khả năng tự điều hòa",
+          "Độc lập lâu dài"
+        ],
+        "closing": "Đội ngũ của chúng tôi làm việc chặt chẽ với gia đình để tạo kế hoạch điều trị cá nhân hóa hỗ trợ phát triển có ý nghĩa cả trong và ngoài trị liệu.",
+        "placeholder": "Tìm theo mã zip hoặc thành phố",
+        "button": "Tìm liệu pháp ABA tại cộng đồng gần tôi"
+      },
+      "finalCta": {
+        "title": "Bắt đầu dịch vụ ABA tại cộng đồng tại Eden ABA Therapy",
+        "text": "Kết nối với liệu pháp ABA tại cộng đồng nhân ái gần bạn. Đội ngũ có thể giúp bạn khám phá intake, xác minh bảo hiểm và môi trường dịch vụ phù hợp.",
+        "startButton": "Bắt đầu",
+        "scheduleButton": "Đặt lịch tư vấn"
+      }
+    },
+    "virtualAbaTherapy": {
+      "meta": {
+        "title": "Liệu pháp ABA trực tuyến cho tự kỷ | Telehealth ABA | Eden ABA Therapy",
+        "description": "Liệu pháp ABA trực tuyến tại Eden ABA Therapy cung cấp hỗ trợ tự kỷ qua telehealth với huấn luyện người chăm sóc, giám sát BCBA và lịch trình linh hoạt tại nhà."
+      },
+      "illustrations": {
+        "hero": "Minh họa gia đình tham gia buổi ABA trực tuyến bảo mật tại nhà với kết nối video trực tiếp",
+        "compare": "Minh họa so sánh ABA telehealth với liệu pháp tại phòng khám",
+        "familyCoaching": "Minh họa phụ huynh và trẻ nhận huấn luyện gia đình qua laptop tại nhà",
+        "progressDashboard": "Bảng điều khiển cổng thông tin gia đình Eden ABA hiển thị tiến bộ điều trị",
+        "insurance": "Minh họa xác minh bảo hiểm telehealth và điều kiện phạm vi chi trả"
+      },
+      "hero": {
+        "eyebrow": "Liệu pháp ABA qua telehealth bảo mật",
+        "breadcrumb": [
+          "Liệu pháp ABA",
+          "Dịch vụ",
+          "Liệu pháp ABA trực tuyến"
+        ],
+        "title": "Liệu pháp ABA trực tuyến cho trẻ tự kỷ",
+        "paragraphs": [
+          "Dịch vụ ABA telehealth cho phép trẻ nhận can thiệp hành vi dựa trên bằng chứng qua công nghệ trực tuyến bảo mật. Liệu pháp ABA trực tuyến kết hợp kế hoạch điều trị cá nhân hóa, hợp tác người chăm sóc và giám sát BCBA để giúp trẻ củng cố giao tiếp, tương tác xã hội, kỹ năng sinh hoạt và điều hòa hành vi.",
+          "Telehealth có thể giảm rào cản tiếp cận chăm sóc đồng thời cho phép gia đình tham gia tích cực vào điều trị và khái quát hóa kỹ năng khi phù hợp lâm sàng."
+        ],
+        "cta": "Tìm liệu pháp ABA gần tôi"
+      },
+      "supporting": {
+        "title": "Hỗ trợ phát triển qua dịch vụ ABA trực tuyến",
+        "paragraphs": [
+          "Liệu pháp ABA trực tuyến cho phép nhà lâm sàng cung cấp điều trị, huấn luyện và tư vấn hành vi qua video trực tiếp. Dịch vụ được điều chỉnh theo nhu cầu phát triển của từng trẻ.",
+          "Chương trình được thiết kế thúc đẩy kỹ năng chức năng có thể luyện tập tự nhiên trong thói quen hằng ngày."
+        ]
+      },
+      "compare": {
+        "title": "Liệu pháp ABA trực tuyến khác gì so với trực tiếp?",
+        "virtualHeader": "Trực tuyến / Telehealth",
+        "inPersonHeader": "Trực tiếp",
+        "rows": [
+          [
+            "Cung cấp qua video bảo mật trong môi trường tự nhiên, thường tại nhà",
+            "Cung cấp tại phòng khám, trường hoặc trung tâm với nhà trị liệu và trẻ cùng không gian"
+          ],
+          [
+            "Tương tác thời gian thực giữa nhà lâm sàng, người chăm sóc và trẻ",
+            "Tương tác cùng phòng với nhiều cơ hội bạn bè và nhóm hơn"
+          ],
+          [
+            "Có thể hỗ trợ tiếp cận khi di chuyển, sức khỏe hoặc địa lý là rào cản",
+            "Môi trường có cấu trúc với vật liệu trị liệu và tương tác bạn bè"
+          ],
+          [
+            "Cơ hội tương tác bạn bè có thể hạn chế hơn so với nhóm tại phòng khám",
+            "Hoạt động nhập vai và nhóm trực tiếp có thể diễn ra dễ dàng hơn tại cơ sở"
+          ]
+        ]
+      },
+      "howItWorks": {
+        "title": "Liệu pháp ABA trực tuyến hoạt động như thế nào?",
+        "intro": "Liệu pháp ABA trực tuyến sử dụng công nghệ hội nghị video bảo mật để kết nối gia đình với nhà phân tích hành vi và nhà cung cấp điều trị.",
+        "items": [
+          "Dạy kỹ năng giao tiếp",
+          "Hỗ trợ phát triển xã hội",
+          "Giải quyết hành vi thách thức",
+          "Huấn luyện người chăm sóc về chiến lược can thiệp",
+          "Theo dõi tiến bộ điều trị",
+          "Điều chỉnh kế hoạch hành vi cá nhân hóa"
+        ],
+        "closing": "Vì liệu pháp diễn ra trong môi trường tự nhiên của trẻ, nhà lâm sàng có thể quan sát tình huống thực tế và giúp gia đình triển khai chiến lược nơi cần thiết."
+      },
+      "benefits": {
+        "title": "Lợi ích của liệu pháp ABA trực tuyến",
+        "items": [
+          {
+            "title": "Tăng tiếp cận dịch vụ",
+            "text": "Telehealth có thể mở rộng tiếp cận ABA khi tùy chọn trực tiếp bị hạn chế bởi vị trí hoặc lịch trình."
+          },
+          {
+            "title": "Giảm thời gian di chuyển",
+            "text": "Gia đình có thể tham gia từ nhà, giảm nhu cầu vận chuyển."
+          },
+          {
+            "title": "Lịch trình linh hoạt",
+            "text": "Buổi trực tuyến thường có thể phù hợp với lịch gia đình khi phù hợp lâm sàng."
+          },
+          {
+            "title": "Tăng sự tham gia người chăm sóc",
+            "text": "Phụ huynh có thể quan sát, học và luyện tập chiến lược trong buổi huấn luyện trực tiếp."
+          },
+          {
+            "title": "Hỗ trợ trong thói quen tại nhà",
+            "text": "Kỹ năng có thể được dạy và củng cố nơi chúng tự nhiên xảy ra."
+          },
+          {
+            "title": "Hợp tác BCBA nhất quán",
+            "text": "Điều trị vẫn được giám sát bởi BCBA theo tiêu chuẩn thực hành chuyên môn."
+          }
+        ]
+      },
+      "familyCoaching": {
+        "title": "Huấn luyện gia đình và đào tạo phụ huynh",
+        "paragraphs": [
+          "Nghiên cứu cho thấy sự tham gia của người chăm sóc có thể đóng vai trò quan trọng trong kết quả điều trị lâu dài. Liệu pháp ABA trực tuyến cho phép phụ huynh tham gia tích cực."
+        ],
+        "learnLabel": "Qua huấn luyện có cấu trúc, gia đình học cách:",
+        "learnItems": [
+          "Khuyến khích phát triển giao tiếp",
+          "Củng cố hành vi tích cực",
+          "Xây dựng kỹ năng sinh hoạt hằng ngày",
+          "Cải thiện tính nhất quán giữa các môi trường",
+          "Quản lý tình huống thách thức hiệu quả",
+          "Thúc đẩy độc lập trong thói quen hằng ngày"
+        ],
+        "closing": "Mục tiêu của chúng tôi là trao quyền cho gia đình với chiến lược thực tế có thể duy trì ngoài buổi trị liệu.",
+        "cta": "Đặt lịch tư vấn"
+      },
+      "insurance": {
+        "title": "Phạm vi bảo hiểm và điều kiện telehealth",
+        "paragraphs": [
+          "Tiếp cận dịch vụ ABA phụ thuộc quyền lợi bảo hiểm, quy định tiểu bang và yêu cầu cần thiết y khoa. Nhiều gói thương mại và Medicaid công nhận telehealth cho dịch vụ sức khỏe hành vi khi được chỉ định cần thiết y khoa.",
+          "Đội ngũ của chúng tôi hỗ trợ gia đình hiểu quyền lợi, xác minh phạm vi chi trả và khám phá tùy chọn telehealth ABA."
+        ],
+        "varyLabel": "Phạm vi chi trả có thể khác nhau theo:",
+        "varyItems": [
+          "Quy định telehealth theo tiểu bang",
+          "Yêu cầu nhà cung cấp bảo hiểm",
+          "Khuyến nghị lâm sàng",
+          "Hướng dẫn ủy quyền",
+          "Tiêu chí đủ điều kiện dịch vụ"
+        ],
+        "cta": "Xác minh phạm vi bảo hiểm"
+      },
+      "serviceSettings": {
+        "title": "Khám phá thêm dịch vụ ABA",
+        "intro": "Gia đình thường hưởng lợi từ kết hợp các môi trường dịch vụ tùy theo mục tiêu của trẻ.",
+        "items": [
+          {
+            "title": "Liệu pháp ABA tại trường",
+            "text": "Hỗ trợ thành công học tập, hành vi và xã hội trong môi trường giáo dục.",
+            "cta": "Tìm hiểu thêm"
+          },
+          {
+            "title": "Liệu pháp ABA tại cộng đồng",
+            "text": "Phát triển kỹ năng xã hội, giao tiếp và sinh hoạt thực tế trong cộng đồng.",
+            "cta": "Tìm hiểu thêm"
+          },
+          {
+            "title": "Liệu pháp ABA tại nhà",
+            "text": "Can thiệp cá nhân hóa trong môi trường nhà tự nhiên của trẻ.",
+            "cta": "Tìm hiểu thêm"
+          },
+          {
+            "title": "Liệu pháp ABA tại trung tâm",
+            "text": "Cơ hội học tập có cấu trúc với chương trình chuyên biệt và tương tác bạn bè.",
+            "cta": "Tìm hiểu thêm"
+          }
+        ]
+      },
+      "findNear": {
+        "title": "Tìm liệu pháp ABA trực tuyến gần bạn",
+        "paragraphs": [
+          "Eden ABA Therapy cung cấp tùy chọn telehealth linh hoạt cho gia đình có thể hưởng lợi từ dịch vụ tại nhà. Đội ngũ có thể giúp xác định trực tuyến, trực tiếp hay kết hợp phù hợp nhất.",
+          "Liên hệ để tìm hiểu thêm về ABA trực tuyến, bảo hiểm và khuyến nghị điều trị cá nhân hóa."
+        ],
+        "placeholder": "Tìm theo mã zip hoặc thành phố",
+        "button": "Tìm liệu pháp ABA gần tôi"
+      },
+      "trust": {
+        "title": "Chăm sóc ABA telehealth dựa trên bằng chứng",
+        "text": "Eden ABA Therapy cung cấp can thiệp cá nhân hóa, dựa trên bằng chứng, được thiết kế hỗ trợ phát triển kỹ năng có ý nghĩa khi telehealth phù hợp lâm sàng.",
+        "sources": [
+          "Tài nguyên tự kỷ CDC",
+          "CMS / Medicaid — telehealth và phạm vi dịch vụ tự kỷ",
+          "Autism Speaks — giáo dục gia đình về ABA và telehealth",
+          "BACB — tiêu chuẩn thực hành và giám sát telehealth",
+          "Council of Autism Service Providers (CASP)"
+        ]
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "intro": "Câu hỏi phổ biến về ABA trực tuyến, giám sát, bảo hiểm và so sánh với dịch vụ trực tiếp.",
+        "items": [
+          {
+            "q": "Liệu pháp ABA trực tuyến là gì?",
+            "a": "Liệu pháp ABA trực tuyến cung cấp dịch vụ Phân tích Hành vi Ứng dụng qua công nghệ telehealth bảo mật trong môi trường tự nhiên của trẻ."
+          },
+          {
+            "q": "Telehealth ABA khác gì so với trực tiếp?",
+            "a": "Telehealth dùng video trực tiếp thường tại nhà; trực tiếp diễn ra tại phòng khám. Cả hai có thể hiệu quả khi cá nhân hóa và phù hợp lâm sàng."
+          },
+          {
+            "q": "Ai giám sát buổi ABA trực tuyến?",
+            "a": "Chương trình thường được giám sát bởi BCBA; dịch vụ trực tiếp có thể do RBT hoặc kỹ thuật viên hành vi đủ điều kiện thực hiện."
+          },
+          {
+            "q": "ABA trực tuyến có được bảo hiểm chi trả không?",
+            "a": "Phạm vi chi trả khác nhau theo tiểu bang, gói bảo hiểm và Medicaid. Nhiều gói cung cấp quyền lợi telehealth cho dịch vụ sức khỏe hành vi cần thiết y khoa."
+          },
+          {
+            "q": "Phụ huynh tham gia như thế nào?",
+            "a": "Sự tham gia của người chăm sóc được khuyến khích vì gia đình đóng vai trò quan trọng trong phát triển kỹ năng và khái quát hóa."
+          },
+          {
+            "q": "ABA trực tuyến có phù hợp với mọi trẻ không?",
+            "a": "Không phải lúc nào cũng vậy. Đánh giá toàn diện giúp xác định trực tuyến, trực tiếp hay kết hợp phù hợp nhất."
+          }
+        ]
+      },
+      "finalCta": {
+        "title": "Bắt đầu liệu pháp ABA trực tuyến với sự tự tin",
+        "paragraphs": [
+          "Liệu pháp ABA trực tuyến có thể cung cấp hỗ trợ có ý nghĩa cho gia đình tìm kiếm dịch vụ tự kỷ linh hoạt, dựa trên bằng chứng.",
+          "Dù gia đình bạn mới bắt đầu hay đang tìm mô hình dịch vụ thay thế, đội ngũ của chúng tôi sẵn sàng hướng dẫn từng bước."
+        ],
+        "scheduleButton": "Đặt lịch tư vấn hôm nay",
+        "startButton": "Bắt đầu"
+      }
     }
   },
   "insuranceForm": {
     "secureEyebrow": "Yêu cầu bảo hiểm bảo mật",
     "title": "Chuẩn bị cho tương lai tươi sáng với liệu pháp ABA",
     "intro": "Hoàn tất biểu mẫu bảo mật bên dưới và đội ngũ của chúng tôi sẽ liên hệ về quyền lợi bảo hiểm và các bước tiếp theo.",
+    "manualVerificationNotice": "Tra cứu Medicaid trực tuyến chưa được kết nối. Gửi biểu mẫu này sẽ chuyển thông tin bảo mật đến nhân viên Eden ABA để xác minh qua cổng nhà cung cấp Virginia Medicaid, clearinghouse hoặc MediCall được phê duyệt — không phải trang thành viên công khai.",
+    "verificationTypeLabel": "Loại xác minh",
+    "verificationTypes": {
+      "child": "Trẻ / Người phụ thuộc",
+      "adult": "Người lớn / Tự xác minh"
+    },
     "placeholders": {
       "parentFirstName": "Tên phụ huynh/người giám hộ *",
       "parentLastName": "Họ phụ huynh/người giám hộ *",
@@ -4162,28 +6422,59 @@
       "phone": "Số điện thoại *",
       "childFullName": "Họ tên đầy đủ của trẻ *",
       "childDob": "Ngày sinh của trẻ MM/DD/YYYY *",
+      "adultFullName": "Họ tên đầy đủ người lớn *",
+      "adultDob": "Ngày sinh người lớn MM/DD/YYYY *",
       "zipCode": "Mã ZIP *",
       "insuranceProvider": "Nhà cung cấp bảo hiểm *",
+      "medicaidId": "Mã Medicaid",
       "medicaidIdRequired": "Mã Medicaid *",
-      "medicaidIdOptional": "Mã Medicaid, nếu có"
+      "medicaidIdOptional": "Mã Medicaid, nếu có",
+      "ssn": "Số An sinh Xã hội"
     },
+    "orLabel": "HOẶC",
     "insuranceOptions": [
       "Virginia Medicaid / Cardinal Care",
       "Bảo hiểm tư nhân",
       "TRICARE",
       "Khác"
     ],
-    "ssnNotice": "SSN không được thu thập tại đây. Chỉ thêm SSN nếu được pháp luật và tuân thủ cho phép.",
+    "securityNotice": "Thông tin của bạn được gửi bảo mật đến Eden ABA Therapy để xác minh bảo hiểm và xem xét quyền lợi.",
     "consent": "Tôi đồng ý được Eden ABA Therapy liên hệ về xác minh bảo hiểm và dịch vụ.",
     "errors": {
       "incomplete": "Vui lòng hoàn tất tất cả trường bắt buộc trước khi gửi.",
-      "submitFailed": "Không thể gửi yêu cầu bảo hiểm.",
-      "submitRetry": "Không thể gửi yêu cầu bảo hiểm. Vui lòng thử lại."
+      "dobRequired": "Vui lòng nhập ngày sinh.",
+      "nameRequired": "Họ tên đầy đủ là bắt buộc.",
+      "idRequired": "Vui lòng nhập Mã Medicaid hoặc Số An sinh Xã hội.",
+      "consentRequired": "Vui lòng đồng ý trước khi gửi.",
+      "submitFailed": "Xác minh không thành công.",
+      "submitRetry": "Đã xảy ra lỗi. Vui lòng thử lại.",
+      "recaptchaFailed": "Xác minh bảo mật không thành công. Vui lòng làm mới trang và thử lại, hoặc liên hệ Eden ABA Therapy để được hỗ trợ."
     },
-    "submitLoading": "Đang gửi yêu cầu bảo hiểm của bạn...",
-    "submitButton": "Gửi yêu cầu bảo hiểm",
-    "successMessage": "Yêu cầu bảo hiểm đã được gửi. Eden ABA Therapy sẽ xem xét quyền lợi và phạm vi bảo hiểm một cách bảo mật.",
-    "scheduleAppointment": "Đặt lịch hẹn",
-    "returnHome": "Về trang chủ"
+    "submitLoading": "Đang xác minh quyền lợi…",
+    "submitLoadingManual": "Đang gửi yêu cầu…",
+    "submitButton": "Xác minh bảo hiểm",
+    "submitButtonManual": "Gửi yêu cầu xác minh",
+    "result": {
+      "verifiedBadge": "Bảo hiểm đã xác minh ✓",
+      "pendingBadge": "Đang chờ nhân viên xem xét",
+      "title": "Kết quả xác minh",
+      "titlePending": "Yêu cầu xác minh đã nhận",
+      "verificationStatus": "Trạng thái xác minh",
+      "memberName": "Tên thành viên",
+      "dateOfBirth": "Ngày sinh",
+      "programType": "Loại chương trình",
+      "subprogramType": "Loại chương trình phụ",
+      "currentEnrollmentChoice": "Lựa chọn đăng ký hiện tại",
+      "effectiveDate": "Ngày hiệu lực",
+      "futureEnrollmentChoice": "Lựa chọn đăng ký tương lai",
+      "eligibilityStatus": "Trạng thái quyền lợi",
+      "notes": "Ghi chú",
+      "pending": "Đang chờ",
+      "noneListed": "Không có",
+      "pendingDetailsMessage": "Chi tiết gói Medicaid sẽ hiển thị tại đây sau khi nhân viên Eden hoàn tất xác minh qua cổng nhà cung cấp, clearinghouse hoặc quy trình MediCall được phê duyệt.",
+      "pendingExplanation": "Yêu cầu của bạn đã được nhận. Nhân viên Eden ABA Therapy sẽ xác minh đủ điều kiện thông qua quy trình xác minh Medicaid được phê duyệt.",
+      "continueIntake": "Tiếp tục tiếp nhận →",
+      "verifyAnotherClient": "Xác minh khách hàng khác"
+    }
   }
 }

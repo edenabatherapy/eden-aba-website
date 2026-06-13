@@ -23,6 +23,7 @@ export function getIntakeConfig() {
     resendApiKey,
     staffEmail,
     fromEmail,
+    googleSheetsTabName: process.env.GOOGLE_SHEETS_TAB_NAME?.trim() || "Intake Submissions",
     maxFileBytes: Number(process.env.INTAKE_MAX_FILE_BYTES || 10 * 1024 * 1024),
     maxTotalBytes: Number(process.env.INTAKE_MAX_TOTAL_BYTES || 50 * 1024 * 1024),
   };

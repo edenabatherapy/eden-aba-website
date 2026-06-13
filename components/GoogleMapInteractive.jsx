@@ -1,69 +1,132 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AlertTriangle, ExternalLink, MapPin, Navigation } from "lucide-react";
 import {
+  EDEN_ANNANDALE_CENTER,
   EDEN_CLINIC_NAME,
   getDirectionsUrl,
   getEdenMapLocation,
+  getGoogleMapsPlaceUrl,
 } from "@/lib/eden-location";
-import { hasGoogleMapsApiKey, loadGoogleMaps } from "@/lib/load-google-maps";
+import {
+  EDEN_MAP_MARKER_URL,
+  GOOGLE_MAPS_DEV_WARNING,
+  getGoogleMapsApiKey,
+  hasGoogleMapsApiKey,
+} from "@/lib/google-maps-config";
+import { loadGoogleMaps } from "@/lib/load-google-maps";
+import "./GoogleMapInteractive.css";
 
-function GoogleMapEmbedFallback({ t, address, title, className = "h-[560px] w-full" }) {
+const MAP_CONTAINER_CLASS = "eden-map-canvas";
+
+const MAP_TYPE_OPTIONS = [
+  { id: "roadmap", labelKey: "mapViewLabel", fallback: "Map" },
+  { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite" },
+  { id: "hybrid", labelKey: "hybridViewLabel", fallback: "Hybrid" },
+];
+
+function MapUnavailablePanel({
+  t,
+  location,
+  className = MAP_CONTAINER_CLASS,
+  reason = "missing-key",
+  errorMessage = "",
+}) {
   const mapT = t?.googleMap;
-  const mapTitle = title || mapT?.defaultTitle || "Eden ABA Therapy Google Map";
-  const encodedAddress = encodeURIComponent(address);
-  const directionsUrl = getDirectionsUrl(address);
-  const mapSrc = `https://www.google.com/maps?q=${encodedAddress}&z=16&hl=en&output=embed`;
+  const directionsUrl = getDirectionsUrl(location.address);
+  const placeUrl = getGoogleMapsPlaceUrl(location.address);
+  const isDev = process.env.NODE_ENV === "development";
 
   return (
-    <div className="relative h-full min-h-[320px] w-full overflow-hidden bg-slate-100 sm:min-h-[420px]">
-      <iframe
-        title={mapTitle}
-        src={mapSrc}
-        className={`${className} min-h-[320px] sm:min-h-[420px]`}
-        loading="lazy"
-        allowFullScreen
-        allow="fullscreen; geolocation"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
-      <div className="border-t border-slate-100 bg-white p-4 text-center text-sm font-bold text-slate-600">
-        {mapT?.apiKeyNotice ||
-          "For full interactive map controls, add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local and enable Maps JavaScript API in Google Cloud with billing enabled. You can still"}{" "}
+    <div className={`eden-map-fallback ${className}`}>
+      {isDev ? (
+        <div className="eden-map-fallback-warning">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="mt-0.5 shrink-0 text-amber-600" size={18} aria-hidden />
+            <div>
+              <strong>
+                {reason === "load-failed"
+                  ? "Google Maps failed to load"
+                  : "Google Maps API key not configured"}
+              </strong>
+              <p>{mapT?.apiKeyNotice || GOOGLE_MAPS_DEV_WARNING}</p>
+              {errorMessage ? (
+                <p className="mt-2 font-mono text-[11px] leading-5 text-amber-900/90">{errorMessage}</p>
+              ) : null}
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div className="eden-map-fallback-body">
+        <div className="eden-map-fallback-icon">
+          <MapPin size={28} aria-hidden />
+        </div>
+        <h3 className="eden-map-fallback-title">{location.name}</h3>
+        <p className="eden-map-fallback-address">{location.shortAddress}</p>
+        <p className="eden-map-fallback-phone">
+          {t?.pages?.locationsDetail?.officePhone || "Office Phone:"}{" "}
+          <a href={`tel:${location.phoneTel}`}>{location.phone}</a>
+        </p>
+      </div>
+
+      <div className="eden-map-fallback-actions">
+        <a
+          href={placeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="eden-map-actions-open"
+        >
+          <ExternalLink size={16} aria-hidden />
+          {mapT?.openInGoogleMaps || "Open in Google Maps"}
+        </a>
         <a
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#128c8c] underline underline-offset-4"
+          className="eden-map-actions-directions"
         >
-          {mapT?.openInGoogleMaps || "open Eden ABA Therapy in Google Maps"}
+          <Navigation size={16} aria-hidden />
+          {t?.getDirections || "Get Directions"}
         </a>
-        .
       </div>
     </div>
   );
 }
 
-function buildInfoWindowContent({ businessName, address, directionsLabel }) {
+function buildInfoWindowContent({ location, directionsLabel }) {
   const container = document.createElement("div");
-  container.style.maxWidth = "240px";
+  container.style.maxWidth = "260px";
   container.style.fontFamily = "system-ui, sans-serif";
-  container.style.lineHeight = "1.5";
+  container.style.lineHeight = "1.55";
+  container.style.padding = "4px 2px";
 
   const heading = document.createElement("strong");
-  heading.textContent = businessName;
+  heading.textContent = location.name;
   heading.style.display = "block";
-  heading.style.marginBottom = "4px";
+  heading.style.marginBottom = "6px";
+  heading.style.fontSize = "14px";
   container.appendChild(heading);
 
   const addressLine = document.createElement("span");
-  addressLine.textContent = address;
+  addressLine.textContent = location.shortAddress;
   addressLine.style.display = "block";
-  addressLine.style.marginBottom = "8px";
+  addressLine.style.marginBottom = "6px";
   addressLine.style.fontSize = "13px";
+  addressLine.style.color = "#334155";
   container.appendChild(addressLine);
 
+  const phoneLine = document.createElement("span");
+  phoneLine.textContent = `Office Phone: ${location.phone}`;
+  phoneLine.style.display = "block";
+  phoneLine.style.marginBottom = "10px";
+  phoneLine.style.fontSize = "13px";
+  phoneLine.style.color = "#334155";
+  container.appendChild(phoneLine);
+
   const link = document.createElement("a");
-  link.href = getDirectionsUrl(address);
+  link.href = getDirectionsUrl(location.address);
   link.target = "_blank";
   link.rel = "noopener noreferrer";
   link.textContent = directionsLabel;
@@ -73,6 +136,31 @@ function buildInfoWindowContent({ businessName, address, directionsLabel }) {
   container.appendChild(link);
 
   return container;
+}
+
+function createEdenMarkerIcon(maps) {
+  return {
+    url: EDEN_MAP_MARKER_URL,
+    scaledSize: new maps.Size(52, 64),
+    anchor: new maps.Point(26, 64),
+  };
+}
+
+function waitForTiles(map, mapsEvent, timeoutMs = 8000) {
+  return new Promise((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      resolve();
+    };
+
+    const listener = mapsEvent.addListenerOnce(map, "tilesloaded", finish);
+    window.setTimeout(() => {
+      mapsEvent.removeListener(listener);
+      finish();
+    }, timeoutMs);
+  });
 }
 
 /**
@@ -88,129 +176,280 @@ export default function GoogleMapInteractive({
   t,
   address,
   title,
-  className = "h-[560px] w-full",
+  className = MAP_CONTAINER_CLASS,
   businessName = EDEN_CLINIC_NAME,
 }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const markerRef = useRef(null);
   const infoWindowRef = useRef(null);
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  const apiKey = getGoogleMapsApiKey();
   const hasApiKey = hasGoogleMapsApiKey();
   const mapTitle = title || t?.googleMap?.defaultTitle || "Eden ABA Therapy Google Map";
-  const location = getEdenMapLocation(address);
+  const location = useMemo(() => getEdenMapLocation(address), [address]);
   const directionsLabel = t?.getDirections || "Get Directions";
-  const [mapStatus, setMapStatus] = useState(hasApiKey ? "loading" : "fallback");
+  const directionsUrl = getDirectionsUrl(location.address);
+  const placeUrl = getGoogleMapsPlaceUrl(location.address);
+
+  const [mapStatus, setMapStatus] = useState(hasApiKey ? "loading" : "unavailable");
+  const [unavailableReason, setUnavailableReason] = useState("missing-key");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [mapTypeId, setMapTypeId] = useState("roadmap");
+
+  const handleMapTypeChange = useCallback((typeId) => {
+    if (!mapRef.current) return;
+    mapRef.current.setMapTypeId(typeId);
+    setMapTypeId(typeId);
+  }, []);
 
   useEffect(() => {
-    if (!hasApiKey || !containerRef.current) {
-      setMapStatus("fallback");
+    if (!hasApiKey) {
+      setMapStatus("unavailable");
+      setUnavailableReason("missing-key");
       return undefined;
     }
 
     let cancelled = false;
     let resizeObserver;
+    let idleListener;
+    let retryFrame = 0;
+
+    const handleAuthFailure = () => {
+      if (cancelled) return;
+      const message =
+        "Google Maps authentication failed (RefererNotAllowedMapError, InvalidKeyMapError, or ApiNotActivatedMapError).";
+      setErrorMessage(message);
+      setUnavailableReason("load-failed");
+      setMapStatus("unavailable");
+      if (process.env.NODE_ENV === "development") {
+        console.error("[GoogleMapInteractive]", message, GOOGLE_MAPS_DEV_WARNING);
+      }
+    };
+
+    const previousAuthFailure = window.gm_authFailure;
+    const authFailureWrapper = () => {
+      previousAuthFailure?.();
+      handleAuthFailure();
+    };
+    window.gm_authFailure = authFailureWrapper;
 
     async function initMap() {
       try {
         const maps = await loadGoogleMaps(apiKey);
         if (cancelled || !containerRef.current) return;
 
+        if (!maps.Map || !maps.Marker) {
+          throw new Error("Google Maps Map or Marker constructors are unavailable.");
+        }
+
+        const center = { ...EDEN_ANNANDALE_CENTER };
+
         const map = new maps.Map(containerRef.current, {
-          center: location.center,
+          center,
           zoom: 16,
+          mapTypeId: "roadmap",
           mapTypeControl: true,
           mapTypeControlOptions: {
             style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            mapTypeIds: ["roadmap", "satellite"],
+            position: maps.ControlPosition.TOP_RIGHT,
+            mapTypeIds: ["roadmap", "satellite", "hybrid"],
           },
           zoomControl: true,
+          zoomControlOptions: {
+            position: maps.ControlPosition.RIGHT_CENTER,
+          },
           streetViewControl: true,
+          streetViewControlOptions: {
+            position: maps.ControlPosition.RIGHT_TOP,
+          },
           fullscreenControl: true,
+          fullscreenControlOptions: {
+            position: maps.ControlPosition.RIGHT_TOP,
+          },
           clickableIcons: true,
           gestureHandling: "cooperative",
         });
 
         const marker = new maps.Marker({
-          position: location.center,
+          position: center,
           map,
           title: businessName,
+          icon: createEdenMarkerIcon(maps),
+          animation: maps.Animation?.DROP,
         });
 
         const infoWindow = new maps.InfoWindow({
-          content: buildInfoWindowContent({
-            businessName,
-            address: location.address,
-            directionsLabel,
-          }),
+          content: buildInfoWindowContent({ location, directionsLabel }),
         });
 
         marker.addListener("click", () => {
           infoWindow.open({ anchor: marker, map });
         });
 
-        const geocoder = new maps.Geocoder();
-        geocoder.geocode({ address: location.address }, (results, status) => {
-          if (cancelled || status !== "OK" || !results?.[0]) return;
-          const position = results[0].geometry.location;
-          map.setCenter(position);
-          marker.setPosition(position);
-        });
-
         mapRef.current = map;
         markerRef.current = marker;
         infoWindowRef.current = infoWindow;
 
+        map.addListener("maptypeid_changed", () => {
+          const typeId = map.getMapTypeId();
+          if (typeof typeId === "string") {
+            setMapTypeId(typeId);
+          }
+        });
+
         resizeObserver = new ResizeObserver(() => {
           maps.event.trigger(map, "resize");
-          const center = marker.getPosition() || location.center;
-          map.setCenter(center);
         });
         resizeObserver.observe(containerRef.current);
 
-        if (!cancelled) setMapStatus("ready");
-      } catch {
-        if (!cancelled) setMapStatus("fallback");
+        idleListener = maps.event.addListenerOnce(map, "idle", () => {
+          maps.event.trigger(map, "resize");
+        });
+
+        await waitForTiles(map, maps.event);
+
+        if (maps.Geocoder) {
+          const geocoder = new maps.Geocoder();
+          geocoder.geocode({ address: location.address }, (results, status) => {
+            if (cancelled || status !== "OK" || !results?.[0]) {
+              if (process.env.NODE_ENV === "development" && status !== "OK") {
+                console.warn(
+                  "[GoogleMapInteractive] Geocoder status:",
+                  status,
+                  "— using default Annandale coordinates.",
+                );
+              }
+              return;
+            }
+
+            const position = results[0].geometry.location;
+            map.setCenter(position);
+            marker.setPosition(position);
+            maps.event.trigger(map, "resize");
+          });
+        }
+
+        if (!cancelled) {
+          setMapStatus("ready");
+        }
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Unknown Google Maps error";
+        if (process.env.NODE_ENV === "development") {
+          console.error("[GoogleMapInteractive] Map initialization failed:", error);
+        }
+        if (!cancelled) {
+          setErrorMessage(message);
+          setUnavailableReason("load-failed");
+          setMapStatus("unavailable");
+        }
       }
     }
 
-    initMap();
+    function scheduleInit() {
+      if (cancelled) return;
+
+      if (!containerRef.current) {
+        retryFrame = window.requestAnimationFrame(scheduleInit);
+        return;
+      }
+
+      void initMap();
+    }
+
+    scheduleInit();
 
     return () => {
       cancelled = true;
+      window.cancelAnimationFrame(retryFrame);
+
+      if (window.gm_authFailure === authFailureWrapper) {
+        window.gm_authFailure = previousAuthFailure;
+      }
+
       resizeObserver?.disconnect();
+      if (idleListener && window.google?.maps?.event) {
+        window.google.maps.event.removeListener(idleListener);
+      }
       infoWindowRef.current?.close();
       markerRef.current?.setMap(null);
       mapRef.current = null;
       markerRef.current = null;
       infoWindowRef.current = null;
-    };
-  }, [apiKey, hasApiKey, address, businessName, directionsLabel, location.address, location.center]);
 
-  if (mapStatus === "fallback" || !hasApiKey) {
+      if (containerRef.current) {
+        containerRef.current.replaceChildren();
+      }
+    };
+  }, [apiKey, hasApiKey, address, businessName, directionsLabel, location]);
+
+  if (mapStatus === "unavailable" || !hasApiKey) {
     return (
-      <GoogleMapEmbedFallback
+      <MapUnavailablePanel
         t={t}
-        address={location.address}
-        title={mapTitle}
+        location={location}
         className={className}
+        reason={unavailableReason}
+        errorMessage={errorMessage}
       />
     );
   }
 
   return (
-    <div className="relative h-full min-h-[320px] w-full overflow-hidden bg-slate-100 sm:min-h-[420px]">
+    <div className="eden-map-shell">
       {mapStatus === "loading" ? (
-        <div className="absolute inset-0 z-10 grid place-items-center bg-slate-100 text-sm font-bold text-slate-500">
-          Loading map…
+        <div className="eden-map-loading" aria-live="polite">
+          <div className="eden-map-loading-inner">
+            <div className="eden-map-loading-spinner" aria-hidden />
+            <p className="eden-map-loading-text">{t?.googleMap?.loadingLabel || "Loading map…"}</p>
+          </div>
         </div>
       ) : null}
+
+      {mapStatus === "ready" ? (
+        <div
+          className="eden-map-type-bar"
+          role="group"
+          aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
+        >
+          {MAP_TYPE_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => handleMapTypeChange(option.id)}
+              className={mapTypeId === option.id ? "is-active" : undefined}
+              aria-pressed={mapTypeId === option.id}
+            >
+              {t?.googleMap?.[option.labelKey] || option.fallback}
+            </button>
+          ))}
+        </div>
+      ) : null}
+
       <div
         ref={containerRef}
-        className={`${className} min-h-[320px] w-full sm:min-h-[420px]`}
+        className={`${className} w-full bg-[#eef4f2]`}
         role="application"
         aria-label={mapTitle}
       />
+
+      {mapStatus === "ready" ? (
+        <div className="eden-map-actions">
+          <a
+            href={placeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="eden-map-actions-open"
+          >
+            <ExternalLink size={16} aria-hidden />
+            {t?.googleMap?.openInGoogleMaps || "Open in Google Maps"}
+          </a>
+          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="eden-map-actions-directions">
+            <Navigation size={16} aria-hidden />
+            {directionsLabel}
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 }

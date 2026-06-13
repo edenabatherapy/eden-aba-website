@@ -1,0 +1,406 @@
+.about-meaning-animation {
+  --eden-green: #087c4f;
+  --eden-teal: #008c83;
+  --eden-soft-green: #dff7e9;
+  --eden-cream: #fffaf0;
+  --eden-yellow: #f4d35e;
+  --eden-navy: #23314d;
+
+  position: relative;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  color: var(--eden-green);
+}
+
+.about-meaning-animation--compact {
+  width: 56px;
+  height: 56px;
+}
+
+.about-meaning-animation__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.about-meaning-animation__stroke {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Eden / Story — growing tree */
+.ama-eden__root,
+.ama-story__root {
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  fill: none;
+  opacity: 0.45;
+  animation: amaRootGrow 3.6s ease-in-out infinite;
+}
+
+.ama-eden__trunk,
+.ama-story__trunk {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ama-eden__canopy,
+.ama-story__canopy {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+  transform-origin: 24px 20px;
+  animation: amaCanopyGrow 3.6s ease-in-out infinite;
+}
+
+.ama-story__leaf {
+  fill: var(--eden-teal);
+  opacity: 0;
+  animation: amaLeafPath 3.4s ease-in-out infinite;
+}
+
+.ama-story__leaf--2 {
+  animation-delay: 0.4s;
+}
+
+/* Team — linked circles */
+.ama-team__link {
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  animation: amaTeamLink 3.2s ease-in-out infinite;
+}
+
+.ama-team__node {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.5;
+}
+
+.ama-team__node--center {
+  animation: amaTeamPulse 3s ease-in-out infinite;
+}
+
+.ama-team__node--1 {
+  animation: amaTeamPulse 3s ease-in-out infinite 0.2s;
+}
+
+.ama-team__node--2 {
+  animation: amaTeamPulse 3s ease-in-out infinite 0.4s;
+}
+
+/* Quality — shield + check */
+.ama-quality__shield {
+  fill: var(--eden-cream);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+}
+
+.ama-quality__line {
+  stroke: var(--eden-teal);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: amaQualityLine 3.4s ease-in-out infinite;
+}
+
+.ama-quality__check {
+  stroke: var(--eden-green);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 14;
+  stroke-dashoffset: 14;
+  animation: amaQualityCheck 3.4s ease-in-out infinite;
+}
+
+/* Family-centered */
+.ama-family__ring {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  animation: amaFamilyRing 3.4s ease-in-out infinite;
+}
+
+.ama-family__home {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.5;
+}
+
+.ama-family__heart {
+  fill: var(--eden-yellow);
+  opacity: 0.85;
+  transform-origin: 24px 24px;
+  animation: amaFamilyHeart 3.2s ease-in-out infinite;
+}
+
+/* Community impact */
+.ama-community__ring {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.2;
+  opacity: 0.35;
+  animation: amaCommunityExpand 3.6s ease-in-out infinite;
+}
+
+.ama-community__ring--2 {
+  animation-delay: 0.35s;
+}
+
+.ama-community__pin {
+  transform-origin: 24px 18px;
+  animation: amaCommunityPin 3s ease-in-out infinite;
+}
+
+.ama-community__dot {
+  fill: var(--eden-yellow);
+}
+
+.ama-community__dot--1 {
+  animation: amaCommunityDot 2.8s ease-in-out infinite;
+}
+
+.ama-community__dot--2 {
+  animation: amaCommunityDot 2.8s ease-in-out infinite 0.3s;
+}
+
+.ama-community__dot--3 {
+  animation: amaCommunityDot 2.8s ease-in-out infinite 0.6s;
+}
+
+/* Contact */
+.ama-contact__bubble {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.5;
+}
+
+.ama-contact__dot {
+  fill: var(--eden-teal);
+  animation: amaContactDot 2.6s ease-in-out infinite;
+}
+
+.ama-contact__dot--2 {
+  animation-delay: 0.2s;
+}
+
+.ama-contact__dot--3 {
+  animation-delay: 0.4s;
+}
+
+.ama-contact__arrow {
+  stroke: var(--eden-green);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: amaContactSend 3.2s ease-in-out infinite;
+}
+
+@keyframes amaRootGrow {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+@keyframes amaCanopyGrow {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes amaLeafPath {
+  0%,
+  30% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+
+  55%,
+  100% {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
+}
+
+@keyframes amaTeamLink {
+  0%,
+  25% {
+    stroke-dashoffset: 14;
+    opacity: 0.3;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+}
+
+@keyframes amaTeamPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes amaQualityLine {
+  0%,
+  20% {
+    stroke-dashoffset: 20;
+  }
+
+  55%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes amaQualityCheck {
+  0%,
+  45% {
+    stroke-dashoffset: 14;
+    opacity: 0.35;
+  }
+
+  65%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes amaFamilyRing {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes amaFamilyHeart {
+  0%,
+  100% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes amaCommunityExpand {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes amaCommunityPin {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes amaCommunityDot {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes amaContactDot {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes amaContactSend {
+  0%,
+  100% {
+    transform: translateX(0);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-meaning-animation *,
+  .about-meaning-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .ama-quality__check,
+  .ama-story__leaf {
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .ama-quality__line,
+  .ama-team__link {
+    stroke-dashoffset: 0 !important;
+    opacity: 0.85 !important;
+  }
+}

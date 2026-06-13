@@ -1,13 +1,25 @@
 import { NextResponse } from "next/server";
+import { normalizeDOB, validateDOB } from "@/lib/insurance/dates";
+import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 
 const VIRGINIA_MEDICAID = "Virginia Medicaid / Cardinal Care";
 
-function isValidDob(value: string) {
-  return /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/.test(value);
-}
-
 export async function POST(request: Request) {
-  const body = await request.json();
+  let body: Record<string, unknown>;
+
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ message: "Invalid request body." }, { status: 400 });
+  }
+
+  const recaptcha = await verifyRecaptchaV2Token(
+    typeof body.recaptchaToken === "string" ? body.recaptchaToken : null,
+  );
+
+  if (recaptcha.ok === false) {
+    return recaptchaV2FailureResponse(recaptcha);
+  }
 
   const requiredFields = [
     "parentFirstName",
@@ -36,12 +48,15 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!isValidDob(String(body.childDob))) {
+  const dobValidation = validateDOB(String(body.childDob));
+  if (!dobValidation.valid) {
     return NextResponse.json(
-      { message: "Child date of birth must be in MM/DD/YYYY format." },
+      { message: dobValidation.error || "Child date of birth must be in MM/DD/YYYY format." },
       { status: 400 }
     );
   }
+
+  const normalizedChildDob = normalizeDOB(String(body.childDob))!;
 
   if (
     body.insuranceProvider === VIRGINIA_MEDICAID &&
@@ -59,11 +74,11 @@ export async function POST(request: Request) {
     email: String(body.email).trim(),
     phone: String(body.phone).trim(),
     childFullName: String(body.childFullName).trim(),
-    childDob: String(body.childDob).trim(),
+    childDob: normalizedChildDob,
     zipCode: String(body.zipCode).trim(),
     insuranceProvider: String(body.insuranceProvider).trim(),
     medicaidId: body.medicaidId ? String(body.medicaidId).trim() : null,
-    status: "Submitted",
+    status: "Pending staff verification",
     timestamp: new Date().toISOString(),
   };
 
@@ -77,17 +92,22 @@ export async function POST(request: Request) {
     - Do not place DOB, Medicaid ID, SSN, or PHI in URLs.
     - Do not send PHI to analytics.
     - Do not send PHI through unsecured email.
-    - Do not scrape or auto-submit Virginia Managed Care.
-    - If an approved eligibility API exists, verify server-side only.
+    - Do not scrape or auto-login to Virginia Managed Care.
+
+    TODO: When an official Virginia Medicaid / Cardinal Care eligibility API
+    becomes available, verify server-side only using DOB + Medicaid ID, then
+    return verification status, provider, next steps, and timestamp. Never
+    expose DOB, Medicaid ID, or other PHI in API responses, URLs, logs, or
+    analytics.
   */
 
   return NextResponse.json({
     status: verificationRecord.status,
     provider: verificationRecord.insuranceProvider,
+    nextSteps:
+      "Eden ABA Therapy staff will review eligibility and benefits and contact your family with secure next steps.",
     timestamp: verificationRecord.timestamp,
     message:
-      verificationRecord.insuranceProvider === VIRGINIA_MEDICAID
-        ? "Your Virginia Medicaid / Cardinal Care request has been submitted."
-        : "Your insurance verification request has been submitted.",
+      "Insurance request submitted. Eden ABA Therapy will review eligibility and benefits securely.",
   });
 }

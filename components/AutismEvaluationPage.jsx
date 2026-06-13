@@ -17,7 +17,7 @@ import { SITE_IMAGES } from "@/lib/site-images";
 import EdenButton from "@/components/EdenButton";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 28 },
+  initial: false,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
   transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
@@ -32,13 +32,36 @@ function TrustPill({ children }) {
   );
 }
 
+function ScreeningCard({ icon: Icon, title, description, buttonLabel, onClick }) {
+  return (
+    <article className="flex h-full flex-col rounded-[2rem] border border-[#0E6B4F]/15 bg-white p-8 shadow-lg shadow-[#0E6B4F]/5 transition hover:-translate-y-0.5 hover:shadow-xl">
+      <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#0E6B4F] text-white shadow-lg">
+        <Icon size={28} />
+      </div>
+      <h4 className="mt-6 text-xl font-black text-[#0F172A] md:text-2xl">{title}</h4>
+      <p className="mt-3 flex-1 text-sm font-semibold leading-7 text-slate-600 md:text-base">{description}</p>
+      <EdenButton className="mt-6" onClick={onClick}>
+        {buttonLabel} <ArrowRight size={16} />
+      </EdenButton>
+    </article>
+  );
+}
+
 export default function AutismEvaluationPage({ t, onStart, onMchat, onCast, onAdos, onExploreEvaluations }) {
   const p = t.pages.autismAssessment;
   const img = SITE_IMAGES.autismEvaluation;
   const diagnosedFeatures = [ShieldCheck, ClipboardList, Users, HeartHandshake];
 
+  const screeningOptions = p.paths.noDiagnosis.options.filter(([, , , key]) => key === "mchat" || key === "cast");
+  const assessmentOption = p.paths.noDiagnosis.options.find(([, , , key]) => key === "assessment");
+  const screeningIcons = { mchat: Baby, cast: Users };
+
   const scrollToPaths = () => {
     document.getElementById("evaluation-paths")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const scrollToScreenings = () => {
+    document.getElementById("screening-tools")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
@@ -56,7 +79,7 @@ export default function AutismEvaluationPage({ t, onStart, onMchat, onCast, onAd
             </h1>
             <p className="mt-6 max-w-xl text-lg font-semibold leading-9 text-slate-600">{p.hero.subtitle}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <EdenButton onClick={scrollToPaths}>
+              <EdenButton onClick={scrollToScreenings}>
                 {p.hero.startScreening} <ArrowRight size={18} />
               </EdenButton>
               <EdenButton variant="outline" onClick={onExploreEvaluations || scrollToPaths}>
@@ -114,31 +137,31 @@ export default function AutismEvaluationPage({ t, onStart, onMchat, onCast, onAd
               <h3 className="mt-6 text-2xl font-black text-[#0F172A] md:text-3xl">{p.paths.noDiagnosis.title}</h3>
               <p className="mt-3 font-semibold leading-8 text-slate-600">{p.paths.noDiagnosis.intro}</p>
 
-              <div className="mt-8 grid gap-4">
-                {p.paths.noDiagnosis.options.map(([title, description, buttonLabel, key], i) => (
-                  <div
-                    key={title}
-                    className="rounded-[1.75rem] border border-[#0E6B4F]/10 bg-white p-6 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg"
-                  >
-                    <div className="flex items-start gap-4">
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#0E6B4F]/10 text-sm font-black text-[#0E6B4F]">
-                        {i + 1}
-                      </span>
-                      <div className="min-w-0 flex-1">
-                        <h4 className="text-lg font-black text-[#0F172A]">{title}</h4>
-                        <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{description}</p>
-                        <EdenButton
-                          className="mt-4 !px-5 !py-2.5 !text-xs"
-                          variant={key === "assessment" ? "outline" : "primary"}
-                          onClick={key === "mchat" ? onMchat : key === "cast" ? onCast : key === "assessment" ? onAdos : onStart}
-                        >
-                          {buttonLabel} <ArrowRight size={14} />
-                        </EdenButton>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div id="screening-tools" className="mt-8 grid gap-6 sm:grid-cols-2">
+                {screeningOptions.map(([title, description, buttonLabel, key]) => {
+                  const Icon = screeningIcons[key] || ClipboardList;
+                  return (
+                    <ScreeningCard
+                      key={key}
+                      icon={Icon}
+                      title={title}
+                      description={description}
+                      buttonLabel={buttonLabel}
+                      onClick={key === "mchat" ? onMchat : onCast}
+                    />
+                  );
+                })}
               </div>
+
+              {assessmentOption ? (
+                <div className="mt-6 rounded-[1.75rem] border border-[#0E6B4F]/10 bg-white p-6 shadow-md">
+                  <h4 className="text-lg font-black text-[#0F172A]">{assessmentOption[0]}</h4>
+                  <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{assessmentOption[1]}</p>
+                  <EdenButton className="mt-4 !px-5 !py-2.5 !text-xs" variant="outline" onClick={onAdos}>
+                    {assessmentOption[2]} <ArrowRight size={14} />
+                  </EdenButton>
+                </div>
+              ) : null}
             </motion.article>
 
             {/* Card 2 — Has diagnosis */}
@@ -216,7 +239,7 @@ export default function AutismEvaluationPage({ t, onStart, onMchat, onCast, onAd
             <h2 className="mt-6 text-4xl font-black text-white md:text-5xl">{p.cta.title}</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg font-semibold leading-8 text-white/90">{p.cta.text}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <EdenButton variant="secondaryOnDark" onClick={scrollToPaths}>
+              <EdenButton variant="secondaryOnDark" onClick={scrollToScreenings}>
                 {p.cta.startScreening}
               </EdenButton>
               <EdenButton variant="outlineOnDark" onClick={onStart}>

@@ -18,7 +18,7 @@ import { SITE_IMAGES } from "@/lib/site-images";
 import EdenButton from "@/components/EdenButton";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 28 },
+  initial: false,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-60px" },
   transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },

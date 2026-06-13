@@ -1,0 +1,663 @@
+.service-meaning-animation {
+  --eden-green: #087c4f;
+  --eden-teal: #008c83;
+  --eden-soft-green: #dff7e9;
+  --eden-cream: #fffaf0;
+  --eden-yellow: #f4d35e;
+  --eden-navy: #23314d;
+
+  position: relative;
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  color: var(--eden-green);
+}
+
+.service-meaning-animation--compact {
+  width: 56px;
+  height: 56px;
+}
+
+.service-meaning-animation__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.service-meaning-animation__stroke {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-meaning-animation__fill-soft {
+  fill: var(--eden-soft-green);
+}
+
+.service-meaning-animation__fill-teal {
+  fill: var(--eden-teal);
+}
+
+.service-meaning-animation__fill-yellow {
+  fill: var(--eden-yellow);
+}
+
+.service-meaning-animation__fill-navy {
+  fill: var(--eden-navy);
+}
+
+/* Home */
+.sma-home__pulse {
+  transform-origin: 24px 26px;
+  animation: smaHomePulse 3.4s ease-in-out infinite;
+}
+
+.sma-home__leaf {
+  transform-origin: 24px 26px;
+  animation: smaHomeLeaf 3.4s ease-in-out infinite;
+}
+
+.sma-home__dot-parent,
+.sma-home__dot-child {
+  fill: var(--eden-teal);
+}
+
+.sma-home__dot-parent {
+  animation: smaHomeDotParent 3.2s ease-in-out infinite;
+}
+
+.sma-home__dot-child {
+  animation: smaHomeDotChild 3.2s ease-in-out infinite;
+}
+
+.sma-home__dot-trail {
+  stroke: var(--eden-teal);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+  animation: smaHomeTrail 3.2s ease-in-out infinite;
+}
+
+/* Center */
+.sma-center__block {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+}
+
+.sma-center__block--1 {
+  animation: smaCenterGlow 3.2s ease-in-out infinite;
+}
+
+.sma-center__block--2 {
+  animation: smaCenterGlow 3.2s ease-in-out infinite 0.35s;
+}
+
+.sma-center__block--3 {
+  animation: smaCenterGlow 3.2s ease-in-out infinite 0.7s;
+}
+
+.sma-center__check {
+  stroke: var(--eden-teal);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  animation: smaCenterCheck 3.2s ease-in-out infinite;
+}
+
+/* Community */
+.sma-community__path {
+  fill: none;
+  stroke: var(--eden-navy);
+  stroke-width: 1.6;
+  stroke-dasharray: 3 5;
+  opacity: 0.35;
+  animation: smaCommunityDash 3.6s linear infinite;
+}
+
+.sma-community__home {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.4;
+}
+
+.sma-community__traveler {
+  fill: var(--eden-yellow);
+  stroke: var(--eden-green);
+  stroke-width: 1.2;
+  animation: smaCommunityTravel 3.6s ease-in-out infinite;
+}
+
+.sma-community__pin {
+  transform-origin: 36px 14px;
+  animation: smaCommunityPin 3s ease-in-out infinite;
+}
+
+.sma-community__pin-dot {
+  fill: var(--eden-teal);
+}
+
+/* School */
+.sma-school__board {
+  fill: var(--eden-cream);
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+}
+
+.sma-school__line {
+  stroke: var(--eden-teal);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 28;
+  stroke-dashoffset: 28;
+  animation: smaSchoolWrite 3.4s ease-in-out infinite;
+}
+
+.sma-school__star {
+  fill: var(--eden-yellow);
+  opacity: 0;
+  animation: smaSchoolStar 3.4s ease-in-out infinite;
+}
+
+/* Virtual */
+.sma-virtual__device {
+  fill: var(--eden-cream);
+  stroke: var(--eden-navy);
+  stroke-width: 1.6;
+}
+
+.sma-virtual__screen {
+  fill: #ffffff;
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+}
+
+.sma-virtual__video {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.4;
+  animation: smaVirtualVideo 3.2s ease-in-out infinite;
+}
+
+.sma-virtual__wave {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0;
+  animation: smaVirtualWave 3.2s ease-in-out infinite;
+}
+
+.sma-virtual__wave--2 {
+  animation-delay: 0.25s;
+}
+
+.sma-virtual__secure {
+  fill: var(--eden-green);
+  opacity: 0;
+  animation: smaVirtualSecure 3.2s ease-in-out infinite;
+}
+
+/* Occupational */
+.sma-ot__ring {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  opacity: 0.45;
+  animation: smaOtRing 3.4s ease-in-out infinite;
+}
+
+.sma-ot__hand {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sma-ot__spark {
+  fill: var(--eden-yellow);
+}
+
+.sma-ot__spark--1 {
+  animation: smaOtSpark 2.8s ease-in-out infinite;
+}
+
+.sma-ot__spark--2 {
+  animation: smaOtSpark 2.8s ease-in-out infinite 0.35s;
+}
+
+.sma-ot__spark--3 {
+  animation: smaOtSpark 2.8s ease-in-out infinite 0.7s;
+}
+
+.sma-ot__motor-line {
+  stroke: var(--eden-teal);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  animation: smaOtConnect 3.2s ease-in-out infinite;
+}
+
+/* Speech */
+.sma-speech__bubble {
+  fill: var(--eden-soft-green);
+  stroke: var(--eden-green);
+  stroke-width: 1.5;
+}
+
+.sma-speech__bubble--2 {
+  fill: #ffffff;
+  opacity: 0.95;
+}
+
+.sma-speech__dot {
+  fill: var(--eden-teal);
+}
+
+.sma-speech__dot--1 {
+  animation: smaSpeechDot 2.6s ease-in-out infinite;
+}
+
+.sma-speech__dot--2 {
+  animation: smaSpeechDot 2.6s ease-in-out infinite 0.2s;
+}
+
+.sma-speech__dot--3 {
+  animation: smaSpeechDot 2.6s ease-in-out infinite 0.4s;
+}
+
+.sma-speech__wave {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  opacity: 0.55;
+  animation: smaSpeechWave 3s ease-in-out infinite;
+}
+
+/* Feeding */
+.sma-feed__plate {
+  fill: none;
+  stroke: var(--eden-green);
+  stroke-width: 1.6;
+}
+
+.sma-feed__inner {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.2;
+  opacity: 0.45;
+}
+
+.sma-feed__spoon {
+  fill: none;
+  stroke: var(--eden-navy);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  animation: smaFeedSpoon 3.2s ease-in-out infinite;
+  transform-origin: 16px 18px;
+}
+
+.sma-feed__bite {
+  fill: var(--eden-yellow);
+  animation: smaFeedBite 3.2s ease-in-out infinite;
+}
+
+.sma-feed__path {
+  fill: none;
+  stroke: var(--eden-teal);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 12;
+  stroke-dashoffset: 12;
+  animation: smaFeedSwallow 3.2s ease-in-out infinite;
+}
+
+.sma-feed__check {
+  stroke: var(--eden-green);
+  stroke-width: 1.8;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  animation: smaFeedCheck 3.2s ease-in-out infinite;
+}
+
+@keyframes smaHomePulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.88);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+@keyframes smaHomeLeaf {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes smaHomeDotParent {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes smaHomeDotChild {
+  0%,
+  35% {
+    opacity: 0.35;
+    transform: translateX(0);
+  }
+
+  65%,
+  100% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+}
+
+@keyframes smaHomeTrail {
+  0%,
+  35% {
+    stroke-dashoffset: 8;
+    opacity: 0.2;
+  }
+
+  65%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.7;
+  }
+}
+
+@keyframes smaCenterGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    filter: none;
+  }
+
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(0, 140, 131, 0.35));
+  }
+}
+
+@keyframes smaCenterCheck {
+  0%,
+  55% {
+    opacity: 0;
+    stroke-dashoffset: 12;
+  }
+
+  70%,
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes smaCommunityDash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes smaCommunityTravel {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  45% {
+    transform: translate(10px, -6px);
+  }
+
+  100% {
+    transform: translate(18px, -2px);
+  }
+}
+
+@keyframes smaCommunityPin {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes smaSchoolWrite {
+  0%,
+  20% {
+    stroke-dashoffset: 28;
+  }
+
+  55%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes smaSchoolStar {
+  0%,
+  50% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  65%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes smaVirtualVideo {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes smaVirtualWave {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  40%,
+  70% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+}
+
+@keyframes smaVirtualSecure {
+  0%,
+  60% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  75%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes smaOtRing {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+@keyframes smaOtSpark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes smaOtConnect {
+  0%,
+  25% {
+    stroke-dashoffset: 16;
+    opacity: 0.35;
+  }
+
+  60%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.9;
+  }
+}
+
+@keyframes smaSpeechDot {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes smaSpeechWave {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleX(0.85);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes smaFeedSpoon {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes smaFeedBite {
+  0%,
+  20% {
+    opacity: 0;
+    transform: translate(0, -4px);
+  }
+
+  45%,
+  65% {
+    opacity: 1;
+    transform: translate(8px, 4px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(10px, 6px);
+  }
+}
+
+@keyframes smaFeedSwallow {
+  0%,
+  50% {
+    stroke-dashoffset: 12;
+    opacity: 0.2;
+  }
+
+  75%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+}
+
+@keyframes smaFeedCheck {
+  0%,
+  70% {
+    opacity: 0;
+  }
+
+  85%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-meaning-animation *,
+  .service-meaning-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .sma-center__check,
+  .sma-school__star,
+  .sma-virtual__secure,
+  .sma-feed__check {
+    opacity: 1 !important;
+  }
+
+  .sma-school__line,
+  .sma-ot__motor-line,
+  .sma-feed__path {
+    stroke-dashoffset: 0 !important;
+    opacity: 0.85 !important;
+  }
+}

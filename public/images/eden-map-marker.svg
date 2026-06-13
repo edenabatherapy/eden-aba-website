@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="64" viewBox="0 0 52 64" fill="none" role="img" aria-label="Eden ABA Therapy location">
+  <path d="M26 0C14.402 0 5 9.402 5 21c0 16.875 21 43 21 43s21-26.125 21-43C47 9.402 37.598 0 26 0z" fill="#1f7a2e"/>
+  <path d="M26 2C15.507 2 7 10.507 7 21c0 15.2 19 39.2 19 39.2S45 36.2 45 21C45 10.507 36.493 2 26 2z" fill="#128c8c" opacity="0.35"/>
+  <circle cx="26" cy="21" r="14" fill="#ffffff"/>
+  <circle cx="26" cy="21" r="11" fill="#faf7f2"/>
+  <text x="26" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#0b4f4f">E</text>
+</svg>
