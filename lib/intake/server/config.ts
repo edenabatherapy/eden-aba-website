@@ -37,3 +37,12 @@ export function assertIntakeBackendReady() {
     );
   }
 }
+
+/** True on Vercel serverless — local ./storage/intake is read-only / ephemeral. */
+export function isVercelDeployment() {
+  return Boolean(process.env.VERCEL);
+}
+
+export function shouldUseLocalIntakeStorage() {
+  return !isVercelDeployment();
+}

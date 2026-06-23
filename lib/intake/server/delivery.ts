@@ -13,6 +13,11 @@ export type IntakeDeliveryResult = {
 };
 
 async function appendDeliveryFailure(entry: Record<string, unknown>) {
+  if (process.env.VERCEL) {
+    console.error("[intake-delivery] delivery failure (skipped local log on Vercel)", entry);
+    return;
+  }
+
   const config = getIntakeConfig();
   const failurePath = path.resolve(cwd(), config.storagePath, "_delivery_failures.jsonl");
   await mkdir(path.dirname(failurePath), { recursive: true });
