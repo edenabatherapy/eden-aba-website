@@ -12,6 +12,7 @@ import {
 } from "@/lib/recaptcha/messages";
 import { shouldBypassRecaptchaVerificationOnServer } from "@/lib/recaptcha/config";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
+import { insertLeadSubmission } from "@/lib/supabase/insert-lead";
 
 function isNonEmpty(value: unknown) {
   return typeof value === "string" && value.trim().length > 0;
@@ -116,6 +117,23 @@ export async function POST(request: Request) {
       });
       finalConfirmationId = stored.confirmationId;
       finalSubmittedAt = stored.submittedAt;
+    }
+
+    const leadResult = await insertLeadSubmission({
+      parentName: submission.parentName,
+      email: submission.email,
+      phone: submission.phone,
+      state: submission.state,
+      childBirthdate: submission.childBirthdate,
+      diagnosisStatus: submission.diagnosisStatus,
+      message: submission.message,
+    });
+
+    if (!leadResult.ok) {
+      return NextResponse.json(
+        { ok: false, message: "Unable to submit your request right now. Please try again later." },
+        { status: 500 },
+      );
     }
 
     const summary = buildSummaryFromStartAbaTherapy(submission, finalConfirmationId, finalSubmittedAt);
