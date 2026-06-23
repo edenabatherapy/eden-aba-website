@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, CreditCard, FileUp, UploadCloud, UserRound } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
+import FieldRequirementHint from "@/components/forms/FieldRequirementHint";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const inputClass =
@@ -17,6 +18,8 @@ const inputClass =
  *   useCardSelect?: boolean,
  *   uploadVariant?: "default" | "card" | "insurance",
  *   animDelay?: number,
+ *   error?: string,
+ *   showRequirement?: boolean,
  * }} props
  */
 export default function IntakeField({
@@ -28,12 +31,22 @@ export default function IntakeField({
   uploadVariant = "default",
   animDelay = 0,
   selectOptionLabel = "Select option",
+  error = "",
+  showRequirement = true,
 }) {
+  const cleanLabel = String(field.label || "").replace(/ \*$/, "");
   const label = (
     <label htmlFor={field.name} className="mb-2 block text-sm font-extrabold text-[#06461f]">
-      {field.label}
-      {field.required ? " *" : ""}
+      {cleanLabel}
     </label>
+  );
+
+  const fieldFooter = (
+    <FieldRequirementHint
+      required={Boolean(field.required)}
+      error={error}
+      className={field.type === "radio" || field.type === "checkbox-group" ? "mt-3" : "mt-1.5"}
+    />
   );
 
   const wrap = (children) => (
@@ -73,6 +86,7 @@ export default function IntakeField({
             </option>
           ))}
         </select>
+        {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
       </div>
     );
   }
@@ -90,6 +104,7 @@ export default function IntakeField({
           onChange={(e) => onChange(field.name, e.target.value)}
           className={`${inputClass} min-h-[88px] resize-y`}
         />
+        {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
       </div>
     );
   }
@@ -98,10 +113,7 @@ export default function IntakeField({
     if (useCardSelect) {
       return wrap(
         <div className="sm:col-span-2 xl:col-span-3">
-          <div className="mb-3 text-sm font-extrabold text-[#06461f]">
-            {field.label}
-            {field.required ? " *" : ""}
-          </div>
+          <div className="mb-3 text-sm font-extrabold text-[#06461f]">{cleanLabel}</div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {(field.options || []).map((opt) => {
               const selected = value === opt;
@@ -131,16 +143,14 @@ export default function IntakeField({
             })}
           </div>
           <input type="text" name={field.name} value={String(value ?? "")} readOnly tabIndex={-1} aria-hidden="true" className="sr-only" />
+          {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
         </div>
       );
     }
 
     return wrap(
       <div className="sm:col-span-2 xl:col-span-3">
-        <div className="mb-3 text-sm font-extrabold text-[#06461f]">
-          {field.label}
-          {field.required ? " *" : ""}
-        </div>
+        <div className="mb-3 text-sm font-extrabold text-[#06461f]">{cleanLabel}</div>
         <div className="flex flex-wrap gap-3">
           {(field.options || []).map((opt) => (
             <label
@@ -155,7 +165,6 @@ export default function IntakeField({
                 type="radio"
                 name={field.name}
                 value={opt}
-                required={field.required}
                 checked={value === opt}
                 onChange={() => onChange(field.name, opt)}
                 className="accent-[#0E6B4F]"
@@ -164,6 +173,7 @@ export default function IntakeField({
             </label>
           ))}
         </div>
+        {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
       </div>
     );
   }
@@ -174,10 +184,7 @@ export default function IntakeField({
     if (useCardSelect) {
       return wrap(
         <div className="sm:col-span-2 xl:col-span-3">
-          <div className="mb-3 text-sm font-extrabold text-[#06461f]">
-            {field.label}
-            {field.required ? " *" : ""}
-          </div>
+          <div className="mb-3 text-sm font-extrabold text-[#06461f]">{cleanLabel}</div>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {(field.options || []).map((opt) => {
               const checked = selected.includes(opt);
@@ -218,16 +225,14 @@ export default function IntakeField({
             aria-hidden="true"
             className="sr-only"
           />
+          {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
         </div>
       );
     }
 
     return wrap(
       <div className="sm:col-span-2 xl:col-span-3">
-        <div className="mb-3 text-sm font-extrabold text-[#06461f]">
-          {field.label}
-          {field.required ? " *" : ""}
-        </div>
+        <div className="mb-3 text-sm font-extrabold text-[#06461f]">{cleanLabel}</div>
         <div className="flex flex-wrap gap-3">
           {(field.options || []).map((opt) => (
             <label
@@ -253,6 +258,7 @@ export default function IntakeField({
             </label>
           ))}
         </div>
+        {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
       </div>
     );
   }
@@ -332,9 +338,10 @@ export default function IntakeField({
           value={String(value ?? "")}
           placeholder={field.placeholder}
           onChange={(e) => onChange(field.name, e.target.value)}
-          className={`${inputClass}${showProfileIcon ? " pl-10" : ""}`}
+          className={`${inputClass}${showProfileIcon ? " pl-10" : ""}${error ? " border-red-400 ring-red-100" : ""}`}
         />
       </div>
+      {showRequirement ? fieldFooter : error ? <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">{error}</p> : null}
     </div>
   );
 }

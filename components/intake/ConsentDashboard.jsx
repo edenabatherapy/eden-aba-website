@@ -94,6 +94,12 @@ export default function ConsentDashboard({
                   />
                   {cd.yesAcknowledge || c.ack}
                 </label>
+                <p className="mt-2 text-xs font-semibold text-red-600">Required</p>
+                {fieldErrors[`${c.id}Ack`] ? (
+                  <p className="mt-1 text-xs font-semibold text-red-600" role="alert">
+                    {fieldErrors[`${c.id}Ack`]}
+                  </p>
+                ) : null}
                 <ChevronRight className="hidden text-[#08751f] md:block" size={22} />
               </button>
             </motion.div>

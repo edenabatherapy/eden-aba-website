@@ -23,14 +23,28 @@ export async function POST(request: Request) {
     return recaptchaV2FailureResponse(recaptcha);
   }
 
-  const requiredFields = ["parentName", "email", "phone"];
-  for (const field of requiredFields) {
-    if (!isNonEmpty(body[field])) {
-      return NextResponse.json(
-        { ok: false, message: "Please complete all required contact fields." },
-        { status: 400 },
-      );
-    }
+  if (!isNonEmpty(body.parentName)) {
+    return NextResponse.json(
+      { ok: false, message: "Parent / guardian name is required." },
+      { status: 400 },
+    );
+  }
+
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+
+  if (!phone && !email) {
+    return NextResponse.json(
+      { ok: false, message: "Enter a phone number or email address so we can reach you." },
+      { status: 400 },
+    );
+  }
+
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json(
+      { ok: false, message: "Enter a valid email address." },
+      { status: 400 },
+    );
   }
 
   if (body.consentTerms !== true) {

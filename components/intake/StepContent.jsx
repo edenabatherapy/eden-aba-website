@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
-import { STEP_SECTIONS as STEP_SECTIONS_EN } from "@/lib/intake/step-config";
+import { STEP_SECTIONS as STEP_SECTIONS_EN, isIntakeFieldRequired } from "@/lib/intake/step-config";
 import { INTAKE_STEPS as INTAKE_STEPS_EN } from "@/lib/intake/constants";
 import { SITE_IMAGES } from "@/lib/site-images";
 import ConsentDashboard from "./ConsentDashboard";
@@ -56,6 +56,7 @@ const SECTION_ICONS = {
  *   onOpenConsent: (id: string) => void,
  *   consentDashboard?: Record<string, string>,
  *   fieldErrors?: Record<string, string>,
+ *   missingFields?: { name: string, label: string }[],
  * }} props
  */
 export default function StepContent({
@@ -69,6 +70,7 @@ export default function StepContent({
   ui = {},
   consentDashboard = {},
   fieldErrors = {},
+  missingFields = [],
 }) {
   const config = stepSections[step];
   if (!config) return null;
@@ -80,6 +82,10 @@ export default function StepContent({
   return (
     <AnimatePresence mode="wait">
       <motion.div key={step} {...stepTransition} className="space-y-6">
+        {missingFields.length > 0 ? (
+          <MissingFieldsBanner missingFields={missingFields} ui={ui} />
+        ) : null}
+
         {step === 0 && <WelcomeHero stepMeta={stepMeta} visual={visual} ui={ui} />}
 
         {step === 1 && visual && (
@@ -124,10 +130,11 @@ export default function StepContent({
                 onChange={onChange}
                 documentMeta={documentMeta}
                 step={step}
-              sectionIndex={index}
-              collapsible={false}
-              selectOptionLabel={ui.selectOption}
-            />
+                sectionIndex={index}
+                collapsible={false}
+                selectOptionLabel={ui.selectOption}
+                fieldErrors={fieldErrors}
+              />
             ))}
             <ConsentDashboard
               data={data}
@@ -147,6 +154,7 @@ export default function StepContent({
                 sectionIndex={index + 2}
                 collapsible={false}
                 selectOptionLabel={ui.selectOption}
+                fieldErrors={fieldErrors}
               />
             ))}
           </>
@@ -165,6 +173,7 @@ export default function StepContent({
               collapsible={useAccordion}
               defaultOpen={index === 0}
               selectOptionLabel={ui.selectOption}
+              fieldErrors={fieldErrors}
             />
           ))}
 
@@ -310,6 +319,25 @@ function ReviewStepHeader({ stepMeta }) {
   );
 }
 
+function MissingFieldsBanner({ missingFields, ui }) {
+  return (
+    <motion.div
+      {...fadeUp}
+      className="rounded-2xl border border-red-200 bg-red-50 px-5 py-4"
+      role="alert"
+    >
+      <p className="text-sm font-black text-red-800">
+        {ui.missingRequiredTitle || "Please complete these required fields:"}
+      </p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-sm font-semibold text-red-700">
+        {missingFields.map((field) => (
+          <li key={field.name}>{field.label}</li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+}
+
 function SectionBlock({
   section,
   data,
@@ -320,6 +348,7 @@ function SectionBlock({
   collapsible,
   defaultOpen = true,
   selectOptionLabel = "Select option",
+  fieldErrors = {},
 }) {
   const [open, setOpen] = useState(defaultOpen);
   const isUploadGrid = section.fields.some((f) => f.type === "file") && section.fields.length > 4;
@@ -345,7 +374,10 @@ function SectionBlock({
           }
         >
           <IntakeField
-            field={field}
+            field={{
+              ...field,
+              required: isIntakeFieldRequired(step, field.name),
+            }}
             value={data[field.name]}
             onChange={onChange}
             fileMeta={documentMeta[field.name]}
@@ -353,6 +385,8 @@ function SectionBlock({
             uploadVariant={field.type === "file" ? (isUploadGrid ? "card" : isInsuranceUpload ? "insurance" : "default") : "default"}
             animDelay={fieldIndex * 0.02}
             selectOptionLabel={selectOptionLabel}
+            error={fieldErrors[field.name]}
+            showRequirement={field.type !== "note"}
           />
         </motion.div>
       ))}

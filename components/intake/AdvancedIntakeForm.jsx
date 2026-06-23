@@ -17,6 +17,7 @@ import {
   applyLegalGlobalSideEffects,
   ensureLegalGlobalFields,
   getLegalGlobalFieldErrors,
+  getTodayLegalDate,
   hasLegalGlobalChanges,
   LEGAL_GLOBAL_FIELDS,
   parseLegalValidationMessage,
@@ -91,6 +92,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitResult, setSubmitResult] = useState(null);
   const [fieldErrors, setFieldErrors] = useState({});
+  const [missingFields, setMissingFields] = useState([]);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -124,6 +126,10 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         if (!(value instanceof File)) {
           next = applyLegalGlobalSideEffects(next, name, value);
 
+          if (name === "finalSignature" && String(value ?? "").trim() && !String(next.finalDate ?? "").trim()) {
+            next.finalDate = getTodayLegalDate();
+          }
+
           setFieldErrors((current) => {
             let changed = false;
             const updated = { ...current };
@@ -132,6 +138,14 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
                 delete updated[field];
                 changed = true;
               }
+            }
+            if (updated[name] && String(next[name] ?? "").trim()) {
+              delete updated[name];
+              changed = true;
+            }
+            if (name.endsWith("Ack") && (value === "Yes" || value === true) && updated[name]) {
+              delete updated[name];
+              changed = true;
             }
             return changed ? updated : current;
           });
@@ -196,25 +210,27 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     setCurrentStep(step);
     setActiveTab("intake");
     setShowReview(false);
+    setFieldErrors({});
+    setMissingFields([]);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleNext = async () => {
     const validation = validateStep(currentStep, formData, formRef.current);
     if (!validation.valid) {
-      if (validation.fieldErrors) {
-        setFieldErrors(validation.fieldErrors);
-        if (validation.errorStep === 2) {
-          document.getElementById("eden-legal-signature-section")?.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-          });
-        }
+      setFieldErrors(validation.fieldErrors || {});
+      setMissingFields(validation.missingFields || []);
+      if (validation.errorStep === 2) {
+        document.getElementById("eden-legal-signature-section")?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
       }
       return;
     }
 
     setFieldErrors({});
+    setMissingFields({});
     persist(formData, currentStep, activeTab, meta, "Validated step");
 
     if (currentStep === 5) {
@@ -257,6 +273,17 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
 
     if (Object.keys(legalErrors).length > 0) {
       setFieldErrors(legalErrors);
+      setMissingFields(
+        Object.keys(legalErrors).map((name) => ({
+          name,
+          label:
+            name === "legalGlobalName"
+              ? "Legal name"
+              : name === "legalGlobalDate"
+                ? "Legal signature date"
+                : "Legal signature",
+        })),
+      );
       setShowReview(false);
       setCurrentStep(2);
       setActiveTab("intake");
@@ -271,7 +298,14 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     setFieldErrors({});
 
     const validation = validateStep(5, prepared, formRef.current);
-    if (!validation.valid) return;
+    if (!validation.valid) {
+      setFieldErrors(validation.fieldErrors || {});
+      setMissingFields(validation.missingFields || []);
+      setShowReview(false);
+      setCurrentStep(5);
+      setActiveTab("intake");
+      return;
+    }
 
     persist(prepared, currentStep, activeTab, meta, "Final validation");
 
@@ -324,6 +358,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     const legalError = parseLegalValidationMessage(result.message);
     if (legalError) {
       setFieldErrors({ [legalError.field]: legalError.message });
+      setMissingFields([{ name: legalError.field, label: legalError.message }]);
       setShowReview(false);
       setCurrentStep(2);
       setActiveTab("intake");
@@ -483,6 +518,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         ui={ui}
         consentDashboard={intakeForm.consentDashboard}
         fieldErrors={fieldErrors}
+        missingFields={missingFields}
       />
       <div className="mt-8 flex flex-col gap-3 border-t border-[#e4ece6] pt-6 sm:flex-row sm:flex-wrap sm:justify-between">
         <button

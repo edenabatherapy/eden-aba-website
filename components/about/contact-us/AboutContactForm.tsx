@@ -8,6 +8,8 @@ import { Check, LockKeyhole } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
+import FieldRequirementHint from "@/components/forms/FieldRequirementHint";
+import { validateContactForm, type ContactFieldErrors } from "@/lib/forms/contact-validation";
 import {
   CLIENT_SUPPORT_TOPICS,
   DIAGNOSIS_STATUS_OPTIONS,
@@ -111,6 +113,8 @@ export default function AboutContactForm() {
   const [consentTerms, setConsentTerms] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<ContactFieldErrors>({});
+  const [missingFields, setMissingFields] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
 
@@ -129,14 +133,24 @@ export default function AboutContactForm() {
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
+    setFieldErrors({});
+    setMissingFields([]);
 
-    if (!form.parentName.trim() || !form.email.trim() || !form.phone.trim()) {
-      setError("Please complete all required fields.");
-      return;
-    }
+    const validation = validateContactForm({
+      parentName: form.parentName,
+      email: form.email,
+      phone: form.phone,
+      consentTerms,
+    });
 
-    if (!consentTerms) {
-      setError("You must agree to the Privacy Policy and Terms of Service.");
+    if (validation.valid === false) {
+      setFieldErrors(validation.fieldErrors);
+      setMissingFields(validation.missingFields);
+      const firstField = validation.missingFields.includes("Phone or email")
+        ? document.getElementById("contact-phone")
+        : document.getElementById("contact-name");
+      firstField?.scrollIntoView({ behavior: "smooth", block: "center" });
+      firstField?.focus();
       return;
     }
 
@@ -207,11 +221,23 @@ export default function AboutContactForm() {
 
   return (
     <form onSubmit={submit} className="space-y-6" noValidate>
+      {missingFields.length > 0 ? (
+        <div className="rounded-2xl border border-red-200 bg-red-50 px-5 py-4" role="alert">
+          <p className="text-sm font-black text-red-800">Please complete these required fields:</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm font-semibold text-red-700">
+            {missingFields.map((field) => (
+              <li key={field}>{field}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="contact-inquiry-type" className={labelClass}>
-            Inquiry Type <span className="text-red-600">*</span>
+            Inquiry Type
           </label>
+          <FieldRequirementHint required className="mb-2" />
           <select
             id="contact-inquiry-type"
             value={form.inquiryType}
@@ -229,50 +255,51 @@ export default function AboutContactForm() {
 
         <div>
           <label htmlFor="contact-name" className={labelClass}>
-            Full Name <span className="text-red-600">*</span>
+            Full Name
           </label>
           <input
             id="contact-name"
             type="text"
             autoComplete="name"
-            required
             value={form.parentName}
             onChange={(e) => update("parentName", e.target.value)}
             className={inputClass}
             disabled={formDisabled}
           />
+          <FieldRequirementHint required error={fieldErrors.parentName} className="mt-1.5" />
         </div>
 
         <div>
           <label htmlFor="contact-phone" className={labelClass}>
-            Phone <span className="text-red-600">*</span>
+            Phone
           </label>
           <input
             id="contact-phone"
             type="tel"
             autoComplete="tel"
-            required
             value={form.phone}
             onChange={(e) => update("phone", e.target.value)}
             className={inputClass}
             disabled={formDisabled}
           />
+          <FieldRequirementHint required error={fieldErrors.phone} className="mt-1.5" />
         </div>
 
         <div className="sm:col-span-2">
           <label htmlFor="contact-email" className={labelClass}>
-            Email <span className="text-red-600">*</span>
+            Email
           </label>
           <input
             id="contact-email"
             type="email"
             autoComplete="email"
-            required
             value={form.email}
             onChange={(e) => update("email", e.target.value)}
             className={inputClass}
             disabled={formDisabled}
           />
+          <FieldRequirementHint required error={fieldErrors.email} className="mt-1.5" />
+          <p className="mt-1 text-xs text-slate-500">Provide at least one: phone or email.</p>
         </div>
       </div>
 
@@ -458,6 +485,7 @@ export default function AboutContactForm() {
         <label htmlFor="contact-message" className={labelClass}>
           {form.inquiryType === "General Question" ? "Your Question" : "Additional Details"}
         </label>
+        <FieldRequirementHint required={false} className="mb-2" />
         <textarea
           id="contact-message"
           rows={5}
@@ -485,6 +513,7 @@ export default function AboutContactForm() {
           and authorize Eden ABA Therapy to contact me about my inquiry.
         </span>
       </label>
+      <FieldRequirementHint required error={fieldErrors.consentTerms} />
 
       <ReCaptchaVerification
         ref={recaptchaRef}
