@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
+import { getSupabaseServerClient } from "@/lib/supabase/server";
 
 function isNonEmpty(value: unknown) {
   return typeof value === "string" && value.trim().length > 0;
@@ -54,10 +55,30 @@ export async function POST(request: Request) {
     submittedAt: new Date().toISOString(),
   };
 
-  /*
-    TODO: Persist contact submissions to Eden ABA Therapy secure backend.
-    Do not log PHI/PII in application logs.
-  */
+  const supabase = getSupabaseServerClient();
+  if (!supabase) {
+    return NextResponse.json(
+      { ok: false, message: "Unable to submit your request right now. Please try again later." },
+      { status: 500 },
+    );
+  }
+
+  const { error } = await supabase.from("leads").insert({
+    parent_name: submission.parentName,
+    email: submission.email,
+    phone: submission.phone,
+    city: submission.state,
+    child_age: submission.childBirthdate,
+    service_interest: submission.diagnosisStatus,
+    message: submission.message,
+  });
+
+  if (error) {
+    return NextResponse.json(
+      { ok: false, message: "Unable to submit your request right now. Please try again later." },
+      { status: 500 },
+    );
+  }
 
   return NextResponse.json({
     ok: true,
