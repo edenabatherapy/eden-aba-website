@@ -129,12 +129,14 @@ export async function POST(request: Request) {
       message: submission.message,
     });
 
-    if (!leadResult.ok) {
+    if (leadResult.ok === false) {
       console.error("[start-aba-therapy] Supabase leads insert failed", {
         reason: leadResult.reason,
         message: leadResult.message,
         code: leadResult.code,
         details: leadResult.details,
+        hint: leadResult.hint,
+        payloadKeys: leadResult.payloadKeys,
       });
 
       return NextResponse.json(
