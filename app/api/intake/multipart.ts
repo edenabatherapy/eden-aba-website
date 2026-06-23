@@ -7,6 +7,7 @@ import { buildSummaryFromAdvancedIntake } from "@/lib/intake/server/submission-s
 import { storeIntakeSubmission } from "@/lib/intake/server/storage";
 import { validateIntakeSubmission } from "@/lib/intake/server/validate-intake";
 import { fileToBuffer, sanitizeFilename, validateUploadedFile } from "@/lib/intake/server/validate-files";
+import { prepareIntakePayload } from "@/lib/intake/legal-global";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 
 export default async function handleMultipartIntake(request: Request) {
@@ -50,6 +51,8 @@ export default async function handleMultipartIntake(request: Request) {
     } catch {
       return NextResponse.json({ ok: false, message: "Invalid intake JSON payload." }, { status: 400 });
     }
+
+    intake = prepareIntakePayload(intake);
 
     let documentMeta: Record<string, unknown> = {};
     const metaRaw = formData.get("documentMeta");

@@ -17,6 +17,9 @@ import {
   applyLegalGlobalSideEffects,
   ensureLegalGlobalFields,
   getLegalGlobalFieldErrors,
+  hasLegalGlobalChanges,
+  LEGAL_GLOBAL_FIELDS,
+  parseLegalValidationMessage,
 } from "@/lib/intake/legal-global";
 import {
   appendAudit,
@@ -120,6 +123,18 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
 
         if (!(value instanceof File)) {
           next = applyLegalGlobalSideEffects(next, name, value);
+
+          setFieldErrors((current) => {
+            let changed = false;
+            const updated = { ...current };
+            for (const field of LEGAL_GLOBAL_FIELDS) {
+              if (updated[field] && String(next[field] ?? "").trim()) {
+                delete updated[field];
+                changed = true;
+              }
+            }
+            return changed ? updated : current;
+          });
         }
 
         if (value instanceof File) {
@@ -229,9 +244,9 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
 
   const handleFinalSubmit = async () => {
     const prepared = ensureLegalGlobalFields(formData);
-    if (prepared.legalGlobalDate !== formData.legalGlobalDate) {
+    if (hasLegalGlobalChanges(formData, prepared)) {
       setFormData(prepared);
-      persist(prepared, currentStep, activeTab, meta, "Legal date applied");
+      persist(prepared, currentStep, activeTab, meta, "Legal fields applied");
     }
 
     const legalErrors = getLegalGlobalFieldErrors(prepared, {
@@ -305,6 +320,20 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
       ok: false,
       message: result.message || p.submitError,
     });
+
+    const legalError = parseLegalValidationMessage(result.message);
+    if (legalError) {
+      setFieldErrors({ [legalError.field]: legalError.message });
+      setShowReview(false);
+      setCurrentStep(2);
+      setActiveTab("intake");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.getElementById("eden-legal-signature-section")?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+
     resetRecaptcha();
   };
 

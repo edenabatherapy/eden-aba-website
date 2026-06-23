@@ -139,6 +139,9 @@ export default function ConsentDashboard({
               label: cd.legalGlobalDate || "Date *",
               type: "date",
               required: true,
+              hint:
+                cd.legalGlobalDateHint ||
+                "Required. Auto-filled to today when you sign or acknowledge consent above.",
             }}
             value={data.legalGlobalDate}
             error={fieldErrors.legalGlobalDate}
@@ -167,9 +170,11 @@ export default function ConsentDashboard({
 const LEGAL_GLOBAL_FIELDS = ["legalGlobalName", "legalGlobalDate", "legalGlobalSignature"];
 
 function LegalField({ field, value, error, onChange }) {
+  const { hint, ...fieldProps } = field;
   return (
     <div>
-      <IntakeField field={field} value={value} onChange={onChange} />
+      <IntakeField field={fieldProps} value={value} onChange={onChange} />
+      {hint ? <p className="mt-1.5 text-xs leading-5 text-[#667085]">{hint}</p> : null}
       {error ? (
         <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">
           {error}
