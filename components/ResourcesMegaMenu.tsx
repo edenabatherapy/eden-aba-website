@@ -95,20 +95,6 @@ export const resourcesSections: ResourcesSection[] = [
         animationType: "quality",
       },
       {
-        title: "M-CHAT-R Online Screener",
-        href: menuHref("M-CHAT-R Online Screener"),
-        description:
-          "Complete the M-CHAT-R screening tool online and review guidance on follow-up steps with your care team.",
-        animationType: "eden",
-      },
-      {
-        title: "ADOS-2 Assessment",
-        href: menuHref("ADOS-2 Assessment"),
-        description:
-          "Learn about the ADOS-2 gold-standard observational assessment used in autism diagnostic evaluations.",
-        animationType: "quality",
-      },
-      {
         title: "School & IEP Evaluations",
         href: menuHref("School & IEP Evaluations"),
         description:
@@ -135,32 +121,18 @@ export const resourcesSections: ResourcesSection[] = [
         animationType: "family-centered",
       },
       {
-        title: "Parent Guides",
-        href: menuHref("Parent Guides"),
-        description:
-          "Access caregiver-friendly guides on autism, therapy, routines, and partnering with your child's care team.",
-        animationType: "family-centered",
-      },
-      {
-        title: "Family Training & Support",
-        href: menuHref("Family Training & Support"),
-        description:
-          "Explore caregiver coaching, family training resources, and practical support for home and community.",
-        animationType: "family-centered",
-      },
-      {
-        title: "How ABA Therapy Works",
-        href: menuHref("How ABA Therapy Works"),
-        description:
-          "Learn how ABA therapy sessions, treatment planning, and skill-building support meaningful progress.",
-        animationType: "quality",
-      },
-      {
         title: "ABA Success Stories",
         href: menuHref("ABA Success Stories"),
         description:
           "Read outcomes and family stories highlighting progress, partnership, and hope through ABA therapy.",
         animationType: "community-impact",
+      },
+      {
+        title: "Getting Started with Eden",
+        href: menuHref("Getting Started with Eden"),
+        description:
+          "Follow a clear path to connect with Eden, complete intake steps, and begin services with confidence.",
+        animationType: "eden",
       },
     ],
   },
@@ -189,18 +161,18 @@ export const resourcesSections: ResourcesSection[] = [
         animationType: "eden",
       },
       {
-        title: "New Parent Checklist",
-        href: menuHref("New Parent Checklist"),
-        description:
-          "Use a practical checklist to prepare documents, questions, and next steps as a new autism caregiver.",
-        animationType: "story",
-      },
-      {
         title: "Schedule Appointment",
         href: menuHref("Schedule Appointment"),
         description:
           "Request a consultation or appointment with Eden ABA Therapy to discuss evaluation, intake, or next steps.",
         animationType: "contact",
+      },
+      {
+        title: "Location",
+        href: menuHref("Location"),
+        description:
+          "Find Eden ABA Therapy service areas, center hours, directions, and scheduling options near your family.",
+        animationType: "community-impact",
       },
       {
         title: "FAQs",

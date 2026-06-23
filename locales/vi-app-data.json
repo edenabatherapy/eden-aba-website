@@ -1,0 +1,74 @@
+{
+  "WHAT_IS_ABA_HERO": {
+    "title": "ABA Therapy là gì?",
+    "subtitle": "Hướng dẫn thân thiện với gia đình về Phân tích Hành vi Ứng dụng, cách hoạt động và cách hỗ trợ trẻ tự kỷ.",
+    "imageAlt": "Trẻ và nhà trị liệu trong buổi liệu pháp ABA ấm áp, dựa trên trò chơi"
+  },
+  "WHAT_IS_ABA_SECTION": {
+    "title": "ABA Therapy là gì?",
+    "paragraphs": [
+      "Phân tích Hành vi Ứng dụng (ABA) là liệu pháp dựa trên nghiên cứu, sử dụng khoa học về học tập và hành vi để giúp trẻ xây dựng kỹ năng ý nghĩa trong cuộc sống hàng ngày. ABA xem xét điều gì xảy ra trước và sau hành vi để hiểu vì sao hành vi xuất hiện và dạy cách giao tiếp, tham gia an toàn và hiệu quả hơn.",
+      "Tại Eden ABA Therapy, mục tiêu được cá nhân hóa và lấy gia đình làm trung tâm. BCBA xem xét điểm mạnh, nhu cầu, phong cách giao tiếp, thói quen sinh hoạt, an toàn và hồ sơ học tập của con bạn trước khi lập kế hoạch điều trị.",
+      "Mục đích không phải thay đổi con bạn là ai. Mục đích là dạy kỹ năng hữu ích, hỗ trợ an toàn và giúp con bạn diễn đạt nhu cầu thành công hơn."
+    ]
+  },
+  "WHAT_IS_ABA_CTA": {
+    "title": "Sẵn sàng bắt đầu liệu pháp ABA với Eden?",
+    "subtitle": "Liên hệ đội ngũ Eden để tìm hiểu về intake, đánh giá, xem xét bảo hiểm và các bước tiếp theo cho gia đình bạn.",
+    "primaryLabel": "Bắt đầu Intake",
+    "secondaryLabel": "Liên hệ Eden"
+  },
+  "CAREERS_HOME_SNAPSHOT_STATS": [
+    { "title": "7+ loại vai trò hiện tại", "description": "Lộ trình lâm sàng, lãnh đạo và vận hành tại Eden." },
+    { "title": "Trung tâm tuyển dụng Annandale", "description": "Địa điểm chính cho tuyển dụng và onboarding đang hoạt động." },
+    { "title": "Mở rộng tại Bắc Virginia", "description": "Mở rộng tiếp cận tại các cộng đồng có nhu cầu cao ở Virginia." },
+    { "title": "Nghề nghiệp Lâm sàng + Vận hành", "description": "Vai trò cho nhà lâm sàng, kỹ thuật viên và chuyên viên hỗ trợ." }
+  ],
+  "CAREERS_HOME_WHY_JOIN_CARDS": [
+    {
+      "title": "Chăm sóc lấy gia đình làm trung tâm",
+      "description": "Đội ngũ ưu tiên hợp tác với người chăm sóc, giao tiếp tôn trọng và thực hành điều trị thực tế tại nhà."
+    },
+    {
+      "title": "Giám sát và cố vấn",
+      "description": "Phản hồi có cấu trúc, tham vấn ca bệnh và huấn luyện nhằm nâng cao chất lượng lâm sàng."
+    },
+    {
+      "title": "Lộ trình phát triển",
+      "description": "Thăng tiến theo chứng chỉ từ chăm sóc trực tiếp đến vai trò lâm sàng và lãnh đạo cấp cao."
+    },
+    {
+      "title": "Vận hành chất lượng hàng đầu",
+      "description": "Đội lâm sàng và vận hành phối hợp về tính toàn vẹn hồ sơ và điều phối dịch vụ."
+    }
+  ],
+  "CAREERS_HOME_HERO_JOURNEY": [
+    { "step": 1, "label": "Ứng tuyển" },
+    { "step": 2, "label": "Phỏng vấn" },
+    { "step": 3, "label": "Onboarding" },
+    { "step": 4, "label": "Chăm sóc có giám sát" },
+    { "step": 5, "label": "Lộ trình phát triển" }
+  ],
+  "GETTING_STARTED_HERO": {
+    "badge": "Bắt đầu với Eden",
+    "title": "Hướng dẫn gia đình bắt đầu liệu pháp ABA",
+    "subtitle": "Tài nguyên thực tế về bảo hiểm, đánh giá, hồ sơ và các bước tiếp theo với Eden ABA Therapy tại Bắc Virginia."
+  },
+  "SCREENING_EVALUATION_HERO": {
+    "badge": "Sàng lọc & Đánh giá",
+    "title": "Sàng lọc và đánh giá tự kỷ cho gia đình",
+    "subtitle": "Tìm hiểu quy trình sàng lọc, M-CHAT-R, ADOS-2 và các bước tiếp theo với Eden ABA Therapy."
+  },
+  "PARENT_TRAINING_HERO": {
+    "title": "Đào tạo Phụ huynh & Hỗ trợ Gia đình",
+    "subtitle": "Huấn luyện thực tế giúp gia đình áp dụng chiến lược ABA trong sinh hoạt hàng ngày."
+  },
+  "OUR_STORY_HERO": {
+    "title": "Câu chuyện Eden ABA Therapy",
+    "subtitle": "Sứ mệnh, giá trị và cam kết giúp trẻ tự kỷ phát triển qua liệu pháp ABA dựa trên bằng chứng."
+  },
+  "CONTACT_US_HERO": {
+    "title": "Liên hệ Eden ABA Therapy",
+    "subtitle": "Hỗ trợ intake gia đình, giới thiệu chuyên môn, hỗ trợ khách hàng và tuyển dụng."
+  }
+}

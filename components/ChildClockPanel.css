@@ -1,0 +1,104 @@
+.eden-child-clock-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.eden-child-clock-shell .eden-child-clock {
+  flex: 1;
+  min-height: 0;
+}
+
+.eden-child-clock__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.eden-child-clock__note {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  z-index: 2;
+  max-width: 150px;
+  border-radius: 0.5rem;
+  padding: 8px 10px;
+  transition:
+    background-color 500ms ease,
+    box-shadow 500ms ease,
+    opacity 500ms ease,
+    transform 500ms ease;
+}
+
+.eden-child-clock__note--visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: eden-clock-note-in 500ms ease;
+}
+
+@keyframes eden-clock-note-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eden-child-clock__note-title {
+  font-size: 0.92rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.eden-child-clock__note-text {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+.eden-child-clock__note-mobile {
+  display: none;
+  padding: 0.875rem 1rem 1rem;
+  background: #020617;
+}
+
+@media (max-width: 767px) {
+  .eden-child-clock-shell .eden-child-clock {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .eden-child-clock__note--desktop {
+    display: none;
+  }
+
+  .eden-child-clock__note-mobile {
+    display: block;
+    border-radius: 0 0 24px 24px;
+    box-shadow:
+      0 24px 64px rgba(15, 23, 42, 0.24),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .eden-child-clock-shell .eden-child-clock__note-mobile .eden-child-clock__note {
+    position: static;
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eden-child-clock__note {
+    transition: none;
+  }
+
+  .eden-child-clock__note--visible {
+    animation: none;
+  }
+}

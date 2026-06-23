@@ -36,11 +36,12 @@ export default function ProgressPanel({
   const pp = progressPanel || {};
   const stepPct = ((currentStep + 1) / 6) * 100;
   const checklist = Array.isArray(pp.checklist) ? pp.checklist : [];
+  const cardClass = "rounded-[1.5rem] border border-[#e0e7e2] bg-white p-5 shadow-lg shadow-emerald-950/5 xl:p-6";
 
   return (
-    <aside className="flex flex-col gap-5">
-      <motion.div {...fadeUp} className="rounded-[1.5rem] border border-[#e0e7e2] bg-white p-6 shadow-lg shadow-emerald-950/5">
-        <h3 className="flex items-center gap-3 font-serif text-xl font-black text-[#08751f]">
+    <aside className="flex w-full flex-col gap-4 xl:gap-5">
+      <motion.div {...fadeUp} className={cardClass}>
+        <h3 className="flex items-center gap-3 font-serif text-lg font-black text-[#08751f] xl:text-xl">
           <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-[#eef7f0] to-white text-xl shadow-inner ring-1 ring-[#cde6d2]">📈</span>
           {pp.title || "Your Progress"}
         </h3>
@@ -93,8 +94,8 @@ export default function ProgressPanel({
         </div>
       </motion.div>
 
-      <motion.div {...fadeUp} className="rounded-[1.5rem] border border-[#e0e7e2] bg-white p-6 shadow-lg shadow-emerald-950/5">
-        <h3 className="flex items-center gap-3 font-serif text-xl font-black text-[#08751f]">
+      <motion.div {...fadeUp} className={cardClass}>
+        <h3 className="flex items-center gap-3 font-serif text-lg font-black text-[#08751f] xl:text-xl">
           <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-[#eef7f0] to-white text-xl shadow-inner ring-1 ring-[#cde6d2]">✅</span>
           {pp.beforeSubmit || "Before You Submit"}
         </h3>
@@ -114,8 +115,8 @@ export default function ProgressPanel({
         </ul>
       </motion.div>
 
-      <motion.div {...fadeUp} className="rounded-[1.5rem] border border-[#e0e7e2] bg-white p-6 shadow-lg shadow-emerald-950/5">
-        <h3 className="flex items-center gap-3 font-serif text-xl font-black text-[#08751f]">
+      <motion.div {...fadeUp} className={cardClass}>
+        <h3 className="flex items-center gap-3 font-serif text-lg font-black text-[#08751f] xl:text-xl">
           <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-[#eef7f0] to-white text-xl shadow-inner ring-1 ring-[#cde6d2]">💡</span>
           {pp.stepGuidance || "Step Guidance"}
         </h3>
@@ -131,8 +132,8 @@ export default function ProgressPanel({
         </button>
       </motion.div>
 
-      <motion.div {...fadeUp} className="rounded-[1.5rem] border border-[#e0e7e2] bg-white p-6 shadow-lg shadow-emerald-950/5">
-        <h3 className="flex items-center gap-3 font-serif text-xl font-black text-[#08751f]">
+      <motion.div {...fadeUp} className={cardClass}>
+        <h3 className="flex items-center gap-3 font-serif text-lg font-black text-[#08751f] xl:text-xl">
           <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-[#eef7f0] to-white text-xl shadow-inner ring-1 ring-[#cde6d2]">💬</span>
           {pp.needHelp || "Need Help?"}
         </h3>
@@ -141,8 +142,8 @@ export default function ProgressPanel({
         <p className="flex items-center gap-3 font-extrabold text-[#08751f]">✉ {INTAKE_EMAIL}</p>
       </motion.div>
 
-      <motion.div {...fadeUp} className="rounded-[1.5rem] border border-[#e0e7e2] bg-white p-6 shadow-lg shadow-emerald-950/5">
-        <h3 className="flex items-center gap-3 font-serif text-xl font-black text-[#08751f]">
+      <motion.div {...fadeUp} className={cardClass}>
+        <h3 className="flex items-center gap-3 font-serif text-lg font-black text-[#08751f] xl:text-xl">
           <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-[#eef7f0] to-white text-xl shadow-inner ring-1 ring-[#cde6d2]">🛡</span>
           {pp.infoSafe || "Your Information is Safe"}
         </h3>

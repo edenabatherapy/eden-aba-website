@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CalendarDays, Check, LockKeyhole } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { START_ABA_THERAPY_SUCCESS_MESSAGE } from "@/lib/intake/messages.js";
 
@@ -14,9 +15,12 @@ export default function HomepageInterestForm({ t }) {
     verifyingMessage,
     canSubmit: recaptchaReady,
     handleTokenChange,
+    handleExpired,
+    validating,
     resetRecaptcha,
     requireRecaptcha,
     verifyRecaptchaWithServer,
+    releaseSubmitLock,
   } = useReCaptchaV2();
 
   const [consentUpdates, setConsentUpdates] = useState(false);
@@ -43,7 +47,7 @@ export default function HomepageInterestForm({ t }) {
   const inputClass =
     "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-4 text-slate-900 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-100";
 
-  const formDisabled = submitting || verifying;
+  const formDisabled = submitting || verifying || validating;
 
   const submit = async (event) => {
     event.preventDefault();
@@ -70,6 +74,7 @@ export default function HomepageInterestForm({ t }) {
       const recaptcha = await verifyRecaptchaWithServer();
       if (!recaptcha.success) {
         setError(t.recaptchaFailed || "Security verification failed. Please try again.");
+        releaseSubmitLock();
         return;
       }
 
@@ -101,6 +106,7 @@ export default function HomepageInterestForm({ t }) {
       resetRecaptcha();
     } finally {
       setSubmitting(false);
+      releaseSubmitLock();
     }
   };
 
@@ -292,14 +298,11 @@ export default function HomepageInterestForm({ t }) {
             <ReCaptchaVerification
               ref={recaptchaRef}
               onTokenChange={handleTokenChange}
+              onExpired={handleExpired}
               error={recaptchaError}
               disabled={formDisabled}
             />
           </div>
-
-          {verifying ? (
-            <p className="md:col-span-2 text-sm font-bold text-slate-600">{verifyingMessage}</p>
-          ) : null}
 
           <div className="md:col-span-2">
             <button
@@ -307,8 +310,9 @@ export default function HomepageInterestForm({ t }) {
               disabled={!recaptchaReady || formDisabled}
               className="w-full rounded-full bg-gradient-to-r from-[#168f30] to-[#006d19] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-emerald-900/15 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {submitting ? t.contactFormSubmitting : verifying ? verifyingMessage : t.submitRequest}
+              {submitting ? t.contactFormSubmitting : verifying ? "Verifying…" : t.submitRequest}
             </button>
+            <RecaptchaNotice align="center" />
           </div>
         </form>
       </fieldset>

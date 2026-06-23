@@ -1,98 +1,15 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { MENU_LINK_ROUTES } from "@/lib/navigation";
 import EdenLogo from "@/components/EdenLogo";
 import ServiceMeaningAnimation, { type ServiceMeaningAnimationType } from "@/components/ServiceMeaningAnimation";
+import { servicesMegaMenuItems, type ServicesMegaMenuItem } from "@/lib/services-mega-menu";
 import "./AbaTherapyMegaMenu.css";
 
-export type AbaTherapyMegaMenuItem = {
-  title: string;
-  href: string;
-  description: string;
-  comingSoon: boolean;
-  animationType: ServiceMeaningAnimationType;
-};
+export type AbaTherapyMegaMenuItem = ServicesMegaMenuItem;
 
-function serviceHref(menuLabel: string): string {
-  const route = MENU_LINK_ROUTES[menuLabel as keyof typeof MENU_LINK_ROUTES];
-  return route?.path ?? "#";
-}
-
-export const abaTherapyItems: AbaTherapyMegaMenuItem[] = [
-  {
-    title: "Home-Based ABA Therapy",
-    href: serviceHref("Home-Based ABA Therapy"),
-    description:
-      "Personalized ABA therapy delivered in your child's home, helping build communication, daily living, behavior, and social skills in a familiar environment.",
-    comingSoon: false,
-    animationType: "home",
-  },
-  {
-    title: "Center-Based ABA Therapy",
-    href: serviceHref("Center-Based ABA Therapy"),
-    description:
-      "Structured therapy in a supportive center setting with learning spaces, peer interaction, clinical supervision, and individualized treatment programs.",
-    comingSoon: false,
-    animationType: "center",
-  },
-  {
-    title: "Community-Based ABA Therapy",
-    href: serviceHref("Community-Based ABA Therapy"),
-    description:
-      "Real-world ABA support that helps children practice safety, communication, social participation, and independence in community settings.",
-    comingSoon: false,
-    animationType: "community",
-  },
-  {
-    title: "School-Based ABA Therapy",
-    href: serviceHref("School-Based ABA Therapy"),
-    description:
-      "ABA support coordinated with school environments to improve classroom readiness, behavior, communication, and participation in learning.",
-    comingSoon: false,
-    animationType: "school",
-  },
-  {
-    title: "Virtual ABA Therapy",
-    href: serviceHref("Virtual ABA Therapy"),
-    description:
-      "Remote ABA support, parent coaching, and consultation through secure virtual sessions for families needing flexible access to care.",
-    comingSoon: false,
-    animationType: "virtual",
-  },
-  {
-    title: "Afterschool Programs",
-    href: serviceHref("Afterschool Programs"),
-    description:
-      "Structured afterschool ABA programs that support social skills, homework routines, communication, and safe participation after the school day.",
-    comingSoon: false,
-    animationType: "school",
-  },
-  {
-    title: "Occupational Therapy",
-    href: "#",
-    description:
-      "Coming soon to Eden Family. Occupational therapy will support sensory needs, fine motor skills, self-care routines, and daily independence.",
-    comingSoon: true,
-    animationType: "occupational",
-  },
-  {
-    title: "Speech & Language Therapy",
-    href: "#",
-    description:
-      "Coming soon to Eden Family. Speech therapy will support communication, language development, social communication, and expressive skills.",
-    comingSoon: true,
-    animationType: "speech",
-  },
-  {
-    title: "Feeding & Swallowing Therapy",
-    href: "#",
-    description:
-      "Coming soon to Eden Family. Feeding support will help children with safe eating, food variety, oral-motor skills, and mealtime routines.",
-    comingSoon: true,
-    animationType: "feeding",
-  },
-];
+/** @deprecated Use servicesMegaMenuItems from @/lib/services-mega-menu */
+export const abaTherapyItems = servicesMegaMenuItems;
 
 type AbaTherapyMegaMenuProps = {
   onNavigate: (menuLinkLabel: string) => void;
@@ -179,7 +96,7 @@ export default function AbaTherapyMegaMenu({
   variant = "desktop",
   onClose,
 }: AbaTherapyMegaMenuProps) {
-  const [activeAbaItem, setActiveAbaItem] = useState(abaTherapyItems[0]);
+  const [activeAbaItem, setActiveAbaItem] = useState(servicesMegaMenuItems[0]);
 
   const handleSelect = useCallback(
     (item: AbaTherapyMegaMenuItem) => {
@@ -198,7 +115,7 @@ export default function AbaTherapyMegaMenu({
       <div className="aba-menu-left">
         <p className="mega-menu-label">{servicesLabel}</p>
 
-        {abaTherapyItems.map((item) => {
+        {servicesMegaMenuItems.map((item) => {
           const displayTitle = getDisplayTitle(item);
           const isActive = activeAbaItem.title === item.title;
 

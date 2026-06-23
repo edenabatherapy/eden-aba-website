@@ -211,7 +211,7 @@ function WelcomeHero({ stepMeta, visual, ui }) {
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.26, duration: 0.45 }}
-            className="mt-4 max-w-xl text-base leading-8 text-emerald-50/95"
+            className="mt-4 max-w-3xl text-base leading-8 text-emerald-50/95"
           >
             {ui.welcomeSubtitle ||
               "Thank you for choosing Eden ABA Therapy. Please complete this secure intake form so our team can understand your child's needs, verify eligibility, and coordinate services efficiently."}
@@ -286,7 +286,7 @@ function ReviewStepHeader({ stepMeta }) {
           <div>
             <p className="text-xs font-black uppercase tracking-[0.2em] text-[#128c8c]">Almost done</p>
             <h2 className="mt-2 text-2xl font-black text-[#06461f] md:text-3xl">{stepMeta?.title}</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-[#243142] md:text-base">{stepMeta?.subtitle}</p>
+            <p className="mt-3 max-w-4xl text-sm leading-7 text-[#243142] md:text-base">{stepMeta?.subtitle}</p>
           </div>
         </div>
         <motion.div
@@ -324,7 +324,7 @@ function SectionBlock({
       variants={staggerContainer}
       initial="initial"
       animate="animate"
-      className={isUploadGrid ? "grid gap-4 sm:grid-cols-2 xl:grid-cols-3" : "grid gap-4 md:grid-cols-2"}
+      className={isUploadGrid ? "grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"}
     >
       {section.fields.map((field, fieldIndex) => (
         <motion.div
@@ -332,7 +332,7 @@ function SectionBlock({
           variants={staggerItem}
           className={
             field.type === "textarea" || field.type === "radio" || field.type === "checkbox-group"
-              ? "md:col-span-2"
+              ? "sm:col-span-2 xl:col-span-3"
               : ""
           }
         >

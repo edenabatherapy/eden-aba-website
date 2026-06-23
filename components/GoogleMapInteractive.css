@@ -115,6 +115,39 @@
   color: #ffffff;
 }
 
+.eden-map-type-bar button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.eden-map-satellite-notice {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  top: 3.35rem;
+  z-index: 28;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  background: rgba(255, 251, 235, 0.96);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #92400e;
+  box-shadow: 0 8px 18px rgba(11, 79, 79, 0.08);
+}
+
+.eden-map-canvas--compact {
+  min-height: 280px;
+  height: 360px;
+}
+
+@media (min-width: 768px) {
+  .eden-map-canvas--compact {
+    height: 440px;
+  }
+}
+
 .eden-map-actions {
   position: relative;
   z-index: 25;

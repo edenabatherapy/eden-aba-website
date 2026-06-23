@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import InsuranceVerificationForm from "@/components/InsuranceVerificationForm";
 import ChildJourneyRoadmap from "@/components/ChildJourneyRoadmap";
 import FamilySupportPathSection from "@/components/FamilySupportPathSection";
 import ImpactDataChartSection from "@/components/sections/ImpactDataChartSection";
-import InsuranceContactLanding from "@/components/sections/InsuranceContactLanding";
+import InsuranceCoveragePage from "@/components/insurance/InsuranceCoveragePage";
+import HomepageInsuranceSection from "@/components/HomepageInsuranceSection";
 import EdenResourceIntelligenceHub from "@/components/EdenResourceIntelligenceHub";
-import InsuranceMadeSimpleSection from "@/components/InsuranceMadeSimpleSection";
 import ScreenerFormPage from "@/components/ScreenerFormPage";
 import AutismEvaluationPage from "@/components/AutismEvaluationPage";
 import CastQuestionnaire from "@/components/CastQuestionnaire";
@@ -25,15 +26,25 @@ import VirtualAbaTherapyPage from "@/components/VirtualAbaTherapyPage";
 import ResourcePlaceholderPage from "@/components/ResourcePlaceholderPage";
 import AbaTherapyMegaMenu from "@/components/AbaTherapyMegaMenu";
 import AboutEdenMegaMenu, { aboutEdenDefaultPreview } from "@/components/AboutEdenMegaMenu";
-import CareersMegaMenu, { careersDefaultPreview } from "@/components/CareersMegaMenu";
+import CareersMegaMenu from "@/components/CareersMegaMenu";
 import ResourcesMegaMenu, { resourcesDefaultPreview } from "@/components/ResourcesMegaMenu";
+import {
+  isServicesMegaMenuGroup,
+  SERVICES_MENU_ID,
+} from "@/lib/services-mega-menu";
 import AdvancedIntakeForm from "@/components/intake/AdvancedIntakeForm";
 import HomepageInterestForm from "@/components/HomepageInterestForm";
 import RecaptchaNotice from "@/components/RecaptchaNotice";
+import NewsletterBanner from "@/components/common/NewsletterBanner";
 import EdenLogo from "@/components/EdenLogo";
 import GoogleReviews from "@/components/GoogleReviews";
 import HomepageHero from "@/components/HomepageHero";
-import FooterFindCenter from "@/components/FooterFindCenter";
+import SiteHeaderBrand from "@/components/common/SiteHeaderBrand";
+import SiteLanguageSwitcher from "@/components/common/LanguageSwitcher";
+import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getHeaderShellClasses } from "@/lib/header-brand";
+import Footer from "@/components/common/Footer";
 import GoogleMapInteractive from "@/components/GoogleMapInteractive";
 import { getButtonClasses } from "@/lib/button-styles";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
@@ -91,8 +102,10 @@ import {
   STORAGE_KEY,
   DEFAULT_LANGUAGE,
 } from "@/lib/i18n";
-import { handleFooterLink, handleMenuLink } from "@/lib/navigation";
-import { applyPageToBrowserUrl, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
+import { handleMenuLink } from "@/lib/navigation";
+import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
+import { HOMEPAGE_OPEN_JOBS } from "@/lib/careers/jobs-data";
+import { getJobDetailsPath } from "@/lib/careers-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const brandColors = {
@@ -111,47 +124,6 @@ const INTAKE_STEP_ICONS = [FileText, CreditCard, FileSignature, UserRound, Clipb
 const HEADER_EVAL_ICONS = [ClipboardCheck, Users, ShieldCheck, CalendarDays];
 
 const IMG = SITE_IMAGES;
-
-
-function LanguageSwitcher({ language, setLanguage, t, className = "" }) {
-  const chooseLanguage = (nextLanguage) => {
-    setLanguage(nextLanguage);
-    if (typeof window !== "undefined") {
-      localStorage.setItem(STORAGE_KEY, nextLanguage);
-    }
-  };
-
-  const buttonClass =
-    "inline-flex h-full min-h-[2.25rem] w-full items-center justify-center rounded-full px-2.5 text-[10px] font-black leading-none transition min-[1280px]:min-h-[2.625rem] min-[1280px]:px-3.5 min-[1280px]:text-xs 2xl:px-4 2xl:text-xs";
-
-  return (
-    <div
-      className={`grid h-10 w-[10rem] shrink-0 grid-cols-2 gap-0 overflow-hidden rounded-full border border-[#49b8c8]/40 bg-white p-0.5 font-sans shadow-lg shadow-[#128c8c]/10 lg:w-[10.5rem] min-[1280px]:h-11 min-[1280px]:w-[11rem] min-[1280px]:p-1 2xl:w-[13rem] ${className}`}
-      role="group"
-      aria-label={t?.languageLabel || "Language"}
-      suppressHydrationWarning
-    >
-      <button
-        type="button"
-        onClick={() => chooseLanguage("en")}
-        aria-pressed={language === "en"}
-        lang="en"
-        className={`${buttonClass} ${language === "en" ? "bg-[#1f7a2e] text-white" : "text-[#0b4f4f] hover:bg-[#49b8c8]/10"}`}
-      >
-        {t?.english || "English"}
-      </button>
-      <button
-        type="button"
-        onClick={() => chooseLanguage("vi")}
-        aria-pressed={language === "vi"}
-        lang="vi"
-        className={`${buttonClass} ${language === "vi" ? "bg-[#1f7a2e] text-white" : "text-[#0b4f4f] hover:bg-[#49b8c8]/10"}`}
-      >
-        Tiếng Việt
-      </button>
-    </div>
-  );
-}
 
 function Button({ children, variant = "primary", className = "", type = "button", ...props }) {
   const variantMap = {
@@ -265,7 +237,9 @@ function buildSectionTitleResolver(menuGroup, enGroup) {
   return (enSectionTitle) => titleByEnglishSection[enSectionTitle] ?? enSectionTitle;
 }
 
-function Header({ onStart, onNavigate, language, setLanguage }) {
+function Header({ onStart, onNavigate }) {
+  const { language } = useSiteLanguage();
+  const scrolled = useHeaderScrolled();
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const t = getTranslation(language);
@@ -291,6 +265,15 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
         closeMenus();
       },
     });
+  };
+
+  const onCareersNavigate = (href) => {
+    closeMenus();
+    if (href.startsWith("mailto:")) {
+      window.location.href = href;
+      return;
+    }
+    window.location.assign(href);
   };
 
   const goHome = () => {
@@ -323,8 +306,8 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
   const navItemClass =
     "shrink-0 whitespace-nowrap rounded-full px-1.5 py-1.5 text-[10px] font-extrabold leading-tight text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800 lg:px-2 lg:py-1.5 lg:text-[11px] xl:px-2.5 xl:text-xs 2xl:px-3 2xl:py-2 2xl:text-sm";
 
-  const abaMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "ABA Therapy");
-  const abaEnGroup = enMenu.find((group) => group.label === "ABA Therapy");
+  const abaMenuGroup = menuItems.find((group, idx) => enMenu[idx]?.id === SERVICES_MENU_ID);
+  const abaEnGroup = enMenu.find((group) => group.id === SERVICES_MENU_ID);
   const getAbaDisplayTitle = buildAbaDisplayTitleResolver(abaMenuGroup, abaEnGroup);
   const abaServicesLabel = abaMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "SERVICES";
 
@@ -334,15 +317,6 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
   const aboutSectionLabel = aboutMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "ABOUT EDEN";
   const aboutDefaultDescription =
     t.aboutEdenMegaMenuDefaultDescription || aboutEdenDefaultPreview.description;
-
-  const careersMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "Careers");
-  const careersEnGroup = enMenu.find((group) => group.label === "Careers");
-  const getCareersDisplayTitle = buildMenuDisplayTitleResolver(careersMenuGroup, careersEnGroup);
-  const careersSectionLabel = careersMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "CAREERS";
-  const careersDefaultDescription =
-    t.careersMegaMenuDefaultDescription || careersDefaultPreview.description;
-  const careersDefaultTitle =
-    t.careersMegaMenuDefaultTitle || careersDefaultPreview.title;
 
   const resourcesMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "Resources");
   const resourcesEnGroup = enMenu.find((group) => group.label === "Resources");
@@ -354,25 +328,13 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
     t.resourcesMegaMenuDefaultTitle || resourcesDefaultPreview.title;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#49b8c8]/20 bg-white/92 backdrop-blur-xl">
-      <div className="mx-auto grid w-full max-w-[100rem] grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 px-3 py-2.5 sm:gap-x-3 sm:px-4 lg:gap-x-4 lg:px-5 xl:px-6 2xl:gap-x-5 2xl:px-8">
-        {/* LEFT — logo + brand */}
-        <button
-          type="button"
-          onClick={goHome}
-          className="flex shrink-0 items-center gap-1.5 pr-1 text-left transition hover:opacity-90 sm:gap-2 sm:pr-2 lg:pr-3"
-          aria-label="Eden ABA Therapy home"
-        >
-          <EdenLogo size="compact" priority className="h-8 max-h-8 shrink-0 lg:h-9 lg:max-h-9 2xl:h-10 2xl:max-h-10" />
-          <div className="hidden min-w-0 sm:block">
-            <p className="truncate text-xs font-black leading-tight tracking-tight text-[#1f7a2e] 2xl:text-base">
-              {t.brandName}
-            </p>
-            <p className="truncate text-[9px] font-bold leading-tight text-[#128c8c] 2xl:text-[11px]">
-              {t.brandTagline}
-            </p>
-          </div>
-        </button>
+    <header
+      className={`sticky top-0 z-50 border-b border-[#49b8c8]/20 bg-white/92 backdrop-blur-xl transition-shadow duration-300 ${scrolled ? "shadow-sm shadow-emerald-950/5" : ""}`}
+    >
+      <div
+        className={`mx-auto grid w-full max-w-[100rem] grid-cols-[minmax(0,auto)_minmax(0,1fr)_auto] items-center gap-x-2 px-3 transition-[padding] duration-300 sm:gap-x-3 sm:px-4 lg:gap-x-4 lg:px-5 xl:px-6 2xl:gap-x-5 2xl:px-8 ${getHeaderShellClasses(scrolled)}`}
+      >
+        <SiteHeaderBrand compact={scrolled} as="button" onClick={goHome} />
 
         {/* CENTER — Home + main navigation */}
         <nav
@@ -387,11 +349,11 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
               const enGroup = enMenu[groupIdx];
               const menuKey = enGroup?.label || group.label;
               const isLocations = enGroup?.label === "Locations";
-              const isAbaTherapy = enGroup?.label === "ABA Therapy";
+              const isServicesMenu = isServicesMegaMenuGroup(enGroup);
               const isAboutEden = enGroup?.label === "About Eden";
               const isCareers = enGroup?.label === "Careers";
               const isResources = enGroup?.label === "Resources";
-              const isMegaMenu = isAbaTherapy || isAboutEden || isCareers || isResources;
+              const isMegaMenu = isServicesMenu || isAboutEden || isCareers || isResources;
               const isDropdownOpen = openDropdown === menuKey;
               const dropdownPanelClass = isDropdownOpen
                 ? "visible translate-y-0 opacity-100"
@@ -426,7 +388,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
                         isMegaMenu ? "w-auto" : "w-[560px] rounded-[1.4rem] border border-slate-100 bg-white p-5 shadow-2xl shadow-slate-900/10"
                       }`}
                     >
-                      {isAbaTherapy ? (
+                      {isServicesMenu ? (
                         <AbaTherapyMegaMenu
                           onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
                           getDisplayTitle={getAbaDisplayTitle}
@@ -445,16 +407,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
                           }}
                         />
                       ) : isCareers ? (
-                        <CareersMegaMenu
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getCareersDisplayTitle}
-                          sectionLabel={careersSectionLabel}
-                          defaultTitle={careersDefaultTitle}
-                          defaultPreview={{
-                            ...careersDefaultPreview,
-                            description: careersDefaultDescription,
-                          }}
-                        />
+                        <CareersMegaMenu onNavigate={onCareersNavigate} />
                       ) : isResources ? (
                         <ResourcesMegaMenu
                           onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
@@ -569,7 +522,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
         {/* RIGHT — language (desktop) / menu toggle (mobile) */}
         <div className="flex shrink-0 items-center justify-end gap-2">
           <div className="hidden lg:flex">
-            <LanguageSwitcher language={language} setLanguage={setLanguage} t={t} />
+            <SiteLanguageSwitcher comfortable />
           </div>
 
           <button
@@ -602,7 +555,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
               {menuItems.map((group, groupIdx) => {
                 const enGroup = enMenu[groupIdx];
                 const isLocations = enGroup?.label === "Locations";
-                const isAbaTherapy = enGroup?.label === "ABA Therapy";
+                const isServicesMenu = isServicesMegaMenuGroup(enGroup);
                 const isAboutEden = enGroup?.label === "About Eden";
                 const isCareers = enGroup?.label === "Careers";
                 const isResources = enGroup?.label === "Resources";
@@ -621,7 +574,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
                 ) : (
                   <details key={group.label} className="rounded-2xl bg-emerald-50/50 p-3">
                     <summary className="cursor-pointer font-black text-emerald-950">{group.label}</summary>
-                    {isAbaTherapy ? (
+                    {isServicesMenu ? (
                       <div className="pt-3">
                         <AbaTherapyMegaMenu
                           variant="mobile"
@@ -654,14 +607,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
                       <div className="pt-3">
                         <CareersMegaMenu
                           variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getCareersDisplayTitle}
-                          sectionLabel={careersSectionLabel}
-                          defaultTitle={careersDefaultTitle}
-                          defaultPreview={{
-                            ...careersDefaultPreview,
-                            description: careersDefaultDescription,
-                          }}
+                          onNavigate={onCareersNavigate}
                           onClose={() => setOpen(false)}
                         />
                       </div>
@@ -722,7 +668,7 @@ function Header({ onStart, onNavigate, language, setLanguage }) {
               })}
 
               <div className="mt-3 flex justify-center">
-                <LanguageSwitcher language={language} setLanguage={setLanguage} t={t} />
+                <SiteLanguageSwitcher comfortable />
               </div>
             </div>
           </motion.div>
@@ -2596,206 +2542,7 @@ function CastFormPage({ t, onScheduleEvaluation }) {
 }
 
 function InsuranceVerificationPage({ t, onSchedule, onHome, onStart }) {
-  const ins = t.pages.insurance;
-  const formT = t.insuranceForm;
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    childName: "",
-    childDob: "",
-    zip: "",
-    provider: "",
-    memberId: "",
-    groupNumber: "",
-    contactMethod: "Phone",
-    notes: "",
-    consent: false,
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [touched, setTouched] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [showAllProviders, setShowAllProviders] = useState(false);
-  const va = ins.virginia;
-  const pa = ins.priorAuth;
-  const [openFaq, setOpenFaq] = useState(ins.faqs[0]?.[0] || "");
-
-  const providers = va.providers;
-  const visibleProviders = showAllProviders ? providers : providers.slice(0, 9);
-  const VIRGINIA_CARD_ICONS = [ShieldCheck, BadgeCheck, ClipboardCheck];
-  const virginiaCards = va.cards.map(([title, text], i) => [VIRGINIA_CARD_ICONS[i], title, text]);
-  const prepItems = va.prepareItems;
-  const helpItems = va.helpItems;
-  const faqs = ins.faqs;
-  const PRIOR_AUTH_ICONS = [Stethoscope, Clock3, FileSignature, HeartHandshake];
-  const required = ["firstName", "lastName", "email", "phone", "childName", "zip", "provider", "memberId"];
-  const emailValid = form.email.includes("@") && form.email.includes(".");
-  const complete = required.every((key) => String(form[key] || "").trim()) && emailValid && form.consent;
-  const completion = Math.round(((required.filter((key) => String(form[key] || "").trim()).length + (emailValid ? 1 : 0) + (form.consent ? 1 : 0)) / (required.length + 2)) * 100);
-
-  const update = (key, value) => {
-    if (key === "phone") {
-      const digits = value.replace(/[^0-9]/g, "").slice(0, 10);
-      const formatted = digits.length > 6 ? `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}` : digits.length > 3 ? `(${digits.slice(0, 3)}) ${digits.slice(3)}` : digits;
-      setForm((old) => ({ ...old, phone: formatted }));
-      return;
-    }
-    setForm((old) => ({ ...old, [key]: value }));
-  };
-
-  const scrollToVerify = () => document.getElementById("verify-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  const submit = (event) => {
-    event.preventDefault();
-    setTouched(true);
-    if (!complete) return;
-    if (typeof window !== "undefined") localStorage.setItem("eden-insurance-coverage-request", JSON.stringify({ ...form, submittedAt: new Date().toISOString() }));
-    setLoading(true);
-    window.setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 1000);
-  };
-
-  const fieldClass = "w-full rounded-2xl border border-[#49b8c8]/25 bg-white px-4 py-4 text-sm font-bold text-slate-900 outline-none transition focus:border-[#128c8c] focus:ring-4 focus:ring-[#49b8c8]/20";
-
-  const MiniCheckLocal = ({ children }) => <li className="flex gap-3 text-sm font-bold leading-7 text-slate-700"><CheckCircle2 className="mt-1 shrink-0 text-[#1f7a2e]" size={18} />{children}</li>;
-
-  if (submitted) {
-    return (
-      <section className="min-h-screen bg-gradient-to-br from-[#ddf4f4] via-white to-[#fff8df] px-4 py-20 lg:px-8">
-        <div className="mx-auto max-w-4xl rounded-[3rem] border border-[#49b8c8]/20 bg-white p-8 text-center shadow-2xl shadow-[#128c8c]/10 md:p-12">
-          <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#1f7a2e] text-white shadow-xl"><CheckCircle2 size={42} /></div>
-          <h1 className="mt-6 text-4xl font-black leading-tight text-[#0b4f4f] md:text-5xl">{ins.submitted.title}</h1>
-          <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-slate-700">{ins.submitted.intro}</p>
-          <p className="mt-5 rounded-[2rem] bg-[#ddf4f4]/60 p-6 font-semibold leading-8 text-slate-700">{ins.submitted.followUp}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4"><Button onClick={onSchedule}>{ins.submitted.scheduleAppointment}</Button><Button variant="secondary" onClick={onHome}>{ins.submitted.returnHome}</Button></div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <div className="bg-white text-slate-900">
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#fff8df] via-white to-[#ddf4f4] px-4 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-[#128c8c]">{ins.hero.eyebrow}</p>
-            <h1 className="mt-5 text-5xl font-black leading-tight tracking-tight text-[#0b4f4f] md:text-7xl">{ins.hero.title}</h1>
-            <p className="mt-6 max-w-3xl text-lg font-semibold leading-9 text-slate-700">{ins.hero.intro}</p>
-            <div className="mt-8 flex flex-wrap gap-4"><Button onClick={scrollToVerify}>{ins.hero.verifyInsurance} <ArrowRight size={18} /></Button><Button variant="secondary" onClick={onStart}>{ins.hero.startABA}</Button></div>
-            <div className="mt-8 max-w-2xl rounded-[2rem] border border-[#49b8c8]/20 bg-white/90 p-6 shadow-xl shadow-[#128c8c]/10 backdrop-blur-sm">
-              <div className="flex items-start gap-4">
-                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#eef9f4] text-[#1f7a2e]">
-                  <ShieldCheck size={26} />
-                </div>
-                <div>
-                  <h2 className="text-xl font-black text-[#0b4f4f]">{ins.hero.supportTitle}</h2>
-                  <p className="mt-3 text-base font-semibold leading-7 text-slate-700">{ins.hero.supportText}</p>
-                </div>
-              </div>
-
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                {ins.hero.supportItems.map((item) => (
-                  <div key={item} className="flex items-start gap-2 rounded-2xl bg-[#ddf4f4]/55 p-3 text-sm font-black leading-6 text-[#0b4f4f]">
-                    <CheckCircle2 className="mt-0.5 shrink-0 text-[#1f7a2e]" size={18} />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="relative"><div className="absolute -left-8 -top-8 h-36 w-36 rounded-full bg-[#f7c72f]" />
-            {/* TODO: Replace with final brand photo — family reviewing insurance benefits with care coordinator. */}
-            <img src={IMG.insurance.hero} alt={ins.hero.imageAlt} className="relative h-[440px] w-full rounded-[3rem] object-cover shadow-2xl ring-8 ring-white" />
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#eef9f4] px-4 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-            <div>
-              <div className="inline-flex items-center gap-3 rounded-full border border-[#49b8c8]/30 bg-white px-5 py-3 text-sm font-black text-[#0b4f4f] shadow-lg shadow-[#128c8c]/10"><MapPin size={18} className="text-[#1f7a2e]" /> {va.badge}</div>
-              <h2 className="mt-6 text-4xl font-black leading-tight text-[#0b4f4f] md:text-6xl">{va.title}</h2>
-              <p className="mt-6 text-lg font-semibold leading-9 text-slate-700">{va.intro}</p>
-              <div className="mt-8 rounded-[2rem] border border-[#49b8c8]/20 bg-white p-6 shadow-xl shadow-[#128c8c]/10"><h3 className="text-2xl font-black text-[#0b4f4f]">{va.prepareTitle}</h3><ul className="mt-5 grid gap-3">{prepItems.map((item) => <MiniCheckLocal key={item}>{item}</MiniCheckLocal>)}</ul></div>
-            </div>
-            <div className="grid gap-5">
-              {virginiaCards.map(([Icon, title, text]) => <article key={title} className="rounded-[2rem] border border-slate-100 bg-white p-7 shadow-xl shadow-[#128c8c]/10"><div className="flex items-start gap-5"><div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#ddf4f4] to-[#fff8df] text-[#1f7a2e]"><Icon size={30} /></div><div><h3 className="text-2xl font-black text-[#0b4f4f]">{title}</h3><p className="mt-3 font-semibold leading-8 text-slate-700">{text}</p></div></div></article>)}
-              <article className="rounded-[2rem] border border-[#49b8c8]/20 bg-gradient-to-br from-white to-[#ddf4f4]/60 p-7 shadow-xl shadow-[#128c8c]/10"><h3 className="text-2xl font-black text-[#0b4f4f]">{va.helpTitle}</h3><div className="mt-5 grid gap-3 sm:grid-cols-2">{helpItems.map((item) => <MiniCheckLocal key={item}>{item}</MiniCheckLocal>)}</div></article>
-            </div>
-          </div>
-
-          <div className="mt-12 rounded-[2.5rem] border border-[#49b8c8]/20 bg-white p-6 shadow-2xl shadow-[#128c8c]/10 md:p-8">
-            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><h3 className="text-3xl font-black text-[#0b4f4f]">{va.plansTitle}</h3><p className="mt-3 max-w-3xl font-semibold leading-7 text-slate-700">{va.plansIntro}</p></div><Button onClick={scrollToVerify}>{ins.hero.verifyInsurance} <ArrowRight size={18} /></Button></div>
-            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">{visibleProviders.map((provider) => <div key={provider} className="rounded-[1.4rem] border border-[#49b8c8]/20 bg-gradient-to-br from-white to-[#ddf4f4]/50 p-5 text-center font-black text-[#0b4f4f] shadow-sm"><CheckCircle2 className="mx-auto mb-3 text-[#1f7a2e]" size={22} />{provider}</div>)}</div>
-            <button type="button" onClick={() => setShowAllProviders((v) => !v)} className="mt-6 w-full rounded-full border border-slate-200 bg-white px-6 py-4 font-black text-[#0b4f4f] shadow-sm transition hover:bg-[#ddf4f4]">{showAllProviders ? va.showLess : va.showMore}</button>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="relative order-2 lg:order-1">
-            <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-[#f7c72f]/70" />
-            <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-[2.5rem] bg-[#49b8c8]/20" />
-            {/* TODO: Replace with final brand photo — insurance prior authorization and care planning support. */}
-            <img
-              src={IMG.insurance.priorAuth}
-              alt={pa.imageAlt}
-              className="relative h-[420px] w-full rounded-[2.5rem] object-cover shadow-2xl ring-8 ring-white"
-            />
-          </div>
-
-          <div className="order-1 rounded-[2.5rem] border border-slate-100 bg-white p-6 shadow-2xl shadow-slate-900/10 md:p-8 lg:order-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-[#eef9f4] px-4 py-2 text-sm font-black text-[#1f7a2e]">
-              <ClipboardCheck size={18} /> {pa.badge}
-            </div>
-            <h2 className="mt-5 text-4xl font-black leading-tight text-[#0b4f4f] md:text-5xl">{pa.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{pa.intro}</p>
-
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
-              {pa.steps.map(([title, text], i) => {
-                const Icon = PRIOR_AUTH_ICONS[i];
-                return (
-                <div key={title} className="rounded-[1.5rem] border border-slate-100 bg-gradient-to-br from-white to-[#eef9f4] p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#1f7a2e] text-white">
-                    <Icon size={24} />
-                  </div>
-                  <h3 className="mt-4 text-lg font-black text-[#0b4f4f]">{title}</h3>
-                  <p className="mt-2 text-sm font-semibold leading-6 text-slate-700">{text}</p>
-                </div>
-              );})}
-            </div>
-
-            <p className="mt-6 rounded-[1.5rem] bg-[#fff8df] p-5 text-base font-bold leading-7 text-[#0b4f4f]">{pa.disclaimer}</p>
-
-            <div className="mt-7">
-              <Button onClick={scrollToVerify}>{pa.cta} <ArrowRight size={18} /></Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <InsuranceContactLanding t={t} onStartVerification={scrollToVerify} />
-
-      <section className="px-4 py-20 lg:px-8"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]"><div><h2 className="text-4xl font-black text-[#0b4f4f] md:text-5xl">{ins.faqTitle}</h2></div><div className="grid gap-3">{faqs.map(([question, answer]) => <div key={question} className="rounded-[1.4rem] border border-slate-100 bg-white shadow-sm"><button type="button" onClick={() => setOpenFaq(openFaq === question ? "" : question)} className="flex w-full items-center justify-between gap-4 p-5 text-left font-black text-[#0b4f4f]">{question}<ChevronDown className={openFaq === question ? "rotate-180 transition" : "transition"} size={20} /></button>{openFaq === question && <div className="border-t border-slate-100 px-5 pb-5 pt-4 text-base font-medium leading-8 text-slate-700">{answer}</div>}</div>)}</div></div></section>
-
-      <section id="verify-form" className="bg-[#fff8df] px-4 py-20 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <InsuranceVerificationForm
-            t={t}
-            onSchedule={onSchedule}
-            onHome={onHome}
-            onStart={onStart}
-          />
-        </div>
-      </section>
-    </div>
-  );
+  return <InsuranceCoveragePage t={t} onSchedule={onSchedule} onHome={onHome} onStart={onStart} />;
 }
 
 function ServiceExplorer({ t }) {
@@ -2947,8 +2694,12 @@ function ParentResourcesSection({ t, onStart, id }) {
 
 function Careers({ t }) {
   const [q, setQ] = useState("");
-  const jobs = t.jobs || [];
-  const filtered = jobs.filter((j) => `${j.role} ${j.type} ${j.location} ${j.dept}`.toLowerCase().includes(q.toLowerCase()));
+  const jobs = HOMEPAGE_OPEN_JOBS;
+  const filtered = jobs.filter((job) =>
+    `${job.title} ${job.employment} ${job.location} ${job.department} ${job.summary}`
+      .toLowerCase()
+      .includes(q.toLowerCase()),
+  );
   return (
     <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
       <div className="rounded-[2.5rem] bg-gradient-to-br from-emerald-50 via-white to-yellow-50 p-8 md:p-12">
@@ -2964,9 +2715,18 @@ function Careers({ t }) {
         </div>
         <div className="mt-8 grid gap-4">
           {filtered.map((job) => (
-            <div key={job.role} className="flex flex-col justify-between gap-4 rounded-3xl bg-white p-5 shadow-sm md:flex-row md:items-center">
-              <div><p className="text-xl font-black text-emerald-950">{job.role}</p><p className="mt-1 text-sm font-bold text-slate-600">{job.dept} • {job.type} • {job.location}</p></div>
-              <Button variant="dark">{t.apply} <ExternalLink size={16} /></Button>
+            <div key={job.id} className="flex flex-col justify-between gap-4 rounded-3xl bg-white p-5 shadow-sm md:flex-row md:items-center">
+              <div>
+                <p className="text-xl font-black text-emerald-950">{job.title}</p>
+                <p className="mt-1 text-sm font-bold text-slate-600">{job.department} • {job.employment} • {job.location}</p>
+                <p className="mt-2 line-clamp-2 text-sm text-slate-600">{job.summary}</p>
+              </div>
+              <Link
+                href={getJobDetailsPath(job.id)}
+                className={getButtonClasses("dark", "shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700")}
+              >
+                {t.apply} <ExternalLink size={16} aria-hidden="true" />
+              </Link>
             </div>
           ))}
         </div>
@@ -3176,182 +2936,6 @@ function EnterprisePlatformSuite() {
   );
 }
 
-function NewsletterBanner({ t }) {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [joined, setJoined] = useState(false);
-
-  return (
-    <section className="bg-white px-4 py-14 lg:px-8">
-      <div className="mx-auto w-full max-w-[100rem] rounded-[2.5rem] bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-6 py-12 text-center shadow-2xl shadow-[#128c8c]/20 md:px-10 md:py-16">
-        <h2 className="mx-auto max-w-4xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
-          {t.newsletterTitle}
-        </h2>
-
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            if (!fullName.trim() || !email.trim()) return;
-            setJoined(true);
-          }}
-          className="mx-auto mt-9 flex w-full max-w-none flex-col gap-4 md:flex-row md:items-center md:justify-center"
-        >
-          <input
-            value={fullName}
-            onChange={(event) => setFullName(event.target.value)}
-            className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none shadow-lg transition focus:ring-4 focus:ring-lime-300/30"
-            placeholder={t.fullName}
-            autoComplete="name"
-          />
-
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none shadow-lg transition focus:ring-4 focus:ring-lime-300/30"
-            placeholder={t.email}
-            autoComplete="email"
-          />
-
-          <button
-            type="submit"
-            className="h-14 rounded-full bg-[#f7c72f] px-8 text-base font-black text-[#0b4f4f] shadow-xl transition hover:bg-[#ff8a1f] hover:text-white"
-          >
-            {t.joinNewsletter}
-          </button>
-        </form>
-
-        {joined && (
-          <p className="mt-5 text-sm font-bold text-lime-200">
-            {t.newsletterThanks}, {fullName}! {t.newsletterThanksEnd}
-          </p>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function Footer({ t, onNavigate, onStart }) {
-  const f = t.pages.footer;
-  const enFooter = getTranslation("en").pages.footer;
-
-  const footerLink = (displayLabel, enLabel) => (
-    <button
-      key={enLabel}
-      type="button"
-      onClick={() => handleFooterLink(enLabel, { onNavigate, onStart })}
-      className="text-left transition hover:text-lime-300"
-    >
-      {displayLabel}
-    </button>
-  );
-
-  return (
-    <footer className="bg-gradient-to-br from-[#032f2b] via-[#0b4f4f] to-[#1f7a2e] px-4 pt-16 text-white lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-5">
-          <div className="lg:col-span-1">
-            <EdenLogo size="footer" onDark className="rounded-2xl" />
-            <p className="mt-6 text-base leading-8 text-emerald-50">
-              {t.footerDescription}
-            </p>
-
-            <button
-              type="button"
-              onClick={() => onNavigate?.("intake")}
-              className="mt-6 inline-flex items-center rounded-full bg-lime-500 px-6 py-3 text-sm font-black text-emerald-950 transition hover:bg-lime-400"
-            >
-              {t.startABA}
-            </button>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.forParents.title}</h4>
-            <div className="mt-5 grid gap-3 text-sm font-bold text-emerald-50">
-              {f.forParents.links.map((link, index) =>
-                footerLink(link, enFooter.forParents.links[index]),
-              )}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.resources.title}</h4>
-            <div className="mt-5 grid gap-3 text-sm font-bold text-emerald-50">
-              {f.resources.links.map((link, index) =>
-                footerLink(link, enFooter.resources.links[index]),
-              )}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.careers.title}</h4>
-            <div className="mt-5 grid gap-3 text-sm font-bold text-emerald-50">
-              {f.careers.links.map((link, index) =>
-                footerLink(link, enFooter.careers.links[index]),
-              )}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">{f.contact.title}</h4>
-
-            <div className="mt-5 grid gap-4 text-sm text-emerald-50">
-              <p className="flex gap-3 leading-7">
-                <MapPin size={18} className="mt-1 shrink-0" />
-                <span>{t.edenBusinessInfo.address}</span>
-              </p>
-
-              <p className="flex items-center gap-3 font-bold">
-                <Phone size={18} />
-                <span>{t.edenBusinessInfo.phone}</span>
-              </p>
-
-              <p className="flex items-center gap-3 font-bold">
-                <FileText size={18} />
-                <span>{f.contact.faxPrefix} {t.edenBusinessInfo.fax}</span>
-              </p>
-
-              <p className="flex items-center gap-3 font-bold">
-                <Mail size={18} />
-                <span>{f.contact.email}</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid gap-10 border-b border-white/10 py-10 lg:grid-cols-3">
-          <FooterFindCenter labels={f.findCenter} />
-
-          <div>
-            <h4 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">
-              {t.officeHours}
-            </h4>
-
-            <div className="mt-4 grid gap-2 text-sm text-emerald-50">
-              {t.edenBusinessInfo.hours.map(([day, time]) => (
-                <div key={day} className="flex justify-between gap-5">
-                  <span className="font-bold">{day}</span>
-                  <span>{time}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <GoogleReviews variant="footer" labels={f.googleReviews} />
-        </div>
-
-        <div className="flex flex-col gap-5 py-6 text-sm text-emerald-100 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {f.copyright}</p>
-
-          <div className="flex flex-wrap gap-5 font-bold">
-            {f.legalLinks.map((link) => <a key={link} href="#">{link}</a>)}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
 function SchedulerIntroCard({ t, onStart }) {
   const intro = t.pages.scheduler.introCard;
   const sections = intro.sections;
@@ -3392,9 +2976,12 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, 
     verifyingMessage,
     canSubmit: recaptchaReady,
     handleTokenChange,
+    handleExpired,
+    validating,
     resetRecaptcha,
     requireRecaptcha,
     verifyRecaptchaWithServer,
+    releaseSubmitLock,
   } = useReCaptchaV2();
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
@@ -3473,6 +3060,7 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, 
       const recaptcha = await verifyRecaptchaWithServer();
       if (!recaptcha.success) {
         setSubmitError(t.recaptchaFailed || "Security verification failed. Please try again.");
+        releaseSubmitLock();
         return;
       }
 
@@ -3486,15 +3074,19 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, 
 
       if (!response.ok || !result.ok) {
         setSubmitError(result.message || t.recaptchaFailed);
+        resetRecaptcha();
         return;
       }
 
+      resetRecaptcha();
       setReferenceNumber(result.referenceNumber);
       setSubmitted(true);
     } catch {
       setSubmitError(t.schedulerSubmitError || t.recaptchaFailed);
+      resetRecaptcha();
     } finally {
       setSubmitting(false);
+      releaseSubmitLock();
     }
   };
 
@@ -3690,13 +3282,11 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, 
                           <ReCaptchaVerification
                             ref={recaptchaRef}
                             onTokenChange={handleTokenChange}
+                            onExpired={handleExpired}
                             error={recaptchaError}
                             disabled={submitting || verifying}
                             className="mt-6"
                           />
-                          {verifying ? (
-                            <p className="mt-3 text-sm font-bold text-slate-600">{verifyingMessage}</p>
-                          ) : null}
                         </div>
                       )}
                     </>
@@ -3712,7 +3302,7 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, 
                   <Button onClick={resetForm}>{t.bookAnother}</Button>
                 ) : step === 6 ? (
                   <Button disabled={submitting || verifying || requiredMissing() || !recaptchaReady} onClick={submitAppointment}>
-                    {verifying ? verifyingMessage : submitting ? t.schedulerSubmitting : t.submitRequest}
+                    {verifying ? "Verifying…" : submitting ? t.schedulerSubmitting : t.submitRequest}
                   </Button>
                 ) : (
                   <Button disabled={requiredMissing()} onClick={nextStep}>{t.continue} <ArrowRight size={16} /></Button>
@@ -3726,7 +3316,7 @@ function OnlineAppointmentSchedulerCTA({ t, introOnly = false, onOpenScheduler, 
               )}
               {!submitted && step === 6 && (
                 <div className="mt-4">
-                  <RecaptchaNotice t={t} label={t.recaptcha} />
+                  <RecaptchaNotice align="center" />
                 </div>
               )}
             </div>
@@ -3789,7 +3379,7 @@ TWILIO_PHONE_NUMBER=
 export default function EdenABAWebsite() {
   const [darkMode, setDarkMode] = useState(false);
   const [currentPage, setCurrentPage] = useState("home");
-  const [language, setLanguage] = useState(DEFAULT_LANGUAGE);
+  const { language } = useSiteLanguage();
   const t = getTranslation(language);
 
   const syncPageFromLocation = (event, { scroll = true } = {}) => {
@@ -3811,27 +3401,32 @@ export default function EdenABAWebsite() {
 
   const goToPage = (page, { path: pathOverride, scrollTo } = {}) => {
     if (typeof window !== "undefined") {
-      applyPageToBrowserUrl(page, { pathOverride });
+      applyPageToBrowserUrl(page, { pathOverride, scrollTo });
       window.dispatchEvent(new CustomEvent("eden:navigate", { detail: page }));
     }
 
     setCurrentPage(page);
     if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      if (scrollTo) {
-        window.requestAnimationFrame(() => {
-          document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+      const path = pathOverride ?? getPagePath(page);
+      const leavesSpa =
+        path?.startsWith("/about/") ||
+        path?.startsWith("/careers") ||
+        path?.startsWith("/aba-therapy/") ||
+        path?.startsWith("/services/") ||
+        path === "/getting-started";
+
+      if (!leavesSpa) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (scrollTo) {
+          window.requestAnimationFrame(() => {
+            document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        }
       }
     }
   };
 
   useEffect(() => {
-    const savedLanguage = localStorage.getItem(STORAGE_KEY);
-    if (savedLanguage === "en" || savedLanguage === "vi") {
-      setLanguage(savedLanguage);
-    }
-
     syncPageFromLocation(null, { scroll: false });
 
     const handleNavigate = (event) => syncPageFromLocation(event);
@@ -3914,30 +3509,21 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <WhatIsAutismPage t={t} onStart={() => goToPage("intake")} onAssessment={() => goToPage("autism-assessment")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
 
   if (currentPage === "aba-therapy") {
-    return (
-      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
-        <button
-          type="button"
-          onClick={() => setDarkMode(!darkMode)}
-          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
-        >
-          {darkMode ? t.lightMode : t.darkMode}
-        </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <ABATherapyEducationPage t={t} onStart={() => goToPage("intake")} />
-        <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
-      </main>
-    );
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash?.replace("#", "");
+      const target = hash && hash !== "aba-therapy" ? `/aba-therapy/what-is-aba-therapy#${hash}` : "/aba-therapy/what-is-aba-therapy";
+      window.location.replace(target);
+    }
+    return null;
   }
 
   if (currentPage === "locations") {
@@ -3950,10 +3536,10 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <LocationsPage t={t} onStart={() => goToPage("intake")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -3968,17 +3554,17 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <AboutEdenPage t={t} onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
 
   if (currentPage === "intake") {
     return (
-      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
+      <main className={`font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
         <button
           type="button"
           onClick={() => setDarkMode(!darkMode)}
@@ -3986,10 +3572,10 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <AdvancedIntakeForm t={t} language={language} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4004,10 +3590,10 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <OnlineAppointmentSchedulerCTA t={t} autoStartWizard />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4022,36 +3608,26 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <InsuranceVerificationPage t={t} onSchedule={() => goToPage("schedule-appointment")} onHome={() => goToPage("home")} onStart={() => goToPage("intake")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
 
-  if (currentPage === "autism-assessment") {
-    return (
-      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
-        <button
-          type="button"
-          onClick={() => setDarkMode(!darkMode)}
-          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
-        >
-          {darkMode ? t.lightMode : t.darkMode}
-        </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <AutismEvaluationPage
-          t={t}
-          onStart={() => goToPage("intake")}
-          onMchat={() => goToPage("m-chat-r")}
-          onCast={() => goToPage("cast")}
-          onAdos={() => goToPage("ados-2-assessment")}
-        />
-        <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
-      </main>
-    );
+  if (currentPage === "autism-assessment" || currentPage === "ados-2-assessment" || currentPage === "screening-evaluation") {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash?.replace("#", "");
+      const anchor =
+        hash === "ados-2-assessment" || currentPage === "ados-2-assessment"
+          ? "#ados-2-assessment"
+          : hash === "mchat-r-online-screener"
+            ? "#mchat-r-online-screener"
+            : "";
+      window.location.replace(`/services/evaluations-diagnosis/screening-evaluation${anchor}`);
+    }
+    return null;
   }
 
   if (currentPage === "m-chat-r") {
@@ -4064,10 +3640,10 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <MChatRFormPage t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4082,36 +3658,10 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <CastFormPage t={t} onScheduleEvaluation={() => goToPage("autism-assessment")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
-      </main>
-    );
-  }
-
-  if (currentPage === "ados-2-assessment") {
-    return (
-      <main className={`min-h-screen font-sans transition ${darkMode ? "bg-slate-950 text-white" : "bg-white text-slate-900"}`}>
-        <button
-          type="button"
-          onClick={() => setDarkMode(!darkMode)}
-          className="fixed bottom-5 left-5 z-50 rounded-full bg-emerald-700 px-5 py-3 text-sm font-black text-white shadow-2xl"
-        >
-          {darkMode ? t.lightMode : t.darkMode}
-        </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
-        <Ados2AssessmentPageWrapper
-          t={t}
-          onStart={() => goToPage("intake")}
-          onMchat={() => goToPage("m-chat-r")}
-          onCast={() => goToPage("cast")}
-          onLocations={() => goToPage("locations")}
-          onEvaluationHub={() => goToPage("autism-assessment")}
-          onIde={() => goToPage("ide-evaluation")}
-        />
-        <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4126,7 +3676,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <IdeEvaluationPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4138,7 +3688,7 @@ export default function EdenABAWebsite() {
           onContact={() => goToPage("intake")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4153,7 +3703,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <CenterBasedAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4161,11 +3711,11 @@ export default function EdenABAWebsite() {
           onAba={() => goToPage("aba-therapy")}
           onHomeBased={() => goToPage("home-based-aba-therapy")}
           onCommunityBased={() => goToPage("community-based-aba-therapy")}
-          onSchoolBased={() => goToPage("aba-therapy")}
+          onSchoolBased={() => goToPage("school-based-aba-therapy")}
           onVirtual={() => goToPage("virtual-aba-therapy")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4180,19 +3730,19 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <HomeBasedAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
           onLocations={() => goToPage("locations")}
           onSchedule={() => goToPage("schedule-appointment")}
           onCenterBased={() => goToPage("center-based-aba-therapy")}
-          onSchoolBased={() => goToPage("aba-therapy")}
+          onSchoolBased={() => goToPage("school-based-aba-therapy")}
           onCommunityBased={() => goToPage("community-based-aba-therapy")}
           onVirtual={() => goToPage("virtual-aba-therapy")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4207,7 +3757,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <CommunityBasedAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4215,12 +3765,12 @@ export default function EdenABAWebsite() {
           onSchedule={() => goToPage("schedule-appointment")}
           onHomeBased={() => goToPage("home-based-aba-therapy")}
           onCenterBased={() => goToPage("center-based-aba-therapy")}
-          onSchoolBased={() => goToPage("aba-therapy")}
+          onSchoolBased={() => goToPage("school-based-aba-therapy")}
           onVirtual={() => goToPage("virtual-aba-therapy")}
           onInsurance={() => goToPage("insurance-coverage")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4235,7 +3785,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <VirtualAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4245,10 +3795,10 @@ export default function EdenABAWebsite() {
           onHomeBased={() => goToPage("home-based-aba-therapy")}
           onCenterBased={() => goToPage("center-based-aba-therapy")}
           onCommunityBased={() => goToPage("community-based-aba-therapy")}
-          onSchoolBased={() => goToPage("aba-therapy")}
+          onSchoolBased={() => goToPage("school-based-aba-therapy")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4263,7 +3813,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <OutcomesFamilyStoriesPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4273,7 +3823,7 @@ export default function EdenABAWebsite() {
           onAba={() => goToPage("aba-therapy")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4288,7 +3838,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <AdmissionsPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4301,7 +3851,7 @@ export default function EdenABAWebsite() {
           onAsdSupport={() => goToPage("autism-assessment")}
           onContact={() => goToPage("intake")}
         />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4316,7 +3866,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <ParentGuidancePageWrapper
           t={t}
           onMchat={() => goToPage("m-chat-r")}
@@ -4330,7 +3880,7 @@ export default function EdenABAWebsite() {
           onStart={() => goToPage("intake")}
         />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4345,16 +3895,15 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <Careers t={t} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
 
   if (
-    currentPage === "parent-training" ||
     currentPage === "autism-diagnosis-resources" ||
     currentPage === "new-parent-checklist" ||
     currentPage === "afterschool-programs" ||
@@ -4378,7 +3927,7 @@ export default function EdenABAWebsite() {
         return;
       }
       if (currentPage === "new-parent-checklist") {
-        goToPage("admissions", { path: "/resources/getting-started-with-eden" });
+        window.location.assign("/getting-started");
         return;
       }
       if (currentPage === "resources-webinars") {
@@ -4431,10 +3980,10 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <ResourcePlaceholderPage content={content} onStart={onPrimary} onContact={() => goToPage("intake")} />
         <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4449,7 +3998,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
         <AutismScreenerFaqsPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -4462,8 +4011,7 @@ export default function EdenABAWebsite() {
           onAba={() => goToPage("aba-therapy")}
           onAutism={() => goToPage("what-is-autism")}
         />
-        <NewsletterBanner t={t} />
-        <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+        <Footer />
       </main>
     );
   }
@@ -4477,7 +4025,7 @@ export default function EdenABAWebsite() {
       >
         {darkMode ? t.lightMode : t.darkMode}
       </button>
-      <Header onStart={() => goToPage("intake")} onNavigate={goToPage} language={language} setLanguage={setLanguage} />
+      <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
       <HomepageHero onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} language={language} />
       <ChildJourneyRoadmap
         t={t.pages.childJourney}
@@ -4492,10 +4040,10 @@ export default function EdenABAWebsite() {
       />
       <ImpactDataChartSection t={t} />
       <ServiceExplorer t={t} />
-      <InsuranceMadeSimpleSection
+      <HomepageInsuranceSection
         t={t.pages.insurancePayment}
         onVerify={() => goToPage("insurance-coverage")}
-        onSpeakIntake={() => goToPage("intake")}
+        onTalkToTeam={() => goToPage("intake")}
       />
       <EdenResourceIntelligenceHub t={t} />
       <FamilySupportPathSection
@@ -4508,7 +4056,6 @@ export default function EdenABAWebsite() {
       />
       <ParentResourcesSection id="parent-resources" t={t} onStart={() => goToPage("intake")} />
       <Careers t={t} />
-      <OnlineAppointmentSchedulerCTA t={t} />
       <ClientReviewMarquee t={t} onStart={() => goToPage("intake")} onVerifyInsurance={() => goToPage("insurance-coverage")} />
       <section className="bg-gradient-to-br from-[#128c8c] via-[#1f7a2e] to-[#0b4f4f] px-4 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
@@ -4548,7 +4095,7 @@ export default function EdenABAWebsite() {
         </div>
       </section>
       <NewsletterBanner t={t} />
-      <Footer t={t} onNavigate={goToPage} onStart={() => goToPage("intake")} />
+      <Footer />
     </main>
   );
 }

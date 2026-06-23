@@ -9,7 +9,7 @@
     "brandName": "Eden ABA Therapy",
     "brandTagline": "Compassionate autism care",
     "navAutismEvaluation": "Autism Evaluation",
-    "navABATherapy": "ABA Therapy",
+    "navABATherapy": "Services",
     "navLocations": "Locations",
     "navHome": "Home",
     "locationsPageTitle": "Find an Eden ABA Therapy location near you.",
@@ -28,6 +28,8 @@
     "aboutEdenMegaMenuDefaultDescription": "Learn about Eden ABA Therapy's mission, team, clinical quality, family-centered care, and community connection.",
     "resourcesMegaMenuDefaultDescription": "Explore our guides, articles, and resources to support your autism journey.",
     "resourcesMegaMenuDefaultTitle": "Helpful tools for every step",
+    "servicesMegaMenuResourcesDescription": "Explore Eden ABA Therapy guides, autism support articles, parent resources, and care information to help families feel confident at every stage of their ABA journey.",
+    "servicesMegaMenuResourcesCta": "Explore resources →",
     "careersMegaMenuDefaultDescription": "Explore meaningful career paths at Eden ABA Therapy, from RBT and BCBA roles to team culture, interview support, and professional growth.",
     "careersMegaMenuDefaultTitle": "Careers at Eden",
     "navCareers": "Careers",
@@ -102,21 +104,28 @@
     "gettingStartedP1": "If your child already has an autism diagnosis and you want to get started with ABA therapy, you can contact us to schedule an intake.",
     "gettingStartedP2": "If your child has many of the early signs of autism and does not yet have a diagnosis, we can help guide you through diagnostic support options.",
     "familySupportPath": {
-      "eyebrow": "Your family's journey",
-      "title": "Your Path to Support Starts Here",
-      "subtitle": "Getting started should feel clear, not overwhelming. Whether your child already has an autism diagnosis or you are still looking for answers, Eden ABA Therapy helps families understand the next step, connect with the right resources, and move forward with confidence.",
-      "benefitsLabel": "Benefits",
-      "journeyLabel": "Signs → Diagnosis → Consultation → Intake",
+      "eyebrow": "Your Path to Support",
+      "title": "Four Simple Steps to Begin",
+      "subtitle": "From early screening to intake, Eden helps families move forward with clarity, confidence, and compassionate guidance.",
+      "outcomesLabel": "What this step helps with",
+      "journeyLabel": "Screening → Evaluation → Consultation → Intake",
+      "stepOneNote": "M-CHAT-R is commonly used for toddlers around 16–30 months. CAST may be useful for older children. Screening results should be reviewed with a qualified professional.",
+      "trustBadges": [
+        "Screening-informed",
+        "Clinician-guided",
+        "Family-centered",
+        "Insurance-aware"
+      ],
       "steps": [
         {
           "step": "STEP 01",
           "title": "Understand Early Signs",
-          "description": "Autism screening tools help families identify developmental patterns that may benefit from further evaluation. While screening does not provide a diagnosis, it offers valuable insight and helps determine whether professional assessment is recommended.",
+          "description": "Autism screening helps families notice developmental patterns in communication, social interaction, play, behavior, and sensory responses. Screening tools do not diagnose autism, but they can help families decide when a professional evaluation may be the right next step.",
           "benefits": [
-            "Learn about communication and social development milestones",
-            "Identify potential areas of concern early",
-            "Access evidence-informed screening resources",
-            "Gain clarity before pursuing a formal evaluation"
+            "Recognize communication, social, play, and sensory development differences",
+            "Understand when early screening may be helpful",
+            "Use evidence-informed tools to organize family concerns",
+            "Decide whether a full diagnostic evaluation should be considered"
           ],
           "button": "Take M-CHAT-R",
           "buttons": [
@@ -127,36 +136,36 @@
         {
           "step": "STEP 02",
           "title": "Receive Professional Answers",
-          "description": "A comprehensive autism evaluation provides a detailed understanding of your child's strengths, developmental needs, and whether autism spectrum disorder criteria are met.",
+          "description": "A comprehensive autism evaluation can help clarify your child's strengths, developmental needs, diagnostic considerations, and service recommendations. Families may use evaluation documentation to support therapy planning, school coordination, and insurance or Medicaid requirements.",
           "benefits": [
-            "Connect with qualified diagnostic specialists",
-            "Obtain documentation for services and support",
-            "Build a personalized care roadmap",
-            "Create a foundation for therapy planning"
+            "Connect with qualified diagnostic professionals",
+            "Understand your child's developmental profile",
+            "Obtain documentation that may support services and referrals",
+            "Build a clearer roadmap for therapy, school, and family support"
           ],
           "button": "Find Diagnostic Support"
         },
         {
           "step": "STEP 03",
           "title": "Schedule an ABA Consultation",
-          "description": "Meet with our experienced team to discuss your child's needs, goals, and available therapy options. We will help determine the most appropriate next steps for your family.",
+          "description": "An ABA consultation helps families understand available therapy options, service settings, clinical recommendations, and next steps. Eden's team can discuss your child's needs, answer questions, and help determine whether ABA therapy may be appropriate.",
           "benefits": [
-            "Request an ABA therapy evaluation",
-            "Discuss clinic, home, school, or telehealth options",
-            "Review insurance and service availability",
-            "Receive guidance tailored to your child"
+            "Discuss home, clinic, school, or telehealth service options",
+            "Review diagnosis, referral, insurance, or Medicaid considerations",
+            "Ask questions about ABA therapy, parent involvement, and treatment planning",
+            "Receive guidance tailored to your child and family priorities"
           ],
           "button": "Schedule Consultation"
         },
         {
           "step": "STEP 04",
           "title": "Complete Family Intake",
-          "description": "Submit important family, child, and insurance information securely before services begin. This allows our team to prepare and helps reduce delays during onboarding.",
+          "description": "Family intake helps Eden collect the information needed to prepare for services, verify eligibility, review documentation, and support a smoother onboarding process. A complete intake helps reduce delays and gives the clinical team a stronger starting point.",
           "benefits": [
-            "Secure online information submission",
-            "Faster onboarding process",
-            "Supports insurance eligibility review",
-            "Helps our clinical team prepare"
+            "Submit child, family, insurance, and service preference information securely",
+            "Support benefits verification and authorization preparation",
+            "Share developmental history, concerns, and existing documentation",
+            "Help the clinical team prepare for assessment and treatment planning"
           ],
           "button": "Start Intake"
         }
@@ -304,9 +313,9 @@
       "Convenient scheduling options"
     ],
     "scheduleAppointment": "Schedule Appointment",
-    "careersEyebrow": "Recruiting system",
-    "careersTitle": "Careers page with searchable roles.",
-    "searchJobs": "Search jobs...",
+    "careersEyebrow": "Now Hiring in Annandale, Virginia",
+    "careersTitle": "Build a Meaningful Career in Autism Care",
+    "searchJobs": "Search jobs",
     "apply": "Apply",
     "schedulerEyebrow": "Eden ABA Therapy",
     "schedulerTitle": "Advanced Online Appointment Scheduler",
@@ -349,7 +358,7 @@
     "recaptchaPrivacy": "Privacy",
     "recaptchaTerms": "Terms",
     "recaptchaGoogleLegal": "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.",
-    "languageLabel": "Language",
+    "languageLabel": "Select Language",
     "recaptchaFailed": "Security verification failed. Please refresh the page and try again, or contact Eden ABA Therapy for help.",
     "startAbaRecaptchaFailed": "We could not verify your request. Please refresh and try again.",
     "startAbaRecaptchaIncomplete": "Please complete the reCAPTCHA verification.",
@@ -427,8 +436,9 @@
       "hybridViewLabel": "Hybrid",
       "mapTypeGroupLabel": "Map type",
       "loadingLabel": "Loading map…",
-      "apiKeyNotice": "For full interactive map controls (satellite view, Street View, zoom, and directions), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local and enable Maps JavaScript API in Google Cloud with billing enabled. You can still open Eden ABA Therapy in Google Maps.",
-      "openInGoogleMaps": "Open in Google Maps"
+      "apiKeyNotice": "For full interactive map controls (satellite view, Street View, zoom, and directions), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local and enable Maps JavaScript API in Google Cloud with billing enabled. Satellite imagery requires the JavaScript API — the basic embed does not support it. You can still open Eden ABA Therapy in Google Maps.",
+      "openInGoogleMaps": "Open in Google Maps",
+      "satelliteUnavailableNotice": "Satellite imagery is temporarily unavailable. Showing standard map view."
     },
     "locationsDetail": {
       "breadcrumbPrefix": "Eden ABA Therapy /",
@@ -493,12 +503,30 @@
       "cost": "The cost depends on the insurance plan, deductible, copay, coinsurance, authorization, and whether ABA is covered as medically necessary. The best next step is to verify benefits before services start so the family understands any expected responsibility.",
       "school": "ABA can support school-related goals by helping with communication, transitions, behavior plans, social skills, classroom readiness, and daily routines. ABA does not replace the school IEP team, but the BCBA can often coordinate with caregivers and school providers when releases are signed.",
       "default": "I can help with ABA therapy, speech therapy, occupational therapy, intake, insurance, scheduling, documents, parent training, behavior concerns, and autism support. Please tell me the child's age, main concern, and whether you are asking about ABA, speech, OT, insurance, or starting services."
+    },
+    "navInsurance": "Insurance",
+    "newsletterNameRequired": "Please enter your full name.",
+    "newsletterEmailRequired": "Please enter your email address.",
+    "newsletterEmailInvalid": "Please enter a valid email address.",
+    "newsletterSuccess": "Thank you for joining the Eden ABA Therapy family newsletter.",
+    "submitting": "Submitting...",
+    "cookieConsent": {
+      "title": "Cookie Consent & Preferences",
+      "message": "We use cookies to improve your experience and understand how families use our website.",
+      "acceptAll": "Accept All Cookies",
+      "preferences": "Cookie Preferences",
+      "preferencesTitle": "Cookie Preferences",
+      "preferencesIntro": "Choose how Eden ABA Therapy uses cookies. Essential cookies help the site function. Analytics cookies help us improve the family experience.",
+      "essentialOnly": "Essential Only",
+      "savePreferences": "Save Preferences",
+      "reopenLabel": "Cookie settings"
     }
   },
   "menu": [
     {
-      "label": "ABA Therapy",
-      "type": "simple",
+      "id": "services",
+      "label": "Services",
+      "type": "services-mega",
       "columns": [
         {
           "title": "Services",
@@ -508,7 +536,7 @@
             "Community-Based ABA Therapy",
             "School-Based ABA Therapy",
             "Virtual ABA Therapy",
-            "Afterschool Programs",
+            "After School Programs",
             {
               "key": "occupational-therapy-coming-soon",
               "label": "Occupational Therapy",
@@ -532,32 +560,6 @@
       ]
     },
     {
-      "label": "Locations",
-      "type": "locations",
-      "columns": [
-        {
-          "title": "Eden Locations",
-          "links": [
-            "Fairfax",
-            "Centreville",
-            "Chantilly",
-            "Reston",
-            "Herndon"
-          ]
-        },
-        {
-          "title": "More Areas",
-          "links": [
-            "Alexandria",
-            "Arlington",
-            "Manassas",
-            "Woodbridge",
-            "View All Locations"
-          ]
-        }
-      ]
-    },
-    {
       "label": "Resources",
       "type": "compact",
       "columns": [
@@ -574,8 +576,6 @@
           "title": "Evaluations & Diagnosis",
           "links": [
             "Screening & Evaluation",
-            "M-CHAT-R Online Screener",
-            "ADOS-2 Assessment",
             "School & IEP Evaluations"
           ]
         },
@@ -584,10 +584,8 @@
           "links": [
             "What Is ABA Therapy?",
             "Parent Training",
-            "Parent Guides",
-            "Family Training & Support",
-            "How ABA Therapy Works",
-            "ABA Success Stories"
+            "ABA Success Stories",
+            "Getting Started with Eden"
           ]
         },
         {
@@ -596,8 +594,8 @@
             "Insurance Coverage",
             "Admissions Process",
             "Getting Started with Eden",
-            "New Parent Checklist",
             "Schedule Appointment",
+            "Location",
             "FAQs"
           ]
         },
@@ -619,8 +617,9 @@
           "links": [
             "Our Story",
             "Our Mission & Values",
-            "Leadership Team",
-            "Clinical Excellence",
+            "Our Approach",
+            "Our Team",
+            "Clinical Quality",
             "Community Impact",
             "Contact Us"
           ]
@@ -635,11 +634,11 @@
           "title": "Careers",
           "links": [
             "Search Open Roles",
-            "RBT Careers",
+            "Behavior Technician Careers (BT & RBT)",
             "BCBA Careers",
+            "Benefits & Compensation",
             "Life at Eden",
-            "Interview Guide",
-            "Career Resources"
+            "Career Growth Pathways"
           ]
         }
       ]
@@ -647,28 +646,46 @@
   ],
   "jobs": [
     {
-      "role": "Registered Behavior Technician",
-      "type": "Full-time / Part-time",
-      "location": "Fairfax, VA",
-      "dept": "Clinical"
+      "role": "Registered Behavior Technician (RBT)",
+      "type": "Full-Time / Part-Time",
+      "location": "Annandale, VA",
+      "dept": "Clinical Services"
     },
     {
-      "role": "Board Certified Behavior Analyst",
-      "type": "Full-time",
-      "location": "Northern Virginia",
-      "dept": "Clinical"
+      "role": "Board Certified Behavior Analyst (BCBA)",
+      "type": "Full-Time",
+      "location": "Annandale, VA",
+      "dept": "Clinical Leadership"
     },
     {
-      "role": "Intake Coordinator",
-      "type": "Full-time",
-      "location": "Hybrid",
+      "role": "Regional Clinical Director",
+      "type": "Full-Time",
+      "location": "Annandale, VA",
+      "dept": "Clinical Leadership"
+    },
+    {
+      "role": "Director of RBT Development",
+      "type": "Full-Time",
+      "location": "Annandale, VA",
+      "dept": "Training & Development"
+    },
+    {
+      "role": "Client Services Coordinator",
+      "type": "Full-Time",
+      "location": "Annandale, VA",
+      "dept": "Client Experience"
+    },
+    {
+      "role": "Operations Manager",
+      "type": "Full-Time",
+      "location": "Annandale, VA",
       "dept": "Operations"
     },
     {
-      "role": "Clinical Supervisor",
-      "type": "Full-time",
-      "location": "Fairfax, VA",
-      "dept": "Leadership"
+      "role": "Behavior Technician (BT)",
+      "type": "Part-Time / Full-Time",
+      "location": "Annandale, VA",
+      "dept": "Clinical Services"
     }
   ],
   "serviceData": [
@@ -886,24 +903,48 @@
     ]
   },
   "hero": {
-    "animatedWords": [
-      "grow",
-      "learn",
-      "thrive",
-      "blossom",
-      "communicate",
-      "connect",
-      "smile"
+    "line1": "A brighter path for",
+    "line2": "children to grow, learn,",
+    "line3": "communicate, and",
+    "rotatingItems": [
+      {
+        "word": "thrive",
+        "symbol": "🌱",
+        "label": "thrive"
+      },
+      {
+        "word": "connect",
+        "symbol": "💬",
+        "label": "connect"
+      },
+      {
+        "word": "shine",
+        "symbol": "✨",
+        "label": "shine"
+      },
+      {
+        "word": "succeed",
+        "symbol": "⭐",
+        "label": "succeed"
+      },
+      {
+        "word": "blossom",
+        "symbol": "🌸",
+        "label": "blossom"
+      }
     ],
-    "line1": "A brighter path for children",
-    "line2": "to grow, learn, and",
-    "line3Prefix": "",
-    "subtitle": "Eden ABA Therapy provides warm, family-centered ABA support using compassionate care, clear guidance, and child-friendly therapy experiences."
+    "subtitle": "Eden ABA Therapy provides warm, family-centered ABA support using compassionate care, clear guidance, and child-friendly therapy experiences.",
+    "imageAlt": "Child participating in an educational therapy activity",
+    "videoFallbackMessage": "Compassionate autism care for every child"
   },
   "pages": {
     "autismAwareness": {
       "title": "Autism Awareness Counter",
-      "titleParts": ["Autism", "Awareness", "Counter"],
+      "titleParts": [
+        "Autism",
+        "Awareness",
+        "Counter"
+      ],
       "cdcBadge": "CDC estimate: 1 in 31 children identified with autism",
       "intro": "A live educational estimate created to promote autism awareness, early support, and compassionate care for children and families.",
       "tagline": "Eden ABA Therapy | Awareness, Guidance, and Family-Centered Support",
@@ -925,35 +966,24 @@
           "value": "7",
           "note": "Approximate national average per minute"
         },
-        "childrenIdentified": {
-          "label": "Children Identified With Autism",
+        "latestCdcData": {
+          "label": "Latest Official CDC Autism Data",
           "value": "1 in 31",
-          "note": "CDC estimate"
-        },
-        "increasePrevalence": {
-          "label": "Increase In Prevalence (2000–2020)",
-          "value": "317%",
-          "note": "Growth over two decades"
+          "subtitle": "Children identified with autism",
+          "dashboardYearLabel": "Current Dashboard Year",
+          "surveillanceYearLabel": "Latest CDC Surveillance Year",
+          "publishedLabel": "Published By CDC",
+          "rateLabel": "Rate",
+          "surveillanceYear": "2022",
+          "publishedYear": "2025",
+          "rate": "32.2 per 1,000",
+          "footerSource": "CDC ADDM Network",
+          "footerNote": "Most Recent Official Prevalence Estimate"
         },
         "earlyDiagnosis": {
           "label": "Early Diagnosis Matters",
           "value": "5x",
           "note": "Better outcomes with early intervention"
-        },
-        "accessSupport": {
-          "label": "Access To Support Can Change Lives",
-          "value": "80%",
-          "note": "Improvement with consistent, evidence-based support"
-        },
-        "earlySupport": {
-          "label": "What Early Support Can Improve",
-          "value": "Meaningful Progress",
-          "items": [
-            "Communication",
-            "Daily Living Skills",
-            "Social Engagement",
-            "Family Routines"
-          ]
         }
       },
       "dayProgress": "Day Progress",
@@ -966,151 +996,55 @@
       }
     },
     "insurancePayment": {
-      "badge": "WE'VE GOT YOU COVERED",
-      "headingInsurance": "Insurance",
-      "headingMade": "Made",
-      "headingAccent": "Simple",
-      "headingLine1": "Insurance Made",
-      "description": "We handle the complexity so you can focus on what matters most—your child's progress.",
+      "eyebrow": "Insurance Support",
+      "headlineBefore": "Insurance made",
+      "headlineAccent": "simple",
+      "headlineAfter": "for ABA therapy",
+      "intro": "We help Virginia families understand coverage, verify benefits, and take the next step with confidence.",
       "benefits": [
         {
-          "prefix": "We ",
-          "highlight": "verify",
-          "suffix": " your ABA therapy benefits"
+          "title": "Free insurance verification",
+          "description": "We check your benefits at no cost to you."
         },
         {
-          "prefix": "We help ",
-          "highlight": "explain",
-          "suffix": " deductibles, copays, and authorization steps"
+          "title": "Prior authorization support",
+          "description": "We handle the details so you don't have to."
         },
         {
-          "prefix": "We work with families ",
-          "highlight": "before",
-          "suffix": " therapy begins"
+          "title": "Coverage guidance",
+          "description": "We explain deductibles, copays, and coinsurance."
         },
         {
-          "prefix": "Our intake team ",
-          "highlight": "guides",
-          "suffix": " you through the process"
+          "title": "Major plans & Virginia Medicaid",
+          "description": "We work with most insurance plans and Virginia Medicaid."
         }
       ],
-      "benefitCards": [
-        {
-          "title": "Fast & Accurate",
-          "description": "Benefit verification typically completed within 24–48 hours."
-        },
-        {
-          "title": "Maximize Benefits",
-          "description": "We identify your full coverage so you understand what's available."
-        },
-        {
-          "title": "Hassle-Free",
-          "description": "We handle insurance details from start to finish on your behalf."
-        },
-        {
-          "title": "Ongoing Support",
-          "description": "Dedicated support throughout your child's therapy journey."
-        }
-      ],
-      "verifyCta": "Verify My Insurance",
-      "speakCta": "Speak With Our Intake Team",
-      "secureNote": "Secure & Private — Your information is safe with us.",
-      "trustIndicators": [
-        { "label": "HIPAA Compliant" },
-        { "label": "Secure & Private" },
-        { "label": "Your information is safe with us" }
-      ],
-      "featureCard": {
-        "title": "We Handle the Complex, You Focus on Progress",
-        "items": [
-          {
-            "title": "Step-by-Step Guidance",
-            "description": "Clear guidance through verification and authorization."
-          },
-          {
-            "title": "Transparent Communication",
-            "description": "Plain-language updates on coverage and next steps."
-          },
-          {
-            "title": "Benefit Maximization",
-            "description": "Help identifying eligible services and plan details."
-          },
-          {
-            "title": "Dedicated Support",
-            "description": "A responsive intake team for questions along the way."
-          }
-        ],
-        "footer": "We work with major insurance providers across Virginia and beyond.",
-        "viewAllLink": "View all providers"
-      },
+      "verifyCta": "Verify Insurance",
+      "talkCta": "Talk to Our Team",
+      "trustNote": "Most major insurance plans and Virginia Medicaid may cover ABA therapy.",
+      "processTitle": "Our simple 3-step process",
+      "processSubtitle": "We make insurance easier for your family.",
       "processSteps": [
-        { "title": "Submit your insurance information" },
-        { "title": "Eden verifies your benefits" },
-        { "title": "We explain your next steps" }
+        {
+          "title": "Submit your information",
+          "description": "Tell us a little about your child and insurance so we can get started."
+        },
+        {
+          "title": "We verify your benefits",
+          "description": "Our team checks your coverage and confirms what may be available for ABA therapy."
+        },
+        {
+          "title": "We explain your options",
+          "description": "We review your benefits in plain language and guide you on the next steps."
+        }
       ],
-      "verificationSteps": [
-        { "title": "Submit Info", "description": "Share insurance details securely" },
-        { "title": "We Verify", "description": "Our team checks your benefits" },
-        { "title": "Review Benefits", "description": "Understand coverage & costs" },
-        { "title": "Plan Your Care", "description": "Move forward with confidence" }
-      ],
-      "cardBadge": "Most verifications in 24–48 hours",
-      "cardTitle": "Insurance Verification",
-      "cardSubtitle": "Quick, accurate, and hassle-free.",
-      "fastVerification": "Fast verification, usually within",
-      "fastVerificationHours": "24–48 hours",
-      "whatYouReceive": {
-        "title": "What you'll receive",
-        "items": [
-          "Coverage summary",
-          "Deductibles & copays",
-          "Authorization requirements",
-          "Out-of-pocket estimates"
-        ]
-      },
-      "reportHighlight": {
-        "title": "Clear, Easy-to-Understand Report",
-        "description": "A family-friendly summary of your benefits and recommended next steps."
-      },
-      "providersSection": {
-        "title": "We Work With Major Insurance Providers",
-        "viewAll": "View all",
-        "manyMore": "+ Many More"
-      },
-      "supportSection": {
-        "title": "More Ways We Support You",
-        "cards": [
-          {
-            "title": "Appointment Assistance",
-            "description": "Help scheduling evaluations and intake appointments."
-          },
-          {
-            "title": "Claims Support",
-            "description": "Guidance on claims questions and documentation."
-          },
-          {
-            "title": "Plan Changes",
-            "description": "Support when your insurance or coverage changes."
-          },
-          {
-            "title": "Resource Center",
-            "description": "Access to family guides and educational resources."
-          }
-        ]
-      },
-      "privacyBar": {
-        "title": "Your Privacy Matters",
-        "text": "Your information is encrypted and handled with care.",
-        "link": "HIPAA & Privacy Practices"
-      },
-      "trustBadges": [
-        { "label": "Secure Submission" },
-        { "label": "HIPAA-Conscious Process" },
-        { "label": "Family Support" },
-        { "label": "Fast Response" }
-      ],
-      "disclaimer": "Coverage and authorization requirements vary by plan. Our team will help",
-      "disclaimerHighlight": "verify your specific benefits."
+      "toolbox": {
+        "headline": "We can help review benefits with leading insurance plans",
+        "subheadline": "Eden ABA Therapy helps families review ABA therapy coverage, authorization requirements, and next steps for Virginia insurance plans.",
+        "disclaimer": "Plan coverage varies. Eden ABA Therapy can help verify benefits, but coverage and authorization depend on each member's plan requirements.",
+        "verifyCta": "Verify Insurance",
+        "viewCoverageLink": "View Insurance Coverage"
+      }
     },
     "parentResources": {
       "eyebrow": "Parent Resources",
@@ -2007,8 +1941,10 @@
           "Help with authorization steps",
           "Guide families through the next step toward ABA therapy"
         ],
-        "plansTitle": "Insurance Plans We Can Help Review in Virginia",
-        "plansIntro": "If your plan is not listed, submit the form and our team can still review your benefits.",
+        "coverageOptionsTitle": "Coverage Options in Virginia",
+        "plansTitle": "Insurance Plans We Can Help Review",
+        "plansIntro": "Eden ABA Therapy can help Virginia families review benefits, authorization requirements, and next steps. If your plan is not listed, our team may still be able to review your benefits.",
+        "plansDisclaimer": "Listed insurance plans do not guarantee coverage, authorization, or in-network status. Coverage depends on the member's plan, eligibility, medical necessity, authorization requirements, and payer rules.",
         "providers": [
           "Aetna",
           "Anthem HealthKeepers Plus",
@@ -2176,7 +2112,7 @@
           "Open Positions",
           "RBT Careers",
           "BCBA Careers",
-          "Clinical Leadership",
+          "Career Growth Pathways",
           "Interview Guide"
         ]
       },
@@ -2207,6 +2143,12 @@
         "Accessibility",
         "Notice of Privacy Practices"
       ]
+    },
+    "privacyPolicy": {
+      "meta": {
+        "title": "Privacy Policy | Eden ABA Therapy",
+        "description": "Learn how Eden ABA Therapy collects, uses, protects, and safeguards personal information, health information, website data, and SMS communications."
+      }
     },
     "intake": {
       "badge": "Eden ABA Therapy Intake",
@@ -2748,7 +2690,12 @@
             ]
           }
         ],
-        "startButton": "Start Appointment Scheduler"
+        "startButton": "Start Appointment Scheduler",
+        "trustItems": [
+          "Secure submission",
+          "Insurance review supported",
+          "Zoom or in-person visits"
+        ]
       },
       "wizard": {
         "steps": [
@@ -2761,6 +2708,8 @@
         ],
         "stepPrefix": "Step",
         "availableTimes": [
+          "8:00 AM",
+          "8:30 AM",
           "9:00 AM",
           "9:30 AM",
           "10:00 AM",
@@ -2776,7 +2725,11 @@
           "3:00 PM",
           "3:30 PM",
           "4:00 PM",
-          "4:30 PM"
+          "4:30 PM",
+          "5:00 PM",
+          "5:30 PM",
+          "6:00 PM",
+          "6:30 PM"
         ],
         "notSelected": "Not selected",
         "submitted": {
@@ -5092,7 +5045,19 @@
       },
       "newsletter": {
         "title": "Stay Connected With Our Family Newsletter",
-        "intro": "Get helpful autism resources, therapy tips, family guidance, and Eden ABA updates in your inbox.",
+        "intro": "Get helpful autism resources, ABA therapy tips, parent guidance, Medicaid and insurance updates, and Eden ABA Therapy news delivered to your inbox.",
+        "badge": "Free Family Resource Newsletter",
+        "benefitTagline": "Helpful, practical, and family-friendly. No spam. Unsubscribe anytime.",
+        "privacyNote": "We respect your privacy and only send helpful Eden ABA Therapy updates and resources.",
+        "trustNote": "Created for parents, caregivers, and professionals supporting children with autism.",
+        "benefits": [
+          "ABA therapy tips",
+          "Autism resources",
+          "Parent training guidance",
+          "Medicaid & insurance updates",
+          "Early intervention strategies",
+          "Eden family updates"
+        ],
         "fields": {
           "firstName": "First Name",
           "lastName": "Last Name",
@@ -6450,14 +6415,14 @@
       },
       "afterschool-programs": {
         "meta": {
-          "title": "Afterschool Programs | Eden ABA Therapy",
-          "description": "Learn about Eden ABA Therapy afterschool programs supporting social skills, routines, and meaningful progress after the school day."
+          "title": "After School Programs | Eden ABA Therapy",
+          "description": "Learn about Eden ABA Therapy after school programs supporting social skills, routines, and meaningful progress after the school day."
         },
-        "breadcrumb": "Services / Afterschool Programs",
-        "title": "Afterschool Programs",
-        "intro": "Eden ABA Therapy afterschool programs provide structured support for communication, social participation, homework routines, and safe transitions after school.",
+        "breadcrumb": "Services / After School Programs",
+        "title": "After School Programs",
+        "intro": "Eden ABA Therapy after school programs provide structured support for communication, social participation, homework routines, and safe transitions after school.",
         "comingSoonLabel": "Program details coming soon",
-        "comingSoon": "Expanded afterschool program information, enrollment guidance, and scheduling details are being prepared for this section.",
+        "comingSoon": "Expanded after school program information, enrollment guidance, and scheduling details are being prepared for this section.",
         "highlights": [
           "Social and communication skill-building after school",
           "Structured routines for homework and transitions",
@@ -6687,14 +6652,16 @@
       "meta": {
         "title": "Careers | Eden ABA Therapy",
         "description": "Search open roles at Eden ABA Therapy — RBT, BCBA, and clinical support opportunities in Northern Virginia."
-      }
+      },
+      "hubTitle": "Careers at Eden ABA Therapy",
+      "hubIntro": "Eden is building a team of clinicians and support professionals who care about ethical ABA practice, family partnership, measurable progress, and sustainable career growth."
     }
   },
   "insuranceForm": {
-    "secureEyebrow": "Secure insurance request",
-    "title": "Prepare for a brighter future with ABA therapy",
-    "intro": "Complete the secure form below and our team will contact you about insurance benefits and next steps.",
-    "manualVerificationNotice": "Instant Medicaid lookup is not connected yet. Submitting this form sends your information securely to Eden ABA staff for verification through an approved Virginia Medicaid provider portal, clearinghouse, or MediCall — not the public member website.",
+    "secureEyebrow": "Secure Insurance Verification",
+    "title": "Secure Insurance Verification",
+    "intro": "Complete the secure form below and our team will review your benefits, explain possible next steps, and contact you with personalized guidance.",
+    "manualVerificationNotice": "Your information is submitted securely to Eden ABA Therapy. Our team will review your benefits and follow up with clear next steps for your family.",
     "verificationTypeLabel": "Verification Type",
     "verificationTypes": {
       "child": "Child / Dependent",

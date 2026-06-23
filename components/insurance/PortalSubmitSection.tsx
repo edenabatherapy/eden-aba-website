@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Check, Loader2 } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import type { FamilyPortalStatus } from "@/types/insurance";
 
@@ -38,6 +39,7 @@ export default function PortalSubmitSection({
     verifyingMessage,
     canSubmit: recaptchaReady,
     handleTokenChange,
+    handleExpired,
     resetRecaptcha,
     requireRecaptcha,
     verifyRecaptchaWithServer,
@@ -223,17 +225,14 @@ export default function PortalSubmitSection({
             <ReCaptchaVerification
               ref={recaptchaRef}
               onTokenChange={handleTokenChange}
+              onExpired={handleExpired}
               error={recaptchaError}
               disabled={submitting || verifying}
               className="mt-6"
             />
 
-            {verifying ? (
-              <p className="mt-3 text-sm font-bold text-slate-600">{verifyingMessage}</p>
-            ) : null}
-
             {error ? (
-              <p className="mt-3 rounded-2xl bg-red-50 p-3 text-sm font-bold text-red-700">{error}</p>
+              <p className="mt-3 text-xs text-red-600">{error}</p>
             ) : null}
 
             <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
@@ -254,13 +253,14 @@ export default function PortalSubmitSection({
                 {submitting || verifying ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
-                    {verifying ? verifyingMessage : "Submitting..."}
+                    {verifying ? "Verifying…" : "Submitting…"}
                   </>
                 ) : (
                   "Yes, Submit for Review"
                 )}
               </button>
             </div>
+            <RecaptchaNotice align="right" />
           </div>
         </div>
       ) : null}

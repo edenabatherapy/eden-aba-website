@@ -1,142 +1,113 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { MENU_LINK_ROUTES } from "@/lib/navigation";
+import { useCallback, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import {
+  Gift,
+  GraduationCap,
+  Heart,
+  Route,
+  Search,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
-import CareerMeaningAnimation, { type CareerMeaningAnimationType } from "@/components/CareerMeaningAnimation";
-import "./AbaTherapyMegaMenu.css";
-
-export type CareersMegaMenuItem = {
-  title: string;
-  href: string;
-  description: string;
-  animationType: CareerMeaningAnimationType;
-};
-
-export type CareersPreview = {
-  title: string;
-  description: string;
-  animationType: CareerMeaningAnimationType;
-  learnMoreText?: string;
-};
-
-function menuHref(menuLabel: string): string {
-  const route = MENU_LINK_ROUTES[menuLabel as keyof typeof MENU_LINK_ROUTES];
-  return route?.path ?? "#";
-}
-
-export const careersDefaultPreview: CareersPreview = {
-  title: "Careers at Eden",
-  description:
-    "Explore meaningful career paths at Eden ABA Therapy, from RBT and BCBA roles to team culture, interview support, and professional growth.",
-  animationType: "careers",
-  learnMoreText: "Explore careers →",
-};
-
-export const careersItems: CareersMegaMenuItem[] = [
-  {
-    title: "Search Open Roles",
-    href: menuHref("Search Open Roles"),
-    description:
-      "Explore current opportunities at Eden ABA Therapy and find a role where your work can make a meaningful difference.",
-    animationType: "search-roles",
-  },
-  {
-    title: "RBT Careers",
-    href: menuHref("RBT Careers"),
-    description:
-      "Learn about Registered Behavior Technician roles supporting children through compassionate, hands-on ABA therapy.",
-    animationType: "rbt",
-  },
-  {
-    title: "BCBA Careers",
-    href: menuHref("BCBA Careers"),
-    description:
-      "Explore BCBA opportunities focused on clinical leadership, ethical care, supervision, and individualized treatment planning.",
-    animationType: "bcba",
-  },
-  {
-    title: "Life at Eden",
-    href: menuHref("Life at Eden"),
-    description:
-      "Discover Eden's supportive team culture, family-centered mission, and commitment to helping children and clinicians grow.",
-    animationType: "life-at-eden",
-  },
-  {
-    title: "Interview Guide",
-    href: menuHref("Interview Guide"),
-    description:
-      "Prepare for the hiring process with helpful interview tips, expectations, and next steps for joining Eden ABA Therapy.",
-    animationType: "interview-guide",
-  },
-  {
-    title: "Career Resources",
-    href: menuHref("Career Resources"),
-    description:
-      "Access career guidance, role information, and helpful resources for building your future in autism care.",
-    animationType: "career-resources",
-  },
-];
+import CareerMeaningAnimation from "@/components/CareerMeaningAnimation";
+import {
+  CAREERS_BRAND_TITLE,
+  CAREERS_DEFAULT_PREVIEW,
+  CAREERS_MENU_ITEMS,
+  CAREERS_MEGA_MENU_LABEL,
+  type CareersMenuItem,
+  type CareersMegaMenuIcon,
+  type CareersPreviewPanel,
+} from "@/lib/careers/career-menu-data";
+import "./careers/CareersMegaMenu.css";
 
 type CareersMegaMenuProps = {
-  onNavigate: (menuLinkLabel: string) => void;
-  getDisplayTitle: (item: CareersMegaMenuItem) => string;
-  sectionLabel?: string;
-  previewLabel?: string;
-  learnMoreText?: string;
-  defaultPreview?: CareersPreview;
-  defaultTitle?: string;
+  onNavigate?: (href: string) => void;
   variant?: "desktop" | "mobile";
   onClose?: () => void;
 };
 
-function PreviewCardHeader({
-  animationType,
-  compact = false,
-}: {
-  animationType: CareerMeaningAnimationType;
-  compact?: boolean;
-}) {
-  return (
-    <div className={`preview-card-header${compact ? " preview-card-header--compact" : ""}`}>
-      <div className="preview-brand">
-        <EdenLogo
-          size="compact"
-          className={compact ? "preview-logo preview-logo--compact" : "preview-logo"}
-        />
-      </div>
-      <CareerMeaningAnimation type={animationType} compact={compact} />
-    </div>
-  );
+const ICON_MAP: Record<CareersMegaMenuIcon, LucideIcon> = {
+  search: Search,
+  users: Users,
+  "graduation-cap": GraduationCap,
+  gift: Gift,
+  heart: Heart,
+  route: Route,
+};
+
+function isActiveHref(
+  pathname: string,
+  href: string,
+  currentHash: string,
+  activePaths?: string[],
+): boolean {
+  if (href.startsWith("mailto:")) return false;
+
+  const hashIndex = href.indexOf("#");
+  const path = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+  const hash = hashIndex >= 0 ? href.slice(hashIndex) : "";
+
+  if (
+    activePaths?.some(
+      (activePath) => pathname === activePath || pathname.startsWith(`${activePath}/`),
+    )
+  ) {
+    return true;
+  }
+
+  if (hash) {
+    const normalizedPath = path || "/";
+    return pathname === normalizedPath && currentHash === hash;
+  }
+
+  if (path === "/careers") {
+    return pathname === "/careers" && !currentHash;
+  }
+
+  return pathname === path || pathname.startsWith(`${path}/`);
 }
 
-function PreviewCard({
+function PreviewPanel({
   preview,
-  displayTitle,
-  previewLabel,
-  learnMoreText,
+  brandTitle,
   compact = false,
+  onCtaClick,
 }: {
-  preview: CareersPreview | CareersMegaMenuItem;
-  displayTitle: string;
-  previewLabel: string;
-  learnMoreText: string;
+  preview: CareersPreviewPanel;
+  brandTitle: string;
   compact?: boolean;
+  onCtaClick: (href: string) => void;
 }) {
-  const className = compact ? "aba-menu-mobile-preview" : "preview-card";
+  const className = compact ? "careers-preview careers-preview--compact" : "careers-preview";
 
   return (
-    <div className={className}>
-      <PreviewCardHeader animationType={preview.animationType} compact={compact} />
+    <div className={className} aria-live="polite">
+      <div className={`careers-preview__header${compact ? " careers-preview__header--compact" : ""}`}>
+        <div className="careers-preview__brand">
+          <EdenLogo
+            size="compact"
+            className={compact ? "preview-logo preview-logo--compact" : "preview-logo"}
+          />
+        </div>
+        <CareerMeaningAnimation type={preview.animationType} compact={compact} />
+      </div>
 
-      <div className="preview-card-body">
-        <p className="preview-label">{previewLabel}</p>
-
-        <h3>{displayTitle}</h3>
-
-        <p>{preview.description}</p>
-
-        <span className="learn-more-text">{learnMoreText}</span>
+      <div className="careers-preview__body">
+        <p className="careers-preview__brand-title">{brandTitle}</p>
+        <p className="careers-preview__label">{preview.categoryLabel}</p>
+        <h3 className="careers-preview__headline">{preview.headline}</h3>
+        <p className="careers-preview__description">{preview.description}</p>
+        <button
+          type="button"
+          className="careers-preview__cta"
+          onClick={() => onCtaClick(preview.ctaHref)}
+        >
+          {preview.cta}
+        </button>
       </div>
     </div>
   );
@@ -144,91 +115,117 @@ function PreviewCard({
 
 export default function CareersMegaMenu({
   onNavigate,
-  getDisplayTitle,
-  sectionLabel = "CAREERS",
-  previewLabel = "CAREERS",
-  learnMoreText = "Learn more →",
-  defaultPreview = careersDefaultPreview,
-  defaultTitle = "Careers at Eden",
   variant = "desktop",
   onClose,
 }: CareersMegaMenuProps) {
-  const [activeItem, setActiveItem] = useState<CareersMegaMenuItem | null>(null);
-
-  const preview: CareersPreview | CareersMegaMenuItem = activeItem ?? {
-    ...defaultPreview,
-    title: defaultTitle,
-  };
-
-  const handleSelect = useCallback(
-    (item: CareersMegaMenuItem) => {
-      onNavigate(item.title);
-      onClose?.();
-    },
-    [onClose, onNavigate],
-  );
-
-  const displayTitle = activeItem ? getDisplayTitle(activeItem) : defaultTitle;
-  const previewKey = activeItem?.title ?? "careers-default";
-  const previewCta = activeItem ? learnMoreText : defaultPreview.learnMoreText ?? learnMoreText;
-
+  const pathname = usePathname() ?? "";
+  const [currentHash, setCurrentHash] = useState("");
+  const [activeItem, setActiveItem] = useState<CareersMenuItem | null>(null);
   const isMobile = variant === "mobile";
 
+  useEffect(() => {
+    const syncHash = () => setCurrentHash(window.location.hash);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, [pathname]);
+
+  const handleNavigate = useCallback(
+    (href: string) => {
+      if (onNavigate) {
+        onNavigate(href);
+        return;
+      }
+      if (href.startsWith("/") || href.startsWith("mailto:")) {
+        window.location.assign(href);
+      }
+    },
+    [onNavigate],
+  );
+
+  const handleSelect = useCallback(
+    (item: CareersMenuItem) => {
+      handleNavigate(item.href);
+      onClose?.();
+    },
+    [handleNavigate, onClose],
+  );
+
+  const handleCtaClick = useCallback(
+    (href: string) => {
+      handleNavigate(href);
+      onClose?.();
+    },
+    [handleNavigate, onClose],
+  );
+
+  const preview = activeItem?.preview ?? CAREERS_DEFAULT_PREVIEW;
+  const previewKey = activeItem?.id ?? "careers-default";
+
   return (
-    <div className={`aba-mega-menu${isMobile ? " aba-mega-menu--mobile" : ""}`}>
+    <div
+      className={`careers-mega-menu${isMobile ? " careers-mega-menu--mobile" : ""}`}
+      role="navigation"
+      aria-label="Careers menu"
+    >
       <div
-        className="aba-menu-left"
+        className="careers-mega-menu__nav"
         onMouseLeave={() => setActiveItem(null)}
         role="menu"
-        aria-label={sectionLabel}
+        aria-label={CAREERS_MEGA_MENU_LABEL}
       >
-        <p className="mega-menu-label">{sectionLabel}</p>
+        <p className="careers-mega-menu__label">{CAREERS_MEGA_MENU_LABEL}</p>
 
-        {careersItems.map((item) => {
-          const itemDisplayTitle = getDisplayTitle(item);
-          const isActive = activeItem?.title === item.title;
+        <ul className="careers-mega-menu__list">
+          {CAREERS_MENU_ITEMS.map((item) => {
+            const Icon = ICON_MAP[item.icon];
+            const isHovered = activeItem?.id === item.id;
+            const isRouteActive = isActiveHref(
+              pathname,
+              item.href,
+              currentHash,
+              item.activePaths,
+            );
+            const isActive = isHovered || (activeItem === null && isRouteActive);
 
-          return (
-            <button
-              key={item.title}
-              type="button"
-              role="menuitem"
-              className={`aba-menu-item${isActive ? " active" : ""}`}
-              onMouseEnter={() => setActiveItem(item)}
-              onFocus={() => setActiveItem(item)}
-              onClick={() => handleSelect(item)}
-              aria-current={isActive ? "true" : undefined}
-            >
-              <span>{itemDisplayTitle}</span>
-
-              <span className="menu-arrow" aria-hidden="true">
-                →
-              </span>
-            </button>
-          );
-        })}
+            return (
+              <li key={item.id} className="careers-mega-menu__item">
+                <button
+                  type="button"
+                  role="menuitem"
+                  className={`careers-mega-menu__link${isActive ? " active" : ""}`}
+                  onMouseEnter={() => setActiveItem(item)}
+                  onFocus={() => setActiveItem(item)}
+                  onClick={() => handleSelect(item)}
+                  aria-current={isActive ? "true" : undefined}
+                >
+                  <span className="careers-mega-menu__link-icon" aria-hidden="true">
+                    <Icon size={16} strokeWidth={2.25} />
+                  </span>
+                  <span className="careers-mega-menu__link-text">
+                    <span className="careers-mega-menu__link-title">{item.label}</span>
+                    <span className="careers-mega-menu__link-description">{item.description}</span>
+                  </span>
+                  <span className="careers-mega-menu__arrow" aria-hidden="true">
+                    →
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
-      {!isMobile ? (
-        <div className="aba-menu-right" key={previewKey}>
-          <PreviewCard
-            preview={preview}
-            displayTitle={displayTitle}
-            previewLabel={previewLabel}
-            learnMoreText={previewCta}
-          />
-        </div>
-      ) : (
-        <div key={previewKey}>
-          <PreviewCard
-            preview={preview}
-            displayTitle={displayTitle}
-            previewLabel={previewLabel}
-            learnMoreText={previewCta}
-            compact
-          />
-        </div>
-      )}
+      <div className="careers-mega-menu__preview-wrap" key={previewKey}>
+        <PreviewPanel
+          preview={preview}
+          brandTitle={CAREERS_BRAND_TITLE}
+          compact={isMobile}
+          onCtaClick={handleCtaClick}
+        />
+      </div>
     </div>
   );
 }
+
+export { careersDefaultPreview, careersItems } from "./CareersMegaMenu.legacy";

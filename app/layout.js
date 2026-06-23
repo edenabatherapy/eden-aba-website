@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import en from "@/locales/en.json";
+import SiteLanguageProvider from "@/components/providers/SiteLanguageProvider";
+import SiteLanguageSync from "@/components/common/SiteLanguageSync";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EdenChatWidgetLoader from "@/components/EdenChatWidgetLoader";
 import "./globals.css";
@@ -24,9 +26,13 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        {children}
+        <SiteLanguageProvider>
+          <SiteLanguageSync />
+          {children}
+        </SiteLanguageProvider>
         <EdenChatWidgetLoader />
         <CookieConsentBanner />
       </body>

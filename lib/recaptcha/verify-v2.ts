@@ -4,7 +4,10 @@ import {
   isRecaptchaSecretKeyConfigured,
   logRecaptchaEnvInDevelopment,
 } from "@/lib/recaptcha/env";
+import { shouldBypassRecaptchaVerificationOnServer } from "@/lib/recaptcha/config";
+import { logRecaptchaDev } from "@/lib/recaptcha/dev-log";
 import {
+  RECAPTCHA_EXPIRED_MESSAGE,
   RECAPTCHA_FAILURE_MESSAGE,
   RECAPTCHA_INCOMPLETE_MESSAGE,
 } from "@/lib/recaptcha/messages";
@@ -23,10 +26,8 @@ export async function verifyRecaptchaV2Token(
   const secret = getRecaptchaSecretKey();
 
   if (!isRecaptchaSecretKeyConfigured(secret)) {
-    if (process.env.NODE_ENV === "development") {
-      console.warn(
-        "[recaptcha-v2] RECAPTCHA_SECRET_KEY not set — skipping verification in development",
-      );
+    if (shouldBypassRecaptchaVerificationOnServer()) {
+      logRecaptchaDev("server verification skipped (development, no RECAPTCHA_SECRET_KEY)");
       return { ok: true, skipped: true };
     }
 
@@ -66,17 +67,23 @@ export async function verifyRecaptchaV2Token(
     };
 
     if (!data.success) {
-      console.warn("[recaptcha-v2] verification rejected", {
-        errorCodes: data["error-codes"],
-      });
+      const errorCodes = data["error-codes"] ?? [];
+      logRecaptchaDev("verification rejected", { errorCodes, status: response.status });
+
+      const isExpired = errorCodes.some((code) =>
+        ["timeout-or-duplicate", "missing-input-response"].includes(code),
+      );
+      const message = isExpired ? RECAPTCHA_EXPIRED_MESSAGE : RECAPTCHA_FAILURE_MESSAGE;
+
       return {
         ok: false,
         status: 403,
-        reason: "invalid-token",
-        message: RECAPTCHA_FAILURE_MESSAGE,
+        reason: isExpired ? "expired-token" : "invalid-token",
+        message,
       };
     }
 
+    logRecaptchaDev("verification succeeded");
     return { ok: true };
   } catch (error) {
     console.error("[recaptcha-v2] verification request failed", {

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import AdmissionsNewsletterSection from "@/components/admissions/AdmissionsNewsletterSection";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -21,6 +23,19 @@ import {
 } from "lucide-react";
 import EdenButton from "@/components/EdenButton";
 import { SITE_IMAGES } from "@/lib/site-images";
+
+/** Admissions page insurance logos — one canonical mark per payer. */
+const ADMISSIONS_INSURANCE_LOGOS = [
+  { name: "Cigna", src: "/assets/insurance/cigna.png" },
+  { name: "Aetna", src: "/assets/insurance/aetna-1.png" },
+  { name: "Anthem HealthKeepers", src: "/assets/insurance/anthem-healthkeepers.png", compact: true },
+  { name: "Blue Cross Blue Shield", src: "/assets/insurance/bcbs-4.png" },
+  { name: "UMR", src: "/assets/insurance/umr.png", contrast: true },
+  { name: "Sentara", src: "/assets/insurance/sentara.png" },
+  { name: "Molina Healthcare", src: "/images/insurance/molina-healthcare.png", compact: true },
+  { name: "UnitedHealthcare", src: "/assets/insurance/united-healthcare.png" },
+  { name: "TRICARE", src: "/images/insurance/tricare.png", contrast: true },
+];
 
 const fadeUp = {
   initial: false,
@@ -88,9 +103,6 @@ export default function AdmissionsPage({
   const img = SITE_IMAGES.admissions;
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [newsletterName, setNewsletterName] = useState("");
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterJoined, setNewsletterJoined] = useState(false);
 
   const carouselRef = useRef(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -348,16 +360,28 @@ export default function AdmissionsPage({
             {p.insurance.titleBefore}
             <span className="text-[#1f7a2e]">{p.insurance.titleEmphasis}</span>
           </h2>
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {p.insurance.providers.map((provider) => (
-              <span
-                key={provider}
-                className="flex min-h-[3.5rem] items-center justify-center rounded-2xl border border-slate-200 bg-white px-3 py-3 text-center text-xs font-black leading-tight text-slate-700 shadow-sm sm:text-sm"
+          <ul
+            className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+            aria-label="Insurance providers accepted at Eden ABA Therapy"
+          >
+            {ADMISSIONS_INSURANCE_LOGOS.map((provider) => (
+              <li
+                key={provider.name}
+                className="flex min-h-[108px] items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
               >
-                {provider}
-              </span>
+                <Image
+                  src={provider.src}
+                  alt={`${provider.name} logo`}
+                  width={180}
+                  height={70}
+                  className={`max-h-[70px] w-auto max-w-[180px] object-contain ${
+                    provider.compact ? "max-h-[58px]" : ""
+                  } ${provider.contrast ? "contrast-125 saturate-110" : ""}`}
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 28vw"
+                />
+              </li>
             ))}
-          </div>
+          </ul>
           <p className="mx-auto mt-10 max-w-3xl text-lg font-semibold leading-8 text-slate-600">{p.insurance.text}</p>
           <EdenButton variant="primarySite" className="mt-8" onClick={onInsurance}>
             {p.insurance.button} <ArrowRight size={18} />
@@ -411,47 +435,7 @@ export default function AdmissionsPage({
         </div>
       </section>
 
-      {/* NEWSLETTER */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
-        <motion.div
-          {...fadeUp}
-          className="mx-auto w-full max-w-7xl rounded-[2rem] bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-8 py-12 text-center shadow-2xl md:px-12 md:py-14 lg:px-16"
-        >
-          <h2 className="text-3xl font-black text-white md:text-4xl">{p.newsletter.title}</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg font-semibold leading-8 text-white/90">{p.newsletter.intro}</p>
-          <form
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (!newsletterName.trim() || !newsletterEmail.trim()) return;
-              setNewsletterJoined(true);
-            }}
-            className="mx-auto mt-8 flex w-full flex-col gap-4 sm:flex-row sm:items-center"
-          >
-            <input
-              value={newsletterName}
-              onChange={(event) => setNewsletterName(event.target.value)}
-              className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none focus:ring-4 focus:ring-lime-300/30"
-              placeholder={p.newsletter.namePlaceholder}
-            />
-            <input
-              type="email"
-              value={newsletterEmail}
-              onChange={(event) => setNewsletterEmail(event.target.value)}
-              className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none focus:ring-4 focus:ring-lime-300/30"
-              placeholder={p.newsletter.emailPlaceholder}
-            />
-            <button
-              type="submit"
-              className="h-14 shrink-0 rounded-full bg-[#f7c72f] px-8 text-base font-black text-[#0b4f4f] shadow-xl transition hover:bg-[#ff8a1f] hover:text-white"
-            >
-              {p.newsletter.submit}
-            </button>
-          </form>
-          {newsletterJoined && (
-            <p className="mt-5 text-sm font-bold text-lime-200">{p.newsletter.success}</p>
-          )}
-        </motion.div>
-      </section>
+      <AdmissionsNewsletterSection labels={p.newsletter} />
     </div>
   );
 }

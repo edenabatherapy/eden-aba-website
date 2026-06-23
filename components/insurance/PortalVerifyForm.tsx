@@ -52,6 +52,7 @@ export default function PortalVerifyForm({ requestId: initialRequestId }: Props)
     verifyingMessage,
     canSubmit: recaptchaReady,
     handleTokenChange,
+    handleExpired,
     requireRecaptcha,
     verifyRecaptchaWithServer,
   } = useReCaptchaV2();
@@ -331,13 +332,10 @@ export default function PortalVerifyForm({ requestId: initialRequestId }: Props)
         <ReCaptchaVerification
           ref={recaptchaRef}
           onTokenChange={handleTokenChange}
+          onExpired={handleExpired}
           error={recaptchaError}
           disabled={formDisabled}
         />
-
-        {verifying ? (
-          <p className="text-sm font-bold text-slate-600">{verifyingMessage}</p>
-        ) : null}
 
         <button
           type="submit"
@@ -345,16 +343,13 @@ export default function PortalVerifyForm({ requestId: initialRequestId }: Props)
           className="min-h-[48px] w-full rounded-full bg-[#1f7a2e] px-6 py-4 text-sm font-extrabold text-white disabled:opacity-60"
         >
           {verifying
-            ? verifyingMessage
+            ? "Verifying…"
             : loading
               ? "Checking live eligibility…"
               : "Confirm Identity & Check Eligibility"}
         </button>
+        <RecaptchaNotice align="center" />
       </form>
-
-      <div className="mt-4">
-        <RecaptchaNotice label="Protected by reCAPTCHA." />
-      </div>
     </div>
   );
 }

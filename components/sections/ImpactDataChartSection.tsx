@@ -1,24 +1,23 @@
 "use client";
 
+import { useRef, type RefObject } from "react";
 import type { LucideIcon } from "lucide-react";
+import { Baby, BarChart3, Clock3, Gauge, ShieldCheck } from "lucide-react";
 import {
-  Baby,
-  BarChart3,
-  Clock3,
-  Gauge,
-  Headphones,
-  Info,
-  ShieldCheck,
-  TrendingUp,
-  UserRound,
-  Users,
-} from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+  CDC_PREVALENCE_DIVISOR,
+  ESTIMATED_DAILY_BIRTHS,
+} from "@/lib/autism-awareness-metrics";
+import { useBirthsPerMinuteAnimation } from "@/lib/use-births-per-minute-animation";
+import { useInViewport } from "@/lib/use-in-viewport";
+import { useLiveAutismAwarenessMetrics } from "@/lib/use-live-autism-awareness-metrics";
+import ChildClockPanel from "@/components/ChildClockPanel";
 import "./ImpactDataChartSection.css";
 
-const CDC_PREVALENCE_RATE = 100 / 31;
-const BIRTHS_PER_MINUTE = 7;
-const ESTIMATED_DAILY_BIRTHS = BIRTHS_PER_MINUTE * 60 * 24;
+export {
+  BIRTHS_PER_MINUTE,
+  CDC_PREVALENCE_RATE,
+  ESTIMATED_DAILY_BIRTHS,
+} from "@/lib/autism-awareness-metrics";
 
 type AutismAwarenessContent = {
   title: string;
@@ -34,11 +33,21 @@ type AutismAwarenessContent = {
     birthsToday: { label: string; note: string };
     prevalence: { label: string; note: string };
     birthsPerMinute: { label: string; value: string; note: string };
-    earlySupport: { label: string; value: string; items: string[] };
-    childrenIdentified: { label: string; value: string; note: string };
-    increasePrevalence: { label: string; value: string; note: string };
+    latestCdcData: {
+      label: string;
+      value: string;
+      subtitle: string;
+      dashboardYearLabel: string;
+      surveillanceYearLabel: string;
+      publishedLabel: string;
+      rateLabel: string;
+      surveillanceYear: string;
+      publishedYear: string;
+      rate: string;
+      footerSource: string;
+      footerNote: string;
+    };
     earlyDiagnosis: { label: string; value: string; note: string };
-    accessSupport: { label: string; value: string; note: string };
   };
   dayProgress: string;
   dayProgressSuffix: string;
@@ -54,56 +63,66 @@ type ImpactDataChartSectionProps = {
   };
 };
 
-type CardTone = "green" | "teal" | "orange";
+type RingTheme = "teal" | "orange" | "green" | "blue";
 
-type StatCardProps = {
-  label: string;
+type RingCardConfig = {
+  title: string;
   value: string;
-  note?: string;
-  valueTone?: CardTone;
-  progressPct?: number;
+  note: string;
+  ring: number;
+  theme: RingTheme;
   icon: LucideIcon;
-  iconTone: CardTone;
+  featured?: boolean;
+  smallValue?: boolean;
+  syncRingAnimation?: boolean;
 };
 
-function padTime(value: number) {
-  return value.toString().padStart(2, "0");
+type RingCardProps = RingCardConfig;
+
+function needsSmallRingValue(value: string) {
+  return value.includes("in") || value.includes("%") || value.replace(/\D/g, "").length >= 4;
 }
 
-function StatCard({
-  label,
+function RingCard({
+  title,
   value,
   note,
-  valueTone = "green",
-  progressPct,
+  ring,
+  theme,
   icon: Icon,
-  iconTone,
-}: StatCardProps) {
-  const valueClass =
-    valueTone === "teal"
-      ? " awareness-stat-card__value--teal"
-      : valueTone === "orange"
-        ? " awareness-stat-card__value--orange"
-        : " awareness-stat-card__value--green";
+  featured,
+  smallValue,
+  syncRingAnimation = false,
+}: RingCardProps) {
+  const ringValue = Math.min(100, Math.max(0, ring));
+  const compactValue = smallValue ?? needsSmallRingValue(value);
 
   return (
-    <article className="awareness-stat-card">
-      <div>
-        <div className={`awareness-stat-card__icon-wrap awareness-stat-card__icon-wrap--${iconTone}`}>
-          <Icon aria-hidden="true" />
+    <article
+      className={`cdc-ring-card cdc-ring-${theme}${featured ? " cdc-ring-featured" : ""}${syncRingAnimation ? " cdc-ring-card--synced" : ""}`}
+      style={{ ["--value" as string]: ringValue }}
+    >
+      <div className="cdc-ring-visual">
+        <svg viewBox="0 0 120 120" className="cdc-ring-svg" aria-hidden="true">
+          <circle className="cdc-ring-track" cx="60" cy="60" r="50" />
+          <circle className="cdc-ring-fill" cx="60" cy="60" r="50" />
+        </svg>
+        <div className="cdc-ring-center">
+          <span className="cdc-ring-icon">
+            <Icon aria-hidden="true" size={20} />
+          </span>
+          <strong
+            className={`cdc-ring-value${compactValue ? " small-value" : ""}`}
+            suppressHydrationWarning
+            aria-live={syncRingAnimation ? "polite" : undefined}
+          >
+            {value}
+          </strong>
         </div>
-        <p className="awareness-stat-card__label">{label}</p>
-        <p className={`awareness-stat-card__value${valueClass}`}>{value}</p>
-        {note ? <p className="awareness-stat-card__note">{note}</p> : null}
-        {typeof progressPct === "number" ? (
-          <div className="awareness-stat-card__progress" aria-hidden="true">
-            <div
-              className={`awareness-stat-card__progress-bar awareness-stat-card__progress-bar--${iconTone}`}
-              style={{ width: `${Math.min(100, Math.max(0, progressPct))}%` }}
-            />
-          </div>
-        ) : null}
       </div>
+
+      <h3 className="cdc-ring-title">{title}</h3>
+      <p className="cdc-ring-note">{note}</p>
     </article>
   );
 }
@@ -111,239 +130,109 @@ function StatCard({
 export default function ImpactDataChartSection({ t }: ImpactDataChartSectionProps) {
   const a = t.pages.autismAwareness;
   const s = a.stats;
-  const [now, setNow] = useState<Date | null>(null);
-
-  useEffect(() => {
-    setNow(new Date());
-    const timer = window.setInterval(() => setNow(new Date()), 1000);
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const metrics = useMemo(() => {
-    if (!now) {
-      return {
-        birthsToday: 0,
-        estimatedAutismPrevalence: 0,
-        dayProgress: 0,
-        timeLabel: "--:--:--",
-        clockTime: "--:--:--",
-        amPm: "--",
-        lineData: [] as { hour: string; births: number; prevalence: number }[],
-      };
-    }
-
-    const midnight = new Date(now);
-    midnight.setHours(0, 0, 0, 0);
-    const secondsToday = Math.max(0, Math.floor((now.getTime() - midnight.getTime()) / 1000));
-    const minutesToday = secondsToday / 60;
-    const birthsToday = Math.floor(minutesToday * BIRTHS_PER_MINUTE);
-    const estimatedAutismPrevalence = Math.floor(birthsToday / 31);
-    const dayProgress = Math.min(100, (secondsToday / 86400) * 100);
-    const hours = now.getHours();
-    const amPm = hours >= 12 ? "PM" : "AM";
-    const hour12 = hours % 12 || 12;
-    const clockTime = `${hour12}:${padTime(now.getMinutes())}:${padTime(now.getSeconds())}`;
-    const timeLabel = now.toLocaleTimeString([], {
-      hour: "numeric",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: true,
-    });
-
-    const currentHour = now.getHours();
-    const lineData = Array.from({ length: currentHour + 1 }, (_, hour) => {
-      const minuteMark = hour === currentHour ? now.getMinutes() : 59;
-      const secondsAtPoint = hour * 3600 + minuteMark * 60;
-      const births = Math.floor((secondsAtPoint / 60) * BIRTHS_PER_MINUTE);
-      const prevalence = Math.floor(births / 31);
-      const hourLabel =
-        hour === 0
-          ? "12 AM"
-          : hour < 12
-            ? `${hour} AM`
-            : hour === 12
-              ? "12 PM"
-              : `${hour - 12} PM`;
-
-      return { hour: hourLabel, births, prevalence };
-    });
-
-    return {
-      birthsToday,
-      estimatedAutismPrevalence,
-      dayProgress,
-      timeLabel,
-      clockTime,
-      amPm,
-      lineData,
-    };
-  }, [now]);
-
-  const progressBars = useMemo(
-    () => [
-      {
-        label: a.dayProgress,
-        value: metrics.dayProgress,
-        display: `${metrics.dayProgress.toFixed(1)}%`,
-        note: a.dayProgressSuffix,
-      },
-      {
-        label: s.birthsToday.label,
-        value: Math.min(100, (metrics.birthsToday / ESTIMATED_DAILY_BIRTHS) * 100),
-        display: metrics.birthsToday.toLocaleString(),
-        note: s.birthsToday.note,
-      },
-      {
-        label: s.prevalence.label,
-        value: CDC_PREVALENCE_RATE,
-        display: metrics.estimatedAutismPrevalence.toLocaleString(),
-        note: s.prevalence.note,
-      },
-      {
-        label: s.birthsPerMinute.label,
-        value: (Number(s.birthsPerMinute.value) / 10) * 100,
-        display: s.birthsPerMinute.value,
-        note: s.birthsPerMinute.note,
-      },
-    ],
-    [a.dayProgress, a.dayProgressSuffix, metrics.birthsToday, metrics.dayProgress, metrics.estimatedAutismPrevalence, s.birthsPerMinute.label, s.birthsPerMinute.note, s.birthsPerMinute.value, s.birthsToday.label, s.birthsToday.note, s.prevalence.label, s.prevalence.note],
-  );
-
-  void metrics.lineData;
+  const latest = s.latestCdcData;
+  const metrics = useLiveAutismAwarenessMetrics(s.birthsPerMinute.value);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isSectionVisible = useInViewport(sectionRef as RefObject<HTMLElement>);
+  const birthsPerMinuteAnimation = useBirthsPerMinuteAnimation(isSectionVisible);
 
   const [titleLead, titleMiddle, titleEnd] = a.titleParts ?? ["Autism", "Awareness", "Counter"];
 
-  const rowOneCards: StatCardProps[] = [
+  const dailyMaxPrevalence = ESTIMATED_DAILY_BIRTHS / CDC_PREVALENCE_DIVISOR;
+  const prevalenceRing = Math.min(
+    100,
+    (metrics.estimatedAutismPrevalence / dailyMaxPrevalence) * 100,
+  );
+
+  const ringCards: RingCardConfig[] = [
     {
-      label: s.birthsToday.label,
+      title: s.birthsToday.label,
       value: metrics.birthsToday.toLocaleString(),
       note: s.birthsToday.note,
-      valueTone: "green",
-      progressPct: progressBars[1]?.value,
+      ring: metrics.progressBars.birthsToday,
+      theme: "teal",
       icon: Baby,
-      iconTone: "green",
     },
     {
-      label: s.prevalence.label,
+      title: s.prevalence.label,
       value: metrics.estimatedAutismPrevalence.toLocaleString(),
       note: s.prevalence.note,
-      valueTone: "teal",
-      progressPct: progressBars[2]?.value,
+      ring: prevalenceRing,
+      theme: "teal",
       icon: BarChart3,
-      iconTone: "teal",
     },
     {
-      label: a.dayProgress,
+      title: a.dayProgress,
       value: `${metrics.dayProgress.toFixed(1)}%`,
       note: a.dayProgressSuffix,
-      valueTone: "orange",
-      progressPct: progressBars[0]?.value,
+      ring: metrics.progressBars.dayProgress,
+      theme: "orange",
       icon: Clock3,
-      iconTone: "orange",
     },
     {
-      label: s.birthsPerMinute.label,
-      value: s.birthsPerMinute.value,
+      title: s.birthsPerMinute.label,
+      value: String(birthsPerMinuteAnimation.count),
       note: s.birthsPerMinute.note,
-      valueTone: "green",
-      progressPct: progressBars[3]?.value,
+      ring: birthsPerMinuteAnimation.ring,
+      theme: "green",
       icon: Gauge,
-      iconTone: "green",
-    },
-  ];
-
-  const rowTwoCards: StatCardProps[] = [
-    {
-      label: s.childrenIdentified.label,
-      value: s.childrenIdentified.value,
-      note: s.childrenIdentified.note,
-      valueTone: "orange",
-      icon: Users,
-      iconTone: "orange",
+      syncRingAnimation: true,
     },
     {
-      label: s.increasePrevalence.label,
-      value: s.increasePrevalence.value,
-      note: s.increasePrevalence.note,
-      valueTone: "green",
-      icon: TrendingUp,
-      iconTone: "green",
+      title: latest.label,
+      value: latest.value,
+      note: latest.subtitle,
+      ring: 32,
+      theme: "blue",
+      icon: BarChart3,
+      smallValue: true,
     },
     {
-      label: s.earlyDiagnosis.label,
+      title: s.earlyDiagnosis.label,
       value: s.earlyDiagnosis.value,
       note: s.earlyDiagnosis.note,
-      valueTone: "teal",
+      ring: 80,
+      theme: "green",
       icon: ShieldCheck,
-      iconTone: "teal",
-    },
-    {
-      label: s.accessSupport.label,
-      value: s.accessSupport.value,
-      note: s.accessSupport.note,
-      valueTone: "orange",
-      icon: Headphones,
-      iconTone: "orange",
     },
   ];
 
   return (
-    <section className="awareness-section" aria-labelledby="autism-awareness-title">
-      <div className="awareness-widget">
-        <div className="awareness-widget__top-row">
-          <span className="awareness-widget__cdc-badge">
-            <UserRound aria-hidden="true" />
-            {a.cdcBadge}
-          </span>
+    <>
+      <section
+        ref={sectionRef}
+        className="eden-awareness-section"
+        aria-labelledby="autism-awareness-title"
+      >
+        <header className="eden-awareness-header">
+          <p className="eden-awareness-eyebrow">{a.cdcBadge}</p>
 
-          <div className="awareness-widget__clock-card">
-            <p className="awareness-widget__clock-label">
-              <Clock3 aria-hidden="true" />
-              {a.liveClockLabel}
-            </p>
-            <div className="awareness-widget__clock-row">
-              <p className="awareness-widget__clock-time" aria-live="polite">
-                {metrics.clockTime}
-              </p>
-              <span className="awareness-widget__clock-ampm">{metrics.amPm}</span>
-            </div>
-            <p className="awareness-widget__clock-note">
-              <span className="awareness-widget__clock-pulse" aria-hidden="true" />
-              {a.updatesInRealtime}
-            </p>
-          </div>
-        </div>
-
-        <header className="awareness-widget__header">
-          <p className="awareness-widget__cdc-headline">{a.cdcBadge}</p>
-          <h2 id="autism-awareness-title" className="awareness-widget__title">
-            <span className="awareness-widget__title-teal">{titleLead}</span>{" "}
-            <span className="awareness-widget__title-orange">{titleMiddle}</span>{" "}
-            <span className="awareness-widget__title-green">{titleEnd}</span>
+          <h2 id="autism-awareness-title" className="eden-awareness-title">
+            <span>{titleLead}</span> {titleMiddle} {titleEnd}
           </h2>
-          <p className="awareness-widget__intro">{a.intro}</p>
-          <p className="awareness-widget__tagline">{a.tagline}</p>
-          <p className="sr-only">
-            {a.currentTimePrefix} {metrics.timeLabel}
-          </p>
+
+          <p className="eden-awareness-description">{a.intro}</p>
+
+          <p className="eden-awareness-support">{a.tagline}</p>
         </header>
 
-        <div className="awareness-widget__grid">
-          {rowOneCards.map((card) => (
-            <StatCard key={card.label} {...card} />
-          ))}
-          {rowTwoCards.map((card) => (
-            <StatCard key={card.label} {...card} />
-          ))}
+        <div className="eden-awareness-dashboard">
+          <section className="cdc-ring-panel" aria-label="CDC awareness metrics">
+            <div className="cdc-ring-grid">
+              {ringCards.map((card) => (
+                <RingCard key={card.title} {...card} />
+              ))}
+            </div>
+          </section>
+
+          <section className="eden-clock-panel" aria-label="Child Clock visualization">
+            <ChildClockPanel />
+          </section>
         </div>
 
-        <p className="awareness-widget__footer">
-          <Info aria-hidden="true" />
-          <span>{a.sourceFooter}</span>
-        </p>
-      </div>
-    </section>
+        <p className="eden-cdc-source">{a.sourceFooter}</p>
+      </section>
+
+    </>
   );
 }
-
-export { CDC_PREVALENCE_RATE, BIRTHS_PER_MINUTE, ESTIMATED_DAILY_BIRTHS };

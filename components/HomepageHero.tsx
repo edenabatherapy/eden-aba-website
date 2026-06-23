@@ -1,93 +1,31 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, type CSSProperties, type FormEvent } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
-import HeroDynamicEmoji from "@/components/HeroDynamicEmoji";
+import EdenLogo from "@/components/EdenLogo";
 import { getTranslation } from "@/lib/i18n";
 import "./HomepageHero.css";
 
-const ROTATING_WORDS = [
-  "grow",
-  "learn",
-  "thrive",
-  "blossom",
-  "communicate",
-  "connect",
-  "smile",
+const HOMEPAGE_HERO_VIDEO = "/videos/eden-hero-child.mp4";
+const HOMEPAGE_HERO_POSTER = "/images/hero-child-poster.jpg";
+
+const HERO_ROTATION_ITEMS = [
+  { word: "thrive", symbol: "🌱", label: "thrive" },
+  { word: "connect", symbol: "💬", label: "connect" },
+  { word: "shine", symbol: "✨", label: "shine" },
+  { word: "succeed", symbol: "⭐", label: "succeed" },
+  { word: "blossom", symbol: "🌸", label: "blossom" },
 ] as const;
 
-const WORD_INTERVAL_MS = 2800;
-const LONGEST_WORD_CH = 11.5;
-const WORD_TRANSITION_S = 0.5;
+const WORD_ROTATE_MS = 2500;
+const WORD_TRANSITION_MS = 350;
 
 type HomepageHeroProps = {
   onStart: () => void;
   onFindCare?: (query: string) => void;
   language: string;
 };
-
-function HeroCurve() {
-  return (
-    <svg
-      className="homepage-hero__curve"
-      viewBox="0 0 120 48"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 30C24 8 48 8 72 24"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeDasharray="5 7"
-      />
-      <path
-        d="M72 24L84 18"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <circle cx="88" cy="16" r="3" fill="currentColor" />
-    </svg>
-  );
-}
-
-function RotatingWord({
-  word,
-  prefersReducedMotion,
-}: {
-  word: string;
-  prefersReducedMotion: boolean;
-}) {
-  const systemReducedMotion = useReducedMotion();
-  const reduceMotion = prefersReducedMotion || systemReducedMotion;
-
-  if (reduceMotion) {
-    return (
-      <span className="homepage-hero__word-slot" aria-live="polite" aria-atomic="true">
-        <span className="homepage-hero__word">{word}</span>
-      </span>
-    );
-  }
-
-  return (
-    <span className="homepage-hero__word-slot" aria-live="polite" aria-atomic="true">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={word}
-          className="homepage-hero__word"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: WORD_TRANSITION_S, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {word}
-        </motion.span>
-      </AnimatePresence>
-    </span>
-  );
-}
 
 function LocationSearchBox({
   onStart,
@@ -153,34 +91,124 @@ function LocationSearchBox({
   );
 }
 
+type EdenHeroVisualProps = {
+  imageAlt: string;
+  brandName: string;
+  brandTagline: string;
+  videoFallbackMessage?: string;
+};
+
+function EdenHeroVisual({
+  imageAlt,
+  brandName,
+  brandTagline,
+  videoFallbackMessage = "Compassionate autism care for every child",
+}: EdenHeroVisualProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+
+  const handleVideoPlaying = useCallback(() => {
+    setVideoPlaying(true);
+  }, []);
+
+  const handleVideoError = useCallback(() => {
+    setVideoFailed(true);
+    setVideoPlaying(false);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || videoFailed) return undefined;
+
+    video.addEventListener("playing", handleVideoPlaying);
+    video.addEventListener("error", handleVideoError);
+
+    const attemptPlay = () => {
+      void video.play().catch(() => {
+        // Autoplay blocked or deferred — keep poster visible until user interaction.
+      });
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      attemptPlay();
+    } else {
+      video.addEventListener("loadeddata", attemptPlay, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("playing", handleVideoPlaying);
+      video.removeEventListener("error", handleVideoError);
+    };
+  }, [handleVideoError, handleVideoPlaying, videoFailed]);
+
+  const showPoster = !videoPlaying || videoFailed;
+
+  return (
+    <div className="eden-hero-visual">
+      <div className="eden-hero-media-frame">
+        <Image
+          src={HOMEPAGE_HERO_POSTER}
+          alt={imageAlt}
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, (max-width: 1100px) 760px, 42vw"
+          className={`eden-hero-poster${showPoster ? "" : " eden-hero-poster--hidden"}`}
+        />
+
+        {!videoFailed ? (
+          <video
+            ref={videoRef}
+            className={`eden-hero-video${videoPlaying ? " eden-hero-video--active" : ""}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-label={imageAlt}
+          >
+            <source src={HOMEPAGE_HERO_VIDEO} type="video/mp4" />
+          </video>
+        ) : null}
+
+        {videoFailed ? (
+          <div className="eden-hero-fallback" role="img" aria-label={imageAlt}>
+            <div className="eden-hero-fallback__brand">
+              <EdenLogo size="compact" className="eden-hero-fallback__logo" />
+            </div>
+            <p className="eden-hero-fallback__title">{brandName}</p>
+            <p className="eden-hero-fallback__tagline">{brandTagline}</p>
+            <p className="eden-hero-fallback__message">{videoFallbackMessage}</p>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
 export default function HomepageHero({ onStart, onFindCare, language }: HomepageHeroProps) {
   const t = getTranslation(language);
-  const animatedWords = useMemo(() => {
-    const localeWords = t.hero?.animatedWords;
-    return Array.isArray(localeWords) && localeWords.length > 0
-      ? localeWords
-      : [...ROTATING_WORDS];
-  }, [t.hero?.animatedWords]);
+  const rotationItems = useMemo(() => {
+    const localeItems = t.hero?.rotatingItems;
+    if (Array.isArray(localeItems) && localeItems.length > 0) {
+      return localeItems.map((item, index) => ({
+        word: item.word ?? HERO_ROTATION_ITEMS[index]?.word ?? "thrive",
+        symbol: item.symbol ?? HERO_ROTATION_ITEMS[index]?.symbol ?? "🌱",
+        label: item.label ?? item.word ?? HERO_ROTATION_ITEMS[index]?.label ?? "thrive",
+      }));
+    }
+    return [...HERO_ROTATION_ITEMS];
+  }, [t.hero?.rotatingItems]);
 
-  const defaultWordIndex = useMemo(() => {
-    const smileIdx = animatedWords.indexOf("smile");
-    if (smileIdx >= 0) return smileIdx;
-    const viSmileIdx = animatedWords.indexOf("mỉm cười");
-    return viSmileIdx >= 0 ? viSmileIdx : animatedWords.length - 1;
-  }, [animatedWords]);
-
-  const wordSlotWidth = useMemo(
-    () => Math.max(LONGEST_WORD_CH, ...animatedWords.map((word) => word.length + 0.5)),
-    [animatedWords],
-  );
-
-  const smileIndex = defaultWordIndex;
-  const [wordIndex, setWordIndex] = useState(defaultWordIndex);
+  const [itemIndex, setItemIndex] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const activeWord = prefersReducedMotion
-    ? animatedWords[smileIndex] ?? "smile"
-    : animatedWords[wordIndex] ?? animatedWords[0];
+  const activeItem = prefersReducedMotion
+    ? rotationItems[0] ?? HERO_ROTATION_ITEMS[0]
+    : rotationItems[itemIndex] ?? rotationItems[0];
+
+  const staticHeadlineItem = rotationItems[0] ?? HERO_ROTATION_ITEMS[0];
 
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -193,60 +221,81 @@ export default function HomepageHero({ onStart, onFindCare, language }: Homepage
   useEffect(() => {
     if (prefersReducedMotion) return undefined;
 
+    let changeTimeout: number | undefined;
+
     const interval = window.setInterval(() => {
-      setWordIndex((current) => (current + 1) % animatedWords.length);
-    }, WORD_INTERVAL_MS);
+      setIsChanging(true);
+      changeTimeout = window.setTimeout(() => {
+        setItemIndex((current) => (current + 1) % rotationItems.length);
+        setIsChanging(false);
+      }, WORD_TRANSITION_MS);
+    }, WORD_ROTATE_MS);
 
-    return () => window.clearInterval(interval);
-  }, [animatedWords.length, prefersReducedMotion]);
-
-  const staticHeadlineWord = animatedWords[smileIndex] ?? animatedWords[animatedWords.length - 1];
+    return () => {
+      window.clearInterval(interval);
+      if (changeTimeout) window.clearTimeout(changeTimeout);
+    };
+  }, [rotationItems.length, prefersReducedMotion]);
 
   return (
     <section id="top" className="homepage-hero">
-      <div className="homepage-hero__glow homepage-hero__glow--left" aria-hidden="true" />
-      <div className="homepage-hero__glow homepage-hero__glow--right" aria-hidden="true" />
+      <div className="homepage-hero__decor" aria-hidden="true">
+        <span className="homepage-hero__circle homepage-hero__circle--one" />
+        <span className="homepage-hero__circle homepage-hero__circle--two" />
+        <span className="homepage-hero__circle homepage-hero__circle--three" />
+      </div>
 
       <div className="homepage-hero__inner">
-        <div
-          className="homepage-hero__headline-wrap"
-          style={{ ["--hero-word-slot-width"]: `${wordSlotWidth}ch` } as CSSProperties}
-        >
-          <div className="homepage-hero__dots" aria-hidden="true">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <span key={index} className="homepage-hero__dot" />
-            ))}
-          </div>
-
-          <div className="homepage-hero__sparkles" aria-hidden="true">
-            <span className="homepage-hero__sparkle" />
-            <span className="homepage-hero__sparkle" />
-            <span className="homepage-hero__sparkle" />
-          </div>
-
-          <HeroCurve />
-
-          <h1 className="homepage-hero__title">
-            <span className="homepage-hero__line">{t.hero.line1}</span>
-            <span className="homepage-hero__line homepage-hero__line--accent">
-              <span className="homepage-hero__accent-inner">
-                <span className="homepage-hero__accent-text">
-                  {t.hero.line2}{" "}
-                  <RotatingWord word={activeWord} prefersReducedMotion={prefersReducedMotion} />
+        <div className="hero-container">
+          <div className="eden-hero-copy">
+            <h1 className="eden-hero-title">
+              <span className="hero-line">{t.hero.line1}</span>
+              <span className="hero-line">{t.hero.line2}</span>
+              <span className="hero-line hero-line-three">{t.hero.line3}</span>
+              <span className="hero-line hero-line-four">
+                <span className="hero-rotate-row">
+                  <span
+                    id="heroRotatingWord"
+                    className={
+                      isChanging
+                        ? "hero-word eden-hero-rotating-word eden-hero-rotating-word--changing"
+                        : "hero-word eden-hero-rotating-word"
+                    }
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    {activeItem.word}
+                  </span>
+                  <span
+                    className={
+                      isChanging
+                        ? "hero-symbol hero-symbol--changing"
+                        : "hero-symbol"
+                    }
+                    aria-hidden="true"
+                  >
+                    {activeItem.symbol}
+                  </span>
                 </span>
-                <HeroDynamicEmoji word={activeWord} prefersReducedMotion={prefersReducedMotion} />
               </span>
-            </span>
-            <span className="sr-only">
-              {t.hero.line1} {t.hero.line2} {staticHeadlineWord}
-            </span>
-          </h1>
-        </div>
+              <span className="sr-only">
+                {t.hero.line1} {t.hero.line2} {t.hero.line3} {staticHeadlineItem.word}
+              </span>
+            </h1>
 
-        <p className="homepage-hero__subtitle">{t.hero.subtitle}</p>
+            <p className="homepage-hero__subtitle">{t.hero.subtitle}</p>
 
-        <div className="homepage-hero__finder-wrap">
-          <LocationSearchBox onStart={onStart} onFindCare={onFindCare} t={t} />
+            <div className="homepage-hero__finder-wrap">
+              <LocationSearchBox onStart={onStart} onFindCare={onFindCare} t={t} />
+            </div>
+          </div>
+
+          <EdenHeroVisual
+            imageAlt={t.hero.imageAlt}
+            brandName={t.brandName}
+            brandTagline={t.brandTagline}
+            videoFallbackMessage={t.hero.videoFallbackMessage}
+          />
         </div>
       </div>
     </section>

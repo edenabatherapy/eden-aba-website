@@ -1,0 +1,104 @@
+/* Shared mega menu design tokens and base patterns */
+:root {
+  --mm-shell-width: min(92vw, 780px);
+  --mm-shell-width-wide: min(94vw, 920px);
+  --mm-shell-padding: 20px;
+  --mm-shell-gap: 18px;
+  --mm-shell-radius: 20px;
+  --mm-shell-border: 1px solid rgba(8, 124, 79, 0.1);
+  --mm-shell-bg: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+  --mm-shell-shadow: 0 20px 56px rgba(15, 23, 42, 0.1);
+
+  --mm-label-size: 11px;
+  --mm-label-weight: 800;
+  --mm-label-spacing: 0.14em;
+  --mm-label-color: #68758f;
+  --mm-label-margin: 12px;
+
+  --mm-item-gap: 4px;
+  --mm-item-padding: 10px 12px;
+  --mm-item-radius: 12px;
+  --mm-item-title-size: 14px;
+  --mm-item-title-weight: 800;
+  --mm-item-title-leading: 1.35;
+  --mm-item-desc-size: 12px;
+  --mm-item-desc-weight: 500;
+  --mm-item-desc-leading: 1.45;
+  --mm-item-desc-color: #64748b;
+  --mm-item-color: #23314d;
+  --mm-item-hover-bg: #eefaf3;
+  --mm-item-hover-color: #087c4f;
+  --mm-item-focus-ring: 0 0 0 3px rgba(20, 184, 166, 0.32);
+
+  --mm-icon-size: 32px;
+  --mm-icon-radius: 10px;
+
+  --mm-preview-min-height: 236px;
+  --mm-preview-padding: 20px;
+  --mm-preview-radius: 18px;
+  --mm-preview-border: 1px solid rgba(8, 124, 79, 0.12);
+  --mm-preview-bg:
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.14), transparent 38%),
+    linear-gradient(135deg, #f7fff9 0%, #fffaf0 100%);
+  --mm-preview-label-size: 11px;
+  --mm-preview-headline-size: 20px;
+  --mm-preview-desc-size: 13px;
+  --mm-preview-desc-leading: 1.6;
+
+  --mm-nav-max-height: min(58vh, 380px);
+  --mm-section-title-size: 11px;
+  --mm-section-title-margin: 10px;
+}
+
+@keyframes mm-preview-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mm-preview-content-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aba-mega-menu,
+  .careers-mega-menu,
+  .resources-mega-menu,
+  .aba-menu-item,
+  .menu-arrow,
+  .careers-mega-menu__link,
+  .careers-mega-menu__arrow,
+  .resources-mega-menu__link,
+  .preview-card,
+  .preview-card-body,
+  .aba-menu-mobile-preview,
+  .careers-preview,
+  .careers-preview__body,
+  .resources-featured-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .aba-menu-item:hover,
+  .aba-menu-item:focus,
+  .aba-menu-item.active,
+  .careers-mega-menu__link:hover,
+  .careers-mega-menu__link:focus-visible,
+  .careers-mega-menu__link.active {
+    transform: none !important;
+  }
+}

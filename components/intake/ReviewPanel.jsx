@@ -54,7 +54,7 @@ export default function ReviewPanel({
                 <CheckCircle2 className="text-[#08751f]" size={32} />
                 {rp.title || "Full Intake Review"}
               </h2>
-              <p className="mt-3 max-w-2xl text-sm leading-7 text-[#243142] md:text-base">
+              <p className="mt-3 max-w-none text-sm leading-7 text-[#243142] md:text-base">
                 {rp.description ||
                   "Review your saved information before submission. Return to any step in the sidebar or intake form to edit fields."}
               </p>

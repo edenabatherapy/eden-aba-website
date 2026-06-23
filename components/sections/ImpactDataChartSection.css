@@ -1,362 +1,441 @@
-.awareness-section {
-  padding: 4rem 1.25rem;
-  background: #eef1f4;
+.eden-awareness-section {
+  width: 100%;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(15, 159, 143, 0.08), transparent 34%),
+    linear-gradient(180deg, #f8fafc 0%, #eef4f8 100%);
+  padding: 52px 28px 56px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
+    sans-serif;
 }
 
-.awareness-widget {
+.eden-awareness-header {
+  max-width: 980px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.eden-awareness-eyebrow {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.eden-awareness-title {
+  margin: 0 0 12px;
+  color: #ea580c;
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+  line-height: 0.95;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.eden-awareness-title span {
+  color: #0f9f8f;
+}
+
+.eden-awareness-description {
+  max-width: 720px;
+  margin: 12px auto 8px;
+  color: #334155;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.eden-awareness-support {
+  margin: 0;
+  color: #15803d;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.eden-awareness-dashboard {
+  max-width: 1360px;
   margin: 0 auto;
-  max-width: 81.25rem;
-  border-radius: 1.75rem;
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  background: #ffffff;
-  padding: 1.5rem 1.25rem 1.35rem;
+  display: grid;
+  grid-template-columns: minmax(560px, 1.04fr) minmax(520px, 0.96fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.cdc-ring-panel {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 30px;
   box-shadow:
-    0 20px 50px rgba(15, 61, 46, 0.07),
-    0 6px 18px rgba(15, 61, 46, 0.04);
+    0 24px 60px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  padding: 34px 34px 30px;
 }
 
-@media (min-width: 768px) {
-  .awareness-widget {
-    padding: 1.75rem 1.75rem 1.5rem;
-    border-radius: 2rem;
-  }
+.cdc-ring-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 26px;
+  row-gap: 34px;
+  align-items: start;
 }
 
-.awareness-widget__top-row {
+.cdc-ring-card {
+  position: relative;
+  min-height: 238px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.35rem;
-}
-
-@media (min-width: 768px) {
-  .awareness-widget__top-row {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1.25rem;
-  }
-}
-
-.awareness-widget__cdc-badge {
-  display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  max-width: 100%;
+  text-align: center;
+}
+
+.cdc-ring-featured {
+  grid-column: auto;
+  max-width: none;
+  justify-self: center;
+}
+
+.cdc-ring-visual {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+}
+
+.cdc-ring-svg {
+  position: absolute;
+  inset: 0;
+  width: 150px;
+  height: 150px;
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.cdc-ring-track,
+.cdc-ring-fill {
+  fill: none;
+  stroke-width: 9;
+  stroke-linecap: round;
+}
+
+.cdc-ring-track {
+  stroke: rgba(15, 23, 42, 0.1);
+}
+
+.cdc-ring-fill {
+  stroke: var(--ring-color, #0f9f8f);
+  stroke-dasharray: 314;
+  stroke-dashoffset: calc(314 - (314 * var(--value, 70) / 100));
+  filter: drop-shadow(0 6px 10px rgba(15, 159, 143, 0.25));
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.cdc-ring-card--synced .cdc-ring-fill {
+  transition: none;
+}
+
+.cdc-ring-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 108px;
+  height: 108px;
+  transform: translate(-50%, -50%);
   border-radius: 999px;
-  border: 1px solid rgba(31, 122, 46, 0.16);
-  background: rgba(31, 122, 46, 0.07);
-  padding: 0.5rem 0.95rem;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: #1f7a2e;
-  line-height: 1.35;
-}
-
-.awareness-widget__cdc-badge svg {
-  flex-shrink: 0;
-  width: 0.95rem;
-  height: 0.95rem;
-}
-
-.awareness-widget__clock-card {
-  border-radius: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  padding: 0.75rem 1rem;
-  box-shadow: 0 6px 16px rgba(15, 61, 46, 0.05);
-}
-
-@media (min-width: 768px) {
-  .awareness-widget__clock-card {
-    min-width: 13.5rem;
-  }
-}
-
-.awareness-widget__clock-label {
   display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin: 0 0 0.35rem;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #64748b;
-}
-
-.awareness-widget__clock-label svg {
-  width: 0.85rem;
-  height: 0.85rem;
-  color: #1f7a2e;
-}
-
-.awareness-widget__clock-row {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.awareness-widget__clock-time {
-  margin: 0;
-  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
-  font-weight: 900;
-  letter-spacing: 0.01em;
-  color: #0f3d2e;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-
-.awareness-widget__clock-ampm {
-  display: inline-flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  background: rgba(31, 122, 46, 0.1);
-  padding: 0.15rem 0.45rem;
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #1f7a2e;
+  gap: 3px;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.66)),
+    var(--ring-soft, rgba(15, 159, 143, 0.08));
+  box-shadow:
+    inset 0 2px 12px rgba(255, 255, 255, 0.8),
+    0 12px 24px rgba(15, 23, 42, 0.08);
 }
 
-.awareness-widget__clock-note {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin: 0.45rem 0 0;
-  font-size: 0.68rem;
+.cdc-ring-icon {
+  display: block;
+  color: var(--ring-color, #0f9f8f);
+  font-size: 1.25rem;
+  line-height: 1;
+  margin: 0;
+}
+
+.cdc-ring-value {
+  display: block;
+  width: 100%;
+  max-width: 96px;
+  color: var(--ring-color, #0f9f8f);
+  font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+  line-height: 0.95;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+.cdc-ring-value.small-value {
+  font-size: clamp(1.2rem, 1.7vw, 1.65rem);
+  letter-spacing: -0.04em;
+}
+
+.cdc-ring-title {
+  margin: 0 0 8px;
+  color: #0f172a;
+  font-size: 0.98rem;
+  line-height: 1.16;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  max-width: 240px;
+}
+
+.cdc-ring-note {
+  margin: 0;
+  max-width: 230px;
+  color: #475569;
+  font-size: 0.84rem;
+  line-height: 1.38;
+  font-weight: 650;
+}
+
+.cdc-ring-teal {
+  --ring-color: #0f9f8f;
+  --ring-soft: rgba(15, 159, 143, 0.1);
+}
+
+.cdc-ring-orange {
+  --ring-color: #ea580c;
+  --ring-soft: rgba(234, 88, 12, 0.1);
+}
+
+.cdc-ring-orange .cdc-ring-fill {
+  filter: drop-shadow(0 6px 10px rgba(234, 88, 12, 0.24));
+}
+
+.cdc-ring-green {
+  --ring-color: #16a34a;
+  --ring-soft: rgba(22, 163, 74, 0.1);
+}
+
+.cdc-ring-green .cdc-ring-fill {
+  filter: drop-shadow(0 6px 10px rgba(22, 163, 74, 0.24));
+}
+
+.cdc-ring-blue {
+  --ring-color: #2563eb;
+  --ring-soft: rgba(37, 99, 235, 0.1);
+}
+
+.cdc-ring-blue .cdc-ring-fill {
+  filter: drop-shadow(0 6px 10px rgba(37, 99, 235, 0.24));
+}
+
+.eden-clock-panel {
+  min-width: 0;
+  height: 590px;
+  align-self: stretch;
+}
+
+.eden-child-clock {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 42%, #115e59 0%, #0f172a 52%, #020617 100%);
+  box-shadow:
+    0 24px 64px rgba(15, 23, 42, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.eden-child-clock__fallback,
+.eden-child-clock__error {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.eden-child-clock__fallback-svg {
+  width: min(72%, 320px);
+  height: auto;
+  animation: eden-clock-fallback-pulse 3.2s ease-in-out infinite;
+}
+
+.eden-child-clock__fallback-label {
+  margin: 1rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.eden-child-clock__error {
+  background:
+    radial-gradient(circle at 50% 35%, rgba(20, 184, 166, 0.22) 0%, rgba(2, 6, 23, 0.96) 68%),
+    #020617;
+}
+
+.eden-child-clock__error-brand {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 12px 28px rgba(20, 184, 166, 0.18);
+}
+
+.eden-child-clock__error-logo {
+  height: 2.75rem !important;
+  width: auto !important;
+}
+
+.eden-child-clock__error-title {
+  margin: 0.85rem 0 0;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #f8fafc;
+}
+
+.eden-child-clock__error-text {
+  margin: 0.55rem auto 0;
+  max-width: 18rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #64748b;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.88);
 }
 
-.awareness-widget__clock-pulse {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: #1f7a2e;
-  animation: awarenessPulse 2s ease-in-out infinite;
-}
-
-@keyframes awarenessPulse {
+@keyframes eden-clock-fallback-pulse {
   0%,
   100% {
-    opacity: 0.45;
-    transform: scale(0.92);
+    opacity: 0.88;
+    transform: scale(1);
   }
+
   50% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.02);
+  }
+}
+
+.eden-child-clock canvas {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.eden-cdc-source {
+  max-width: 1360px;
+  margin: 26px auto 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.86rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+@media (max-width: 1280px) {
+  .eden-awareness-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .eden-clock-panel {
+    height: 610px;
+  }
+}
+
+@media (max-width: 960px) {
+  .eden-awareness-section {
+    padding: 44px 18px 52px;
+  }
+}
+
+@media (max-width: 820px) {
+  .cdc-ring-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .eden-awareness-section {
+    padding: 40px 16px 46px;
+  }
+
+  .cdc-ring-panel {
+    padding: 24px 18px 20px;
+    border-radius: 24px;
+  }
+
+  .cdc-ring-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cdc-ring-card {
+    min-height: 220px;
+  }
+
+  .cdc-ring-visual {
+    width: 138px;
+    height: 138px;
+  }
+
+  .cdc-ring-svg {
+    width: 138px;
+    height: 138px;
+  }
+
+  .cdc-ring-center {
+    width: 100px;
+    height: 100px;
+  }
+
+  .eden-clock-panel {
+    height: auto;
+    min-height: 520px;
+  }
+
+  .eden-clock-panel .eden-child-clock-shell {
+    min-height: 100%;
+  }
+
+  .eden-child-clock {
+    border-radius: 24px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .awareness-widget__clock-pulse {
-    animation: none;
+  .cdc-ring-fill {
+    transition: none;
   }
-}
 
-.awareness-widget__header {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.awareness-widget__cdc-headline {
-  margin: 0 0 0.65rem;
-  font-size: clamp(0.68rem, 1.2vw, 0.78rem);
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: #64748b;
-  line-height: 1.45;
-}
-
-.awareness-widget__title {
-  margin: 0;
-  font-size: clamp(1.75rem, 3.5vw, 2.65rem);
-  font-weight: 900;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
-}
-
-.awareness-widget__title-teal {
-  color: #0d9488;
-}
-
-.awareness-widget__title-orange {
-  color: #ea580c;
-}
-
-.awareness-widget__title-green {
-  color: #0f3d2e;
-}
-
-.awareness-widget__intro {
-  margin: 0.75rem auto 0;
-  max-width: 40rem;
-  font-size: 0.92rem;
-  font-weight: 500;
-  line-height: 1.65;
-  color: #475569;
-}
-
-.awareness-widget__tagline {
-  margin: 0.55rem 0 0;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #1f7a2e;
-}
-
-.awareness-widget__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.85rem;
-}
-
-@media (min-width: 640px) {
-  .awareness-widget__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
+  .eden-child-clock::after {
+    content: "Reduced motion mode enabled";
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 1;
   }
-}
-
-@media (min-width: 1024px) {
-  .awareness-widget__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.awareness-stat-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 10.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: #ffffff;
-  padding: 0.95rem 0.9rem 0.85rem;
-  box-shadow: 0 6px 18px rgba(15, 61, 46, 0.05);
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.awareness-stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(15, 61, 46, 0.08);
-}
-
-.awareness-stat-card__icon-wrap {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  margin-bottom: 0.55rem;
-  border-radius: 0.55rem;
-}
-
-.awareness-stat-card__icon-wrap--green {
-  background: rgba(31, 122, 46, 0.1);
-  color: #1f7a2e;
-}
-
-.awareness-stat-card__icon-wrap--teal {
-  background: rgba(13, 148, 136, 0.1);
-  color: #0d9488;
-}
-
-.awareness-stat-card__icon-wrap--orange {
-  background: rgba(234, 88, 12, 0.1);
-  color: #ea580c;
-}
-
-.awareness-stat-card__icon-wrap svg {
-  width: 1.05rem;
-  height: 1.05rem;
-}
-
-.awareness-stat-card__label {
-  margin: 0;
-  font-size: 0.72rem;
-  font-weight: 800;
-  line-height: 1.35;
-  color: #334155;
-}
-
-.awareness-stat-card__value {
-  margin: 0.45rem 0 0.35rem;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #0f3d2e;
-  font-variant-numeric: tabular-nums;
-}
-
-.awareness-stat-card__value--green {
-  color: #1f7a2e;
-}
-
-.awareness-stat-card__value--teal {
-  color: #0d9488;
-}
-
-.awareness-stat-card__value--orange {
-  color: #ea580c;
-}
-
-.awareness-stat-card__note {
-  margin: 0 0 0.55rem;
-  font-size: 0.68rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: #64748b;
-}
-
-.awareness-stat-card__progress {
-  height: 0.28rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: #e8edf2;
-}
-
-.awareness-stat-card__progress-bar {
-  height: 100%;
-  border-radius: 999px;
-  transition: width 1s ease;
-}
-
-.awareness-stat-card__progress-bar--green {
-  background: linear-gradient(90deg, #1f7a2e 0%, #34d399 100%);
-}
-
-.awareness-stat-card__progress-bar--teal {
-  background: linear-gradient(90deg, #0d9488 0%, #2dd4bf 100%);
-}
-
-.awareness-stat-card__progress-bar--orange {
-  background: linear-gradient(90deg, #ea580c 0%, #fb923c 100%);
-}
-
-.awareness-widget__footer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-  padding-top: 1rem;
-  border-top: 1px solid #eef2f6;
-  font-size: 0.68rem;
-  font-weight: 600;
-  line-height: 1.55;
-  color: #64748b;
-  text-align: center;
-}
-
-.awareness-widget__footer svg {
-  flex-shrink: 0;
-  width: 0.85rem;
-  height: 0.85rem;
-  margin-top: 0.1rem;
-  color: #1f7a2e;
 }

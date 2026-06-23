@@ -10,7 +10,8 @@
     "lint": "eslint",
     "test:google-sheets": "npx tsx scripts/test-google-sheets-intake.mjs",
     "test:google-sheets:append": "npx tsx scripts/test-google-sheets-intake.mjs --append-test-row",
-    "admin:intake-list": "npx tsx scripts/list-intake-submissions.mjs"
+    "admin:intake-list": "npx tsx scripts/list-intake-submissions.mjs",
+    "validate:recaptcha": "node scripts/validate-recaptcha.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

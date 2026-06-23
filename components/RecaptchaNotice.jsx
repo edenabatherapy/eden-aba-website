@@ -2,75 +2,47 @@
 
 import { isRecaptchaEnabled } from "@/lib/recaptcha/client";
 
-const linkClass = "underline underline-offset-2";
-
-export default function RecaptchaNotice({ t = {}, label, variant = "compact" }) {
+/**
+ * Google reCAPTCHA disclosure — place below the submit button.
+ * @param {object} props
+ * @param {string} [props.className]
+ * @param {"left"|"center"|"right"} [props.align]
+ * @param {"light"|"dark"} [props.tone] Use "dark" on colored form backgrounds.
+ */
+export default function RecaptchaNotice({ className = "", align = "left", tone = "light" }) {
   if (!isRecaptchaEnabled()) {
     return null;
   }
 
-  const privacyLabel = t?.recaptchaPrivacy || "Privacy";
-  const termsLabel = t?.recaptchaTerms || "Terms";
-  const googleLegal =
-    t?.recaptchaGoogleLegal ||
-    "This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.";
-
-  if (variant === "googleLegal") {
-    return (
-      <p className="text-center text-xs font-semibold text-slate-500">
-        {googleLegal.includes("Privacy Policy") ? (
-          <>
-            {googleLegal.split("Privacy Policy")[0]}
-            <a
-              href="https://policies.google.com/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClass}
-            >
-              Privacy Policy
-            </a>
-            {googleLegal.includes("Terms of Service") ? (
-              <>
-                {" "}
-                {googleLegal.split("Privacy Policy")[1]?.split("Terms of Service")[0]}
-                <a
-                  href="https://policies.google.com/terms"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkClass}
-                >
-                  Terms of Service
-                </a>
-                {googleLegal.split("Terms of Service")[1]}
-              </>
-            ) : null}
-          </>
-        ) : (
-          googleLegal
-        )}
-      </p>
-    );
-  }
+  const alignClass =
+    align === "center" ? "text-center" : align === "right" ? "text-right" : "text-left";
+  const textClass = tone === "dark" ? "text-white/60" : "text-slate-500";
+  const linkToneClass =
+    tone === "dark"
+      ? "text-white/70 decoration-white/30 hover:text-white"
+      : "text-slate-500 decoration-slate-300 hover:text-slate-700";
 
   return (
-    <p className="text-center text-xs font-semibold text-slate-500">
-      {label || t?.recaptcha || "protected by reCAPTCHA"}{" "}
+    <p
+      className={`mt-3 text-[12px] leading-relaxed sm:text-[13px] ${textClass} ${alignClass} ${className}`}
+    >
+      Protected by reCAPTCHA.{" "}
       <a
         href="https://policies.google.com/privacy"
         target="_blank"
         rel="noopener noreferrer"
-        className={linkClass}
+        className={`underline underline-offset-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 ${linkToneClass}`}
       >
-        {privacyLabel}
+        Privacy Policy
       </a>
       {" · "}
       <a
         href="https://policies.google.com/terms"
         target="_blank"
         rel="noopener noreferrer"
-        className={linkClass}
+        className={`underline underline-offset-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 ${linkToneClass}`}
       >
-        {termsLabel}
+        Terms of Service
       </a>
     </p>
   );

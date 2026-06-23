@@ -1,0 +1,432 @@
+@keyframes eden-logo-shine {
+  0% {
+    transform: translateX(-140%) translateY(-40%) rotate(25deg);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.42;
+  }
+
+  45% {
+    opacity: 0.16;
+  }
+
+  100% {
+    transform: translateX(160%) translateY(40%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes eden-logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.38;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.62;
+  }
+}
+
+@keyframes eden-logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.eden-animated-brand {
+  --eden-brand-container: 3rem;
+  --eden-brand-logo: 2.125rem;
+  --eden-brand-glow: 4.25rem;
+}
+
+.eden-animated-brand--compact {
+  --eden-brand-container: 2.625rem;
+  --eden-brand-logo: 1.875rem;
+  --eden-brand-glow: 3.5rem;
+}
+
+@media (min-width: 640px) {
+  .eden-animated-brand {
+    --eden-brand-container: 3.25rem;
+    --eden-brand-logo: 2.375rem;
+    --eden-brand-glow: 4.5rem;
+  }
+
+  .eden-animated-brand--compact {
+    --eden-brand-container: 2.875rem;
+    --eden-brand-logo: 2rem;
+    --eden-brand-glow: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eden-animated-brand {
+    --eden-brand-container: 3.625rem;
+    --eden-brand-logo: 2.625rem;
+    --eden-brand-glow: 5rem;
+  }
+
+  .eden-animated-brand--compact {
+    --eden-brand-container: 3rem;
+    --eden-brand-logo: 2.125rem;
+    --eden-brand-glow: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eden-animated-brand {
+    --eden-brand-container: 3.875rem;
+    --eden-brand-logo: 2.875rem;
+    --eden-brand-glow: 5.25rem;
+  }
+
+  .eden-animated-brand--compact {
+    --eden-brand-container: 3.125rem;
+    --eden-brand-logo: 2.25rem;
+    --eden-brand-glow: 4.25rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .eden-animated-brand {
+    --eden-brand-container: 4.125rem;
+    --eden-brand-logo: 3rem;
+    --eden-brand-glow: 5.5rem;
+  }
+
+  .eden-animated-brand--compact {
+    --eden-brand-container: 3.25rem;
+    --eden-brand-logo: 2.375rem;
+    --eden-brand-glow: 4.5rem;
+  }
+}
+
+.eden-animated-brand__link {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  text-align: left;
+  transition:
+    transform 0.45s ease,
+    opacity 0.25s ease;
+}
+
+.eden-animated-brand__link:hover {
+  transform: translateY(-2px);
+}
+
+.eden-animated-brand__link:focus-visible {
+  outline: 2px solid rgb(16 185 129);
+  outline-offset: 3px;
+  border-radius: 1rem;
+}
+
+.eden-animated-brand__shell {
+  gap: 0.625rem;
+  padding-right: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .eden-animated-brand__shell {
+    gap: 0.75rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eden-animated-brand__shell {
+    gap: 0.875rem;
+    padding-right: 0.75rem;
+  }
+}
+
+.eden-animated-brand--compact .eden-animated-brand__shell {
+  gap: 0.5rem;
+}
+
+.eden-animated-brand__glow-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--eden-brand-glow);
+  height: var(--eden-brand-glow);
+  flex-shrink: 0;
+}
+
+.eden-animated-brand__glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  animation: eden-logo-pulse 5.5s ease-in-out infinite;
+}
+
+.eden-animated-brand__glow--emerald {
+  inset: 8%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.34) 0%, transparent 72%);
+  animation-delay: 0s;
+}
+
+.eden-animated-brand__glow--teal {
+  inset: 18%;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.26) 0%, transparent 70%);
+  animation-delay: 1.2s;
+}
+
+.eden-animated-brand__glow--gold {
+  inset: 24%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.16) 0%, transparent 68%);
+  animation-delay: 2.4s;
+}
+
+:where(.dark) .eden-animated-brand__glow--emerald {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.22) 0%, transparent 72%);
+}
+
+:where(.dark) .eden-animated-brand__glow--teal {
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.18) 0%, transparent 70%);
+}
+
+:where(.dark) .eden-animated-brand__glow--gold {
+  background: radial-gradient(circle, rgba(253, 224, 71, 0.1) 0%, transparent 68%);
+}
+
+.eden-animated-brand__logo-container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: var(--eden-brand-container);
+  height: var(--eden-brand-container);
+  border-radius: 1rem;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  background: linear-gradient(135deg, rgba(236, 253, 245, 0.92), rgba(240, 253, 250, 0.86));
+  box-shadow:
+    0 12px 30px rgba(6, 78, 59, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    border-color 0.45s ease;
+  animation: eden-logo-float 6s ease-in-out infinite;
+}
+
+:where(.dark) .eden-animated-brand__logo-container {
+  border-color: rgba(52, 211, 153, 0.24);
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.55), rgba(15, 118, 110, 0.38));
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.eden-animated-brand__link:hover .eden-animated-brand__logo-container,
+.eden-animated-brand__link:focus-visible .eden-animated-brand__logo-container {
+  transform: translateY(-1px) scale(1.02);
+  border-color: rgba(16, 185, 129, 0.42);
+  box-shadow:
+    0 16px 34px rgba(6, 78, 59, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+:where(.dark) .eden-animated-brand__link:hover .eden-animated-brand__logo-container,
+:where(.dark) .eden-animated-brand__link:focus-visible .eden-animated-brand__logo-container {
+  border-color: rgba(94, 234, 212, 0.34);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.eden-animated-brand__logo {
+  height: var(--eden-brand-logo) !important;
+  max-height: var(--eden-brand-logo) !important;
+  width: auto !important;
+  object-fit: contain;
+}
+
+.eden-animated-brand__shine {
+  position: absolute;
+  inset: -40%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.55) 48%,
+    rgba(254, 243, 199, 0.35) 52%,
+    transparent 62%
+  );
+  animation: eden-logo-shine 6.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+:where(.dark) .eden-animated-brand__shine {
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(167, 243, 208, 0.22) 48%,
+    rgba(153, 246, 228, 0.16) 52%,
+    transparent 62%
+  );
+}
+
+.eden-animated-brand__link:hover .eden-animated-brand__shine,
+.eden-animated-brand__link:focus-visible .eden-animated-brand__shine {
+  animation: eden-logo-shine 1.35s ease-in-out;
+}
+
+.eden-animated-brand__text {
+  display: none;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .eden-animated-brand__text {
+    display: block;
+    max-width: 9.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .eden-animated-brand__text {
+    max-width: 11rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eden-animated-brand__text {
+    max-width: 14rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eden-animated-brand__text {
+    max-width: none;
+  }
+}
+
+.eden-animated-brand__name {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #064e3b 0%, #1f7a2e 48%, #128c8c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: filter 0.35s ease;
+}
+
+.eden-animated-brand--compact .eden-animated-brand__name {
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 640px) {
+  .eden-animated-brand__name {
+    font-size: 1rem;
+  }
+
+  .eden-animated-brand--compact .eden-animated-brand__name {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eden-animated-brand__name {
+    font-size: 1.125rem;
+  }
+
+  .eden-animated-brand--compact .eden-animated-brand__name {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .eden-animated-brand__name {
+    font-size: 1.25rem;
+  }
+
+  .eden-animated-brand--compact .eden-animated-brand__name {
+    font-size: 1.125rem;
+  }
+}
+
+:where(.dark) .eden-animated-brand__name {
+  background: linear-gradient(135deg, #a7f3d0 0%, #6ee7b7 52%, #5eead4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eden-animated-brand__link:hover .eden-animated-brand__name,
+.eden-animated-brand__link:focus-visible .eden-animated-brand__name {
+  filter: brightness(1.06);
+}
+
+.eden-animated-brand__tagline {
+  margin: 0.125rem 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #128c8c;
+}
+
+.eden-animated-brand--compact .eden-animated-brand__tagline {
+  font-size: 0.625rem;
+}
+
+@media (min-width: 640px) {
+  .eden-animated-brand__tagline {
+    font-size: 0.75rem;
+  }
+
+  .eden-animated-brand--compact .eden-animated-brand__tagline {
+    font-size: 0.6875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .eden-animated-brand__tagline {
+    font-size: 0.8125rem;
+  }
+}
+
+:where(.dark) .eden-animated-brand__tagline {
+  color: rgba(94, 234, 212, 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eden-animated-brand__link,
+  .eden-animated-brand__logo-container,
+  .eden-animated-brand__glow,
+  .eden-animated-brand__shine,
+  .eden-animated-brand__name {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .eden-animated-brand__link:hover,
+  .eden-animated-brand__link:focus-visible {
+    transform: none;
+  }
+
+  .eden-animated-brand__link:hover .eden-animated-brand__logo-container,
+  .eden-animated-brand__link:focus-visible .eden-animated-brand__logo-container {
+    transform: none;
+  }
+}

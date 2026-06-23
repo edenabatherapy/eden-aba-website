@@ -5,11 +5,11 @@
   },
   "common": {
     "english": "English",
-    "vietnamese": "Vietnamese / Tiếng Việt",
+    "vietnamese": "Tiếng Việt",
     "brandName": "Eden ABA Therapy",
     "brandTagline": "Chăm sóc tự kỷ tận tâm",
     "navAutismEvaluation": "Đánh giá tự kỷ",
-    "navABATherapy": "Liệu pháp ABA",
+    "navABATherapy": "Dịch vụ",
     "navLocations": "Địa điểm",
     "navHome": "Trang chủ",
     "locationsPageTitle": "Tìm địa điểm Eden ABA Therapy gần bạn.",
@@ -28,6 +28,8 @@
     "aboutEdenMegaMenuDefaultDescription": "Tìm hiểu sứ mệnh, đội ngũ, chất lượng lâm sàng, chăm sóc lấy gia đình làm trung tâm và kết nối cộng đồng của Eden ABA Therapy.",
     "resourcesMegaMenuDefaultDescription": "Khám phá hướng dẫn, bài viết và tài nguyên hỗ trợ hành trình tự kỷ của gia đình bạn.",
     "resourcesMegaMenuDefaultTitle": "Công cụ hữu ích cho mọi bước",
+    "servicesMegaMenuResourcesDescription": "Khám phá hướng dẫn, bài viết hỗ trợ tự kỷ, tài nguyên phụ huynh và thông tin chăm sóc của Eden ABA Therapy để giúp gia đình tự tin ở mọi giai đoạn hành trình ABA.",
+    "servicesMegaMenuResourcesCta": "Khám phá tài nguyên →",
     "careersMegaMenuDefaultDescription": "Khám phá các con đường nghề nghiệp ý nghĩa tại Eden ABA Therapy — từ vai trò RBT và BCBA đến văn hóa đội ngũ, hỗ trợ phỏng vấn và phát triển chuyên môn.",
     "careersMegaMenuDefaultTitle": "Nghề nghiệp tại Eden",
     "navCareers": "Tuyển dụng",
@@ -102,21 +104,28 @@
     "gettingStartedP1": "Nếu con bạn đã được chẩn đoán rối loạn phổ tự kỷ và gia đình muốn bắt đầu liệu pháp ABA, bạn có thể liên hệ với chúng tôi để lên lịch tiếp nhận hồ sơ ban đầu.",
     "gettingStartedP2": "Nếu con bạn có nhiều dấu hiệu sớm của rối loạn phổ tự kỷ nhưng chưa được chẩn đoán, chúng tôi có thể hướng dẫn gia đình về các lựa chọn hỗ trợ đánh giá và chẩn đoán.",
     "familySupportPath": {
-      "eyebrow": "Hành trình của gia đình bạn",
-      "title": "Con đường hỗ trợ của bạn bắt đầu tại đây",
-      "subtitle": "Bắt đầu nên rõ ràng, không áp lực. Dù con bạn đã có chẩn đoán tự kỷ hay gia đình vẫn đang tìm câu trả lời, Eden ABA Therapy giúp hiểu bước tiếp theo, kết nối đúng nguồn lực và tiến lên với sự tự tin.",
-      "benefitsLabel": "Lợi ích",
-      "journeyLabel": "Dấu hiệu → Chẩn đoán → Tư vấn → Tiếp nhận",
+      "eyebrow": "Lộ trình hỗ trợ của bạn",
+      "title": "Bốn bước đơn giản để bắt đầu",
+      "subtitle": "Từ sàng lọc sớm đến intake, Eden giúp gia đình tiến lên với sự rõ ràng, tự tin và hướng dẫn tận tâm.",
+      "outcomesLabel": "Bước này hỗ trợ điều gì",
+      "journeyLabel": "Sàng lọc → Đánh giá → Tư vấn → Intake",
+      "stepOneNote": "M-CHAT-R thường được dùng cho trẻ khoảng 16–30 tháng. CAST có thể hữu ích cho trẻ lớn hơn. Kết quả sàng lọc nên được xem xét cùng chuyên gia có trình độ.",
+      "trustBadges": [
+        "Dựa trên sàng lọc",
+        "Có hướng dẫn lâm sàng",
+        "Lấy gia đình làm trung tâm",
+        "Hiểu bảo hiểm"
+      ],
       "steps": [
         {
           "step": "BƯỚC 01",
           "title": "Hiểu dấu hiệu sớm",
-          "description": "Công cụ sàng lọc tự kỷ giúp gia đình nhận biết các mẫu phát triển có thể cần đánh giá thêm. Sàng lọc không thay chẩn đoán, nhưng mang lại thông tin hữu ích và giúp xác định có nên đánh giá chuyên môn hay không.",
+          "description": "Sàng lọc tự kỷ giúp gia đình nhận biết các mẫu phát triển về giao tiếp, tương tác xã hội, chơi, hành vi và phản ứng cảm giác. Công cụ sàng lọc không chẩn đoán tự kỷ, nhưng có thể giúp gia đình quyết định khi nào nên đánh giá chuyên môn.",
           "benefits": [
-            "Tìm hiểu các cột mốc giao tiếp và phát triển xã hội",
-            "Nhận diện sớm các lĩnh vực cần quan tâm",
-            "Tiếp cận tài nguyên sàng lọc dựa trên bằng chứng",
-            "Có thêm sự rõ ràng trước khi đánh giá chính thức"
+            "Nhận biết khác biệt về giao tiếp, xã hội, chơi và cảm giác",
+            "Hiểu khi nào sàng lọc sớm có thể hữu ích",
+            "Dùng công cụ dựa trên bằng chứng để sắp xếp mối quan tâm của gia đình",
+            "Quyết định có nên cân nhắc đánh giá chẩn đoán đầy đủ hay không"
           ],
           "button": "Làm M-CHAT-R",
           "buttons": [
@@ -127,38 +136,38 @@
         {
           "step": "BƯỚC 02",
           "title": "Nhận câu trả lời chuyên môn",
-          "description": "Đánh giá tự kỷ toàn diện giúp hiểu rõ điểm mạnh, nhu cầu phát triển của con và liệu có đáp ứng tiêu chí rối loạn phổ tự kỷ hay không.",
+          "description": "Đánh giá tự kỷ toàn diện có thể làm rõ điểm mạnh, nhu cầu phát triển, cân nhắc chẩn đoán và khuyến nghị dịch vụ của con. Gia đình có thể dùng tài liệu đánh giá để hỗ trợ kế hoạch liệu pháp, phối hợp trường học và yêu cầu bảo hiểm hoặc Medicaid.",
           "benefits": [
             "Kết nối với chuyên gia chẩn đoán có trình độ",
-            "Có tài liệu phục vụ dịch vụ và hỗ trợ",
-            "Xây dựng lộ trình chăm sóc cá nhân",
-            "Tạo nền tảng cho kế hoạch liệu pháp"
+            "Hiểu hồ sơ phát triển của con",
+            "Có tài liệu hỗ trợ dịch vụ và giới thiệu",
+            "Xây dựng lộ trình rõ hơn cho liệu pháp, trường học và hỗ trợ gia đình"
           ],
           "button": "Tìm hỗ trợ chẩn đoán"
         },
         {
           "step": "BƯỚC 03",
           "title": "Đặt lịch tư vấn ABA",
-          "description": "Gặp đội ngũ kinh nghiệm của chúng tôi để thảo luận nhu cầu, mục tiêu và các lựa chọn liệu pháp. Chúng tôi giúp xác định bước tiếp theo phù hợp nhất cho gia đình.",
+          "description": "Tư vấn ABA giúp gia đình hiểu các lựa chọn liệu pháp, môi trường dịch vụ, khuyến nghị lâm sàng và các bước tiếp theo. Đội ngũ Eden có thể thảo luận nhu cầu của con, giải đáp câu hỏi và giúp xác định liệu pháp ABA có phù hợp hay không.",
           "benefits": [
-            "Yêu cầu đánh giá liệu pháp ABA",
-            "Thảo luận phòng khám, tại nhà, trường hoặc telehealth",
-            "Xem xét bảo hiểm và khả năng cung cấp dịch vụ",
-            "Nhận hướng dẫn phù hợp với con bạn"
+            "Thảo luận dịch vụ tại nhà, phòng khám, trường hoặc telehealth",
+            "Xem xét chẩn đoán, giới thiệu, bảo hiểm hoặc Medicaid",
+            "Đặt câu hỏi về ABA, sự tham gia của phụ huynh và kế hoạch điều trị",
+            "Nhận hướng dẫn phù hợp với con và ưu tiên của gia đình"
           ],
           "button": "Đặt lịch tư vấn"
         },
         {
           "step": "BƯỚC 04",
-          "title": "Hoàn tất tiếp nhận gia đình",
-          "description": "Gửi thông tin gia đình, con và bảo hiểm một cách bảo mật trước khi bắt đầu dịch vụ. Điều này giúp đội ngũ chuẩn bị và giảm trì hoãn trong quá trình onboarding.",
+          "title": "Hoàn tất intake gia đình",
+          "description": "Intake gia đình giúp Eden thu thập thông tin cần thiết để chuẩn bị dịch vụ, xác minh đủ điều kiện, xem xét hồ sơ và hỗ trợ onboarding suôn sẻ hơn. Intake đầy đủ giúp giảm trì hoãn và tạo điểm khởi đầu vững hơn cho đội ngũ lâm sàng.",
           "benefits": [
-            "Gửi thông tin trực tuyến an toàn",
-            "Quy trình onboarding nhanh hơn",
-            "Hỗ trợ xem xét đủ điều kiện bảo hiểm",
-            "Giúp đội ngũ lâm sàng chuẩn bị"
+            "Gửi thông tin con, gia đình, bảo hiểm và lựa chọn dịch vụ một cách bảo mật",
+            "Hỗ trợ xác minh quyền lợi và chuẩn bị ủy quyền",
+            "Chia sẻ tiền sử phát triển, mối quan tâm và tài liệu hiện có",
+            "Giúp đội ngũ lâm sàng chuẩn bị đánh giá và lập kế hoạch điều trị"
           ],
-          "button": "Bắt đầu tiếp nhận"
+          "button": "Bắt đầu Intake"
         }
       ]
     },
@@ -349,7 +358,7 @@
     "recaptchaPrivacy": "Quyền riêng tư",
     "recaptchaTerms": "Điều khoản",
     "recaptchaGoogleLegal": "Trang web này được bảo vệ bởi reCAPTCHA và áp dụng Chính sách quyền riêng tư cùng Điều khoản dịch vụ của Google.",
-    "languageLabel": "Ngôn ngữ",
+    "languageLabel": "Select Language",
     "recaptchaFailed": "Xác minh bảo mật không thành công. Vui lòng làm mới trang và thử lại, hoặc liên hệ Eden ABA Therapy để được hỗ trợ.",
     "startAbaRecaptchaFailed": "Chúng tôi không thể xác minh yêu cầu của bạn. Vui lòng làm mới trang và thử lại.",
     "startAbaRecaptchaIncomplete": "Vui lòng hoàn tất xác minh reCAPTCHA.",
@@ -425,7 +434,11 @@
       "mapViewLabel": "Bản đồ",
       "satelliteViewLabel": "Vệ tinh",
       "apiKeyNotice": "Để có đầy đủ điều khiển bản đồ tương tác (vệ tinh, Street View, phóng to và chỉ đường), hãy thêm NEXT_PUBLIC_GOOGLE_MAPS_API_KEY vào .env.local và bật Maps JavaScript API trên Google Cloud với thanh toán. Bạn vẫn có thể",
-      "openInGoogleMaps": "Mở trên Google Maps"
+      "openInGoogleMaps": "Mở trên Google Maps",
+      "hybridViewLabel": "Chế độ xem hỗn hợp",
+      "mapTypeGroupLabel": "Loại bản đồ",
+      "loadingLabel": "Đang tải bản đồ...",
+      "satelliteUnavailableNotice": "Chế độ vệ tinh không khả dụng trên thiết bị này."
     },
     "locationsDetail": {
       "breadcrumbPrefix": "Eden ABA Therapy /",
@@ -490,12 +503,30 @@
       "cost": "Chi phí phụ thuộc gói bảo hiểm, khấu trừ, đồng thanh toán, ủy quyền và liệu ABA có được bảo hiểm chi trả vì lý do y khoa cần thiết hay không. Bước tốt nhất là xác minh quyền lợi trước khi bắt đầu dịch vụ để gia đình hiểu trách nhiệm tài chính dự kiến.",
       "school": "ABA có thể hỗ trợ mục tiêu liên quan trường học bằng cách giúp giao tiếp, chuyển tiếp, kế hoạch hành vi, kỹ năng xã hội, sẵn sàng lớp học và thói quen hằng ngày. ABA không thay thế nhóm IEP của trường, nhưng BCBA thường có thể phối hợp với người chăm sóc và nhà cung cấp trường học khi có giấy phép ký.",
       "default": "Tôi có thể hỗ trợ về liệu pháp ABA, trị liệu ngôn ngữ, trị liệu hoạt động, intake, bảo hiểm, đặt lịch, tài liệu, đào tạo phụ huynh, mối quan tâm về hành vi và hỗ trợ tự kỷ. Hãy cho tôi biết tuổi của trẻ, mối quan tâm chính và bạn đang hỏi về ABA, trị liệu ngôn ngữ, OT, bảo hiểm hay bắt đầu dịch vụ."
+    },
+    "navInsurance": "Bảo hiểm",
+    "newsletterNameRequired": "Vui lòng nhập họ và tên đầy đủ.",
+    "newsletterEmailRequired": "Vui lòng nhập địa chỉ email.",
+    "newsletterEmailInvalid": "Vui lòng nhập địa chỉ email hợp lệ.",
+    "newsletterSuccess": "Cảm ơn bạn đã tham gia bản tin gia đình Eden ABA Therapy.",
+    "submitting": "Đang gửi...",
+    "cookieConsent": {
+      "title": "Đồng ý Cookie & Tùy chọn",
+      "message": "Chúng tôi dùng cookie để cải thiện trải nghiệm và hiểu cách gia đình sử dụng website.",
+      "acceptAll": "Chấp nhận tất cả Cookie",
+      "preferences": "Tùy chọn Cookie",
+      "preferencesTitle": "Tùy chọn Cookie",
+      "preferencesIntro": "Chọn cách Eden ABA Therapy sử dụng cookie. Cookie thiết yếu giúp website hoạt động. Cookie phân tích giúp chúng tôi cải thiện trải nghiệm gia đình.",
+      "essentialOnly": "Chỉ Cookie thiết yếu",
+      "savePreferences": "Lưu tùy chọn",
+      "reopenLabel": "Cài đặt cookie"
     }
   },
   "menu": [
     {
-      "label": "Liệu pháp ABA",
-      "type": "simple",
+      "id": "services",
+      "label": "Dịch vụ",
+      "type": "services-mega",
       "columns": [
         {
           "title": "Dịch vụ",
@@ -524,32 +555,6 @@
               "badge": "Coming Soon to Eden Family",
               "comingSoon": true
             }
-          ]
-        }
-      ]
-    },
-    {
-      "label": "Địa điểm",
-      "type": "locations",
-      "columns": [
-        {
-          "title": "Địa điểm Eden",
-          "links": [
-            "Fairfax",
-            "Centreville",
-            "Chantilly",
-            "Reston",
-            "Herndon"
-          ]
-        },
-        {
-          "title": "Khu vực khác",
-          "links": [
-            "Alexandria",
-            "Arlington",
-            "Manassas",
-            "Woodbridge",
-            "Xem tất cả địa điểm"
           ]
         }
       ]
@@ -595,6 +600,7 @@
             "Bắt đầu với Eden",
             "Danh sách kiểm tra cho phụ huynh mới",
             "Đặt lịch hẹn",
+            "Địa điểm",
             "Câu hỏi thường gặp"
           ]
         },
@@ -883,24 +889,48 @@
     ]
   },
   "hero": {
-    "animatedWords": [
-      "lớn lên",
-      "học hỏi",
-      "thăng hoa",
-      "nở rộ",
-      "giao tiếp",
-      "kết nối",
-      "mỉm cười"
+    "line1": "Con đường tươi sáng cho",
+    "line2": "trẻ em lớn lên, học hỏi,",
+    "line3": "giao tiếp, và",
+    "rotatingItems": [
+      {
+        "word": "thăng hoa",
+        "symbol": "🌱",
+        "label": "thăng hoa"
+      },
+      {
+        "word": "kết nối",
+        "symbol": "💬",
+        "label": "kết nối"
+      },
+      {
+        "word": "tỏa sáng",
+        "symbol": "✨",
+        "label": "tỏa sáng"
+      },
+      {
+        "word": "thành công",
+        "symbol": "⭐",
+        "label": "thành công"
+      },
+      {
+        "word": "nở rộ",
+        "symbol": "🌸",
+        "label": "nở rộ"
+      }
     ],
-    "line1": "Con đường tươi sáng cho trẻ em",
-    "line2": "lớn lên, học hỏi và",
-    "line3Prefix": "",
-    "subtitle": "Eden ABA Therapy cung cấp hỗ trợ ABA ấm áp, lấy gia đình làm trung tâm, với sự chăm sóc tận tâm, hướng dẫn rõ ràng và trải nghiệm trị liệu thân thiện với trẻ."
+    "subtitle": "Eden ABA Therapy cung cấp hỗ trợ ABA ấm áp, lấy gia đình làm trung tâm, với sự chăm sóc tận tâm, hướng dẫn rõ ràng và trải nghiệm trị liệu thân thiện với trẻ.",
+    "imageAlt": "Trẻ em tham gia hoạt động trị liệu giáo dục",
+    "videoFallbackMessage": "Chăm sóc tự kỷ tận tâm cho mọi trẻ em"
   },
   "pages": {
     "autismAwareness": {
       "title": "Bộ đếm Nhận thức về Tự kỷ",
-      "titleParts": ["Tự kỷ", "Nhận thức", "Bộ đếm"],
+      "titleParts": [
+        "Tự kỷ",
+        "Nhận thức",
+        "Bộ đếm"
+      ],
       "cdcBadge": "Ước tính CDC: 1 trong 31 trẻ được xác định có tự kỷ",
       "intro": "Ước tính giáo dục trực tiếp được tạo ra để thúc đẩy nhận thức về tự kỷ, hỗ trợ sớm và chăm sóc tận tâm cho trẻ em và gia đình.",
       "tagline": "Eden ABA Therapy | Nhận thức, Hướng dẫn và Hỗ trợ Lấy gia đình làm trung tâm",
@@ -922,35 +952,24 @@
           "value": "7",
           "note": "Trung bình quốc gia xấp xỉ mỗi phút"
         },
-        "childrenIdentified": {
-          "label": "Trẻ em được xác định có tự kỷ",
+        "latestCdcData": {
+          "label": "Dữ liệu Tự kỷ CDC Chính thức Mới nhất",
           "value": "1 trong 31",
-          "note": "Ước tính CDC"
-        },
-        "increasePrevalence": {
-          "label": "Gia tăng tỷ lệ mắc (2000–2020)",
-          "value": "317%",
-          "note": "Tăng trưởng trong hai thập kỷ"
+          "subtitle": "Trẻ được xác định có tự kỷ",
+          "dashboardYearLabel": "Năm Bảng điều khiển Hiện tại",
+          "surveillanceYearLabel": "Năm Giám sát CDC Mới nhất",
+          "publishedLabel": "CDC Công bố",
+          "rateLabel": "Tỷ lệ",
+          "surveillanceYear": "2022",
+          "publishedYear": "2025",
+          "rate": "32,2 trên 1.000",
+          "footerSource": "Mạng lưới ADDM của CDC",
+          "footerNote": "Ước tính Tỷ lệ mắc Chính thức Gần nhất"
         },
         "earlyDiagnosis": {
           "label": "Chẩn đoán sớm rất quan trọng",
           "value": "5x",
           "note": "Kết quả tốt hơn với can thiệp sớm"
-        },
-        "accessSupport": {
-          "label": "Tiếp cận hỗ trợ có thể thay đổi cuộc sống",
-          "value": "80%",
-          "note": "Cải thiện với hỗ trợ nhất quán, dựa trên bằng chứng"
-        },
-        "earlySupport": {
-          "label": "Hỗ trợ sớm có thể cải thiện",
-          "value": "Tiến bộ có ý nghĩa",
-          "items": [
-            "Giao tiếp",
-            "Kỹ năng sinh hoạt hằng ngày",
-            "Tương tác xã hội",
-            "Thói quen gia đình"
-          ]
         }
       },
       "dayProgress": "Tiến độ trong ngày",
@@ -963,165 +982,55 @@
       }
     },
     "insurancePayment": {
-      "badge": "CHÚNG TÔI HỖ TRỢ BẠN",
-      "headingInsurance": "Bảo hiểm",
-      "headingMade": "Được",
-      "headingAccent": "Đơn giản hóa",
-      "headingLine1": "Bảo hiểm được",
-      "description": "Chúng tôi xử lý phần phức tạp để bạn tập trung vào điều quan trọng nhất—sự tiến bộ của con bạn.",
+      "eyebrow": "Hỗ trợ bảo hiểm",
+      "headlineBefore": "Bảo hiểm được",
+      "headlineAccent": "đơn giản hóa",
+      "headlineAfter": "cho liệu pháp ABA",
+      "intro": "Chúng tôi giúp các gia đình Virginia hiểu phạm vi bảo hiểm, xác minh quyền lợi và tự tin thực hiện bước tiếp theo.",
       "benefits": [
         {
-          "prefix": "Chúng tôi ",
-          "highlight": "xác minh",
-          "suffix": " quyền lợi liệu pháp ABA của bạn"
+          "title": "Xác minh bảo hiểm miễn phí",
+          "description": "Chúng tôi kiểm tra quyền lợi của bạn mà không tính phí."
         },
         {
-          "prefix": "Chúng tôi giúp ",
-          "highlight": "giải thích",
-          "suffix": " khấu trừ, đồng thanh toán và các bước ủy quyền"
+          "title": "Hỗ trợ ủy quyền trước",
+          "description": "Chúng tôi xử lý chi tiết để bạn không phải lo."
         },
         {
-          "prefix": "Chúng tôi làm việc với gia đình ",
-          "highlight": "trước khi",
-          "suffix": " trị liệu bắt đầu"
+          "title": "Hướng dẫn phạm vi bảo hiểm",
+          "description": "Chúng tôi giải thích khấu trừ, đồng thanh toán và đồng chi trả."
         },
         {
-          "prefix": "Đội intake ",
-          "highlight": "hướng dẫn",
-          "suffix": " bạn qua từng bước"
+          "title": "Các gói lớn & Virginia Medicaid",
+          "description": "Chúng tôi làm việc với hầu hết các gói bảo hiểm và Virginia Medicaid."
         }
       ],
-      "benefitCards": [
-        {
-          "title": "Nhanh & Chính xác",
-          "description": "Xác minh quyền lợi thường hoàn tất trong 24–48 giờ."
-        },
-        {
-          "title": "Tối đa hóa quyền lợi",
-          "description": "Chúng tôi xác định phạm vi bảo hiểm đầy đủ để bạn hiểu rõ quyền lợi."
-        },
-        {
-          "title": "Không phiền phức",
-          "description": "Chúng tôi xử lý chi tiết bảo hiểm từ đầu đến cuối thay mặt bạn."
-        },
-        {
-          "title": "Hỗ trợ liên tục",
-          "description": "Hỗ trợ tận tâm trong suốt hành trình trị liệu của con bạn."
-        }
-      ],
-      "verifyCta": "Xác minh bảo hiểm của tôi",
-      "speakCta": "Nói chuyện với đội intake",
-      "secureNote": "An toàn. Riêng tư. Thông tin của bạn được bảo vệ.",
-      "trustIndicators": [
-        { "label": "Tuân thủ HIPAA" },
-        { "label": "An toàn & Riêng tư" },
-        { "label": "Thông tin của bạn được bảo vệ an toàn" }
-      ],
-      "featureCard": {
-        "title": "Chúng tôi xử lý phần phức tạp, bạn tập trung vào tiến bộ",
-        "items": [
-          {
-            "title": "Hướng dẫn từng bước",
-            "description": "Hướng dẫn rõ ràng qua xác minh và ủy quyền."
-          },
-          {
-            "title": "Giao tiếp minh bạch",
-            "description": "Cập nhật bằng ngôn ngữ dễ hiểu về phạm vi bảo hiểm và bước tiếp theo."
-          },
-          {
-            "title": "Tối đa hóa quyền lợi",
-            "description": "Hỗ trợ xác định dịch vụ đủ điều kiện và chi tiết gói bảo hiểm."
-          },
-          {
-            "title": "Hỗ trợ tận tâm",
-            "description": "Đội intake phản hồi nhanh cho mọi câu hỏi trong quá trình."
-          }
-        ],
-        "footer": "Chúng tôi làm việc với các nhà cung cấp bảo hiểm lớn tại Virginia và khu vực lân cận.",
-        "viewAllLink": "Xem tất cả nhà cung cấp"
-      },
+      "verifyCta": "Xác minh bảo hiểm",
+      "talkCta": "Nói chuyện với đội ngũ",
+      "trustNote": "Hầu hết các gói bảo hiểm lớn và Virginia Medicaid có thể chi trả liệu pháp ABA.",
+      "processTitle": "Quy trình 3 bước đơn giản",
+      "processSubtitle": "Chúng tôi giúp bảo hiểm dễ dàng hơn cho gia đình bạn.",
       "processSteps": [
         {
-          "title": "Gửi thông tin bảo hiểm của bạn"
+          "title": "Gửi thông tin của bạn",
+          "description": "Cho chúng tôi biết một chút về con bạn và bảo hiểm để chúng tôi bắt đầu."
         },
         {
-          "title": "Eden xác minh quyền lợi của bạn"
+          "title": "Chúng tôi xác minh quyền lợi",
+          "description": "Đội ngũ kiểm tra phạm vi bảo hiểm và xác nhận những gì có thể có cho liệu pháp ABA."
         },
         {
-          "title": "Chúng tôi giải thích các bước tiếp theo"
+          "title": "Chúng tôi giải thích các lựa chọn",
+          "description": "Chúng tôi trình bày quyền lợi bằng ngôn ngữ dễ hiểu và hướng dẫn các bước tiếp theo."
         }
       ],
-      "verificationSteps": [
-        { "title": "Gửi thông tin", "description": "Chia sẻ chi tiết bảo hiểm an toàn" },
-        { "title": "Chúng tôi xác minh", "description": "Đội ngũ kiểm tra quyền lợi của bạn" },
-        { "title": "Xem xét quyền lợi", "description": "Hiểu phạm vi bảo hiểm & chi phí" },
-        { "title": "Lập kế hoạch chăm sóc", "description": "Tiến hành với sự tự tin" }
-      ],
-      "cardBadge": "Hầu hết xác minh trong 24–48 giờ",
-      "cardTitle": "Xác minh bảo hiểm",
-      "cardSubtitle": "Nhanh chóng, chính xác và không phiền phức.",
-      "fastVerification": "Xác minh nhanh, thường trong",
-      "fastVerificationHours": "24–48 giờ",
-      "whatYouReceive": {
-        "title": "Bạn sẽ nhận được",
-        "items": [
-          "Tóm tắt phạm vi bảo hiểm",
-          "Khấu trừ & đồng thanh toán",
-          "Yêu cầu ủy quyền",
-          "Ước tính chi phí tự trả"
-        ]
-      },
-      "reportHighlight": {
-        "title": "Báo cáo rõ ràng, dễ hiểu",
-        "description": "Tóm tắt thân thiện với gia đình về quyền lợi và các bước tiếp theo được đề xuất."
-      },
-      "providersSection": {
-        "title": "Chúng tôi làm việc với các nhà cung cấp bảo hiểm lớn",
-        "viewAll": "Xem tất cả",
-        "manyMore": "+ Nhiều hơn nữa"
-      },
-      "supportSection": {
-        "title": "Thêm cách chúng tôi hỗ trợ bạn",
-        "cards": [
-          {
-            "title": "Hỗ trợ lịch hẹn",
-            "description": "Giúp đặt lịch đánh giá và intake."
-          },
-          {
-            "title": "Hỗ trợ yêu cầu bồi thường",
-            "description": "Hướng dẫn về câu hỏi và tài liệu yêu cầu bồi thường."
-          },
-          {
-            "title": "Thay đổi gói bảo hiểm",
-            "description": "Hỗ trợ khi bảo hiểm hoặc phạm vi bảo hiểm thay đổi."
-          },
-          {
-            "title": "Trung tâm tài nguyên",
-            "description": "Truy cập hướng dẫn gia đình và tài nguyên giáo dục."
-          }
-        ]
-      },
-      "privacyBar": {
-        "title": "Quyền riêng tư của bạn quan trọng",
-        "text": "Thông tin của bạn được mã hóa và xử lý cẩn thận.",
-        "link": "HIPAA & Thực hành Quyền riêng tư"
-      },
-      "trustBadges": [
-        {
-          "label": "Gửi an toàn"
-        },
-        {
-          "label": "Quy trình nhận thức HIPAA"
-        },
-        {
-          "label": "Hỗ trợ gia đình"
-        },
-        {
-          "label": "Phản hồi nhanh"
-        }
-      ],
-      "disclaimer": "Yêu cầu về phạm vi bảo hiểm và ủy quyền khác nhau theo gói. Đội ngũ sẽ giúp",
-      "disclaimerHighlight": "xác minh quyền lợi cụ thể của bạn."
+      "toolbox": {
+        "headline": "Chúng tôi có thể giúp xem xét quyền lợi với các gói bảo hiểm hàng đầu",
+        "subheadline": "Eden ABA Therapy giúp các gia đình xem xét phạm vi liệu pháp ABA, yêu cầu ủy quyền và các bước tiếp theo cho các gói bảo hiểm Virginia.",
+        "disclaimer": "Phạm vi bảo hiểm khác nhau. Eden ABA Therapy có thể giúp xác minh quyền lợi, nhưng phạm vi và ủy quyền phụ thuộc vào yêu cầu của từng gói thành viên.",
+        "verifyCta": "Xác minh bảo hiểm",
+        "viewCoverageLink": "Xem phạm vi bảo hiểm"
+      }
     },
     "parentResources": {
       "eyebrow": "Tài nguyên phụ huynh",
@@ -2038,7 +1947,9 @@
           "Gói khác"
         ],
         "showMore": "Xem thêm",
-        "showLess": "Thu gọn"
+        "showLess": "Thu gọn",
+        "coverageOptionsTitle": "Tùy chọn bảo hiểm tại Virginia",
+        "plansDisclaimer": "Phạm vi bảo hiểm phụ thuộc vào gói của bạn. Eden sẽ xác minh quyền lợi trước khi bắt đầu dịch vụ."
       },
       "priorAuth": {
         "badge": "Hỗ trợ ủy quyền trước",
@@ -2759,7 +2670,12 @@
             ]
           }
         ],
-        "startButton": "Bắt đầu trình đặt lịch"
+        "startButton": "Bắt đầu trình đặt lịch",
+        "trustItems": [
+          "Gửi thông tin bảo mật",
+          "Hỗ trợ xem xét bảo hiểm",
+          "Hẹn Zoom hoặc trực tiếp"
+        ]
       },
       "wizard": {
         "steps": [
@@ -2772,6 +2688,8 @@
         ],
         "stepPrefix": "Bước",
         "availableTimes": [
+          "8:00 AM",
+          "8:30 AM",
           "9:00 AM",
           "9:30 AM",
           "10:00 AM",
@@ -2787,7 +2705,11 @@
           "3:00 PM",
           "3:30 PM",
           "4:00 PM",
-          "4:30 PM"
+          "4:30 PM",
+          "5:00 PM",
+          "5:30 PM",
+          "6:00 PM",
+          "6:30 PM"
         ],
         "notSelected": "Chưa chọn",
         "submitted": {
@@ -5116,7 +5038,16 @@
         },
         "consent": "By subscribing, you agree to receive emails from Eden ABA Therapy. You can unsubscribe anytime. We respect your privacy.",
         "submit": "Tham gia Bản tin",
-        "success": "Thank you for subscribing to the Eden ABA Therapy family newsletter."
+        "success": "Thank you for subscribing to the Eden ABA Therapy family newsletter.",
+        "badge": "Bản tin gia đình",
+        "benefitTagline": "Mẹo ABA, tài nguyên và cập nhật từ Eden",
+        "privacyNote": "Chúng tôi tôn trọng quyền riêng tư của gia đình bạn.",
+        "trustNote": "Tham gia cùng các gia đình tại Bắc Virginia",
+        "benefits": [
+          "Cập nhật tuyển sinh",
+          "Mẹo nuôi dạy con",
+          "Tài nguyên tự kỷ"
+        ]
       },
       "cta": {
         "title": "Con bạn được chào đón ở đây",
@@ -6403,6 +6334,90 @@
         "scheduleButton": "Đặt lịch tư vấn hôm nay",
         "startButton": "Bắt đầu"
       }
+    },
+    "privacyPolicy": {
+      "meta": {
+        "title": "Chính sách Bảo mật | Eden ABA Therapy",
+        "description": "Tìm hiểu cách Eden ABA Therapy thu thập, sử dụng, bảo vệ thông tin cá nhân, thông tin sức khỏe, dữ liệu website và tin nhắn SMS."
+      }
+    },
+    "resourcePlaceholders": {
+      "parent-training": {
+        "meta": {
+          "title": "Đào tạo Phụ huynh | Eden ABA Therapy",
+          "description": "Tài nguyên đào tạo phụ huynh và hỗ trợ gia đình từ Eden ABA Therapy."
+        },
+        "breadcrumb": "Đào tạo Phụ huynh",
+        "title": "Đào tạo Phụ huynh",
+        "intro": "Tài nguyên đào tạo phụ huynh và hỗ trợ gia đình từ Eden ABA Therapy.",
+        "comingSoonLabel": "Sắp ra mắt",
+        "comingSoon": "Nội dung này đang được hoàn thiện. Vui lòng quay lại sau.",
+        "highlights": [
+          "Hướng dẫn thân thiện với gia đình",
+          "Thông tin dựa trên bằng chứng",
+          "Hỗ trợ từ Eden ABA Therapy"
+        ],
+        "primaryCta": "Bắt đầu Intake",
+        "secondaryCta": "Liên hệ Eden"
+      },
+      "autism-diagnosis-resources": {
+        "meta": {
+          "title": "Tài nguyên Chẩn đoán Tự kỷ | Eden ABA Therapy",
+          "description": "Hướng dẫn chẩn đoán tự kỷ thân thiện với gia đình."
+        },
+        "breadcrumb": "Tài nguyên Chẩn đoán Tự kỷ",
+        "title": "Tài nguyên Chẩn đoán Tự kỷ",
+        "intro": "Hướng dẫn chẩn đoán tự kỷ thân thiện với gia đình.",
+        "comingSoonLabel": "Sắp ra mắt",
+        "comingSoon": "Nội dung này đang được hoàn thiện. Vui lòng quay lại sau.",
+        "highlights": [
+          "Hướng dẫn thân thiện với gia đình",
+          "Thông tin dựa trên bằng chứng",
+          "Hỗ trợ từ Eden ABA Therapy"
+        ],
+        "primaryCta": "Bắt đầu Intake",
+        "secondaryCta": "Liên hệ Eden"
+      },
+      "new-parent-checklist": {
+        "meta": {
+          "title": "Danh sách Phụ huynh Mới | Eden ABA Therapy",
+          "description": "Danh sách kiểm tra thực tế cho phụ huynh mới bắt đầu hành trình tự kỷ."
+        },
+        "breadcrumb": "Danh sách Phụ huynh Mới",
+        "title": "Danh sách Phụ huynh Mới",
+        "intro": "Danh sách kiểm tra thực tế cho phụ huynh mới bắt đầu hành trình tự kỷ.",
+        "comingSoonLabel": "Sắp ra mắt",
+        "comingSoon": "Nội dung này đang được hoàn thiện. Vui lòng quay lại sau.",
+        "highlights": [
+          "Hướng dẫn thân thiện với gia đình",
+          "Thông tin dựa trên bằng chứng",
+          "Hỗ trợ từ Eden ABA Therapy"
+        ],
+        "primaryCta": "Bắt đầu Intake",
+        "secondaryCta": "Liên hệ Eden"
+      },
+      "afterschool-programs": {
+        "meta": {
+          "title": "Chương trình Sau giờ học | Eden ABA Therapy",
+          "description": "Thông tin về chương trình ABA sau giờ học tại Eden ABA Therapy."
+        },
+        "breadcrumb": "Chương trình Sau giờ học",
+        "title": "Chương trình Sau giờ học",
+        "intro": "Thông tin về chương trình ABA sau giờ học tại Eden ABA Therapy.",
+        "comingSoonLabel": "Sắp ra mắt",
+        "comingSoon": "Nội dung này đang được hoàn thiện. Vui lòng quay lại sau.",
+        "highlights": [
+          "Hướng dẫn thân thiện với gia đình",
+          "Thông tin dựa trên bằng chứng",
+          "Hỗ trợ từ Eden ABA Therapy"
+        ],
+        "primaryCta": "Bắt đầu Intake",
+        "secondaryCta": "Liên hệ Eden"
+      }
+    },
+    "careers": {
+      "hubTitle": "Nghề nghiệp tại Eden ABA Therapy",
+      "hubIntro": "Eden đang xây dựng đội ngũ nhà lâm sàng và chuyên viên hỗ trợ quan tâm đến thực hành ABA đạo đức, hợp tác với gia đình, tiến bộ đo lường được và phát triển nghề nghiệp bền vững."
     }
   },
   "insuranceForm": {

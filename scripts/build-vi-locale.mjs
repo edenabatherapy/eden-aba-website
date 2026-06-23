@@ -41,7 +41,7 @@ vi.meta = {
 // ── common (from page.js translations.vi + nested sections) ──
 deepMerge(vi.common, {
   english: "English",
-  vietnamese: "Vietnamese / Tiếng Việt",
+  vietnamese: "Tiếng Việt",
   brandName: "Eden ABA Therapy",
   brandTagline: "Chăm sóc tự kỷ tận tâm",
   navAutismEvaluation: "Đánh giá tự kỷ",

@@ -146,21 +146,34 @@ function createEdenMarkerIcon(maps) {
   };
 }
 
-function waitForTiles(map, mapsEvent, timeoutMs = 8000) {
+function waitForTilesWithTimeout(map, mapsEvent, timeoutMs = 8000) {
   return new Promise((resolve) => {
     let settled = false;
-    const finish = () => {
+    const finish = (success) => {
       if (settled) return;
       settled = true;
-      resolve();
+      resolve(success);
     };
 
-    const listener = mapsEvent.addListenerOnce(map, "tilesloaded", finish);
+    const listener = mapsEvent.addListenerOnce(map, "tilesloaded", () => finish(true));
     window.setTimeout(() => {
       mapsEvent.removeListener(listener);
-      finish();
+      finish(false);
     }, timeoutMs);
   });
+}
+
+function waitForTiles(map, mapsEvent, timeoutMs = 8000) {
+  return waitForTilesWithTimeout(map, mapsEvent, timeoutMs);
+}
+
+/** @param {import("@/lib/google-maps-types").GoogleMapsRuntime | google.maps} maps */
+function resolveMapTypeId(maps, typeId) {
+  const mapTypeId = maps.MapTypeId;
+  if (!mapTypeId) return typeId;
+  if (typeId === "satellite") return mapTypeId.SATELLITE ?? "satellite";
+  if (typeId === "hybrid") return mapTypeId.HYBRID ?? "hybrid";
+  return mapTypeId.ROADMAP ?? "roadmap";
 }
 
 /**
@@ -196,11 +209,29 @@ export default function GoogleMapInteractive({
   const [unavailableReason, setUnavailableReason] = useState("missing-key");
   const [errorMessage, setErrorMessage] = useState("");
   const [mapTypeId, setMapTypeId] = useState("roadmap");
+  const [satelliteUnavailable, setSatelliteUnavailable] = useState(false);
+  const mapsRuntimeRef = useRef(null);
 
-  const handleMapTypeChange = useCallback((typeId) => {
-    if (!mapRef.current) return;
-    mapRef.current.setMapTypeId(typeId);
+  const handleMapTypeChange = useCallback(async (typeId) => {
+    const map = mapRef.current;
+    const maps = mapsRuntimeRef.current ?? window.google?.maps;
+    if (!map || !maps) return;
+
+    const resolvedType = resolveMapTypeId(maps, typeId);
+    map.setMapTypeId(resolvedType);
     setMapTypeId(typeId);
+    maps.event?.trigger(map, "resize");
+
+    if (typeId === "satellite" || typeId === "hybrid") {
+      const tilesLoaded = await waitForTilesWithTimeout(map, maps.event, 7000);
+      if (!tilesLoaded) {
+        setSatelliteUnavailable(true);
+        map.setMapTypeId(resolveMapTypeId(maps, "roadmap"));
+        setMapTypeId("roadmap");
+        return;
+      }
+      setSatelliteUnavailable(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -248,13 +279,8 @@ export default function GoogleMapInteractive({
         const map = new maps.Map(containerRef.current, {
           center,
           zoom: 16,
-          mapTypeId: "roadmap",
-          mapTypeControl: true,
-          mapTypeControlOptions: {
-            style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            position: maps.ControlPosition.TOP_RIGHT,
-            mapTypeIds: ["roadmap", "satellite", "hybrid"],
-          },
+          mapTypeId: resolveMapTypeId(maps, "roadmap"),
+          mapTypeControl: false,
           zoomControl: true,
           zoomControlOptions: {
             position: maps.ControlPosition.RIGHT_CENTER,
@@ -290,6 +316,7 @@ export default function GoogleMapInteractive({
         mapRef.current = map;
         markerRef.current = marker;
         infoWindowRef.current = infoWindow;
+        mapsRuntimeRef.current = maps;
 
         map.addListener("maptypeid_changed", () => {
           const typeId = map.getMapTypeId();
@@ -376,6 +403,7 @@ export default function GoogleMapInteractive({
       mapRef.current = null;
       markerRef.current = null;
       infoWindowRef.current = null;
+      mapsRuntimeRef.current = null;
 
       if (containerRef.current) {
         containerRef.current.replaceChildren();
@@ -412,18 +440,36 @@ export default function GoogleMapInteractive({
           role="group"
           aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
         >
-          {MAP_TYPE_OPTIONS.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              onClick={() => handleMapTypeChange(option.id)}
-              className={mapTypeId === option.id ? "is-active" : undefined}
-              aria-pressed={mapTypeId === option.id}
-            >
-              {t?.googleMap?.[option.labelKey] || option.fallback}
-            </button>
-          ))}
+          {MAP_TYPE_OPTIONS.map((option) => {
+            const isSatelliteOption = option.id === "satellite" || option.id === "hybrid";
+            const disabled = isSatelliteOption && satelliteUnavailable;
+
+            return (
+              <button
+                key={option.id}
+                type="button"
+                onClick={() => handleMapTypeChange(option.id)}
+                className={mapTypeId === option.id ? "is-active" : undefined}
+                aria-pressed={mapTypeId === option.id}
+                disabled={disabled}
+                title={
+                  disabled
+                    ? t?.googleMap?.satelliteUnavailableNotice || "Satellite imagery unavailable"
+                    : undefined
+                }
+              >
+                {t?.googleMap?.[option.labelKey] || option.fallback}
+              </button>
+            );
+          })}
         </div>
+      ) : null}
+
+      {satelliteUnavailable && mapStatus === "ready" ? (
+        <p className="eden-map-satellite-notice" role="status">
+          {t?.googleMap?.satelliteUnavailableNotice ||
+            "Satellite imagery is temporarily unavailable. Showing standard map view."}
+        </p>
       ) : null}
 
       <div

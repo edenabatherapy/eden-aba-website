@@ -1,4 +1,5 @@
 import type { KnowledgeArticle } from "@/lib/knowledge/types";
+import { EDEN_OFFICE_HOURS_SUMMARY } from "@/lib/eden-business-hours";
 
 export const edenContactArticles: KnowledgeArticle[] = [
   {
@@ -31,7 +32,9 @@ export const edenContactArticles: KnowledgeArticle[] = [
     title: "Eden ABA Therapy Office Hours",
     summary: "Annandale office hours for administrative and intake support.",
     content:
-      "Eden ABA Therapy — Annandale office hours (subject to holiday closures):\n\nMonday: 8:00 AM – 7:00 PM\nTuesday: 8:00 AM – 7:00 PM\nWednesday: 8:00 AM – 7:00 PM\nThursday: 8:00 AM – 7:00 PM\nFriday: 8:00 AM – 7:00 PM\n\nTherapy session schedules are individualized and may occur during additional hours based on treatment plans and staff availability. Call (703) 587-5238 to confirm current hours or schedule an appointment.\n\nHours may change — verify on the website or by phone before visiting in person.",
+      "Eden ABA Therapy — Annandale office hours (subject to holiday closures):\n\n" +
+      EDEN_OFFICE_HOURS_SUMMARY +
+      "\n\nTherapy session schedules are individualized and may occur during additional hours based on treatment plans and staff availability. Call (703) 587-5238 to confirm current hours or schedule an appointment.\n\nHours may change — verify on the website or by phone before visiting in person.",
     keywords: [
       "hours",
       "open",

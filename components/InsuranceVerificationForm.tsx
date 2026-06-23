@@ -9,8 +9,8 @@ import type {
 } from "@/types/insurance";
 import { formatDOBForDisplay, validateDOB } from "@/lib/insurance/dates";
 import EdenLogo from "@/components/EdenLogo";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import RecaptchaNotice from "@/components/RecaptchaNotice";
 import InsuranceStatusTracker from "@/components/insurance/InsuranceStatusTracker";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -73,6 +73,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     verifyingMessage,
     canSubmit: recaptchaReady,
     handleTokenChange,
+    handleExpired,
     resetRecaptcha,
     requireRecaptcha,
     verifyRecaptchaWithServer,
@@ -484,14 +485,11 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         <ReCaptchaVerification
           ref={recaptchaRef}
           onTokenChange={handleTokenChange}
+          onExpired={handleExpired}
           error={recaptchaError}
           disabled={loading || verifying}
           className="mt-6"
         />
-
-        {verifying ? (
-          <p className="mt-3 text-sm font-bold text-slate-600">{verifyingMessage}</p>
-        ) : null}
 
         <Button
           type="submit"
@@ -500,18 +498,16 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         >
           {loading || verifying
             ? verifying
-              ? verifyingMessage
+              ? "Verifying…"
               : liveVerificationAvailable
                 ? formT.submitLoading
-                : formT.submitLoadingManual || "Submitting request…"
+                : formT.submitLoadingManual || "Submitting…"
             : liveVerificationAvailable
               ? formT.submitButton
               : formT.submitButtonManual || "Submit Verification Request"}
         </Button>
+        <RecaptchaNotice align="center" />
 
-        <div className="mt-4">
-          <RecaptchaNotice t={t} label={t.recaptcha || formT.recaptcha} />
-        </div>
       </form>
 
       {result && (

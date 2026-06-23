@@ -48,7 +48,7 @@ export default function IntakeField({
 
   if (field.type === "note") {
     return wrap(
-      <div className="md:col-span-2 rounded-xl border border-[#b9dfc1] bg-gradient-to-r from-[#f1faf3] to-white p-4 text-sm font-semibold leading-7 text-[#075d21]">
+      <div className="sm:col-span-2 xl:col-span-3 rounded-xl border border-[#b9dfc1] bg-gradient-to-r from-[#f1faf3] to-white p-4 text-sm font-semibold leading-7 text-[#075d21]">
         {field.note || field.label}
       </div>
     );
@@ -79,7 +79,7 @@ export default function IntakeField({
 
   if (field.type === "textarea") {
     return wrap(
-      <div className="md:col-span-2">
+      <div className="sm:col-span-2 xl:col-span-3">
         {label}
         <textarea
           id={field.name}
@@ -97,7 +97,7 @@ export default function IntakeField({
   if (field.type === "radio") {
     if (useCardSelect) {
       return wrap(
-        <div className="md:col-span-2">
+        <div className="sm:col-span-2 xl:col-span-3">
           <div className="mb-3 text-sm font-extrabold text-[#06461f]">
             {field.label}
             {field.required ? " *" : ""}
@@ -136,7 +136,7 @@ export default function IntakeField({
     }
 
     return wrap(
-      <div className="md:col-span-2">
+      <div className="sm:col-span-2 xl:col-span-3">
         <div className="mb-3 text-sm font-extrabold text-[#06461f]">
           {field.label}
           {field.required ? " *" : ""}
@@ -173,7 +173,7 @@ export default function IntakeField({
 
     if (useCardSelect) {
       return wrap(
-        <div className="md:col-span-2">
+        <div className="sm:col-span-2 xl:col-span-3">
           <div className="mb-3 text-sm font-extrabold text-[#06461f]">
             {field.label}
             {field.required ? " *" : ""}
@@ -223,7 +223,7 @@ export default function IntakeField({
     }
 
     return wrap(
-      <div className="md:col-span-2">
+      <div className="sm:col-span-2 xl:col-span-3">
         <div className="mb-3 text-sm font-extrabold text-[#06461f]">
           {field.label}
           {field.required ? " *" : ""}
@@ -262,7 +262,7 @@ export default function IntakeField({
 
     if (uploadVariant === "insurance") {
       return wrap(
-        <div className="md:col-span-2 overflow-hidden rounded-[1.5rem] border border-[#dfe8e2] bg-gradient-to-br from-white to-[#f6fbf7] p-5 shadow-md">
+        <div className="sm:col-span-2 xl:col-span-3 overflow-hidden rounded-[1.5rem] border border-[#dfe8e2] bg-gradient-to-br from-white to-[#f6fbf7] p-5 shadow-md">
           <div className="grid gap-5 lg:grid-cols-[1fr_180px] lg:items-start">
             <div>
               <div className="flex items-center gap-3">

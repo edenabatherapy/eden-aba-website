@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { MENU_LINK_ROUTES } from "@/lib/navigation";
+import { ABOUT_NAV_LINKS } from "@/lib/about-nav-links";
 import EdenLogo from "@/components/EdenLogo";
 import AboutMeaningAnimation, { type AboutMeaningAnimationType } from "@/components/AboutMeaningAnimation";
 import "./AbaTherapyMegaMenu.css";
@@ -22,70 +22,62 @@ export type AboutEdenPreview = {
   learnMoreText?: string;
 };
 
-function menuHref(menuLabel: string): string {
-  const route = MENU_LINK_ROUTES[menuLabel as keyof typeof MENU_LINK_ROUTES];
-  if (!route || route.action === "start") return "#";
-  return route.path ?? "#";
-}
-
 export const aboutEdenDefaultPreview: AboutEdenPreview = {
   title: "About Eden",
   description:
-    "Learn about Eden ABA Therapy's story, mission, leadership, clinical excellence, and community impact.",
+    "Learn about Eden ABA Therapy's story, mission, clinical approach, and the team supporting children and families across Virginia.",
   animationType: "eden",
   learnMoreText: "Explore About Eden →",
 };
 
-export const aboutEdenItems: AboutEdenMenuItem[] = [
-  {
-    title: "Our Story",
-    href: menuHref("Our Story"),
+const ABOUT_MENU_DETAILS: Record<
+  string,
+  { description: string; animationType: AboutMeaningAnimationType }
+> = {
+  "Our Story": {
     description:
       "Learn why Eden ABA Therapy was founded and how our mission centers on compassionate, individualized autism care.",
     animationType: "story",
-    action: "navigate",
   },
-  {
-    title: "Our Mission & Values",
-    href: menuHref("Our Mission & Values"),
+  "Our Mission & Values": {
     description:
       "Explore the principles that guide Eden ABA Therapy — compassionate care, family partnership, and meaningful progress for every child.",
     animationType: "eden",
-    action: "navigate",
   },
-  {
-    title: "Leadership Team",
-    href: menuHref("Leadership Team"),
+  "Our Approach": {
+    description:
+      "Discover Eden's evidence-based ABA therapy model, ethical clinical standards, supervision, and measurable outcomes.",
+    animationType: "quality",
+  },
+  "Our Team": {
     description:
       "Meet the clinical leaders and care professionals supporting children and families through guidance, therapy, and partnership.",
     animationType: "team",
-    action: "navigate",
   },
-  {
-    title: "Clinical Excellence",
-    href: menuHref("Clinical Excellence"),
+  "Clinical Quality": {
     description:
-      "Discover Eden's commitment to evidence-based ABA therapy, ethical care, supervision, and measurable outcomes.",
+      "Review Eden's clinical standards, BCBA-led supervision, quality assurance, and evidence-based ABA care commitment.",
     animationType: "quality",
-    action: "navigate",
   },
-  {
-    title: "Community Impact",
-    href: menuHref("Community Impact"),
+  "Community Impact": {
     description:
-      "See how Eden supports families beyond therapy through education, outreach, awareness, and local community connection.",
+      "See how Eden supports Northern Virginia through autism awareness, school partnerships, events, and advocacy.",
     animationType: "community-impact",
-    action: "navigate",
   },
-  {
-    title: "Contact Us",
-    href: menuHref("Contact Us"),
+  "Contact Us": {
     description:
-      "Connect with Eden ABA Therapy to ask questions, request support, or take the next step toward services.",
+      "Reach Eden for family support, referral inquiries, career questions, directions, and office contact information.",
     animationType: "contact",
-    action: "navigate",
   },
-];
+};
+
+export const aboutEdenItems: AboutEdenMenuItem[] = ABOUT_NAV_LINKS.map((link) => ({
+  title: link.label,
+  href: link.href,
+  description: ABOUT_MENU_DETAILS[link.label]?.description ?? aboutEdenDefaultPreview.description,
+  animationType: ABOUT_MENU_DETAILS[link.label]?.animationType ?? "eden",
+  action: "navigate",
+}));
 
 type AboutEdenMegaMenuProps = {
   onNavigate: (menuLinkLabel: string) => void;
@@ -180,6 +172,13 @@ export default function AboutEdenMegaMenu({
         onClose?.();
         return;
       }
+
+      if (item.href.startsWith("/about/")) {
+        window.location.assign(item.href);
+        onClose?.();
+        return;
+      }
+
       onNavigate(item.title);
       onClose?.();
     },

@@ -11,7 +11,8 @@ export type HeroEmojiAnimation =
   | "imagine"
   | "build"
   | "achieve"
-  | "blossom";
+  | "blossom"
+  | "flourish";
 
 export type HeroWordEmojiConfig = {
   emoji: string;
@@ -20,15 +21,16 @@ export type HeroWordEmojiConfig = {
 };
 
 const WORD_CONFIG: Record<string, HeroWordEmojiConfig> = {
-  grow: { emoji: "🌱", animation: "grow", label: "growth" },
+  grow: { emoji: "🌳", animation: "grow", label: "growth" },
   learn: { emoji: "📚", animation: "learn", label: "learning" },
   smile: { emoji: "☀️", animation: "smile", label: "happiness" },
-  thrive: { emoji: "✨", animation: "thrive", label: "thriving" },
+  thrive: { emoji: "🌱", animation: "grow", label: "thriving" },
   blossom: { emoji: "🌸", animation: "blossom", label: "blossoming" },
   communicate: { emoji: "💬", animation: "connect", label: "communication" },
   connect: { emoji: "🤝", animation: "connect", label: "connection" },
   play: { emoji: "🧸", animation: "play", label: "play" },
-  shine: { emoji: "🌟", animation: "shine", label: "shining" },
+  flourish: { emoji: "🌿", animation: "flourish", label: "flourishing" },
+  shine: { emoji: "✨", animation: "shine", label: "shining" },
   explore: { emoji: "🚀", animation: "explore", label: "exploration" },
   discover: { emoji: "🔍", animation: "discover", label: "discovery" },
   imagine: { emoji: "🎨", animation: "imagine", label: "imagination" },
@@ -44,6 +46,8 @@ const VI_WORD_ALIASES: Record<string, keyof typeof WORD_CONFIG> = {
   "giao tiếp": "communicate",
   "kết nối": "connect",
   "mỉm cười": "smile",
+  "thịnh vượng": "flourish",
+  "tỏa sáng": "shine",
 };
 
 const DEFAULT_CONFIG = WORD_CONFIG.smile;

@@ -10,6 +10,9 @@ import {
 type HeroDynamicEmojiProps = {
   word: string;
   prefersReducedMotion: boolean;
+  /** When true, parent handles enter/exit animation for word+emoji pair. */
+  animateWithParent?: boolean;
+  iconClassName?: string;
 };
 
 const TRANSITION_MS = 0.5;
@@ -21,6 +24,8 @@ function scheduleSpecialDelay() {
 export default function HeroDynamicEmoji({
   word,
   prefersReducedMotion,
+  animateWithParent = false,
+  iconClassName = "homepage-hero__emoji-glyph",
 }: HeroDynamicEmojiProps) {
   const systemReducedMotion = useReducedMotion();
   const reduceMotion = prefersReducedMotion || systemReducedMotion;
@@ -49,14 +54,38 @@ export default function HeroDynamicEmoji({
   const specialClass = specialActive ? " homepage-hero__emoji--special" : "";
   const hoverClass = isHovered && !reduceMotion ? " homepage-hero__emoji--hovered" : "";
 
+  const emojiContent = (
+    <span
+      className={`homepage-hero__emoji ${animationClass}${specialClass}${hoverClass}`}
+    >
+      <span className={iconClassName} aria-hidden="true">
+        {config.emoji}
+      </span>
+      <EmojiExtras animation={config.animation} specialActive={specialActive} />
+    </span>
+  );
+
   if (reduceMotion) {
     return (
-      <span
-        className={`homepage-hero__emoji ${animationClass}`}
-        aria-hidden="true"
-        title={config.label}
-      >
+      <span className={iconClassName} aria-hidden="true" title={config.label}>
         {config.emoji}
+      </span>
+    );
+  }
+
+  if (animateWithParent) {
+    return (
+      <span
+        className="homepage-hero__emoji-wrap homepage-hero__emoji-wrap--paired"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={() => setIsHovered(false)}
+        tabIndex={0}
+        role="img"
+        aria-label={`${config.label} symbol`}
+      >
+        {emojiContent}
       </span>
     );
   }
@@ -74,7 +103,7 @@ export default function HeroDynamicEmoji({
     >
       <AnimatePresence mode="wait">
         <motion.span
-          key={`${config.animation}-${config.emoji}`}
+          key={word}
           className={`homepage-hero__emoji ${animationClass}${specialClass}${hoverClass}`}
           initial={{ opacity: 0, scale: 0.72, y: 8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -107,7 +136,7 @@ function EmojiExtras({
         </>
       );
     }
-    if (animation === "thrive" || animation === "shine") {
+    if (animation === "thrive" || animation === "shine" || animation === "flourish") {
       return <span className="homepage-hero__emoji-spark homepage-hero__emoji-spark--ambient" />;
     }
     return null;
@@ -118,6 +147,7 @@ function EmojiExtras({
       return <span className="homepage-hero__emoji-wink" aria-hidden="true" />;
     case "grow":
     case "blossom":
+    case "flourish":
       return <span className="homepage-hero__emoji-sprout" aria-hidden="true" />;
     case "learn":
       return <span className="homepage-hero__emoji-page-flip" aria-hidden="true" />;
@@ -127,6 +157,7 @@ function EmojiExtras({
       return <span className="homepage-hero__emoji-trail" aria-hidden="true" />;
     case "thrive":
     case "shine":
+    case "flourish":
       return (
         <>
           <span className="homepage-hero__emoji-spark homepage-hero__emoji-spark--burst" />
