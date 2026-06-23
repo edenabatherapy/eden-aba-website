@@ -130,6 +130,13 @@ export async function POST(request: Request) {
     });
 
     if (!leadResult.ok) {
+      console.error("[start-aba-therapy] Supabase leads insert failed", {
+        reason: leadResult.reason,
+        message: leadResult.message,
+        code: leadResult.code,
+        details: leadResult.details,
+      });
+
       return NextResponse.json(
         { ok: false, message: "Unable to submit your request right now. Please try again later." },
         { status: 500 },

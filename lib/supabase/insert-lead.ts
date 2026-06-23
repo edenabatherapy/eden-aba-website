@@ -10,12 +10,26 @@ export type LeadSubmissionFields = {
   message?: string;
 };
 
+export type LeadInsertFailure = {
+  ok: false;
+  reason: "missing-config" | "insert-failed";
+  message?: string;
+  code?: string;
+  details?: string;
+};
+
+export type LeadInsertResult = { ok: true } | LeadInsertFailure;
+
 export async function insertLeadSubmission(
   submission: LeadSubmissionFields,
-): Promise<{ ok: true } | { ok: false }> {
+): Promise<LeadInsertResult> {
   const supabase = getSupabaseServerClient();
   if (!supabase) {
-    return { ok: false };
+    return {
+      ok: false,
+      reason: "missing-config",
+      message: "NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY is not configured.",
+    };
   }
 
   const { error } = await supabase.from("leads").insert({
@@ -29,7 +43,14 @@ export async function insertLeadSubmission(
   });
 
   if (error) {
-    return { ok: false };
+    console.error("[Supabase leads insert failed]", error);
+    return {
+      ok: false,
+      reason: "insert-failed",
+      message: error.message,
+      code: error.code,
+      details: error.details,
+    };
   }
 
   return { ok: true };
