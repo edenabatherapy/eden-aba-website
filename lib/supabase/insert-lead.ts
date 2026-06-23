@@ -22,6 +22,10 @@ export type LeadInsertFailure = {
 
 export type LeadInsertResult = { ok: true } | LeadInsertFailure;
 
+export function isLeadInsertFailure(result: LeadInsertResult): result is LeadInsertFailure {
+  return result.ok === false;
+}
+
 export async function insertLeadSubmission(
   submission: LeadSubmissionFields,
 ): Promise<LeadInsertResult> {

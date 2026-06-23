@@ -12,7 +12,7 @@ import {
 } from "@/lib/recaptcha/messages";
 import { shouldBypassRecaptchaVerificationOnServer } from "@/lib/recaptcha/config";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
-import { insertLeadSubmission } from "@/lib/supabase/insert-lead";
+import { insertLeadSubmission, isLeadInsertFailure } from "@/lib/supabase/insert-lead";
 
 function isNonEmpty(value: unknown) {
   return typeof value === "string" && value.trim().length > 0;
@@ -129,7 +129,7 @@ export async function POST(request: Request) {
       message: submission.message,
     });
 
-    if (leadResult.ok === false) {
+    if (isLeadInsertFailure(leadResult)) {
       console.error("[start-aba-therapy] Supabase leads insert failed", {
         reason: leadResult.reason,
         message: leadResult.message,
