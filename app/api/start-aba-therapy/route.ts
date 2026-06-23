@@ -10,6 +10,7 @@ import { storeIntakeSubmission } from "@/lib/intake/server/storage";
 import {
   START_ABA_THERAPY_RECAPTCHA_V2_INCOMPLETE,
 } from "@/lib/recaptcha/messages";
+import { shouldBypassRecaptchaVerificationOnServer } from "@/lib/recaptcha/config";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 
 function isNonEmpty(value: unknown) {
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
 
   const recaptchaToken = typeof body.recaptchaToken === "string" ? body.recaptchaToken : null;
 
-  if (!recaptchaToken && process.env.RECAPTCHA_SECRET_KEY?.trim()) {
+  if (!recaptchaToken && !shouldBypassRecaptchaVerificationOnServer() && process.env.RECAPTCHA_SECRET_KEY?.trim()) {
     return NextResponse.json(
       { ok: false, message: START_ABA_THERAPY_RECAPTCHA_V2_INCOMPLETE },
       { status: 400 },

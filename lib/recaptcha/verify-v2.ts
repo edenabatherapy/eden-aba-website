@@ -23,14 +23,14 @@ export async function verifyRecaptchaV2Token(
 ): Promise<RecaptchaV2VerifyResult> {
   logRecaptchaEnvInDevelopment();
 
+  if (shouldBypassRecaptchaVerificationOnServer()) {
+    logRecaptchaDev("server verification skipped (bypass or keys not fully configured)");
+    return { ok: true, skipped: true };
+  }
+
   const secret = getRecaptchaSecretKey();
 
   if (!isRecaptchaSecretKeyConfigured(secret)) {
-    if (shouldBypassRecaptchaVerificationOnServer()) {
-      logRecaptchaDev("server verification skipped (development, no RECAPTCHA_SECRET_KEY)");
-      return { ok: true, skipped: true };
-    }
-
     console.error("[recaptcha-v2] RECAPTCHA_SECRET_KEY is not configured");
     return {
       ok: false,

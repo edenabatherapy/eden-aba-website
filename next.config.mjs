@@ -3,7 +3,10 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY:
       process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY || "",
-    NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "",
+    NEXT_PUBLIC_RECAPTCHA_SITE_KEY:
+      process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.RECAPTCHA_SITE_KEY || "",
+    NEXT_PUBLIC_RECAPTCHA_BYPASS:
+      process.env.NEXT_PUBLIC_RECAPTCHA_BYPASS || process.env.RECAPTCHA_BYPASS || "",
   },
   async redirects() {
     return [

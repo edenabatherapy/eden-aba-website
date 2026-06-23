@@ -9,7 +9,11 @@ import {
   useRef,
   useState,
 } from "react";
-import { isRecaptchaMisconfiguredOnClient, isRecaptchaWidgetEnabled } from "@/lib/recaptcha/config";
+import {
+  isRecaptchaMisconfiguredOnClient,
+  isRecaptchaWidgetEnabled,
+  shouldBypassRecaptchaOnClient,
+} from "@/lib/recaptcha/config";
 import { logRecaptchaDev } from "@/lib/recaptcha/dev-log";
 import { getRecaptchaSiteKey } from "@/lib/recaptcha/client";
 import {
@@ -101,7 +105,7 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
     }
 
     if (!widgetEnabled) {
-      if (isDevelopment) {
+      if (isDevelopment && !shouldBypassRecaptchaOnClient()) {
         return (
           <p className={`text-xs text-amber-800 ${className}`} role="status">
             reCAPTCHA disabled — set NEXT_PUBLIC_RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY in
