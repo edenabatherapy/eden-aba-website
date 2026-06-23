@@ -9,12 +9,8 @@ import {
   getEdenMapLocation,
   getGoogleMapsPlaceUrl,
 } from "@/lib/eden-location";
-import {
-  EDEN_MAP_MARKER_URL,
-  GOOGLE_MAPS_DEV_WARNING,
-  getGoogleMapsApiKey,
-  hasGoogleMapsApiKey,
-} from "@/lib/google-maps-config";
+import { EDEN_MAP_MARKER_URL } from "@/lib/google-maps-config";
+import { useGoogleMapsApiKey } from "@/hooks/useGoogleMapsApiKey";
 import { loadGoogleMaps } from "@/lib/load-google-maps";
 import "./GoogleMapInteractive.css";
 
@@ -26,6 +22,23 @@ const MAP_TYPE_OPTIONS = [
   { id: "hybrid", labelKey: "hybridViewLabel", fallback: "Hybrid" },
 ];
 
+function normalizeMapTypeId(typeId) {
+  const value = String(typeId ?? "").toLowerCase();
+  if (value.includes("hybrid")) return "hybrid";
+  if (value.includes("satellite")) return "satellite";
+  return "roadmap";
+}
+
+function getUnavailableUserMessage(reason, mapT) {
+  if (reason === "missing-key") {
+    return mapT?.mapConfigMissing || "Map configuration is missing.";
+  }
+  if (reason === "load-failed") {
+    return mapT?.mapLoadFailed || "The map could not be loaded.";
+  }
+  return mapT?.mapUnavailable || "Interactive map is unavailable.";
+}
+
 function MapUnavailablePanel({
   t,
   location,
@@ -36,28 +49,25 @@ function MapUnavailablePanel({
   const mapT = t?.googleMap;
   const directionsUrl = getDirectionsUrl(location.address);
   const placeUrl = getGoogleMapsPlaceUrl(location.address);
+  const userMessage = getUnavailableUserMessage(reason, mapT);
   const isDev = process.env.NODE_ENV === "development";
 
   return (
     <div className={`eden-map-fallback ${className}`}>
-      {isDev ? (
-        <div className="eden-map-fallback-warning">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="mt-0.5 shrink-0 text-amber-600" size={18} aria-hidden />
-            <div>
-              <strong>
-                {reason === "load-failed"
-                  ? "Google Maps failed to load"
-                  : "Google Maps API key not configured"}
-              </strong>
-              <p>{mapT?.apiKeyNotice || GOOGLE_MAPS_DEV_WARNING}</p>
-              {errorMessage ? (
-                <p className="mt-2 font-mono text-[11px] leading-5 text-amber-900/90">{errorMessage}</p>
-              ) : null}
-            </div>
+      <div className="eden-map-fallback-warning" role="alert">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="mt-0.5 shrink-0 text-amber-600" size={18} aria-hidden />
+          <div>
+            <strong>{userMessage}</strong>
+            {isDev && reason === "missing-key" ? (
+              <p className="mt-2">{mapT?.apiKeyNotice || mapT?.devSetupNotice}</p>
+            ) : null}
+            {errorMessage && isDev ? (
+              <p className="mt-2 font-mono text-[11px] leading-5 text-amber-900/90">{errorMessage}</p>
+            ) : null}
           </div>
         </div>
-      ) : null}
+      </div>
 
       <div className="eden-map-fallback-body">
         <div className="eden-map-fallback-icon">
@@ -146,7 +156,7 @@ function createEdenMarkerIcon(maps) {
   };
 }
 
-function waitForTilesWithTimeout(map, mapsEvent, timeoutMs = 8000) {
+function waitForTiles(map, mapsEvent, timeoutMs = 12000) {
   return new Promise((resolve) => {
     let settled = false;
     const finish = (success) => {
@@ -161,10 +171,6 @@ function waitForTilesWithTimeout(map, mapsEvent, timeoutMs = 8000) {
       finish(false);
     }, timeoutMs);
   });
-}
-
-function waitForTiles(map, mapsEvent, timeoutMs = 8000) {
-  return waitForTilesWithTimeout(map, mapsEvent, timeoutMs);
 }
 
 /** @param {import("@/lib/google-maps-types").GoogleMapsRuntime | google.maps} maps */
@@ -183,6 +189,8 @@ function resolveMapTypeId(maps, typeId) {
  *   title?: string,
  *   className?: string,
  *   businessName?: string,
+ *   apiKey?: string,
+ *   userPosition?: { lat: number, lng: number } | null,
  * }} props
  */
 export default function GoogleMapInteractive({
@@ -191,28 +199,29 @@ export default function GoogleMapInteractive({
   title,
   className = MAP_CONTAINER_CLASS,
   businessName = EDEN_CLINIC_NAME,
+  apiKey: providedApiKey = "",
+  userPosition = null,
 }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const markerRef = useRef(null);
+  const userMarkerRef = useRef(null);
   const infoWindowRef = useRef(null);
+  const mapsRuntimeRef = useRef(null);
 
-  const apiKey = getGoogleMapsApiKey();
-  const hasApiKey = hasGoogleMapsApiKey();
+  const { apiKey, loading: keyLoading, configured: hasApiKey } = useGoogleMapsApiKey(providedApiKey);
   const mapTitle = title || t?.googleMap?.defaultTitle || "Eden ABA Therapy Google Map";
   const location = useMemo(() => getEdenMapLocation(address), [address]);
   const directionsLabel = t?.getDirections || "Get Directions";
   const directionsUrl = getDirectionsUrl(location.address);
   const placeUrl = getGoogleMapsPlaceUrl(location.address);
 
-  const [mapStatus, setMapStatus] = useState(hasApiKey ? "loading" : "unavailable");
+  const [mapStatus, setMapStatus] = useState("loading");
   const [unavailableReason, setUnavailableReason] = useState("missing-key");
   const [errorMessage, setErrorMessage] = useState("");
   const [mapTypeId, setMapTypeId] = useState("roadmap");
-  const [satelliteUnavailable, setSatelliteUnavailable] = useState(false);
-  const mapsRuntimeRef = useRef(null);
 
-  const handleMapTypeChange = useCallback(async (typeId) => {
+  const handleMapTypeChange = useCallback((typeId) => {
     const map = mapRef.current;
     const maps = mapsRuntimeRef.current ?? window.google?.maps;
     if (!map || !maps) return;
@@ -221,20 +230,11 @@ export default function GoogleMapInteractive({
     map.setMapTypeId(resolvedType);
     setMapTypeId(typeId);
     maps.event?.trigger(map, "resize");
-
-    if (typeId === "satellite" || typeId === "hybrid") {
-      const tilesLoaded = await waitForTilesWithTimeout(map, maps.event, 7000);
-      if (!tilesLoaded) {
-        setSatelliteUnavailable(true);
-        map.setMapTypeId(resolveMapTypeId(maps, "roadmap"));
-        setMapTypeId("roadmap");
-        return;
-      }
-      setSatelliteUnavailable(false);
-    }
   }, []);
 
   useEffect(() => {
+    if (keyLoading) return undefined;
+
     if (!hasApiKey) {
       setMapStatus("unavailable");
       setUnavailableReason("missing-key");
@@ -248,14 +248,11 @@ export default function GoogleMapInteractive({
 
     const handleAuthFailure = () => {
       if (cancelled) return;
-      const message =
-        "Google Maps authentication failed (RefererNotAllowedMapError, InvalidKeyMapError, or ApiNotActivatedMapError).";
-      setErrorMessage(message);
+      setErrorMessage(
+        "Google Maps authentication failed. Check API key, billing, enabled APIs, and HTTP referrer restrictions.",
+      );
       setUnavailableReason("load-failed");
       setMapStatus("unavailable");
-      if (process.env.NODE_ENV === "development") {
-        console.error("[GoogleMapInteractive]", message, GOOGLE_MAPS_DEV_WARNING);
-      }
     };
 
     const previousAuthFailure = window.gm_authFailure;
@@ -267,6 +264,7 @@ export default function GoogleMapInteractive({
 
     async function initMap() {
       try {
+        setMapStatus("loading");
         const maps = await loadGoogleMaps(apiKey);
         if (cancelled || !containerRef.current) return;
 
@@ -319,10 +317,7 @@ export default function GoogleMapInteractive({
         mapsRuntimeRef.current = maps;
 
         map.addListener("maptypeid_changed", () => {
-          const typeId = map.getMapTypeId();
-          if (typeof typeId === "string") {
-            setMapTypeId(typeId);
-          }
+          setMapTypeId(normalizeMapTypeId(map.getMapTypeId()));
         });
 
         resizeObserver = new ResizeObserver(() => {
@@ -339,16 +334,7 @@ export default function GoogleMapInteractive({
         if (maps.Geocoder) {
           const geocoder = new maps.Geocoder();
           geocoder.geocode({ address: location.address }, (results, status) => {
-            if (cancelled || status !== "OK" || !results?.[0]) {
-              if (process.env.NODE_ENV === "development" && status !== "OK") {
-                console.warn(
-                  "[GoogleMapInteractive] Geocoder status:",
-                  status,
-                  "— using default Annandale coordinates.",
-                );
-              }
-              return;
-            }
+            if (cancelled || status !== "OK" || !results?.[0]) return;
 
             const position = results[0].geometry.location;
             map.setCenter(position);
@@ -362,9 +348,6 @@ export default function GoogleMapInteractive({
         }
       } catch (error) {
         const message = error instanceof Error ? error.message : "Unknown Google Maps error";
-        if (process.env.NODE_ENV === "development") {
-          console.error("[GoogleMapInteractive] Map initialization failed:", error);
-        }
         if (!cancelled) {
           setErrorMessage(message);
           setUnavailableReason("load-failed");
@@ -399,9 +382,11 @@ export default function GoogleMapInteractive({
         window.google.maps.event.removeListener(idleListener);
       }
       infoWindowRef.current?.close();
+      userMarkerRef.current?.setMap(null);
       markerRef.current?.setMap(null);
       mapRef.current = null;
       markerRef.current = null;
+      userMarkerRef.current = null;
       infoWindowRef.current = null;
       mapsRuntimeRef.current = null;
 
@@ -409,7 +394,43 @@ export default function GoogleMapInteractive({
         containerRef.current.replaceChildren();
       }
     };
-  }, [apiKey, hasApiKey, address, businessName, directionsLabel, location]);
+  }, [apiKey, hasApiKey, keyLoading, address, businessName, directionsLabel, location]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    const maps = mapsRuntimeRef.current;
+    if (!map || !maps?.Marker || !userPosition) {
+      userMarkerRef.current?.setMap(null);
+      userMarkerRef.current = null;
+      return undefined;
+    }
+
+    const position = { lat: userPosition.lat, lng: userPosition.lng };
+
+    if (!userMarkerRef.current) {
+      userMarkerRef.current = new maps.Marker({
+        position,
+        map,
+        title: t?.googleMap?.yourLocationLabel || "Your location",
+      });
+    } else {
+      userMarkerRef.current.setPosition(position);
+      userMarkerRef.current.setMap(map);
+    }
+
+    return undefined;
+  }, [userPosition, t, mapStatus]);
+
+  if (keyLoading) {
+    return (
+      <div className={`eden-map-fallback ${className}`}>
+        <div className="eden-map-fallback-body">
+          <div className="eden-map-loading-spinner mx-auto" aria-hidden />
+          <p className="eden-map-loading-text mt-4">{t?.googleMap?.loadingLabel || "Loading map…"}</p>
+        </div>
+      </div>
+    );
+  }
 
   if (mapStatus === "unavailable" || !hasApiKey) {
     return (
@@ -440,36 +461,18 @@ export default function GoogleMapInteractive({
           role="group"
           aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
         >
-          {MAP_TYPE_OPTIONS.map((option) => {
-            const isSatelliteOption = option.id === "satellite" || option.id === "hybrid";
-            const disabled = isSatelliteOption && satelliteUnavailable;
-
-            return (
-              <button
-                key={option.id}
-                type="button"
-                onClick={() => handleMapTypeChange(option.id)}
-                className={mapTypeId === option.id ? "is-active" : undefined}
-                aria-pressed={mapTypeId === option.id}
-                disabled={disabled}
-                title={
-                  disabled
-                    ? t?.googleMap?.satelliteUnavailableNotice || "Satellite imagery unavailable"
-                    : undefined
-                }
-              >
-                {t?.googleMap?.[option.labelKey] || option.fallback}
-              </button>
-            );
-          })}
+          {MAP_TYPE_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => handleMapTypeChange(option.id)}
+              className={mapTypeId === option.id ? "is-active" : undefined}
+              aria-pressed={mapTypeId === option.id}
+            >
+              {t?.googleMap?.[option.labelKey] || option.fallback}
+            </button>
+          ))}
         </div>
-      ) : null}
-
-      {satelliteUnavailable && mapStatus === "ready" ? (
-        <p className="eden-map-satellite-notice" role="status">
-          {t?.googleMap?.satelliteUnavailableNotice ||
-            "Satellite imagery is temporarily unavailable. Showing standard map view."}
-        </p>
       ) : null}
 
       <div

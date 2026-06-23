@@ -45,7 +45,15 @@ import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getHeaderShellClasses } from "@/lib/header-brand";
 import Footer from "@/components/common/Footer";
-import GoogleMapInteractive from "@/components/GoogleMapInteractive";
+import dynamic from "next/dynamic";
+import LocationsSearchBar from "@/components/LocationsSearchBar";
+
+const GoogleMapInteractive = dynamic(() => import("@/components/GoogleMapInteractive"), {
+  ssr: false,
+  loading: () => (
+    <div className="eden-map-canvas w-full animate-pulse rounded-2xl bg-[#eef4f2]" aria-hidden="true" />
+  ),
+});
 import { getButtonClasses } from "@/lib/button-styles";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
@@ -684,6 +692,7 @@ function LocationsPage({ t, onStart }) {
   const pl = t.pages.locations;
   const ann = ld.annandale;
   const [distance, setDistance] = useState(ld.distanceOptions[2]);
+  const [userPosition, setUserPosition] = useState(null);
   const location = {
     name: ann.name,
     street: ann.street,
@@ -718,17 +727,7 @@ function LocationsPage({ t, onStart }) {
           </div>
 
           <div className="mt-8 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-xl shadow-[#128c8c]/10">
-            <div className="relative">
-              <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-[#1f7a2e]" size={22} />
-              <input
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 py-4 pl-14 pr-12 text-base font-bold text-slate-800 outline-none transition focus:border-[#128c8c] focus:bg-white focus:ring-4 focus:ring-[#49b8c8]/20"
-                placeholder={t.currentlyUsingLocation}
-                defaultValue=""
-              />
-              <button type="button" className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700">
-                <X size={22} />
-              </button>
-            </div>
+            <LocationsSearchBar t={t} onPositionChange={setUserPosition} />
 
             <div className="mt-6 flex flex-col justify-between gap-5 md:flex-row md:items-center">
               <div className="flex flex-wrap items-center gap-3">
@@ -777,6 +776,7 @@ function LocationsPage({ t, onStart }) {
               t={t}
               address={location.address}
               title={pl.annandaleMapTitle}
+              userPosition={userPosition}
             />
           ) : (
             <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
@@ -843,6 +843,7 @@ function LocationsPage({ t, onStart }) {
                 t={t}
                 address={location.address}
                 title={pl.annandaleMapTitle}
+                userPosition={userPosition}
               />
             </div>
           )}

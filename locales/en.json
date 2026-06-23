@@ -436,9 +436,21 @@
       "hybridViewLabel": "Hybrid",
       "mapTypeGroupLabel": "Map type",
       "loadingLabel": "Loading map…",
-      "apiKeyNotice": "For full interactive map controls (satellite view, Street View, zoom, and directions), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to .env.local and enable Maps JavaScript API in Google Cloud with billing enabled. Satellite imagery requires the JavaScript API — the basic embed does not support it. You can still open Eden ABA Therapy in Google Maps.",
+      "mapConfigMissing": "Map configuration is missing.",
+      "mapLoadFailed": "The map could not be loaded.",
+      "mapUnavailable": "Interactive map is unavailable.",
+      "apiKeyNotice": "For full interactive map controls (satellite view, Street View, zoom, and directions), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to Vercel environment variables and enable Maps JavaScript API in Google Cloud with billing enabled. Satellite imagery requires the JavaScript API — the basic embed does not support it. You can still open Eden ABA Therapy in Google Maps.",
       "openInGoogleMaps": "Open in Google Maps",
-      "satelliteUnavailableNotice": "Satellite imagery is temporarily unavailable. Showing standard map view."
+      "satelliteUnavailableNotice": "Satellite imagery is temporarily unavailable. Showing standard map view.",
+      "useMyLocation": "Use my location",
+      "locationLoading": "Locating…",
+      "locationDenied": "Location permission was denied.",
+      "locationUnsupported": "Location is not supported in this browser.",
+      "locationTimeout": "Location request timed out. Try again or search manually.",
+      "locationUnavailable": "Location is temporarily unavailable.",
+      "locationOptionalNotice": "Location is optional. You can browse the map and clinic details without sharing your location.",
+      "yourLocationLabel": "Your location",
+      "clearSearch": "Clear search"
     },
     "locationsDetail": {
       "breadcrumbPrefix": "Eden ABA Therapy /",
