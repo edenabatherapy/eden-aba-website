@@ -54,7 +54,8 @@ const SECTION_ICONS = {
  *   data: Record<string, unknown>,
  *   onChange: (name: string, value: unknown) => void,
  *   onOpenConsent: (id: string) => void,
- *   documentMeta: Record<string, { name?: string }>,
+ *   consentDashboard?: Record<string, string>,
+ *   fieldErrors?: Record<string, string>,
  * }} props
  */
 export default function StepContent({
@@ -67,6 +68,7 @@ export default function StepContent({
   intakeSteps = INTAKE_STEPS_EN,
   ui = {},
   consentDashboard = {},
+  fieldErrors = {},
 }) {
   const config = stepSections[step];
   if (!config) return null;
@@ -127,7 +129,13 @@ export default function StepContent({
               selectOptionLabel={ui.selectOption}
             />
             ))}
-            <ConsentDashboard data={data} onChange={onChange} onOpenConsent={onOpenConsent} consentDashboard={consentDashboard} />
+            <ConsentDashboard
+              data={data}
+              onChange={onChange}
+              onOpenConsent={onOpenConsent}
+              consentDashboard={consentDashboard}
+              fieldErrors={fieldErrors}
+            />
             {config.sections.slice(2).map((section, index) => (
               <SectionBlock
                 key={section.title}

@@ -12,13 +12,21 @@ import { fadeUp, staggerContainer, staggerItem } from "./intake-motion";
  *   onChange: (name: string, value: unknown) => void,
  *   onOpenConsent: (id: string) => void,
  *   consentDashboard?: Record<string, string>,
+ *   fieldErrors?: Record<string, string>,
  * }} props
  */
-export default function ConsentDashboard({ data, onChange, onOpenConsent, consentDashboard = {} }) {
+export default function ConsentDashboard({
+  data,
+  onChange,
+  onOpenConsent,
+  consentDashboard = {},
+  fieldErrors = {},
+}) {
   const cd = consentDashboard;
   const completedCount = CONSENT_DOCS.filter(
     (c) => data[`${c.id}Ack`] === "Yes" || data[`${c.id}Ack`] === true
   ).length;
+  const hasLegalErrors = LEGAL_GLOBAL_FIELDS.some((name) => fieldErrors[name]);
 
   return (
     <motion.div
@@ -93,13 +101,80 @@ export default function ConsentDashboard({ data, onChange, onOpenConsent, consen
         })}
       </motion.div>
 
-      <div className="border-t border-[#e4ece6] bg-[#fafcfb] px-6 py-5">
-        <IntakeField
-          field={{ name: "legalGlobalName", label: cd.legalName || "Parent / Guardian Full Name *", type: "text", required: true }}
-          value={data.legalGlobalName}
-          onChange={onChange}
-        />
+      <div
+        id="eden-legal-signature-section"
+        className={`border-t border-[#e4ece6] bg-[#fafcfb] px-6 py-5 ${hasLegalErrors ? "ring-2 ring-inset ring-red-200" : ""}`}
+      >
+        <h3 className="text-sm font-black uppercase tracking-[0.14em] text-[#08751f]">
+          {cd.legalSignatureTitle || "Legal Signature"}
+        </h3>
+        <p className="mt-2 text-sm leading-6 text-[#475467]">
+          {cd.legalSignatureHint ||
+            "Enter your full legal name, signature, and date to confirm the consent acknowledgments above."}
+        </p>
+
+        {hasLegalErrors ? (
+          <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-800" role="alert">
+            {cd.legalSignatureError ||
+              "Please complete the legal name, date, and signature before continuing or submitting."}
+          </p>
+        ) : null}
+
+        <div className="mt-5 grid gap-5 md:grid-cols-2">
+          <LegalField
+            field={{
+              name: "legalGlobalName",
+              label: cd.legalGlobalName || cd.legalName || "Parent / Guardian Full Name *",
+              type: "text",
+              required: true,
+              placeholder: "Type full legal name",
+            }}
+            value={data.legalGlobalName}
+            error={fieldErrors.legalGlobalName}
+            onChange={onChange}
+          />
+          <LegalField
+            field={{
+              name: "legalGlobalDate",
+              label: cd.legalGlobalDate || "Date *",
+              type: "date",
+              required: true,
+            }}
+            value={data.legalGlobalDate}
+            error={fieldErrors.legalGlobalDate}
+            onChange={onChange}
+          />
+          <div className="md:col-span-2">
+            <LegalField
+              field={{
+                name: "legalGlobalSignature",
+                label: cd.legalGlobalSignature || "Signature *",
+                type: "text",
+                required: true,
+                placeholder: "Type full legal name as signature",
+              }}
+              value={data.legalGlobalSignature}
+              error={fieldErrors.legalGlobalSignature}
+              onChange={onChange}
+            />
+          </div>
+        </div>
       </div>
     </motion.div>
+  );
+}
+
+const LEGAL_GLOBAL_FIELDS = ["legalGlobalName", "legalGlobalDate", "legalGlobalSignature"];
+
+function LegalField({ field, value, error, onChange }) {
+  return (
+    <div>
+      <IntakeField field={field} value={value} onChange={onChange} />
+      {error ? (
+        <p className="mt-1.5 text-xs font-semibold text-red-600" role="alert">
+          {error}
+        </p>
+      ) : null}
+    </div>
   );
 }

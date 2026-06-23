@@ -14,6 +14,11 @@ import {
 import { getIntakeForm } from "@/lib/i18n";
 import { exportPacketFile, importPacketFile, submitIntake } from "@/lib/intake/export";
 import {
+  applyLegalGlobalSideEffects,
+  ensureLegalGlobalFields,
+  getLegalGlobalFieldErrors,
+} from "@/lib/intake/legal-global";
+import {
   appendAudit,
   clearAllDrafts,
   loadActiveTab,
@@ -82,6 +87,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   const [mounted, setMounted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitResult, setSubmitResult] = useState(null);
+  const [fieldErrors, setFieldErrors] = useState({});
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -110,7 +116,11 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   const handleChange = useCallback(
     (name, value) => {
       setFormData((prev) => {
-        const next = { ...prev, [name]: value };
+        let next = { ...prev, [name]: value };
+
+        if (!(value instanceof File)) {
+          next = applyLegalGlobalSideEffects(next, name, value);
+        }
 
         if (value instanceof File) {
           if (value.size > MAX_FILE_SIZE) {
@@ -144,11 +154,20 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
           if (years >= 0 && years < 30) next.childAge = String(years);
         }
 
+        if (fieldErrors[name]) {
+          setFieldErrors((current) => {
+            if (!current[name]) return current;
+            const updated = { ...current };
+            delete updated[name];
+            return updated;
+          });
+        }
+
         persist(next, currentStep, activeTab, meta, "Field updated");
         return next;
       });
     },
-    [activeTab, currentStep, meta, persist]
+    [activeTab, currentStep, fieldErrors, meta, persist]
   );
 
   const handleTabChange = (tab) => {
@@ -166,7 +185,21 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   };
 
   const handleNext = async () => {
-    if (!validateStep(currentStep, formData, formRef.current)) return;
+    const validation = validateStep(currentStep, formData, formRef.current);
+    if (!validation.valid) {
+      if (validation.fieldErrors) {
+        setFieldErrors(validation.fieldErrors);
+        if (validation.errorStep === 2) {
+          document.getElementById("eden-legal-signature-section")?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }
+      return;
+    }
+
+    setFieldErrors({});
     persist(formData, currentStep, activeTab, meta, "Validated step");
 
     if (currentStep === 5) {
@@ -195,8 +228,37 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   };
 
   const handleFinalSubmit = async () => {
-    if (!validateStep(5, formData, formRef.current)) return;
-    persist(formData, currentStep, activeTab, meta, "Final validation");
+    const prepared = ensureLegalGlobalFields(formData);
+    if (prepared.legalGlobalDate !== formData.legalGlobalDate) {
+      setFormData(prepared);
+      persist(prepared, currentStep, activeTab, meta, "Legal date applied");
+    }
+
+    const legalErrors = getLegalGlobalFieldErrors(prepared, {
+      legalGlobalName: intakeForm.consentDashboard?.legalGlobalName,
+      legalGlobalDate: intakeForm.consentDashboard?.legalGlobalDate,
+      legalGlobalSignature: intakeForm.consentDashboard?.legalGlobalSignature,
+    });
+
+    if (Object.keys(legalErrors).length > 0) {
+      setFieldErrors(legalErrors);
+      setShowReview(false);
+      setCurrentStep(2);
+      setActiveTab("intake");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.getElementById("eden-legal-signature-section")?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      return;
+    }
+
+    setFieldErrors({});
+
+    const validation = validateStep(5, prepared, formRef.current);
+    if (!validation.valid) return;
+
+    persist(prepared, currentStep, activeTab, meta, "Final validation");
 
     if (!requireRecaptcha()) {
       setSubmitResult({
@@ -222,7 +284,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
       return;
     }
 
-    const result = await submitIntake(formData, meta, files, recaptcha.token);
+    const result = await submitIntake(prepared, meta, files, recaptcha.token);
 
     setSubmitting(false);
     releaseSubmitLock();
@@ -235,7 +297,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         message: result.message || p.submitSuccess,
       });
       resetRecaptcha();
-      persist(formData, currentStep, activeTab, meta, "Submitted to server");
+      persist(prepared, currentStep, activeTab, meta, "Submitted to server");
       return;
     }
 
@@ -323,7 +385,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
         <button type="button" onClick={() => { setShowReview(true); setActiveTab("intake"); }} className="rounded-full border border-[#9ccc9f] bg-white px-4 py-2 text-xs font-black text-[#08751f] shadow-sm transition hover:bg-[#f4faf6]">{advancedForm.reviewAll || "Review All"}</button>
-        <button type="button" onClick={() => exportPacketFile(formData, meta)} className="rounded-full border border-[#9ccc9f] bg-white px-4 py-2 text-xs font-black text-[#08751f] shadow-sm transition hover:bg-[#f4faf6]">{advancedForm.exportPacket || "Export Packet"}</button>
+        <button type="button" onClick={() => exportPacketFile(ensureLegalGlobalFields(formData), meta)} className="rounded-full border border-[#9ccc9f] bg-white px-4 py-2 text-xs font-black text-[#08751f] shadow-sm transition hover:bg-[#f4faf6]">{advancedForm.exportPacket || "Export Packet"}</button>
         <label className="cursor-pointer rounded-full border border-[#9ccc9f] bg-white px-4 py-2 text-xs font-black text-[#08751f] shadow-sm transition hover:bg-[#f4faf6]">
           {advancedForm.importBackup || "Import Backup"}
           <input type="file" accept="application/json" className="hidden" onChange={(e) => e.target.files?.[0] && handleImport(e.target.files[0])} />
@@ -391,6 +453,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         intakeSteps={intakeSteps}
         ui={ui}
         consentDashboard={intakeForm.consentDashboard}
+        fieldErrors={fieldErrors}
       />
       <div className="mt-8 flex flex-col gap-3 border-t border-[#e4ece6] pt-6 sm:flex-row sm:flex-wrap sm:justify-between">
         <button
@@ -509,7 +572,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
                 <ReviewPanel
                   data={formData}
                   onBack={() => setShowReview(false)}
-                  onExport={() => exportPacketFile(formData, meta)}
+                  onExport={() => exportPacketFile(ensureLegalGlobalFields(formData), meta)}
                   intakeSteps={intakeSteps}
                   stepSections={stepSections}
                   reviewPanel={reviewPanel}
