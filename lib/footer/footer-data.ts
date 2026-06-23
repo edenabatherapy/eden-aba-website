@@ -3,17 +3,6 @@ export type FooterLinkItem = {
   href: string;
 };
 
-export const FOOTER_CTA = {
-  title: "Ready to take the next step with Eden?",
-  subtitle:
-    "Connect with our team for ABA therapy, evaluations, school support, or family guidance.",
-  buttons: [
-    { label: "Start Intake", href: "/intake", variant: "primary" as const },
-    { label: "Contact Eden", href: "/contact", variant: "secondary" as const },
-    { label: "Explore Services", href: "/aba-therapy/what-is-aba-therapy", variant: "secondary" as const },
-  ],
-};
-
 export const FOOTER_MISSION =
   "Compassionate, evidence-informed ABA therapy and family support designed to help children build meaningful skills across home, school, and community.";
 

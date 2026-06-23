@@ -50,19 +50,6 @@
   width: 6rem;
 }
 
-.eden-footer-cta {
-  position: relative;
-  margin: 0 auto;
-  max-width: 72rem;
-  border-radius: 2rem 2rem 0 0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: none;
-  background:
-    radial-gradient(circle at top right, rgba(52, 211, 153, 0.18), transparent 42%),
-    linear-gradient(135deg, #064e3b 0%, #0f766e 48%, #14532d 100%);
-  box-shadow: 0 -20px 60px rgba(6, 78, 59, 0.25);
-}
-
 .eden-footer-link {
   position: relative;
   display: inline-flex;
