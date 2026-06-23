@@ -101,22 +101,31 @@ export async function POST(request: Request) {
     submittedAt,
   };
 
-  try {
-    const stored = await storeIntakeSubmission({
-      confirmationId,
-      intake: submission,
-      documentMeta: { source: "start-aba-therapy" },
-      files: [],
-    });
+  const isVercel = Boolean(process.env.VERCEL);
 
-    const summary = buildSummaryFromStartAbaTherapy(submission, stored.confirmationId, stored.submittedAt);
+  try {
+    let finalConfirmationId = confirmationId;
+    let finalSubmittedAt = submittedAt;
+
+    if (!isVercel) {
+      const stored = await storeIntakeSubmission({
+        confirmationId,
+        intake: submission,
+        documentMeta: { source: "start-aba-therapy" },
+        files: [],
+      });
+      finalConfirmationId = stored.confirmationId;
+      finalSubmittedAt = stored.submittedAt;
+    }
+
+    const summary = buildSummaryFromStartAbaTherapy(submission, finalConfirmationId, finalSubmittedAt);
     await deliverIntakeSubmission(summary, 0);
 
     return NextResponse.json({
       ok: true,
       success: true,
-      confirmationId: stored.confirmationId,
-      submittedAt: stored.submittedAt,
+      confirmationId: finalConfirmationId,
+      submittedAt: finalSubmittedAt,
       message: START_ABA_THERAPY_SUCCESS_MESSAGE,
     });
   } catch (error) {
