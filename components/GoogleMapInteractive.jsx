@@ -7,6 +7,7 @@ import {
   EDEN_CLINIC_NAME,
   getDirectionsUrl,
   getEdenMapLocation,
+  getGoogleMapsEmbedUrl,
   getGoogleMapsPlaceUrl,
 } from "@/lib/eden-location";
 import { EDEN_MAP_MARKER_URL } from "@/lib/google-maps-config";
@@ -214,6 +215,79 @@ function triggerMapResize(map, mapsEvent) {
   });
 }
 
+function MapEmbedView({
+  t,
+  location,
+  mapTitle,
+  shellClassName,
+  canvasClassName,
+  directionsUrl,
+  placeUrl,
+  directionsLabel,
+}) {
+  const [mapTypeId, setMapTypeId] = useState("roadmap");
+  const embedUrl = useMemo(
+    () => getGoogleMapsEmbedUrl(location.address, mapTypeId),
+    [location.address, mapTypeId],
+  );
+
+  useEffect(() => {
+    logInfo("Using Google Maps iframe embed (no JavaScript API key)", {
+      address: location.address,
+      mapTypeId,
+    });
+  }, [location.address, mapTypeId]);
+
+  return (
+    <div className={shellClassName}>
+      <div
+        className="eden-map-type-bar"
+        role="group"
+        aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
+      >
+        {MAP_TYPE_OPTIONS.map((option) => (
+          <button
+            key={option.id}
+            type="button"
+            onClick={() => setMapTypeId(option.id)}
+            className={mapTypeId === option.id ? "is-active" : undefined}
+            aria-pressed={mapTypeId === option.id}
+          >
+            {t?.googleMap?.[option.labelKey] || option.fallback}
+          </button>
+        ))}
+      </div>
+
+      <div className={`eden-map-embed-wrap ${canvasClassName}`}>
+        <iframe
+          title={mapTitle}
+          src={embedUrl}
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+          className="eden-map-embed"
+        />
+      </div>
+
+      <div className="eden-map-actions">
+        <a
+          href={placeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="eden-map-actions-open"
+        >
+          <ExternalLink size={16} aria-hidden />
+          {t?.googleMap?.openInGoogleMaps || "Open in Google Maps"}
+        </a>
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="eden-map-actions-directions">
+          <Navigation size={16} aria-hidden />
+          {directionsLabel}
+        </a>
+      </div>
+    </div>
+  );
+}
+
 /**
  * @param {{
  *   t?: object,
@@ -293,9 +367,7 @@ export default function GoogleMapInteractive({
     }
 
     if (!hasApiKey) {
-      logWarn("Maps API key is not configured");
-      setMapStatus("unavailable");
-      setUnavailableReason("missing-key");
+      logWarn("Maps API key is not configured — using iframe embed fallback");
       return undefined;
     }
 
@@ -312,7 +384,7 @@ export default function GoogleMapInteractive({
       logError(message);
       setErrorMessage(message);
       setUnavailableReason("load-failed");
-      setMapStatus("unavailable");
+      setMapStatus("embed-fallback");
     };
 
     const previousAuthFailure = window.gm_authFailure;
@@ -457,11 +529,11 @@ export default function GoogleMapInteractive({
         }
       } catch (error) {
         const message = error instanceof Error ? error.message : "Unknown Google Maps error";
-        logError("Map initialization failed", error);
+        logError("Map initialization failed — falling back to iframe embed", error);
         if (!cancelled) {
           setErrorMessage(message);
           setUnavailableReason("load-failed");
-          setMapStatus("unavailable");
+          setMapStatus("embed-fallback");
         }
       }
     }
@@ -564,14 +636,34 @@ export default function GoogleMapInteractive({
     );
   }
 
-  if (mapStatus === "unavailable" || !hasApiKey) {
+  const useEmbedFallback = !hasApiKey || mapStatus === "embed-fallback";
+
+  if (useEmbedFallback) {
     return (
-      <MapUnavailablePanel
+      <MapEmbedView
         t={t}
         location={location}
-        className={className}
-        reason={unavailableReason}
-        errorMessage={errorMessage}
+        mapTitle={mapTitle}
+        shellClassName={shellClassName}
+        canvasClassName={canvasClassName}
+        directionsUrl={directionsUrl}
+        placeUrl={placeUrl}
+        directionsLabel={directionsLabel}
+      />
+    );
+  }
+
+  if (mapStatus === "unavailable") {
+    return (
+      <MapEmbedView
+        t={t}
+        location={location}
+        mapTitle={mapTitle}
+        shellClassName={shellClassName}
+        canvasClassName={canvasClassName}
+        directionsUrl={directionsUrl}
+        placeUrl={placeUrl}
+        directionsLabel={directionsLabel}
       />
     );
   }
