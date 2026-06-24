@@ -916,7 +916,8 @@
   },
   "hero": {
     "line1": "A brighter path for",
-    "line2": "children to grow, learn,",
+    "line2a": "children to grow,",
+    "line2b": "learn,",
     "line3": "communicate, and",
     "rotatingItems": [
       {

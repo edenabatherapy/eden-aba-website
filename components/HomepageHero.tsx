@@ -250,7 +250,8 @@ export default function HomepageHero({ onStart, onFindCare, language }: Homepage
           <div className="eden-hero-copy">
             <h1 className="eden-hero-title">
               <span className="hero-line">{t.hero.line1}</span>
-              <span className="hero-line">{t.hero.line2}</span>
+              <span className="hero-line">{t.hero.line2a ?? t.hero.line2}</span>
+              {t.hero.line2b ? <span className="hero-line">{t.hero.line2b}</span> : null}
               <span className="hero-line hero-line-three">{t.hero.line3}</span>
               <span className="hero-line hero-line-four">
                 <span className="hero-rotate-row">
@@ -279,7 +280,8 @@ export default function HomepageHero({ onStart, onFindCare, language }: Homepage
                 </span>
               </span>
               <span className="sr-only">
-                {t.hero.line1} {t.hero.line2} {t.hero.line3} {staticHeadlineItem.word}
+                {t.hero.line1} {t.hero.line2a ?? t.hero.line2} {t.hero.line2b ?? ""} {t.hero.line3}{" "}
+                {staticHeadlineItem.word}
               </span>
             </h1>
 
