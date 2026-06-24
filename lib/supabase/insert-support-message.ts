@@ -1,24 +1,18 @@
-import { getSupabaseAdminClient } from "@/lib/supabase/server";
-
-export type SupportMessageInsertFields = {
-  parentName: string;
-  parentEmail: string;
-  parentPhone: string;
-  confirmationId: string;
-  subject: string;
-  message: string;
-  createdAt: string;
-  status?: string;
-};
+import { createClient } from "@supabase/supabase-js";
+import {
+  buildSupportMessageDbRow,
+  type SupportMessageApiRequest,
+} from "@/lib/intake/support-message-payload";
 
 export type SupportMessageInsertFailure = {
   ok: false;
-  reason: "missing-config" | "insert-failed";
+  reason: "missing-config" | "insert-failed" | "validation-failed";
   message?: string;
   code?: string;
   details?: string;
   hint?: string;
   confirmationId?: string;
+  payloadKeys?: string[];
 };
 
 export type SupportMessageInsertResult = { ok: true; id?: string } | SupportMessageInsertFailure;
@@ -29,45 +23,82 @@ export function isSupportMessageInsertFailure(
   return result.ok === false;
 }
 
+function createSupportMessagesServiceRoleClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+
+  if (!serviceRoleKey) {
+    throw new Error("Missing SUPABASE_SERVICE_ROLE_KEY");
+  }
+
+  if (!supabaseUrl) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL");
+  }
+
+  console.log("[support_messages] using service role client");
+
+  return createClient(supabaseUrl, serviceRoleKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+}
+
 export async function insertSupportMessage(
-  fields: SupportMessageInsertFields,
+  data: SupportMessageApiRequest,
+  status = "new",
 ): Promise<SupportMessageInsertResult> {
-  const row = {
-    parent_name: fields.parentName,
-    parent_email: fields.parentEmail,
-    parent_phone: fields.parentPhone,
-    confirmation_id: fields.confirmationId,
-    subject: fields.subject,
-    message: fields.message,
-    created_at: fields.createdAt,
-    status: fields.status ?? "new",
-  };
+  const row = buildSupportMessageDbRow(data, status);
+  const payloadKeys = Object.keys(row);
+
+  console.log("support message payload", row);
+
+  if (!row.subject) {
+    return {
+      ok: false,
+      reason: "validation-failed",
+      message: "subject is empty before insert",
+      confirmationId: data.confirmationId,
+    };
+  }
+
+  if (!row.message) {
+    return {
+      ok: false,
+      reason: "validation-failed",
+      message: "message is empty before insert",
+      confirmationId: data.confirmationId,
+      payloadKeys,
+    };
+  }
 
   let supabase;
   try {
-    supabase = getSupabaseAdminClient();
+    supabase = createSupportMessagesServiceRoleClient();
   } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
+    const configMessage = error instanceof Error ? error.message : String(error);
     console.error("[Supabase support_messages insert failed]", {
-      message,
+      message: configMessage,
       code: "missing-config",
       details: undefined,
       hint: "Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Vercel.",
-      confirmationId: fields.confirmationId,
+      confirmationId: data.confirmationId,
     });
 
     return {
       ok: false,
       reason: "missing-config",
-      message,
-      confirmationId: fields.confirmationId,
+      message: configMessage,
+      confirmationId: data.confirmationId,
+      payloadKeys,
     };
   }
 
-  const { data, error } = await supabase
+  const { data: inserted, error } = await supabase
     .from("support_messages")
     .insert(row)
-    .select("id")
+    .select("id, subject, message, status")
     .single();
 
   if (error) {
@@ -76,7 +107,7 @@ export async function insertSupportMessage(
       code: error.code,
       details: error.details,
       hint: error.hint,
-      confirmationId: fields.confirmationId,
+      confirmationId: data.confirmationId,
     });
 
     return {
@@ -86,15 +117,41 @@ export async function insertSupportMessage(
       code: error.code,
       details: error.details,
       hint: error.hint,
-      confirmationId: fields.confirmationId,
+      confirmationId: data.confirmationId,
+      payloadKeys,
+    };
+  }
+
+  const storedMessage = String(inserted?.message ?? "").trim();
+
+  if (!storedMessage) {
+    console.error("[Supabase support_messages insert failed]", {
+      message: "message column empty after insert — reload Supabase API schema cache",
+      code: "empty-message-column",
+      details: `sent message length ${row.message.length}`,
+      hint: "Supabase Dashboard → Settings → API → Reload schema",
+      confirmationId: data.confirmationId,
+      insertedId: inserted?.id,
+      storedSubject: inserted?.subject,
+    });
+
+    return {
+      ok: false,
+      reason: "insert-failed",
+      message: "message column was not persisted",
+      code: "empty-message-column",
+      confirmationId: data.confirmationId,
+      payloadKeys,
     };
   }
 
   console.info("[Supabase support_messages insert succeeded]", {
-    id: data?.id,
-    confirmationId: fields.confirmationId,
-    subject: fields.subject,
+    id: inserted?.id,
+    confirmationId: data.confirmationId,
+    subject: inserted?.subject,
+    messageLength: row.message.length,
+    storedMessageLength: storedMessage.length,
   });
 
-  return { ok: true, id: data?.id };
+  return { ok: true, id: inserted?.id };
 }

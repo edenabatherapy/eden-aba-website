@@ -11,12 +11,18 @@ export type SupportMessageEmailPayload = {
   message: string;
 };
 
+export type SupportEmailResult = {
+  sent: boolean;
+  skipped?: boolean;
+  reason?: string;
+};
+
 /**
  * Email intake support request to info@edenabatherapy.com via Resend.
  */
 export async function notifySupportTeamMessage(
   payload: SupportMessageEmailPayload,
-): Promise<{ sent: boolean; reason?: string }> {
+): Promise<SupportEmailResult> {
   const { resendApiKey, fromEmail } = getIntakeConfig();
 
   if (!resendApiKey) {
@@ -25,6 +31,7 @@ export async function notifySupportTeamMessage(
     });
     return {
       sent: false,
+      skipped: true,
       reason: "RESEND_API_KEY not configured — email notification skipped.",
     };
   }
@@ -67,18 +74,29 @@ export async function notifySupportTeamMessage(
       console.error("[support-message] staff email failed", {
         message: detail,
         code: String(response.status),
+        details: result,
         confirmationId: payload.confirmationId,
       });
       return { sent: false, reason: detail };
     }
+
+    console.info("[support-message] staff email sent", {
+      confirmationId: payload.confirmationId,
+      to: SUPPORT_TEAM_EMAIL,
+    });
 
     return { sent: true };
   } catch (error) {
     const detail = error instanceof Error ? error.message : "Unknown email error";
     console.error("[support-message] staff email exception", {
       message: detail,
+      stack: error instanceof Error ? error.stack : undefined,
       confirmationId: payload.confirmationId,
     });
     return { sent: false, reason: detail };
   }
+}
+
+export function isResendConfigured(): boolean {
+  return Boolean(getIntakeConfig().resendApiKey);
 }

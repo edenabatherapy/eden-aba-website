@@ -827,6 +827,10 @@
     "sendToSupport": "Gửi cho đội hỗ trợ",
     "sending": "Đang gửi…",
     "subjectRequired": "Tiêu đề là bắt buộc.",
-    "messageRequired": "Nội dung tin nhắn là bắt buộc."
+    "messageRequired": "Nội dung tin nhắn là bắt buộc.",
+    "viewMessagesHistory": "Xem lịch sử tin nhắn",
+    "messagesHistoryTitle": "Lịch sử tin nhắn",
+    "messagesHistoryEmpty": "Chưa có tin nhắn nào.",
+    "sent": "Đã gửi"
   }
 }

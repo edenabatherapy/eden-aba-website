@@ -471,7 +471,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     setMeta(nextMeta);
   };
 
-  const handleSendToSupport = async (subject, body) => {
+  const handleSendToSupport = async (subject, messageBody) => {
     const receipt = loadSubmissionReceipt();
     const confirmationId = submitResult?.confirmationId || receipt?.confirmationId || "";
     const parentName =
@@ -479,18 +479,22 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     const parentEmail = String(formData.email ?? "").trim();
     const parentPhone = String(formData.phone ?? "").trim();
 
+    const requestPayload = {
+      parentName,
+      parentEmail,
+      parentPhone,
+      confirmationId,
+      subject,
+      message: messageBody,
+    };
+
+    console.log("support message payload", requestPayload);
+
     try {
       const response = await fetch("/api/intake/support-message", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          parentName,
-          parentEmail,
-          parentPhone,
-          confirmationId,
-          subject,
-          message: body,
-        }),
+        body: JSON.stringify(requestPayload),
       });
 
       const result = await response.json().catch(() => ({}));
@@ -509,7 +513,10 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         message:
           result.message || "Unable to send message at this time. Your draft has been preserved.",
       };
-    } catch {
+    } catch (error) {
+      console.error("[support-message] client request failed", {
+        message: error instanceof Error ? error.message : String(error),
+      });
       return {
         ok: false,
         message: "Unable to send message at this time. Your draft has been preserved.",

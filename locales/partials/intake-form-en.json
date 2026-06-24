@@ -827,6 +827,10 @@
     "sendToSupport": "Send to Support Team",
     "sending": "Sending…",
     "subjectRequired": "Subject is required.",
-    "messageRequired": "Message is required."
+    "messageRequired": "Message is required.",
+    "viewMessagesHistory": "View Messages History",
+    "messagesHistoryTitle": "Messages History",
+    "messagesHistoryEmpty": "No messages yet.",
+    "sent": "Sent"
   }
 }

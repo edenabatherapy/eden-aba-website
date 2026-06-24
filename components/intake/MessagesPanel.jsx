@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Send } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
 import { INTAKE_EMAIL, INTAKE_PHONE } from "@/lib/intake/constants";
@@ -8,6 +8,7 @@ import { INTAKE_EMAIL, INTAKE_PHONE } from "@/lib/intake/constants";
 const SUCCESS_MESSAGE =
   "Your message has been sent successfully. A member of our support team will contact you shortly.";
 const FAILURE_MESSAGE = "Unable to send message at this time. Your draft has been preserved.";
+const SEND_COOLDOWN_MS = 3000;
 
 /**
  * @param {{
@@ -27,12 +28,46 @@ export default function MessagesPanel({
   onSendToSupport,
   labels = {},
 }) {
+  const historyRef = useRef(null);
+  const cooldownTimerRef = useRef(null);
+
   const [subject, setSubject] = useState(String(data.portalMsgSubject ?? ""));
   const [body, setBody] = useState(String(data.portalMsgBody ?? ""));
   const [subjectError, setSubjectError] = useState("");
   const [bodyError, setBodyError] = useState("");
   const [sending, setSending] = useState(false);
+  const [sendCooldown, setSendCooldown] = useState(false);
   const [banner, setBanner] = useState(null);
+
+  useEffect(() => {
+    return () => {
+      if (cooldownTimerRef.current) {
+        window.clearTimeout(cooldownTimerRef.current);
+      }
+    };
+  }, []);
+
+  const clearComposeFields = () => {
+    setSubject("");
+    setBody("");
+    onChange("portalMsgSubject", "");
+    onChange("portalMsgBody", "");
+  };
+
+  const startSendCooldown = () => {
+    setSendCooldown(true);
+    if (cooldownTimerRef.current) {
+      window.clearTimeout(cooldownTimerRef.current);
+    }
+    cooldownTimerRef.current = window.setTimeout(() => {
+      setSendCooldown(false);
+      cooldownTimerRef.current = null;
+    }, SEND_COOLDOWN_MS);
+  };
+
+  const scrollToHistory = () => {
+    historyRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const validateFields = () => {
     const nextSubjectError = subject.trim() ? "" : labels.subjectRequired || "Subject is required.";
@@ -46,13 +81,19 @@ export default function MessagesPanel({
     setBanner(null);
     if (!validateFields()) return;
 
+    const sentSubject = subject.trim();
+    const sentBody = body.trim();
+
     setSending(true);
     try {
-      const result = await onSendToSupport(subject.trim(), body.trim());
+      const result = await onSendToSupport(sentSubject, sentBody);
       if (result.ok) {
-        setBanner({ type: "success", message: result.message || SUCCESS_MESSAGE });
+        onSaveMessage(sentSubject, sentBody);
+        clearComposeFields();
         setSubjectError("");
         setBodyError("");
+        setBanner({ type: "success", message: result.message || SUCCESS_MESSAGE });
+        startSendCooldown();
       } else {
         setBanner({ type: "error", message: result.message || FAILURE_MESSAGE });
       }
@@ -69,6 +110,8 @@ export default function MessagesPanel({
         ? "border-[#f04438] focus:border-[#f04438] focus:ring-[#f04438]/15"
         : "border-[#cfd8d3] focus:border-[#128c8c] focus:ring-[#49b8c8]/20"
     }`;
+
+  const sendDisabled = sending || sendCooldown;
 
   return (
     <div className="space-y-5">
@@ -91,8 +134,18 @@ export default function MessagesPanel({
                 ? "border-[#b8ddbf] bg-[#f1faf3] text-[#06461f]"
                 : "border-[#f5b5ad] bg-[#fff5f4] text-[#b42318]"
             }`}
+            role={banner.type === "success" ? "status" : "alert"}
           >
-            {banner.message}
+            <p>{banner.message}</p>
+            {banner.type === "success" ? (
+              <button
+                type="button"
+                onClick={scrollToHistory}
+                className="mt-2 text-sm font-extrabold text-[#08751f] underline underline-offset-2 transition hover:text-[#006d19]"
+              >
+                {labels.viewMessagesHistory || "View Messages History"}
+              </button>
+            ) : null}
           </div>
         ) : null}
 
@@ -115,6 +168,7 @@ export default function MessagesPanel({
           <label className="grid gap-2 text-sm font-bold">
             Message
             <textarea
+              name="portalMsgBody"
               value={body}
               onChange={(e) => {
                 setBody(e.target.value);
@@ -138,11 +192,15 @@ export default function MessagesPanel({
             <button
               type="button"
               onClick={handleSend}
-              disabled={sending}
+              disabled={sendDisabled}
               className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-b from-[#168f30] to-[#006d19] px-6 py-3 text-sm font-extrabold text-white shadow-md transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Send size={16} aria-hidden />
-              {sending ? labels.sending || "Sending…" : labels.sendToSupport || "Send to Support Team"}
+              {sending
+                ? labels.sending || "Sending…"
+                : sendCooldown
+                  ? labels.sent || "Sent"
+                  : labels.sendToSupport || "Send to Support Team"}
             </button>
           </div>
         </div>
@@ -157,10 +215,18 @@ export default function MessagesPanel({
         </p>
       </div>
 
-      <div className="rounded-2xl border border-[#dfe8e2] bg-white p-6 shadow-lg">
-        <h2 className="text-xl font-black text-[#06461f]">Saved Messages</h2>
+      <div
+        id="eden-messages-history"
+        ref={historyRef}
+        className="rounded-2xl border border-[#dfe8e2] bg-white p-6 shadow-lg scroll-mt-24"
+      >
+        <h2 className="text-xl font-black text-[#06461f]">
+          {labels.messagesHistoryTitle || "Messages History"}
+        </h2>
         {(meta.messages || []).length === 0 ? (
-          <p className="mt-3 text-sm text-[#667085]">No saved messages yet.</p>
+          <p className="mt-3 text-sm text-[#667085]">
+            {labels.messagesHistoryEmpty || "No messages yet."}
+          </p>
         ) : (
           <div className="mt-4 space-y-3">
             {(meta.messages || []).map((m, i) => (
