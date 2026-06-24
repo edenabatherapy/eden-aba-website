@@ -45,15 +45,8 @@ import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getHeaderShellClasses } from "@/lib/header-brand";
 import Footer from "@/components/common/Footer";
-import dynamic from "next/dynamic";
+import LocationsMapEmbed from "@/components/LocationsMapEmbed";
 import LocationsSearchBar from "@/components/LocationsSearchBar";
-
-const GoogleMapInteractive = dynamic(() => import("@/components/GoogleMapInteractive"), {
-  ssr: false,
-  loading: () => (
-    <div className="eden-map-canvas w-full animate-pulse rounded-2xl bg-[#eef4f2]" aria-hidden="true" />
-  ),
-});
 import { getButtonClasses } from "@/lib/button-styles";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
@@ -772,11 +765,10 @@ function LocationsPage({ t, onStart }) {
       <section className="bg-[#f7f7f7] px-4 py-14 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {view === "map" ? (
-            <GoogleMapInteractive
+            <LocationsMapEmbed
               t={t}
               address={location.address}
               title={pl.annandaleMapTitle}
-              userPosition={userPosition}
               variant="fullpage"
               className="eden-map-canvas eden-map-canvas--fullpage"
             />
@@ -841,11 +833,10 @@ function LocationsPage({ t, onStart }) {
                 </div>
               </article>
 
-              <GoogleMapInteractive
+              <LocationsMapEmbed
                 t={t}
                 address={location.address}
                 title={pl.annandaleMapTitle}
-                userPosition={userPosition}
                 className="eden-map-canvas eden-map-canvas--compact"
               />
             </div>
