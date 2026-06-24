@@ -2,105 +2,96 @@
 
 import { useMemo, useState } from "react";
 import { ExternalLink, Navigation } from "lucide-react";
-import {
-  getDirectionsUrl,
-  getEdenMapLocation,
-  getGoogleMapsEmbedUrl,
-  getGoogleMapsPlaceUrl,
-} from "@/lib/eden-location";
-import "./GoogleMapInteractive.css";
+import "./LocationsMapEmbed.css";
+
+const LOCATION_QUERY = "7700+Little+River+Turnpike+Suite+304+Annandale+VA+22003";
+
+const MAP_EMBED_URL = `https://www.google.com/maps?q=${LOCATION_QUERY}&output=embed`;
+
+const OPEN_IN_GOOGLE_MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=7700+Little+River+Turnpike+Suite+304+Annandale+VA+22003";
+
+const GET_DIRECTIONS_URL =
+  "https://www.google.com/maps/dir/?api=1&destination=7700+Little+River+Turnpike+Suite+304+Annandale+VA+22003";
 
 const MAP_TYPE_OPTIONS = [
   { id: "roadmap", labelKey: "mapViewLabel", fallback: "Standard Map" },
   { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite View" },
 ];
 
+function buildEmbedUrl(mapType) {
+  if (mapType === "satellite") {
+    return `https://www.google.com/maps?q=${LOCATION_QUERY}&t=k&output=embed`;
+  }
+  return MAP_EMBED_URL;
+}
+
 /**
- * Locations page map — Google Maps iframe embed only (no JavaScript API key).
+ * Locations page map — iframe embed only. No Google Maps JavaScript API or API keys.
  *
  * @param {{
  *   t?: object,
- *   address?: string,
  *   title?: string,
- *   className?: string,
  *   variant?: "default" | "fullpage",
  * }} props
  */
 export default function LocationsMapEmbed({
   t,
-  address,
-  title,
-  className = "eden-map-canvas",
+  title = "Eden ABA Therapy - Annandale",
   variant = "default",
 }) {
   const [mapTypeId, setMapTypeId] = useState("roadmap");
-  const location = useMemo(() => getEdenMapLocation(address), [address]);
-  const mapTitle = title || t?.googleMap?.defaultTitle || "Eden ABA Therapy - Annandale";
+  const embedUrl = useMemo(() => buildEmbedUrl(mapTypeId), [mapTypeId]);
   const directionsLabel = t?.getDirections || "Get Directions";
-  const directionsUrl = getDirectionsUrl(location.address);
-  const placeUrl = getGoogleMapsPlaceUrl(location.address);
-  const embedUrl = useMemo(
-    () => getGoogleMapsEmbedUrl(location.address, mapTypeId),
-    [location.address, mapTypeId],
-  );
-
-  const shellClassName =
-    variant === "fullpage" ? "eden-map-shell eden-map-shell--fullpage" : "eden-map-shell";
-  const canvasClassName = [
-    className,
-    variant === "fullpage" ? "eden-map-canvas--fullpage" : "",
-    "w-full",
-    "bg-[#eef4f2]",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const cardClassName =
+    variant === "fullpage" ? "locations-map-card locations-map-card--fullpage" : "locations-map-card";
 
   return (
-    <div className={shellClassName}>
-      <div
-        className="eden-map-type-bar"
-        role="group"
-        aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
-      >
-        {MAP_TYPE_OPTIONS.map((option) => (
-          <button
-            key={option.id}
-            type="button"
-            onClick={() => setMapTypeId(option.id)}
-            className={mapTypeId === option.id ? "is-active" : undefined}
-            aria-pressed={mapTypeId === option.id}
-          >
-            {t?.googleMap?.[option.labelKey] || option.fallback}
-          </button>
-        ))}
-      </div>
+    <div className={cardClassName}>
+      <div className="locations-map-frame">
+        <div
+          className="locations-map-type-bar"
+          role="group"
+          aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
+        >
+          {MAP_TYPE_OPTIONS.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              onClick={() => setMapTypeId(option.id)}
+              className={mapTypeId === option.id ? "is-active" : undefined}
+              aria-pressed={mapTypeId === option.id}
+            >
+              {t?.googleMap?.[option.labelKey] || option.fallback}
+            </button>
+          ))}
+        </div>
 
-      <div className={`eden-map-embed-wrap ${canvasClassName}`}>
         <iframe
-          title={mapTitle}
+          title={title}
           src={embedUrl}
           loading="lazy"
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
-          className="eden-map-embed"
+          className="locations-map-iframe"
         />
       </div>
 
-      <div className="eden-map-actions">
+      <div className="locations-map-actions">
         <a
-          href={placeUrl}
+          href={OPEN_IN_GOOGLE_MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="eden-map-actions-open"
+          className="locations-map-actions-open"
         >
           <ExternalLink size={16} aria-hidden />
           {t?.googleMap?.openInGoogleMaps || "Open in Google Maps"}
         </a>
         <a
-          href={directionsUrl}
+          href={GET_DIRECTIONS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="eden-map-actions-directions"
+          className="locations-map-actions-directions"
         >
           <Navigation size={16} aria-hidden />
           {directionsLabel}

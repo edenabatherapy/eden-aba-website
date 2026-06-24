@@ -765,13 +765,7 @@ function LocationsPage({ t, onStart }) {
       <section className="bg-[#f7f7f7] px-4 py-14 lg:px-8">
         <div className="mx-auto max-w-7xl">
           {view === "map" ? (
-            <LocationsMapEmbed
-              t={t}
-              address={location.address}
-              title={pl.annandaleMapTitle}
-              variant="fullpage"
-              className="eden-map-canvas eden-map-canvas--fullpage"
-            />
+            <LocationsMapEmbed t={t} title={pl.annandaleMapTitle} variant="fullpage" />
           ) : (
             <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
               <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-900/5">
@@ -833,12 +827,7 @@ function LocationsPage({ t, onStart }) {
                 </div>
               </article>
 
-              <LocationsMapEmbed
-                t={t}
-                address={location.address}
-                title={pl.annandaleMapTitle}
-                className="eden-map-canvas eden-map-canvas--compact"
-              />
+              <LocationsMapEmbed t={t} title={pl.annandaleMapTitle} />
             </div>
           )}
         </div>
