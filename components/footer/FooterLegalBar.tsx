@@ -7,7 +7,7 @@ export default function FooterLegalBar() {
   return (
     <nav
       aria-label="Legal"
-      className="flex flex-wrap gap-x-6 gap-y-3 border-b border-white/10 py-6 text-sm font-bold"
+      className="flex flex-wrap gap-x-5 gap-y-2 border-b border-white/10 py-4 text-sm font-bold"
     >
       {FOOTER_LEGAL_LINKS.map((link) => (
         <Link key={link.label} href={link.href} className="eden-footer-link">

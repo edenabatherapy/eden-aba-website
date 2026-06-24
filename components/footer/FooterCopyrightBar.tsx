@@ -10,7 +10,7 @@ export default function FooterCopyrightBar({ brandName }: FooterCopyrightBarProp
   const year = new Date().getFullYear();
 
   return (
-    <div className="flex flex-col gap-3 py-6 text-sm text-emerald-100/80 md:flex-row md:items-center md:justify-between">
+    <div className="flex flex-col gap-2 py-4 text-sm text-emerald-100/80 md:flex-row md:items-center md:justify-between">
       <p>
         © {year} {brandName.toUpperCase()}. All Rights Reserved.
       </p>

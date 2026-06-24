@@ -6,13 +6,6 @@ export type FooterLinkItem = {
 export const FOOTER_MISSION =
   "Compassionate, evidence-informed ABA therapy and family support designed to help children build meaningful skills across home, school, and community.";
 
-export const FOOTER_TRUST_BADGES = [
-  "Family-centered",
-  "Evidence-informed",
-  "Accessibility-minded",
-  "Privacy-conscious",
-] as const;
-
 export const FOOTER_SERVICE_LINKS: FooterLinkItem[] = [
   { label: "ABA Therapy", href: "/aba-therapy/what-is-aba-therapy" },
   { label: "School-Based ABA Therapy", href: "/services/school-based-aba-therapy" },
@@ -40,12 +33,6 @@ export const FOOTER_CAREER_LINKS: FooterLinkItem[] = [
   { label: "Benefits & Compensation", href: "/careers/benefits-compensation" },
   { label: "Life at Eden", href: "/careers/life-at-eden" },
   { label: "Career Growth Pathways", href: "/careers/career-growth-pathways" },
-];
-
-export const FOOTER_CONTACT_LINKS: FooterLinkItem[] = [
-  { label: "Contact Eden", href: "/contact" },
-  { label: "Start Intake", href: "/intake" },
-  { label: "Request Consultation", href: "/schedule-appointment" },
 ];
 
 export const FOOTER_COMPLIANCE = {

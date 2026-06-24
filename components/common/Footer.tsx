@@ -14,7 +14,7 @@ export default function Footer() {
   const t = getTranslation(language);
 
   return (
-    <footer className="eden-footer bg-gradient-to-br from-[#021f1c] via-[#032f2b] to-[#0b4f4f] px-4 pt-10 md:pt-12 lg:px-8 lg:pt-14">
+    <footer className="eden-footer bg-gradient-to-br from-[#021f1c] via-[#032f2b] to-[#0b4f4f] px-4 pt-8 md:pt-9 lg:px-8 lg:pt-10">
       <FooterSchema />
       <div aria-hidden="true" className="eden-footer__glow eden-footer__glow--left" />
       <div aria-hidden="true" className="eden-footer__glow eden-footer__glow--right" />
@@ -26,7 +26,6 @@ export default function Footer() {
           brandName={t.brandName}
           phone={t.edenBusinessInfo.phone}
           email={t.pages.footer.contact.email}
-          startIntakeLabel={t.startABA}
         />
         <FooterCompliancePanel />
         <FooterLegalBar />
