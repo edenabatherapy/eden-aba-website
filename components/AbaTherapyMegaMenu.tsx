@@ -111,38 +111,40 @@ export default function AbaTherapyMegaMenu({
   const isMobile = variant === "mobile";
 
   return (
-    <div className={`aba-mega-menu${isMobile ? " aba-mega-menu--mobile" : ""}`}>
+    <div className={`aba-mega-menu aba-mega-menu--services${isMobile ? " aba-mega-menu--mobile" : ""}`}>
       <div className="aba-menu-left">
         <p className="mega-menu-label">{servicesLabel}</p>
 
-        {servicesMegaMenuItems.map((item) => {
-          const displayTitle = getDisplayTitle(item);
-          const isActive = activeAbaItem.title === item.title;
+        <div className="aba-menu-left__items">
+          {servicesMegaMenuItems.map((item) => {
+            const displayTitle = getDisplayTitle(item);
+            const isActive = activeAbaItem.title === item.title;
 
-          return (
-            <button
-              key={item.title}
-              type="button"
-              className={`aba-menu-item${isActive ? " active" : ""}${item.comingSoon ? " aba-menu-item--disabled" : ""}`}
-              onMouseEnter={() => setActiveAbaItem(item)}
-              onFocus={() => setActiveAbaItem(item)}
-              onClick={() => handleSelect(item)}
-              aria-current={isActive ? "true" : undefined}
-              aria-disabled={item.comingSoon ? true : undefined}
-            >
-              <span>
-                {displayTitle}
-                {item.comingSoon ? (
-                  <small className="coming-soon-badge">{comingSoonBadge}</small>
-                ) : null}
-              </span>
+            return (
+              <button
+                key={item.title}
+                type="button"
+                className={`aba-menu-item${isActive ? " active" : ""}${item.comingSoon ? " aba-menu-item--disabled" : ""}`}
+                onMouseEnter={() => setActiveAbaItem(item)}
+                onFocus={() => setActiveAbaItem(item)}
+                onClick={() => handleSelect(item)}
+                aria-current={isActive ? "true" : undefined}
+                aria-disabled={item.comingSoon ? true : undefined}
+              >
+                <span className="aba-menu-item__label">
+                  <span className="aba-menu-item__title">{displayTitle}</span>
+                  {item.comingSoon ? (
+                    <small className="coming-soon-badge">{comingSoonBadge}</small>
+                  ) : null}
+                </span>
 
-              <span className="menu-arrow" aria-hidden="true">
-                →
-              </span>
-            </button>
-          );
-        })}
+                <span className="menu-arrow" aria-hidden="true">
+                  →
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {!isMobile ? (
