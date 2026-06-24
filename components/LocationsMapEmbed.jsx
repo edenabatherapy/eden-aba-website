@@ -19,6 +19,28 @@ const MAP_TYPE_OPTIONS = [
   { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite View" },
 ];
 
+const SIDEBAR_CARD_STYLE = {
+  height: "auto",
+  minHeight: "unset",
+  alignSelf: "flex-start",
+};
+
+const SIDEBAR_FRAME_STYLE = {
+  height: "auto",
+  minHeight: "unset",
+};
+
+const SIDEBAR_IFRAME_STYLE = {
+  height: "520px",
+  width: "100%",
+  display: "block",
+};
+
+const ACTIONS_STYLE = {
+  marginTop: "16px",
+  paddingBottom: 0,
+};
+
 function buildEmbedUrl(mapType) {
   if (mapType === "satellite") {
     return `https://www.google.com/maps?q=${LOCATION_QUERY}&t=k&output=embed`;
@@ -28,6 +50,7 @@ function buildEmbedUrl(mapType) {
 
 /**
  * Locations page map — iframe embed only. No Google Maps JavaScript API or API keys.
+ * Rendered from LocationsPage in app/page.js (/locations rewrites to /).
  *
  * @param {{
  *   t?: object,
@@ -43,12 +66,21 @@ export default function LocationsMapEmbed({
   const [mapTypeId, setMapTypeId] = useState("roadmap");
   const embedUrl = useMemo(() => buildEmbedUrl(mapTypeId), [mapTypeId]);
   const directionsLabel = t?.getDirections || "Get Directions";
-  const cardClassName =
-    variant === "fullpage" ? "locations-map-card locations-map-card--fullpage" : "locations-map-card";
+  const isFullpage = variant === "fullpage";
+  const cardClassName = isFullpage
+    ? "locations-map-card locations-map-card--fullpage"
+    : "locations-map-card locations-map-card--sidebar";
 
   return (
-    <div className={cardClassName}>
-      <div className="locations-map-frame">
+    <div
+      className={cardClassName}
+      data-locations-map-panel="true"
+      style={isFullpage ? undefined : SIDEBAR_CARD_STYLE}
+    >
+      <div
+        className="locations-map-frame"
+        style={isFullpage ? undefined : SIDEBAR_FRAME_STYLE}
+      >
         <div
           className="locations-map-type-bar"
           role="group"
@@ -74,10 +106,11 @@ export default function LocationsMapEmbed({
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
           className="locations-map-iframe"
+          style={isFullpage ? undefined : SIDEBAR_IFRAME_STYLE}
         />
       </div>
 
-      <div className="locations-map-actions">
+      <div className="locations-map-actions" style={ACTIONS_STYLE}>
         <a
           href={OPEN_IN_GOOGLE_MAPS_URL}
           target="_blank"
