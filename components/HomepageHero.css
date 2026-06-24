@@ -66,15 +66,15 @@
 
 @media (min-width: 1025px) {
   .hero-container {
-    grid-template-columns: minmax(0, 680px) minmax(0, 1fr);
-    column-gap: 5rem;
+    grid-template-columns: minmax(0, 620px) minmax(0, 1fr);
+    column-gap: 6rem;
     row-gap: 0;
     align-items: center;
   }
 }
 
 .eden-hero-copy {
-  max-width: 680px;
+  max-width: 620px;
   min-width: 0;
   width: 100%;
   position: relative;
@@ -87,41 +87,53 @@
 @media (min-width: 1025px) {
   .eden-hero-copy {
     margin: 0;
-    max-width: 680px;
+    max-width: 620px;
     width: 100%;
     text-align: left;
     justify-self: start;
+    overflow-wrap: break-word;
+  }
+
+  .eden-hero-copy h1,
+  .eden-hero-title {
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .eden-hero-title {
     margin: 0;
-    max-width: 680px;
+    max-width: 620px;
     width: 100%;
     text-align: left;
-    font-size: clamp(2.75rem, 3.4vw, 4.5rem);
+    font-size: clamp(2.5rem, 3.1vw, 4.25rem);
   }
 
   .hero-line {
     white-space: normal;
     overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
   }
 
   .hero-rotate-row {
     justify-content: flex-start;
+    max-width: 100%;
   }
 
   .homepage-hero__subtitle {
     margin-left: 0;
     margin-right: auto;
+    max-width: 620px;
   }
 
   .homepage-hero__finder-wrap {
     margin-left: 0;
     margin-right: auto;
+    max-width: 620px;
   }
 
   .eden-hero-visual {
-    margin-left: 48px;
+    margin-left: 32px;
     justify-self: stretch;
   }
 }
@@ -133,7 +145,7 @@
 }
 
 .eden-hero-title {
-  max-width: 680px;
+  max-width: 620px;
   margin: 0 auto;
   text-align: center;
   color: #064633;
