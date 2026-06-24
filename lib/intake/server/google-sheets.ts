@@ -50,6 +50,11 @@ export type GoogleSheetsAppendResult =
   | { ok: false; error: string };
 
 async function appendSheetsDeliveryLog(entry: Record<string, unknown>) {
+  if (process.env.VERCEL) {
+    console.info("[intake-sheets] delivery log (skipped local file on Vercel)", entry);
+    return;
+  }
+
   const { storagePath } = getIntakeConfig();
   const logPath = path.resolve(cwd(), storagePath, "_sheets_delivery.jsonl");
   await mkdir(path.dirname(logPath), { recursive: true });

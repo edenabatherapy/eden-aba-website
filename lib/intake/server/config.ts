@@ -30,6 +30,10 @@ export function getIntakeConfig() {
 }
 
 export function assertIntakeBackendReady() {
+  if (isVercelDeployment()) {
+    return;
+  }
+
   const { encryptionKey } = getIntakeConfig();
   if (!encryptionKey || encryptionKey.length < 32) {
     throw new Error(

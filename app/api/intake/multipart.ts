@@ -13,6 +13,11 @@ import { storeIntakeSubmission } from "@/lib/intake/server/storage";
 import { validateIntakeSubmission } from "@/lib/intake/server/validate-intake";
 import { fileToBuffer, sanitizeFilename, validateUploadedFile } from "@/lib/intake/server/validate-files";
 import { prepareIntakePayload } from "@/lib/intake/legal-global";
+import {
+  insertIntakePacket,
+  isIntakePacketInsertFailure,
+  type IntakePacketFileMeta,
+} from "@/lib/supabase/insert-intake-packet";
 import { insertLeadSubmission, isLeadInsertFailure } from "@/lib/supabase/insert-lead";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 
@@ -140,59 +145,35 @@ export default async function handleMultipartIntake(request: Request) {
 
     const confirmationId = generateConfirmationId();
     const submittedAt = new Date().toISOString();
-    let finalConfirmationId = confirmationId;
-    let finalSubmittedAt = submittedAt;
-    let fileCount = uploadedFiles.length;
+    const fileCount = uploadedFiles.length;
 
-    if (shouldUseLocalIntakeStorage()) {
-      const stored = await storeIntakeSubmission({
-        confirmationId,
-        intake,
-        documentMeta,
-        files: uploadedFiles,
-      });
-      finalConfirmationId = stored.confirmationId;
-      finalSubmittedAt = stored.submittedAt;
-      fileCount = stored.fileCount;
-    } else {
-      console.info("[intake] skipping local filesystem storage", {
-        confirmationId,
-        vercel: true,
-        fileCount: uploadedFiles.length,
-        note:
-          uploadedFiles.length > 0
-            ? "File uploads are not persisted on Vercel without external object storage."
-            : undefined,
-      });
-    }
+    const fileMetaForPacket: IntakePacketFileMeta[] = uploadedFiles.map((file) => ({
+      fieldName: file.fieldName,
+      safeName: file.safeName,
+      mimeType: file.mimeType,
+      sizeBytes: file.buffer.length,
+    }));
 
-    const summary = buildSummaryFromAdvancedIntake(intake, finalConfirmationId, finalSubmittedAt);
-
-    const leadResult = await insertLeadSubmission({
-      parentName: summary.parentName,
-      email: summary.emailAddress,
-      phone: summary.phoneNumber,
-      state: summary.state,
-      childBirthdate: String(intake.dob ?? intake.childAge ?? ""),
-      diagnosisStatus: summary.diagnosisStatus,
-      message: [`Advanced intake ${finalConfirmationId}`, summary.goals].filter(Boolean).join(" | "),
+    const packetResult = await insertIntakePacket({
+      confirmationId,
+      submittedAt,
+      intake,
+      documentMeta,
+      files: fileMetaForPacket,
+      status: "received",
     });
 
-    if (isLeadInsertFailure(leadResult)) {
-      console.error("[intake] Supabase leads insert failed", {
-        reason: leadResult.reason,
-        message: leadResult.message,
-        code: leadResult.code,
-        details: leadResult.details,
-        hint: leadResult.hint,
-        payloadKeys: leadResult.payloadKeys,
-        confirmationId: finalConfirmationId,
+    if (isIntakePacketInsertFailure(packetResult)) {
+      console.error("[intake] Supabase intake_packets insert failed", {
+        reason: packetResult.reason,
+        message: packetResult.message,
+        code: packetResult.code,
+        details: packetResult.details,
+        hint: packetResult.hint,
+        payloadKeys: packetResult.payloadKeys,
+        confirmationId,
       });
-    }
 
-    const delivery = await deliverIntakeSubmission(summary, fileCount);
-
-    if (isVercelDeployment() && isLeadInsertFailure(leadResult) && !delivery.allSucceeded) {
       return NextResponse.json(
         {
           ok: false,
@@ -203,20 +184,70 @@ export default async function handleMultipartIntake(request: Request) {
       );
     }
 
+    if (shouldUseLocalIntakeStorage()) {
+      try {
+        await storeIntakeSubmission({
+          confirmationId,
+          intake,
+          documentMeta,
+          files: uploadedFiles,
+        });
+      } catch (localError) {
+        logIntakeFailure("local-storage", localError, { confirmationId });
+      }
+    } else {
+      console.info("[intake] skipping local filesystem storage", {
+        confirmationId,
+        vercel: isVercelDeployment(),
+        fileCount: uploadedFiles.length,
+        note:
+          uploadedFiles.length > 0
+            ? "File uploads are not persisted on Vercel without external object storage."
+            : undefined,
+      });
+    }
+
+    const summary = buildSummaryFromAdvancedIntake(intake, confirmationId, submittedAt);
+
+    const leadResult = await insertLeadSubmission({
+      parentName: summary.parentName,
+      email: summary.emailAddress,
+      phone: summary.phoneNumber,
+      state: summary.state,
+      childBirthdate: String(intake.dob ?? intake.childAge ?? ""),
+      diagnosisStatus: summary.diagnosisStatus,
+      message: [`Advanced intake ${confirmationId}`, summary.goals].filter(Boolean).join(" | "),
+    });
+
+    if (isLeadInsertFailure(leadResult)) {
+      console.error("[intake] Supabase leads insert failed", {
+        reason: leadResult.reason,
+        message: leadResult.message,
+        code: leadResult.code,
+        details: leadResult.details,
+        hint: leadResult.hint,
+        payloadKeys: leadResult.payloadKeys,
+        confirmationId,
+      });
+    }
+
+    const delivery = await deliverIntakeSubmission(summary, fileCount);
+
     console.info("[intake] submission accepted", {
-      confirmationId: finalConfirmationId,
+      confirmationId,
       vercel: isVercelDeployment(),
       localStorage: shouldUseLocalIntakeStorage(),
-      supabase: leadResult.ok,
+      persistedViaLead: leadResult.ok,
       deliverySheets: delivery.sheets.ok,
       deliveryEmail: delivery.email.ok,
+      intakePacketId: packetResult.id,
       fileCount,
     });
 
     return NextResponse.json({
       ok: true,
-      confirmationId: finalConfirmationId,
-      submittedAt: finalSubmittedAt,
+      confirmationId,
+      submittedAt,
       fileCount,
       message: INTAKE_FAMILY_SUCCESS_MESSAGE,
     });

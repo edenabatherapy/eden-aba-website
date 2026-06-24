@@ -58,14 +58,6 @@ export function validateIntakeSubmission(intake: IntakeRecord): { ok: true } | {
     return { ok: false, message: FIELD_MESSAGES.childFullName };
   }
 
-  if (!str(normalized.city)) {
-    return { ok: false, message: FIELD_MESSAGES.city };
-  }
-
-  if (!str(normalized.state)) {
-    return { ok: false, message: FIELD_MESSAGES.state };
-  }
-
   if (!hasPhoneOrEmail(normalized)) {
     return { ok: false, message: FIELD_MESSAGES.phone };
   }
