@@ -248,39 +248,35 @@ export default function HomepageHero({ onStart, onFindCare, language }: Homepage
       <div className="homepage-hero__inner">
         <div className="hero-container">
           <div className="eden-hero-copy">
-            <h1 className="eden-hero-title">
-              <span className="hero-line">{t.hero.line1}</span>
-              <span className="hero-line">{t.hero.line2a ?? t.hero.line2}</span>
-              {t.hero.line2b ? <span className="hero-line">{t.hero.line2b}</span> : null}
-              <span className="hero-line hero-line-three">{t.hero.line3}</span>
-              <span className="hero-line hero-line-four">
-                <span className="hero-rotate-row">
-                  <span
-                    id="heroRotatingWord"
-                    className={
-                      isChanging
-                        ? "hero-word eden-hero-rotating-word eden-hero-rotating-word--changing"
-                        : "hero-word eden-hero-rotating-word"
-                    }
-                    aria-live="polite"
-                    aria-atomic="true"
-                  >
-                    {activeItem.word}
-                  </span>
-                  <span
-                    className={
-                      isChanging
-                        ? "hero-symbol hero-symbol--changing"
-                        : "hero-symbol"
-                    }
-                    aria-hidden="true"
-                  >
-                    {activeItem.symbol}
-                  </span>
+            <h1 className="eden-hero-title hero-heading">
+              <span>{t.hero.line1}</span>
+              <span>{t.hero.line2}</span>
+              <span>{t.hero.line3}</span>
+              <span className="hero-line-four">
+                {t.hero.line4Prefix ?? "and"}{" "}
+                <span
+                  id="heroRotatingWord"
+                  className={
+                    isChanging
+                      ? "hero-word eden-hero-rotating-word eden-hero-rotating-word--changing"
+                      : "hero-word eden-hero-rotating-word"
+                  }
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  {activeItem.word}
+                </span>
+                <span
+                  className={
+                    isChanging ? "hero-symbol hero-symbol--changing" : "hero-symbol"
+                  }
+                  aria-hidden="true"
+                >
+                  {activeItem.symbol}
                 </span>
               </span>
               <span className="sr-only">
-                {t.hero.line1} {t.hero.line2a ?? t.hero.line2} {t.hero.line2b ?? ""} {t.hero.line3}{" "}
+                {t.hero.line1} {t.hero.line2} {t.hero.line3} {t.hero.line4Prefix ?? "and"}{" "}
                 {staticHeadlineItem.word}
               </span>
             </h1>

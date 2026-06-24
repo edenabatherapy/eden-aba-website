@@ -15,17 +15,41 @@ import { loadGoogleMaps } from "@/lib/load-google-maps";
 import "./GoogleMapInteractive.css";
 
 const MAP_CONTAINER_CLASS = "eden-map-canvas";
+const LOG_PREFIX = "[GoogleMapInteractive]";
 
 const MAP_TYPE_OPTIONS = [
-  { id: "roadmap", labelKey: "mapViewLabel", fallback: "Map" },
-  { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite" },
-  { id: "hybrid", labelKey: "hybridViewLabel", fallback: "Hybrid" },
+  { id: "roadmap", labelKey: "mapViewLabel", fallback: "Standard Map" },
+  { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite View" },
 ];
+
+function logInfo(message, detail) {
+  if (detail !== undefined) {
+    console.log(`${LOG_PREFIX} ${message}`, detail);
+  } else {
+    console.log(`${LOG_PREFIX} ${message}`);
+  }
+}
+
+function logWarn(message, detail) {
+  if (detail !== undefined) {
+    console.warn(`${LOG_PREFIX} ${message}`, detail);
+  } else {
+    console.warn(`${LOG_PREFIX} ${message}`);
+  }
+}
+
+function logError(message, detail) {
+  if (detail !== undefined) {
+    console.error(`${LOG_PREFIX} ${message}`, detail);
+  } else {
+    console.error(`${LOG_PREFIX} ${message}`);
+  }
+}
 
 function normalizeMapTypeId(typeId) {
   const value = String(typeId ?? "").toLowerCase();
-  if (value.includes("hybrid")) return "hybrid";
   if (value.includes("satellite")) return "satellite";
+  if (value.includes("hybrid")) return "satellite";
   return "roadmap";
 }
 
@@ -176,10 +200,18 @@ function waitForTiles(map, mapsEvent, timeoutMs = 12000) {
 /** @param {import("@/lib/google-maps-types").GoogleMapsRuntime | google.maps} maps */
 function resolveMapTypeId(maps, typeId) {
   const mapTypeId = maps.MapTypeId;
-  if (!mapTypeId) return typeId;
-  if (typeId === "satellite") return mapTypeId.SATELLITE ?? "satellite";
-  if (typeId === "hybrid") return mapTypeId.HYBRID ?? "hybrid";
-  return mapTypeId.ROADMAP ?? "roadmap";
+  if (typeId === "satellite") {
+    return mapTypeId?.SATELLITE ?? "satellite";
+  }
+  return mapTypeId?.ROADMAP ?? "roadmap";
+}
+
+function triggerMapResize(map, mapsEvent) {
+  if (!map || !mapsEvent) return;
+  mapsEvent.trigger(map, "resize");
+  window.requestAnimationFrame(() => {
+    mapsEvent.trigger(map, "resize");
+  });
 }
 
 /**
@@ -188,6 +220,7 @@ function resolveMapTypeId(maps, typeId) {
  *   address?: string,
  *   title?: string,
  *   className?: string,
+ *   variant?: "default" | "fullpage",
  *   businessName?: string,
  *   apiKey?: string,
  *   userPosition?: { lat: number, lng: number } | null,
@@ -198,6 +231,7 @@ export default function GoogleMapInteractive({
   address,
   title,
   className = MAP_CONTAINER_CLASS,
+  variant = "default",
   businessName = EDEN_CLINIC_NAME,
   apiKey: providedApiKey = "",
   userPosition = null,
@@ -221,21 +255,45 @@ export default function GoogleMapInteractive({
   const [errorMessage, setErrorMessage] = useState("");
   const [mapTypeId, setMapTypeId] = useState("roadmap");
 
+  const shellClassName = variant === "fullpage" ? "eden-map-shell eden-map-shell--fullpage" : "eden-map-shell";
+  const canvasClassName = [
+    className,
+    variant === "fullpage" ? "eden-map-canvas--fullpage" : "",
+    "w-full",
+    "bg-[#eef4f2]",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   const handleMapTypeChange = useCallback((typeId) => {
     const map = mapRef.current;
     const maps = mapsRuntimeRef.current ?? window.google?.maps;
-    if (!map || !maps) return;
+    if (!map || !maps) {
+      logWarn("Map type change ignored — map instance not ready", { typeId });
+      return;
+    }
 
     const resolvedType = resolveMapTypeId(maps, typeId);
+    logInfo("Switching map type", { requested: typeId, resolved: resolvedType });
+
     map.setMapTypeId(resolvedType);
     setMapTypeId(typeId);
-    maps.event?.trigger(map, "resize");
+    triggerMapResize(map, maps.event);
+
+    maps.event.addListenerOnce(map, "idle", () => {
+      logInfo("Map idle after type change", { activeType: normalizeMapTypeId(map.getMapTypeId()) });
+      triggerMapResize(map, maps.event);
+    });
   }, []);
 
   useEffect(() => {
-    if (keyLoading) return undefined;
+    if (keyLoading) {
+      logInfo("Waiting for Maps API key resolution");
+      return undefined;
+    }
 
     if (!hasApiKey) {
+      logWarn("Maps API key is not configured");
       setMapStatus("unavailable");
       setUnavailableReason("missing-key");
       return undefined;
@@ -244,13 +302,15 @@ export default function GoogleMapInteractive({
     let cancelled = false;
     let resizeObserver;
     let idleListener;
+    let visibilityListener;
     let retryFrame = 0;
 
     const handleAuthFailure = () => {
       if (cancelled) return;
-      setErrorMessage(
-        "Google Maps authentication failed. Check API key, billing, enabled APIs, and HTTP referrer restrictions.",
-      );
+      const message =
+        "Google Maps authentication failed. Check API key, billing, enabled APIs, and HTTP referrer restrictions.";
+      logError(message);
+      setErrorMessage(message);
       setUnavailableReason("load-failed");
       setMapStatus("unavailable");
     };
@@ -265,6 +325,8 @@ export default function GoogleMapInteractive({
     async function initMap() {
       try {
         setMapStatus("loading");
+        logInfo("Loading Google Maps JavaScript API");
+
         const maps = await loadGoogleMaps(apiKey);
         if (cancelled || !containerRef.current) return;
 
@@ -272,9 +334,21 @@ export default function GoogleMapInteractive({
           throw new Error("Google Maps Map or Marker constructors are unavailable.");
         }
 
+        const container = containerRef.current;
+        const containerRect = container.getBoundingClientRect();
+        logInfo("Initializing map", {
+          width: containerRect.width,
+          height: containerRect.height,
+          variant,
+        });
+
+        if (containerRect.width < 1 || containerRect.height < 1) {
+          logWarn("Map container has no measurable size yet — resize will be triggered after layout");
+        }
+
         const center = { ...EDEN_ANNANDALE_CENTER };
 
-        const map = new maps.Map(containerRef.current, {
+        const map = new maps.Map(container, {
           center,
           zoom: 16,
           mapTypeId: resolveMapTypeId(maps, "roadmap"),
@@ -292,7 +366,11 @@ export default function GoogleMapInteractive({
             position: maps.ControlPosition.RIGHT_TOP,
           },
           clickableIcons: true,
-          gestureHandling: "cooperative",
+          draggable: true,
+          scrollwheel: true,
+          disableDoubleClickZoom: false,
+          keyboardShortcuts: true,
+          gestureHandling: "greedy",
         });
 
         const marker = new maps.Marker({
@@ -308,6 +386,7 @@ export default function GoogleMapInteractive({
         });
 
         marker.addListener("click", () => {
+          logInfo("Clinic marker clicked");
           infoWindow.open({ anchor: marker, map });
         });
 
@@ -317,37 +396,68 @@ export default function GoogleMapInteractive({
         mapsRuntimeRef.current = maps;
 
         map.addListener("maptypeid_changed", () => {
-          setMapTypeId(normalizeMapTypeId(map.getMapTypeId()));
+          const activeType = normalizeMapTypeId(map.getMapTypeId());
+          logInfo("Map type changed", { activeType });
+          setMapTypeId(activeType);
         });
 
-        resizeObserver = new ResizeObserver(() => {
-          maps.event.trigger(map, "resize");
+        map.addListener("click", () => {
+          logInfo("Map clicked");
         });
-        resizeObserver.observe(containerRef.current);
+
+        resizeObserver = new ResizeObserver((entries) => {
+          const entry = entries[0];
+          if (!entry) return;
+          logInfo("Map container resized", {
+            width: entry.contentRect.width,
+            height: entry.contentRect.height,
+          });
+          triggerMapResize(map, maps.event);
+        });
+        resizeObserver.observe(container);
 
         idleListener = maps.event.addListenerOnce(map, "idle", () => {
-          maps.event.trigger(map, "resize");
+          logInfo("Map idle after initial render");
+          triggerMapResize(map, maps.event);
         });
 
-        await waitForTiles(map, maps.event);
+        visibilityListener = () => {
+          if (document.visibilityState === "visible") {
+            triggerMapResize(map, maps.event);
+          }
+        };
+        document.addEventListener("visibilitychange", visibilityListener);
+
+        const tilesLoaded = await waitForTiles(map, maps.event);
+        logInfo("Tile load finished", { tilesLoaded });
 
         if (maps.Geocoder) {
           const geocoder = new maps.Geocoder();
           geocoder.geocode({ address: location.address }, (results, status) => {
-            if (cancelled || status !== "OK" || !results?.[0]) return;
+            if (cancelled || status !== "OK" || !results?.[0]) {
+              if (status !== "OK") {
+                logWarn("Geocoder did not return OK", { status });
+              }
+              return;
+            }
 
             const position = results[0].geometry.location;
+            logInfo("Geocoded clinic address", { position: position.toJSON?.() ?? position });
             map.setCenter(position);
             marker.setPosition(position);
-            maps.event.trigger(map, "resize");
+            triggerMapResize(map, maps.event);
           });
         }
 
         if (!cancelled) {
+          setMapTypeId("roadmap");
           setMapStatus("ready");
+          triggerMapResize(map, maps.event);
+          logInfo("Map ready");
         }
       } catch (error) {
         const message = error instanceof Error ? error.message : "Unknown Google Maps error";
+        logError("Map initialization failed", error);
         if (!cancelled) {
           setErrorMessage(message);
           setUnavailableReason("load-failed");
@@ -381,6 +491,10 @@ export default function GoogleMapInteractive({
       if (idleListener && window.google?.maps?.event) {
         window.google.maps.event.removeListener(idleListener);
       }
+      if (visibilityListener) {
+        document.removeEventListener("visibilitychange", visibilityListener);
+      }
+
       infoWindowRef.current?.close();
       userMarkerRef.current?.setMap(null);
       markerRef.current?.setMap(null);
@@ -393,13 +507,15 @@ export default function GoogleMapInteractive({
       if (containerRef.current) {
         containerRef.current.replaceChildren();
       }
+
+      logInfo("Map instance cleaned up");
     };
-  }, [apiKey, hasApiKey, keyLoading, address, businessName, directionsLabel, location]);
+  }, [apiKey, hasApiKey, keyLoading, address, businessName, directionsLabel, location.address, variant]);
 
   useEffect(() => {
     const map = mapRef.current;
     const maps = mapsRuntimeRef.current;
-    if (!map || !maps?.Marker || !userPosition) {
+    if (!map || !maps?.Marker || !userPosition || mapStatus !== "ready") {
       userMarkerRef.current?.setMap(null);
       userMarkerRef.current = null;
       return undefined;
@@ -413,13 +529,29 @@ export default function GoogleMapInteractive({
         map,
         title: t?.googleMap?.yourLocationLabel || "Your location",
       });
+      logInfo("User location marker added", position);
     } else {
       userMarkerRef.current.setPosition(position);
       userMarkerRef.current.setMap(map);
+      logInfo("User location marker updated", position);
     }
 
     return undefined;
   }, [userPosition, t, mapStatus]);
+
+  useEffect(() => {
+    if (mapStatus !== "ready") return undefined;
+    const map = mapRef.current;
+    const maps = mapsRuntimeRef.current;
+    if (!map || !maps) return undefined;
+
+    const frame = window.requestAnimationFrame(() => {
+      triggerMapResize(map, maps.event);
+      logInfo("Post-ready resize triggered");
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [mapStatus, variant, className]);
 
   if (keyLoading) {
     return (
@@ -445,9 +577,9 @@ export default function GoogleMapInteractive({
   }
 
   return (
-    <div className="eden-map-shell">
+    <div className={shellClassName}>
       {mapStatus === "loading" ? (
-        <div className="eden-map-loading" aria-live="polite">
+        <div className="eden-map-loading" aria-live="polite" aria-busy="true">
           <div className="eden-map-loading-inner">
             <div className="eden-map-loading-spinner" aria-hidden />
             <p className="eden-map-loading-text">{t?.googleMap?.loadingLabel || "Loading map…"}</p>
@@ -455,50 +587,48 @@ export default function GoogleMapInteractive({
         </div>
       ) : null}
 
-      {mapStatus === "ready" ? (
-        <div
-          className="eden-map-type-bar"
-          role="group"
-          aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
-        >
-          {MAP_TYPE_OPTIONS.map((option) => (
-            <button
-              key={option.id}
-              type="button"
-              onClick={() => handleMapTypeChange(option.id)}
-              className={mapTypeId === option.id ? "is-active" : undefined}
-              aria-pressed={mapTypeId === option.id}
-            >
-              {t?.googleMap?.[option.labelKey] || option.fallback}
-            </button>
-          ))}
-        </div>
-      ) : null}
+      <div
+        className="eden-map-type-bar"
+        role="group"
+        aria-label={t?.googleMap?.mapTypeGroupLabel || "Map type"}
+      >
+        {MAP_TYPE_OPTIONS.map((option) => (
+          <button
+            key={option.id}
+            type="button"
+            onClick={() => handleMapTypeChange(option.id)}
+            className={mapTypeId === option.id ? "is-active" : undefined}
+            aria-pressed={mapTypeId === option.id}
+            disabled={mapStatus !== "ready"}
+          >
+            {t?.googleMap?.[option.labelKey] || option.fallback}
+          </button>
+        ))}
+      </div>
 
       <div
         ref={containerRef}
-        className={`${className} w-full bg-[#eef4f2]`}
+        className={canvasClassName}
         role="application"
         aria-label={mapTitle}
+        tabIndex={0}
       />
 
-      {mapStatus === "ready" ? (
-        <div className="eden-map-actions">
-          <a
-            href={placeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="eden-map-actions-open"
-          >
-            <ExternalLink size={16} aria-hidden />
-            {t?.googleMap?.openInGoogleMaps || "Open in Google Maps"}
-          </a>
-          <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="eden-map-actions-directions">
-            <Navigation size={16} aria-hidden />
-            {directionsLabel}
-          </a>
-        </div>
-      ) : null}
+      <div className="eden-map-actions">
+        <a
+          href={placeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="eden-map-actions-open"
+        >
+          <ExternalLink size={16} aria-hidden />
+          {t?.googleMap?.openInGoogleMaps || "Open in Google Maps"}
+        </a>
+        <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="eden-map-actions-directions">
+          <Navigation size={16} aria-hidden />
+          {directionsLabel}
+        </a>
+      </div>
     </div>
   );
 }

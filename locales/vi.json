@@ -890,8 +890,9 @@
   },
   "hero": {
     "line1": "Con đường tươi sáng cho",
-    "line2": "trẻ em lớn lên, học hỏi,",
-    "line3": "giao tiếp, và",
+    "line2": "trẻ em lớn lên,",
+    "line3": "học hỏi, giao tiếp,",
+    "line4Prefix": "và",
     "rotatingItems": [
       {
         "word": "thăng hoa",

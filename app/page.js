@@ -777,6 +777,8 @@ function LocationsPage({ t, onStart }) {
               address={location.address}
               title={pl.annandaleMapTitle}
               userPosition={userPosition}
+              variant="fullpage"
+              className="eden-map-canvas eden-map-canvas--fullpage"
             />
           ) : (
             <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
@@ -844,6 +846,7 @@ function LocationsPage({ t, onStart }) {
                 address={location.address}
                 title={pl.annandaleMapTitle}
                 userPosition={userPosition}
+                className="eden-map-canvas eden-map-canvas--compact"
               />
             </div>
           )}

@@ -916,9 +916,9 @@
   },
   "hero": {
     "line1": "A brighter path for",
-    "line2a": "children to grow,",
-    "line2b": "learn,",
-    "line3": "communicate, and",
+    "line2": "children to grow,",
+    "line3": "learn, communicate,",
+    "line4Prefix": "and",
     "rotatingItems": [
       {
         "word": "thrive",
