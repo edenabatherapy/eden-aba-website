@@ -41,12 +41,12 @@ export default function LocationsMapEmbed({
   const directionsLabel = t?.getDirections || "Get Directions";
   const isSidebar = variant !== "fullpage";
   const cardClassName = isSidebar
-    ? "locations-map-card locations-map-card--sidebar"
-    : "locations-map-card locations-map-card--fullpage";
+    ? "locations-map-card locations-map-card--sidebar map-card map-card--sidebar"
+    : "locations-map-card locations-map-card--fullpage map-card";
 
   return (
     <div className={cardClassName} data-locations-map-panel="true">
-      <div className="locations-map-frame">
+      <div className="locations-map-frame map-embed-wrapper">
         <div
           className="locations-map-type-bar"
           role="group"
