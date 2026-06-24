@@ -1,24 +1,41 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-/**
- * Server-side Supabase client for API routes.
- * Prefers SUPABASE_SERVICE_ROLE_KEY (bypasses RLS); falls back to publishable/anon key.
- */
-export function getSupabaseServerClient(): SupabaseClient | null {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
-  const key =
-    process.env.SUPABASE_SERVICE_ROLE_KEY?.trim() ||
-    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY?.trim() ||
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+const supabaseAuthOptions = {
+  auth: {
+    persistSession: false,
+    autoRefreshToken: false,
+  },
+} as const;
 
-  if (!url || !key) {
-    return null;
+function assertSupabaseServiceRoleEnv(): { url: string; serviceRoleKey: string } {
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()) {
+    throw new Error("Missing SUPABASE_SERVICE_ROLE_KEY");
   }
 
-  return createClient(url, key, {
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-    },
-  });
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  if (!url) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL");
+  }
+
+  return {
+    url,
+    serviceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY.trim(),
+  };
 }
+
+let adminClient: SupabaseClient | null = null;
+
+/**
+ * Dedicated server-side Supabase client for privileged writes.
+ * Uses NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY only (bypasses RLS).
+ */
+export function getSupabaseAdminClient(): SupabaseClient {
+  if (!adminClient) {
+    const { url, serviceRoleKey } = assertSupabaseServiceRoleEnv();
+    adminClient = createClient(url, serviceRoleKey, supabaseAuthOptions);
+  }
+
+  return adminClient;
+}
+
+export { assertSupabaseServiceRoleEnv };

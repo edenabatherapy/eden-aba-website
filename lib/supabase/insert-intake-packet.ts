@@ -1,5 +1,5 @@
+import { createClient } from "@supabase/supabase-js";
 import { getChildFirstName } from "@/lib/intake/required-fields";
-import { getSupabaseServerClient } from "@/lib/supabase/server";
 
 export type IntakePacketFileMeta = {
   fieldName: string;
@@ -63,6 +63,28 @@ function buildPacketPayload(fields: IntakePacketInsertFields): IntakePacketPaylo
   };
 }
 
+function createIntakePacketsServiceRoleClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim();
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+
+  if (!serviceRoleKey) {
+    throw new Error("Missing SUPABASE_SERVICE_ROLE_KEY");
+  }
+
+  if (!supabaseUrl) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL");
+  }
+
+  console.log("[intake_packets] using service role client");
+
+  return createClient(supabaseUrl, serviceRoleKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+    },
+  });
+}
+
 export async function insertIntakePacket(
   fields: IntakePacketInsertFields,
 ): Promise<IntakePacketInsertResult> {
@@ -83,16 +105,17 @@ export async function insertIntakePacket(
 
   const payloadKeys = Object.keys(row);
 
-  const supabase = getSupabaseServerClient();
-  if (!supabase) {
-    const message =
-      "NEXT_PUBLIC_SUPABASE_URL and a Supabase server key (SUPABASE_SERVICE_ROLE_KEY or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) are not configured.";
-
+  let supabase;
+  try {
+    supabase = createIntakePacketsServiceRoleClient();
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     console.error("[Supabase intake_packets insert failed]", {
       message,
       code: "missing-config",
       details: undefined,
-      hint: "Set Supabase env vars in Vercel and run supabase/intake_packets.sql",
+      hint: "Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Vercel.",
+      confirmationId: fields.confirmationId,
     });
     console.error("[Supabase intake_packets insert failed] payload keys", { keys: payloadKeys });
 

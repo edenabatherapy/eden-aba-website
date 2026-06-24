@@ -1,4 +1,4 @@
-import { getSupabaseServerClient } from "@/lib/supabase/server";
+import { getSupabaseAdminClient } from "@/lib/supabase/server";
 
 export type LeadSubmissionFields = {
   parentName: string;
@@ -8,6 +8,7 @@ export type LeadSubmissionFields = {
   childBirthdate?: string;
   diagnosisStatus?: string;
   message?: string;
+  confirmationId?: string;
 };
 
 export type LeadInsertFailure = {
@@ -40,21 +41,26 @@ export async function insertLeadSubmission(
   };
 
   const payloadKeys = Object.keys(insertPayload);
+  const confirmationId = submission.confirmationId;
 
-  const supabase = getSupabaseServerClient();
-  if (!supabase) {
+  let supabase;
+  try {
+    supabase = getSupabaseAdminClient();
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     console.error("[Supabase leads insert failed]", {
-      message: "NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY is not configured.",
+      message,
       code: "missing-config",
       details: undefined,
-      hint: undefined,
+      hint: "Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in Vercel.",
+      confirmationId,
     });
     console.error("[Supabase leads insert failed] payload keys", { keys: payloadKeys });
 
     return {
       ok: false,
       reason: "missing-config",
-      message: "NEXT_PUBLIC_SUPABASE_URL or NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY is not configured.",
+      message,
       payloadKeys,
     };
   }
@@ -67,6 +73,7 @@ export async function insertLeadSubmission(
       code: error.code,
       details: error.details,
       hint: error.hint,
+      confirmationId,
     });
     console.error("[Supabase leads insert failed] payload keys", { keys: payloadKeys });
 

@@ -217,6 +217,7 @@ export default async function handleMultipartIntake(request: Request) {
       childBirthdate: String(intake.dob ?? intake.childAge ?? ""),
       diagnosisStatus: summary.diagnosisStatus,
       message: [`Advanced intake ${confirmationId}`, summary.goals].filter(Boolean).join(" | "),
+      confirmationId,
     });
 
     if (isLeadInsertFailure(leadResult)) {
