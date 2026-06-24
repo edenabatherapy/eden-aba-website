@@ -767,8 +767,8 @@ function LocationsPage({ t, onStart }) {
           {view === "map" ? (
             <LocationsMapEmbed t={t} title={pl.annandaleMapTitle} variant="fullpage" />
           ) : (
-            <div className="locations-layout flex flex-col items-start gap-8 lg:flex-row lg:items-start">
-              <article className="min-w-0 w-full rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-900/5 lg:flex-1">
+            <div className="locations-page-grid">
+              <article className="min-w-0 w-full rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-900/5">
                 <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                   <div>
                     <p className="text-xs font-black uppercase tracking-[0.25em] text-[#128c8c]">{pl.brandLabel}</p>
@@ -827,9 +827,7 @@ function LocationsPage({ t, onStart }) {
                 </div>
               </article>
 
-              <div className="locations-map-column lg:w-[42%]">
-                <LocationsMapEmbed t={t} title={pl.annandaleMapTitle} />
-              </div>
+              <LocationsMapEmbed t={t} title={pl.annandaleMapTitle} />
             </div>
           )}
         </div>

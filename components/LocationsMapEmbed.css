@@ -1,21 +1,24 @@
-/* /locations map panel — LocationsMapEmbed */
+/* /locations page — list view grid + map card (scoped; does not affect footer) */
 
-.locations-layout {
-  align-items: flex-start;
+.locations-page-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+  width: 100%;
 }
 
-.locations-map-column {
-  width: 100%;
-  height: auto;
-  min-height: 0;
-  align-self: flex-start;
-  flex: none;
+@media (min-width: 1024px) {
+  .locations-page-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
 }
 
 .locations-map-card,
 .map-card {
   width: 100%;
-  border-radius: 1.5rem;
+  min-width: 0;
+  border-radius: 24px;
   border: 1px solid rgba(18, 140, 140, 0.18);
   background: #ffffff;
   box-shadow: 0 24px 56px rgba(11, 79, 79, 0.14);
@@ -26,60 +29,42 @@
   display: block;
   height: auto;
   min-height: 0;
-  align-self: flex-start;
   overflow: hidden;
 }
 
 .locations-map-card--fullpage {
   display: block;
   overflow: hidden;
+  border-radius: 24px;
 }
 
 .locations-map-frame,
 .map-embed-wrapper {
   position: relative;
-  z-index: 2;
   width: 100%;
+  height: 520px;
   overflow: hidden;
   background: #eef4f2;
-  line-height: 0;
-}
-
-.locations-map-card--sidebar .locations-map-frame,
-.locations-map-card--sidebar .map-embed-wrapper {
-  height: 520px;
-  min-height: 520px;
-  max-height: 520px;
 }
 
 .locations-map-card--fullpage .locations-map-frame {
   height: min(70vh, 560px);
-  min-height: min(70vh, 560px);
-  border-radius: 24px;
+  border-radius: 24px 24px 0 0;
 }
 
 .locations-map-iframe,
 .map-embed-wrapper iframe {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  border: 0;
   display: block;
-}
-
-.locations-map-card--fullpage .locations-map-iframe {
-  position: static;
-  height: 100%;
-  min-height: 100%;
-  border-radius: 24px;
+  border: 0;
 }
 
 .locations-map-type-bar {
   position: absolute;
   left: 0.85rem;
   top: 0.85rem;
-  z-index: 3;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
@@ -87,7 +72,6 @@
   border: 1px solid rgba(18, 140, 140, 0.2);
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 10px 24px rgba(11, 79, 79, 0.12);
-  line-height: normal;
 }
 
 .locations-map-type-bar button {
@@ -108,12 +92,10 @@
 .locations-map-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 16px;
-  padding: 0.85rem 1rem;
+  gap: 12px;
+  padding: 16px 20px 20px;
   border-top: 1px solid rgba(18, 140, 140, 0.12);
   background: #ffffff;
-  line-height: normal;
 }
 
 .locations-map-actions a {
@@ -144,7 +126,5 @@
   .locations-map-card--sidebar .locations-map-frame,
   .locations-map-card--sidebar .map-embed-wrapper {
     height: min(70vw, 420px);
-    min-height: min(70vw, 420px);
-    max-height: min(70vw, 420px);
   }
 }
