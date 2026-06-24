@@ -767,7 +767,7 @@ function LocationsPage({ t, onStart }) {
           {view === "map" ? (
             <LocationsMapEmbed t={t} title={pl.annandaleMapTitle} variant="fullpage" />
           ) : (
-            <div className="grid items-stretch gap-8 lg:grid-cols-[1fr_0.9fr]">
+            <div className="grid items-start gap-8 lg:grid-cols-[1fr_0.9fr]">
               <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-900/5">
                 <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                   <div>
