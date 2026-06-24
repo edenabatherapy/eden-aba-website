@@ -793,7 +793,15 @@
     "messages": "Messages",
     "reviewSubmitTab": "Review & Submit",
     "stepProgress": "Step {current} of {total} · {title}",
-    "loading": "Loading intake form…"
+    "loading": "Loading intake form…",
+    "successTitle": "Intake Submitted Successfully",
+    "successResponseTime": "Our intake team will contact you within 24–48 hours.",
+    "successConfirmationLabel": "Confirmation ID",
+    "successSubmittedAtLabel": "Submitted",
+    "successResponseTimeLabel": "Expected response time",
+    "successStartNew": "Start New Intake",
+    "successReturnHome": "Return Home",
+    "successPrivacyNote": "Your submitted information is no longer shown on this screen. Save your confirmation ID for your records."
   },
   "reviewPanel": {
     "eyebrow": "Review before submit",

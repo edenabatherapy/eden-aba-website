@@ -1,8 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { MAX_FILE_SIZE } from "@/lib/intake/constants";
 import {
   getLocalizedIntakeSidebar,
@@ -24,7 +23,7 @@ import {
 } from "@/lib/intake/legal-global";
 import {
   appendAudit,
-  clearAllDrafts,
+  clearIntakeBrowserStorage,
   loadActiveTab,
   loadCurrentStep,
   loadFormData,
@@ -42,6 +41,7 @@ import RecaptchaNotice from "@/components/RecaptchaNotice";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import IntakeBrandHeader from "./IntakeBrandHeader";
+import IntakeSuccessScreen from "./IntakeSuccessScreen";
 import IntakeSidebar, { buildIntakeTabs } from "./IntakeSidebar";
 import MessagesPanel from "./MessagesPanel";
 import ProgressPanel from "./ProgressPanel";
@@ -93,6 +93,33 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   const [submitResult, setSubmitResult] = useState(null);
   const [fieldErrors, setFieldErrors] = useState({});
   const [missingFields, setMissingFields] = useState([]);
+
+  const emptyMeta = useMemo(() => ({ documents: {}, messages: [], audit: [] }), []);
+
+  const resetIntakeFormState = useCallback(() => {
+    clearIntakeBrowserStorage();
+    fileRefs.current.clear();
+    setFormData({});
+    setMeta(emptyMeta);
+    setCurrentStep(0);
+    setActiveTab("intake");
+    setShowReview(false);
+    setSubmitResult(null);
+    setFieldErrors({});
+    setMissingFields([]);
+    setSaveStatus(ui.autosaved || "Autosaved");
+    setConsentModalId(null);
+    resetRecaptcha();
+  }, [emptyMeta, resetRecaptcha, ui.autosaved]);
+
+  const handleStartNewIntake = useCallback(() => {
+    resetIntakeFormState();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [resetIntakeFormState]);
+
+  const handleReturnHome = useCallback(() => {
+    window.location.href = "/";
+  }, []);
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
@@ -339,6 +366,10 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     releaseSubmitLock();
 
     if (result.ok && result.mode === "backend") {
+      clearIntakeBrowserStorage();
+      fileRefs.current.clear();
+      setFormData({});
+      setMeta(emptyMeta);
       setSubmitResult({
         ok: true,
         confirmationId: result.confirmationId,
@@ -346,7 +377,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         message: result.message || p.submitSuccess,
       });
       resetRecaptcha();
-      persist(prepared, currentStep, activeTab, meta, "Submitted to server");
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
@@ -374,8 +405,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
 
   const handleClearDraft = () => {
     if (!window.confirm(advancedForm.clearConfirm || "Clear all locally saved intake data from this browser?")) return;
-    clearAllDrafts();
-    window.location.reload();
+    resetIntakeFormState();
   };
 
   const handleImport = async (file) => {
@@ -423,6 +453,33 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
               <p className="font-bold">{advancedForm.loading || ui.loading || "Loading intake form…"}</p>
             </motion.div>
           </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (submitResult?.ok) {
+    return (
+      <section className="relative bg-gradient-to-br from-[#fff8df] via-white to-[#ddf4f4] py-12 pb-24 lg:py-16">
+        <div className="mx-auto w-full max-w-[1720px] px-4 sm:px-5 lg:px-6">
+          <IntakeSuccessScreen
+            message={submitResult.message}
+            confirmationId={submitResult.confirmationId}
+            submittedAt={submitResult.submittedAt}
+            labels={{
+              title: advancedForm.successTitle,
+              message: p.submitSuccess,
+              confirmationLabel: advancedForm.successConfirmationLabel || p.submitConfirmation?.replace(": {id}", ""),
+              submittedAtLabel: advancedForm.successSubmittedAtLabel,
+              responseTimeLabel: advancedForm.successResponseTimeLabel,
+              responseTime: advancedForm.successResponseTime,
+              startNew: advancedForm.successStartNew,
+              returnHome: advancedForm.successReturnHome,
+              privacyNote: advancedForm.successPrivacyNote,
+            }}
+            onStartNew={handleStartNewIntake}
+            onReturnHome={handleReturnHome}
+          />
         </div>
       </section>
     );
@@ -646,66 +703,30 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
 
               {showReview && activeTab === "intake" && (
                 <div className="mt-6 space-y-4">
-                  <AnimatePresence mode="wait">
-                    {submitResult?.ok ? (
-                      <motion.div
-                        key="success"
-                        initial={false}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        className="rounded-[1.5rem] border border-[#b8ddbf] bg-gradient-to-br from-[#f1faf3] to-white p-6 text-[#06461f] shadow-lg"
-                      >
-                        <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-                          <EdenLogo size="success" className="shrink-0" />
-                          <motion.span
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.1 }}
-                            className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-[#08751f] text-white shadow-lg sm:order-last sm:ml-auto"
-                          >
-                            <CheckCircle2 size={28} />
-                          </motion.span>
-                          <div className="flex-1">
-                            <p className="text-lg font-black">{submitResult.message || p.submitSuccess}</p>
-                            <p className="mt-2 font-bold">
-                              {(p.submitConfirmation || "Confirmation ID: {id}").replace("{id}", submitResult.confirmationId || "")}
-                            </p>
-                            {submitResult.submittedAt && (
-                              <p className="mt-1 text-sm">
-                                {(p.submitSubmittedAt || "Submitted: {date}").replace(
-                                  "{date}",
-                                  new Date(submitResult.submittedAt).toLocaleString()
-                                )}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </motion.div>
-                    ) : submitResult?.ok === false ? (
-                      <motion.div
-                        key="error"
-                        initial={false}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="rounded-[1.5rem] border border-[#f5b5ad] bg-[#fff5f4] p-6 text-[#b42318] shadow-md"
-                      >
-                        <p className="font-black">{submitResult.message}</p>
-                        <p className="mt-2 text-sm">{p.exportBackupHint}</p>
-                      </motion.div>
-                    ) : null}
-                  </AnimatePresence>
+                  {submitResult?.ok === false ? (
+                    <motion.div
+                      initial={false}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="rounded-[1.5rem] border border-[#f5b5ad] bg-[#fff5f4] p-6 text-[#b42318] shadow-md"
+                    >
+                      <p className="font-black">{submitResult.message}</p>
+                      <p className="mt-2 text-sm">{p.exportBackupHint}</p>
+                    </motion.div>
+                  ) : null}
                   <div className="flex flex-col items-end gap-3">
                     <ReCaptchaVerification
                       ref={recaptchaRef}
                       onTokenChange={handleTokenChange}
                       onExpired={handleExpired}
                       error={recaptchaError}
-                      disabled={submitting || verifying || validating || submitResult?.ok}
+                      disabled={submitting || verifying || validating}
                     />
                     <motion.button
                       type="button"
                       onClick={handleFinalSubmit}
-                      disabled={submitting || verifying || !recaptchaReady || submitResult?.ok}
-                      whileHover={submitting || submitResult?.ok ? {} : { scale: 1.01 }}
-                      whileTap={submitting || submitResult?.ok ? {} : { scale: 0.99 }}
+                      disabled={submitting || verifying || !recaptchaReady}
+                      whileHover={submitting ? {} : { scale: 1.01 }}
+                      whileTap={submitting ? {} : { scale: 0.99 }}
                       className="rounded-xl bg-gradient-to-b from-[#168f30] to-[#006d19] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-emerald-900/15 disabled:cursor-not-allowed disabled:opacity-60"
                     >
                       {submitting || verifying

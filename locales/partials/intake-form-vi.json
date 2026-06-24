@@ -793,7 +793,15 @@
     "messages": "Tin nhắn",
     "reviewSubmitTab": "Xem xét & Gửi",
     "stepProgress": "Bước {current} trên {total} · {title}",
-    "loading": "Đang tải mẫu intake…"
+    "loading": "Đang tải mẫu intake…",
+    "successTitle": "Đã gửi hồ sơ intake thành công",
+    "successResponseTime": "Đội ngũ intake của chúng tôi sẽ liên hệ với bạn trong vòng 24–48 giờ.",
+    "successConfirmationLabel": "Mã xác nhận",
+    "successSubmittedAtLabel": "Đã gửi lúc",
+    "successResponseTimeLabel": "Thời gian phản hồi dự kiến",
+    "successStartNew": "Bắt đầu intake mới",
+    "successReturnHome": "Về trang chủ",
+    "successPrivacyNote": "Thông tin đã gửi không còn hiển thị trên màn hình này. Vui lòng lưu mã xác nhận để tra cứu."
   },
   "reviewPanel": {
     "eyebrow": "Xem xét trước khi gửi",
