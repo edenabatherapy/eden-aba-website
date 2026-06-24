@@ -15,31 +15,9 @@ const GET_DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=7700+Little+River+Turnpike+Suite+304+Annandale+VA+22003";
 
 const MAP_TYPE_OPTIONS = [
-  { id: "roadmap", labelKey: "mapViewLabel", fallback: "Standard Map" },
-  { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite View" },
+  { id: "roadmap", labelKey: "mapViewLabel", fallback: "Map" },
+  { id: "satellite", labelKey: "satelliteViewLabel", fallback: "Satellite" },
 ];
-
-const SIDEBAR_CARD_STYLE = {
-  height: "auto",
-  minHeight: "unset",
-  alignSelf: "flex-start",
-};
-
-const SIDEBAR_FRAME_STYLE = {
-  height: "auto",
-  minHeight: "unset",
-};
-
-const SIDEBAR_IFRAME_STYLE = {
-  height: "520px",
-  width: "100%",
-  display: "block",
-};
-
-const ACTIONS_STYLE = {
-  marginTop: "16px",
-  paddingBottom: 0,
-};
 
 function buildEmbedUrl(mapType) {
   if (mapType === "satellite") {
@@ -49,14 +27,9 @@ function buildEmbedUrl(mapType) {
 }
 
 /**
- * Locations page map — iframe embed only. No Google Maps JavaScript API or API keys.
- * Rendered from LocationsPage in app/page.js (/locations rewrites to /).
- *
- * @param {{
- *   t?: object,
- *   title?: string,
- *   variant?: "default" | "fullpage",
- * }} props
+ * /locations map panel (iframe only).
+ * Used by LocationsPage in app/page.js — there is no app/locations/page.tsx;
+ * /locations rewrites to / in next.config.mjs.
  */
 export default function LocationsMapEmbed({
   t,
@@ -66,21 +39,14 @@ export default function LocationsMapEmbed({
   const [mapTypeId, setMapTypeId] = useState("roadmap");
   const embedUrl = useMemo(() => buildEmbedUrl(mapTypeId), [mapTypeId]);
   const directionsLabel = t?.getDirections || "Get Directions";
-  const isFullpage = variant === "fullpage";
-  const cardClassName = isFullpage
-    ? "locations-map-card locations-map-card--fullpage"
-    : "locations-map-card locations-map-card--sidebar";
+  const isSidebar = variant !== "fullpage";
+  const cardClassName = isSidebar
+    ? "locations-map-card locations-map-card--sidebar"
+    : "locations-map-card locations-map-card--fullpage";
 
   return (
-    <div
-      className={cardClassName}
-      data-locations-map-panel="true"
-      style={isFullpage ? undefined : SIDEBAR_CARD_STYLE}
-    >
-      <div
-        className="locations-map-frame"
-        style={isFullpage ? undefined : SIDEBAR_FRAME_STYLE}
-      >
+    <div className={cardClassName} data-locations-map-panel="true">
+      <div className="locations-map-frame">
         <div
           className="locations-map-type-bar"
           role="group"
@@ -106,11 +72,10 @@ export default function LocationsMapEmbed({
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
           className="locations-map-iframe"
-          style={isFullpage ? undefined : SIDEBAR_IFRAME_STYLE}
         />
       </div>
 
-      <div className="locations-map-actions" style={ACTIONS_STYLE}>
+      <div className="locations-map-actions">
         <a
           href={OPEN_IN_GOOGLE_MAPS_URL}
           target="_blank"

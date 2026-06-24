@@ -1,6 +1,19 @@
+/* /locations right map panel — LocationsMapEmbed (sidebar list view) */
+
+.locations-layout {
+  align-items: flex-start;
+}
+
+.locations-map-column {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  align-self: flex-start;
+  flex: none;
+}
+
 .locations-map-card {
   width: 100%;
-  overflow: hidden;
   border-radius: 1.5rem;
   border: 1px solid rgba(18, 140, 140, 0.18);
   background: #ffffff;
@@ -10,14 +23,17 @@
 .locations-map-card--sidebar {
   display: block;
   height: auto !important;
-  min-height: unset !important;
+  min-height: 0 !important;
   max-height: none !important;
   align-self: flex-start;
+  overflow: hidden;
+  /* TEMP: verify correct component on deploy — remove after confirmation */
+  outline: 4px solid red;
 }
 
 .locations-map-card--fullpage {
-  display: flex;
-  flex-direction: column;
+  display: block;
+  overflow: hidden;
 }
 
 .locations-map-frame {
@@ -29,30 +45,26 @@
 }
 
 .locations-map-card--sidebar .locations-map-frame {
-  height: auto !important;
-  min-height: unset !important;
+  height: 520px;
+  min-height: 520px;
+  max-height: 520px;
   flex: none !important;
 }
 
 .locations-map-card--fullpage .locations-map-frame {
+  height: min(70vh, 560px);
+  min-height: min(70vh, 560px);
   border-radius: 24px;
 }
 
 .locations-map-iframe {
-  display: block;
   width: 100%;
+  height: 100%;
+  display: block;
   border: 0;
 }
 
-.locations-map-card--sidebar .locations-map-iframe {
-  height: 520px !important;
-  min-height: unset !important;
-  max-height: none !important;
-  flex: none !important;
-}
-
 .locations-map-card--fullpage .locations-map-iframe {
-  height: min(70vh, 560px);
   border-radius: 24px;
 }
 
@@ -92,7 +104,7 @@
   margin-top: 16px;
   padding: 0.85rem 1rem 0;
   border-top: 1px solid rgba(18, 140, 140, 0.12);
-  background: rgba(255, 255, 255, 0.96);
+  background: #ffffff;
 }
 
 .locations-map-actions a {
@@ -120,7 +132,9 @@
 }
 
 @media (max-width: 1023px) {
-  .locations-map-card--sidebar .locations-map-iframe {
-    height: min(70vw, 420px) !important;
+  .locations-map-card--sidebar .locations-map-frame {
+    height: min(70vw, 420px);
+    min-height: min(70vw, 420px);
+    max-height: min(70vw, 420px);
   }
 }
