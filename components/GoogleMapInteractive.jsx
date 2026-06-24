@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { AlertTriangle, ExternalLink, MapPin, Navigation } from "lucide-react";
+import { ExternalLink, Navigation } from "lucide-react";
 import {
   EDEN_ANNANDALE_CENTER,
   EDEN_CLINIC_NAME,
@@ -52,82 +52,6 @@ function normalizeMapTypeId(typeId) {
   if (value.includes("satellite")) return "satellite";
   if (value.includes("hybrid")) return "satellite";
   return "roadmap";
-}
-
-function getUnavailableUserMessage(reason, mapT) {
-  if (reason === "missing-key") {
-    return mapT?.mapConfigMissing || "Map configuration is missing.";
-  }
-  if (reason === "load-failed") {
-    return mapT?.mapLoadFailed || "The map could not be loaded.";
-  }
-  return mapT?.mapUnavailable || "Interactive map is unavailable.";
-}
-
-function MapUnavailablePanel({
-  t,
-  location,
-  className = MAP_CONTAINER_CLASS,
-  reason = "missing-key",
-  errorMessage = "",
-}) {
-  const mapT = t?.googleMap;
-  const directionsUrl = getDirectionsUrl(location.address);
-  const placeUrl = getGoogleMapsPlaceUrl(location.address);
-  const userMessage = getUnavailableUserMessage(reason, mapT);
-  const isDev = process.env.NODE_ENV === "development";
-
-  return (
-    <div className={`eden-map-fallback ${className}`}>
-      <div className="eden-map-fallback-warning" role="alert">
-        <div className="flex items-start gap-3">
-          <AlertTriangle className="mt-0.5 shrink-0 text-amber-600" size={18} aria-hidden />
-          <div>
-            <strong>{userMessage}</strong>
-            {isDev && reason === "missing-key" ? (
-              <p className="mt-2">{mapT?.apiKeyNotice || mapT?.devSetupNotice}</p>
-            ) : null}
-            {errorMessage && isDev ? (
-              <p className="mt-2 font-mono text-[11px] leading-5 text-amber-900/90">{errorMessage}</p>
-            ) : null}
-          </div>
-        </div>
-      </div>
-
-      <div className="eden-map-fallback-body">
-        <div className="eden-map-fallback-icon">
-          <MapPin size={28} aria-hidden />
-        </div>
-        <h3 className="eden-map-fallback-title">{location.name}</h3>
-        <p className="eden-map-fallback-address">{location.shortAddress}</p>
-        <p className="eden-map-fallback-phone">
-          {t?.pages?.locationsDetail?.officePhone || "Office Phone:"}{" "}
-          <a href={`tel:${location.phoneTel}`}>{location.phone}</a>
-        </p>
-      </div>
-
-      <div className="eden-map-fallback-actions">
-        <a
-          href={placeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="eden-map-actions-open"
-        >
-          <ExternalLink size={16} aria-hidden />
-          {mapT?.openInGoogleMaps || "Open in Google Maps"}
-        </a>
-        <a
-          href={directionsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="eden-map-actions-directions"
-        >
-          <Navigation size={16} aria-hidden />
-          {t?.getDirections || "Get Directions"}
-        </a>
-      </div>
-    </div>
-  );
 }
 
 function buildInfoWindowContent({ location, directionsLabel }) {
@@ -325,9 +249,9 @@ export default function GoogleMapInteractive({
   const placeUrl = getGoogleMapsPlaceUrl(location.address);
 
   const [mapStatus, setMapStatus] = useState("loading");
-  const [unavailableReason, setUnavailableReason] = useState("missing-key");
-  const [errorMessage, setErrorMessage] = useState("");
   const [mapTypeId, setMapTypeId] = useState("roadmap");
+
+  const showInteractiveMap = hasApiKey && mapStatus === "ready";
 
   const shellClassName = variant === "fullpage" ? "eden-map-shell eden-map-shell--fullpage" : "eden-map-shell";
   const canvasClassName = [
@@ -367,7 +291,10 @@ export default function GoogleMapInteractive({
     }
 
     if (!hasApiKey) {
-      logWarn("Maps API key is not configured — using iframe embed fallback");
+      logWarn("NEXT_PUBLIC_GOOGLE_MAPS_API_KEY not set — using iframe embed", {
+        envKeyPresent: Boolean(process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY),
+      });
+      setMapStatus("embed-fallback");
       return undefined;
     }
 
@@ -379,11 +306,9 @@ export default function GoogleMapInteractive({
 
     const handleAuthFailure = () => {
       if (cancelled) return;
-      const message =
-        "Google Maps authentication failed. Check API key, billing, enabled APIs, and HTTP referrer restrictions.";
-      logError(message);
-      setErrorMessage(message);
-      setUnavailableReason("load-failed");
+      logError(
+        "Google Maps authentication failed — using iframe embed. Verify NEXT_PUBLIC_GOOGLE_MAPS_API_KEY, billing, APIs, and referrer restrictions.",
+      );
       setMapStatus("embed-fallback");
     };
 
@@ -528,11 +453,8 @@ export default function GoogleMapInteractive({
           logInfo("Map ready");
         }
       } catch (error) {
-        const message = error instanceof Error ? error.message : "Unknown Google Maps error";
-        logError("Map initialization failed — falling back to iframe embed", error);
+        logError("Map initialization failed — using iframe embed", error);
         if (!cancelled) {
-          setErrorMessage(message);
-          setUnavailableReason("load-failed");
           setMapStatus("embed-fallback");
         }
       }
@@ -625,35 +547,7 @@ export default function GoogleMapInteractive({
     return () => window.cancelAnimationFrame(frame);
   }, [mapStatus, variant, className]);
 
-  if (keyLoading) {
-    return (
-      <div className={`eden-map-fallback ${className}`}>
-        <div className="eden-map-fallback-body">
-          <div className="eden-map-loading-spinner mx-auto" aria-hidden />
-          <p className="eden-map-loading-text mt-4">{t?.googleMap?.loadingLabel || "Loading map…"}</p>
-        </div>
-      </div>
-    );
-  }
-
-  const useEmbedFallback = !hasApiKey || mapStatus === "embed-fallback";
-
-  if (useEmbedFallback) {
-    return (
-      <MapEmbedView
-        t={t}
-        location={location}
-        mapTitle={mapTitle}
-        shellClassName={shellClassName}
-        canvasClassName={canvasClassName}
-        directionsUrl={directionsUrl}
-        placeUrl={placeUrl}
-        directionsLabel={directionsLabel}
-      />
-    );
-  }
-
-  if (mapStatus === "unavailable") {
+  if (!showInteractiveMap) {
     return (
       <MapEmbedView
         t={t}
