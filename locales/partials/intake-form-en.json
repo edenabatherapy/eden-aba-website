@@ -820,5 +820,13 @@
     "acknowledged": "Acknowledged",
     "openToReview": "Open to review full consent",
     "yesAcknowledge": "Yes, I acknowledge"
+  },
+  "messagesPanel": {
+    "intro": "Send a message to our support team or save a draft locally while you complete your intake.",
+    "saveDraft": "Save Message Draft",
+    "sendToSupport": "Send to Support Team",
+    "sending": "Sending…",
+    "subjectRequired": "Subject is required.",
+    "messageRequired": "Message is required."
   }
 }

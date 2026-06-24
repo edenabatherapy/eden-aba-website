@@ -23,15 +23,20 @@ import {
 } from "@/lib/intake/legal-global";
 import {
   appendAudit,
-  clearIntakeBrowserStorage,
+  clearAllIntakeClientData,
+  clearIntakeDraftStorage,
+  disableIntakeDraftWrites,
+  enableIntakeDraftWrites,
   loadActiveTab,
   loadCurrentStep,
   loadFormData,
   loadMeta,
+  loadSubmissionReceipt,
   saveActiveTab,
   saveCurrentStep,
   saveFormData,
   saveMeta,
+  saveSubmissionReceipt,
 } from "@/lib/intake/storage";
 import { getOverallCompletion, getStepCompletion, validateStep } from "@/lib/intake/validation";
 import ConsentModal from "./ConsentModal";
@@ -97,7 +102,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
   const emptyMeta = useMemo(() => ({ documents: {}, messages: [], audit: [] }), []);
 
   const resetIntakeFormState = useCallback(() => {
-    clearIntakeBrowserStorage();
+    clearAllIntakeClientData();
     fileRefs.current.clear();
     setFormData({});
     setMeta(emptyMeta);
@@ -112,6 +117,34 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     resetRecaptcha();
   }, [emptyMeta, resetRecaptcha, ui.autosaved]);
 
+  const completeSuccessfulSubmission = useCallback(
+    (result) => {
+      disableIntakeDraftWrites();
+      clearIntakeDraftStorage();
+      fileRefs.current.clear();
+      setFormData({});
+      setMeta(emptyMeta);
+      setCurrentStep(0);
+      setActiveTab("intake");
+      setShowReview(false);
+      setFieldErrors({});
+      setMissingFields([]);
+
+      const successResult = {
+        ok: true,
+        confirmationId: result.confirmationId,
+        submittedAt: result.submittedAt,
+        message: result.message || p.submitSuccess,
+      };
+
+      saveSubmissionReceipt(successResult);
+      setSubmitResult(successResult);
+      resetRecaptcha();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    [emptyMeta, p.submitSuccess, resetRecaptcha],
+  );
+
   const handleStartNewIntake = useCallback(() => {
     resetIntakeFormState();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -123,17 +156,36 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
 
   useEffect(() => {
     const frame = window.requestAnimationFrame(() => {
-      setFormData(loadFormData());
-      setCurrentStep(loadCurrentStep());
-      setActiveTab(loadActiveTab());
-      setMeta(loadMeta());
+      const receipt = loadSubmissionReceipt();
+      if (receipt?.ok) {
+        disableIntakeDraftWrites();
+        clearIntakeDraftStorage();
+        setSubmitResult({
+          ok: true,
+          confirmationId: receipt.confirmationId,
+          submittedAt: receipt.submittedAt,
+          message: receipt.message || p.submitSuccess,
+        });
+        setFormData({});
+        setMeta(emptyMeta);
+        setCurrentStep(0);
+        setActiveTab("intake");
+        setShowReview(false);
+      } else {
+        enableIntakeDraftWrites();
+        setFormData(loadFormData());
+        setCurrentStep(loadCurrentStep());
+        setActiveTab(loadActiveTab());
+        setMeta(loadMeta());
+      }
       setMounted(true);
     });
     return () => window.cancelAnimationFrame(frame);
-  }, []);
+  }, [emptyMeta, p.submitSuccess]);
 
   const persist = useCallback(
     (nextData, nextStep = currentStep, nextTab = activeTab, nextMeta = meta, action = "Draft saved") => {
+      if (submitResult?.ok) return;
       saveFormData(nextData);
       saveCurrentStep(nextStep);
       saveActiveTab(nextTab);
@@ -142,7 +194,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
       setSaveStatus(ui.savedJustNow || "Saved just now");
       setMeta(audited);
     },
-    [activeTab, currentStep, meta]
+    [activeTab, currentStep, meta, submitResult?.ok, ui.savedJustNow]
   );
 
   const handleChange = useCallback(
@@ -195,7 +247,9 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
               },
             };
             const nextMeta = appendAudit({ ...m, documents }, `Document selected: ${name}`, currentStep);
-            saveMeta(nextMeta);
+            if (!submitResult?.ok) {
+              saveMeta(nextMeta);
+            }
             return nextMeta;
           });
           return prev;
@@ -223,7 +277,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
         return next;
       });
     },
-    [activeTab, currentStep, fieldErrors, meta, persist]
+    [activeTab, currentStep, fieldErrors, meta, persist, submitResult?.ok]
   );
 
   const handleTabChange = (tab) => {
@@ -366,18 +420,7 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     releaseSubmitLock();
 
     if (result.ok && result.mode === "backend") {
-      clearIntakeBrowserStorage();
-      fileRefs.current.clear();
-      setFormData({});
-      setMeta(emptyMeta);
-      setSubmitResult({
-        ok: true,
-        confirmationId: result.confirmationId,
-        submittedAt: result.submittedAt,
-        message: result.message || p.submitSuccess,
-      });
-      resetRecaptcha();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      completeSuccessfulSubmission(result);
       return;
     }
 
@@ -426,6 +469,52 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
     persist({ ...formData, portalMsgSubject: subject, portalMsgBody: body }, currentStep, "messages", nextMeta, "Message draft saved");
     setFormData((d) => ({ ...d, portalMsgSubject: subject, portalMsgBody: body }));
     setMeta(nextMeta);
+  };
+
+  const handleSendToSupport = async (subject, body) => {
+    const receipt = loadSubmissionReceipt();
+    const confirmationId = submitResult?.confirmationId || receipt?.confirmationId || "";
+    const parentName =
+      String(formData.guardianName ?? formData.legalGlobalName ?? formData.finalName ?? "").trim();
+    const parentEmail = String(formData.email ?? "").trim();
+    const parentPhone = String(formData.phone ?? "").trim();
+
+    try {
+      const response = await fetch("/api/intake/support-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          parentName,
+          parentEmail,
+          parentPhone,
+          confirmationId,
+          subject,
+          message: body,
+        }),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && result.ok) {
+        return {
+          ok: true,
+          message:
+            result.message ||
+            "Your message has been sent successfully. A member of our support team will contact you shortly.",
+        };
+      }
+
+      return {
+        ok: false,
+        message:
+          result.message || "Unable to send message at this time. Your draft has been preserved.",
+      };
+    } catch {
+      return {
+        ok: false,
+        message: "Unable to send message at this time. Your draft has been preserved.",
+      };
+    }
   };
 
   const stepCompletion = getStepCompletion(currentStep, formData);
@@ -753,7 +842,14 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
                   <div className="mb-5 hidden lg:block">
                     <IntakeBrandHeader subtitle={brandSubtitle} />
                   </div>
-                  <MessagesPanel data={formData} meta={meta} onChange={handleChange} onSaveMessage={handleSaveMessage} />
+                  <MessagesPanel
+                    data={formData}
+                    meta={meta}
+                    onChange={handleChange}
+                    onSaveMessage={handleSaveMessage}
+                    onSendToSupport={handleSendToSupport}
+                    labels={intakeForm.messagesPanel || {}}
+                  />
                 </>
               )}
 

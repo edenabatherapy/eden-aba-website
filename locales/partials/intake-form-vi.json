@@ -820,5 +820,13 @@
     "acknowledged": "Đã xác nhận",
     "openToReview": "Mở để xem toàn bộ đồng ý",
     "yesAcknowledge": "Có, tôi xác nhận"
+  },
+  "messagesPanel": {
+    "intro": "Gửi tin nhắn cho đội hỗ trợ hoặc lưu bản nháp cục bộ trong khi hoàn tất intake.",
+    "saveDraft": "Lưu bản nháp tin nhắn",
+    "sendToSupport": "Gửi cho đội hỗ trợ",
+    "sending": "Đang gửi…",
+    "subjectRequired": "Tiêu đề là bắt buộc.",
+    "messageRequired": "Nội dung tin nhắn là bắt buộc."
   }
 }
