@@ -16,6 +16,19 @@ type EdenChatRequestBody = {
   previousResponseId?: unknown;
 };
 
+/**
+ * Operator-facing hints for configuration failures. These never contain
+ * secrets (no key values, no stack traces) so they are safe to surface in
+ * production responses. They make the root cause visible in DevTools/Network
+ * instead of hiding it behind a generic "temporarily unavailable" message.
+ */
+const ERROR_REASONS: Record<string, string> = {
+  missing_api_key:
+    "Server is missing the OPENAI_API_KEY environment variable. Set OPENAI_API_KEY in the deployment environment (e.g. Vercel → Project Settings → Environment Variables, scope: Production) and redeploy. This is a server configuration issue, not a code bug.",
+  openai_request_failed:
+    "OpenAI rejected the request. A 401/403 usually means an invalid or expired OPENAI_API_KEY; a 404 on prompt.id means OPENAI_EDEN_PROMPT_ID is wrong for this OpenAI account.",
+};
+
 function buildErrorResponse(
   status: number,
   message: string,
@@ -25,21 +38,26 @@ function buildErrorResponse(
 ) {
   const includeDebug = process.env.NODE_ENV === "development";
 
-  return NextResponse.json(
-    {
-      ok: false,
-      message,
-      ...(includeDebug
-        ? {
-            error,
-            detail,
-            config: getOpenAiConfigStatus(),
-            ...extra,
-          }
-        : {}),
-    },
-    { status },
-  );
+  const body: Record<string, unknown> = {
+    ok: false,
+    message,
+    // Always expose a stable, machine-readable code so the failing reason is
+    // visible in the Network tab in every environment. This does NOT leak the
+    // API key or any secret value.
+    error,
+  };
+
+  if (ERROR_REASONS[error]) {
+    body.reason = ERROR_REASONS[error];
+  }
+
+  if (includeDebug) {
+    body.detail = detail;
+    body.config = getOpenAiConfigStatus();
+    Object.assign(body, extra);
+  }
+
+  return NextResponse.json(body, { status });
 }
 
 export async function POST(request: Request) {

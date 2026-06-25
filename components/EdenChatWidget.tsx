@@ -92,6 +92,7 @@ export default function EdenChatWidget() {
         responseId?: string;
         message?: string;
         error?: string;
+        reason?: string;
         detail?: string;
         openAiStatus?: number;
         openAiCode?: string;
@@ -107,9 +108,12 @@ export default function EdenChatWidget() {
           data.openAiStatus ? `OpenAI HTTP ${data.openAiStatus}` : "",
         ].filter(Boolean);
 
-        if (process.env.NODE_ENV === "development") {
-          console.error("[eden-chat] client received API failure", data);
-        }
+        console.error("[eden-chat] API failure", {
+          status: response.status,
+          error: data.error,
+          reason: data.reason,
+          message: data.message,
+        });
 
         throw new Error(detailParts.join(" "));
       }
