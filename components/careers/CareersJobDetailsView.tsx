@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Bookmark, MapPin, Share2 } from "lucide-react";
 import { useState } from "react";
+import CareersActionLink from "@/components/careers/CareersActionLink";
 import {
   CAREERS_PAGE,
   getStatusBadgeClasses,
@@ -63,12 +64,12 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
         </p>
         <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{job.summary}</p>
 
-        <div className="relative z-[100] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          {/* Do not modify careers button routes unless intentionally updating the careers application flow. */}
-          <Link href={applyHref} className={getButtonClasses("primary", "w-full sm:w-auto")}>
+        <div className="relative z-[111] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
+          <CareersActionLink href={applyHref} className={getButtonClasses("primary", "w-full sm:w-auto")}>
             {CAREERS_PAGE.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </CareersActionLink>
           <button
             type="button"
             onClick={() => toggleSaved(job.id)}
@@ -168,12 +169,12 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
           <p className="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
             Submit your application for {job.title} at Eden ABA Therapy.
           </p>
-          <div className="relative z-[100] mt-5">
-            {/* Do not modify careers button routes unless intentionally updating the careers application flow. */}
-            <Link href={applyHref} className={getButtonClasses("primary")}>
+          <div className="relative z-[111] mt-5">
+            {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
+            <CareersActionLink href={applyHref} className={getButtonClasses("primary")}>
               {CAREERS_PAGE.applyLabel}
               <ArrowRight size={16} aria-hidden="true" />
-            </Link>
+            </CareersActionLink>
           </div>
         </section>
       </div>

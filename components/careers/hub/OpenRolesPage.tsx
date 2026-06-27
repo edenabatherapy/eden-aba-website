@@ -42,13 +42,15 @@ export default function OpenRolesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16" aria-labelledby="job-search-heading">
-        <motion.div {...fadeUp}>
+        <motion.div {...fadeUp} className="pointer-events-none">
           <h2 id="job-search-heading" className="sr-only">
             Job search and filters
           </h2>
-          <Suspense fallback={null}>
-            <CareersPortal />
-          </Suspense>
+          <div className="pointer-events-auto">
+            <Suspense fallback={null}>
+              <CareersPortal />
+            </Suspense>
+          </div>
         </motion.div>
       </section>
 

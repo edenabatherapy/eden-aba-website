@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
+import CareersActionLink from "@/components/careers/CareersActionLink";
 import { CAREERS_PAGE } from "@/lib/careers-content";
 import { HOMEPAGE_OPEN_JOBS } from "@/lib/careers/jobs-data";
 import { resolveJobApplyHref, resolveJobDetailsHref } from "@/lib/careers-routes";
@@ -48,15 +49,15 @@ export default function CareersHomeSection() {
                 </p>
                 <p className="mt-2 line-clamp-2 text-sm text-slate-600 dark:text-slate-400">{job.summary}</p>
               </div>
-              <div className="relative z-[100] flex flex-col gap-2 sm:flex-row sm:items-center">
-                {/* Do not modify careers button routes unless intentionally updating the careers application flow. */}
-                <Link href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "shrink-0")}>
+              <div className="relative z-[111] flex flex-col gap-2 sm:flex-row sm:items-center">
+                {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
+                <CareersActionLink href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "shrink-0")}>
                   {CAREERS_PAGE.viewDetailsLabel}
-                </Link>
-                <Link href={resolveJobApplyHref(job)} className={getButtonClasses("dark", "shrink-0")}>
+                </CareersActionLink>
+                <CareersActionLink href={resolveJobApplyHref(job)} className={getButtonClasses("dark", "shrink-0")}>
                   {CAREERS_PAGE.applyLabel}
                   <ArrowRight size={16} aria-hidden="true" />
-                </Link>
+                </CareersActionLink>
               </div>
             </div>
           ))}

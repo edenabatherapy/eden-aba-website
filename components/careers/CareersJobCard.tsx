@@ -13,6 +13,7 @@ import {
   Stethoscope,
   Users,
 } from "lucide-react";
+import CareersActionLink from "@/components/careers/CareersActionLink";
 import {
   CAREERS_PAGE,
   DEPARTMENT_ICONS,
@@ -87,9 +88,9 @@ export default function CareersJobCard({
                 id={`job-title-${job.id}`}
                 className="mt-3 text-xl font-extrabold text-slate-900 dark:text-white sm:text-2xl"
               >
-                <Link href={resolveJobDetailsHref(job)} className="hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:hover:text-emerald-300">
+                <CareersActionLink href={resolveJobDetailsHref(job)} className="hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:hover:text-emerald-300">
                   {job.title}
-                </Link>
+                </CareersActionLink>
               </h3>
               <p className="mt-2 text-sm font-bold text-slate-600 dark:text-slate-300">
                 {job.department} • {job.employment}
@@ -135,15 +136,15 @@ export default function CareersJobCard({
           ))}
         </ul>
 
-        <div className="relative z-[100] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          {/* Do not modify careers button routes unless intentionally updating the careers application flow. */}
-          <Link href={resolveJobApplyHref(job)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
+        <div className="relative z-[111] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
+          <CareersActionLink href={resolveJobApplyHref(job)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
             {CAREERS_PAGE.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
-          </Link>
-          <Link href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
+          </CareersActionLink>
+          <CareersActionLink href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
             {CAREERS_PAGE.viewDetailsLabel}
-          </Link>
+          </CareersActionLink>
           <button
             type="button"
             onClick={() => onToggleSave(job.id)}
