@@ -25,6 +25,26 @@ export function getJobApplyPath(jobId: string): string {
   return `/careers/apply?role=${getJobSlug(jobId)}`;
 }
 
+export function resolveJobApplyHref(job: CareersJob | CareersJobWithSlug): string {
+  if ("applyUrl" in job && job.applyUrl) {
+    return job.applyUrl;
+  }
+
+  if ("slug" in job && job.slug) {
+    return `/careers/apply?role=${job.slug}`;
+  }
+
+  return getJobApplyPath(job.id);
+}
+
+export function resolveJobDetailsHref(job: CareersJob | CareersJobWithSlug): string {
+  if ("slug" in job && job.slug) {
+    return `/careers/open-roles/${job.slug}`;
+  }
+
+  return getJobDetailsPath(job.id);
+}
+
 export function getJobShareUrl(jobId: string, origin?: string): string {
   const base = origin ?? (typeof window !== "undefined" ? window.location.origin : "");
   return `${base}${getJobDetailsPath(jobId)}`;

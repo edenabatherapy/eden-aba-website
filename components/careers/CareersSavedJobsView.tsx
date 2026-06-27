@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useMemo } from "react";
 import { ALL_JOBS } from "@/lib/careers/jobs-data";
 import { CAREERS_PAGE } from "@/lib/careers-content";
-import { getJobApplyPath, getJobDetailsPath } from "@/lib/careers-routes";
+import { resolveJobApplyHref, resolveJobDetailsHref } from "@/lib/careers-routes";
 import { useSavedJobs } from "@/components/careers/useSavedJobs";
 import { getButtonClasses } from "@/lib/button-styles";
 
@@ -54,12 +54,13 @@ export default function CareersSavedJobsView() {
                 {job.department} • {job.location} • {job.employment}
               </p>
               <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{job.summary}</p>
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href={getJobApplyPath(job.id)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
+              <div className="relative z-[100] mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {/* Do not modify careers button routes unless intentionally updating the careers application flow. */}
+                <Link href={resolveJobApplyHref(job)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
                   {CAREERS_PAGE.applyLabel}
                   <ArrowRight size={16} aria-hidden="true" />
                 </Link>
-                <Link href={getJobDetailsPath(job.id)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
+                <Link href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
                   {CAREERS_PAGE.viewDetailsLabel}
                 </Link>
                 <button

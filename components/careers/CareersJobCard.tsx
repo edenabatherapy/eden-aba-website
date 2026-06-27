@@ -19,7 +19,12 @@ import {
   getStatusBadgeClasses,
   type CareersJob,
 } from "@/lib/careers-content";
-import { getJobApplyPath, getJobDetailsPath, getJobListingStatus, getRequirementsSummary } from "@/lib/careers-routes";
+import {
+  getJobListingStatus,
+  getRequirementsSummary,
+  resolveJobApplyHref,
+  resolveJobDetailsHref,
+} from "@/lib/careers-routes";
 import { getButtonClasses } from "@/lib/button-styles";
 
 type CareersJobCardProps = {
@@ -82,7 +87,7 @@ export default function CareersJobCard({
                 id={`job-title-${job.id}`}
                 className="mt-3 text-xl font-extrabold text-slate-900 dark:text-white sm:text-2xl"
               >
-                <Link href={getJobDetailsPath(job.id)} className="hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:hover:text-emerald-300">
+                <Link href={resolveJobDetailsHref(job)} className="hover:text-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:hover:text-emerald-300">
                   {job.title}
                 </Link>
               </h3>
@@ -130,12 +135,13 @@ export default function CareersJobCard({
           ))}
         </ul>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link href={getJobApplyPath(job.id)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
+        <div className="relative z-[100] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          {/* Do not modify careers button routes unless intentionally updating the careers application flow. */}
+          <Link href={resolveJobApplyHref(job)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
             {CAREERS_PAGE.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
           </Link>
-          <Link href={getJobDetailsPath(job.id)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
+          <Link href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
             {CAREERS_PAGE.viewDetailsLabel}
           </Link>
           <button
