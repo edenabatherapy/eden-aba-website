@@ -39,6 +39,7 @@ function MenuLinkBadge({ badge }: { badge: string | null }) {
 
 export default function EdenSiteHeader() {
   const pathname = usePathname();
+  const isCareerApplicationPage = pathname.startsWith("/careers/apply");
   const scrolled = useHeaderScrolled();
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -222,15 +223,19 @@ export default function EdenSiteHeader() {
 
         <div className="flex shrink-0 items-center justify-end gap-2">
           <LanguageSwitcher comfortable className="hidden sm:inline-flex" />
-          <Link
-            href="/insurance-coverage"
-            className="hidden text-sm font-semibold text-slate-700 hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-300 sm:inline"
-          >
-            {t.navInsurance || "Insurance"}
-          </Link>
-          <CtaLink href="/intake" size="sm" className="hidden px-5 py-2.5 sm:inline-flex">
-            {t.startABA}
-          </CtaLink>
+          {!isCareerApplicationPage && (
+            <>
+              <Link
+                href="/insurance-coverage"
+                className="hidden text-sm font-semibold text-slate-700 hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-300 sm:inline"
+              >
+                {t.navInsurance || "Insurance"}
+              </Link>
+              <CtaLink href="/intake" size="sm" className="hidden px-5 py-2.5 sm:inline-flex">
+                {t.startABA}
+              </CtaLink>
+            </>
+          )}
           <button
             type="button"
             onClick={() => setOpen(!open)}
@@ -358,20 +363,24 @@ export default function EdenSiteHeader() {
                 );
               })}
               <LanguageSwitcher comfortable className="justify-center" />
-              <Link
-                href="/insurance-coverage"
-                className="rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950 dark:bg-slate-900 dark:text-white"
-                onClick={closeMenus}
-              >
-                {t.navInsurance || "Insurance"}
-              </Link>
-              <Link
-                href="/intake"
-                className="rounded-2xl bg-[#0E6B4F] p-3 text-center font-black text-white"
-                onClick={closeMenus}
-              >
-                {t.startABA}
-              </Link>
+              {!isCareerApplicationPage && (
+                <>
+                  <Link
+                    href="/insurance-coverage"
+                    className="rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950 dark:bg-slate-900 dark:text-white"
+                    onClick={closeMenus}
+                  >
+                    {t.navInsurance || "Insurance"}
+                  </Link>
+                  <Link
+                    href="/intake"
+                    className="rounded-2xl bg-[#0E6B4F] p-3 text-center font-black text-white"
+                    onClick={closeMenus}
+                  >
+                    {t.startABA}
+                  </Link>
+                </>
+              )}
             </div>
           </motion.div>
         )}
