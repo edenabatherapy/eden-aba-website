@@ -1,8 +1,10 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useId, useRef, useState } from "react";
+import { FormEvent, useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { MessageCircle, Send, X } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getTranslation } from "@/lib/i18n";
 import "./EdenChatWidget.css";
 
 type ChatMessage = {
@@ -19,6 +21,13 @@ const QUICK_QUESTIONS = [
   "How do I start intake?",
 ];
 
+function createWelcomeMessage(language: string) {
+  return (
+    getTranslation(language).pages.edenChat?.welcomeMessage ??
+    "Hi, I'm the Eden ABA Therapy assistant. I can answer general questions about ABA therapy, insurance, intake, and family support. How can I help today?"
+  );
+}
+
 function createMessageId() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
@@ -27,20 +36,36 @@ export default function EdenChatWidget() {
   const dialogTitleId = useId();
   const messagesRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const { language } = useSiteLanguage();
+  const chat = getTranslation(language).pages.edenChat;
+  const quickQuestions = chat?.quickQuestions ?? QUICK_QUESTIONS;
 
   const [isOpen, setIsOpen] = useState(false);
   const [draft, setDraft] = useState("");
-  const [messages, setMessages] = useState<ChatMessage[]>([
+  const [messages, setMessages] = useState<ChatMessage[]>(() => [
     {
       id: "welcome",
       role: "assistant",
-      content:
-        "Hi, I'm the Eden ABA Therapy assistant. I can answer general questions about ABA therapy, insurance, intake, and family support. How can I help today?",
+      content: createWelcomeMessage(language),
     },
   ]);
   const [previousResponseId, setPreviousResponseId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    setMessages((current) => {
+      const nonWelcome = current.filter((message) => message.id !== "welcome");
+      return [
+        {
+          id: "welcome",
+          role: "assistant",
+          content: createWelcomeMessage(language),
+        },
+        ...nonWelcome,
+      ];
+    });
+  }, [language]);
 
   const handleOpenChat = useCallback(() => {
     if (process.env.NODE_ENV === "development") {
@@ -102,7 +127,7 @@ export default function EdenChatWidget() {
 
       if (!response.ok || !data.ok || !data.content) {
         const detailParts = [
-          data.message || "The Eden assistant could not respond right now.",
+          data.message || chat?.defaultError || "The Eden assistant could not respond right now.",
           data.detail ? `Details: ${data.detail}` : "",
           data.error ? `Code: ${data.error}` : "",
           data.openAiStatus ? `OpenAI HTTP ${data.openAiStatus}` : "",
@@ -133,7 +158,7 @@ export default function EdenChatWidget() {
       const messageText =
         sendError instanceof Error
           ? sendError.message
-          : "The Eden assistant could not respond right now.";
+          : chat?.defaultError || "The Eden assistant could not respond right now.";
       setError(messageText);
     } finally {
       setLoading(false);
@@ -152,12 +177,12 @@ export default function EdenChatWidget() {
           type="button"
           className="eden-chat-button"
           onClick={handleOpenChat}
-          aria-label="Open Eden ABA Therapy assistant"
+          aria-label={chat?.openLabel ?? "Open Eden ABA Therapy assistant"}
           aria-expanded={false}
           aria-controls="eden-chat-panel"
         >
           <MessageCircle size={18} aria-hidden />
-          Ask Eden
+          {chat?.buttonLabel ?? "Ask Eden"}
         </button>
       ) : null}
 
@@ -174,14 +199,14 @@ export default function EdenChatWidget() {
               <span className="eden-chat-avatar" aria-hidden="true" />
               <EdenLogo size="compact" className="eden-chat-logo" />
               <div className="eden-chat-header-text">
-                <strong id={dialogTitleId}>Eden ABA Therapy Assistant</strong>
+                <strong id={dialogTitleId}>{chat?.panelTitle ?? "Eden ABA Therapy Assistant"}</strong>
                 <p>
                   <span className="eden-chat-status" aria-hidden="true" />
-                  General information only
+                  {chat?.statusLabel ?? "General information only"}
                 </p>
               </div>
             </div>
-            <button type="button" onClick={handleCloseChat} aria-label="Close Eden assistant">
+            <button type="button" onClick={handleCloseChat} aria-label={chat?.closeLabel ?? "Close Eden assistant"}>
               <X size={16} aria-hidden />
             </button>
           </div>
@@ -197,7 +222,8 @@ export default function EdenChatWidget() {
                 <p>{message.content}</p>
                 {message.intakeSubmitted && message.confirmationId ? (
                   <p className="eden-chat-confirmation">
-                    Confirmation ID: <strong>{message.confirmationId}</strong>
+                    {chat?.confirmationPrefix ?? "Confirmation ID:"}{" "}
+                    <strong>{message.confirmationId}</strong>
                   </p>
                 ) : null}
               </div>
@@ -206,7 +232,7 @@ export default function EdenChatWidget() {
             {loading ? (
               <div
                 className="eden-chat-bubble eden-chat-bubble--assistant eden-chat-typing"
-                aria-label="Eden assistant is typing"
+                aria-label={chat?.typingLabel ?? "Eden assistant is typing"}
               >
                 <span />
                 <span />
@@ -215,8 +241,8 @@ export default function EdenChatWidget() {
             ) : null}
           </div>
 
-          <div className="eden-chat-actions" role="group" aria-label="Quick questions">
-            {QUICK_QUESTIONS.map((question) => (
+          <div className="eden-chat-actions" role="group" aria-label={chat?.quickQuestionsAria ?? "Quick questions"}>
+            {quickQuestions.map((question) => (
               <button
                 key={question}
                 type="button"
@@ -236,21 +262,20 @@ export default function EdenChatWidget() {
               type="text"
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
-              placeholder="Ask about ABA therapy, insurance, or intake..."
-              aria-label="Message the Eden assistant"
+              placeholder={chat?.placeholder ?? "Ask about ABA therapy, insurance, or intake..."}
+              aria-label={chat?.messageLabel ?? "Message the Eden assistant"}
               disabled={loading}
               maxLength={2000}
             />
-            <button type="submit" disabled={loading || !draft.trim()} aria-label="Send message">
+            <button type="submit" disabled={loading || !draft.trim()} aria-label={chat?.sendAriaLabel ?? "Send message"}>
               <Send size={16} aria-hidden />
-              <span className="eden-chat-send-label">Send</span>
+              <span className="eden-chat-send-label">{chat?.sendLabel ?? "Send"}</span>
             </button>
           </form>
 
           <p className="eden-chat-disclaimer">
-            This assistant provides general information only. It does not diagnose autism, provide
-            medical advice, or replace care from a qualified clinician. If this is an emergency,
-            call 911.
+            {chat?.disclaimer ??
+              "This assistant provides general information only. It does not diagnose autism, provide medical advice, or replace care from a qualified clinician. If this is an emergency, call 911."}
           </p>
         </section>
       ) : null}

@@ -1,9 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import EdenLogo from "@/components/EdenLogo";
 import ServiceMeaningAnimation, { type ServiceMeaningAnimationType } from "@/components/ServiceMeaningAnimation";
 import { servicesMegaMenuItems, type ServicesMegaMenuItem } from "@/lib/services-mega-menu";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getTranslation } from "@/lib/i18n";
 import "./AbaTherapyMegaMenu.css";
 
 export type AbaTherapyMegaMenuItem = ServicesMegaMenuItem;
@@ -96,7 +99,32 @@ export default function AbaTherapyMegaMenu({
   variant = "desktop",
   onClose,
 }: AbaTherapyMegaMenuProps) {
-  const [activeAbaItem, setActiveAbaItem] = useState(servicesMegaMenuItems[0]);
+  const { language } = useSiteLanguage();
+  const megaMenu = getTranslation(language).pages.megaMenu;
+  const localizedLabels = useLocalizedContent("ABA_MEGA_MENU_LABELS", {
+    comingSoonBadge: comingSoonBadge,
+    servicePreviewLabel: servicePreviewLabel,
+    comingSoonPreviewLabel: comingSoonPreviewLabel,
+    learnMoreText: learnMoreText,
+  });
+  const localizedDescriptions = useLocalizedContent(
+    "SERVICES_MEGA_MENU_ITEMS",
+    servicesMegaMenuItems.map((item) => ({ description: item.description })),
+  );
+  const menuItems = useMemo(
+    () =>
+      servicesMegaMenuItems.map((item, index) => ({
+        ...item,
+        description: localizedDescriptions[index]?.description ?? item.description,
+      })),
+    [localizedDescriptions],
+  );
+
+  const [activeAbaItem, setActiveAbaItem] = useState(menuItems[0]);
+
+  useEffect(() => {
+    setActiveAbaItem((current) => menuItems.find((item) => item.title === current.title) ?? menuItems[0]);
+  }, [menuItems]);
 
   const handleSelect = useCallback(
     (item: AbaTherapyMegaMenuItem) => {
@@ -113,10 +141,10 @@ export default function AbaTherapyMegaMenu({
   return (
     <div className={`aba-mega-menu aba-mega-menu--services${isMobile ? " aba-mega-menu--mobile" : ""}`}>
       <div className="aba-menu-left">
-        <p className="mega-menu-label">{servicesLabel}</p>
+        <p className="mega-menu-label">{servicesLabel || megaMenu?.servicesLabel || "SERVICES"}</p>
 
         <div className="aba-menu-left__items">
-          {servicesMegaMenuItems.map((item) => {
+          {menuItems.map((item) => {
             const displayTitle = getDisplayTitle(item);
             const isActive = activeAbaItem.title === item.title;
 
@@ -134,7 +162,7 @@ export default function AbaTherapyMegaMenu({
                 <span className="aba-menu-item__label">
                   <span className="aba-menu-item__title">{displayTitle}</span>
                   {item.comingSoon ? (
-                    <small className="coming-soon-badge">{comingSoonBadge}</small>
+                    <small className="coming-soon-badge">{localizedLabels.comingSoonBadge}</small>
                   ) : null}
                 </span>
 
@@ -152,10 +180,10 @@ export default function AbaTherapyMegaMenu({
           <PreviewCard
             item={activeAbaItem}
             displayTitle={activeDisplayTitle}
-            comingSoonPreviewLabel={comingSoonPreviewLabel}
-            learnMoreText={learnMoreText}
-            servicePreviewLabel={servicePreviewLabel}
-            comingSoonBadge={comingSoonBadge}
+            comingSoonPreviewLabel={localizedLabels.comingSoonPreviewLabel}
+            learnMoreText={localizedLabels.learnMoreText}
+            servicePreviewLabel={localizedLabels.servicePreviewLabel}
+            comingSoonBadge={localizedLabels.comingSoonBadge}
           />
         </div>
       ) : (
@@ -163,10 +191,10 @@ export default function AbaTherapyMegaMenu({
           <PreviewCard
             item={activeAbaItem}
             displayTitle={activeDisplayTitle}
-            comingSoonPreviewLabel={comingSoonPreviewLabel}
-            learnMoreText={learnMoreText}
-            servicePreviewLabel={servicePreviewLabel}
-            comingSoonBadge={comingSoonBadge}
+            comingSoonPreviewLabel={localizedLabels.comingSoonPreviewLabel}
+            learnMoreText={localizedLabels.learnMoreText}
+            servicePreviewLabel={localizedLabels.servicePreviewLabel}
+            comingSoonBadge={localizedLabels.comingSoonBadge}
             compact
           />
         </div>

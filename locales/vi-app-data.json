@@ -19,10 +19,22 @@
     "secondaryLabel": "Liên hệ Eden"
   },
   "CAREERS_HOME_SNAPSHOT_STATS": [
-    { "title": "7+ loại vai trò hiện tại", "description": "Lộ trình lâm sàng, lãnh đạo và vận hành tại Eden." },
-    { "title": "Trung tâm tuyển dụng Annandale", "description": "Địa điểm chính cho tuyển dụng và onboarding đang hoạt động." },
-    { "title": "Mở rộng tại Bắc Virginia", "description": "Mở rộng tiếp cận tại các cộng đồng có nhu cầu cao ở Virginia." },
-    { "title": "Nghề nghiệp Lâm sàng + Vận hành", "description": "Vai trò cho nhà lâm sàng, kỹ thuật viên và chuyên viên hỗ trợ." }
+    {
+      "title": "7+ loại vai trò hiện tại",
+      "description": "Lộ trình lâm sàng, lãnh đạo và vận hành tại Eden."
+    },
+    {
+      "title": "Trung tâm tuyển dụng Annandale",
+      "description": "Địa điểm chính cho tuyển dụng và onboarding đang hoạt động."
+    },
+    {
+      "title": "Mở rộng tại Bắc Virginia",
+      "description": "Mở rộng tiếp cận tại các cộng đồng có nhu cầu cao ở Virginia."
+    },
+    {
+      "title": "Nghề nghiệp Lâm sàng + Vận hành",
+      "description": "Vai trò cho nhà lâm sàng, kỹ thuật viên và chuyên viên hỗ trợ."
+    }
   ],
   "CAREERS_HOME_WHY_JOIN_CARDS": [
     {
@@ -43,11 +55,26 @@
     }
   ],
   "CAREERS_HOME_HERO_JOURNEY": [
-    { "step": 1, "label": "Ứng tuyển" },
-    { "step": 2, "label": "Phỏng vấn" },
-    { "step": 3, "label": "Onboarding" },
-    { "step": 4, "label": "Chăm sóc có giám sát" },
-    { "step": 5, "label": "Lộ trình phát triển" }
+    {
+      "step": 1,
+      "label": "Ứng tuyển"
+    },
+    {
+      "step": 2,
+      "label": "Phỏng vấn"
+    },
+    {
+      "step": 3,
+      "label": "Onboarding"
+    },
+    {
+      "step": 4,
+      "label": "Chăm sóc có giám sát"
+    },
+    {
+      "step": 5,
+      "label": "Lộ trình phát triển"
+    }
   ],
   "GETTING_STARTED_HERO": {
     "badge": "Bắt đầu với Eden",
@@ -70,5 +97,40 @@
   "CONTACT_US_HERO": {
     "title": "Liên hệ Eden ABA Therapy",
     "subtitle": "Hỗ trợ intake gia đình, giới thiệu chuyên môn, hỗ trợ khách hàng và tuyển dụng."
+  },
+  "SERVICES_MEGA_MENU_ITEMS": [
+    {
+      "description": "Liệu pháp ABA cá nhân hóa tại nhà con bạn, giúp xây dựng giao tiếp, sinh hoạt hàng ngày, hành vi và kỹ năng xã hội trong môi trường quen thuộc."
+    },
+    {
+      "description": "Liệu pháp có cấu trúc tại trung tâm với không gian học tập, tương tác bạn bè, giám sát lâm sàng và chương trình điều trị cá nhân hóa."
+    },
+    {
+      "description": "Hỗ trợ ABA trong thực tế giúp trẻ thực hành an toàn, giao tiếp, tham gia xã hội và độc lập trong môi trường cộng đồng."
+    },
+    {
+      "description": "Hỗ trợ ABA phối hợp với môi trường trường học để cải thiện sẵn sàng lớp học, hành vi, giao tiếp và tham gia học tập."
+    },
+    {
+      "description": "Hỗ trợ ABA từ xa, huấn luyện phụ huynh và tư vấn qua phiên ảo bảo mật cho gia đình cần linh hoạt tiếp cận dịch vụ."
+    },
+    {
+      "description": "Chương trình ABA sau giờ học có cấu trúc hỗ trợ kỹ năng xã hội, thói quen bài tập, giao tiếp và tham gia an toàn sau ngày học."
+    },
+    {
+      "description": "Sắp ra mắt tại Eden Family. Liệu pháp nghề nghiệp sẽ hỗ trợ nhu cầu cảm giác, vận động tinh, tự chăm sóc và độc lập hàng ngày."
+    },
+    {
+      "description": "Sắp ra mắt tại Eden Family. Liệu pháp ngôn ngữ sẽ hỗ trợ giao tiếp, phát triển ngôn ngữ, giao tiếp xã hội và kỹ năng diễn đạt."
+    },
+    {
+      "description": "Sắp ra mắt tại Eden Family. Hỗ trợ ăn uống sẽ giúp trẻ ăn an toàn, đa dạng thực phẩm, kỹ năng vận động miệng và thói quen bữa ăn."
+    }
+  ],
+  "ABA_MEGA_MENU_LABELS": {
+    "comingSoonBadge": "Sắp ra mắt tại Eden Family",
+    "servicePreviewLabel": "DỊCH VỤ LIỆU PHÁP ABA",
+    "comingSoonPreviewLabel": "SẮP RA MẮT",
+    "learnMoreText": "Tìm hiểu thêm →"
   }
 }

@@ -2150,11 +2150,113 @@
       },
       "copyright": "Eden ABA Therapy. All rights reserved.",
       "legalLinks": [
-        "Privacy Policy",
-        "Terms of Service",
-        "Accessibility",
-        "Notice of Privacy Practices"
-      ]
+        {
+          "label": "Privacy Policy"
+        },
+        {
+          "label": "Terms of Service"
+        },
+        {
+          "label": "Accessibility"
+        },
+        {
+          "label": "Notice of Privacy Practices"
+        }
+      ],
+      "grid": {
+        "servicesTitle": "Services",
+        "resourcesTitle": "Resources",
+        "careersTitle": "Careers",
+        "contactTitle": "Contact",
+        "mission": "Compassionate, evidence-informed ABA therapy and family support designed to help children build meaningful skills across home, school, and community.",
+        "officePhoneLabel": "Office Phone:",
+        "emailLabel": "Email:",
+        "addressLabel": "Address:",
+        "faxLabel": "Fax:",
+        "allRightsReserved": "All Rights Reserved.",
+        "builtBy": "Built by ITMagnum",
+        "serviceLinks": [
+          {
+            "label": "ABA Therapy"
+          },
+          {
+            "label": "School-Based ABA Therapy"
+          },
+          {
+            "label": "Evaluations & Diagnosis"
+          },
+          {
+            "label": "Screening & Evaluation"
+          },
+          {
+            "label": "School & IEP Evaluations"
+          },
+          {
+            "label": "Parent Training"
+          },
+          {
+            "label": "After School Programs"
+          }
+        ],
+        "resourceLinks": [
+          {
+            "label": "Getting Started with Eden"
+          },
+          {
+            "label": "What Is ABA Therapy?"
+          },
+          {
+            "label": "Autism Resources"
+          },
+          {
+            "label": "FAQs"
+          },
+          {
+            "label": "Parent Guides"
+          },
+          {
+            "label": "Success Stories"
+          }
+        ],
+        "careerLinks": [
+          {
+            "label": "Search Open Roles"
+          },
+          {
+            "label": "Behavior Technician Careers"
+          },
+          {
+            "label": "RBT Careers"
+          },
+          {
+            "label": "BCBA Careers"
+          },
+          {
+            "label": "Benefits & Compensation"
+          },
+          {
+            "label": "Life at Eden"
+          },
+          {
+            "label": "Career Growth Pathways"
+          }
+        ],
+        "complianceAria": "Compliance and trust notices",
+        "legalAria": "Legal"
+      },
+      "compliance": {
+        "accessibility": {
+          "title": "Accessibility Notice",
+          "content": "This website is designed to support WCAG 2.0 AA accessibility standards. If you experience difficulty accessing any content on the Eden ABA Therapy website, please contact us and our team will be happy to help.",
+          "linkLabel": "Contact us →"
+        },
+        "privacy": {
+          "title": "Cookie & Privacy Notice",
+          "content": "This website uses cookies to help us understand which pages are most helpful to visitors. This data is anonymous. We do not sell user data. Learn more in our Privacy Policy or contact us with questions.",
+          "privacyLabel": "Privacy Policy →",
+          "contactLabel": "Contact us →"
+        }
+      }
     },
     "privacyPolicy": {
       "meta": {
@@ -6667,6 +6769,40 @@
       },
       "hubTitle": "Careers at Eden ABA Therapy",
       "hubIntro": "Eden is building a team of clinicians and support professionals who care about ethical ABA practice, family partnership, measurable progress, and sustainable career growth."
+    },
+    "edenChat": {
+      "buttonLabel": "Ask Eden",
+      "panelTitle": "Eden ABA Therapy Assistant",
+      "statusLabel": "General information only",
+      "welcomeMessage": "Hi, I'm the Eden ABA Therapy assistant. I can answer general questions about ABA therapy, insurance, intake, and family support. How can I help today?",
+      "quickQuestions": [
+        "What is ABA therapy?",
+        "How do I verify insurance?",
+        "How do I start intake?"
+      ],
+      "placeholder": "Ask about ABA therapy, insurance, or intake...",
+      "sendLabel": "Send",
+      "closeLabel": "Close Eden assistant",
+      "openLabel": "Open Eden ABA Therapy assistant",
+      "disclaimer": "This assistant provides general information only. It does not diagnose autism, provide medical advice, or replace care from a qualified clinician. If this is an emergency, call 911.",
+      "typingLabel": "Eden assistant is typing",
+      "messageLabel": "Message the Eden assistant",
+      "sendAriaLabel": "Send message",
+      "quickQuestionsAria": "Quick questions",
+      "confirmationPrefix": "Confirmation ID:",
+      "defaultError": "The Eden assistant could not respond right now."
+    },
+    "megaMenu": {
+      "servicesLabel": "SERVICES",
+      "comingSoonBadge": "Coming Soon to Eden Family",
+      "servicePreviewLabel": "ABA THERAPY SERVICE",
+      "comingSoonPreviewLabel": "COMING SOON",
+      "learnMoreText": "Learn more →",
+      "connectWithUsText": "Connect with us →",
+      "aboutSectionLabel": "ABOUT EDEN",
+      "featuredResourcesLabel": "FEATURED RESOURCES",
+      "exploreResourcesCta": "Explore resources →",
+      "careersSectionLabel": "CAREERS"
     }
   },
   "insuranceForm": {

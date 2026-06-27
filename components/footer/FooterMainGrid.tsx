@@ -5,9 +5,10 @@ import { ChevronDown, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import EdenLogo from "@/components/EdenLogo";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getTranslation } from "@/lib/i18n";
 import {
   FOOTER_CAREER_LINKS,
-  FOOTER_MISSION,
   FOOTER_RESOURCE_LINKS,
   FOOTER_SERVICE_LINKS,
   type FooterLinkItem,
@@ -70,16 +71,33 @@ function FooterColumn({ title, links, defaultOpen = false, delay = 0 }: FooterCo
         }`}
       >
         {links.map((link) => (
-          <FooterNavLink key={link.label} {...link} />
+          <FooterNavLink key={`${link.href}-${link.label}`} {...link} />
         ))}
       </nav>
     </motion.div>
   );
 }
 
+function mergeFooterLinks(
+  englishLinks: FooterLinkItem[],
+  localizedLabels: Array<{ label: string }> | undefined,
+): FooterLinkItem[] {
+  return englishLinks.map((link, index) => ({
+    href: link.href,
+    label: localizedLabels?.[index]?.label ?? link.label,
+  }));
+}
+
 export default function FooterMainGrid({ brandName, phone, email }: FooterMainGridProps) {
   const reduceMotion = useReducedMotion();
+  const { language } = useSiteLanguage();
+  const t = getTranslation(language);
+  const grid = t.pages.footer.grid;
   const phoneDigits = phone.replace(/\D/g, "");
+
+  const serviceLinks = mergeFooterLinks(FOOTER_SERVICE_LINKS, grid?.serviceLinks);
+  const resourceLinks = mergeFooterLinks(FOOTER_RESOURCE_LINKS, grid?.resourceLinks);
+  const careerLinks = mergeFooterLinks(FOOTER_CAREER_LINKS, grid?.careerLinks);
 
   return (
     <div className="grid gap-6 border-b border-white/10 pb-8 sm:gap-7 lg:grid-cols-[1.15fr_repeat(4,minmax(0,1fr))] lg:gap-8 lg:pb-10">
@@ -91,24 +109,26 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
         </Link>
 
         <p className="mt-4 text-lg font-black text-white">{brandName}</p>
-        <p className="mt-3 max-w-md text-sm leading-6 text-emerald-50/95">{FOOTER_MISSION}</p>
+        <p className="mt-3 max-w-md text-sm leading-6 text-emerald-50/95">{grid?.mission}</p>
       </motion.div>
 
-      <FooterColumn title="Services" links={FOOTER_SERVICE_LINKS} defaultOpen delay={0.05} />
-      <FooterColumn title="Resources" links={FOOTER_RESOURCE_LINKS} delay={0.1} />
-      <FooterColumn title="Careers" links={FOOTER_CAREER_LINKS} delay={0.15} />
+      <FooterColumn title={grid?.servicesTitle ?? "Services"} links={serviceLinks} defaultOpen delay={0.05} />
+      <FooterColumn title={grid?.resourcesTitle ?? "Resources"} links={resourceLinks} delay={0.1} />
+      <FooterColumn title={grid?.careersTitle ?? "Careers"} links={careerLinks} delay={0.15} />
 
       <motion.div
         {...(reduceMotion ? {} : { ...columnMotion, transition: { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] } })}
         className="border-b border-white/10 pb-4 lg:border-b-0 lg:pb-0"
       >
-        <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">Contact</h3>
+        <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">
+          {grid?.contactTitle ?? "Contact"}
+        </h3>
 
         <div className="mt-3 grid gap-3 text-sm text-emerald-50 lg:mt-4">
           <p className="flex items-center gap-3 font-bold">
             <Phone size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
             <span>
-              Office Phone:{" "}
+              {grid?.officePhoneLabel ?? "Office Phone:"}{" "}
               <a href={`tel:${phoneDigits}`} className="eden-footer-link">
                 {phone}
               </a>
@@ -118,7 +138,7 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
           <p className="flex items-center gap-3 font-bold">
             <Mail size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
             <span>
-              Email:{" "}
+              {grid?.emailLabel ?? "Email:"}{" "}
               <a href={`mailto:${email}`} className="eden-footer-link">
                 {email}
               </a>
@@ -128,7 +148,7 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
           <p className="flex items-start gap-3 leading-6 text-emerald-50/95">
             <MapPin size={17} className="mt-0.5 shrink-0 text-lime-300" aria-hidden="true" />
             <span>
-              Address:
+              {grid?.addressLabel ?? "Address:"}
               <br />
               7700 Little River Turnpike
               <br />
@@ -140,7 +160,9 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
 
           <p className="flex items-center gap-3 font-bold">
             <Printer size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
-            <span>Fax: 571-445-8631</span>
+            <span>
+              {grid?.faxLabel ?? "Fax:"} 571-445-8631
+            </span>
           </p>
         </div>
       </motion.div>

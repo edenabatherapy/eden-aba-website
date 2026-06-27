@@ -438,7 +438,18 @@
       "hybridViewLabel": "Chế độ xem hỗn hợp",
       "mapTypeGroupLabel": "Loại bản đồ",
       "loadingLabel": "Đang tải bản đồ...",
-      "satelliteUnavailableNotice": "Chế độ vệ tinh không khả dụng trên thiết bị này."
+      "satelliteUnavailableNotice": "Chế độ vệ tinh không khả dụng trên thiết bị này.",
+      "mapLoadFailed": "Không thể tải bản đồ.",
+      "mapUnavailable": "Bản đồ tương tác không khả dụng.",
+      "useMyLocation": "Dùng vị trí của tôi",
+      "locationLoading": "Đang định vị…",
+      "locationDenied": "Quyền truy cập vị trí đã bị từ chối.",
+      "locationUnsupported": "Trình duyệt này không hỗ trợ định vị.",
+      "locationTimeout": "Yêu cầu vị trí đã hết thời gian. Hãy thử lại hoặc tìm kiếm thủ công.",
+      "locationUnavailable": "Vị trí tạm thời không khả dụng.",
+      "locationOptionalNotice": "Vị trí là tùy chọn. Bạn có thể xem bản đồ và thông tin phòng khám mà không cần chia sẻ vị trí.",
+      "yourLocationLabel": "Vị trí của bạn",
+      "clearSearch": "Xóa tìm kiếm"
     },
     "locationsDetail": {
       "breadcrumbPrefix": "Eden ABA Therapy /",
@@ -672,6 +683,24 @@
       "type": "Toàn thời gian",
       "location": "Fairfax, VA",
       "dept": "Lãnh đạo"
+    },
+    {
+      "role": "Điều phối viên Dịch vụ Khách hàng",
+      "type": "Toàn thời gian",
+      "location": "Annandale, VA",
+      "dept": "Trải nghiệm Khách hàng"
+    },
+    {
+      "role": "Quản lý Vận hành",
+      "type": "Toàn thời gian",
+      "location": "Annandale, VA",
+      "dept": "Vận hành"
+    },
+    {
+      "role": "Kỹ thuật viên Hành vi (BT)",
+      "type": "Bán thời gian / Toàn thời gian",
+      "location": "Annandale, VA",
+      "dept": "Dịch vụ Lâm sàng"
     }
   ],
   "serviceData": [
@@ -2125,11 +2154,113 @@
       },
       "copyright": "Eden ABA Therapy. Đã đăng ký bản quyền.",
       "legalLinks": [
-        "Chính sách Quyền riêng tư",
-        "Điều khoản Dịch vụ",
-        "Khả năng truy cập",
-        "Thông báo về Thực hành Quyền riêng tư"
-      ]
+        {
+          "label": "Chính sách Quyền riêng tư"
+        },
+        {
+          "label": "Điều khoản Dịch vụ"
+        },
+        {
+          "label": "Khả năng Truy cập"
+        },
+        {
+          "label": "Thông báo về Thực hành Quyền riêng tư"
+        }
+      ],
+      "grid": {
+        "servicesTitle": "Dịch vụ",
+        "resourcesTitle": "Tài nguyên",
+        "careersTitle": "Tuyển dụng",
+        "contactTitle": "Liên hệ",
+        "mission": "Liệu pháp ABA nhân văn, dựa trên bằng chứng và hỗ trợ gia đình, giúp trẻ xây dựng kỹ năng có ý nghĩa tại nhà, trường học và cộng đồng.",
+        "officePhoneLabel": "Điện thoại văn phòng:",
+        "emailLabel": "Email:",
+        "addressLabel": "Địa chỉ:",
+        "faxLabel": "Fax:",
+        "allRightsReserved": "Bảo lưu mọi quyền.",
+        "builtBy": "Xây dựng bởi ITMagnum",
+        "serviceLinks": [
+          {
+            "label": "Liệu pháp ABA"
+          },
+          {
+            "label": "ABA tại Trường học"
+          },
+          {
+            "label": "Đánh giá & Chẩn đoán"
+          },
+          {
+            "label": "Sàng lọc & Đánh giá"
+          },
+          {
+            "label": "Đánh giá Trường & IEP"
+          },
+          {
+            "label": "Đào tạo Phụ huynh"
+          },
+          {
+            "label": "Chương trình Sau giờ học"
+          }
+        ],
+        "resourceLinks": [
+          {
+            "label": "Bắt đầu với Eden"
+          },
+          {
+            "label": "ABA Therapy là gì?"
+          },
+          {
+            "label": "Tài nguyên Tự kỷ"
+          },
+          {
+            "label": "Câu hỏi thường gặp"
+          },
+          {
+            "label": "Hướng dẫn Phụ huynh"
+          },
+          {
+            "label": "Câu chuyện Thành công"
+          }
+        ],
+        "careerLinks": [
+          {
+            "label": "Tìm Vị trí Đang tuyển"
+          },
+          {
+            "label": "Nghề nghiệp Kỹ thuật viên Hành vi"
+          },
+          {
+            "label": "Nghề nghiệp RBT"
+          },
+          {
+            "label": "Nghề nghiệp BCBA"
+          },
+          {
+            "label": "Phúc lợi & Lương thưởng"
+          },
+          {
+            "label": "Cuộc sống tại Eden"
+          },
+          {
+            "label": "Lộ trình Phát triển Nghề nghiệp"
+          }
+        ],
+        "complianceAria": "Thông báo tuân thủ và tin cậy",
+        "legalAria": "Pháp lý"
+      },
+      "compliance": {
+        "accessibility": {
+          "title": "Thông báo Khả năng Truy cập",
+          "content": "Website này được thiết kế hỗ trợ tiêu chuẩn khả năng truy cập WCAG 2.0 AA. Nếu bạn gặp khó khăn khi truy cập nội dung trên website Eden ABA Therapy, vui lòng liên hệ chúng tôi và đội ngũ sẽ sẵn sàng hỗ trợ.",
+          "linkLabel": "Liên hệ chúng tôi →"
+        },
+        "privacy": {
+          "title": "Thông báo Cookie & Quyền riêng tư",
+          "content": "Website này sử dụng cookie để hiểu trang nào hữu ích nhất với khách truy cập. Dữ liệu này ẩn danh. Chúng tôi không bán dữ liệu người dùng. Tìm hiểu thêm trong Chính sách Quyền riêng tư hoặc liên hệ nếu có câu hỏi.",
+          "privacyLabel": "Chính sách Quyền riêng tư →",
+          "contactLabel": "Liên hệ chúng tôi →"
+        }
+      }
     },
     "intake": {
       "badge": "Intake Eden ABA Therapy",
@@ -5045,9 +5176,12 @@
         "privacyNote": "Chúng tôi tôn trọng quyền riêng tư của gia đình bạn.",
         "trustNote": "Tham gia cùng các gia đình tại Bắc Virginia",
         "benefits": [
-          "Cập nhật tuyển sinh",
-          "Mẹo nuôi dạy con",
-          "Tài nguyên tự kỷ"
+          "Mẹo thực tế cho người chăm sóc",
+          "Cập nhật dịch vụ Eden ABA Therapy",
+          "Tài nguyên tự kỷ thân thiện với gia đình",
+          "Thông tin bảo hiểm và intake",
+          "Sự kiện cộng đồng và hội thảo",
+          "Câu chuyện thành công từ gia đình"
         ]
       },
       "cta": {
@@ -6414,11 +6548,265 @@
         ],
         "primaryCta": "Bắt đầu Intake",
         "secondaryCta": "Liên hệ Eden"
+      },
+      "resources-blog": {
+        "meta": {
+          "title": "Blog & Bài viết | Eden ABA Therapy",
+          "description": "Bài viết về tự kỷ và liệu pháp ABA, hướng dẫn gia đình và tài nguyên giáo dục từ Eden ABA Therapy tại Bắc Virginia."
+        },
+        "breadcrumb": "Tài nguyên / Trung tâm Học tập",
+        "title": "Blog & Bài viết",
+        "intro": "Các bài viết dựa trên bằng chứng giúp gia đình tìm hiểu về tự kỷ, liệu pháp ABA, bảo hiểm, hỗ trợ trường học và tiến bộ hàng ngày.",
+        "comingSoonLabel": "Bài viết sắp ra mắt",
+        "comingSoon": "Eden ABA Therapy đang chuẩn bị thư viện bài viết thân thiện với gia đình, với hướng dẫn thực tế về tự kỷ, liệu pháp và hỗ trợ người chăm sóc.",
+        "highlights": [
+          "Giáo dục tự kỷ cho gia đình",
+          "Giải thích và mẹo về liệu pháp ABA",
+          "Cập nhật bảo hiểm, intake và dịch vụ"
+        ],
+        "primaryCta": "Khám phá Tài nguyên Phụ huynh",
+        "secondaryCta": "Bắt đầu Liệu pháp ABA"
+      },
+      "resources-webinars": {
+        "meta": {
+          "title": "Webinar & Video | Eden ABA Therapy",
+          "description": "Xem webinar và video sắp tới của Eden ABA Therapy về hỗ trợ tự kỷ, đào tạo phụ huynh và chủ đề liệu pháp ABA."
+        },
+        "breadcrumb": "Tài nguyên / Trung tâm Học tập",
+        "title": "Webinar & Video",
+        "intro": "Video giáo dục ngắn và webinar giúp gia đình hiểu về tự kỷ, lựa chọn liệu pháp và cách hỗ trợ tiến bộ tại nhà.",
+        "comingSoonLabel": "Thư viện video đang phát triển",
+        "comingSoon": "Video hướng dẫn người chăm sóc và bản ghi webinar sẽ được đăng tại đây khi Eden ABA Therapy mở rộng trung tâm học tập.",
+        "highlights": [
+          "Video giáo dục thân thiện với gia đình",
+          "Webinar về tự kỷ và ABA",
+          "Chiến lược thực tế cho người chăm sóc"
+        ],
+        "primaryCta": "Đặt lịch Tư vấn",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "family-centered-care": {
+        "meta": {
+          "title": "Chăm sóc Lấy Gia đình làm Trung tâm | Eden ABA Therapy",
+          "description": "Tìm hiểu cách Eden ABA Therapy đồng hành cùng gia đình qua chăm sóc tự kỷ nhân văn, lấy gia đình làm trung tâm và hỗ trợ ABA cá nhân hóa."
+        },
+        "breadcrumb": "Về Eden / Chăm sóc Lấy Gia đình làm Trung tâm",
+        "title": "Chăm sóc Lấy Gia đình làm Trung tâm",
+        "intro": "Eden ABA Therapy thiết kế mọi kế hoạch điều trị xoay quanh trẻ và gia đình — tôn trọng sinh hoạt hàng ngày, ưu tiên của người chăm sóc, phong cách giao tiếp và mục tiêu có ý nghĩa tại nhà và cộng đồng.",
+        "comingSoonLabel": "Tài nguyên đối tác gia đình",
+        "comingSoon": "Câu chuyện chăm sóc lấy gia đình làm trung tâm và hướng dẫn người chăm sóc đang được chuẩn bị. Đội lâm sàng đã hợp tác chặt chẽ với phụ huynh trong đánh giá, liệu pháp và lập kế hoạch tiến bộ.",
+        "highlights": [
+          "Mục tiêu cá nhân hóa theo ưu tiên gia đình",
+          "Huấn luyện người chăm sóc và chiến lược thực tế tại nhà",
+          "Hợp tác giữa gia đình và đội lâm sàng"
+        ],
+        "primaryCta": "Khám phá Về Eden",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "community-impact": {
+        "meta": {
+          "title": "Tác động Cộng đồng | Eden ABA Therapy",
+          "description": "Khám phá cách Eden ABA Therapy hỗ trợ gia đình Bắc Virginia và kết nối cộng đồng qua dịch vụ tự kỷ, vận động và đối tác chuyên môn."
+        },
+        "breadcrumb": "Về Eden / Tác động Cộng đồng",
+        "title": "Tác động Cộng đồng",
+        "intro": "Eden ABA Therapy duy trì kết nối với gia đình, trường học và các tổ chức tự kỷ, ABA uy tín khắp Bắc Virginia để hỗ trợ chăm sóc bám sát cộng đồng.",
+        "comingSoonLabel": "Câu chuyện & đối tác cộng đồng",
+        "comingSoon": "Điểm nổi bật tác động cộng đồng và câu chuyện đối tác sẽ được đăng tại đây khi Eden mở rộng tài nguyên cộng đồng.",
+        "highlights": [
+          "Kết nối với tổ chức tự kỷ và ABA đáng tin cậy",
+          "Hỗ trợ gia đình khắp khu vực phục vụ Bắc Virginia",
+          "Cam kết thực hành ABA đạo đức, bám sát cộng đồng"
+        ],
+        "primaryCta": "Khám phá Câu chuyện của Chúng tôi",
+        "secondaryCta": "Bắt đầu Liệu pháp ABA"
+      },
+      "about-mission-values": {
+        "meta": {
+          "title": "Sứ mệnh & Giá trị | Eden ABA Therapy",
+          "description": "Tìm hiểu sứ mệnh, giá trị cốt lõi và cam kết lấy gia đình làm trung tâm của Eden ABA Therapy tại Bắc Virginia."
+        },
+        "breadcrumb": "Về Eden / Sứ mệnh & Giá trị",
+        "title": "Sứ mệnh & Giá trị",
+        "intro": "Eden ABA Therapy được dẫn dắt bởi sứ mệnh rõ ràng: cung cấp liệu pháp ABA nhân văn, dựa trên bằng chứng, đồng thời tôn trọng điểm mạnh của từng trẻ, ưu tiên gia đình và con đường tiến bộ có ý nghĩa.",
+        "comingSoonLabel": "Tài nguyên sứ mệnh & giá trị",
+        "comingSoon": "Nội dung sứ mệnh và giá trị mở rộng đang được chuẩn bị. Đội lâm sàng đã thể hiện các nguyên tắc này trong mọi đánh giá, kế hoạch điều trị và đối tác gia đình.",
+        "highlights": [
+          "Chăm sóc tự kỷ nhân văn, cá nhân hóa",
+          "Đối tác gia đình ở trung tâm mọi kế hoạch",
+          "Thực hành lâm sàng đạo đức, dựa trên bằng chứng"
+        ],
+        "primaryCta": "Khám phá Câu chuyện của Chúng tôi",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "about-leadership-team": {
+        "meta": {
+          "title": "Đội ngũ Lãnh đạo | Eden ABA Therapy",
+          "description": "Gặp gỡ đội ngũ lãnh đạo Eden ABA Therapy hỗ trợ chất lượng lâm sàng, hướng dẫn gia đình và dịch vụ ABA nhân văn tại Bắc Virginia."
+        },
+        "breadcrumb": "Về Eden / Đội ngũ Lãnh đạo",
+        "title": "Đội ngũ Lãnh đạo",
+        "intro": "Đội lãnh đạo Eden gồm các BCBA, giám sát lâm sàng và điều phối viên chăm sóc giàu kinh nghiệm, hướng dẫn đánh giá, lập kế hoạch điều trị và hỗ trợ gia đình.",
+        "comingSoonLabel": "Hồ sơ lãnh đạo sắp ra mắt",
+        "comingSoon": "Tiểu sử lãnh đạo và điểm nổi bật đội ngũ đang được chuẩn bị. Gia đình đã làm việc trực tiếp với giám sát lâm sàng và đội intake của Eden.",
+        "highlights": [
+          "Lãnh đạo lâm sàng BCBA giàu kinh nghiệm",
+          "Giám sát và giám sát chất lượng cho đội liệu pháp",
+          "Hỗ trợ intake và điều phối gia đình linh hoạt"
+        ],
+        "primaryCta": "Bắt đầu Liệu pháp ABA",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "about-clinical-excellence": {
+        "meta": {
+          "title": "Xuất sắc Lâm sàng | Eden ABA Therapy",
+          "description": "Khám phá cách Eden ABA Therapy cung cấp liệu pháp ABA dựa trên bằng chứng, tiêu chuẩn lâm sàng đạo đức và tiến bộ đo lường được cho trẻ và gia đình."
+        },
+        "breadcrumb": "Về Eden / Xuất sắc Lâm sàng",
+        "title": "Xuất sắc Lâm sàng",
+        "intro": "Xuất sắc lâm sàng tại Eden nghĩa là liệu pháp ABA cá nhân hóa, đạo đức, được hỗ trợ bởi thu thập dữ liệu liên tục, giám sát BCBA và tiến bộ hướng tới mục tiêu lấy gia đình làm trung tâm.",
+        "comingSoonLabel": "Tài nguyên chất lượng lâm sàng",
+        "comingSoon": "Nội dung xuất sắc lâm sàng mở rộng đang được chuẩn bị. Đội Eden đã tuân thủ thực hành dựa trên bằng chứng, tiêu chuẩn giám sát và hướng dẫn chăm sóc đạo đức.",
+        "highlights": [
+          "Mô hình điều trị ABA dựa trên bằng chứng",
+          "Giám sát BCBA và rà soát lâm sàng liên tục",
+          "Theo dõi tiến bộ dựa trên dữ liệu và cập nhật gia đình"
+        ],
+        "primaryCta": "Khám phá Câu chuyện của Chúng tôi",
+        "secondaryCta": "Bắt đầu Liệu pháp ABA"
+      },
+      "careers-rbt": {
+        "meta": {
+          "title": "Nghề nghiệp RBT | Eden ABA Therapy",
+          "description": "Khám phá cơ hội nghề nghiệp Kỹ thuật viên Hành vi Đăng ký (RBT) tại Eden ABA Therapy ở Bắc Virginia."
+        },
+        "breadcrumb": "Tuyển dụng / Nghề nghiệp RBT",
+        "title": "Nghề nghiệp RBT",
+        "intro": "Gia nhập Eden ABA Therapy với vai trò RBT và giúp trẻ xây dựng kỹ năng giao tiếp, sinh hoạt hàng ngày và xã hội qua liệu pháp ABA nhân văn, dựa trên bằng chứng.",
+        "comingSoonLabel": "Tài nguyên nghề nghiệp RBT",
+        "comingSoon": "Hướng dẫn nghề nghiệp RBT, lộ trình đào tạo và tổng quan vai trò đang được chuẩn bị. Tìm vị trí RBT đang tuyển trên trang tuyển dụng.",
+        "highlights": [
+          "Kinh nghiệm lâm sàng thực hành với giám sát BCBA",
+          "Cơ hội toàn thời gian và bán thời gian linh hoạt",
+          "Văn hóa đội ngũ hỗ trợ, lấy gia đình làm trung tâm"
+        ],
+        "primaryCta": "Tìm Vị trí Đang tuyển",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "careers-bcba": {
+        "meta": {
+          "title": "Nghề nghiệp BCBA | Eden ABA Therapy",
+          "description": "Khám phá cơ hội nghề nghiệp Nhà phân tích Hành vi Bác sĩ (BCBA) tại Eden ABA Therapy ở Bắc Virginia."
+        },
+        "breadcrumb": "Tuyển dụng / Nghề nghiệp BCBA",
+        "title": "Nghề nghiệp BCBA",
+        "intro": "Dẫn dắt xuất sắc lâm sàng tại Eden ABA Therapy với vai trò BCBA — thiết kế kế hoạch điều trị cá nhân hóa, giám sát đội ngũ và đồng hành cùng gia đình.",
+        "comingSoonLabel": "Tài nguyên nghề nghiệp BCBA",
+        "comingSoon": "Hướng dẫn nghề nghiệp BCBA và lộ trình lãnh đạo đang được chuẩn bị. Tìm vị trí BCBA đang tuyển trên trang tuyển dụng.",
+        "highlights": [
+          "Lãnh đạo lâm sàng với tác động ý nghĩa đến gia đình",
+          "Giám sát hợp tác và tiêu chuẩn chất lượng",
+          "Cơ hội tại các môi trường dịch vụ Bắc Virginia"
+        ],
+        "primaryCta": "Tìm Vị trí Đang tuyển",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "careers-life-at-eden": {
+        "meta": {
+          "title": "Cuộc sống tại Eden | Eden ABA Therapy",
+          "description": "Tìm hiểu cuộc sống làm việc tại Eden ABA Therapy — văn hóa đội ngũ, giá trị lâm sàng và cam kết chăm sóc tự kỷ nhân văn tại Bắc Virginia."
+        },
+        "breadcrumb": "Tuyển dụng / Cuộc sống tại Eden",
+        "title": "Cuộc sống tại Eden",
+        "intro": "Tại Eden ABA Therapy, đội ngũ cùng chung sứ mệnh: giúp trẻ và gia đình phát triển qua dịch vụ ABA đạo đức, lấy gia đình làm trung tâm.",
+        "comingSoonLabel": "Văn hóa đội ngũ & câu chuyện",
+        "comingSoon": "Câu chuyện nhân viên, điểm nổi bật đội ngũ và nội dung một ngày làm việc đang được chuẩn bị. Chúng tôi tự hào xây dựng môi trường làm việc hỗ trợ, bám sát chất lượng lâm sàng và lòng trắc ẩn.",
+        "highlights": [
+          "Văn hóa lâm sàng lấy gia đình làm trung tâm",
+          "Phát triển nghề nghiệp và giám sát BCBA",
+          "Đội ngũ hợp tác phục vụ gia đình Bắc Virginia"
+        ],
+        "primaryCta": "Tìm Vị trí Đang tuyển",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "careers-interview-guide": {
+        "meta": {
+          "title": "Hướng dẫn Phỏng vấn | Tuyển dụng Eden ABA Therapy",
+          "description": "Chuẩn bị phỏng vấn Eden ABA Therapy với mẹo về những gì cần mong đợi, cách thể hiện kinh nghiệm lâm sàng và câu hỏi nên đặt với đội ngũ."
+        },
+        "breadcrumb": "Tuyển dụng / Hướng dẫn Phỏng vấn",
+        "title": "Hướng dẫn Phỏng vấn",
+        "intro": "Chúng tôi muốn trải nghiệm phỏng vấn của bạn rõ ràng, tôn trọng và hữu ích — dù bạn ứng tuyển RBT, BCBA hay vai trò vận hành.",
+        "comingSoonLabel": "Tài nguyên chuẩn bị phỏng vấn",
+        "comingSoon": "Hướng dẫn phỏng vấn đầy đủ với mẹo theo vai trò và FAQ đang được chuẩn bị. Tìm vị trí đang tuyển để bắt đầu đơn ứng tuyển.",
+        "highlights": [
+          "Những gì cần mong đợi trong phỏng vấn Eden ABA",
+          "Cách làm nổi bật kinh nghiệm lâm sàng và chăm sóc",
+          "Câu hỏi nên đặt về giám sát, văn hóa và phát triển"
+        ],
+        "primaryCta": "Tìm Vị trí Đang tuyển",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
+      },
+      "careers-resources": {
+        "meta": {
+          "title": "Tài nguyên Nghề nghiệp | Eden ABA Therapy",
+          "description": "Tài nguyên nghề nghiệp cho chuyên gia ABA khám phá vai trò tại Eden ABA Therapy — chứng chỉ, onboarding và phát triển chuyên môn."
+        },
+        "breadcrumb": "Tuyển dụng / Tài nguyên Nghề nghiệp",
+        "title": "Tài nguyên Nghề nghiệp",
+        "intro": "Tài nguyên hữu ích cho RBT, BCBA và chuyên viên hỗ trợ lâm sàng đang cân nhắc sự nghiệp tại Eden ABA Therapy.",
+        "comingSoonLabel": "Thư viện phát triển chuyên môn",
+        "comingSoon": "Hướng dẫn chứng chỉ, danh sách onboarding và tài nguyên phát triển chuyên môn đang được chuẩn bị.",
+        "highlights": [
+          "Hướng dẫn chứng chỉ RBT và BCBA",
+          "Onboarding và tiêu chuẩn lâm sàng Eden",
+          "Lộ trình phát triển nghề nghiệp dài hạn"
+        ],
+        "primaryCta": "Tìm Vị trí Đang tuyển",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
       }
     },
     "careers": {
       "hubTitle": "Nghề nghiệp tại Eden ABA Therapy",
-      "hubIntro": "Eden đang xây dựng đội ngũ nhà lâm sàng và chuyên viên hỗ trợ quan tâm đến thực hành ABA đạo đức, hợp tác với gia đình, tiến bộ đo lường được và phát triển nghề nghiệp bền vững."
+      "hubIntro": "Eden đang xây dựng đội ngũ nhà lâm sàng và chuyên viên hỗ trợ quan tâm đến thực hành ABA đạo đức, hợp tác với gia đình, tiến bộ đo lường được và phát triển nghề nghiệp bền vững.",
+      "meta": {
+        "title": "Tuyển dụng | Eden ABA Therapy",
+        "description": "Tìm vị trí đang tuyển tại Eden ABA Therapy — cơ hội RBT, BCBA và hỗ trợ lâm sàng tại Bắc Virginia."
+      }
+    },
+    "edenChat": {
+      "buttonLabel": "Hỏi Eden",
+      "panelTitle": "Trợ lý Eden ABA Therapy",
+      "statusLabel": "Chỉ cung cấp thông tin chung",
+      "welcomeMessage": "Xin chào, tôi là trợ lý Eden ABA Therapy. Tôi có thể trả lời các câu hỏi chung về liệu pháp ABA, bảo hiểm, intake và hỗ trợ gia đình. Tôi có thể giúp gì hôm nay?",
+      "quickQuestions": [
+        "ABA therapy là gì?",
+        "Làm sao xác minh bảo hiểm?",
+        "Làm sao bắt đầu intake?"
+      ],
+      "placeholder": "Hỏi về liệu pháp ABA, bảo hiểm hoặc intake...",
+      "sendLabel": "Gửi",
+      "closeLabel": "Đóng trợ lý Eden",
+      "openLabel": "Mở trợ lý Eden ABA Therapy",
+      "disclaimer": "Trợ lý này chỉ cung cấp thông tin chung. Không chẩn đoán tự kỷ, không thay thế tư vấn y khoa hay chăm sóc từ bác sĩ có chuyên môn. Nếu đây là tình huống khẩn cấp, hãy gọi 911.",
+      "typingLabel": "Trợ lý Eden đang nhập",
+      "messageLabel": "Nhắn tin cho trợ lý Eden",
+      "sendAriaLabel": "Gửi tin nhắn",
+      "quickQuestionsAria": "Câu hỏi nhanh",
+      "confirmationPrefix": "Mã xác nhận:",
+      "defaultError": "Trợ lý Eden không thể phản hồi ngay bây giờ."
+    },
+    "megaMenu": {
+      "servicesLabel": "DỊCH VỤ",
+      "comingSoonBadge": "Sắp ra mắt tại Eden Family",
+      "servicePreviewLabel": "DỊCH VỤ LIỆU PHÁP ABA",
+      "comingSoonPreviewLabel": "SẮP RA MẮT",
+      "learnMoreText": "Tìm hiểu thêm →",
+      "connectWithUsText": "Kết nối với chúng tôi →",
+      "aboutSectionLabel": "VỀ EDEN",
+      "featuredResourcesLabel": "TÀI NGUYÊN NỔI BẬT",
+      "exploreResourcesCta": "Khám phá tài nguyên →",
+      "careersSectionLabel": "TUYỂN DỤNG"
     }
   },
   "insuranceForm": {
