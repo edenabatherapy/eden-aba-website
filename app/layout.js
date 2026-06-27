@@ -32,9 +32,9 @@ export default function RootLayout({ children }) {
         <SiteLanguageProvider>
           <SiteLanguageSync />
           {children}
+          <EdenChatWidgetLoader />
+          <CookieConsentBanner />
         </SiteLanguageProvider>
-        <EdenChatWidgetLoader />
-        <CookieConsentBanner />
       </body>
     </html>
   );
