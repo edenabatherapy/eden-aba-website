@@ -148,7 +148,7 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
           <p className="flex items-start gap-3 leading-6 text-emerald-50/95">
             <MapPin size={17} className="mt-0.5 shrink-0 text-lime-300" aria-hidden="true" />
             <span>
-              {grid?.addressLabel ?? "Address:"}
+              {language === "vi" ? (grid?.addressLabel ?? "Địa chỉ:") : (grid?.addressLabel ?? "Address:")}
               <br />
               7700 Little River Turnpike
               <br />
