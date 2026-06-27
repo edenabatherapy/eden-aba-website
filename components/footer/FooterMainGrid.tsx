@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDown, Mail, MapPin, Phone } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import EdenLogo from "@/components/EdenLogo";
@@ -9,7 +9,6 @@ import {
   FOOTER_CAREER_LINKS,
   FOOTER_MISSION,
   FOOTER_RESOURCE_LINKS,
-  FOOTER_SERVICE_AREA,
   FOOTER_SERVICE_LINKS,
   type FooterLinkItem,
 } from "@/lib/footer/footer-data";
@@ -106,11 +105,30 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
         <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">Contact</h3>
 
         <div className="mt-3 grid gap-3 text-sm text-emerald-50 lg:mt-4">
+          <p className="flex items-start gap-3 leading-6 text-emerald-50/95">
+            <MapPin size={17} className="mt-0.5 shrink-0 text-lime-300" aria-hidden="true" />
+            <span>
+              7700 Little River Turnpike
+              <br />
+              Suite 304
+              <br />
+              Annandale, VA 22003, United States
+            </span>
+          </p>
+
           <p className="flex items-center gap-3 font-bold">
             <Phone size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
-            <a href={`tel:${phoneDigits}`} className="eden-footer-link">
-              {phone}
-            </a>
+            <span>
+              Office Phone:{" "}
+              <a href={`tel:${phoneDigits}`} className="eden-footer-link">
+                {phone}
+              </a>
+            </span>
+          </p>
+
+          <p className="flex items-center gap-3 font-bold">
+            <Printer size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
+            <span>Fax: 571-445-8631</span>
           </p>
 
           <p className="flex items-center gap-3 font-bold">
@@ -118,11 +136,6 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
             <a href={`mailto:${email}`} className="eden-footer-link">
               {email}
             </a>
-          </p>
-
-          <p className="flex items-start gap-3 leading-6 text-emerald-50/95">
-            <MapPin size={17} className="mt-0.5 shrink-0 text-lime-300" aria-hidden="true" />
-            <span>{FOOTER_SERVICE_AREA}</span>
           </p>
         </div>
       </motion.div>
