@@ -39,7 +39,7 @@ function MenuLinkBadge({ badge }: { badge: string | null }) {
 
 export default function EdenSiteHeader() {
   const pathname = usePathname();
-  const isCareerApplicationPage = pathname.startsWith("/careers/apply");
+  const isCareersPage = pathname.startsWith("/careers");
   const scrolled = useHeaderScrolled();
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -223,7 +223,7 @@ export default function EdenSiteHeader() {
 
         <div className="flex shrink-0 items-center justify-end gap-2">
           <LanguageSwitcher comfortable className="hidden sm:inline-flex" />
-          {!isCareerApplicationPage && (
+          {!isCareersPage && (
             <>
               <Link
                 href="/insurance-coverage"
@@ -363,7 +363,7 @@ export default function EdenSiteHeader() {
                 );
               })}
               <LanguageSwitcher comfortable className="justify-center" />
-              {!isCareerApplicationPage && (
+              {!isCareersPage && (
                 <>
                   <Link
                     href="/insurance-coverage"
