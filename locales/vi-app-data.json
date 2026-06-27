@@ -132,5 +132,189 @@
     "servicePreviewLabel": "DỊCH VỤ LIỆU PHÁP ABA",
     "comingSoonPreviewLabel": "SẮP RA MẮT",
     "learnMoreText": "Tìm hiểu thêm →"
-  }
+  },
+  "RESOURCES_MEGA_MENU_SECTIONS": [
+    {
+      "title": "Tìm hiểu về Tự kỷ",
+      "items": [
+        {
+          "description": "Hiểu rõ rối loạn phổ tự kỷ, đặc điểm phổ biến và cách gia đình nhận biết điểm mạnh cùng nhu cầu hỗ trợ."
+        },
+        {
+          "description": "Tìm hiểu các cột mốc phát triển và dấu hiệu sớm có thể gợi ý cần sàng lọc hoặc đánh giá thêm."
+        },
+        {
+          "description": "Hướng dẫn sàng lọc, đánh giá, hồ sơ và các bước tiếp theo thân thiện với gia đình."
+        },
+        {
+          "description": "Khám phá cột mốc phát triển và hướng dẫn liên quan tự kỷ theo độ tuổi và giai đoạn."
+        }
+      ]
+    },
+    {
+      "title": "Đánh giá & Chẩn đoán",
+      "items": [
+        {
+          "description": "Tìm hiểu lộ trình đánh giá của Eden, những gì cần mong đợi và cách đánh giá phát triển hỗ trợ chẩn đoán."
+        },
+        {
+          "description": "Hiểu đánh giá tại trường, hỗ trợ IEP và cách đánh giá lâm sàng kết nối với kế hoạch giáo dục."
+        }
+      ]
+    },
+    {
+      "title": "Liệu pháp ABA",
+      "items": [
+        {
+          "description": "Khám phá cách liệu pháp ABA dựa trên bằng chứng hỗ trợ giao tiếp, kỹ năng sinh hoạt và tiến bộ có ý nghĩa."
+        },
+        {
+          "description": "Tìm hiểu cách đào tạo phụ huynh trang bị chiến lược thực tế để hỗ trợ con tại nhà."
+        },
+        {
+          "description": "Đọc kết quả và câu chuyện gia đình nêu bật tiến bộ, đối tác và hy vọng qua liệu pháp ABA."
+        },
+        {
+          "description": "Theo lộ trình rõ ràng để kết nối với Eden, hoàn tất intake và bắt đầu dịch vụ tự tin."
+        }
+      ]
+    },
+    {
+      "title": "Bắt đầu",
+      "items": [
+        {
+          "description": "Xem lựa chọn bảo hiểm, hỗ trợ xác minh và cách Eden giúp gia đình hiểu quyền lợi."
+        },
+        {
+          "description": "Đi qua intake, hồ sơ, lên lịch và các bước bắt đầu dịch vụ với Eden ABA Therapy."
+        },
+        {
+          "description": "Theo lộ trình rõ ràng để kết nối với Eden, hoàn tất intake và bắt đầu dịch vụ tự tin."
+        },
+        {
+          "description": "Yêu cầu tư vấn hoặc đặt lịch với Eden ABA Therapy để thảo luận đánh giá, intake hoặc bước tiếp theo."
+        },
+        {
+          "description": "Tìm khu vực phục vụ, giờ trung tâm, chỉ đường và lựa chọn lên lịch gần gia đình bạn."
+        },
+        {
+          "description": "Duyệt câu hỏi thường gặp về dịch vụ, đánh giá, bảo hiểm và bắt đầu với Eden."
+        }
+      ]
+    },
+    {
+      "title": "Trung tâm Học tập",
+      "items": [
+        {
+          "description": "Đọc bài viết chuyên môn về tự kỷ, liệu pháp ABA, hỗ trợ gia đình và cột mốc phát triển."
+        },
+        {
+          "description": "Xem webinar và video giáo dục giúp gia đình học hỏi và cảm thấy được hỗ trợ."
+        }
+      ]
+    }
+  ],
+  "RESOURCES_MEGA_MENU_DEFAULT_PREVIEW": {
+    "title": "Công cụ hữu ích cho mọi bước",
+    "description": "Khám phá hướng dẫn, bài viết và tài nguyên hỗ trợ hành trình tự kỷ của bạn.",
+    "learnMoreText": "Khám phá tài nguyên →"
+  },
+  "ABOUT_EDEN_MEGA_MENU_ITEMS": [
+    {
+      "description": "Tìm hiểu lý do Eden ABA Therapy được thành lập và sứ mệnh lấy chăm sóc tự kỷ nhân văn, cá nhân hóa làm trung tâm."
+    },
+    {
+      "description": "Khám phá các nguyên tắc dẫn dắt Eden ABA Therapy — chăm sóc nhân văn, đối tác gia đình và tiến bộ có ý nghĩa cho mỗi trẻ."
+    },
+    {
+      "description": "Tìm hiểu mô hình liệu pháp ABA dựa trên bằng chứng, tiêu chuẩn lâm sàng đạo đức, giám sát và kết quả đo lường được của Eden."
+    },
+    {
+      "description": "Gặp gỡ lãnh đạo lâm sàng và chuyên gia chăm sóc hỗ trợ trẻ và gia đình qua hướng dẫn, liệu pháp và đối tác."
+    },
+    {
+      "description": "Xem tiêu chuẩn lâm sàng, giám sát BCBA, đảm bảo chất lượng và cam kết chăm sóc ABA dựa trên bằng chứng của Eden."
+    },
+    {
+      "description": "Xem cách Eden hỗ trợ Bắc Virginia qua nhận thức tự kỷ, đối tác trường học, sự kiện và vận động."
+    },
+    {
+      "description": "Liên hệ Eden để được hỗ trợ gia đình, giới thiệu chuyên môn, câu hỏi tuyển dụng, chỉ đường và thông tin văn phòng."
+    }
+  ],
+  "ABOUT_EDEN_MEGA_MENU_DEFAULT_PREVIEW": {
+    "title": "Về Eden",
+    "description": "Tìm hiểu câu chuyện, sứ mệnh, cách tiếp cận lâm sàng và đội ngũ hỗ trợ trẻ cùng gia đình khắp Virginia.",
+    "learnMoreText": "Khám phá Về Eden →"
+  },
+  "CAREERS_MEGA_MENU_LABEL": "TUYỂN DỤNG",
+  "CAREERS_MEGA_MENU_ARIA": "Menu tuyển dụng",
+  "CAREERS_DEFAULT_PREVIEW": {
+    "categoryLabel": "TUYỂN DỤNG",
+    "headline": "Tìm vai trò tiếp theo tại Eden",
+    "description": "Tìm vị trí đang tuyển trong các vai trò lâm sàng, hành chính và hỗ trợ.",
+    "cta": "Tìm vị trí đang tuyển →"
+  },
+  "CAREERS_MENU_ITEMS": [
+    {
+      "label": "Tìm Vị trí Đang tuyển",
+      "description": "Tìm cơ hội nghề nghiệp liệu pháp ABA và lâm sàng hiện tại.",
+      "preview": {
+        "categoryLabel": "TUYỂN DỤNG",
+        "headline": "Tìm vai trò tiếp theo tại Eden",
+        "description": "Tìm vị trí đang tuyển trong các vai trò lâm sàng, hành chính và hỗ trợ.",
+        "cta": "Tìm vị trí đang tuyển →"
+      }
+    },
+    {
+      "label": "Nghề nghiệp Kỹ thuật viên Hành vi (BT & RBT)",
+      "description": "Nghề nghiệp liệu pháp ABA cấp đầu vào và có chứng chỉ.",
+      "preview": {
+        "categoryLabel": "Nghề nghiệp BT & RBT",
+        "headline": "Bắt đầu hoặc phát triển sự nghiệp ABA",
+        "description": "Khám phá vai trò Kỹ thuật viên Hành vi cấp đầu vào và cơ hội RBT hỗ trợ trẻ cùng gia đình.",
+        "cta": "Khám phá nghề nghiệp BT & RBT →"
+      }
+    },
+    {
+      "label": "Nghề nghiệp BCBA",
+      "description": "Lãnh đạo lâm sàng, giám sát và cơ hội nhà phân tích hành vi.",
+      "preview": {
+        "categoryLabel": "Nghề nghiệp BCBA",
+        "headline": "Dẫn dắt chăm sóc lâm sàng với mục đích",
+        "description": "Gia nhập Eden với vai trò BCBA — hỗ trợ lập kế hoạch điều trị, giám sát, đào tạo phụ huynh và tiến bộ có ý nghĩa của trẻ.",
+        "cta": "Khám phá nghề nghiệp BCBA →"
+      }
+    },
+    {
+      "label": "Phúc lợi & Lương thưởng",
+      "description": "Lương, phúc lợi và hỗ trợ chuyên môn.",
+      "preview": {
+        "categoryLabel": "PHÚC LỢI",
+        "headline": "Hỗ trợ những người hỗ trợ gia đình",
+        "description": "Tìm hiểu lương, phúc lợi, hỗ trợ lịch trình, đào tạo, cố vấn và phát triển chuyên môn.",
+        "cta": "Xem phúc lợi →"
+      }
+    },
+    {
+      "label": "Cuộc sống tại Eden",
+      "description": "Văn hóa, cố vấn và trải nghiệm đội ngũ.",
+      "preview": {
+        "categoryLabel": "CUỘC SỐNG TẠI EDEN",
+        "headline": "Văn hóa xây dựng trên lòng trắc ẩn và phát triển",
+        "description": "Xem cách Eden hỗ trợ hợp tác đội ngũ, cố vấn, xuất sắc lâm sàng và sứ mệnh lấy gia đình làm trung tâm.",
+        "cta": "Khám phá cuộc sống tại Eden →"
+      }
+    },
+    {
+      "label": "Lộ trình Phát triển Nghề nghiệp",
+      "description": "Phát triển BT → RBT → BCBA.",
+      "preview": {
+        "categoryLabel": "PHÁT TRIỂN NGHỀ NGHIỆP",
+        "headline": "Phát triển từ BT đến RBT đến BCBA",
+        "description": "Khám phá lộ trình nghề nghiệp Eden cho kỹ thuật viên hành vi, RBT, sinh viên và nhà phân tích hành vi tương lai.",
+        "cta": "Xem lộ trình phát triển →"
+      }
+    }
+  ]
 }

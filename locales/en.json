@@ -498,7 +498,14 @@
     },
     "ariaLabels": {
       "whatIsAutismSections": "What is autism page sections",
-      "abaTherapySections": "ABA therapy page sections"
+      "abaTherapySections": "ABA therapy page sections",
+      "mainNav": "Main navigation",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "switchToLightMode": "Switch to light mode",
+      "switchToDarkMode": "Switch to dark mode",
+      "lightMode": "Light",
+      "darkMode": "Dark"
     },
     "chatResponses": {
       "emergency": "If there is immediate danger, call 911 now. If your child may hurt themselves or someone else, stay close only if it is safe, remove dangerous items if possible, and contact emergency services or your child's doctor. I can help with general safety planning, but emergencies need live professional help immediately.",
@@ -2173,6 +2180,7 @@
         "emailLabel": "Email:",
         "addressLabel": "Address:",
         "faxLabel": "Fax:",
+        "websiteLabel": "Website",
         "allRightsReserved": "All Rights Reserved.",
         "builtBy": "Built by ITMagnum",
         "serviceLinks": [

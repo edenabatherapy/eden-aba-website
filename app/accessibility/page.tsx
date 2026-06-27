@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <LegalDocumentPage content={ACCESSIBILITY_CONTENT} />;
+  return <LegalDocumentPage contentKey="ACCESSIBILITY_CONTENT" content={ACCESSIBILITY_CONTENT} />;
 }

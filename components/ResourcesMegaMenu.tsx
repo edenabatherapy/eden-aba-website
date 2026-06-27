@@ -4,6 +4,9 @@ import { useCallback, useMemo, useState } from "react";
 import { MENU_LINK_ROUTES } from "@/lib/navigation";
 import EdenLogo from "@/components/EdenLogo";
 import { type AboutMeaningAnimationType } from "@/components/AboutMeaningAnimation";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getTranslation } from "@/lib/i18n";
 import "./ResourcesMegaMenu.css";
 
 export type ResourcesMenuItem = {
@@ -28,12 +31,12 @@ export type ResourcesPreview = {
 
 const HIGHLIGHTED_LINKS = new Set(["Schedule Appointment"]);
 
-/** Desktop column layout: Learn About Autism + Learning Center share column 1. */
-const RESOURCES_COLUMN_LAYOUT: string[][] = [
-  ["Learn About Autism", "Learning Center"],
-  ["Evaluations & Diagnosis"],
-  ["ABA Therapy"],
-  ["Getting Started"],
+/** Desktop column layout by section index in `resourcesSections`. */
+const RESOURCES_COLUMN_LAYOUT_INDICES: number[][] = [
+  [0, 4],
+  [1],
+  [2],
+  [3],
 ];
 
 function menuHref(menuLabel: string): string {
@@ -326,16 +329,23 @@ export default function ResourcesMegaMenu({
   variant = "desktop",
   onClose,
 }: ResourcesMegaMenuProps) {
+  const { language } = useSiteLanguage();
+  const megaMenu = getTranslation(language).pages.megaMenu;
+  const localizedSections = useLocalizedContent("RESOURCES_MEGA_MENU_SECTIONS", resourcesSections);
+  const localizedDefaultPreview = useLocalizedContent(
+    "RESOURCES_MEGA_MENU_DEFAULT_PREVIEW",
+    resourcesDefaultPreview,
+  );
+  const resolvedDefaultPreview = defaultPreview ?? localizedDefaultPreview;
+  const resolvedPreviewLabel = previewLabel ?? megaMenu?.featuredResourcesLabel ?? "RESOURCES";
+  const resolvedLearnMoreText = learnMoreText ?? megaMenu?.exploreResourcesCta ?? "Explore resources →";
+  const resolvedDefaultTitle = defaultTitle ?? localizedDefaultPreview.title ?? "Helpful tools for every step";
+
   const [activeItem, setActiveItem] = useState<ResourcesMenuItem | null>(null);
 
-  const sectionByTitle = useMemo(
-    () => Object.fromEntries(resourcesSections.map((section) => [section.title, section])),
-    [],
-  );
-
   const preview: ResourcesPreview | ResourcesMenuItem = activeItem ?? {
-    ...defaultPreview,
-    title: defaultTitle,
+    ...resolvedDefaultPreview,
+    title: resolvedDefaultTitle,
   };
 
   const handleSelect = useCallback(
@@ -346,14 +356,14 @@ export default function ResourcesMegaMenu({
     [onClose, onNavigate],
   );
 
-  const displayTitle = activeItem ? getDisplayTitle(activeItem) : defaultTitle;
+  const displayTitle = activeItem ? getDisplayTitle(activeItem) : resolvedDefaultTitle;
   const previewKey = activeItem?.title ?? "resources-default";
-  const previewCta = activeItem ? learnMoreText : defaultPreview.learnMoreText ?? learnMoreText;
+  const previewCta = activeItem ? resolvedLearnMoreText : resolvedDefaultPreview.learnMoreText ?? resolvedLearnMoreText;
   const isMobile = variant === "mobile";
 
   const columnLayout = isMobile
-    ? resourcesSections.map((section) => [section.title])
-    : RESOURCES_COLUMN_LAYOUT;
+    ? localizedSections.map((_, index) => [index])
+    : RESOURCES_COLUMN_LAYOUT_INDICES;
 
   return (
     <div className={`resources-mega-menu${isMobile ? " resources-mega-menu--mobile" : ""}`}>
@@ -361,22 +371,24 @@ export default function ResourcesMegaMenu({
         className="resources-mega-menu__columns"
         onMouseLeave={() => setActiveItem(null)}
         role="menu"
-        aria-label={previewLabel}
+        aria-label={resolvedPreviewLabel}
       >
-        {columnLayout.map((sectionTitles) => (
+        {columnLayout.map((sectionIndices) => (
           <div
-            key={sectionTitles.join("-")}
+            key={sectionIndices.join("-")}
             className="resources-mega-menu__column"
           >
-            {sectionTitles.map((sectionTitle) => {
-              const section = sectionByTitle[sectionTitle];
+            {sectionIndices.map((sectionIndex) => {
+              const section = localizedSections[sectionIndex];
               if (!section) return null;
 
               return (
                 <SectionBlock
-                  key={section.title}
+                  key={resourcesSections[sectionIndex]?.title ?? section.title}
                   section={section}
-                  getSectionTitle={getSectionTitle}
+                  getSectionTitle={(title) =>
+                    getSectionTitle(resourcesSections[sectionIndex]?.title ?? title)
+                  }
                   getDisplayTitle={getDisplayTitle}
                   activeItem={activeItem}
                   onSelect={handleSelect}
@@ -392,7 +404,7 @@ export default function ResourcesMegaMenu({
         <FeaturedCard
           preview={preview}
           displayTitle={displayTitle}
-          previewLabel={previewLabel}
+          previewLabel={resolvedPreviewLabel}
           learnMoreText={previewCta}
           compact={isMobile}
         />

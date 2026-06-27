@@ -3,28 +3,36 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import type { LegalPageContent } from "@/lib/legal/legal-pages-content";
 import { getButtonClasses } from "@/lib/button-styles";
+import { getTranslation } from "@/lib/i18n";
 
 type LegalDocumentPageProps = {
+  contentKey: string;
   content: LegalPageContent;
 };
 
-export default function LegalDocumentPage({ content }: LegalDocumentPageProps) {
+export default function LegalDocumentPage({ contentKey, content }: LegalDocumentPageProps) {
+  const { language } = useSiteLanguage();
+  const t = getTranslation(language);
+  const localized = useLocalizedContent(contentKey, content);
+
   return (
     <AboutPremiumLayout>
       <div className="mx-auto max-w-4xl px-4 py-14 lg:px-8 lg:py-20">
         <header className="rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-8 dark:border-slate-700 dark:from-emerald-950/30 dark:via-slate-900 dark:to-teal-950/20">
           <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300">
-            {content.badge}
+            {localized.badge}
           </p>
-          <h1 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">{content.title}</h1>
-          <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{content.subtitle}</p>
-          <p className="mt-4 text-sm font-bold text-emerald-800 dark:text-emerald-300">{content.effectiveDate}</p>
+          <h1 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">{localized.title}</h1>
+          <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{localized.subtitle}</p>
+          <p className="mt-4 text-sm font-bold text-emerald-800 dark:text-emerald-300">{localized.effectiveDate}</p>
         </header>
 
         <div className="mt-10 grid gap-8">
-          {content.sections.map((section) => (
+          {localized.sections.map((section) => (
             <section
               key={section.title}
               className="rounded-[1.75rem] border border-slate-200 bg-white p-7 shadow-sm dark:border-slate-700 dark:bg-slate-900"
@@ -51,11 +59,11 @@ export default function LegalDocumentPage({ content }: LegalDocumentPageProps) {
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Link href="/contact" className={getButtonClasses("primary")}>
-            Contact Eden
+            {t.contactEden ?? "Contact Eden"}
             <ArrowRight size={18} aria-hidden="true" />
           </Link>
           <Link href="/privacy-policy" className={getButtonClasses("secondary")}>
-            Privacy Policy
+            {t.privacy ?? "Privacy Policy"}
           </Link>
         </div>
       </div>

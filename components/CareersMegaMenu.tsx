@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   Gift,
@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
 import CareerMeaningAnimation from "@/components/CareerMeaningAnimation";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   CAREERS_BRAND_TITLE,
   CAREERS_DEFAULT_PREVIEW,
@@ -119,6 +120,23 @@ export default function CareersMegaMenu({
   onClose,
 }: CareersMegaMenuProps) {
   const pathname = usePathname() ?? "";
+  const localizedDefaultPreview = useLocalizedContent("CAREERS_DEFAULT_PREVIEW", CAREERS_DEFAULT_PREVIEW);
+  const localizedMenuItems = useLocalizedContent("CAREERS_MENU_ITEMS", CAREERS_MENU_ITEMS);
+  const localizedMenuLabel = useLocalizedContent("CAREERS_MEGA_MENU_LABEL", CAREERS_MEGA_MENU_LABEL);
+  const localizedMenuAria = useLocalizedContent("CAREERS_MEGA_MENU_ARIA", "Careers menu");
+  const menuItems = useMemo(
+    () =>
+      CAREERS_MENU_ITEMS.map((item, index) => ({
+        ...item,
+        label: localizedMenuItems[index]?.label ?? item.label,
+        description: localizedMenuItems[index]?.description ?? item.description,
+        preview: {
+          ...item.preview,
+          ...(localizedMenuItems[index]?.preview ?? {}),
+        },
+      })),
+    [localizedMenuItems],
+  );
   const [currentHash, setCurrentHash] = useState("");
   const [activeItem, setActiveItem] = useState<CareersMenuItem | null>(null);
   const isMobile = variant === "mobile";
@@ -159,25 +177,27 @@ export default function CareersMegaMenu({
     [handleNavigate, onClose],
   );
 
-  const preview = activeItem?.preview ?? CAREERS_DEFAULT_PREVIEW;
+  const preview = activeItem?.preview ?? localizedDefaultPreview;
   const previewKey = activeItem?.id ?? "careers-default";
+  const menuLabel = typeof localizedMenuLabel === "string" ? localizedMenuLabel : CAREERS_MEGA_MENU_LABEL;
+  const menuAria = typeof localizedMenuAria === "string" ? localizedMenuAria : "Careers menu";
 
   return (
     <div
       className={`careers-mega-menu${isMobile ? " careers-mega-menu--mobile" : ""}`}
       role="navigation"
-      aria-label="Careers menu"
+      aria-label={menuAria}
     >
       <div
         className="careers-mega-menu__nav"
         onMouseLeave={() => setActiveItem(null)}
         role="menu"
-        aria-label={CAREERS_MEGA_MENU_LABEL}
+        aria-label={menuLabel}
       >
-        <p className="careers-mega-menu__label">{CAREERS_MEGA_MENU_LABEL}</p>
+        <p className="careers-mega-menu__label">{menuLabel}</p>
 
         <ul className="careers-mega-menu__list">
-          {CAREERS_MENU_ITEMS.map((item) => {
+          {menuItems.map((item) => {
             const Icon = ICON_MAP[item.icon];
             const isHovered = activeItem?.id === item.id;
             const isRouteActive = isActiveHref(

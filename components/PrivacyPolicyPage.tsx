@@ -21,6 +21,9 @@ import {
 import type { LucideIcon } from "lucide-react";
 import EdenButton from "@/components/EdenButton";
 import PrivacyPolicyNewsletterSection from "@/components/privacy/PrivacyPolicyNewsletterSection";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getTranslation } from "@/lib/i18n";
 import {
   PRIVACY_POLICY_CTA,
   PRIVACY_POLICY_HERO,
@@ -137,7 +140,19 @@ function PolicySectionBlock({ section }: { section: PrivacyPolicySection }) {
   );
 }
 
-function ContactDetails({ businessInfo }: { businessInfo: BusinessInfo }) {
+function ContactDetails({
+  businessInfo,
+  labels,
+}: {
+  businessInfo: BusinessInfo;
+  labels: {
+    address: string;
+    officePhone: string;
+    fax: string;
+    email: string;
+    website: string;
+  };
+}) {
   return (
     <div className="mt-6 grid gap-4 rounded-2xl border border-emerald-100 bg-emerald-50/40 p-5 sm:p-6">
       <p className="text-lg font-extrabold text-slate-900">Eden ABA Therapy</p>
@@ -145,7 +160,7 @@ function ContactDetails({ businessInfo }: { businessInfo: BusinessInfo }) {
       <div className="flex gap-3 text-base leading-7 text-slate-700">
         <MapPin size={18} className="mt-1 shrink-0 text-emerald-700" aria-hidden="true" />
         <div>
-          <p className="font-bold text-slate-900">Address</p>
+          <p className="font-bold text-slate-900">{labels.address}</p>
           <p>7700 Little River Turnpike, Suite 304</p>
           <p>Annandale, VA 22003</p>
           <p>United States</p>
@@ -155,7 +170,7 @@ function ContactDetails({ businessInfo }: { businessInfo: BusinessInfo }) {
       <div className="flex items-center gap-3 text-base text-slate-700">
         <Phone size={18} className="shrink-0 text-emerald-700" aria-hidden="true" />
         <div>
-          <p className="font-bold text-slate-900">Office Phone</p>
+          <p className="font-bold text-slate-900">{labels.officePhone}</p>
           <a href={`tel:${businessInfo.phone.replace(/\D/g, "")}`} className="font-semibold text-emerald-800 hover:underline">
             {businessInfo.phone}
           </a>
@@ -165,7 +180,7 @@ function ContactDetails({ businessInfo }: { businessInfo: BusinessInfo }) {
       <div className="flex items-center gap-3 text-base text-slate-700">
         <FileText size={18} className="shrink-0 text-emerald-700" aria-hidden="true" />
         <div>
-          <p className="font-bold text-slate-900">Fax</p>
+          <p className="font-bold text-slate-900">{labels.fax}</p>
           <p>{businessInfo.fax}</p>
         </div>
       </div>
@@ -173,7 +188,7 @@ function ContactDetails({ businessInfo }: { businessInfo: BusinessInfo }) {
       <div className="flex items-center gap-3 text-base text-slate-700">
         <Mail size={18} className="shrink-0 text-emerald-700" aria-hidden="true" />
         <div>
-          <p className="font-bold text-slate-900">Email</p>
+          <p className="font-bold text-slate-900">{labels.email}</p>
           <a href={`mailto:${businessInfo.email}`} className="font-semibold text-emerald-800 hover:underline">
             {businessInfo.email}
           </a>
@@ -181,7 +196,7 @@ function ContactDetails({ businessInfo }: { businessInfo: BusinessInfo }) {
       </div>
 
       <div className="text-base text-slate-700">
-        <p className="font-bold text-slate-900">Website</p>
+        <p className="font-bold text-slate-900">{labels.website}</p>
         <a href="https://www.edenabatherapy.com" className="font-semibold text-emerald-800 hover:underline">
           https://www.edenabatherapy.com
         </a>
@@ -197,11 +212,22 @@ export default function PrivacyPolicyPage({
   onLearnAba,
   onConsultation,
 }: PrivacyPolicyPageProps) {
-  const hero = PRIVACY_POLICY_HERO;
-  const intro = PRIVACY_POLICY_INTRO;
-  const cta = PRIVACY_POLICY_CTA;
-  const sections = PRIVACY_POLICY_SECTIONS.filter((section) => section.id !== "contact");
-  const contactSection = PRIVACY_POLICY_SECTIONS.find((section) => section.id === "contact");
+  const { language } = useSiteLanguage();
+  const t = getTranslation(language);
+  const grid = t.pages?.footer?.grid;
+  const contactLabels = {
+    address: grid?.addressLabel?.replace(/:$/, "") ?? "Address",
+    officePhone: grid?.officePhoneLabel?.replace(/:$/, "") ?? "Office Phone",
+    fax: grid?.faxLabel?.replace(/:$/, "") ?? "Fax",
+    email: grid?.emailLabel?.replace(/:$/, "") ?? "Email",
+    website: grid?.websiteLabel ?? "Website",
+  };
+  const hero = useLocalizedContent("PRIVACY_POLICY_HERO", PRIVACY_POLICY_HERO);
+  const intro = useLocalizedContent("PRIVACY_POLICY_INTRO", PRIVACY_POLICY_INTRO);
+  const cta = useLocalizedContent("PRIVACY_POLICY_CTA", PRIVACY_POLICY_CTA);
+  const allSections = useLocalizedContent("PRIVACY_POLICY_SECTIONS", PRIVACY_POLICY_SECTIONS);
+  const sections = allSections.filter((section) => section.id !== "contact");
+  const contactSection = allSections.find((section) => section.id === "contact");
 
   return (
     <div className="bg-white text-slate-900">
@@ -261,7 +287,7 @@ export default function PrivacyPolicyPage({
                   {contactSection.paragraphs?.length ? (
                     <PolicyParagraphs paragraphs={contactSection.paragraphs} />
                   ) : null}
-                  <ContactDetails businessInfo={businessInfo} />
+                  <ContactDetails businessInfo={businessInfo} labels={contactLabels} />
                 </div>
               </section>
             ) : null}

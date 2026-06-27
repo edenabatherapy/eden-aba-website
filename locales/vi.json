@@ -498,7 +498,14 @@
     },
     "ariaLabels": {
       "whatIsAutismSections": "Các phần trang Tự kỷ là gì",
-      "abaTherapySections": "Các phần trang Liệu pháp ABA"
+      "abaTherapySections": "Các phần trang Liệu pháp ABA",
+      "mainNav": "Điều hướng chính",
+      "openMenu": "Mở menu",
+      "closeMenu": "Đóng menu",
+      "switchToLightMode": "Chuyển sang chế độ sáng",
+      "switchToDarkMode": "Chuyển sang chế độ tối",
+      "lightMode": "Sáng",
+      "darkMode": "Tối"
     },
     "chatResponses": {
       "emergency": "Nếu có nguy hiểm cấp bách, hãy gọi 911 ngay. Nếu con bạn có thể tự làm hại bản thân hoặc người khác, hãy ở gần chỉ khi an toàn, loại bỏ vật nguy hiểm nếu có thể, và liên hệ dịch vụ cấp cứu hoặc bác sĩ của trẻ. Tôi có thể hỗ trợ lập kế hoạch an toàn chung, nhưng trường hợp khẩn cấp cần sự giúp đỡ chuyên môn trực tiếp ngay lập tức.",
@@ -2177,6 +2184,7 @@
         "emailLabel": "Email:",
         "addressLabel": "Địa chỉ:",
         "faxLabel": "Fax:",
+        "websiteLabel": "Website",
         "allRightsReserved": "Bảo lưu mọi quyền.",
         "builtBy": "Xây dựng bởi ITMagnum",
         "serviceLinks": [

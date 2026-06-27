@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <LegalDocumentPage content={TERMS_OF_SERVICE_CONTENT} />;
+  return <LegalDocumentPage contentKey="TERMS_OF_SERVICE_CONTENT" content={TERMS_OF_SERVICE_CONTENT} />;
 }

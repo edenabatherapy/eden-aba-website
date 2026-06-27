@@ -12,5 +12,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <LegalDocumentPage content={NOTICE_OF_PRIVACY_PRACTICES_CONTENT} />;
+  return (
+    <LegalDocumentPage
+      contentKey="NOTICE_OF_PRIVACY_PRACTICES_CONTENT"
+      content={NOTICE_OF_PRIVACY_PRACTICES_CONTENT}
+    />
+  );
 }

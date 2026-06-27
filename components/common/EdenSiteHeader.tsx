@@ -141,7 +141,7 @@ export default function EdenSiteHeader() {
       >
         <SiteHeaderBrand compact={scrolled} />
 
-        <nav className="relative z-0 hidden min-w-0 items-center justify-center lg:flex" aria-label="Main navigation">
+        <nav className="relative z-0 hidden min-w-0 items-center justify-center lg:flex" aria-label={t.ariaLabels?.mainNav ?? "Main navigation"}>
           <div className="flex max-w-full flex-nowrap items-center justify-center gap-1 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
             <Link href="/" className={navItemClass}>
               {t.navHome}
@@ -235,7 +235,7 @@ export default function EdenSiteHeader() {
             type="button"
             onClick={() => setOpen(!open)}
             className="rounded-full border border-emerald-100 p-2 lg:hidden"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? (t.ariaLabels?.closeMenu ?? "Close menu") : (t.ariaLabels?.openMenu ?? "Open menu")}
           >
             {open ? <X /> : <Menu />}
           </button>

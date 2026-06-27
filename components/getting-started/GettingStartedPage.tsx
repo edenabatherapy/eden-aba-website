@@ -22,6 +22,7 @@ import ResourceCard from "@/components/getting-started/ResourceCard";
 import SearchFilters from "@/components/getting-started/SearchFilters";
 import TimelineStep from "@/components/getting-started/TimelineStep";
 import FAQAccordion from "@/components/getting-started/FAQAccordion";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   CORE_TOPIC_CARDS,
   DOCUMENTS_CHECKLIST,
@@ -47,7 +48,41 @@ const CORE_ICONS = [
   Sparkles,
 ] as const;
 
-const FILTER_CATEGORIES = ["All", ...RESOURCE_CATEGORIES] as const;
+const FILTER_CATEGORIES_EN = ["All", ...RESOURCE_CATEGORIES] as const;
+
+const GETTING_STARTED_PAGE_UI = {
+  heroBadge: "Family Resource Hub",
+  heroTitle: "Getting Started with Eden",
+  heroSubtitle:
+    "Everything families need to understand ABA therapy, Medicaid, insurance, evaluations, eligibility, and next steps with Eden ABA Therapy.",
+  startIntake: "Start Intake",
+  checkDocuments: "Check Required Documents",
+  exploreResources: "Explore Resources",
+  coreTopicsTitle: "Start with the essentials",
+  coreTopicsIntro:
+    "Explore the topics families ask about most when beginning ABA therapy with Eden in Northern Virginia.",
+  learnMore: "Learn more",
+  timelineTitle: "Your onboarding timeline",
+  timelineIntro: "A clear path from first contact through therapy start and ongoing family partnership.",
+  documentsTitle: "Documents families often prepare",
+  documentsIntro:
+    "Having these items ready can help Eden's intake and insurance teams move more efficiently. Requirements may vary by plan and child.",
+  resourcesTitle: "Deep-search resource library",
+  resourcesIntro:
+    "Trusted educational links on ABA therapy, Medicaid, diagnosis, credentials, state programs, and next steps. Each resource appears once—no duplicates.",
+  featuredResources: "Featured resources",
+  noResultsTitle: "No resources match your search",
+  noResultsText: "Try a different keyword or reset the category filter to explore the full library.",
+  clearFilters: "Clear filters",
+  faqTitle: "Frequently asked questions",
+  faqIntro:
+    "Clear answers for families beginning ABA therapy, insurance review, and clinical onboarding with Eden.",
+  ctaTitle: "Ready to take the next step?",
+  ctaText:
+    "Eden ABA Therapy is here to help Virginia families navigate intake, benefits questions, and the path toward compassionate ABA services.",
+  insuranceCta: "Insurance & financial assistance",
+  filterAll: "All",
+};
 
 function cardHref(card: (typeof CORE_TOPIC_CARDS)[number]) {
   if (card.href) return card.href;
@@ -60,6 +95,25 @@ function cardHref(card: (typeof CORE_TOPIC_CARDS)[number]) {
 
 export default function GettingStartedPage() {
   const reduceMotion = useReducedMotion();
+  const page = useLocalizedContent("GETTING_STARTED_PAGE", {
+    ui: GETTING_STARTED_PAGE_UI,
+    coreTopicCards: CORE_TOPIC_CARDS,
+    onboardingTimeline: ONBOARDING_TIMELINE,
+    documentsChecklist: DOCUMENTS_CHECKLIST,
+    faq: GETTING_STARTED_FAQ,
+    disclaimer: GETTING_STARTED_DISCLAIMER,
+  });
+  const ui = page.ui;
+  const coreTopicCards = page.coreTopicCards;
+  const onboardingTimeline = page.onboardingTimeline;
+  const documentsChecklist = page.documentsChecklist;
+  const faq = page.faq;
+  const disclaimer = page.disclaimer;
+  const categoryLabels = useLocalizedContent(
+    "GETTING_STARTED_RESOURCE_CATEGORY_LABELS",
+    Object.fromEntries(RESOURCE_CATEGORIES.map((category) => [category, category])),
+  );
+  const filterCategories = FILTER_CATEGORIES_EN;
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<GettingStartedResourceCategory | "All">("All");
 
@@ -103,31 +157,30 @@ export default function GettingStartedPage() {
 
         <div className="relative mx-auto max-w-5xl text-center">
           <motion.p {...reveal(0)} className="text-xs font-black uppercase tracking-[0.16em] text-emerald-800">
-            Family Resource Hub
+            {ui.heroBadge}
           </motion.p>
           <motion.h1
             {...reveal(0.06)}
             className="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
           >
-            Getting Started with Eden
+            {ui.heroTitle}
           </motion.h1>
           <motion.p {...reveal(0.12)} className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-            Everything families need to understand ABA therapy, Medicaid, insurance, evaluations, eligibility, and next
-            steps with Eden ABA Therapy.
+            {ui.heroSubtitle}
           </motion.p>
           <motion.div
             {...reveal(0.18)}
             className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <Link href="/intake" className={getButtonClasses("primarySite")}>
-              Start Intake
+              {ui.startIntake}
               <ArrowRight size={18} aria-hidden />
             </Link>
             <a href="#documents-needed" className={getButtonClasses("secondarySite")}>
-              Check Required Documents
+              {ui.checkDocuments}
             </a>
             <a href="#resources" className={getButtonClasses("secondarySite")}>
-              Explore Resources
+              {ui.exploreResources}
             </a>
           </motion.div>
         </div>
@@ -136,13 +189,13 @@ export default function GettingStartedPage() {
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20">
         <motion.section {...reveal()} aria-labelledby="core-topics-heading">
           <h2 id="core-topics-heading" className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            Start with the essentials
+            {ui.coreTopicsTitle}
           </h2>
           <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600">
-            Explore the topics families ask about most when beginning ABA therapy with Eden in Northern Virginia.
+            {ui.coreTopicsIntro}
           </p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {CORE_TOPIC_CARDS.map((card, index) => {
+            {coreTopicCards.map((card, index) => {
               const Icon = CORE_ICONS[index] ?? BookOpen;
               return (
                 <motion.li
@@ -160,7 +213,7 @@ export default function GettingStartedPage() {
                     <h3 className="mt-4 text-lg font-extrabold text-slate-900">{card.title}</h3>
                     <p className="mt-2 flex-1 text-sm leading-7 text-slate-600">{card.description}</p>
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-extrabold text-emerald-800">
-                      Learn more
+                      {ui.learnMore}
                       <ArrowRight size={16} aria-hidden />
                     </span>
                   </Link>
@@ -177,13 +230,13 @@ export default function GettingStartedPage() {
           aria-labelledby="timeline-heading"
         >
           <h2 id="timeline-heading" className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            Your onboarding timeline
+            {ui.timelineTitle}
           </h2>
           <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600">
-            A clear path from first contact through therapy start and ongoing family partnership.
+            {ui.timelineIntro}
           </p>
           <ol className="relative mt-8 max-w-3xl">
-            {ONBOARDING_TIMELINE.map((step, index) => (
+            {onboardingTimeline.map((step, index) => (
               <TimelineStep
                 key={step.step}
                 step={step.step}
@@ -207,15 +260,14 @@ export default function GettingStartedPage() {
               <ClipboardList size={22} aria-hidden />
             </span>
             <h2 id="documents-heading" className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-              Documents families often prepare
+              {ui.documentsTitle}
             </h2>
           </div>
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
-            Having these items ready can help Eden&apos;s intake and insurance teams move more efficiently. Requirements
-            may vary by plan and child.
+            {ui.documentsIntro}
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-            {DOCUMENTS_CHECKLIST.map((item) => (
+            {documentsChecklist.map((item) => (
               <li
                 key={item}
                 className="flex gap-3 rounded-xl border border-emerald-50 bg-emerald-50/40 px-4 py-3 text-sm font-semibold leading-7 text-slate-700"
@@ -239,11 +291,10 @@ export default function GettingStartedPage() {
             </span>
             <div>
               <h2 id="resources-heading" className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-                Deep-search resource library
+                {ui.resourcesTitle}
               </h2>
               <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600">
-                Trusted educational links on ABA therapy, Medicaid, diagnosis, credentials, state programs, and next
-                steps. Each resource appears once—no duplicates.
+                {ui.resourcesIntro}
               </p>
             </div>
           </div>
@@ -252,7 +303,9 @@ export default function GettingStartedPage() {
             <SearchFilters
               query={query}
               category={category}
-              categories={FILTER_CATEGORIES}
+              categories={filterCategories}
+              categoryLabels={categoryLabels}
+              allLabel={ui.filterAll}
               resultCount={filteredResources.length}
               onQueryChange={setQuery}
               onCategoryChange={setCategory}
@@ -261,7 +314,7 @@ export default function GettingStartedPage() {
 
           {filteredFeatured.length > 0 ? (
             <div className="mt-10">
-              <h3 className="text-xl font-extrabold text-slate-900">Featured resources</h3>
+              <h3 className="text-xl font-extrabold text-slate-900">{ui.featuredResources}</h3>
               <ul className="mt-5 grid gap-5 lg:grid-cols-2">
                 {filteredFeatured.map((resource) => (
                   <li key={resource.id}>
@@ -283,9 +336,9 @@ export default function GettingStartedPage() {
               </ul>
             ) : (
               <div className="rounded-2xl border border-dashed border-emerald-200 bg-emerald-50/40 px-6 py-12 text-center">
-                <p className="text-lg font-extrabold text-slate-900">No resources match your search</p>
+                <p className="text-lg font-extrabold text-slate-900">{ui.noResultsTitle}</p>
                 <p className="mt-2 text-sm leading-7 text-slate-600">
-                  Try a different keyword or reset the category filter to explore the full library.
+                  {ui.noResultsText}
                 </p>
                 <button
                   type="button"
@@ -295,14 +348,14 @@ export default function GettingStartedPage() {
                   }}
                   className={`mt-5 ${getButtonClasses("secondarySite")}`}
                 >
-                  Clear filters
+                  {ui.clearFilters}
                 </button>
               </div>
             )}
           </div>
 
           <p className="mt-8 rounded-2xl border border-amber-200 bg-amber-50/80 px-5 py-4 text-sm leading-7 text-amber-950">
-            {GETTING_STARTED_DISCLAIMER}
+            {disclaimer}
           </p>
         </motion.section>
 
@@ -313,13 +366,13 @@ export default function GettingStartedPage() {
           aria-labelledby="faq-heading"
         >
           <h2 id="faq-heading" className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
-            Frequently asked questions
+            {ui.faqTitle}
           </h2>
           <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600">
-            Clear answers for families beginning ABA therapy, insurance review, and clinical onboarding with Eden.
+            {ui.faqIntro}
           </p>
           <div className="mt-8">
-            <FAQAccordion items={GETTING_STARTED_FAQ} />
+            <FAQAccordion items={faq} />
           </div>
         </motion.section>
 
@@ -327,24 +380,23 @@ export default function GettingStartedPage() {
           {...reveal()}
           className="rounded-[2rem] border border-emerald-200 bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-700 p-8 text-white shadow-lg sm:p-10"
         >
-          <h2 className="text-3xl font-extrabold sm:text-4xl">Ready to take the next step?</h2>
+          <h2 className="text-3xl font-extrabold sm:text-4xl">{ui.ctaTitle}</h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-emerald-50">
-            Eden ABA Therapy is here to help Virginia families navigate intake, benefits questions, and the path toward
-            compassionate ABA services.
+            {ui.ctaText}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/intake"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-extrabold text-emerald-900"
             >
-              Start Intake
+              {ui.startIntake}
               <ArrowRight size={16} aria-hidden />
             </Link>
             <Link
               href="/insurance-coverage"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/80 px-6 py-3 text-sm font-extrabold text-white"
             >
-              Insurance &amp; financial assistance
+              {ui.insuranceCta}
             </Link>
           </div>
         </motion.section>

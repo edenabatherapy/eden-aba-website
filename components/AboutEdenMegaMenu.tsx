@@ -1,9 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { ABOUT_NAV_LINKS } from "@/lib/about-nav-links";
 import EdenLogo from "@/components/EdenLogo";
 import AboutMeaningAnimation, { type AboutMeaningAnimationType } from "@/components/AboutMeaningAnimation";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { getTranslation } from "@/lib/i18n";
 import "./AbaTherapyMegaMenu.css";
 
 export type AboutEdenMenuItem = {
@@ -158,10 +161,37 @@ export default function AboutEdenMegaMenu({
   variant = "desktop",
   onClose,
 }: AboutEdenMegaMenuProps) {
+  const { language } = useSiteLanguage();
+  const megaMenu = getTranslation(language).pages.megaMenu;
+  const localizedItemDetails = useLocalizedContent(
+    "ABOUT_EDEN_MEGA_MENU_ITEMS",
+    aboutEdenItems.map((item) => ({ description: item.description })),
+  );
+  const localizedDefaultPreview = useLocalizedContent(
+    "ABOUT_EDEN_MEGA_MENU_DEFAULT_PREVIEW",
+    defaultPreview,
+  );
+  const menuItems = useMemo(
+    () =>
+      aboutEdenItems.map((item, index) => ({
+        ...item,
+        description: localizedItemDetails[index]?.description ?? item.description,
+      })),
+    [localizedItemDetails],
+  );
+  const resolvedSectionLabel = sectionLabel ?? megaMenu?.aboutSectionLabel ?? "ABOUT EDEN";
+  const resolvedPreviewLabel = previewLabel ?? megaMenu?.aboutSectionLabel ?? "ABOUT EDEN";
+  const resolvedLearnMoreText = learnMoreText ?? megaMenu?.learnMoreText ?? "Learn more →";
+  const resolvedContactCtaText = contactCtaText ?? megaMenu?.connectWithUsText ?? "Connect with us →";
+  const resolvedDefaultPreview = {
+    ...localizedDefaultPreview,
+    learnMoreText: localizedDefaultPreview.learnMoreText ?? resolvedLearnMoreText,
+  };
+
   const [activeItem, setActiveItem] = useState<AboutEdenMenuItem | null>(null);
 
   const preview: AboutEdenPreview | AboutEdenMenuItem = activeItem ?? {
-    ...defaultPreview,
+    ...resolvedDefaultPreview,
     title: defaultTitle,
   };
 
@@ -189,10 +219,10 @@ export default function AboutEdenMegaMenu({
   const previewKey = activeItem?.title ?? "about-eden-default";
   const previewCta =
     activeItem?.action === "start"
-      ? contactCtaText
+      ? resolvedContactCtaText
       : activeItem
-        ? learnMoreText
-        : defaultPreview.learnMoreText ?? learnMoreText;
+        ? resolvedLearnMoreText
+        : resolvedDefaultPreview.learnMoreText ?? resolvedLearnMoreText;
 
   const isMobile = variant === "mobile";
 
@@ -202,11 +232,11 @@ export default function AboutEdenMegaMenu({
         className="aba-menu-left"
         onMouseLeave={() => setActiveItem(null)}
         role="menu"
-        aria-label={sectionLabel}
+        aria-label={resolvedSectionLabel}
       >
-        <p className="mega-menu-label">{sectionLabel}</p>
+        <p className="mega-menu-label">{resolvedSectionLabel}</p>
 
-        {aboutEdenItems.map((item) => {
+        {menuItems.map((item) => {
           const itemDisplayTitle = getDisplayTitle(item);
           const isActive = activeItem?.title === item.title;
 
@@ -236,7 +266,7 @@ export default function AboutEdenMegaMenu({
           <PreviewCard
             preview={preview}
             displayTitle={displayTitle}
-            previewLabel={previewLabel}
+            previewLabel={resolvedPreviewLabel}
             learnMoreText={previewCta}
           />
         </div>
@@ -245,7 +275,7 @@ export default function AboutEdenMegaMenu({
           <PreviewCard
             preview={preview}
             displayTitle={displayTitle}
-            previewLabel={previewLabel}
+            previewLabel={resolvedPreviewLabel}
             learnMoreText={previewCta}
             compact
           />

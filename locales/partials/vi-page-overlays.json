@@ -1,0 +1,592 @@
+{
+  "TERMS_OF_SERVICE_CONTENT": {
+    "badge": "Pháp lý • Điều khoản",
+    "title": "Điều khoản Dịch vụ",
+    "subtitle": "Các Điều khoản Dịch vụ này điều chỉnh việc bạn sử dụng trang web Eden ABA Therapy và các kênh giao tiếp kỹ thuật số liên quan.",
+    "effectiveDate": "Ngày có hiệu lực: 2 tháng 6, 2026",
+    "sections": [
+      {
+        "title": "Chấp nhận Điều khoản",
+        "paragraphs": [
+          "Khi truy cập hoặc sử dụng trang web Eden ABA Therapy, bạn đồng ý với các Điều khoản Dịch vụ này. Nếu bạn không đồng ý, vui lòng ngừng sử dụng trang web.",
+          "Các điều khoản này áp dụng cho khách truy cập trang web, gia đình tiềm năng, đối tác giới thiệu và ứng viên việc làm sử dụng các kênh kỹ thuật số của Eden."
+        ]
+      },
+      {
+        "title": "Sử dụng Trang web",
+        "paragraphs": ["Bạn đồng ý chỉ sử dụng trang web này cho mục đích hợp pháp và theo cách không:"],
+        "listItems": [
+          "Can thiệp vào bảo mật, khả năng sẵn sàng hoặc hiệu suất của trang web",
+          "Cố gắng truy cập trái phép vào hệ thống hoặc dữ liệu",
+          "Gửi thông tin sai, gây hiểu lầm hoặc có hại",
+          "Sử dụng nội dung trang web cho mục đích phân phối thương mại mà không có sự cho phép bằng văn bản"
+        ]
+      },
+      {
+        "title": "Không phải Tư vấn Y khoa hoặc Khẩn cấp",
+        "paragraphs": [
+          "Nội dung trang web chỉ nhằm mục đích thông tin chung và không tạo ra mối quan hệ nhà cung cấp–bệnh nhân.",
+          "Nếu bạn tin rằng trẻ hoặc cá nhân đang gặp nguy hiểm ngay lập tức, hãy gọi 911 hoặc dịch vụ khẩn cấp địa phương. Không sử dụng trang web này để liên lạc khẩn cấp."
+        ]
+      },
+      {
+        "title": "Sở hữu Trí tuệ",
+        "paragraphs": [
+          "Mọi nội dung trang web, thương hiệu, yếu tố thiết kế và tài liệu đều thuộc sở hữu hoặc được cấp phép cho Eden ABA Therapy trừ khi có ghi chú khác.",
+          "Bạn có thể xem và in trang cho mục đích cá nhân, phi thương mại. Mọi cách sử dụng khác đều cần có sự đồng ý bằng văn bản trước."
+        ]
+      },
+      {
+        "title": "Liên kết Bên thứ ba",
+        "paragraphs": [
+          "Trang web này có thể bao gồm liên kết đến trang web hoặc tài nguyên của bên thứ ba. Eden ABA Therapy không chịu trách nhiệm về nội dung, thực hành quyền riêng tư hoặc khả năng sẵn sàng của các trang bên ngoài."
+        ]
+      },
+      {
+        "title": "Tuyên bố Miễn trừ Bảo đảm",
+        "paragraphs": [
+          "Trang web được cung cấp trên cơ sở \"nguyên trạng\" và \"sẵn có\". Eden ABA Therapy không đưa ra bất kỳ bảo đảm nào, dù rõ ràng hay ngụ ý, về quyền truy cập không gián đoạn, độ chính xác hoặc phù hợp cho một mục đích cụ thể."
+        ]
+      },
+      {
+        "title": "Giới hạn Trách nhiệm",
+        "paragraphs": [
+          "Trong phạm vi tối đa được pháp luật cho phép, Eden ABA Therapy sẽ không chịu trách nhiệm về thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hậu quả hoặc trừng phạt phát sinh từ việc sử dụng trang web."
+        ]
+      },
+      {
+        "title": "Thay đổi Điều khoản",
+        "paragraphs": [
+          "Chúng tôi có thể cập nhật các Điều khoản Dịch vụ này định kỳ. Việc tiếp tục sử dụng trang web sau khi cập nhật được coi là chấp nhận các điều khoản đã sửa đổi."
+        ]
+      },
+      {
+        "title": "Liên hệ",
+        "paragraphs": [
+          "Câu hỏi về các Điều khoản Dịch vụ này có thể được gửi đến Eden ABA Therapy qua trang liên hệ hoặc qua email tại info@edenabatherapy.com."
+        ]
+      }
+    ]
+  },
+  "ACCESSIBILITY_CONTENT": {
+    "badge": "Tiếp cận • WCAG 2.0 AA",
+    "title": "Tuyên bố Tiếp cận",
+    "subtitle": "Eden ABA Therapy cam kết cung cấp trải nghiệm trang web tiếp cận được với đông đảo khán giả nhất có thể.",
+    "effectiveDate": "Cập nhật lần cuối: 2 tháng 6, 2026",
+    "sections": [
+      {
+        "title": "Cam kết của Chúng tôi",
+        "paragraphs": [
+          "Chúng tôi nỗ lực thiết kế và duy trì trang web này phù hợp với tiêu chuẩn tiếp cận WCAG 2.0 Cấp AA.",
+          "Tiếp cận là nỗ lực liên tục. Chúng tôi xem xét điều hướng, độ tương phản màu sắc, truy cập bàn phím, nhãn biểu mẫu và cấu trúc nội dung như một phần của cải tiến không ngừng."
+        ]
+      },
+      {
+        "title": "Các Biện pháp Chúng tôi Hỗ trợ",
+        "paragraphs": ["Các nỗ lực tiếp cận của chúng tôi bao gồm:"],
+        "listItems": [
+          "Menu, liên kết và biểu mẫu có thể điều hướng bằng bàn phím",
+          "Chỉ báo focus hiển thị rõ cho các phần tử tương tác",
+          "Tiêu đề ngữ nghĩa và văn bản liên kết mô tả khi có thể",
+          "Bố cục đáp ứng cho người dùng di động, máy tính bảng và máy tính để bàn",
+          "Văn bản thay thế cho hình ảnh có ý nghĩa"
+        ]
+      },
+      {
+        "title": "Hạn chế Đã biết",
+        "paragraphs": [
+          "Một số tích hợp bên thứ ba, phương tiện nhúng hoặc nội dung cũ có thể chưa đáp ứng đầy đủ các kỳ vọng về tiếp cận.",
+          "Nếu bạn gặp rào cản, vui lòng liên hệ với chúng tôi kèm URL trang và mô tả vấn đề để chúng tôi ưu tiên khắc phục."
+        ]
+      },
+      {
+        "title": "Yêu cầu Hỗ trợ",
+        "paragraphs": [
+          "Nếu bạn cần giúp truy cập nội dung trang web, hoàn thành biểu mẫu hoặc nhận thông tin ở định dạng thay thế, hãy liên hệ Eden ABA Therapy và đội ngũ của chúng tôi sẽ nỗ lực thiện chí cung cấp hỗ trợ hợp lý."
+        ]
+      },
+      {
+        "title": "Phản hồi",
+        "paragraphs": [
+          "Chúng tôi hoan nghênh phản hồi về tiếp cận từ gia đình, nhà lâm sàng, nhà giáo dục và đối tác cộng đồng. Ý kiến của bạn giúp chúng tôi cải thiện khả năng tiếp cận kỹ thuật số cho mọi người."
+        ]
+      }
+    ]
+  },
+  "NOTICE_OF_PRIVACY_PRACTICES_CONTENT": {
+    "badge": "Nhận thức HIPAA • Thực hành Quyền riêng tư",
+    "title": "Thông báo Thực hành Quyền riêng tư",
+    "subtitle": "Thông báo này mô tả cách thông tin y tế về bạn hoặc con bạn có thể được sử dụng và tiết lộ, cũng như cách bạn có thể truy cập thông tin này.",
+    "effectiveDate": "Ngày có hiệu lực: 2 tháng 6, 2026",
+    "sections": [
+      {
+        "title": "Cam kết của Chúng tôi về Thông tin Sức khỏe được Bảo vệ",
+        "paragraphs": [
+          "Eden ABA Therapy hiểu rằng thông tin sức khỏe về bạn và con bạn là cá nhân. Chúng tôi cam kết bảo vệ thông tin sức khỏe được bảo vệ (PHI) theo luật quyền riêng tư hiện hành, bao gồm HIPAA khi áp dụng."
+        ]
+      },
+      {
+        "title": "Cách Chúng tôi Có thể Sử dụng và Tiết lộ PHI",
+        "paragraphs": ["Chúng tôi có thể sử dụng hoặc tiết lộ PHI cho các mục đích như:"],
+        "listItems": [
+          "Điều trị, phối hợp chăm sóc và giám sát lâm sàng",
+          "Thanh toán, lập hóa đơn và các hoạt động xác minh bảo hiểm",
+          "Vận hành chăm sóc sức khỏe, cải thiện chất lượng và đào tạo",
+          "Tiết lộ sức khỏe cộng đồng, an toàn hoặc pháp lý bắt buộc theo luật"
+        ]
+      },
+      {
+        "title": "Quyền Quyền riêng tư của Bạn",
+        "paragraphs": ["Theo luật hiện hành, bạn có thể có quyền:"],
+        "listItems": [
+          "Yêu cầu hạn chế một số cách sử dụng hoặc tiết lộ nhất định",
+          "Yêu cầu liên lạc bảo mật bằng phương tiện thay thế",
+          "Xem xét và nhận bản sao một số hồ sơ sức khỏe",
+          "Yêu cầu sửa đổi hồ sơ trong các trường hợp cụ thể",
+          "Nhận báo cáo về một số lần tiết lộ nhất định",
+          "Nhận bản in thông báo này theo yêu cầu"
+        ]
+      },
+      {
+        "title": "Trách nhiệm của Chúng tôi",
+        "paragraphs": [
+          "Chúng tôi được luật yêu cầu duy trì quyền riêng tư của PHI và cung cấp cho cá nhân thông báo về nghĩa vụ pháp lý và thực hành quyền riêng tư của chúng tôi.",
+          "Chúng tôi bảo lưu quyền thay đổi thông báo này. Thông báo sửa đổi sẽ áp dụng cho mọi PHI chúng tôi duy trì và sẽ có sẵn theo yêu cầu cũng như trên trang web của chúng tôi."
+        ]
+      },
+      {
+        "title": "Câu hỏi và Khiếu nại",
+        "paragraphs": [
+          "Nếu bạn có câu hỏi về Thông báo Thực hành Quyền riêng tư này hoặc tin rằng quyền quyền riêng tư của bạn đã bị vi phạm, hãy liên hệ Eden ABA Therapy bằng thông tin trên trang liên hệ của chúng tôi.",
+          "Bạn cũng có thể nộp khiếu nại với Bộ Y tế và Dịch vụ Nhân sinh Hoa Kỳ. Eden ABA Therapy sẽ không trả đũa bạn vì nộp khiếu nại."
+        ]
+      }
+    ]
+  },
+  "PRIVACY_POLICY_HERO": {
+    "badge": "Nhận thức HIPAA • Bảo mật • Lấy gia đình làm trung tâm",
+    "title": "Chính sách Quyền riêng tư",
+    "subtitle": "Quyền riêng tư của bạn quan trọng với chúng tôi. Eden ABA Therapy cam kết bảo vệ thông tin cá nhân và liên quan đến sức khỏe mà gia đình, người chăm sóc và khách truy cập trang web chia sẻ.",
+    "effectiveDate": "Ngày có hiệu lực: 14 tháng 6, 2026"
+  },
+  "PRIVACY_POLICY_INTRO": {
+    "effectiveDate": "Ngày có hiệu lực: 14 tháng 6, 2026",
+    "paragraphs": [
+      "Tại Eden ABA Therapy, chúng tôi tôn trọng quyền riêng tư của bạn và cam kết bảo vệ thông tin cá nhân được giao phó cho chúng tôi. Chính sách Quyền riêng tư này giải thích cách chúng tôi thu thập, sử dụng, tiết lộ và bảo vệ thông tin khi bạn truy cập trang web, liên lạc với chúng tôi, yêu cầu dịch vụ hoặc nhận chăm sóc qua tổ chức của chúng tôi.",
+      "Khi truy cập hoặc sử dụng trang web của chúng tôi, bạn đồng ý với các điều khoản nêu trong Chính sách Quyền riêng tư này."
+    ]
+  },
+  "PRIVACY_POLICY_CTA": {
+    "title": "Quyền riêng tư và Chăm sóc của Con bạn Quan trọng",
+    "text": "Tại Eden ABA Therapy, chúng tôi cung cấp dịch vụ ABA nhân văn, lấy gia đình làm trung tâm đồng thời bảo vệ thông tin mà gia đình chia sẻ với chúng tôi.",
+    "primaryCta": "Tìm hiểu thêm về Liệu pháp ABA",
+    "secondaryCta": "Yêu cầu Tư vấn Miễn phí"
+  },
+  "PRIVACY_POLICY_SECTIONS": [
+    {
+      "id": "who-we-are",
+      "title": "Chúng tôi là Ai",
+      "paragraphs": [
+        "Eden ABA Therapy cung cấp dịch vụ Phân tích Hành vi Ứng dụng (ABA) cho trẻ em và gia đình. Chúng tôi hiểu tầm quan trọng của việc bảo vệ thông tin cá nhân và liên quan đến sức khỏe, đồng thời nỗ lực duy trì thực hành quyền riêng tư và bảo mật mạnh mẽ."
+      ]
+    },
+    {
+      "id": "information-we-collect",
+      "title": "Thông tin Chúng tôi Thu thập",
+      "subsections": [
+        {
+          "title": "Thông tin Bạn Cung cấp",
+          "paragraphs": ["Chúng tôi có thể thu thập thông tin bạn tự nguyện cung cấp, bao gồm:"],
+          "listItems": [
+            "Tên phụ huynh hoặc người giám hộ",
+            "Tên trẻ",
+            "Ngày sinh của trẻ",
+            "Số điện thoại",
+            "Địa chỉ email",
+            "Địa chỉ bưu điện",
+            "Thông tin bảo hiểm",
+            "Thông tin giới thiệu",
+            "Yêu cầu đặt lịch hẹn",
+            "Yêu cầu tư vấn dịch vụ",
+            "Thông tin liên lạc gửi qua biểu mẫu, email, điện thoại hoặc tin nhắn văn bản"
+          ]
+        },
+        {
+          "title": "Thông tin Thu thập Tự động",
+          "paragraphs": [
+            "Khi bạn truy cập trang web của chúng tôi, một số thông tin có thể được thu thập tự động, bao gồm:"
+          ],
+          "listItems": [
+            "Địa chỉ IP",
+            "Loại và phiên bản trình duyệt",
+            "Thông tin thiết bị",
+            "Hệ điều hành",
+            "Trang đã xem",
+            "Hoạt động điều hướng trang web",
+            "Ngày và giờ truy cập",
+            "Thông tin trang web giới thiệu"
+          ]
+        },
+        {
+          "paragraphs": [
+            "Thông tin này giúp chúng tôi cải thiện hiệu suất, chức năng và trải nghiệm người dùng của trang web."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "how-we-use-information",
+      "title": "Cách Chúng tôi Sử dụng Thông tin",
+      "paragraphs": ["Chúng tôi có thể sử dụng thông tin thu thập được để:"],
+      "listItems": [
+        "Phản hồi các yêu cầu tư vấn",
+        "Lên lịch tư vấn và cuộc hẹn",
+        "Xác minh quyền lợi và phúc lợi bảo hiểm",
+        "Phối hợp dịch vụ liệu pháp ABA",
+        "Xử lý yêu cầu intake",
+        "Liên lạc với gia đình về dịch vụ",
+        "Cải thiện chức năng và hiệu suất trang web",
+        "Cung cấp hỗ trợ khách hàng",
+        "Đáp ứng nghĩa vụ pháp lý, quy định và chăm sóc sức khỏe",
+        "Bảo vệ an toàn và bảo mật hệ thống cũng như dịch vụ của chúng tôi"
+      ]
+    },
+    {
+      "id": "hipaa",
+      "title": "HIPAA và Thông tin Sức khỏe",
+      "paragraphs": [
+        "Eden ABA Therapy tuân thủ luật quyền riêng tư liên bang và tiểu bang hiện hành, bao gồm Đạo luật Khả năng Di chuyển và Trách nhiệm Giải trình Bảo hiểm Y tế (HIPAA).",
+        "Thông tin Sức khỏe được Bảo vệ (PHI) chỉ được sử dụng và tiết lộ theo phép của luật và được bảo vệ thông qua các biện pháp hành chính, kỹ thuật và vật lý nhằm duy trì tính bảo mật và an toàn.",
+        "Khách hàng nhận dịch vụ có thể nhận thêm thông báo quyền riêng tư liên quan đến HIPAA theo yêu cầu của luật."
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Cookie và Phân tích",
+      "paragraphs": [
+        "Trang web của chúng tôi có thể sử dụng cookie, công cụ phân tích và các công nghệ tương tự để cải thiện trải nghiệm duyệt web của bạn.",
+        "Cookie có thể giúp chúng tôi:"
+      ],
+      "listItems": [
+        "Ghi nhớ tùy chọn",
+        "Hiểu cách sử dụng trang web",
+        "Cải thiện chức năng",
+        "Tăng cường bảo mật",
+        "Đo lường hiệu suất trang web"
+      ],
+      "subsections": [
+        {
+          "paragraphs": [
+            "Bạn có thể tắt cookie qua cài đặt trình duyệt. Một số tính năng trang web có thể không hoạt động đúng nếu cookie bị tắt."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sms",
+      "title": "Tin nhắn SMS",
+      "paragraphs": [
+        "Nếu bạn cung cấp số điện thoại di động và đồng ý nhận tin nhắn văn bản, Eden ABA Therapy có thể liên hệ với bạn về:"
+      ],
+      "listItems": [
+        "Lên lịch cuộc hẹn",
+        "Nhắc nhở cuộc hẹn",
+        "Phối hợp intake",
+        "Xác minh bảo hiểm",
+        "Cập nhật dịch vụ",
+        "Thông tin liên quan đến chăm sóc"
+      ],
+      "subsections": [
+        {
+          "title": "Hủy đăng ký SMS",
+          "paragraphs": [
+            "Bạn có thể ngừng nhận tin nhắn văn bản bất cứ lúc nào bằng cách trả lời STOP.",
+            "Sau khi hủy đăng ký, bạn sẽ không còn nhận thông tin liên lạc SMS trừ khi bạn cung cấp sự đồng ý mới.",
+            "Để được hỗ trợ, trả lời HELP hoặc liên hệ trực tiếp văn phòng của chúng tôi."
+          ]
+        },
+        {
+          "title": "Phí Tin nhắn và Dữ liệu",
+          "paragraphs": ["Phí tin nhắn và dữ liệu có thể áp dụng theo gói cước của nhà mạng di động của bạn."]
+        },
+        {
+          "title": "Cam kết Quyền riêng tư SMS",
+          "paragraphs": [
+            "Không có thông tin di động, thông tin đồng ý tin nhắn văn bản hoặc dữ liệu opt-in SMS nào sẽ được bán, chia sẻ, cho thuê hoặc tiết lộ cho bên thứ ba hoặc chi nhánh cho mục đích tiếp thị hoặc quảng cáo.",
+            "Thông tin chỉ có thể được chia sẻ với nhà cung cấp dịch vụ cần thiết để hỗ trợ dịch vụ liên lạc và hoạt động kinh doanh."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "information-sharing",
+      "title": "Chia sẻ Thông tin",
+      "paragraphs": [
+        "Eden ABA Therapy không bán thông tin cá nhân.",
+        "Thông tin chỉ có thể được chia sẻ khi cần thiết:"
+      ],
+      "listItems": [
+        "Với nhà cung cấp chăm sóc sức khỏe tham gia chăm sóc con bạn",
+        "Với công ty bảo hiểm để xác minh quyền lợi, ủy quyền, yêu cầu bồi thường và lập hóa đơn",
+        "Với nhà cung cấp thực hiện dịch vụ thay mặt chúng tôi theo nghĩa vụ bảo mật",
+        "Khi được yêu cầu bởi luật, lệnh tòa, trát hầu tòa hoặc yêu cầu của cơ quan chính phủ",
+        "Để bảo vệ quyền, an toàn và bảo mật của khách hàng, nhân viên và tổ chức của chúng tôi"
+      ]
+    },
+    {
+      "id": "data-security",
+      "title": "Bảo mật Dữ liệu",
+      "paragraphs": [
+        "Chúng tôi triển khai các biện pháp hành chính, kỹ thuật và vật lý hợp lý để bảo vệ thông tin cá nhân khỏi truy cập, tiết lộ, thay đổi hoặc phá hủy trái phép.",
+        "Mặc dù không có phương pháp truyền tải hoặc lưu trữ điện tử nào có thể đảm bảo bảo mật tuyệt đối, chúng tôi nỗ lực sử dụng các biện pháp bảo vệ và thực hành tốt nhất theo tiêu chuẩn ngành."
+      ]
+    },
+    {
+      "id": "childrens-privacy",
+      "title": "Quyền riêng tư của Trẻ em",
+      "paragraphs": [
+        "Trang web của chúng tôi dành cho phụ huynh, người giám hộ, người chăm sóc và nguồn giới thiệu.",
+        "Chúng tôi không cố ý thu thập thông tin cá nhân trực tiếp từ trẻ em qua trang web. Nếu chúng tôi biết thông tin đã được gửi bởi trẻ em mà không có sự đồng ý phù hợp, chúng tôi sẽ thực hiện các bước hợp lý để xóa thông tin đó."
+      ]
+    },
+    {
+      "id": "third-party-links",
+      "title": "Liên kết Bên thứ ba",
+      "paragraphs": [
+        "Trang web của chúng tôi có thể chứa liên kết đến trang web bên ngoài. Eden ABA Therapy không chịu trách nhiệm về nội dung, bảo mật hoặc thực hành quyền riêng tư của trang web bên thứ ba. Chúng tôi khuyến khích người dùng xem xét chính sách quyền riêng tư của bất kỳ trang bên ngoài nào họ truy cập."
+      ]
+    },
+    {
+      "id": "your-rights",
+      "title": "Quyền của Bạn",
+      "paragraphs": ["Theo luật hiện hành, bạn có thể có quyền:"],
+      "listItems": [
+        "Yêu cầu truy cập một số thông tin cá nhân",
+        "Yêu cầu sửa thông tin không chính xác",
+        "Yêu cầu xóa thông tin khi được phép theo luật",
+        "Yêu cầu thông tin về cách thông tin của bạn được sử dụng"
+      ],
+      "subsections": [
+        {
+          "paragraphs": ["Để gửi yêu cầu, vui lòng liên hệ với chúng tôi bằng thông tin bên dưới."]
+        }
+      ]
+    },
+    {
+      "id": "changes",
+      "title": "Thay đổi Chính sách này",
+      "paragraphs": [
+        "Chúng tôi có thể cập nhật Chính sách Quyền riêng tư này định kỳ. Mọi thay đổi sẽ được đăng trên trang này kèm ngày có hiệu lực sửa đổi.",
+        "Việc bạn tiếp tục sử dụng trang web sau khi cập nhật được đăng được coi là chấp nhận Chính sách Quyền riêng tư đã sửa đổi."
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Liên hệ Chúng tôi",
+      "paragraphs": [
+        "Nếu bạn có câu hỏi về Chính sách Quyền riêng tư này hoặc thực hành quyền riêng tư của chúng tôi, vui lòng liên hệ với chúng tôi bằng thông tin bên dưới."
+      ]
+    }
+  ],
+  "GETTING_STARTED_PAGE": {
+    "ui": {
+      "heroBadge": "Trung tâm Tài nguyên Gia đình",
+      "heroTitle": "Bắt đầu với Eden",
+      "heroSubtitle": "Mọi thứ gia đình cần để hiểu liệu pháp ABA, Medicaid, bảo hiểm, đánh giá, điều kiện đủ và các bước tiếp theo với Eden ABA Therapy.",
+      "startIntake": "Bắt đầu Intake",
+      "checkDocuments": "Kiểm tra Tài liệu Cần thiết",
+      "exploreResources": "Khám phá Tài nguyên",
+      "coreTopicsTitle": "Bắt đầu với những điều cần thiết",
+      "coreTopicsIntro": "Khám phá các chủ đề gia đình hỏi nhiều nhất khi bắt đầu liệu pháp ABA với Eden tại Bắc Virginia.",
+      "learnMore": "Tìm hiểu thêm",
+      "timelineTitle": "Lộ trình onboarding của bạn",
+      "timelineIntro": "Con đường rõ ràng từ liên hệ đầu tiên đến bắt đầu liệu pháp và đối tác gia đình liên tục.",
+      "documentsTitle": "Tài liệu gia đình thường chuẩn bị",
+      "documentsIntro": "Sẵn sàng các mục này có thể giúp đội intake và bảo hiểm của Eden làm việc hiệu quả hơn. Yêu cầu có thể khác nhau theo gói và trẻ.",
+      "resourcesTitle": "Thư viện tài nguyên tìm kiếm sâu",
+      "resourcesIntro": "Liên kết giáo dục đáng tin cậy về liệu pháp ABA, Medicaid, chẩn đoán, chứng chỉ, chương trình tiểu bang và các bước tiếp theo. Mỗi tài nguyên chỉ xuất hiện một lần — không trùng lặp.",
+      "featuredResources": "Tài nguyên nổi bật",
+      "noResultsTitle": "Không có tài nguyên phù hợp với tìm kiếm của bạn",
+      "noResultsText": "Thử từ khóa khác hoặc đặt lại bộ lọc danh mục để khám phá toàn bộ thư viện.",
+      "clearFilters": "Xóa bộ lọc",
+      "faqTitle": "Câu hỏi thường gặp",
+      "faqIntro": "Câu trả lời rõ ràng cho gia đình bắt đầu liệu pháp ABA, xem xét bảo hiểm và onboarding lâm sàng với Eden.",
+      "ctaTitle": "Sẵn sàng thực hiện bước tiếp theo?",
+      "ctaText": "Eden ABA Therapy sẵn sàng hỗ trợ gia đình Virginia điều hướng intake, câu hỏi quyền lợi và con đường hướng tới dịch vụ ABA nhân văn.",
+      "insuranceCta": "Bảo hiểm & hỗ trợ tài chính",
+      "filterAll": "Tất cả"
+    },
+    "coreTopicCards": [
+      {
+        "id": "what-is-aba",
+        "title": "Liệu pháp ABA là gì?",
+        "description": "Tìm hiểu cách ABA dựa trên bằng chứng hỗ trợ giao tiếp, kỹ năng sinh hoạt hàng ngày và tiến bộ có ý nghĩa.",
+        "href": "/aba-therapy/what-is-aba-therapy",
+        "anchor": null
+      },
+      {
+        "id": "who-qualifies",
+        "title": "Ai đủ điều kiện cho ABA?",
+        "description": "Hiểu chẩn đoán, cần thiết y khoa, yêu cầu độ tuổi và các yếu tố đủ điều kiện theo từng gói.",
+        "href": null,
+        "anchor": "faq"
+      },
+      {
+        "id": "medicaid-epsdt",
+        "title": "Medicaid & EPSDT",
+        "description": "Khám phá cách EPSDT có thể hỗ trợ dịch vụ tự kỷ cho trẻ và thanh thiếu niên đủ điều kiện.",
+        "href": null,
+        "anchor": "resources",
+        "filter": "Medicaid & Insurance"
+      },
+      {
+        "id": "insurance-auth",
+        "title": "Ủy quyền bảo hiểm",
+        "description": "Xem cách ủy quyền trước, xác minh quyền lợi và quy tắc gói có thể ảnh hưởng đến ngày bắt đầu dịch vụ.",
+        "href": "/insurance-coverage",
+        "anchor": null
+      },
+      {
+        "id": "diagnosis-eval",
+        "title": "Chẩn đoán và đánh giá",
+        "description": "Xem lại sàng lọc, đánh giá chẩn đoán và hồ sơ gia đình thường chia sẻ trong intake.",
+        "href": "/services/evaluations-diagnosis/screening-evaluation",
+        "anchor": null
+      },
+      {
+        "id": "credentials",
+        "title": "BCBA, RBT và chứng chỉ nhà cung cấp",
+        "description": "Tìm hiểu chứng chỉ BCBA và RBT có nghĩa gì và tại sao giám sát đủ điều kiện quan trọng.",
+        "href": null,
+        "anchor": "resources",
+        "filter": "Provider Credentials"
+      },
+      {
+        "id": "parent-training",
+        "title": "Đào tạo phụ huynh",
+        "description": "Khám phá cách huấn luyện người chăm sóc giúp gia đình áp dụng chiến lược nhất quán tại nhà.",
+        "href": "/aba-therapy/parent-training",
+        "anchor": null
+      },
+      {
+        "id": "first-30-days",
+        "title": "30 ngày đầu với Eden",
+        "description": "Cái nhìn thực tế về intake, đánh giá, ủy quyền và thói quen liệu pháp ban đầu.",
+        "href": null,
+        "anchor": "timeline"
+      }
+    ],
+    "onboardingTimeline": [
+      {
+        "step": 1,
+        "title": "Liên hệ Eden",
+        "description": "Liên hệ qua điện thoại, biểu mẫu hoặc giới thiệu để thảo luận về con bạn, địa điểm và nhu cầu lên lịch."
+      },
+      {
+        "step": 2,
+        "title": "Chia sẻ thông tin chẩn đoán và bảo hiểm",
+        "description": "Cung cấp thẻ bảo hiểm, tài liệu chẩn đoán và thông tin liên hệ để đội ngũ hướng dẫn các bước tiếp theo."
+      },
+      {
+        "step": 3,
+        "title": "Xác minh quyền lợi",
+        "description": "Eden xem xét quyền lợi có sẵn, trạng thái mạng lưới và chi phí đồng chi trả có thể của gia đình khi chi tiết gói cho phép."
+      },
+      {
+        "step": 4,
+        "title": "Intake lâm sàng",
+        "description": "Gia đình hoàn tất các bước intake và chia sẻ thông tin nền để chuẩn bị lập kế hoạch lâm sàng."
+      },
+      {
+        "step": 5,
+        "title": "Đánh giá bởi BCBA",
+        "description": "BCBA thực hiện đánh giá để hiểu điểm mạnh, nhu cầu, mối quan tâm an toàn và mục tiêu gia đình."
+      },
+      {
+        "step": 6,
+        "title": "Yêu cầu ủy quyền",
+        "description": "Khi cần thiết, tài liệu lâm sàng được gửi đến gói bảo hiểm để xem xét."
+      },
+      {
+        "step": 7,
+        "title": "Ngày bắt đầu liệu pháp",
+        "description": "Sau khi được phê duyệt và lên lịch, các buổi liệu pháp trực tiếp bắt đầu với đội lâm sàng được phân công."
+      },
+      {
+        "step": 8,
+        "title": "Đào tạo phụ huynh và xem xét tiến bộ liên tục",
+        "description": "Huấn luyện người chăm sóc, cập nhật mục tiêu và xem xét tiến bộ tiếp tục trong suốt quá trình điều trị."
+      }
+    ],
+    "documentsChecklist": [
+      "Thẻ bảo hiểm (mặt trước và mặt sau) và mã thành viên",
+      "Họ tên đầy đủ và ngày sinh của trẻ",
+      "Báo cáo đánh giá chẩn đoán tự kỷ hoặc liên quan, nếu có",
+      "Thông tin liên hệ bác sĩ nhi khoa hoặc nguồn giới thiệu, khi áp dụng",
+      "Hồ sơ liệu pháp, trường học hoặc IEP trước đây có thể hỗ trợ cần thiết y khoa",
+      "Thông tin liên hệ phụ huynh/người giám hộ và phương thức liên lạc ưu tiên"
+    ],
+    "faq": [
+      {
+        "question": "Tôi cần những tài liệu gì để bắt đầu ABA?",
+        "answer": "Gia đình thường chia sẻ thông tin bảo hiểm, ngày sinh của trẻ, hồ sơ chẩn đoán hoặc đánh giá khi có sẵn, và bất kỳ tài liệu liệu pháp hoặc trường học nào giúp giải thích nhu cầu lâm sàng. Đội intake của Eden có thể cho bạn biết điều gì hữu ích nhất cho gói và tình huống cụ thể của bạn."
+      },
+      {
+        "question": "Medicaid có chi trả liệu pháp ABA không?",
+        "answer": "Nhiều trẻ có thể tiếp cận dịch vụ liên quan đến tự kỷ qua Medicaid khi dịch vụ cần thiết y khoa và đáp ứng quy tắc chương trình. Medicaid Virginia và các lộ trình EPSDT có thể khác với bảo hiểm tư nhân. Eden có thể giúp gia đình xem xét quyền lợi và hiểu gói hoặc chương trình của họ có thể yêu cầu gì."
+      },
+      {
+        "question": "EPSDT là gì?",
+        "answer": "EPSDT (Early and Periodic Screening, Diagnostic, and Treatment) là quyền lợi Medicaid cho trẻ và thanh thiếu niên dưới 21 tuổi, có thể chi trả dịch vụ cần thiết y khoa, bao gồm điều trị liên quan đến tự kỷ ở nhiều bang khi đáp ứng tiêu chí đủ điều kiện và lâm sàng."
+      },
+      {
+        "question": "BCBA là gì?",
+        "answer": "Board Certified Behavior Analyst (BCBA) là nhà lâm sàng bậc sau đại học thiết kế, giám sát và theo dõi kế hoạch điều trị ABA, đào tạo nhân viên và hợp tác với gia đình về mục tiêu và tiến bộ."
+      },
+      {
+        "question": "RBT là gì?",
+        "answer": "Registered Behavior Technician (RBT) là chuyên viên hỗ trợ cung cấp dịch vụ ABA dưới giám sát BCBA, thực hiện kế hoạch điều trị, thu thập dữ liệu và hỗ trợ xây dựng kỹ năng trong các buổi trị liệu."
+      },
+      {
+        "question": "Ủy quyền mất bao lâu?",
+        "answer": "Thời gian ủy quyền khác nhau theo gói bảo hiểm, mức độ đầy đủ tài liệu và độ phức tạp lâm sàng. Một số gói phản hồi trong vài ngày; gói khác có thể mất lâu hơn hoặc yêu cầu thêm thông tin. Eden giúp gia đình hiểu trạng thái và các bước tiếp theo."
+      },
+      {
+        "question": "Eden có thể giúp xác minh bảo hiểm không?",
+        "answer": "Có. Eden ABA Therapy có thể thu thập thông tin bảo hiểm và giúp gia đình Virginia xem xét quyền lợi, yêu cầu ủy quyền và các bước tiếp theo có thể. Việc xác minh mang tính thông tin và không đảm bảo chi trả hoặc thanh toán."
+      },
+      {
+        "question": "Điều gì xảy ra trong đánh giá ABA?",
+        "answer": "BCBA thu thập thông tin về giao tiếp, hành vi, an toàn, kỹ năng sinh hoạt hàng ngày và ưu tiên gia đình của con bạn. Đánh giá giúp xác định mục tiêu phù hợp lâm sàng và mức dịch vụ được khuyến nghị cho kế hoạch điều trị."
+      },
+      {
+        "question": "Mục tiêu được tạo như thế nào?",
+        "answer": "Mục tiêu được cá nhân hóa dựa trên kết quả đánh giá, ý kiến gia đình, nhu cầu phát triển và thực hành lâm sàng tốt nhất. Chúng được viết để đo lường được nhằm đội ngũ theo dõi tiến bộ và điều chỉnh chiến lược theo thời gian."
+      },
+      {
+        "question": "Phụ huynh tham gia như thế nào?",
+        "answer": "Phụ huynh là đối tác thiết yếu. Eden nhấn mạnh đào tạo người chăm sóc, liên lạc thường xuyên và chiến lược thực tế mà gia đình có thể sử dụng giữa các buổi để hỗ trợ khái quát hóa tại nhà và trong cộng đồng."
+      }
+    ],
+    "disclaimer": "Các tài nguyên mang tính giáo dục và không thay thế tư vấn y khoa, pháp lý hoặc bảo hiểm. Chi trả và đủ điều kiện khác nhau theo bang và gói."
+  },
+  "GETTING_STARTED_SEARCH_UI": {
+    "searchLabel": "Tìm kiếm tài nguyên",
+    "searchPlaceholder": "Tìm theo tiêu đề, danh mục, nguồn, tóm tắt hoặc thẻ…",
+    "filterAriaLabel": "Lọc theo danh mục",
+    "resultsFoundSingular": "tài nguyên được tìm thấy",
+    "resultsFoundPlural": "tài nguyên được tìm thấy"
+  },
+  "GETTING_STARTED_RESOURCE_CATEGORY_LABELS": {
+    "ABA Therapy Basics": "Cơ bản về Liệu pháp ABA",
+    "Medicaid & Insurance": "Medicaid & Bảo hiểm",
+    "Autism Diagnosis": "Chẩn đoán Tự kỷ",
+    "Parent Onboarding": "Onboarding Phụ huynh",
+    "ABA Organizations": "Tổ chức ABA",
+    "Provider Credentials": "Chứng chỉ Nhà cung cấp",
+    "State Resources": "Tài nguyên Tiểu bang",
+    "FAQs": "Câu hỏi thường gặp",
+    "Documents Needed": "Tài liệu Cần thiết",
+    "What Happens Next": "Các Bước Tiếp theo"
+  }
+}
