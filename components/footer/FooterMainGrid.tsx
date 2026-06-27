@@ -105,17 +105,6 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
         <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">Contact</h3>
 
         <div className="mt-3 grid gap-3 text-sm text-emerald-50 lg:mt-4">
-          <p className="flex items-start gap-3 leading-6 text-emerald-50/95">
-            <MapPin size={17} className="mt-0.5 shrink-0 text-lime-300" aria-hidden="true" />
-            <span>
-              7700 Little River Turnpike
-              <br />
-              Suite 304
-              <br />
-              Annandale, VA 22003, United States
-            </span>
-          </p>
-
           <p className="flex items-center gap-3 font-bold">
             <Phone size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
             <span>
@@ -127,15 +116,31 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
           </p>
 
           <p className="flex items-center gap-3 font-bold">
-            <Printer size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
-            <span>Fax: 571-445-8631</span>
+            <Mail size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
+            <span>
+              Email:{" "}
+              <a href={`mailto:${email}`} className="eden-footer-link">
+                {email}
+              </a>
+            </span>
+          </p>
+
+          <p className="flex items-start gap-3 leading-6 text-emerald-50/95">
+            <MapPin size={17} className="mt-0.5 shrink-0 text-lime-300" aria-hidden="true" />
+            <span>
+              Address:
+              <br />
+              7700 Little River Turnpike
+              <br />
+              Suite 304
+              <br />
+              Annandale, VA 22003, United States
+            </span>
           </p>
 
           <p className="flex items-center gap-3 font-bold">
-            <Mail size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
-            <a href={`mailto:${email}`} className="eden-footer-link">
-              {email}
-            </a>
+            <Printer size={17} className="shrink-0 text-lime-300" aria-hidden="true" />
+            <span>Fax: 571-445-8631</span>
           </p>
         </div>
       </motion.div>
