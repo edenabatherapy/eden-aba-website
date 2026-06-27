@@ -18,6 +18,11 @@
   bottom: 1.5rem;
   z-index: 120;
   font-family: inherit;
+  pointer-events: none;
+}
+
+.eden-chat-root > * {
+  pointer-events: auto;
 }
 
 /* —— Launcher —— */

@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Cookie, X } from "lucide-react";
 import {
-  hasCookieConsentChoice,
   readCookieConsent,
   saveCookieConsent,
   type CookieConsentChoice,
@@ -27,30 +26,30 @@ export default function CookieConsentBanner() {
     reopenLabel: "Cookie settings",
   };
 
+  const [consentResolved, setConsentResolved] = useState<boolean | null>(null);
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
-  const [showReopen, setShowReopen] = useState(false);
 
   useEffect(() => {
     const existing = readCookieConsent();
     if (existing) {
-      setShowReopen(true);
-      setVisible(false);
-    } else {
-      const timer = window.setTimeout(() => setVisible(true), 700);
-      return () => window.clearTimeout(timer);
+      setConsentResolved(true);
+      return undefined;
     }
-    return undefined;
+
+    setConsentResolved(false);
+    const timer = window.setTimeout(() => setVisible(true), 700);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const persistChoice = useCallback((status: CookieConsentChoice) => {
     saveCookieConsent(status);
     setVisible(false);
     setPrefsOpen(false);
-    setShowReopen(true);
+    setConsentResolved(true);
   }, []);
 
-  if (!visible && !prefsOpen && !showReopen) {
+  if (consentResolved !== false || (!visible && !prefsOpen)) {
     return null;
   }
 
@@ -58,7 +57,7 @@ export default function CookieConsentBanner() {
     <>
       {visible ? (
         <div
-          className="fixed bottom-5 left-1/2 z-[90] w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2 sm:bottom-6"
+          className="fixed bottom-6 left-6 z-[90] w-[calc(100%-8rem)] max-w-md sm:w-auto sm:max-w-sm"
           role="dialog"
           aria-label={copy.title}
         >
@@ -130,17 +129,6 @@ export default function CookieConsentBanner() {
             </div>
           </div>
         </div>
-      ) : null}
-
-      {showReopen && !visible && !prefsOpen ? (
-        <button
-          type="button"
-          onClick={() => setPrefsOpen(true)}
-          className="fixed bottom-5 left-5 z-[80] inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-xs font-black text-emerald-800 shadow-lg"
-        >
-          <Cookie size={14} aria-hidden="true" />
-          {copy.reopenLabel}
-        </button>
       ) : null}
     </>
   );

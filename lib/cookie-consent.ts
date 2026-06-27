@@ -25,6 +25,7 @@ export function saveCookieConsent(status: CookieConsentChoice): CookieConsentRec
   };
   if (typeof window !== "undefined") {
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(record));
+    localStorage.setItem("eden_cookie_consent", status === "accepted" ? "accepted" : "essential-only");
   }
   return record;
 }
