@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
@@ -28,22 +27,11 @@ export default function FooterCompliancePanel() {
       <article className="eden-footer-compliance-card rounded-2xl p-5 sm:p-6">
         <h3 className="text-base font-extrabold text-white sm:text-lg">{compliance.accessibility.title}</h3>
         <p className="mt-2 text-sm leading-6 text-emerald-50/90">{compliance.accessibility.content}</p>
-        <Link href={FOOTER_COMPLIANCE.accessibility.linkHref} className="eden-footer-link mt-3 inline-flex">
-          {compliance.accessibility.linkLabel}
-        </Link>
       </article>
 
       <article className="eden-footer-compliance-card rounded-2xl p-5 sm:p-6">
         <h3 className="text-base font-extrabold text-white sm:text-lg">{compliance.privacy.title}</h3>
         <p className="mt-2 text-sm leading-6 text-emerald-50/90">{compliance.privacy.content}</p>
-        <div className="mt-3 flex flex-wrap gap-4">
-          <Link href={FOOTER_COMPLIANCE.privacy.privacyHref} className="eden-footer-link">
-            {compliance.privacy.privacyLabel}
-          </Link>
-          <Link href={FOOTER_COMPLIANCE.privacy.contactHref} className="eden-footer-link">
-            {compliance.privacy.contactLabel}
-          </Link>
-        </div>
       </article>
     </motion.section>
   );

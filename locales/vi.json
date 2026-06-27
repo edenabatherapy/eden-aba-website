@@ -2259,14 +2259,11 @@
       "compliance": {
         "accessibility": {
           "title": "Thông báo Khả năng Truy cập",
-          "content": "Website này được thiết kế hỗ trợ tiêu chuẩn khả năng truy cập WCAG 2.0 AA. Nếu bạn gặp khó khăn khi truy cập nội dung trên website Eden ABA Therapy, vui lòng liên hệ chúng tôi và đội ngũ sẽ sẵn sàng hỗ trợ.",
-          "linkLabel": "Liên hệ chúng tôi →"
+          "content": "Website này được thiết kế hỗ trợ tiêu chuẩn khả năng truy cập WCAG 2.0 AA. Nếu bạn gặp khó khăn khi truy cập nội dung trên website Eden ABA Therapy, đội ngũ sẽ sẵn sàng hỗ trợ."
         },
         "privacy": {
           "title": "Thông báo Cookie & Quyền riêng tư",
-          "content": "Website này sử dụng cookie để hiểu trang nào hữu ích nhất với khách truy cập. Dữ liệu này ẩn danh. Chúng tôi không bán dữ liệu người dùng. Tìm hiểu thêm trong Chính sách Quyền riêng tư hoặc liên hệ nếu có câu hỏi.",
-          "privacyLabel": "Chính sách Quyền riêng tư →",
-          "contactLabel": "Liên hệ chúng tôi →"
+          "content": "Website này sử dụng cookie để hiểu trang nào hữu ích nhất với khách truy cập. Dữ liệu này ẩn danh. Chúng tôi không bán dữ liệu người dùng."
         }
       }
     },

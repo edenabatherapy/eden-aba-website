@@ -39,18 +39,12 @@ export const FOOTER_COMPLIANCE = {
   accessibility: {
     title: "Accessibility Notice",
     content:
-      "This website is designed to support WCAG 2.0 AA accessibility standards. If you experience difficulty accessing any content on the Eden ABA Therapy website, please contact us and our team will be happy to help.",
-    linkLabel: "Contact us →",
-    linkHref: "/contact",
+      "This website is designed to support WCAG 2.0 AA accessibility standards. If you experience difficulty accessing any content on the Eden ABA Therapy website, our team will be happy to help.",
   },
   privacy: {
     title: "Cookie & Privacy Notice",
     content:
-      "This website uses cookies to help us understand which pages are most helpful to visitors. This data is anonymous. We do not sell user data. Learn more in our Privacy Policy or contact us with questions.",
-    privacyLabel: "Privacy Policy →",
-    privacyHref: "/privacy-policy",
-    contactLabel: "Contact us →",
-    contactHref: "/contact",
+      "This website uses cookies to help us understand which pages are most helpful to visitors. This data is anonymous. We do not sell user data.",
   },
 };
 
