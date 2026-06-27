@@ -8,6 +8,7 @@ import {
   getStatusBadgeClasses,
   type CareersJob,
 } from "@/lib/careers-content";
+import type { CareersJobWithSlug } from "@/lib/careers/jobs-data";
 import { getJobApplyPath } from "@/lib/careers-routes";
 import { shareJob } from "@/lib/careers-share";
 import { useSavedJobs } from "@/components/careers/useSavedJobs";
@@ -17,7 +18,20 @@ type CareersJobDetailsViewProps = {
   job: CareersJob;
 };
 
+// Do not modify this Apply Now routing unless intentionally updating the careers application flow.
+function resolveJobApplyHref(job: CareersJob): string {
+  const withSlug = job as CareersJobWithSlug;
+  if (withSlug.applyUrl) {
+    return withSlug.applyUrl;
+  }
+  if (withSlug.slug) {
+    return `/careers/apply?role=${withSlug.slug}`;
+  }
+  return getJobApplyPath(job.id);
+}
+
 export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProps) {
+  const applyHref = resolveJobApplyHref(job);
   const { toggleSaved, isSaved, hydrated } = useSavedJobs();
   const saved = hydrated && isSaved(job.id);
   const [shareMessage, setShareMessage] = useState<string | null>(null);
@@ -63,10 +77,11 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
         <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{job.summary}</p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href={getJobApplyPath(job.id)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
+          {/* Do not modify this Apply Now routing unless intentionally updating the careers application flow. */}
+          <a href={applyHref} className={getButtonClasses("primary", "w-full sm:w-auto")}>
             {CAREERS_PAGE.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </a>
           <button
             type="button"
             onClick={() => toggleSaved(job.id)}
@@ -166,10 +181,11 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
           <p className="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
             Submit your application for {job.title} at Eden ABA Therapy.
           </p>
-          <Link href={getJobApplyPath(job.id)} className={`${getButtonClasses("primary")} mt-5`}>
+          {/* Do not modify this Apply Now routing unless intentionally updating the careers application flow. */}
+          <a href={applyHref} className={`${getButtonClasses("primary")} mt-5`}>
             {CAREERS_PAGE.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </a>
         </section>
       </div>
     </div>
