@@ -7,6 +7,7 @@ import { type AboutMeaningAnimationType } from "@/components/AboutMeaningAnimati
 import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
+import viAppData from "@/locales/vi-app-data.json";
 import "./ResourcesMegaMenu.css";
 
 export type ResourcesMenuItem = {
@@ -38,6 +39,47 @@ const RESOURCES_COLUMN_LAYOUT_INDICES: number[][] = [
   [2],
   [3],
 ];
+
+function mergeResourcesSections(language: string): ResourcesSection[] {
+  if (language !== "vi") return resourcesSections;
+
+  const overlay = viAppData.RESOURCES_MEGA_MENU_SECTIONS;
+  if (!overlay?.length) return resourcesSections;
+
+  return resourcesSections.map((section, sectionIndex) => {
+    const sectionOverlay = overlay[sectionIndex];
+    if (!sectionOverlay) return section;
+
+    return {
+      ...section,
+      title: sectionOverlay.title ?? section.title,
+      items: section.items.map((item, itemIndex) => ({
+        ...item,
+        description: sectionOverlay.items?.[itemIndex]?.description ?? item.description,
+      })),
+    };
+  });
+}
+
+function getResourcesItemDisplayTitle(
+  language: string,
+  sectionIndex: number,
+  itemIndex: number,
+  item: ResourcesMenuItem,
+  getDisplayTitle: (menuItem: ResourcesMenuItem) => string,
+): string {
+  if (language === "vi") {
+    const overlayTitle = viAppData.RESOURCES_MEGA_MENU_SECTIONS?.[sectionIndex]?.items?.[itemIndex]?.title;
+    if (overlayTitle) return overlayTitle;
+  }
+
+  const resolved = getDisplayTitle(item);
+  return resolved || item.title;
+}
+
+function getResourcesSectionIndex(sectionTitle: string): number {
+  return resourcesSections.findIndex((section) => section.title === sectionTitle);
+}
 
 function menuHref(menuLabel: string): string {
   const route = MENU_LINK_ROUTES[menuLabel as keyof typeof MENU_LINK_ROUTES];
@@ -276,26 +318,34 @@ function FeaturedCard({
 
 function SectionBlock({
   section,
+  sectionIndex,
   getSectionTitle,
-  getDisplayTitle,
+  getItemDisplayTitle,
   activeItem,
   onSelect,
   onHover,
 }: {
   section: ResourcesSection;
+  sectionIndex: number;
   getSectionTitle: (title: string) => string;
-  getDisplayTitle: (item: ResourcesMenuItem) => string;
+  getItemDisplayTitle: (
+    sectionIndex: number,
+    itemIndex: number,
+    item: ResourcesMenuItem,
+  ) => string;
   activeItem: ResourcesMenuItem | null;
   onSelect: (item: ResourcesMenuItem) => void;
   onHover: (item: ResourcesMenuItem | null) => void;
 }) {
+  const englishSectionTitle = resourcesSections[sectionIndex]?.title ?? section.title;
+
   return (
     <div className="resources-mega-menu__section">
-      <p className="resources-mega-menu__section-title">{getSectionTitle(section.title)}</p>
+      <p className="resources-mega-menu__section-title">{getSectionTitle(englishSectionTitle)}</p>
 
-      {section.items.map((item) => {
-        const menuItem: ResourcesMenuItem = { ...item, sectionTitle: section.title };
-        const itemDisplayTitle = getDisplayTitle(menuItem);
+      {section.items.map((item, itemIndex) => {
+        const menuItem: ResourcesMenuItem = { ...item, sectionTitle: englishSectionTitle };
+        const itemDisplayTitle = getItemDisplayTitle(sectionIndex, itemIndex, menuItem);
         const isActive = activeItem?.title === item.title;
         const isHighlighted = HIGHLIGHTED_LINKS.has(item.title);
 
@@ -322,24 +372,40 @@ export default function ResourcesMegaMenu({
   onNavigate,
   getDisplayTitle,
   getSectionTitle = (title) => title,
-  previewLabel = "RESOURCES",
-  learnMoreText = "Explore resources →",
-  defaultPreview = resourcesDefaultPreview,
-  defaultTitle = "Helpful tools for every step",
+  previewLabel,
+  learnMoreText,
+  defaultPreview,
+  defaultTitle,
   variant = "desktop",
   onClose,
 }: ResourcesMegaMenuProps) {
   const { language } = useSiteLanguage();
   const megaMenu = getTranslation(language).pages.megaMenu;
-  const localizedSections = useLocalizedContent("RESOURCES_MEGA_MENU_SECTIONS", resourcesSections);
   const localizedDefaultPreview = useLocalizedContent(
     "RESOURCES_MEGA_MENU_DEFAULT_PREVIEW",
     resourcesDefaultPreview,
   );
-  const resolvedDefaultPreview = defaultPreview ?? localizedDefaultPreview;
+  const menuSections = useMemo(() => mergeResourcesSections(language), [language]);
   const resolvedPreviewLabel = previewLabel ?? megaMenu?.featuredResourcesLabel ?? "RESOURCES";
   const resolvedLearnMoreText = learnMoreText ?? megaMenu?.exploreResourcesCta ?? "Explore resources →";
-  const resolvedDefaultTitle = defaultTitle ?? localizedDefaultPreview.title ?? "Helpful tools for every step";
+  const resolvedDefaultPreview = {
+    ...resourcesDefaultPreview,
+    ...localizedDefaultPreview,
+    ...(defaultPreview ?? {}),
+    learnMoreText:
+      localizedDefaultPreview.learnMoreText ??
+      megaMenu?.exploreResourcesCta ??
+      defaultPreview?.learnMoreText ??
+      resourcesDefaultPreview.learnMoreText,
+  };
+  const resolvedDefaultTitle =
+    defaultTitle ?? localizedDefaultPreview.title ?? resourcesDefaultPreview.title;
+
+  const getItemDisplayTitle = useCallback(
+    (sectionIndex: number, itemIndex: number, item: ResourcesMenuItem) =>
+      getResourcesItemDisplayTitle(language, sectionIndex, itemIndex, item, getDisplayTitle),
+    [getDisplayTitle, language],
+  );
 
   const [activeItem, setActiveItem] = useState<ResourcesMenuItem | null>(null);
 
@@ -356,13 +422,21 @@ export default function ResourcesMegaMenu({
     [onClose, onNavigate],
   );
 
-  const displayTitle = activeItem ? getDisplayTitle(activeItem) : resolvedDefaultTitle;
+  const activeSectionIndex = activeItem ? getResourcesSectionIndex(activeItem.sectionTitle) : -1;
+  const activeItemIndex =
+    activeItem && activeSectionIndex >= 0
+      ? resourcesSections[activeSectionIndex]?.items.findIndex((item) => item.title === activeItem.title) ?? -1
+      : -1;
+
+  const displayTitle = activeItem
+    ? getItemDisplayTitle(activeSectionIndex, activeItemIndex, activeItem)
+    : resolvedDefaultTitle;
   const previewKey = activeItem?.title ?? "resources-default";
   const previewCta = activeItem ? resolvedLearnMoreText : resolvedDefaultPreview.learnMoreText ?? resolvedLearnMoreText;
   const isMobile = variant === "mobile";
 
   const columnLayout = isMobile
-    ? localizedSections.map((_, index) => [index])
+    ? menuSections.map((_, index) => [index])
     : RESOURCES_COLUMN_LAYOUT_INDICES;
 
   return (
@@ -379,17 +453,16 @@ export default function ResourcesMegaMenu({
             className="resources-mega-menu__column"
           >
             {sectionIndices.map((sectionIndex) => {
-              const section = localizedSections[sectionIndex];
+              const section = menuSections[sectionIndex];
               if (!section) return null;
 
               return (
                 <SectionBlock
                   key={resourcesSections[sectionIndex]?.title ?? section.title}
                   section={section}
-                  getSectionTitle={(title) =>
-                    getSectionTitle(resourcesSections[sectionIndex]?.title ?? title)
-                  }
-                  getDisplayTitle={getDisplayTitle}
+                  sectionIndex={sectionIndex}
+                  getSectionTitle={getSectionTitle}
+                  getItemDisplayTitle={getItemDisplayTitle}
                   activeItem={activeItem}
                   onSelect={handleSelect}
                   onHover={setActiveItem}

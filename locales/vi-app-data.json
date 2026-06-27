@@ -138,15 +138,19 @@
       "title": "Tìm hiểu về Tự kỷ",
       "items": [
         {
+          "title": "Tự kỷ là gì?",
           "description": "Hiểu rõ rối loạn phổ tự kỷ, đặc điểm phổ biến và cách gia đình nhận biết điểm mạnh cùng nhu cầu hỗ trợ."
         },
         {
+          "title": "Dấu hiệu sớm của tự kỷ",
           "description": "Tìm hiểu các cột mốc phát triển và dấu hiệu sớm có thể gợi ý cần sàng lọc hoặc đánh giá thêm."
         },
         {
+          "title": "Hướng dẫn chẩn đoán tự kỷ",
           "description": "Hướng dẫn sàng lọc, đánh giá, hồ sơ và các bước tiếp theo thân thiện với gia đình."
         },
         {
+          "title": "Tự kỷ theo độ tuổi & phát triển",
           "description": "Khám phá cột mốc phát triển và hướng dẫn liên quan tự kỷ theo độ tuổi và giai đoạn."
         }
       ]
@@ -155,9 +159,11 @@
       "title": "Đánh giá & Chẩn đoán",
       "items": [
         {
+          "title": "Sàng lọc & Đánh giá",
           "description": "Tìm hiểu lộ trình đánh giá của Eden, những gì cần mong đợi và cách đánh giá phát triển hỗ trợ chẩn đoán."
         },
         {
+          "title": "Đánh giá trường học & IEP",
           "description": "Hiểu đánh giá tại trường, hỗ trợ IEP và cách đánh giá lâm sàng kết nối với kế hoạch giáo dục."
         }
       ]
@@ -166,15 +172,19 @@
       "title": "Liệu pháp ABA",
       "items": [
         {
+          "title": "Liệu pháp ABA là gì?",
           "description": "Khám phá cách liệu pháp ABA dựa trên bằng chứng hỗ trợ giao tiếp, kỹ năng sinh hoạt và tiến bộ có ý nghĩa."
         },
         {
+          "title": "Đào tạo phụ huynh",
           "description": "Tìm hiểu cách đào tạo phụ huynh trang bị chiến lược thực tế để hỗ trợ con tại nhà."
         },
         {
+          "title": "Câu chuyện thành công ABA",
           "description": "Đọc kết quả và câu chuyện gia đình nêu bật tiến bộ, đối tác và hy vọng qua liệu pháp ABA."
         },
         {
+          "title": "Bắt đầu với Eden",
           "description": "Theo lộ trình rõ ràng để kết nối với Eden, hoàn tất intake và bắt đầu dịch vụ tự tin."
         }
       ]
@@ -183,21 +193,27 @@
       "title": "Bắt đầu",
       "items": [
         {
+          "title": "Phạm vi bảo hiểm",
           "description": "Xem lựa chọn bảo hiểm, hỗ trợ xác minh và cách Eden giúp gia đình hiểu quyền lợi."
         },
         {
+          "title": "Quy trình tiếp nhận",
           "description": "Đi qua intake, hồ sơ, lên lịch và các bước bắt đầu dịch vụ với Eden ABA Therapy."
         },
         {
+          "title": "Bắt đầu với Eden",
           "description": "Theo lộ trình rõ ràng để kết nối với Eden, hoàn tất intake và bắt đầu dịch vụ tự tin."
         },
         {
+          "title": "Đặt lịch hẹn",
           "description": "Yêu cầu tư vấn hoặc đặt lịch với Eden ABA Therapy để thảo luận đánh giá, intake hoặc bước tiếp theo."
         },
         {
+          "title": "Địa điểm",
           "description": "Tìm khu vực phục vụ, giờ trung tâm, chỉ đường và lựa chọn lên lịch gần gia đình bạn."
         },
         {
+          "title": "Câu hỏi thường gặp",
           "description": "Duyệt câu hỏi thường gặp về dịch vụ, đánh giá, bảo hiểm và bắt đầu với Eden."
         }
       ]
@@ -206,9 +222,11 @@
       "title": "Trung tâm Học tập",
       "items": [
         {
+          "title": "Blog & Bài viết",
           "description": "Đọc bài viết chuyên môn về tự kỷ, liệu pháp ABA, hỗ trợ gia đình và cột mốc phát triển."
         },
         {
+          "title": "Webinar & Video",
           "description": "Xem webinar và video giáo dục giúp gia đình học hỏi và cảm thấy được hỗ trợ."
         }
       ]
