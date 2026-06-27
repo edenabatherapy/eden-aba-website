@@ -26,7 +26,7 @@ const ERROR_REASONS: Record<string, string> = {
   missing_api_key:
     "Server is missing the OPENAI_API_KEY environment variable. Set OPENAI_API_KEY in the deployment environment (e.g. Vercel → Project Settings → Environment Variables, scope: Production) and redeploy. This is a server configuration issue, not a code bug.",
   openai_request_failed:
-    "OpenAI rejected the request. A 401/403 usually means an invalid or expired OPENAI_API_KEY; a 404 on prompt.id means OPENAI_EDEN_PROMPT_ID is wrong for this OpenAI account.",
+    "OpenAI rejected the request. Check Vercel logs for openAiStatus/openAiCode. A 401/403 usually means an invalid OPENAI_API_KEY. A 404 on model means OPENAI_MODEL is unavailable for this account.",
 };
 
 function buildErrorResponse(
@@ -115,6 +115,16 @@ export async function POST(request: Request) {
   const result = await createEdenChatResponse(message, previousResponseId);
 
   if (result.ok === false) {
+    console.error("[eden-chat] route failure", {
+      error: result.error,
+      detail: result.detail,
+      openAiStatus: result.openAiStatus,
+      openAiType: result.openAiType,
+      openAiCode: result.openAiCode,
+      openAiParam: result.openAiParam,
+      config: getOpenAiConfigStatus(),
+    });
+
     return buildErrorResponse(result.status, result.message, result.error, result.detail, {
       openAiStatus: result.openAiStatus,
       openAiType: result.openAiType,

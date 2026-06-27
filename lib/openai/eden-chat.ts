@@ -1,7 +1,10 @@
+import { getEdenChatInstructions } from "@/lib/openai/eden-chat-instructions";
 import {
   getEdenChatPromptId,
   getMissingOpenAiKeyMessage,
   getOpenAiApiKey,
+  getOpenAiModel,
+  shouldUseHostedEdenPrompt,
 } from "@/lib/openai/env";
 import {
   buildAugmentedChatInput,
@@ -91,6 +94,17 @@ function buildFailureResult(
   };
 }
 
+function sanitizeRequestBodyForLogs(body: Record<string, unknown>) {
+  return {
+    model: body.model ?? null,
+    prompt: body.prompt ?? null,
+    inputLength: typeof body.input === "string" ? body.input.length : null,
+    hasInstructions: typeof body.instructions === "string",
+    hasPreviousResponseId: Boolean(body.previous_response_id),
+    store: body.store ?? null,
+  };
+}
+
 function logOpenAiFailure(
   context: string,
   payload: {
@@ -112,7 +126,7 @@ function logOpenAiFailure(
     openAiCode: payload.openAiCode,
     openAiParam: payload.openAiParam,
     stack: payload.stack,
-    requestBody: payload.requestBody,
+    requestBody: payload.requestBody ? sanitizeRequestBodyForLogs(payload.requestBody) : undefined,
   });
 }
 
@@ -131,6 +145,86 @@ async function callOpenAiResponses(body: Record<string, unknown>, apiKey: string
   return { response, payload };
 }
 
+function buildModelRequestBody(
+  message: string,
+  previousResponseId?: string | null,
+): Record<string, unknown> {
+  const requestBody: Record<string, unknown> = {
+    model: getOpenAiModel(),
+    instructions: getEdenChatInstructions(),
+    input: message,
+    store: true,
+  };
+
+  if (previousResponseId) {
+    requestBody.previous_response_id = previousResponseId;
+  }
+
+  return requestBody;
+}
+
+function buildHostedPromptRequestBody(
+  message: string,
+  previousResponseId?: string | null,
+): Record<string, unknown> {
+  const requestBody: Record<string, unknown> = {
+    prompt: { id: getEdenChatPromptId() },
+    input: message,
+    store: true,
+  };
+
+  if (previousResponseId) {
+    requestBody.previous_response_id = previousResponseId;
+  }
+
+  return requestBody;
+}
+
+function userFacingOpenAiMessage(status: number, detail: string) {
+  if (isDevelopment()) {
+    return detail;
+  }
+
+  if (status === 401 || status === 403) {
+    return "The Eden assistant is not configured correctly. Please contact Eden ABA Therapy for help.";
+  }
+
+  return "The Eden assistant could not respond right now. Please try again in a moment.";
+}
+
+function mapOpenAiFailure(
+  response: Response,
+  payload: OpenAiResponsesPayload,
+  requestBody: Record<string, unknown>,
+): Extract<EdenChatResult, { ok: false }> {
+  const detail =
+    payload.error?.message ||
+    `OpenAI Responses API returned HTTP ${response.status} without an error message.`;
+
+  logOpenAiFailure("openai_request_failed", {
+    status: response.status,
+    detail,
+    openAiStatus: response.status,
+    openAiType: payload.error?.type,
+    openAiCode: payload.error?.code,
+    openAiParam: payload.error?.param ?? null,
+    requestBody,
+  });
+
+  return buildFailureResult(
+    response.status >= 500 ? 503 : 502,
+    userFacingOpenAiMessage(response.status, detail),
+    "openai_request_failed",
+    detail,
+    {
+      openAiStatus: response.status,
+      openAiType: payload.error?.type,
+      openAiCode: payload.error?.code,
+      openAiParam: payload.error?.param ?? null,
+    },
+  );
+}
+
 export async function createEdenChatResponse(
   message: string,
   previousResponseId?: string | null,
@@ -147,8 +241,6 @@ export async function createEdenChatResponse(
     );
   }
 
-  const promptId = getEdenChatPromptId();
-
   const retrievedArticles = retrieveKnowledgeForQuery(message);
   const augmentedInput = buildAugmentedChatInput(message, retrievedArticles);
 
@@ -156,67 +248,39 @@ export async function createEdenChatResponse(
     console.info("[eden-chat] knowledge retrieval", getKnowledgeRetrievalSummary(message, retrievedArticles));
   }
 
-  const requestBody: Record<string, unknown> = {
-    prompt: { id: promptId },
-    input: augmentedInput,
-    store: true,
-  };
-
-  if (previousResponseId) {
-    requestBody.previous_response_id = previousResponseId;
-  }
+  const requestBody = shouldUseHostedEdenPrompt()
+    ? buildHostedPromptRequestBody(augmentedInput, previousResponseId)
+    : buildModelRequestBody(augmentedInput, previousResponseId);
 
   try {
     let { response, payload } = await callOpenAiResponses(requestBody, apiKey);
 
     if (
       !response.ok &&
+      !shouldUseHostedEdenPrompt() &&
       response.status === 400 &&
-      payload.error?.param === "prompt.id" &&
-      payload.error?.code === "unknown_parameter"
+      payload.error?.param === "prompt.id"
     ) {
-      const fallbackBody = {
-        ...requestBody,
-        prompt: { prompt_id: promptId },
-      };
+      const fallbackBody = buildModelRequestBody(augmentedInput, previousResponseId);
+      ({ response, payload } = await callOpenAiResponses(fallbackBody, apiKey));
+    }
+
+    if (
+      !response.ok &&
+      shouldUseHostedEdenPrompt() &&
+      response.status === 400 &&
+      payload.error?.param === "prompt.id"
+    ) {
+      console.warn("[eden-chat] hosted prompt failed; retrying with model", {
+        model: getOpenAiModel(),
+        openAiCode: payload.error?.code,
+      });
+      const fallbackBody = buildModelRequestBody(augmentedInput, previousResponseId);
       ({ response, payload } = await callOpenAiResponses(fallbackBody, apiKey));
     }
 
     if (!response.ok) {
-      const detail =
-        payload.error?.message ||
-        `OpenAI Responses API returned HTTP ${response.status} without an error message.`;
-
-      logOpenAiFailure("openai_request_failed", {
-        status: response.status,
-        detail,
-        openAiStatus: response.status,
-        openAiType: payload.error?.type,
-        openAiCode: payload.error?.code,
-        openAiParam: payload.error?.param ?? null,
-        requestBody: {
-          prompt: requestBody.prompt,
-          inputLength: message.length,
-          hasPreviousResponseId: Boolean(previousResponseId),
-        },
-      });
-
-      return buildFailureResult(
-        response.status >= 500 ? 503 : 502,
-        isDevelopment()
-          ? detail
-          : response.status === 401 || response.status === 403
-            ? "The Eden assistant is not configured correctly. Please contact Eden ABA Therapy for help."
-            : "The Eden assistant could not respond right now. Please try again in a moment.",
-        "openai_request_failed",
-        detail,
-        {
-          openAiStatus: response.status,
-          openAiType: payload.error?.type,
-          openAiCode: payload.error?.code,
-          openAiParam: payload.error?.param ?? null,
-        },
-      );
+      return mapOpenAiFailure(response, payload, requestBody);
     }
 
     const content = extractResponseText(payload);
@@ -226,7 +290,7 @@ export async function createEdenChatResponse(
       const detail = "OpenAI returned a successful response with no assistant text.";
       logOpenAiFailure("empty_response", {
         detail,
-        requestBody: { prompt: requestBody.prompt, responseId: payload.id },
+        requestBody,
       });
       return buildFailureResult(
         502,
@@ -255,11 +319,7 @@ export async function createEdenChatResponse(
     logOpenAiFailure("request_exception", {
       detail,
       stack,
-      requestBody: {
-        prompt: requestBody.prompt,
-        inputLength: message.length,
-        hasPreviousResponseId: Boolean(previousResponseId),
-      },
+      requestBody,
     });
 
     return buildFailureResult(
