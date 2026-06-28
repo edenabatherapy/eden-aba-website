@@ -46,6 +46,7 @@ import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getHeaderShellClasses } from "@/lib/header-brand";
 import Footer from "@/components/common/Footer";
 import HomeCareersHero from "@/components/home/HomeCareersHero";
+import ClientReviewsSection from "@/components/home/ClientReviewsSection";
 import LocationsMapEmbed from "@/components/LocationsMapEmbed";
 import LocationsSearchBar from "@/components/LocationsSearchBar";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -2560,107 +2561,6 @@ function ServiceExplorer({ t }) {
   );
 }
 
-function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
-  const c = t.pages.clientReviews;
-  const reviews = c.reviews;
-
-  const firstRow = reviews.slice(0, 12);
-  const secondRow = reviews.slice(12);
-  const labels = c.cardLabels;
-
-  const ReviewCard = ({ review, index }) => (
-    <article className="mx-3 w-[520px] shrink-0 rounded-[1.7rem] border border-[#49b8c8]/20 bg-white p-5 shadow-xl shadow-[#128c8c]/10 md:w-[600px]">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex gap-1 text-[#f7c72f]">
-          {[0, 1, 2, 3, 4].map((star) => <Star key={star} size={18} fill="currentColor" />)}
-        </div>
-        <span className="rounded-full bg-[#ddf4f4] px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-[#0b4f4f]">
-          {labels[index % labels.length]}
-        </span>
-      </div>
-      <p className="mt-4 truncate whitespace-nowrap overflow-hidden text-ellipsis text-base font-semibold leading-7 text-slate-700" suppressHydrationWarning>“{review.text}”</p>
-      <div className="mt-4 flex items-center gap-3 border-t border-slate-100 pt-4">
-        <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[#1f7a2e] to-[#128c8c] text-sm font-black text-white">
-          {review.name.charAt(0).toUpperCase()}
-        </div>
-        <div>
-          <p className="text-sm font-black text-[#0b4f4f]">{review.name}</p>
-          <p className="text-xs font-bold text-slate-500">{c.parentRole}</p>
-        </div>
-      </div>
-    </article>
-  );
-
-  return (
-    <section className="relative overflow-hidden bg-[#eef9f4] px-4 py-20 lg:px-8">
-      <style>{`
-        @keyframes eden-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @keyframes eden-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-        .eden-marquee-left { animation: eden-scroll-left 46s linear infinite; }
-        .eden-marquee-right { animation: eden-scroll-right 52s linear infinite; }
-        .eden-marquee-wrap:hover .eden-marquee-left,
-        .eden-marquee-wrap:hover .eden-marquee-right { animation-play-state: paused; }
-        @media (prefers-reduced-motion: reduce) {
-          .eden-marquee-left,
-          .eden-marquee-right {
-            animation: none !important;
-            transform: none !important;
-          }
-          .eden-marquee-item--loop {
-            display: none !important;
-          }
-        }
-      `}</style>
-      <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#49b8c8]/25 blur-3xl" />
-      <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-[#f7c72f]/25 blur-3xl" />
-      <div className="relative mx-auto max-w-7xl text-center">
-        <p className="inline-flex rounded-full border border-[#49b8c8]/30 bg-white px-5 py-2 text-sm font-black uppercase tracking-[0.18em] text-[#128c8c] shadow-sm">
-          {c.badge}
-        </p>
-        <h2 className="mt-5 text-4xl font-black tracking-tight text-[#0b4f4f] md:text-6xl">{c.title}</h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg font-semibold leading-8 text-slate-700">
-          {c.intro}
-        </p>
-        <GoogleReviews
-          variant="compact"
-          labels={t.pages.footer.googleReviews}
-          className="mt-5"
-        />
-      </div>
-
-      <div className="eden-marquee-wrap relative mt-12 space-y-6">
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#eef9f4] to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#eef9f4] to-transparent" />
-        <div className="eden-marquee-viewport overflow-hidden">
-          <div className="eden-marquee-left flex w-max flex-nowrap">
-            {firstRow.map((review, index) => <ReviewCard key={`top-${index}`} review={review} index={index} />)}
-            {firstRow.map((review, index) => (
-              <div key={`top-loop-${index}`} className="eden-marquee-item--loop shrink-0" aria-hidden="true">
-                <ReviewCard review={review} index={index} />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="eden-marquee-viewport overflow-hidden">
-          <div className="eden-marquee-right flex w-max flex-nowrap">
-            {secondRow.map((review, index) => <ReviewCard key={`bottom-${index}`} review={review} index={index + 12} />)}
-            {secondRow.map((review, index) => (
-              <div key={`bottom-loop-${index}`} className="eden-marquee-item--loop shrink-0" aria-hidden="true">
-                <ReviewCard review={review} index={index + 12} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="relative z-20 mt-12 flex flex-wrap justify-center gap-4">
-        <Button onClick={onStart}>{c.startABA} <ArrowRight size={18} /></Button>
-        <Button onClick={onVerifyInsurance} variant="secondary">{c.verifyInsurance}</Button>
-      </div>
-    </section>
-  );
-}
-
 function ParentResourcesSection({ t, onStart, id }) {
   const pr = t.pages.parentResources;
   const RESOURCE_ICONS = [ClipboardCheck, FileText, ShieldCheck, MessageCircle];
@@ -4020,7 +3920,11 @@ export default function EdenABAWebsite() {
       />
       <ParentResourcesSection id="parent-resources" t={t} onStart={() => goToPage("intake")} />
       <HomeCareersHero />
-      <ClientReviewMarquee t={t} onStart={() => goToPage("intake")} onVerifyInsurance={() => goToPage("insurance-coverage")} />
+      <ClientReviewsSection
+        copy={t.pages.clientReviews}
+        onStart={() => goToPage("intake")}
+        onVerifyInsurance={() => goToPage("insurance-coverage")}
+      />
       <section className="bg-gradient-to-br from-[#128c8c] via-[#1f7a2e] to-[#0b4f4f] px-4 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="pt-4 text-white lg:sticky lg:top-28">
