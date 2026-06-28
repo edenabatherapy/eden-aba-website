@@ -8,7 +8,7 @@ import ChildJourneyRoadmap from "@/components/ChildJourneyRoadmap";
 import FamilySupportPathSection from "@/components/FamilySupportPathSection";
 import ImpactDataChartSection from "@/components/sections/ImpactDataChartSection";
 import InsuranceCoveragePage from "@/components/insurance/InsuranceCoveragePage";
-import HomepageInsuranceSection from "@/components/HomepageInsuranceSection";
+import InsuranceSupportSection from "@/components/InsuranceSupportSection";
 import EdenResourceIntelligenceHub from "@/components/EdenResourceIntelligenceHub";
 import ScreenerFormPage from "@/components/ScreenerFormPage";
 import AutismEvaluationPage from "@/components/AutismEvaluationPage";
@@ -4023,7 +4023,7 @@ export default function EdenABAWebsite() {
       />
       <ImpactDataChartSection t={t} />
       <ServiceExplorer t={t} />
-      <HomepageInsuranceSection
+      <InsuranceSupportSection
         t={t.pages.insurancePayment}
         onVerify={() => goToPage("insurance-coverage")}
         onTalkToTeam={() => goToPage("intake")}
