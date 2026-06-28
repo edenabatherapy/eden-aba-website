@@ -41,6 +41,7 @@ import NewsletterBanner from "@/components/common/NewsletterBanner";
 import EdenLogo from "@/components/EdenLogo";
 import GoogleReviews from "@/components/GoogleReviews";
 import HomepageHero from "@/components/HomepageHero";
+import dynamic from "next/dynamic";
 import SiteHeaderBrand from "@/components/common/SiteHeaderBrand";
 import SiteLanguageSwitcher from "@/components/common/LanguageSwitcher";
 import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
@@ -110,6 +111,13 @@ import {
 import { handleMenuLink } from "@/lib/navigation";
 import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
+
+import AiIntakeAssistantSkeleton from "@/components/home/ai-intake/AiIntakeAssistantSkeleton";
+
+const AiIntakeAssistantSection = dynamic(
+  () => import("@/components/home/ai-intake/AiIntakeAssistantSection"),
+  { loading: () => <AiIntakeAssistantSkeleton /> },
+);
 
 const brandColors = {
   forest: "#1f7a2e",
@@ -3926,6 +3934,20 @@ export default function EdenABAWebsite() {
       </button>
       <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
       <HomepageHero onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} language={language} />
+      <AiIntakeAssistantSection
+        onAskQuestion={() => {
+          document.getElementById("meet-eden-ai")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+        onCheckInsurance={() => goToPage("insurance-coverage")}
+        onSchedule={() => goToPage("schedule-appointment")}
+        onStartIntake={() => goToPage("intake")}
+        onProviderReferral={() => window.location.assign("/providers/refer-a-child")}
+        onScheduleCall={() => goToPage("schedule-appointment")}
+        onContinueChat={() => {
+          document.getElementById("meet-eden-ai")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }}
+        onLeaveMessage={() => goToPage("intake")}
+      />
       <ChildJourneyRoadmap
         t={t.pages.childJourney}
         onCtaClick={() => {
