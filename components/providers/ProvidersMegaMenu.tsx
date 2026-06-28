@@ -7,6 +7,8 @@ import {
   LayoutGrid,
   LogIn,
   Route,
+  ScanSearch,
+  ShieldCheck,
   UserPlus,
   type LucideIcon,
 } from "lucide-react";
@@ -15,6 +17,7 @@ import {
   PROVIDERS_DEFAULT_PREVIEW,
   PROVIDERS_MENU_ITEMS,
   PROVIDERS_MEGA_MENU_LABEL,
+  PROVIDERS_MEGA_MENU_TAGLINE,
   type ProvidersMenuItem,
   type ProvidersMegaMenuIcon,
 } from "@/lib/providers/provider-menu-data";
@@ -32,6 +35,8 @@ const ICON_MAP: Record<ProvidersMegaMenuIcon, LucideIcon> = {
   "log-in": LogIn,
   route: Route,
   handshake: Handshake,
+  screening: ScanSearch,
+  insurance: ShieldCheck,
 };
 
 function isActiveHref(
@@ -41,6 +46,9 @@ function isActiveHref(
 ): boolean {
   if (href.startsWith("http") || href.startsWith("mailto:")) return false;
 
+  const hashIndex = href.indexOf("#");
+  const path = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+
   if (
     activePaths?.some(
       (activePath) => pathname === activePath || pathname.startsWith(`${activePath}/`),
@@ -49,11 +57,11 @@ function isActiveHref(
     return true;
   }
 
-  if (href === "/providers") {
+  if (path === "/providers") {
     return pathname === "/providers";
   }
 
-  return pathname === href || pathname.startsWith(`${href}/`);
+  return pathname === path || pathname.startsWith(`${path}/`);
 }
 
 function PreviewPanel({
@@ -147,7 +155,10 @@ export default function ProvidersMegaMenu({
         role="menu"
         aria-label={PROVIDERS_MEGA_MENU_LABEL}
       >
-        <p className="providers-mega-menu__label">{PROVIDERS_MEGA_MENU_LABEL}</p>
+        <div className="providers-mega-menu__head">
+          <p className="providers-mega-menu__label">{PROVIDERS_MEGA_MENU_LABEL}</p>
+          {!isMobile ? <p className="providers-mega-menu__tagline">{PROVIDERS_MEGA_MENU_TAGLINE}</p> : null}
+        </div>
 
         <ul className="providers-mega-menu__list">
           {menuItems.map((item) => {
@@ -184,13 +195,11 @@ export default function ProvidersMegaMenu({
         </ul>
       </div>
 
-      <div className="providers-mega-menu__preview-wrap" key={previewKey}>
-        <PreviewPanel
-          preview={preview}
-          compact={isMobile}
-          onCtaClick={handleNavigate}
-        />
-      </div>
+      {!isMobile ? (
+        <div className="providers-mega-menu__preview-wrap" key={previewKey}>
+          <PreviewPanel preview={preview} onCtaClick={handleNavigate} />
+        </div>
+      ) : null}
     </div>
   );
 }

@@ -601,10 +601,154 @@
   color: #64748b;
 }
 
+.eden-providers-prose {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 48rem;
+}
+
+.eden-providers-prose p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.eden-providers-checklist {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.eden-providers-checklist li {
+  position: relative;
+  padding: 0.85rem 1rem 0.85rem 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(31, 122, 46, 0.1);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.eden-providers-checklist li::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.15rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1f7a2e, #128c8c);
+}
+
+.eden-providers-steps-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.eden-providers-steps-list__item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.1rem 1.15rem;
+  border-radius: 1.15rem;
+  border: 1px solid rgba(31, 122, 46, 0.1);
+  background: white;
+}
+
+.eden-providers-steps-list__index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1f7a2e, #128c8c);
+  color: white;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.eden-providers-steps-list__title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.eden-providers-steps-list__text {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.eden-providers-faq {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.eden-providers-faq__item {
+  overflow: hidden;
+  border-radius: 1.15rem;
+  border: 1px solid rgba(31, 122, 46, 0.12);
+  background: white;
+}
+
+.eden-providers-faq__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.eden-providers-faq__trigger:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: -2px;
+}
+
+.eden-providers-faq__chevron {
+  color: #128c8c;
+  transition: transform 180ms ease;
+  flex-shrink: 0;
+}
+
+.eden-providers-faq__chevron--open {
+  transform: rotate(180deg);
+}
+
+.eden-providers-faq__panel {
+  display: none;
+  padding: 0 1.15rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.eden-providers-faq__panel--open {
+  display: block;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .eden-providers-btn,
   .eden-providers-channel-card__link,
-  .eden-providers-card__link {
+  .eden-providers-card__link,
+  .eden-providers-faq__chevron {
     transition: none;
   }
 
