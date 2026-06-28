@@ -866,6 +866,7 @@ body {
     radial-gradient(circle at 94% 10%, rgba(184, 239, 98, 0.14), transparent 30%),
     linear-gradient(180deg, #fff 0%, #f7fff9 100%);
   isolation: isolate;
+  pointer-events: auto;
 }
 
 .eden-careers-hero::before {
@@ -878,6 +879,7 @@ body {
   background: linear-gradient(135deg, rgba(4, 76, 62, 0.96), rgba(8, 122, 61, 0.72));
   clip-path: polygon(0 35%, 14% 24%, 30% 33%, 45% 52%, 60% 43%, 77% 32%, 100% 42%, 100% 100%, 0 100%);
   z-index: -1;
+  pointer-events: none;
   animation: edenCareersWave 12s ease-in-out infinite alternate;
 }
 
@@ -892,6 +894,7 @@ body {
   background-image: radial-gradient(circle, rgba(8, 122, 61, 0.34) 2px, transparent 2.6px);
   background-size: 22px 22px;
   z-index: -1;
+  pointer-events: none;
 }
 
 .eden-careers-hero__shell {
@@ -900,7 +903,14 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(430px, 0.88fr);
   gap: 54px;
-  align-items: center;
+  align-items: start;
+  position: relative;
+  pointer-events: auto;
+}
+
+.eden-careers-hero__shell > div:first-child {
+  position: relative;
+  z-index: 20;
 }
 
 .eden-careers-hero__badge {
@@ -959,6 +969,8 @@ body {
 }
 
 .eden-careers-hero__actions {
+  position: relative;
+  z-index: 20;
   display: grid;
   grid-template-columns: minmax(220px, auto) minmax(245px, auto);
   gap: 16px;
@@ -967,6 +979,8 @@ body {
 
 .eden-careers-btn {
   position: relative;
+  z-index: 21;
+  pointer-events: auto;
   overflow: hidden;
   min-height: 60px;
   display: inline-flex;
@@ -996,6 +1010,7 @@ body {
   transform: skewX(-18deg);
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
   transition: left 650ms ease;
+  pointer-events: none;
 }
 
 .eden-careers-btn:hover {
@@ -1029,9 +1044,10 @@ body {
 
 .eden-careers-panel {
   position: relative;
+  z-index: 10;
   overflow: hidden;
   border-radius: 30px;
-  padding: 30px;
+  padding: 24px 26px 26px;
   color: white;
   background:
     radial-gradient(circle at 12% 0%, rgba(76, 255, 165, 0.18), transparent 32%),
@@ -1082,17 +1098,19 @@ body {
   filter: blur(0.4px);
   transform: rotate(13deg);
   z-index: 0;
+  pointer-events: none;
 }
 
 .eden-careers-panel__light {
   position: absolute;
   left: 34px;
-  top: 86px;
+  top: 72px;
   width: 2px;
-  height: calc(100% - 160px);
+  height: calc(100% - 132px);
   background: linear-gradient(180deg, transparent, rgba(184, 239, 98, 0.92), rgba(77, 255, 166, 0.76), transparent);
   box-shadow: 0 0 26px rgba(184, 239, 98, 0.45);
   z-index: 1;
+  pointer-events: none;
 }
 
 .eden-careers-panel__light::before,
@@ -1122,7 +1140,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .eden-careers-panel__header h3 {
@@ -1145,16 +1163,16 @@ body {
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 12px;
+  gap: 9px;
 }
 
 .eden-careers-reason {
   display: grid;
-  grid-template-columns: 72px 1fr 34px;
+  grid-template-columns: 56px 1fr 30px;
   gap: 16px;
   align-items: center;
-  min-height: 88px;
-  padding: 14px 18px;
+  min-height: 74px;
+  padding: 10px 14px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -1193,8 +1211,8 @@ body {
 }
 
 .eden-careers-reason__icon {
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
   display: grid;
   place-items: center;
   border-radius: 999px;
@@ -1205,28 +1223,28 @@ body {
 }
 
 .eden-careers-reason__icon svg {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
 }
 
 .eden-careers-reason strong {
   display: block;
   color: white;
-  font-size: 1.02rem;
+  font-size: 0.96rem;
   margin-bottom: 4px;
 }
 
 .eden-careers-reason p {
   margin: 0;
   color: rgba(255, 255, 255, 0.82);
-  line-height: 1.45;
-  font-size: 0.92rem;
+  line-height: 1.38;
+  font-size: 0.84rem;
   font-weight: 600;
 }
 
 .eden-careers-reason__arrow {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   border-radius: 999px;
