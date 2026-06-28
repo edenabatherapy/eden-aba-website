@@ -108,17 +108,35 @@ export function HomeCareersHero() {
           </p>
 
           <div className="eden-careers-hero__actions">
-            <Link href="/careers/open-roles" className="eden-careers-btn eden-careers-btn--primary">
+            <Link
+              href="/careers/open-roles"
+              className="eden-careers-btn eden-careers-btn--primary"
+              onClick={() => {
+                window.location.assign("/careers/open-roles");
+              }}
+            >
               <span>Search Open Roles</span>
               <span aria-hidden="true">›</span>
             </Link>
 
-            <Link href="/careers/benefits-compensation" className="eden-careers-btn eden-careers-btn--secondary">
+            <Link
+              href="/careers/benefits-compensation"
+              className="eden-careers-btn eden-careers-btn--secondary"
+              onClick={() => {
+                window.location.assign("/careers/benefits-compensation");
+              }}
+            >
               <span>Benefits & Compensation</span>
               <span aria-hidden="true">›</span>
             </Link>
 
-            <Link href="/careers/compensation-estimator" className="eden-careers-btn eden-careers-btn--estimator">
+            <Link
+              href="/careers/compensation-estimator"
+              className="eden-careers-btn eden-careers-btn--estimator"
+              onClick={() => {
+                window.location.assign("/careers/compensation-estimator");
+              }}
+            >
               <span>Compensation Estimator</span>
               <span aria-hidden="true">›</span>
             </Link>
