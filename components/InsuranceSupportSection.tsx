@@ -155,22 +155,22 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
 
             <div className="eden-insurance-ticker__marquee" aria-hidden="true">
               <div className="eden-insurance-ticker__viewport">
-                <div className="eden-insurance-ticker__track">
-                  <ul className="eden-insurance-ticker__set">
-                    {tickerPlans.map((name) => (
-                      <li key={name} className="eden-insurance-ticker__item">
-                        <span>{name}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <ul className="eden-insurance-ticker__set eden-insurance-ticker__set--loop" aria-hidden="true">
-                    {tickerPlans.map((name) => (
-                      <li key={`loop-${name}`} className="eden-insurance-ticker__item">
-                        <span>{name}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="eden-insurance-ticker__track">
+                  {tickerPlans.map((name) => (
+                    <li key={name} className="eden-insurance-ticker__item">
+                      <span>{name}</span>
+                    </li>
+                  ))}
+                  {tickerPlans.map((name) => (
+                    <li
+                      key={`loop-${name}`}
+                      className="eden-insurance-ticker__item eden-insurance-ticker__item--loop"
+                      aria-hidden="true"
+                    >
+                      <span>{name}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 

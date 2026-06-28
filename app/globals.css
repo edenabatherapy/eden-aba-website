@@ -484,19 +484,13 @@ body {
 .eden-insurance-ticker__track {
   display: flex;
   flex-wrap: nowrap;
-  width: max-content;
-  animation: edenInsuranceTickerMove 28s linear infinite;
-  will-change: transform;
-}
-
-.eden-insurance-ticker__set {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
   align-items: center;
+  width: max-content;
   margin: 0;
   padding: 0;
   list-style: none;
+  animation: edenInsuranceTickerMove 28s linear infinite;
+  will-change: transform;
 }
 
 .eden-insurance-ticker__viewport:hover .eden-insurance-ticker__track {
@@ -724,7 +718,7 @@ body {
     opacity: 0.65;
   }
 
-  .eden-insurance-ticker__set--loop {
+  .eden-insurance-ticker__item--loop {
     display: none !important;
   }
 
