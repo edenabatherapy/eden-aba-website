@@ -45,6 +45,7 @@ import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getHeaderShellClasses } from "@/lib/header-brand";
 import Footer from "@/components/common/Footer";
+import CareersActionLink from "@/components/careers/CareersActionLink";
 import LocationsMapEmbed from "@/components/LocationsMapEmbed";
 import LocationsSearchBar from "@/components/LocationsSearchBar";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -106,6 +107,7 @@ import {
 import { handleMenuLink } from "@/lib/navigation";
 import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
 import { HOMEPAGE_OPEN_JOBS } from "@/lib/careers/jobs-data";
+import { resolveJobApplyHref } from "@/lib/careers-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const brandColors = {
@@ -2716,7 +2718,13 @@ function Careers({ t }) {
             <h2 className="mt-3 text-4xl font-black text-emerald-950">{t.careersTitle}</h2>
           </div>
           <div className="relative w-full md:w-96">
-            <Search className="absolute left-4 top-3.5 text-slate-400" size={18} />
+            <CareersActionLink
+              href="/careers/open-roles"
+              aria-label={t.searchJobs}
+              className="absolute left-4 top-3.5 text-slate-400 transition hover:text-emerald-600"
+            >
+              <Search size={18} aria-hidden="true" />
+            </CareersActionLink>
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t.searchJobs} className="w-full rounded-full border border-emerald-100 bg-white py-3 pl-11 pr-4 font-bold outline-none focus:border-emerald-500" />
           </div>
         </div>
@@ -2728,12 +2736,12 @@ function Careers({ t }) {
                 <p className="mt-1 text-sm font-bold text-slate-600">{job.department} • {job.employment} • {job.location}</p>
                 <p className="mt-2 line-clamp-2 text-sm text-slate-600">{job.summary}</p>
               </div>
-              <Link
-                href={job.applyUrl}
-                className={getButtonClasses("dark", "shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700")}
+              <CareersActionLink
+                href={resolveJobApplyHref(job)}
+                className={`${getButtonClasses("dark", "relative z-[111] shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700")}`}
               >
                 {t.apply} <ExternalLink size={16} aria-hidden="true" />
-              </Link>
+              </CareersActionLink>
             </div>
           ))}
         </div>
