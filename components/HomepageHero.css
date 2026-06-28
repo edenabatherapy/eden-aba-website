@@ -128,10 +128,13 @@
   .eden-hero-title,
   .hero-heading {
     margin: 0;
+  }
+
+  .homepage-hero__title {
     max-width: 580px;
     width: 100%;
     text-align: left;
-    font-size: clamp(2.5rem, 2.5vw, 4.5rem);
+    font-size: clamp(3.25rem, 3.5vw, 5rem);
   }
 
   .homepage-hero__subtitle {

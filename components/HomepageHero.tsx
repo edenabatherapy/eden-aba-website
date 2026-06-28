@@ -248,7 +248,7 @@ export default function HomepageHero({ onStart, onFindCare, language }: Homepage
       <div className="homepage-hero__inner">
         <div className="hero-container">
           <div className="eden-hero-copy">
-            <h1 className="eden-hero-title hero-heading">
+            <h1 className="eden-hero-title hero-heading homepage-hero__title">
               <span>{t.hero.line1}</span>
               <span>{t.hero.line2}</span>
               <span>{t.hero.line3}</span>
