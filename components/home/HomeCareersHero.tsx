@@ -131,10 +131,10 @@ export function HomeCareersHero() {
             </Link>
 
             <Link
-              href="/careers/compensation-estimator"
+              href="/careers/benefits-compensation#salary-estimator"
               className="eden-careers-btn eden-careers-btn--estimator"
               onClick={() => {
-                window.location.assign("/careers/compensation-estimator");
+                window.location.assign("/careers/benefits-compensation#salary-estimator");
               }}
             >
               <span>Compensation Estimator</span>
