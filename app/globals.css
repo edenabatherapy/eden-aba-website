@@ -736,7 +736,8 @@ body {
 /* Eden ABA Therapy — compact footer newsletter banner */
 
 .eden-newsletter-banner {
-  background: #fff;
+  width: 100%;
+  background: linear-gradient(to bottom right, #021f1c, #032f2b, #0b4f4f);
   padding: 2rem 0 2.25rem;
 }
 
