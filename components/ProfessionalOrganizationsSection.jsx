@@ -81,8 +81,6 @@ export default function ProfessionalOrganizationsSection({ t }) {
   }));
   const [activeKey, setActiveKey] = useState(null);
   const [paused, setPaused] = useState(false);
-  const loop = [...organizations, ...organizations];
-
   const handleToggleTap = (key, event) => {
     if (!isTouchLikeDevice()) return;
     if (activeKey !== key) {
@@ -110,7 +108,11 @@ export default function ProfessionalOrganizationsSection({ t }) {
         }
         @media (prefers-reduced-motion: reduce) {
           .logo-marquee-track {
-            animation: none;
+            animation: none !important;
+            transform: none !important;
+          }
+          .logo-marquee-card--loop {
+            display: none !important;
           }
         }
         @media (max-width: 767px) {
@@ -144,7 +146,7 @@ export default function ProfessionalOrganizationsSection({ t }) {
       </div>
 
       <div
-        className={`logo-marquee relative mt-12 w-full overflow-x-auto overflow-y-hidden md:overflow-hidden ${paused ? "logo-marquee-paused" : ""}`}
+        className={`logo-marquee relative mt-12 w-full overflow-hidden ${paused ? "logo-marquee-paused" : ""}`}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => {
           setPaused(false);
@@ -154,21 +156,38 @@ export default function ProfessionalOrganizationsSection({ t }) {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#FFFDF6] to-transparent sm:w-24" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#ddf4f4]/80 to-transparent sm:w-24" />
 
-        <div className="logo-marquee-track flex w-max gap-6 px-4 py-2 sm:px-6">
-          {loop.map((org, index) => {
-            const key = `${org.name}-${index}`;
-            return (
-              <OrganizationLogoCard
-                key={key}
-                org={org}
-                isActive={activeKey === key}
-                onActivate={() => setActiveKey(key)}
-                onDeactivate={() => setActiveKey((current) => (current === key ? null : current))}
+        <div className="logo-marquee-viewport w-full overflow-hidden">
+          <div className="logo-marquee-track flex w-max flex-nowrap gap-6 px-4 py-2 sm:px-6">
+            {organizations.map((org) => {
+              const key = org.name;
+              return (
+                <OrganizationLogoCard
+                  key={key}
+                  org={org}
+                  isActive={activeKey === key}
+                  onActivate={() => setActiveKey(key)}
+                  onDeactivate={() => setActiveKey((current) => (current === key ? null : current))}
                   onToggleTap={(event) => handleToggleTap(key, event)}
                   visitWebsiteLabel={visitWebsiteLabel}
                 />
-            );
-          })}
+              );
+            })}
+            {organizations.map((org, index) => {
+              const key = `loop-${org.name}-${index}`;
+              return (
+                <div key={key} className="logo-marquee-card--loop shrink-0" aria-hidden="true">
+                  <OrganizationLogoCard
+                    org={org}
+                    isActive={activeKey === key}
+                    onActivate={() => setActiveKey(key)}
+                    onDeactivate={() => setActiveKey((current) => (current === key ? null : current))}
+                    onToggleTap={(event) => handleToggleTap(key, event)}
+                    visitWebsiteLabel={visitWebsiteLabel}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 

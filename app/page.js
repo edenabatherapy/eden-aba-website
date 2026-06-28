@@ -2600,6 +2600,16 @@ function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
         .eden-marquee-right { animation: eden-scroll-right 52s linear infinite; }
         .eden-marquee-wrap:hover .eden-marquee-left,
         .eden-marquee-wrap:hover .eden-marquee-right { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) {
+          .eden-marquee-left,
+          .eden-marquee-right {
+            animation: none !important;
+            transform: none !important;
+          }
+          .eden-marquee-item--loop {
+            display: none !important;
+          }
+        }
       `}</style>
       <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#49b8c8]/25 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-[#f7c72f]/25 blur-3xl" />
@@ -2618,14 +2628,28 @@ function ClientReviewMarquee({ t, onStart, onVerifyInsurance }) {
         />
       </div>
 
-      <div className="eden-marquee-wrap relative mt-12 space-y-6 overflow-hidden">
+      <div className="eden-marquee-wrap relative mt-12 space-y-6">
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-[#eef9f4] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-[#eef9f4] to-transparent" />
-        <div className="eden-marquee-left flex w-max">
-          {[...firstRow, ...firstRow].map((review, index) => <ReviewCard key={`top-${index}`} review={review} index={index} />)}
+        <div className="eden-marquee-viewport overflow-hidden">
+          <div className="eden-marquee-left flex w-max flex-nowrap">
+            {firstRow.map((review, index) => <ReviewCard key={`top-${index}`} review={review} index={index} />)}
+            {firstRow.map((review, index) => (
+              <div key={`top-loop-${index}`} className="eden-marquee-item--loop shrink-0" aria-hidden="true">
+                <ReviewCard review={review} index={index} />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="eden-marquee-right flex w-max">
-          {[...secondRow, ...secondRow].map((review, index) => <ReviewCard key={`bottom-${index}`} review={review} index={index + 12} />)}
+        <div className="eden-marquee-viewport overflow-hidden">
+          <div className="eden-marquee-right flex w-max flex-nowrap">
+            {secondRow.map((review, index) => <ReviewCard key={`bottom-${index}`} review={review} index={index + 12} />)}
+            {secondRow.map((review, index) => (
+              <div key={`bottom-loop-${index}`} className="eden-marquee-item--loop shrink-0" aria-hidden="true">
+                <ReviewCard review={review} index={index + 12} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

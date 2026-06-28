@@ -53,8 +53,6 @@ export default function EdenResourceIntelligenceHub({ t }) {
     [orgContent],
   );
 
-  const carouselItems = [...organizations, ...organizations];
-
   return (
     <section
       id="eden-resource-intelligence-hub"
@@ -75,11 +73,11 @@ export default function EdenResourceIntelligenceHub({ t }) {
         }
         @media (prefers-reduced-motion: reduce) {
           .hub-orgs-track {
-            animation: none;
+            animation: none !important;
+            transform: none !important;
           }
-          .hub-orgs-carousel {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+          .hub-orgs-card--loop {
+            display: none !important;
           }
         }
         @media (max-width: 767px) {
@@ -127,14 +125,25 @@ export default function EdenResourceIntelligenceHub({ t }) {
             className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#f4faf8] to-transparent sm:w-12"
           />
 
-          <div className="hub-orgs-track flex w-max items-center gap-3 sm:gap-4">
-            {carouselItems.map((org, index) => (
-              <OrganizationResourceCard
-                key={`${org.name}-${index}`}
-                org={org}
-                visitWebsiteLabel={visitWebsiteLabel}
-              />
-            ))}
+          <div className="hub-orgs-viewport w-full overflow-hidden">
+            <div className="hub-orgs-track flex w-max flex-nowrap items-center gap-3 sm:gap-4">
+              {organizations.map((org) => (
+                <OrganizationResourceCard
+                  key={org.name}
+                  org={org}
+                  visitWebsiteLabel={visitWebsiteLabel}
+                />
+              ))}
+              {organizations.map((org, index) => (
+                <div
+                  key={`loop-${org.name}-${index}`}
+                  className="hub-orgs-card--loop shrink-0"
+                  aria-hidden="true"
+                >
+                  <OrganizationResourceCard org={org} visitWebsiteLabel={visitWebsiteLabel} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
