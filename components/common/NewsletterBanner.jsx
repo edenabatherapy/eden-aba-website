@@ -28,20 +28,17 @@ export default function NewsletterBanner({ t }) {
   const canSubmit = Boolean(fullName.trim() && email.trim() && isValidEmail(email.trim()));
 
   return (
-    <section className="bg-white px-4 py-14 lg:px-8">
-      <div className="mx-auto w-full max-w-[100rem] rounded-[2.5rem] bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-6 py-12 text-center shadow-2xl shadow-[#128c8c]/20 md:px-10 md:py-16">
-        <h2 className="mx-auto max-w-4xl text-4xl font-black leading-tight tracking-tight text-white md:text-5xl">
+    <section className="eden-newsletter-banner" aria-labelledby="eden-newsletter-heading">
+      <div className="eden-newsletter-banner__card">
+        <h2 id="eden-newsletter-heading" className="eden-newsletter-banner__title">
           {t.newsletterTitle}
         </h2>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mx-auto mt-9 flex w-full max-w-none flex-col gap-4 md:flex-row md:items-center md:justify-center"
-        >
+        <form onSubmit={handleSubmit} className="eden-newsletter-banner__form">
           <input
             value={fullName}
             onChange={(event) => setFullName(event.target.value)}
-            className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none shadow-lg transition focus:ring-4 focus:ring-lime-300/30"
+            className="eden-newsletter-banner__input"
             placeholder={t.fullName}
             autoComplete="name"
             disabled={formDisabled || success}
@@ -52,7 +49,7 @@ export default function NewsletterBanner({ t }) {
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="h-14 min-w-0 flex-1 rounded-full border border-white/10 bg-white px-6 text-base font-bold text-slate-900 outline-none shadow-lg transition focus:ring-4 focus:ring-lime-300/30"
+            className="eden-newsletter-banner__input"
             placeholder={t.email}
             autoComplete="email"
             disabled={formDisabled || success}
@@ -75,23 +72,23 @@ export default function NewsletterBanner({ t }) {
           <button
             type="submit"
             disabled={formDisabled || success || !canSubmit}
-            className="h-14 rounded-full bg-[#f7c72f] px-8 text-base font-black text-[#0b4f4f] shadow-xl transition hover:bg-[#ff8a1f] hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+            className="eden-newsletter-banner__button"
           >
             {submitting ? "Submitting…" : t.joinNewsletter}
           </button>
         </form>
 
         {error ? (
-          <p role="alert" className="mt-4 text-xs text-red-200">
+          <p role="alert" className="eden-newsletter-banner__feedback eden-newsletter-banner__feedback--error">
             {error}
           </p>
         ) : null}
 
-        {success && (
-          <p role="status" aria-live="polite" className="mt-5 text-sm font-bold text-lime-200">
+        {success ? (
+          <p role="status" aria-live="polite" className="eden-newsletter-banner__feedback eden-newsletter-banner__feedback--success">
             {t.newsletterThanks}, {fullName}! {t.newsletterThanksEnd}
           </p>
-        )}
+        ) : null}
       </div>
     </section>
   );

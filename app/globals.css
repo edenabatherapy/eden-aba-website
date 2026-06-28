@@ -732,3 +732,123 @@ body {
     transform: none !important;
   }
 }
+
+/* Eden ABA Therapy — compact footer newsletter banner */
+
+.eden-newsletter-banner {
+  background: #fff;
+  padding: 2rem 0 2.25rem;
+}
+
+.eden-newsletter-banner__card {
+  width: calc(100% - 96px);
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 36px 40px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, #064236 0%, #087a3d 55%, #0f8f74 100%);
+  box-shadow: 0 22px 55px rgba(6, 66, 54, 0.18);
+  text-align: center;
+}
+
+.eden-newsletter-banner__title {
+  margin: 0 0 18px;
+  color: #fff;
+  font-size: clamp(1.125rem, 1.8vw, 1.45rem);
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.eden-newsletter-banner__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+.eden-newsletter-banner__input {
+  height: 54px;
+  width: 100%;
+  min-width: 0;
+  border-radius: 16px;
+  padding: 0 20px;
+  background: #fff;
+  border: none;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  outline: none;
+}
+
+.eden-newsletter-banner__input::placeholder {
+  color: #64748b;
+}
+
+.eden-newsletter-banner__input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(247, 199, 47, 0.45);
+}
+
+.eden-newsletter-banner__input:disabled {
+  opacity: 0.75;
+}
+
+.eden-newsletter-banner__button {
+  height: 54px;
+  border-radius: 999px;
+  padding: 0 26px;
+  white-space: nowrap;
+  background: #f7c72f;
+  color: #064236;
+  font-size: 0.95rem;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.eden-newsletter-banner__button:hover:not(:disabled) {
+  background: #ffdc5c;
+}
+
+.eden-newsletter-banner__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.eden-newsletter-banner__feedback {
+  margin: 12px 0 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.eden-newsletter-banner__feedback--error {
+  color: #fecaca;
+}
+
+.eden-newsletter-banner__feedback--success {
+  color: #d9f99d;
+}
+
+@media (min-width: 768px) {
+  .eden-newsletter-banner__form {
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .eden-newsletter-banner {
+    padding: 1.5rem 0 1.75rem;
+  }
+
+  .eden-newsletter-banner__card {
+    width: calc(100% - 32px);
+    padding: 28px 24px;
+    border-radius: 28px;
+  }
+
+  .eden-newsletter-banner__title {
+    margin-bottom: 16px;
+  }
+}
