@@ -3391,7 +3391,7 @@ export default function EdenABAWebsite() {
   };
 
   useEffect(() => {
-    syncPageFromLocation(null, { scroll: false });
+    queueMicrotask(() => syncPageFromLocation(null, { scroll: false }));
 
     const handleNavigate = (event) => syncPageFromLocation(event);
 

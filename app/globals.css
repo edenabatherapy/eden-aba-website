@@ -910,27 +910,7 @@ body {
 
 .eden-careers-hero__shell > div:first-child {
   position: relative;
-  z-index: 20;
-}
-
-.eden-careers-hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
-  padding: 11px 18px;
-  border-radius: 999px;
-  color: #095f34;
-  background: rgba(235, 250, 238, 0.96);
-  font-size: 1rem;
-  font-weight: 700;
-  box-shadow: inset 0 0 0 1px rgba(8, 122, 61, 0.08);
-}
-
-.eden-careers-hero__badge strong {
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 950;
+  z-index: 99;
 }
 
 .eden-careers-hero__micro {
@@ -951,7 +931,7 @@ body {
 
 .eden-careers-hero__title {
   max-width: 650px;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   font-size: clamp(3.4rem, 6vw, 6.25rem);
   line-height: 0.98;
   letter-spacing: -0.07em;
@@ -970,7 +950,7 @@ body {
 
 .eden-careers-hero__actions {
   position: relative;
-  z-index: 20;
+  z-index: 99;
   display: grid;
   grid-template-columns: minmax(220px, auto) minmax(245px, auto);
   gap: 16px;
@@ -979,7 +959,7 @@ body {
 
 .eden-careers-btn {
   position: relative;
-  z-index: 21;
+  z-index: 100;
   pointer-events: auto;
   overflow: hidden;
   min-height: 60px;
@@ -1002,6 +982,11 @@ body {
   flex: none;
 }
 
+.eden-careers-btn::before,
+.eden-careers-btn::after {
+  pointer-events: none;
+}
+
 .eden-careers-btn::before {
   content: "";
   position: absolute;
@@ -1010,7 +995,6 @@ body {
   transform: skewX(-18deg);
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
   transition: left 650ms ease;
-  pointer-events: none;
 }
 
 .eden-careers-btn:hover {
@@ -1044,9 +1028,11 @@ body {
 
 .eden-careers-panel {
   position: relative;
+  z-index: 1;
   overflow: hidden;
   border-radius: 30px;
-  padding: 26px;
+  padding: 24px 26px 26px;
+  pointer-events: none;
   color: white;
   background:
     radial-gradient(circle at 12% 0%, rgba(76, 255, 165, 0.18), transparent 32%),
@@ -1103,9 +1089,9 @@ body {
 .eden-careers-panel__light {
   position: absolute;
   left: 34px;
-  top: 86px;
+  top: 72px;
   width: 2px;
-  height: calc(100% - 152px);
+  height: calc(100% - 132px);
   background: linear-gradient(180deg, transparent, rgba(184, 239, 98, 0.92), rgba(77, 255, 166, 0.76), transparent);
   box-shadow: 0 0 26px rgba(184, 239, 98, 0.45);
   z-index: 1;
@@ -1126,6 +1112,7 @@ body {
     0 0 16px 6px rgba(184, 239, 98, 0.88),
     0 0 44px rgba(77, 255, 166, 0.55);
   animation: edenCareersLight 4.4s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .eden-careers-panel__light::after {
@@ -1139,7 +1126,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .eden-careers-panel__header h3 {
@@ -1162,16 +1149,16 @@ body {
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 10px;
+  gap: 9px;
 }
 
 .eden-careers-reason {
   display: grid;
-  grid-template-columns: 72px 1fr 34px;
+  grid-template-columns: 56px 1fr 30px;
   gap: 16px;
   align-items: center;
-  min-height: 82px;
-  padding: 12px 16px;
+  min-height: 74px;
+  padding: 10px 14px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -1210,8 +1197,8 @@ body {
 }
 
 .eden-careers-reason__icon {
-  width: 62px;
-  height: 62px;
+  width: 50px;
+  height: 50px;
   display: grid;
   place-items: center;
   border-radius: 999px;
@@ -1222,28 +1209,28 @@ body {
 }
 
 .eden-careers-reason__icon svg {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
 }
 
 .eden-careers-reason strong {
   display: block;
   color: white;
-  font-size: 1.02rem;
+  font-size: 0.96rem;
   margin-bottom: 4px;
 }
 
 .eden-careers-reason p {
   margin: 0;
   color: rgba(255, 255, 255, 0.82);
-  line-height: 1.45;
-  font-size: 0.92rem;
+  line-height: 1.38;
+  font-size: 0.84rem;
   font-weight: 600;
 }
 
 .eden-careers-reason__arrow {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   border-radius: 999px;

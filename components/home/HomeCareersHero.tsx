@@ -95,39 +95,29 @@ export function HomeCareersHero() {
     <section className="eden-careers-hero" aria-labelledby="eden-careers-title">
       <div className="eden-careers-hero__shell">
         <div>
-          <div className="eden-careers-hero__badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M16 21a6 6 0 0 0-12 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              <circle cx="10" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
-              <path d="M21 20a5 5 0 0 0-4-4.8M17 4.4a4 4 0 0 1 0 7.2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            </svg>
-            <strong>Now Hiring</strong>
-            <span>in Annandale, Virginia</span>
-          </div>
+          <h2 className="eden-careers-hero__title" id="eden-careers-title">
+            Join the Eden ABA Therapy Team
+          </h2>
 
           <p className="eden-careers-hero__micro">
             <span>✦</span> Make a difference. Build your future.
           </p>
-
-          <h2 className="eden-careers-hero__title" id="eden-careers-title">
-            Join the Eden ABA Therapy Team
-          </h2>
 
           <p className="eden-careers-hero__copy">
             Help children grow through compassionate, evidence-based ABA therapy while building a rewarding career with supportive leadership.
           </p>
 
           <div className="eden-careers-hero__actions">
-            <Link className="eden-careers-btn eden-careers-btn--primary" href="/careers/open-roles">
-              Search Open Roles <span aria-hidden="true">›</span>
+            <Link href="/careers/open-roles" className="eden-careers-btn eden-careers-btn--primary">
+              Search Open Roles
             </Link>
 
-            <Link className="eden-careers-btn eden-careers-btn--secondary" href="/careers/benefits-compensation">
-              Benefits & Compensation <span aria-hidden="true">›</span>
+            <Link href="/careers/benefits-compensation" className="eden-careers-btn eden-careers-btn--secondary">
+              Benefits & Compensation
             </Link>
 
-            <Link className="eden-careers-btn eden-careers-btn--estimator" href="/careers/compensation-estimator">
-              Compensation Estimator <span aria-hidden="true">›</span>
+            <Link href="/careers/compensation-estimator" className="eden-careers-btn eden-careers-btn--estimator">
+              Compensation Estimator
             </Link>
           </div>
         </div>
