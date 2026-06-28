@@ -106,7 +106,6 @@ import {
 import { handleMenuLink } from "@/lib/navigation";
 import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
 import { HOMEPAGE_OPEN_JOBS } from "@/lib/careers/jobs-data";
-import { getJobDetailsPath } from "@/lib/careers-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const brandColors = {
@@ -2706,7 +2705,7 @@ function Careers({ t }) {
                 <p className="mt-2 line-clamp-2 text-sm text-slate-600">{job.summary}</p>
               </div>
               <Link
-                href={getJobDetailsPath(job.id)}
+                href={job.applyUrl}
                 className={getButtonClasses("dark", "shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700")}
               >
                 {t.apply} <ExternalLink size={16} aria-hidden="true" />

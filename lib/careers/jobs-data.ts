@@ -9,7 +9,9 @@ export type CareersJobWithSlug = CareersJob & {
 const JOB_SLUG_OVERRIDES: Record<string, string> = {
   "rbt-annandale": "rbt",
   "bcba-annandale": "bcba",
-  "clinical-supervisor-annandale": "clinical-supervisor",
+  "behavior-technician": "bt",
+  "clinical-supervisor-annandale": "clinical-supervisor-bcba",
+  "director-rbt-development": "director-of-rbt-development",
 };
 
 function toSlug(value: string): string {
