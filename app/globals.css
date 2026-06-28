@@ -466,6 +466,11 @@ body {
   will-change: transform;
 }
 
+.eden-insurance-ticker__set {
+  display: flex;
+  flex-shrink: 0;
+}
+
 .eden-insurance-ticker__viewport:hover .eden-insurance-ticker__track {
   animation-play-state: paused;
 }
@@ -672,5 +677,9 @@ body {
   .eden-insurance-final *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  .eden-insurance-ticker__set--loop {
+    display: none;
   }
 }
