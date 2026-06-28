@@ -8,6 +8,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import AbaTherapyMegaMenu from "@/components/AbaTherapyMegaMenu";
 import AboutEdenMegaMenu, { aboutEdenDefaultPreview } from "@/components/AboutEdenMegaMenu";
 import CareersMegaMenu from "@/components/CareersMegaMenu";
+import ProvidersMegaMenu from "@/components/providers/ProvidersMegaMenu";
 import ResourcesMegaMenu, { resourcesDefaultPreview } from "@/components/ResourcesMegaMenu";
 import LanguageSwitcher from "@/components/common/LanguageSwitcher";
 import SiteHeaderBrand from "@/components/common/SiteHeaderBrand";
@@ -73,6 +74,15 @@ export default function EdenSiteHeader() {
     window.location.assign(href);
   };
 
+  const onProvidersNavigate = (href: string) => {
+    closeMenus();
+    if (href.startsWith("http")) {
+      window.open(href, "_blank", "noopener,noreferrer");
+      return;
+    }
+    window.location.assign(href);
+  };
+
   const onMenuLink = (enLinkLabel: string) => {
     handleMenuLink(enLinkLabel, {
       onNavigate: navigate,
@@ -127,6 +137,7 @@ export default function EdenSiteHeader() {
     t.aboutEdenMegaMenuDefaultDescription || aboutEdenDefaultPreview.description;
 
   const isCareersActive = pathname === "/careers" || pathname.startsWith("/careers/");
+  const isProvidersActive = pathname === "/providers" || pathname.startsWith("/providers/");
 
   const resourcesMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "Resources");
   const resourcesEnGroup = enMenu.find((group) => group.label === "Resources");
@@ -158,13 +169,15 @@ export default function EdenSiteHeader() {
               const isServicesMenu = isServicesMegaMenuGroup(enGroup);
               const isAboutEden = enGroup?.label === "About Eden";
               const isCareers = enGroup?.label === "Careers";
+              const isProviders = enGroup?.label === "For Providers";
               const isResources = enGroup?.label === "Resources";
-              const isMegaMenu = isServicesMenu || isAboutEden || isCareers || isResources;
+              const isMegaMenu = isServicesMenu || isAboutEden || isCareers || isResources || isProviders;
               const isDropdownOpen = openDropdown === menuKey;
               const dropdownPanelClass = getDropdownPanelClass(isDropdownOpen);
               const isActive =
                 (isCareers && isCareersActive) ||
                 (isAboutEden && pathname.startsWith("/about")) ||
+                (isProviders && isProvidersActive) ||
                 false;
 
               return (
@@ -205,6 +218,8 @@ export default function EdenSiteHeader() {
                       />
                     ) : isCareers ? (
                       <CareersMegaMenu onNavigate={onCareersNavigate} />
+                    ) : isProviders ? (
+                      <ProvidersMegaMenu onNavigate={onProvidersNavigate} />
                     ) : isResources ? (
                       <ResourcesMegaMenu
                         onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
@@ -259,6 +274,7 @@ export default function EdenSiteHeader() {
                 const isServicesMenu = isServicesMegaMenuGroup(enGroup);
                 const isAboutEden = enGroup?.label === "About Eden";
                 const isCareers = enGroup?.label === "Careers";
+                const isProviders = enGroup?.label === "For Providers";
                 const isResources = enGroup?.label === "Resources";
 
                 return (
@@ -298,6 +314,14 @@ export default function EdenSiteHeader() {
                         <CareersMegaMenu
                           variant="mobile"
                           onNavigate={onCareersNavigate}
+                          onClose={() => setOpen(false)}
+                        />
+                      </div>
+                    ) : isProviders ? (
+                      <div className="pt-3">
+                        <ProvidersMegaMenu
+                          variant="mobile"
+                          onNavigate={onProvidersNavigate}
                           onClose={() => setOpen(false)}
                         />
                       </div>

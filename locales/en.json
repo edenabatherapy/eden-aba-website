@@ -660,6 +660,22 @@
           ]
         }
       ]
+    },
+    {
+      "label": "For Providers",
+      "type": "compact",
+      "columns": [
+        {
+          "title": "For Providers",
+          "links": [
+            "Refer a Child",
+            "Provider Referral Portal",
+            "CentralReach Staff Login",
+            "Referral Process",
+            "Clinical Collaboration"
+          ]
+        }
+      ]
     }
   ],
   "jobs": [
