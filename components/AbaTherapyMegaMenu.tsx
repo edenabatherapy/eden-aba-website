@@ -101,6 +101,10 @@ export default function AbaTherapyMegaMenu({
 }: AbaTherapyMegaMenuProps) {
   const { language } = useSiteLanguage();
   const megaMenu = getTranslation(language).pages.megaMenu;
+  const englishDescriptions = useMemo(
+    () => servicesMegaMenuItems.map((item) => ({ description: item.description })),
+    [],
+  );
   const localizedLabels = useLocalizedContent("ABA_MEGA_MENU_LABELS", {
     comingSoonBadge: comingSoonBadge,
     servicePreviewLabel: servicePreviewLabel,
@@ -109,7 +113,7 @@ export default function AbaTherapyMegaMenu({
   });
   const localizedDescriptions = useLocalizedContent(
     "SERVICES_MEGA_MENU_ITEMS",
-    servicesMegaMenuItems.map((item) => ({ description: item.description })),
+    englishDescriptions,
   );
   const menuItems = useMemo(
     () =>

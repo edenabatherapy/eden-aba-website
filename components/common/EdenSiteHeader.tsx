@@ -109,6 +109,11 @@ export default function EdenSiteHeader() {
   const navItemClass =
     "shrink-0 whitespace-nowrap rounded-full px-1.5 py-1.5 text-[10px] font-extrabold leading-tight text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800 lg:px-2 lg:py-1.5 lg:text-[11px] xl:px-2.5 xl:text-xs 2xl:px-3 2xl:py-2 2xl:text-sm";
 
+  const getDropdownPanelClass = (isDropdownOpen: boolean) =>
+    isDropdownOpen
+      ? "visible translate-y-0 opacity-100 pointer-events-auto"
+      : "invisible translate-y-2 opacity-0 pointer-events-none group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto";
+
   const abaMenuGroup = menuItems.find((group, idx) => enMenu[idx]?.id === SERVICES_MENU_ID);
   const abaEnGroup = enMenu.find((group) => group.id === SERVICES_MENU_ID);
   const getAbaDisplayTitle = buildMenuDisplayTitleResolver(abaMenuGroup, abaEnGroup);
@@ -138,11 +143,13 @@ export default function EdenSiteHeader() {
       <div
         className={`mx-auto grid w-full max-w-[100rem] grid-cols-[minmax(0,auto)_minmax(0,1fr)_auto] items-center gap-x-2 px-3 transition-[padding] duration-300 sm:gap-x-3 sm:px-4 lg:gap-x-4 lg:px-5 xl:px-6 2xl:gap-x-5 2xl:px-8 ${getHeaderShellClasses(scrolled)}`}
       >
-        <SiteHeaderBrand compact={scrolled} />
+        <div className="relative z-[60] shrink-0">
+          <SiteHeaderBrand compact={scrolled} />
+        </div>
 
         <nav className="relative z-0 hidden min-w-0 items-center justify-center lg:flex" aria-label={t.ariaLabels?.mainNav ?? "Main navigation"}>
           <div className="flex max-w-full flex-nowrap items-center justify-center gap-1 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
-            <Link href="/" className={navItemClass}>
+            <Link href="/" className={`relative z-[60] ${navItemClass}`} onClick={closeMenus}>
               {t.navHome}
             </Link>
             {menuItems.map((group, groupIdx) => {
@@ -154,9 +161,7 @@ export default function EdenSiteHeader() {
               const isResources = enGroup?.label === "Resources";
               const isMegaMenu = isServicesMenu || isAboutEden || isCareers || isResources;
               const isDropdownOpen = openDropdown === menuKey;
-              const dropdownPanelClass = isDropdownOpen
-                ? "visible translate-y-0 opacity-100"
-                : "invisible translate-y-2 opacity-0";
+              const dropdownPanelClass = getDropdownPanelClass(isDropdownOpen);
               const isActive =
                 (isCareers && isCareersActive) ||
                 (isAboutEden && pathname.startsWith("/about")) ||
