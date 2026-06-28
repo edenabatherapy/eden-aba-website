@@ -14,6 +14,7 @@
     "validate:recaptcha": "node scripts/validate-recaptcha.mjs"
   },
   "dependencies": {
+    "@heygen/liveavatar-web-sdk": "^0.0.18",
     "@supabase/supabase-js": "^2.108.2",
     "framer-motion": "^12.40.0",
     "google-auth-library": "^10.7.0",

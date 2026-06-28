@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Sparkles } from "lucide-react";
 import AiIntakeActionButtons from "./AiIntakeActionButtons";
 import AiReceptionistVideoPanel from "./AiReceptionistVideoPanel";
+import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
 import LiveCoordinatorModal from "./LiveCoordinatorModal";
 import TrustedHealthcareTech from "./TrustedHealthcareTech";
 import { AI_INTAKE_CAPABILITIES } from "./ai-intake-config";
@@ -76,6 +77,7 @@ export default function AiIntakeAssistantSection({
         case "ask-question":
           setChatActive(true);
           onAskQuestion?.();
+          window.dispatchEvent(new CustomEvent(EDEN_START_AI_CHAT_EVENT));
           sectionRef.current
             ?.querySelector<HTMLElement>(".eden-ai-video")
             ?.scrollIntoView({ behavior: "smooth", block: "center" });

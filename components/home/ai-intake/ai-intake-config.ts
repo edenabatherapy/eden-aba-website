@@ -1,5 +1,7 @@
 import type { AiIntakeActionId, AiIntakeIntegrationId } from "./types";
 
+export const EDEN_START_AI_CHAT_EVENT = "eden:start-ai-chat";
+
 export const AI_INTAKE_CAPABILITIES = [
   "Answer common ABA therapy questions with clear, family-friendly guidance",
   "Explain Eden services, settings, and what families may expect during care",
