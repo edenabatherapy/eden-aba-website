@@ -337,7 +337,7 @@ function Header({ onStart, onNavigate }) {
       <div
         className={`mx-auto grid w-full max-w-[100rem] grid-cols-[minmax(0,auto)_minmax(0,1fr)_auto] items-center gap-x-2 px-3 transition-[padding] duration-300 sm:gap-x-3 sm:px-4 lg:gap-x-4 lg:px-5 xl:px-6 2xl:gap-x-5 2xl:px-8 ${getHeaderShellClasses(scrolled)}`}
       >
-        <div className="relative z-[60] shrink-0">
+        <div className="relative shrink-0 lg:z-[60]">
           <SiteHeaderBrand compact={scrolled} />
         </div>
 
@@ -531,7 +531,7 @@ function Header({ onStart, onNavigate }) {
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="rounded-full border border-emerald-100 p-2 lg:hidden"
+            className="relative z-[21] rounded-full border border-emerald-100 p-2 lg:hidden"
             aria-label={open ? (t.ariaLabels?.closeMenu ?? "Close menu") : (t.ariaLabels?.openMenu ?? "Open menu")}
           >
             {open ? <X /> : <Menu />}
@@ -542,10 +542,11 @@ function Header({ onStart, onNavigate }) {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden border-t border-emerald-100 bg-white lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="relative z-[60] border-t border-emerald-100 bg-white lg:hidden"
           >
             <div className="grid gap-2 p-4">
               <Link

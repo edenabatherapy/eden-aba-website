@@ -295,7 +295,7 @@ export default function ChildJourneyRoadmap({ t, onCtaClick }) {
   return (
     <section
       id="child-journey"
-      className="relative scroll-mt-28 overflow-hidden bg-gradient-to-b from-[#f8fcfa] via-white to-[#eef9f4] px-4 py-20 lg:px-8 lg:py-28"
+      className="relative scroll-mt-28 overflow-hidden bg-gradient-to-b from-[#f8fcfa] via-white to-[#eef9f4] px-4 pt-10 pb-16 lg:px-8 lg:py-28"
     >
       <style>{JOURNEY_ANIMATION_STYLES}</style>
       <div
