@@ -10,7 +10,22 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { HOME_INSURANCE_LOGOS } from "@/lib/home-insurance-logos";
+
+const DEFAULT_INSURANCE_PLANS = [
+  "Virginia Medicaid",
+  "Aetna",
+  "Aetna Better Health",
+  "Anthem HealthKeepers Plus",
+  "Blue Cross Blue Shield",
+  "Cigna",
+  "Kaiser Permanente",
+  "MedStar Family Choice",
+  "Molina Healthcare",
+  "Sentara Health Plans",
+  "TRICARE",
+  "UMR",
+  "UnitedHealthcare",
+];
 
 const BENEFIT_ICONS = [ShieldCheck, ClipboardList, CircleDollarSign, Users];
 const STEP_ICONS = [ClipboardList, ShieldCheck, MessageCircle];
@@ -32,6 +47,7 @@ export type InsuranceSupportContent = {
     headline?: string;
     subheadline?: string;
     disclaimer?: string;
+    plans?: string[];
   };
 };
 
@@ -44,7 +60,7 @@ type InsuranceSupportSectionProps = {
 export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: InsuranceSupportSectionProps) {
   const benefits = t.benefits ?? [];
   const steps = t.processSteps ?? [];
-  const tickerPlans = HOME_INSURANCE_LOGOS.map((plan) => plan.name);
+  const tickerPlans = t.toolbox?.plans?.length ? t.toolbox.plans : DEFAULT_INSURANCE_PLANS;
   const tickerItems = [...tickerPlans, ...tickerPlans];
 
   return (
@@ -133,11 +149,9 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
           <div className="eden-insurance-ticker" aria-labelledby="eden-insurance-ticker-heading">
             <h3 id="eden-insurance-ticker-heading" className="eden-insurance-ticker__title">
               <Sparkles size={20} className="eden-insurance-ticker__spark" aria-hidden="true" />
-              {t.toolbox?.headline ?? "Plans we can help review"}
+              {t.toolbox?.headline ?? "We help review benefits for many Virginia insurance plans"}
             </h3>
-            <p className="eden-insurance-ticker__subtitle">
-              {t.toolbox?.subheadline ?? t.toolbox?.disclaimer}
-            </p>
+            <p className="eden-insurance-ticker__subtitle">{t.toolbox?.subheadline}</p>
 
             <div className="eden-insurance-ticker__viewport" aria-label="Insurance plans Eden ABA Therapy can help review">
               <div className="eden-insurance-ticker__track">
@@ -148,6 +162,10 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
                 ))}
               </div>
             </div>
+
+            {t.toolbox?.disclaimer ? (
+              <p className="eden-insurance-ticker__disclaimer">{t.toolbox.disclaimer}</p>
+            ) : null}
           </div>
         </div>
       </div>

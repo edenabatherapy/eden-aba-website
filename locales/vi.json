@@ -1039,12 +1039,12 @@
         },
         {
           "title": "Các gói lớn & Virginia Medicaid",
-          "description": "Chúng tôi làm việc với hầu hết các gói bảo hiểm và Virginia Medicaid."
+          "description": "Chúng tôi giúp các gia đình xem xét quyền lợi cho nhiều gói bảo hiểm lớn và Virginia Medicaid. Phạm vi bảo hiểm và điều kiện đủ điều kiện được xác minh trước khi bắt đầu dịch vụ."
         }
       ],
       "verifyCta": "Xác minh bảo hiểm",
       "talkCta": "Nói chuyện với đội ngũ",
-      "trustNote": "Hầu hết các gói bảo hiểm lớn và Virginia Medicaid có thể chi trả liệu pháp ABA.",
+      "trustNote": "Nhiều gói bảo hiểm lớn và Virginia Medicaid có thể cung cấp phạm vi bảo hiểm cho liệu pháp ABA. Phạm vi bảo hiểm và điều kiện đủ điều kiện khác nhau tùy theo gói và được xác minh trước khi bắt đầu dịch vụ.",
       "processTitle": "Quy trình 3 bước đơn giản",
       "processSubtitle": "Chúng tôi giúp bảo hiểm dễ dàng hơn cho gia đình bạn.",
       "processSteps": [
@@ -1062,9 +1062,24 @@
         }
       ],
       "toolbox": {
-        "headline": "Chúng tôi có thể giúp xem xét quyền lợi với các gói bảo hiểm hàng đầu",
-        "subheadline": "Eden ABA Therapy giúp các gia đình xem xét phạm vi liệu pháp ABA, yêu cầu ủy quyền và các bước tiếp theo cho các gói bảo hiểm Virginia.",
-        "disclaimer": "Phạm vi bảo hiểm khác nhau. Eden ABA Therapy có thể giúp xác minh quyền lợi, nhưng phạm vi và ủy quyền phụ thuộc vào yêu cầu của từng gói thành viên.",
+        "headline": "Chúng tôi giúp xem xét quyền lợi cho nhiều gói bảo hiểm Virginia",
+        "subheadline": "Eden ABA Therapy giúp các gia đình hiểu quyền lợi liệu pháp ABA, xem xét phạm vi bảo hiểm, xác minh điều kiện đủ điều kiện, giải thích yêu cầu ủy quyền và hướng dẫn các bước tiếp theo. Phạm vi bảo hiểm khác nhau tùy theo gói và điều kiện cá nhân.",
+        "disclaimer": "Phạm vi bảo hiểm, quyền lợi, điều kiện đủ điều kiện và yêu cầu ủy quyền khác nhau tùy theo gói. Quyền lợi được xác minh trước khi bắt đầu dịch vụ. Việc liệt kê một gói sức khỏe không có nghĩa là tham gia, phê duyệt hoặc thuộc mạng lưới.",
+        "plans": [
+          "Virginia Medicaid",
+          "Aetna",
+          "Aetna Better Health",
+          "Anthem HealthKeepers Plus",
+          "Blue Cross Blue Shield",
+          "Cigna",
+          "Kaiser Permanente",
+          "MedStar Family Choice",
+          "Molina Healthcare",
+          "Sentara Health Plans",
+          "TRICARE",
+          "UMR",
+          "UnitedHealthcare"
+        ],
         "verifyCta": "Xác minh bảo hiểm",
         "viewCoverageLink": "Xem phạm vi bảo hiểm"
       }

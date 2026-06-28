@@ -1035,12 +1035,12 @@
         },
         {
           "title": "Major plans & Virginia Medicaid",
-          "description": "We work with most insurance plans and Virginia Medicaid."
+          "description": "We help families review benefits for many major insurance plans and Virginia Medicaid. Coverage and eligibility are verified before services begin."
         }
       ],
       "verifyCta": "Verify Insurance",
       "talkCta": "Talk to Our Team",
-      "trustNote": "Most major insurance plans and Virginia Medicaid may cover ABA therapy.",
+      "trustNote": "Many major insurance plans and Virginia Medicaid may provide coverage for ABA therapy. Coverage and eligibility vary by plan and are verified before services begin.",
       "processTitle": "Our simple 3-step process",
       "processSubtitle": "We make insurance easier for your family.",
       "processSteps": [
@@ -1058,9 +1058,24 @@
         }
       ],
       "toolbox": {
-        "headline": "We can help review benefits with leading insurance plans",
-        "subheadline": "Eden ABA Therapy helps families review ABA therapy coverage, authorization requirements, and next steps for Virginia insurance plans.",
-        "disclaimer": "Plan coverage varies. Eden ABA Therapy can help verify benefits, but coverage and authorization depend on each member's plan requirements.",
+        "headline": "We help review benefits for many Virginia insurance plans",
+        "subheadline": "Eden ABA Therapy helps families understand ABA therapy benefits, review coverage, verify eligibility, explain authorization requirements, and guide them through the next steps. Coverage varies by plan and individual eligibility.",
+        "disclaimer": "Insurance coverage, benefits, eligibility, and authorization requirements vary by plan. Benefits are verified before services begin. Listing a health plan does not indicate participation, approval, or in-network status.",
+        "plans": [
+          "Virginia Medicaid",
+          "Aetna",
+          "Aetna Better Health",
+          "Anthem HealthKeepers Plus",
+          "Blue Cross Blue Shield",
+          "Cigna",
+          "Kaiser Permanente",
+          "MedStar Family Choice",
+          "Molina Healthcare",
+          "Sentara Health Plans",
+          "TRICARE",
+          "UMR",
+          "UnitedHealthcare"
+        ],
         "verifyCta": "Verify Insurance",
         "viewCoverageLink": "View Insurance Coverage"
       }
