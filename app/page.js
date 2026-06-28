@@ -45,7 +45,7 @@ import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getHeaderShellClasses } from "@/lib/header-brand";
 import Footer from "@/components/common/Footer";
-import CareersActionLink from "@/components/careers/CareersActionLink";
+import HomeCareersHero from "@/components/home/HomeCareersHero";
 import LocationsMapEmbed from "@/components/LocationsMapEmbed";
 import LocationsSearchBar from "@/components/LocationsSearchBar";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -106,8 +106,6 @@ import {
 } from "@/lib/i18n";
 import { handleMenuLink } from "@/lib/navigation";
 import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
-import { HOMEPAGE_OPEN_JOBS } from "@/lib/careers/jobs-data";
-import { resolveJobApplyHref } from "@/lib/careers-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const brandColors = {
@@ -2701,55 +2699,6 @@ function ParentResourcesSection({ t, onStart, id }) {
   );
 }
 
-function Careers({ t }) {
-  const [q, setQ] = useState("");
-  const jobs = HOMEPAGE_OPEN_JOBS;
-  const filtered = jobs.filter((job) =>
-    `${job.title} ${job.employment} ${job.location} ${job.department} ${job.summary}`
-      .toLowerCase()
-      .includes(q.toLowerCase()),
-  );
-  return (
-    <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
-      <div className="rounded-[2.5rem] bg-gradient-to-br from-emerald-50 via-white to-yellow-50 p-8 md:p-12">
-        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="font-black text-emerald-700">{t.careersEyebrow}</p>
-            <h2 className="mt-3 text-4xl font-black text-emerald-950">{t.careersTitle}</h2>
-          </div>
-          <div className="relative w-full md:w-96">
-            <CareersActionLink
-              href="/careers/open-roles"
-              aria-label={t.searchJobs}
-              className="absolute left-4 top-3.5 text-slate-400 transition hover:text-emerald-600"
-            >
-              <Search size={18} aria-hidden="true" />
-            </CareersActionLink>
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t.searchJobs} className="w-full rounded-full border border-emerald-100 bg-white py-3 pl-11 pr-4 font-bold outline-none focus:border-emerald-500" />
-          </div>
-        </div>
-        <div className="mt-8 grid gap-4">
-          {filtered.map((job) => (
-            <div key={job.id} className="flex flex-col justify-between gap-4 rounded-3xl bg-white p-5 shadow-sm md:flex-row md:items-center">
-              <div>
-                <p className="text-xl font-black text-emerald-950">{job.title}</p>
-                <p className="mt-1 text-sm font-bold text-slate-600">{job.department} • {job.employment} • {job.location}</p>
-                <p className="mt-2 line-clamp-2 text-sm text-slate-600">{job.summary}</p>
-              </div>
-              <CareersActionLink
-                href={resolveJobApplyHref(job)}
-                className={`${getButtonClasses("dark", "relative z-[111] shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700")}`}
-              >
-                {t.apply} <ExternalLink size={16} aria-hidden="true" />
-              </CareersActionLink>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function EnterprisePlatformSuite() {
   const [activeModule, setActiveModule] = useState("Backend + Supabase");
   const [role, setRole] = useState("Admin");
@@ -3911,7 +3860,7 @@ export default function EdenABAWebsite() {
           {darkMode ? t.lightMode : t.darkMode}
         </button>
         <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
-        <Careers t={t} />
+        <HomeCareersHero />
         <NewsletterBanner t={t} />
         <Footer />
       </main>
@@ -4070,7 +4019,7 @@ export default function EdenABAWebsite() {
         onStartIntake={() => goToPage("intake")}
       />
       <ParentResourcesSection id="parent-resources" t={t} onStart={() => goToPage("intake")} />
-      <Careers t={t} />
+      <HomeCareersHero />
       <ClientReviewMarquee t={t} onStart={() => goToPage("intake")} onVerifyInsurance={() => goToPage("insurance-coverage")} />
       <section className="bg-gradient-to-br from-[#128c8c] via-[#1f7a2e] to-[#0b4f4f] px-4 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
