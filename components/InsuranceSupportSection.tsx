@@ -68,6 +68,7 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
       className="eden-insurance-final scroll-mt-28"
       aria-labelledby="homepage-insurance-heading"
     >
+      <div className="eden-insurance-final__bg-glow" aria-hidden="true" />
       <div className="eden-insurance-final__shell">
         <div className="eden-insurance-final__panel">
           <div className="eden-insurance-final__grid">
@@ -152,27 +153,23 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
             </h3>
             <p className="eden-insurance-ticker__subtitle">{t.toolbox?.subheadline}</p>
 
-            <ul className="sr-only">
-              {tickerPlans.map((name) => (
-                <li key={name}>{name}</li>
-              ))}
-            </ul>
-
-            <div className="eden-insurance-ticker__viewport" aria-hidden="true">
-              <div className="eden-insurance-ticker__track">
-                <div className="eden-insurance-ticker__set">
-                  {tickerPlans.map((name) => (
-                    <div key={name} className="eden-insurance-ticker__item">
-                      <span>{name}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="eden-insurance-ticker__set eden-insurance-ticker__set--loop" aria-hidden="true">
-                  {tickerPlans.map((name) => (
-                    <div key={`loop-${name}`} className="eden-insurance-ticker__item">
-                      <span>{name}</span>
-                    </div>
-                  ))}
+            <div className="eden-insurance-ticker__marquee" aria-hidden="true">
+              <div className="eden-insurance-ticker__viewport">
+                <div className="eden-insurance-ticker__track">
+                  <ul className="eden-insurance-ticker__set">
+                    {tickerPlans.map((name) => (
+                      <li key={name} className="eden-insurance-ticker__item">
+                        <span>{name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <ul className="eden-insurance-ticker__set eden-insurance-ticker__set--loop" aria-hidden="true">
+                    {tickerPlans.map((name) => (
+                      <li key={`loop-${name}`} className="eden-insurance-ticker__item">
+                        <span>{name}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>

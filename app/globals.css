@@ -39,13 +39,27 @@ body {
   overflow: hidden;
   padding: 44px 24px 30px;
   background:
-    radial-gradient(circle at 90% 8%, rgba(16, 185, 129, 0.13), transparent 30%),
-    radial-gradient(circle at 4% 95%, rgba(8, 122, 61, 0.08), transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #f7fffb 100%);
+    radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(8, 122, 61, 0.05), transparent 35%),
+    linear-gradient(180deg, #f5fff8 0%, #ecfff4 50%, #f9fffc 100%);
   isolation: isolate;
 }
 
+.eden-insurance-final__bg-glow {
+  position: absolute;
+  inset: -8% -4%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(16, 185, 129, 0.07), transparent 44%),
+    radial-gradient(circle at 78% 72%, rgba(8, 122, 61, 0.06), transparent 40%);
+  animation: edenInsuranceBgGlow 26s ease-in-out infinite alternate;
+  opacity: 0.75;
+}
+
 .eden-insurance-final__shell {
+  position: relative;
+  z-index: 1;
   max-width: 1220px;
   margin: 0 auto;
 }
@@ -452,15 +466,24 @@ body {
   animation: edenInsuranceSparkle 2.3s ease-in-out infinite;
 }
 
+.eden-insurance-ticker__marquee {
+  width: 100%;
+  max-width: 100%;
+}
+
 .eden-insurance-ticker__viewport {
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   padding: 8px 0;
   mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
 }
 
 .eden-insurance-ticker__track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
   animation: edenInsuranceTickerMove 28s linear infinite;
   will-change: transform;
@@ -468,7 +491,12 @@ body {
 
 .eden-insurance-ticker__set {
   display: flex;
+  flex-wrap: nowrap;
   flex-shrink: 0;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .eden-insurance-ticker__viewport:hover .eden-insurance-ticker__track {
@@ -476,6 +504,7 @@ body {
 }
 
 .eden-insurance-ticker__item {
+  flex: 0 0 auto;
   min-width: 188px;
   min-height: 48px;
   display: grid;
@@ -596,6 +625,18 @@ body {
   }
 }
 
+@keyframes edenInsuranceBgGlow {
+  0% {
+    transform: translate3d(-1.2%, -0.8%, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(1.2%, 0.8%, 0) scale(1.025);
+    opacity: 0.82;
+  }
+}
+
 @keyframes edenInsuranceSparkle {
   0%,
   100% {
@@ -679,7 +720,15 @@ body {
     transition: none !important;
   }
 
+  .eden-insurance-final__bg-glow {
+    opacity: 0.65;
+  }
+
   .eden-insurance-ticker__set--loop {
-    display: none;
+    display: none !important;
+  }
+
+  .eden-insurance-ticker__track {
+    transform: none !important;
   }
 }
