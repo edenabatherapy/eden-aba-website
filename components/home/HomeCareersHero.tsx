@@ -109,15 +109,18 @@ export function HomeCareersHero() {
 
           <div className="eden-careers-hero__actions">
             <Link href="/careers/open-roles" className="eden-careers-btn eden-careers-btn--primary">
-              Search Open Roles
+              <span>Search Open Roles</span>
+              <span aria-hidden="true">›</span>
             </Link>
 
             <Link href="/careers/benefits-compensation" className="eden-careers-btn eden-careers-btn--secondary">
-              Benefits & Compensation
+              <span>Benefits & Compensation</span>
+              <span aria-hidden="true">›</span>
             </Link>
 
             <Link href="/careers/compensation-estimator" className="eden-careers-btn eden-careers-btn--estimator">
-              Compensation Estimator
+              <span>Compensation Estimator</span>
+              <span aria-hidden="true">›</span>
             </Link>
           </div>
         </div>

@@ -910,7 +910,7 @@ body {
 
 .eden-careers-hero__shell > div:first-child {
   position: relative;
-  z-index: 99;
+  z-index: 50;
 }
 
 .eden-careers-hero__micro {
@@ -950,7 +950,8 @@ body {
 
 .eden-careers-hero__actions {
   position: relative;
-  z-index: 99;
+  z-index: 50;
+  pointer-events: auto;
   display: grid;
   grid-template-columns: minmax(220px, auto) minmax(245px, auto);
   gap: 16px;
@@ -959,8 +960,9 @@ body {
 
 .eden-careers-btn {
   position: relative;
-  z-index: 100;
+  z-index: 51;
   pointer-events: auto;
+  cursor: pointer;
   overflow: hidden;
   min-height: 60px;
   display: inline-flex;
@@ -983,7 +985,11 @@ body {
 }
 
 .eden-careers-btn::before,
-.eden-careers-btn::after {
+.eden-careers-btn::after,
+.eden-careers-hero::before,
+.eden-careers-hero::after,
+.eden-careers-panel::before,
+.eden-careers-panel::after {
   pointer-events: none;
 }
 
@@ -1043,6 +1049,10 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   isolation: isolate;
   animation: edenCareersPanelFloat 6s ease-in-out infinite;
+}
+
+.eden-careers-panel * {
+  pointer-events: none;
 }
 
 .eden-careers-panel::before {
