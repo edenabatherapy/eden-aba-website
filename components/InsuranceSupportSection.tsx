@@ -10,22 +10,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-
-const DEFAULT_INSURANCE_PLANS = [
-  "Virginia Medicaid",
-  "Aetna",
-  "Aetna Better Health",
-  "Anthem HealthKeepers Plus",
-  "Blue Cross Blue Shield",
-  "Cigna",
-  "Kaiser Permanente",
-  "MedStar Family Choice",
-  "Molina Healthcare",
-  "Sentara Health Plans",
-  "TRICARE",
-  "UMR",
-  "UnitedHealthcare",
-];
+import { INSURANCE_TICKER_PLANS } from "@/lib/insurance/ticker-plans";
 
 const BENEFIT_ICONS = [ShieldCheck, ClipboardList, CircleDollarSign, Users];
 const STEP_ICONS = [ClipboardList, ShieldCheck, MessageCircle];
@@ -60,7 +45,7 @@ type InsuranceSupportSectionProps = {
 export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: InsuranceSupportSectionProps) {
   const benefits = t.benefits ?? [];
   const steps = t.processSteps ?? [];
-  const tickerPlans = t.toolbox?.plans?.length ? t.toolbox.plans : DEFAULT_INSURANCE_PLANS;
+  const tickerPlans = INSURANCE_TICKER_PLANS;
 
   return (
     <section
@@ -156,14 +141,14 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
             <div className="eden-insurance-ticker__marquee" aria-hidden="true">
               <div className="eden-insurance-ticker__viewport">
                 <ul className="eden-insurance-ticker__track">
-                  {tickerPlans.map((name) => (
-                    <li key={name} className="eden-insurance-ticker__item">
+                  {tickerPlans.map((name, index) => (
+                    <li key={`plan-${index}`} className="eden-insurance-ticker__item">
                       <span>{name}</span>
                     </li>
                   ))}
-                  {tickerPlans.map((name) => (
+                  {tickerPlans.map((name, index) => (
                     <li
-                      key={`loop-${name}`}
+                      key={`loop-${index}`}
                       className="eden-insurance-ticker__item eden-insurance-ticker__item--loop"
                       aria-hidden="true"
                     >

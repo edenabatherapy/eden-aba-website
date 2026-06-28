@@ -476,6 +476,7 @@ body {
   overflow: hidden;
   width: 100%;
   max-width: 100%;
+  max-height: 64px;
   padding: 8px 0;
   mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
@@ -483,7 +484,7 @@ body {
 
 .eden-insurance-ticker__track {
   display: flex;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-items: center;
   width: max-content;
   margin: 0;
@@ -491,6 +492,11 @@ body {
   list-style: none;
   animation: edenInsuranceTickerMove 28s linear infinite;
   will-change: transform;
+}
+
+.eden-insurance-ticker__item--loop {
+  pointer-events: none;
+  user-select: none;
 }
 
 .eden-insurance-ticker__viewport:hover .eden-insurance-ticker__track {
