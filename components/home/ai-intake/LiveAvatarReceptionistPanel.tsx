@@ -283,10 +283,7 @@ export default function LiveAvatarReceptionistPanel({
           />
 
           <div className="eden-ai-video__stage eden-ai-video__stage--live">
-            <AiIntakeBrandedMediaFrame
-              showWatermark={panelState !== "live"}
-              showCornerBadge={panelState !== "live"}
-            >
+            <AiIntakeBrandedMediaFrame showWatermark={false} showCornerBadge={false}>
               <AiIntakeAvatarBackdrop />
               <video
                 ref={videoRef}

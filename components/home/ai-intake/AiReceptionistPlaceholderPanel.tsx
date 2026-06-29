@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Play, Volume2 } from "lucide-react";
+import AiIntakeAvatarBackdrop from "./AiIntakeAvatarBackdrop";
 import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
 import { AI_RECEPTIONIST_GREETING } from "./ai-intake-config";
 
@@ -66,7 +67,8 @@ export default function AiReceptionistPlaceholderPanel({
           />
 
           <div className="eden-ai-video__stage eden-ai-video__stage--live">
-            <AiIntakeBrandedMediaFrame>
+            <AiIntakeBrandedMediaFrame showWatermark={false} showCornerBadge={false}>
+              <AiIntakeAvatarBackdrop />
               <div className="eden-ai-video__media-overlay eden-ai-video__media-overlay--preview">
                 <p className="eden-ai-video__placeholder-label">Katya · Eden AI Intake Assistant</p>
                 <button
