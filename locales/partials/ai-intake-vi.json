@@ -126,15 +126,14 @@
     }
   },
   "coordinator": {
-    "title": "Kết nối với Điều phối viên Tiếp nhận Eden",
-    "description": "Chọn cách bạn muốn liên hệ với đội ngũ tiếp nhận. Video trực tiếp kết nối bạn trực tiếp trong trình duyệt.",
-    "startLiveVideo": "Bắt đầu cuộc gọi video trực tiếp",
-    "callEdenNow": "Gọi Eden ngay",
+    "loadingTitle": "Đang kết nối bạn với Điều phối viên Tiếp nhận Eden",
+    "loadingStatus": "Đang thiết lập phòng video trực tiếp bảo mật...",
+    "unavailableTitle": "Điều phối viên tiếp nhận của chúng tôi hiện không khả dụng.",
+    "unavailableText": "Bạn có thể tiếp tục với Eden AI, đặt lịch gọi hoặc để lại tin nhắn cho đội ngũ tiếp nhận.",
     "scheduleCall": "Đặt lịch gọi",
-    "continueWithAi": "Tiếp tục với Eden AI",
+    "continueChat": "Tiếp tục trò chuyện",
     "leaveMessage": "Để lại tin nhắn",
-    "liveVideoUnavailable": "Video trực tiếp hiện không khả dụng. Vui lòng gọi, đặt lịch hoặc để lại tin nhắn.",
-    "closeLabel": "Đóng hộp thoại kết nối điều phối viên"
+    "closeLabel": "Đóng hộp thoại điều phối viên"
   },
   "callback": {
     "title": "Để lại tin nhắn cho Đội ngũ Tiếp nhận",

@@ -126,15 +126,14 @@
     }
   },
   "coordinator": {
-    "title": "Connect with an Eden Intake Coordinator",
-    "description": "Choose how you would like to reach our intake team. Live video connects you face-to-face in your browser.",
-    "startLiveVideo": "Start Live Video Call",
-    "callEdenNow": "Call Eden Now",
+    "loadingTitle": "Connecting you with an Eden Intake Coordinator",
+    "loadingStatus": "Setting up a secure live video room...",
+    "unavailableTitle": "Our intake coordinator is currently unavailable.",
+    "unavailableText": "You can continue with Eden AI, schedule a call, or leave a message for our intake team.",
     "scheduleCall": "Schedule Call",
-    "continueWithAi": "Continue with Eden AI",
+    "continueChat": "Continue Chat",
     "leaveMessage": "Leave Message",
-    "liveVideoUnavailable": "Live video is not available right now. Please call, schedule, or leave a message.",
-    "closeLabel": "Close connect with coordinator dialog"
+    "closeLabel": "Close coordinator dialog"
   },
   "callback": {
     "title": "Leave a Message for Our Intake Team",

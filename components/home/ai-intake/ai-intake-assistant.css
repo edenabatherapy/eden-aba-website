@@ -981,6 +981,11 @@
   box-shadow: 0 0 0 0.35rem rgba(73, 184, 200, 0.18), 0 16px 36px rgba(11, 79, 79, 0.18);
 }
 
+.eden-ai-modal__video-ring--muted {
+  background: linear-gradient(135deg, #64748b, #94a3b8);
+  box-shadow: 0 0 0 0.35rem rgba(148, 163, 184, 0.18), 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+
 .eden-ai-modal__notice {
   margin: 0;
   width: 100%;

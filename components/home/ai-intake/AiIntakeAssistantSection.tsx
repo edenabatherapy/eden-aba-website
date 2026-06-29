@@ -10,10 +10,16 @@ import LiveCoordinatorModal from "./LiveCoordinatorModal";
 import IntakeCallbackMessageModal from "./IntakeCallbackMessageModal";
 import TrustedHealthcareTech from "./TrustedHealthcareTech";
 import { getAiIntakeSection } from "./ai-intake-i18n";
-import type { AiIntakeAssistantHandlers, AiIntakeActionId } from "./types";
+import type { AiIntakeAssistantHandlers, AiIntakeActionId, LiveCoordinatorModalPhase } from "./types";
 import "./ai-intake-assistant.css";
 
 type AiIntakeAssistantSectionProps = AiIntakeAssistantHandlers;
+
+type CreateDailyRoomResponse = {
+  ok?: boolean;
+  joinUrl?: string;
+  message?: string;
+};
 
 export default function AiIntakeAssistantSection({
   onAskQuestion,
@@ -28,8 +34,10 @@ export default function AiIntakeAssistantSection({
   const copy = useMemo(() => getAiIntakeSection(language), [language]);
 
   const sectionRef = useRef<HTMLElement>(null);
+  const speakWithPersonInFlightRef = useRef(false);
   const [isVisible, setIsVisible] = useState(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
+  const [connectModalPhase, setConnectModalPhase] = useState<LiveCoordinatorModalPhase>("loading");
   const [callbackModalOpen, setCallbackModalOpen] = useState(false);
   const [chatActive, setChatActive] = useState(false);
 
@@ -51,14 +59,39 @@ export default function AiIntakeAssistantSection({
     return () => observer.disconnect();
   }, []);
 
-  const openConnectModal = useCallback(() => {
-    setConnectModalOpen(true);
-    onSpeakWithPerson?.();
-  }, [onSpeakWithPerson]);
-
   const closeConnectModal = useCallback(() => {
     setConnectModalOpen(false);
+    setConnectModalPhase("loading");
   }, []);
+
+  const startDailyIntakeCall = useCallback(async () => {
+    if (speakWithPersonInFlightRef.current) return;
+
+    speakWithPersonInFlightRef.current = true;
+    setConnectModalOpen(true);
+    setConnectModalPhase("loading");
+    onSpeakWithPerson?.();
+
+    try {
+      const response = await fetch("/api/daily/create-room", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+      });
+
+      const result = (await response.json().catch(() => ({}))) as CreateDailyRoomResponse;
+
+      if (!response.ok || !result.ok || !result.joinUrl) {
+        setConnectModalPhase("unavailable");
+        return;
+      }
+
+      window.location.assign(result.joinUrl);
+    } catch {
+      setConnectModalPhase("unavailable");
+    } finally {
+      speakWithPersonInFlightRef.current = false;
+    }
+  }, [onSpeakWithPerson]);
 
   const handleAction = useCallback(
     (actionId: AiIntakeActionId) => {
@@ -84,7 +117,7 @@ export default function AiIntakeAssistantSection({
           onProviderReferral?.();
           break;
         case "speak-with-person":
-          openConnectModal();
+          void startDailyIntakeCall();
           break;
         default:
           break;
@@ -96,11 +129,11 @@ export default function AiIntakeAssistantSection({
       onSchedule,
       onStartIntake,
       onProviderReferral,
-      openConnectModal,
+      startDailyIntakeCall,
     ],
   );
 
-  const handleContinueWithAi = useCallback(() => {
+  const handleContinueChat = useCallback(() => {
     closeConnectModal();
     setChatActive(true);
     window.dispatchEvent(new CustomEvent(EDEN_START_AI_CHAT_EVENT));
@@ -155,7 +188,7 @@ export default function AiIntakeAssistantSection({
               <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--secondary" onClick={() => handleAction("ask-question")}>
                 {copy.cta.askQuestion}
               </button>
-              <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={openConnectModal}>
+              <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={() => void startDailyIntakeCall()}>
                 {copy.cta.speakWithPerson}
               </button>
             </div>
@@ -167,12 +200,13 @@ export default function AiIntakeAssistantSection({
 
       <LiveCoordinatorModal
         open={connectModalOpen}
+        phase={connectModalPhase}
         onClose={closeConnectModal}
         onScheduleCall={() => {
           closeConnectModal();
           onScheduleCall?.();
         }}
-        onContinueWithAi={handleContinueWithAi}
+        onContinueChat={handleContinueChat}
         onLeaveMessage={handleLeaveMessage}
       />
 
