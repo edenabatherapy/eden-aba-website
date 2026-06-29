@@ -1,13 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Sparkles } from "lucide-react";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import AiIntakeActionButtons from "./AiIntakeActionButtons";
 import AiReceptionistVideoPanel from "./AiReceptionistVideoPanel";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
 import LiveCoordinatorModal from "./LiveCoordinatorModal";
 import TrustedHealthcareTech from "./TrustedHealthcareTech";
-import { AI_INTAKE_CAPABILITIES } from "./ai-intake-config";
+import { getAiIntakeSection } from "./ai-intake-i18n";
 import type { AiIntakeAssistantHandlers, AiIntakeActionId, LiveCoordinatorModalPhase } from "./types";
 import "./ai-intake-assistant.css";
 
@@ -26,6 +27,9 @@ export default function AiIntakeAssistantSection({
   onContinueChat,
   onLeaveMessage,
 }: AiIntakeAssistantSectionProps) {
+  const { language } = useSiteLanguage();
+  const copy = useMemo(() => getAiIntakeSection(language), [language]);
+
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -136,37 +140,30 @@ export default function AiIntakeAssistantSection({
           <div className="eden-ai-intake__content">
             <p className="eden-ai-intake__eyebrow">
               <Sparkles size={14} aria-hidden="true" />
-              Intelligent intake support
+              {copy.eyebrow}
             </p>
             <h2 id="eden-ai-intake-title" className="eden-ai-intake__title">
-              Meet Eden —
-              <span>Your AI Intake Assistant</span>
+              {copy.titleLead}
+              <span>{copy.titleAccent}</span>
             </h2>
-            <p className="eden-ai-intake__subtitle">
-              24/7 guidance for parents, caregivers, and providers.
-            </p>
-            <p className="eden-ai-intake__description">
-              Eden&apos;s AI intake assistant welcomes families with calm, professional guidance—helping
-              you understand ABA therapy, explore services, and take the next step with confidence.
-              Available 24 hours a day to help your family begin the journey with confidence, and
-              seamlessly connect you with a live intake coordinator whenever one is available.
-            </p>
+            <p className="eden-ai-intake__subtitle">{copy.subtitle}</p>
+            <p className="eden-ai-intake__description">{copy.description}</p>
 
-            <ul className="eden-ai-intake__capabilities" aria-label="AI assistant capabilities">
-              {AI_INTAKE_CAPABILITIES.map((item) => (
+            <ul className="eden-ai-intake__capabilities" aria-label={copy.capabilitiesAriaLabel}>
+              {copy.capabilities.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
 
             <div className="eden-ai-intake__ctas">
               <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--primary" onClick={() => handleAction("start-intake")}>
-                Start Intake
+                {copy.cta.startIntake}
               </button>
               <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--secondary" onClick={() => handleAction("ask-question")}>
-                Ask Eden a Question
+                {copy.cta.askQuestion}
               </button>
               <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={openLiveCoordinatorModal}>
-                Speak with a Person
+                {copy.cta.speakWithPerson}
               </button>
             </div>
           </div>

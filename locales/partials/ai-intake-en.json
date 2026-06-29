@@ -1,0 +1,128 @@
+{
+  "eyebrow": "Intelligent intake support",
+  "titleLead": "Meet Eden —",
+  "titleAccent": "Your AI Intake Assistant",
+  "subtitle": "24/7 guidance for parents, caregivers, and providers.",
+  "description": "Eden's AI intake assistant welcomes families with calm, professional guidance—helping you understand ABA therapy, explore services, and take the next step with confidence. Available 24 hours a day to help your family begin the journey with confidence, and seamlessly connect you with a live intake coordinator whenever one is available.",
+  "capabilitiesAriaLabel": "AI assistant capabilities",
+  "capabilities": [
+    "Answer common ABA therapy questions with clear, family-friendly guidance",
+    "Explain Eden services, settings, and what families may expect during care",
+    "Walk through insurance verification steps and documentation families may need",
+    "Help with scheduling questions and appointment preparation",
+    "Guide families through the intake process step by step",
+    "Support provider referral questions and professional handoff expectations",
+    "Respond to frequently asked questions about getting started",
+    "Connect families with a live intake coordinator whenever one is available"
+  ],
+  "cta": {
+    "startIntake": "Start Intake",
+    "askQuestion": "Ask Eden a Question",
+    "speakWithPerson": "Speak with a Person"
+  },
+  "tech": {
+    "eyebrow": "Technology stack",
+    "title": "Powered by Trusted Healthcare Technology",
+    "disclaimer": "Informational reference only. Eden ABA Therapy does not imply official partnership, endorsement, or certification by these providers unless separately stated.",
+    "cards": {
+      "heygen": {
+        "name": "HeyGen",
+        "role": "AI Avatar",
+        "description": "Future avatar experience for welcoming, visual intake conversations."
+      },
+      "elevenlabs": {
+        "name": "ElevenLabs",
+        "role": "Natural Voice",
+        "description": "Planned natural voice layer for warm, accessible guidance."
+      },
+      "openai": {
+        "name": "OpenAI",
+        "role": "Conversation Intelligence",
+        "description": "Structured conversational support for common intake questions."
+      },
+      "calendly": {
+        "name": "Calendly",
+        "role": "Scheduling",
+        "description": "Appointment coordination when families are ready to schedule."
+      },
+      "daily": {
+        "name": "Daily.co",
+        "role": "Secure Video Calls",
+        "description": "Secure video connection options for virtual intake support."
+      },
+      "ringcentral": {
+        "name": "RingCentral",
+        "role": "Business Phone",
+        "description": "Professional phone routing to Eden intake coordinators."
+      },
+      "centralreach": {
+        "name": "CentralReach",
+        "role": "ABA Practice Management",
+        "description": "Clinical operations platform supporting Eden care workflows."
+      }
+    }
+  },
+  "panel": {
+    "actionsAriaLabel": "AI intake assistant actions",
+    "assistantTitle": "Eden AI Intake Assistant",
+    "statusLabel": "Eden AI Intake Assistant",
+    "avatarLabel": "Eden AI intake assistant avatar",
+    "placeholderLabel": "Katya · Eden AI Intake Assistant",
+    "badgeLive": "Live",
+    "badgeUnavailable": "Unavailable",
+    "badgeAvailable": "Available Now",
+    "badgePreview": "Preview Mode",
+    "mute": "Mute avatar audio",
+    "unmute": "Unmute avatar audio",
+    "startChat": "Start AI Chat",
+    "endChat": "End Chat",
+    "tryAgain": "Try Again",
+    "usePreview": "Use Preview",
+    "idleIntro": "Tap Start AI Chat to begin your intake conversation.",
+    "preparing": "Preparing your Eden AI intake assistant...",
+    "connecting": "Connecting to Eden. This may take a few seconds...",
+    "ready": "Eden is ready. You can speak when the avatar is listening.",
+    "sessionEnded": "Session ended. Tap Start AI Chat to begin again.",
+    "startFailed": "LiveAvatar could not start. Please try again.",
+    "timeout": "Connection timed out. LiveAvatar may be unavailable right now.",
+    "unavailable": "LiveAvatar is unavailable right now. Please try again.",
+    "greeting": [
+      "Hello!",
+      "I'm Eden,",
+      "your AI Intake Assistant.",
+      "",
+      "I'm here to answer questions about ABA therapy,",
+      "insurance,",
+      "appointments,",
+      "and getting started.",
+      "",
+      "How can I help today?"
+    ],
+    "actions": {
+      "ask-question": {
+        "label": "Ask a Question",
+        "description": "Chat with Eden about ABA, services, and next steps."
+      },
+      "check-insurance": {
+        "label": "Check Insurance",
+        "description": "Learn how Eden may help verify benefits."
+      },
+      "schedule": {
+        "label": "Schedule Appointment",
+        "description": "Explore scheduling options when appropriate."
+      },
+      "start-intake": {
+        "label": "Start Intake",
+        "description": "Begin the family intake journey with confidence."
+      },
+      "provider-referral": {
+        "label": "Provider Referral",
+        "description": "Professional referral guidance for care partners."
+      },
+      "speak-with-person": {
+        "label": "Speak with a Person",
+        "description": "Request a live Eden intake coordinator."
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AlertCircle, Loader2, Mic, Square, Volume2 } from "lucide-react";
-import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { useSiteLanguage, type SiteLanguage } from "@/hooks/useSiteLanguage";
 import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
 import AiIntakeAvatarBackdrop from "./AiIntakeAvatarBackdrop";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
@@ -35,12 +35,17 @@ export default function LiveAvatarReceptionistPanel({
   const sdkRef = useRef<LiveAvatarSessionModule | null>(null);
   const connectTimeoutRef = useRef<number | null>(null);
   const isMutedRef = useRef(false);
+  const sessionLanguageRef = useRef<SiteLanguage | null>(null);
+  const isRestartingForLanguageRef = useRef(false);
+  const panelStateRef = useRef<LiveAvatarPanelState>("idle");
+  const restartInFlightRef = useRef(false);
 
   const [panelState, setPanelState] = useState<LiveAvatarPanelState>("idle");
   const [statusMessage, setStatusMessage] = useState(copy.idleIntro);
   const [isMuted, setIsMuted] = useState(false);
 
   isMutedRef.current = isMuted;
+  panelStateRef.current = panelState;
 
   useEffect(() => {
     if (panelState === "idle") {
@@ -86,6 +91,8 @@ export default function LiveAvatarReceptionistPanel({
       const ctx = canvas.getContext("2d");
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
     }
+
+    sessionLanguageRef.current = null;
   }, [clearConnectTimeout, stopChromaKey]);
 
   useEffect(() => {
@@ -140,6 +147,7 @@ export default function LiveAvatarReceptionistPanel({
   const handleSessionFailure = useCallback(
     async (message: string) => {
       console.error("[LiveAvatarReceptionistPanel]", message);
+      isRestartingForLanguageRef.current = false;
       await cleanupSession();
       clearConnectTimeout();
       setPanelState("error");
@@ -148,88 +156,127 @@ export default function LiveAvatarReceptionistPanel({
     [cleanupSession, clearConnectTimeout],
   );
 
+  const startChatSession = useCallback(
+    async (options?: { force?: boolean }) => {
+      if (restartInFlightRef.current) return;
+      if (
+        !options?.force &&
+        (panelState === "loading" || panelState === "connecting" || panelState === "live")
+      ) {
+        return;
+      }
+
+      restartInFlightRef.current = true;
+
+      try {
+        if (options?.force) {
+          isRestartingForLanguageRef.current = true;
+          await cleanupSession();
+        }
+
+        setPanelState("loading");
+        setStatusMessage(copy.preparing);
+
+        const response = await fetch("/api/liveavatar/session", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ language }),
+        });
+
+        const payload = (await response.json()) as {
+          ok?: boolean;
+          sessionToken?: string;
+          message?: string;
+        };
+
+        if (!response.ok || !payload.ok || !payload.sessionToken) {
+          throw new Error(payload.message || "LiveAvatar session could not be created.");
+        }
+
+        setPanelState("connecting");
+        setStatusMessage(copy.connecting);
+
+        const sdk = sdkRef.current ?? (await import("@heygen/liveavatar-web-sdk"));
+        sdkRef.current = sdk;
+
+        const session = new sdk.LiveAvatarSession(payload.sessionToken, {
+          voiceChat: true,
+        });
+        sessionRef.current = session;
+        sessionLanguageRef.current = language;
+
+        session.on(sdk.SessionEvent.SESSION_STREAM_READY, () => {
+          clearConnectTimeout();
+          attachStream();
+          setPanelState("live");
+          setStatusMessage(copy.ready);
+          isRestartingForLanguageRef.current = false;
+        });
+
+        session.on(sdk.SessionEvent.SESSION_STATE_CHANGED, (state) => {
+          if (state === sdk.SessionState.CONNECTING) {
+            setStatusMessage(copy.connecting);
+          }
+          if (state === sdk.SessionState.CONNECTED) {
+            attachStream();
+          }
+        });
+
+        session.on(sdk.SessionEvent.SESSION_DISCONNECTED, (reason) => {
+          clearConnectTimeout();
+          if (isRestartingForLanguageRef.current) {
+            return;
+          }
+          if (reason === sdk.SessionDisconnectReason.SESSION_START_FAILED) {
+            void handleSessionFailure(copy.startFailed);
+            return;
+          }
+          setPanelState("idle");
+          setStatusMessage(copy.sessionEnded);
+        });
+
+        connectTimeoutRef.current = window.setTimeout(() => {
+          void handleSessionFailure(copy.timeout);
+        }, CONNECT_TIMEOUT_MS);
+
+        await session.start();
+      } catch (error) {
+        isRestartingForLanguageRef.current = false;
+        const message = error instanceof Error ? error.message : copy.unavailable;
+        await handleSessionFailure(message);
+      } finally {
+        restartInFlightRef.current = false;
+      }
+    },
+    [
+      attachStream,
+      clearConnectTimeout,
+      cleanupSession,
+      copy,
+      handleSessionFailure,
+      language,
+      panelState,
+    ],
+  );
+
   const handleStartChat = useCallback(async () => {
-    if (panelState === "loading" || panelState === "connecting" || panelState === "live") {
+    await startChatSession();
+  }, [startChatSession]);
+
+  useEffect(() => {
+    const activeLanguage = sessionLanguageRef.current;
+    if (activeLanguage === null || activeLanguage === language) {
       return;
     }
 
-    setPanelState("loading");
-    setStatusMessage(copy.preparing);
-
-    try {
-      const response = await fetch("/api/liveavatar/session", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ language }),
-      });
-
-      const payload = (await response.json()) as {
-        ok?: boolean;
-        sessionToken?: string;
-        message?: string;
-      };
-
-      if (!response.ok || !payload.ok || !payload.sessionToken) {
-        throw new Error(payload.message || "LiveAvatar session could not be created.");
-      }
-
-      setPanelState("connecting");
-      setStatusMessage(copy.connecting);
-
-      const sdk = sdkRef.current ?? (await import("@heygen/liveavatar-web-sdk"));
-      sdkRef.current = sdk;
-
-      const session = new sdk.LiveAvatarSession(payload.sessionToken, {
-        voiceChat: true,
-      });
-      sessionRef.current = session;
-
-      session.on(sdk.SessionEvent.SESSION_STREAM_READY, () => {
-        clearConnectTimeout();
-        attachStream();
-        setPanelState("live");
-        setStatusMessage(copy.ready);
-      });
-
-      session.on(sdk.SessionEvent.SESSION_STATE_CHANGED, (state) => {
-        if (state === sdk.SessionState.CONNECTING) {
-          setStatusMessage(copy.connecting);
-        }
-        if (state === sdk.SessionState.CONNECTED) {
-          attachStream();
-        }
-      });
-
-      session.on(sdk.SessionEvent.SESSION_DISCONNECTED, (reason) => {
-        clearConnectTimeout();
-        if (reason === sdk.SessionDisconnectReason.SESSION_START_FAILED) {
-          void handleSessionFailure(copy.startFailed);
-          return;
-        }
-        setPanelState("idle");
-        setStatusMessage(copy.sessionEnded);
-      });
-
-      connectTimeoutRef.current = window.setTimeout(() => {
-        void handleSessionFailure(copy.timeout);
-      }, CONNECT_TIMEOUT_MS);
-
-      await session.start();
-    } catch (error) {
-      const message = error instanceof Error ? error.message : copy.unavailable;
-      await handleSessionFailure(message);
+    const state = panelStateRef.current;
+    if (state === "live" || state === "connecting" || state === "loading") {
+      void startChatSession({ force: true });
     }
-  }, [
-    attachStream,
-    clearConnectTimeout,
-    copy,
-    handleSessionFailure,
-    language,
-    panelState,
-  ]);
+  }, [language, startChatSession]);
 
   useEffect(() => {
     const handleExternalStart = () => {

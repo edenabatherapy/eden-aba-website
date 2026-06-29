@@ -1,0 +1,128 @@
+{
+  "eyebrow": "Hỗ trợ tiếp nhận thông minh",
+  "titleLead": "Gặp Eden —",
+  "titleAccent": "Trợ lý Tiếp nhận AI của bạn",
+  "subtitle": "Hướng dẫn 24/7 dành cho phụ huynh, người chăm sóc và nhà cung cấp.",
+  "description": "Trợ lý tiếp nhận AI của Eden chào đón các gia đình với sự hướng dẫn chuyên nghiệp, điềm tĩnh—giúp bạn hiểu về liệu pháp ABA, khám phá dịch vụ và bước tiếp theo một cách tự tin. Sẵn sàng 24 giờ mỗi ngày để giúp gia đình bạn bắt đầu hành trình một cách tự tin, và kết nối liền mạch với điều phối viên tiếp nhận trực tiếp khi có sẵn.",
+  "capabilitiesAriaLabel": "Khả năng của trợ lý AI",
+  "capabilities": [
+    "Trả lời các câu hỏi phổ biến về liệu pháp ABA với hướng dẫn rõ ràng, thân thiện với gia đình",
+    "Giải thích dịch vụ, môi trường chăm sóc của Eden và những gì gia đình có thể mong đợi",
+    "Hướng dẫn các bước xác minh bảo hiểm và tài liệu gia đình có thể cần",
+    "Hỗ trợ câu hỏi về lịch hẹn và chuẩn bị cho buổi hẹn",
+    "Hướng dẫn gia đình qua quy trình tiếp nhận từng bước",
+    "Hỗ trợ câu hỏi giới thiệu từ nhà cung cấp và kỳ vọng chuyển giao chuyên môn",
+    "Trả lời các câu hỏi thường gặp về việc bắt đầu",
+    "Kết nối gia đình với điều phối viên tiếp nhận trực tiếp khi có sẵn"
+  ],
+  "cta": {
+    "startIntake": "Bắt đầu tiếp nhận",
+    "askQuestion": "Hỏi Eden một câu hỏi",
+    "speakWithPerson": "Nói chuyện với nhân viên"
+  },
+  "tech": {
+    "eyebrow": "Công nghệ",
+    "title": "Được hỗ trợ bởi công nghệ y tế đáng tin cậy",
+    "disclaimer": "Chỉ mang tính tham khảo. Eden ABA Therapy không ngụ ý quan hệ đối tác chính thức, chứng nhận hoặc xác nhận từ các nhà cung cấp này trừ khi được nêu riêng.",
+    "cards": {
+      "heygen": {
+        "name": "HeyGen",
+        "role": "Ảnh đại diện AI",
+        "description": "Trải nghiệm avatar trong tương lai cho các cuộc trò chuyện tiếp nhận trực quan, chào đón."
+      },
+      "elevenlabs": {
+        "name": "ElevenLabs",
+        "role": "Giọng nói tự nhiên",
+        "description": "Lớp giọng nói tự nhiên dự kiến cho hướng dẫn ấm áp, dễ tiếp cận."
+      },
+      "openai": {
+        "name": "OpenAI",
+        "role": "Trí tuệ hội thoại",
+        "description": "Hỗ trợ hội thoại có cấu trúc cho các câu hỏi tiếp nhận phổ biến."
+      },
+      "calendly": {
+        "name": "Calendly",
+        "role": "Đặt lịch",
+        "description": "Điều phối lịch hẹn khi gia đình sẵn sàng đặt lịch."
+      },
+      "daily": {
+        "name": "Daily.co",
+        "role": "Cuộc gọi video bảo mật",
+        "description": "Tùy chọn kết nối video bảo mật cho hỗ trợ tiếp nhận ảo."
+      },
+      "ringcentral": {
+        "name": "RingCentral",
+        "role": "Điện thoại doanh nghiệp",
+        "description": "Định tuyến điện thoại chuyên nghiệp đến điều phối viên tiếp nhận Eden."
+      },
+      "centralreach": {
+        "name": "CentralReach",
+        "role": "Quản lý thực hành ABA",
+        "description": "Nền tảng vận hành lâm sàng hỗ trợ quy trình chăm sóc của Eden."
+      }
+    }
+  },
+  "panel": {
+    "actionsAriaLabel": "Các thao tác trợ lý tiếp nhận AI",
+    "assistantTitle": "Trợ lý Tiếp nhận AI Eden",
+    "statusLabel": "Trợ lý Tiếp nhận AI Eden",
+    "avatarLabel": "Ảnh đại diện trợ lý tiếp nhận AI Eden",
+    "placeholderLabel": "Katya · Trợ lý Tiếp nhận AI Eden",
+    "badgeLive": "Trực tiếp",
+    "badgeUnavailable": "Không khả dụng",
+    "badgeAvailable": "Sẵn sàng",
+    "badgePreview": "Chế độ xem trước",
+    "mute": "Tắt tiếng avatar",
+    "unmute": "Bật tiếng avatar",
+    "startChat": "Bắt đầu trò chuyện AI",
+    "endChat": "Kết thúc trò chuyện",
+    "tryAgain": "Thử lại",
+    "usePreview": "Dùng bản xem trước",
+    "idleIntro": "Nhấn Bắt đầu trò chuyện AI để bắt đầu buổi tiếp nhận.",
+    "preparing": "Đang chuẩn bị trợ lý tiếp nhận AI Eden...",
+    "connecting": "Đang kết nối với Eden. Quá trình này có thể mất vài giây...",
+    "ready": "Eden đã sẵn sàng. Bạn có thể nói khi avatar đang lắng nghe.",
+    "sessionEnded": "Phiên đã kết thúc. Nhấn Bắt đầu trò chuyện AI để bắt đầu lại.",
+    "startFailed": "LiveAvatar không thể khởi động. Vui lòng thử lại.",
+    "timeout": "Kết nối quá thời gian chờ. LiveAvatar có thể tạm thời không khả dụng.",
+    "unavailable": "LiveAvatar hiện không khả dụng. Vui lòng thử lại.",
+    "greeting": [
+      "Xin chào!",
+      "Tôi là Eden,",
+      "trợ lý tiếp nhận AI của bạn.",
+      "",
+      "Tôi ở đây để trả lời các câu hỏi về liệu pháp ABA,",
+      "bảo hiểm,",
+      "lịch hẹn,",
+      "và cách bắt đầu.",
+      "",
+      "Tôi có thể giúp gì cho bạn hôm nay?"
+    ],
+    "actions": {
+      "ask-question": {
+        "label": "Đặt câu hỏi",
+        "description": "Trò chuyện với Eden về ABA, dịch vụ và các bước tiếp theo."
+      },
+      "check-insurance": {
+        "label": "Kiểm tra bảo hiểm",
+        "description": "Tìm hiểu cách Eden có thể hỗ trợ xác minh quyền lợi."
+      },
+      "schedule": {
+        "label": "Đặt lịch hẹn",
+        "description": "Khám phá các lựa chọn đặt lịch khi phù hợp."
+      },
+      "start-intake": {
+        "label": "Bắt đầu tiếp nhận",
+        "description": "Bắt đầu hành trình tiếp nhận gia đình một cách tự tin."
+      },
+      "provider-referral": {
+        "label": "Giới thiệu từ nhà cung cấp",
+        "description": "Hướng dẫn giới thiệu chuyên nghiệp cho đối tác chăm sóc."
+      },
+      "speak-with-person": {
+        "label": "Nói chuyện với nhân viên",
+        "description": "Yêu cầu điều phối viên tiếp nhận Eden trực tiếp."
+      }
+    }
+  }
+}
