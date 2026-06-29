@@ -3,7 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AlertCircle, Loader2, Mic, Square, Volume2 } from "lucide-react";
 import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
+import AiIntakeAvatarBackdrop from "./AiIntakeAvatarBackdrop";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
+import { EDEN_CHROMA_KEY_OPTIONS } from "@/lib/liveavatar/chroma-key-config";
+import { setupChromaKey } from "@/lib/liveavatar/chromaKey";
 
 type LiveAvatarPanelState = "idle" | "loading" | "connecting" | "live" | "error";
 
@@ -21,6 +24,8 @@ export default function LiveAvatarReceptionistPanel({
   onFallback,
 }: LiveAvatarReceptionistPanelProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const chromaCleanupRef = useRef<(() => void) | null>(null);
   const sessionRef = useRef<InstanceType<LiveAvatarSessionModule["LiveAvatarSession"]> | null>(null);
   const sdkRef = useRef<LiveAvatarSessionModule | null>(null);
   const connectTimeoutRef = useRef<number | null>(null);
@@ -34,6 +39,13 @@ export default function LiveAvatarReceptionistPanel({
 
   isMutedRef.current = isMuted;
 
+  const stopChromaKey = useCallback(() => {
+    if (chromaCleanupRef.current) {
+      chromaCleanupRef.current();
+      chromaCleanupRef.current = null;
+    }
+  }, []);
+
   const clearConnectTimeout = useCallback(() => {
     if (connectTimeoutRef.current !== null) {
       window.clearTimeout(connectTimeoutRef.current);
@@ -43,6 +55,7 @@ export default function LiveAvatarReceptionistPanel({
 
   const cleanupSession = useCallback(async () => {
     clearConnectTimeout();
+    stopChromaKey();
     const session = sessionRef.current;
     sessionRef.current = null;
 
@@ -58,13 +71,49 @@ export default function LiveAvatarReceptionistPanel({
     if (video) {
       video.srcObject = null;
     }
-  }, [clearConnectTimeout]);
+
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      ctx?.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }, [clearConnectTimeout, stopChromaKey]);
 
   useEffect(() => {
     return () => {
       void cleanupSession();
     };
   }, [cleanupSession]);
+
+  useEffect(() => {
+    if (panelState !== "live") {
+      stopChromaKey();
+      return undefined;
+    }
+
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    if (!video || !canvas) return undefined;
+
+    const startWhenReady = () => {
+      if (!video || !canvas || video.readyState < 2) return;
+      stopChromaKey();
+      chromaCleanupRef.current = setupChromaKey(video, canvas, EDEN_CHROMA_KEY_OPTIONS);
+    };
+
+    if (video.readyState >= 2) {
+      startWhenReady();
+    } else {
+      video.addEventListener("loadedmetadata", startWhenReady);
+      video.addEventListener("loadeddata", startWhenReady);
+    }
+
+    return () => {
+      video.removeEventListener("loadedmetadata", startWhenReady);
+      video.removeEventListener("loadeddata", startWhenReady);
+      stopChromaKey();
+    };
+  }, [panelState, stopChromaKey]);
 
   const attachStream = useCallback(() => {
     const session = sessionRef.current;
@@ -234,13 +283,28 @@ export default function LiveAvatarReceptionistPanel({
           />
 
           <div className="eden-ai-video__stage eden-ai-video__stage--live">
-            <AiIntakeBrandedMediaFrame>
+            <AiIntakeBrandedMediaFrame
+              showWatermark={panelState !== "live"}
+              showCornerBadge={panelState !== "live"}
+            >
+              <AiIntakeAvatarBackdrop />
               <video
                 ref={videoRef}
-                className="eden-ai-video__media"
+                className={`eden-ai-video__media eden-ai-video__media--source${
+                  panelState === "live" ? " eden-ai-video__media--chroma-source" : ""
+                }`}
                 playsInline
                 muted={isMuted}
+                aria-hidden={panelState === "live"}
                 aria-label="Eden AI intake assistant avatar video"
+              />
+              <canvas
+                ref={canvasRef}
+                className={`eden-ai-video__media eden-ai-video__media-canvas${
+                  panelState === "live" ? " eden-ai-video__media-canvas--visible" : ""
+                }`}
+                aria-hidden={panelState !== "live"}
+                aria-label="Eden AI intake assistant avatar"
               />
               {panelState !== "live" ? (
                 <div className="eden-ai-video__media-overlay">

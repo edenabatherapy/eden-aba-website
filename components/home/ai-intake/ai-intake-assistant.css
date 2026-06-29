@@ -469,14 +469,69 @@
   object-fit: contain;
 }
 
+.eden-ai-video__avatar-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(238, 249, 244, 0.96), rgba(232, 245, 239, 0.98)),
+    linear-gradient(180deg, #eef9f4 0%, #f8fcfa 55%, #e8f5ef 100%);
+}
+
+.eden-ai-video__avatar-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transform: scale(1.05);
+  filter: blur(5px) saturate(0.9);
+}
+
+.eden-ai-video__avatar-bg-clinic {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(247, 199, 47, 0.1), transparent 34%),
+    radial-gradient(circle at 84% 80%, rgba(18, 140, 140, 0.08), transparent 36%),
+    linear-gradient(160deg, #f4fbf7 0%, #eef9f4 48%, #e3f2ea 100%);
+}
+
+.eden-ai-video__avatar-bg-logo {
+  width: min(42%, 11rem);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.12;
+  filter: saturate(0.88);
+  pointer-events: none;
+}
+
 .eden-ai-video__media {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  background: #0b4f4f;
+  background: transparent;
+}
+
+.eden-ai-video__media--chroma-source {
+  /* Keep decoder running while canvas shows keyed frames (LiveAvatar demo pattern). */
+  visibility: hidden;
+}
+
+.eden-ai-video__media-canvas {
+  display: none;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.eden-ai-video__media-canvas--visible {
+  display: block;
 }
 
 .eden-ai-video__media-overlay {
@@ -1035,5 +1090,10 @@
 
   .eden-ai-video__spinner {
     animation: none !important;
+  }
+
+  .eden-ai-video__avatar-bg-image {
+    filter: saturate(0.9);
+    transform: none;
   }
 }
