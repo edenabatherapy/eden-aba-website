@@ -5,6 +5,7 @@ import {
   notifyLiveVideoIntakeRequest,
   type LiveVideoIntakeVisitor,
 } from "@/lib/intake/server/notify-live-video-intake";
+import { getLiveVideoIntakeNotificationEmail, type SmtpSendResult } from "@/lib/intake/server/smtp";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -48,6 +49,29 @@ function parseVisitor(value: unknown): LiveVideoIntakeVisitor | undefined {
   };
 }
 
+async function sendLiveVideoNotification(payload: {
+  joinUrl: string;
+  roomName: string;
+  pageUrl: string;
+  language?: string;
+  visitor?: LiveVideoIntakeVisitor;
+}): Promise<SmtpSendResult> {
+  try {
+    return await notifyLiveVideoIntakeRequest({
+      ...payload,
+      requestedAt: new Date(),
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown live video email error";
+    console.error("[daily/create-room] live video intake email exception", {
+      roomName: payload.roomName,
+      message,
+      stack: error instanceof Error ? error.stack : undefined,
+    });
+    return { sent: false, reason: message };
+  }
+}
+
 export async function POST(request: Request) {
   const apiKey = getDailyApiKey();
 
@@ -86,20 +110,27 @@ export async function POST(request: Request) {
       expiresAt: room.expiresAt,
       pageUrl,
       language: language ?? null,
+      joinUrl: room.joinUrl,
     });
 
-    const emailResult = await notifyLiveVideoIntakeRequest({
+    const emailResult = await sendLiveVideoNotification({
       joinUrl: room.joinUrl,
       roomName: room.roomName,
       pageUrl,
       language,
       visitor,
-      requestedAt: new Date(),
     });
 
-    if (!emailResult.sent) {
+    if (emailResult.sent) {
+      console.info("[daily/create-room] live video intake email sent", {
+        roomName: room.roomName,
+        recipient: getLiveVideoIntakeNotificationEmail(),
+        messageId: emailResult.messageId,
+      });
+    } else {
       console.error("[daily/create-room] live video intake email failed", {
         roomName: room.roomName,
+        recipient: getLiveVideoIntakeNotificationEmail(),
         reason: emailResult.reason,
         skipped: emailResult.skipped ?? false,
       });

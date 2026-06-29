@@ -1,6 +1,9 @@
-import { sendIntakeStaffEmail, type StaffEmailResult } from "./send-staff-email";
+import {
+  getLiveVideoIntakeNotificationEmail,
+  sendSmtpEmail,
+  type SmtpSendResult,
+} from "./smtp";
 
-const LIVE_VIDEO_INTAKE_EMAIL = "info@edenabatherapy.com";
 const EMAIL_SUBJECT = "New Live Video Intake Request - Eden ABA Therapy";
 
 export type LiveVideoIntakeVisitor = {
@@ -103,13 +106,23 @@ function buildEmailHtml(payload: LiveVideoIntakeNotificationPayload, requestedAt
  */
 export async function notifyLiveVideoIntakeRequest(
   payload: LiveVideoIntakeNotificationPayload,
-): Promise<StaffEmailResult> {
+): Promise<SmtpSendResult> {
   const requestedAt = payload.requestedAt ?? new Date();
+  const recipient = getLiveVideoIntakeNotificationEmail();
 
-  return sendIntakeStaffEmail({
-    to: LIVE_VIDEO_INTAKE_EMAIL,
+  console.info("[live-video-intake] preparing staff notification via SMTP", {
+    recipient,
+    roomName: payload.roomName,
+    pageUrl: payload.pageUrl,
+    language: payload.language ?? null,
+    joinUrlIncluded: Boolean(payload.joinUrl),
+  });
+
+  return sendSmtpEmail({
+    to: recipient,
     subject: EMAIL_SUBJECT,
     text: buildEmailText(payload, requestedAt),
     html: buildEmailHtml(payload, requestedAt),
+    logTag: "live-video-intake",
   });
 }
