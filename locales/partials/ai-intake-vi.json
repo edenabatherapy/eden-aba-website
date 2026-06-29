@@ -128,8 +128,8 @@
   "coordinator": {
     "loadingTitle": "Đang kết nối bạn với Điều phối viên Tiếp nhận Eden",
     "loadingStatus": "Đang thiết lập phòng video trực tiếp bảo mật...",
-    "notifiedTitle": "Điều phối viên tiếp nhận Eden đã được thông báo",
-    "notifiedMessage": "Điều phối viên tiếp nhận Eden đã được thông báo. Vui lòng ở lại trang này. Nếu không có ai tham gia trong thời gian ngắn, bạn có thể tiếp tục với Eden AI, đặt lịch gọi hoặc để lại tin nhắn.",
+    "notifiedTitle": "Cảm ơn bạn",
+    "notifiedMessage": "Cảm ơn bạn. Điều phối viên tiếp nhận Eden đã được thông báo. Vui lòng tham gia phòng video và ai đó sẽ hỗ trợ bạn sớm.",
     "emailFailedTitle": "Video trực tiếp đã sẵn sàng",
     "emailFailedMessage": "Chúng tôi không thể xác nhận thông báo qua email, nhưng bạn vẫn có thể tham gia cuộc gọi video bên dưới hoặc sử dụng các tùy chọn dự phòng.",
     "unavailableTitle": "Điều phối viên tiếp nhận của chúng tôi hiện không khả dụng.",
@@ -140,6 +140,38 @@
     "continueChat": "Tiếp tục trò chuyện",
     "leaveMessage": "Để lại tin nhắn",
     "closeLabel": "Đóng hộp thoại điều phối viên"
+  },
+  "precall": {
+    "title": "Nói chuyện với Điều phối viên Tiếp nhận Eden",
+    "description": "Vui lòng chia sẻ một vài thông tin để đội ngũ tiếp nhận có thể hỗ trợ bạn trong cuộc gọi video trực tiếp.",
+    "parentName": "Tên phụ huynh/người giám hộ",
+    "phone": "Số điện thoại",
+    "email": "Email",
+    "childAge": "Tuổi của con",
+    "preferredLanguage": "Ngôn ngữ ưu tiên",
+    "reasonForCall": "Lý do gọi",
+    "reasonPlaceholder": "Chọn lý do",
+    "submit": "Tiếp tục đến cuộc gọi video",
+    "submitting": "Đang kết nối...",
+    "closeLabel": "Đóng biểu mẫu trước cuộc gọi",
+    "submitError": "Không thể bắt đầu cuộc gọi video của bạn lúc này. Vui lòng thử lại.",
+    "validationName": "Vui lòng nhập tên phụ huynh hoặc người giám hộ.",
+    "validationPhone": "Vui lòng nhập số điện thoại.",
+    "validationEmail": "Vui lòng nhập địa chỉ email hợp lệ.",
+    "validationLanguage": "Vui lòng chọn ngôn ngữ ưu tiên.",
+    "validationReason": "Vui lòng chọn lý do cho cuộc gọi.",
+    "languages": {
+      "en": "Tiếng Anh",
+      "vi": "Tiếng Việt"
+    },
+    "reasons": {
+      "start-aba-therapy": "Bắt đầu liệu pháp ABA",
+      "insurance-question": "Câu hỏi về bảo hiểm",
+      "schedule-appointment": "Đặt lịch hẹn",
+      "provider-referral": "Giới thiệu từ nhà cung cấp",
+      "general-question": "Câu hỏi chung",
+      "other": "Khác"
+    }
   },
   "callback": {
     "title": "Để lại tin nhắn cho Đội ngũ Tiếp nhận",

@@ -1,4 +1,9 @@
 import {
+  getLiveVideoPreferredLanguageLabel,
+  getLiveVideoReasonLabel,
+  type LiveVideoPreCallIntake,
+} from "@/lib/daily/live-video-intake-payload";
+import {
   getLiveVideoIntakeNotificationEmail,
   sendSmtpEmail,
   type SmtpSendResult,
@@ -6,18 +11,11 @@ import {
 
 const EMAIL_SUBJECT = "New Live Video Intake Request - Eden ABA Therapy";
 
-export type LiveVideoIntakeVisitor = {
-  parentName?: string;
-  parentEmail?: string;
-  parentPhone?: string;
-};
-
 export type LiveVideoIntakeNotificationPayload = {
   joinUrl: string;
   roomName: string;
   pageUrl: string;
-  language?: string;
-  visitor?: LiveVideoIntakeVisitor;
+  intake: LiveVideoPreCallIntake;
   requestedAt?: Date;
 };
 
@@ -29,24 +27,6 @@ function formatRequestedAt(date: Date): string {
   });
 }
 
-function formatLanguageLabel(language?: string): string {
-  if (language === "vi") return "Vietnamese (vi)";
-  if (language === "en") return "English (en)";
-  return language?.trim() || "—";
-}
-
-function formatVisitorSection(visitor?: LiveVideoIntakeVisitor): string {
-  if (!visitor) return "—";
-
-  const lines = [
-    visitor.parentName ? `Parent/Guardian Name: ${visitor.parentName}` : "",
-    visitor.parentEmail ? `Email: ${visitor.parentEmail}` : "",
-    visitor.parentPhone ? `Phone: ${visitor.parentPhone}` : "",
-  ].filter(Boolean);
-
-  return lines.length > 0 ? lines.join("\n") : "—";
-}
-
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -55,18 +35,30 @@ function escapeHtml(value: string): string {
     .replace(/"/g, "&quot;");
 }
 
+function formatIntakeSection(intake: LiveVideoPreCallIntake): string {
+  return [
+    `Parent/Guardian Name: ${intake.parentName}`,
+    `Phone: ${intake.phone}`,
+    `Email: ${intake.email}`,
+    intake.childAge ? `Child's Age: ${intake.childAge}` : "",
+    `Preferred Language: ${getLiveVideoPreferredLanguageLabel(intake.preferredLanguage)}`,
+    `Reason for Call: ${getLiveVideoReasonLabel(intake.reasonForCall)}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
 function buildEmailText(payload: LiveVideoIntakeNotificationPayload, requestedAt: Date): string {
   return [
     "A visitor requested a live video intake session on the Eden ABA Therapy website.",
     "",
     `Date/Time: ${formatRequestedAt(requestedAt)}`,
+    `Page: ${payload.pageUrl || "—"}`,
     `Daily Video Room: ${payload.joinUrl}`,
     `Room Name: ${payload.roomName}`,
-    `Page: ${payload.pageUrl || "—"}`,
-    `Visitor Language: ${formatLanguageLabel(payload.language)}`,
     "",
-    "Visitor / Contact Information:",
-    formatVisitorSection(payload.visitor),
+    "Visitor / Intake Details:",
+    formatIntakeSection(payload.intake),
     "",
     "Join Video Call:",
     payload.joinUrl,
@@ -78,7 +70,7 @@ function buildEmailText(payload: LiveVideoIntakeNotificationPayload, requestedAt
 function buildEmailHtml(payload: LiveVideoIntakeNotificationPayload, requestedAt: Date): string {
   const joinUrl = escapeHtml(payload.joinUrl);
   const pageUrl = escapeHtml(payload.pageUrl || "—");
-  const visitorHtml = escapeHtml(formatVisitorSection(payload.visitor)).replace(/\n/g, "<br />");
+  const intakeHtml = escapeHtml(formatIntakeSection(payload.intake)).replace(/\n/g, "<br />");
 
   return `
     <div style="font-family: Arial, sans-serif; color: #0f172a; line-height: 1.6; max-width: 640px;">
@@ -87,9 +79,8 @@ function buildEmailHtml(payload: LiveVideoIntakeNotificationPayload, requestedAt
       <table style="border-collapse: collapse; width: 100%; margin-bottom: 20px;">
         <tr><td style="padding: 8px 0; font-weight: 700; vertical-align: top;">Date/Time</td><td style="padding: 8px 0;">${escapeHtml(formatRequestedAt(requestedAt))}</td></tr>
         <tr><td style="padding: 8px 0; font-weight: 700; vertical-align: top;">Page</td><td style="padding: 8px 0;">${pageUrl}</td></tr>
-        <tr><td style="padding: 8px 0; font-weight: 700; vertical-align: top;">Visitor Language</td><td style="padding: 8px 0;">${escapeHtml(formatLanguageLabel(payload.language))}</td></tr>
         <tr><td style="padding: 8px 0; font-weight: 700; vertical-align: top;">Room Name</td><td style="padding: 8px 0;">${escapeHtml(payload.roomName)}</td></tr>
-        <tr><td style="padding: 8px 0; font-weight: 700; vertical-align: top;">Visitor / Contact</td><td style="padding: 8px 0;">${visitorHtml}</td></tr>
+        <tr><td style="padding: 8px 0; font-weight: 700; vertical-align: top;">Visitor / Intake Details</td><td style="padding: 8px 0;">${intakeHtml}</td></tr>
       </table>
       <p style="margin: 0 0 20px;">
         <a href="${joinUrl}" style="display: inline-block; background: #0b4f4f; color: #ffffff; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 999px;">
@@ -114,7 +105,8 @@ export async function notifyLiveVideoIntakeRequest(
     recipient,
     roomName: payload.roomName,
     pageUrl: payload.pageUrl,
-    language: payload.language ?? null,
+    parentName: payload.intake.parentName,
+    reasonForCall: payload.intake.reasonForCall,
     joinUrlIncluded: Boolean(payload.joinUrl),
   });
 

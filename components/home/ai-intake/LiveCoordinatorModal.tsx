@@ -117,18 +117,6 @@ export default function LiveCoordinatorModal({
                   {copy.joinVideoCall}
                 </button>
               ) : null}
-              <button type="button" className="eden-ai-modal__action" onClick={onContinueChat}>
-                <MessageCircle size={18} aria-hidden="true" />
-                {copy.continueChat}
-              </button>
-              <button type="button" className="eden-ai-modal__action" onClick={onScheduleCall}>
-                <CalendarDays size={18} aria-hidden="true" />
-                {copy.scheduleCall}
-              </button>
-              <button type="button" className="eden-ai-modal__action" onClick={onLeaveMessage}>
-                <PenLine size={18} aria-hidden="true" />
-                {copy.leaveMessage}
-              </button>
             </div>
           </div>
         ) : null}

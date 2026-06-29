@@ -1,11 +1,15 @@
 import { NextResponse } from "next/server";
 import { createDailyIntakeRoom, DailyApiError } from "@/lib/daily/create-intake-room";
-import { getDailyApiKey, isDailyConfigured } from "@/lib/daily/server-config";
 import {
-  notifyLiveVideoIntakeRequest,
-  type LiveVideoIntakeVisitor,
-} from "@/lib/intake/server/notify-live-video-intake";
+  buildLiveVideoLeadMessage,
+  getLiveVideoReasonLabel,
+  parseLiveVideoPreCallIntake,
+  type LiveVideoPreCallIntake,
+} from "@/lib/daily/live-video-intake-payload";
+import { getDailyApiKey, isDailyConfigured } from "@/lib/daily/server-config";
+import { notifyLiveVideoIntakeRequest } from "@/lib/intake/server/notify-live-video-intake";
 import { getLiveVideoIntakeNotificationEmail, type SmtpSendResult } from "@/lib/intake/server/smtp";
+import { insertLeadSubmission, isLeadInsertFailure } from "@/lib/supabase/insert-lead";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -13,15 +17,9 @@ export const dynamic = "force-dynamic";
 const UNAVAILABLE_MESSAGE = "Our intake coordinator is currently unavailable.";
 
 type CreateRoomRequestBody = {
-  language?: unknown;
   pageUrl?: unknown;
-  visitor?: unknown;
+  intake?: unknown;
 };
-
-function parseLanguage(value: unknown): string | undefined {
-  if (value === "en" || value === "vi") return value;
-  return undefined;
-}
 
 function parsePageUrl(value: unknown, referer: string | null): string {
   if (typeof value === "string" && value.trim()) {
@@ -30,31 +28,11 @@ function parsePageUrl(value: unknown, referer: string | null): string {
   return referer?.trim() || "—";
 }
 
-function parseVisitor(value: unknown): LiveVideoIntakeVisitor | undefined {
-  if (!value || typeof value !== "object") return undefined;
-
-  const record = value as Record<string, unknown>;
-  const parentName = typeof record.parentName === "string" ? record.parentName.trim() : "";
-  const parentEmail = typeof record.parentEmail === "string" ? record.parentEmail.trim() : "";
-  const parentPhone = typeof record.parentPhone === "string" ? record.parentPhone.trim() : "";
-
-  if (!parentName && !parentEmail && !parentPhone) {
-    return undefined;
-  }
-
-  return {
-    parentName: parentName || undefined,
-    parentEmail: parentEmail || undefined,
-    parentPhone: parentPhone || undefined,
-  };
-}
-
 async function sendLiveVideoNotification(payload: {
   joinUrl: string;
   roomName: string;
   pageUrl: string;
-  language?: string;
-  visitor?: LiveVideoIntakeVisitor;
+  intake: LiveVideoPreCallIntake;
 }): Promise<SmtpSendResult> {
   try {
     return await notifyLiveVideoIntakeRequest({
@@ -70,6 +48,40 @@ async function sendLiveVideoNotification(payload: {
     });
     return { sent: false, reason: message };
   }
+}
+
+async function saveLiveVideoLead(payload: {
+  intake: LiveVideoPreCallIntake;
+  pageUrl: string;
+  roomName: string;
+  joinUrl: string;
+}): Promise<void> {
+  const leadResult = await insertLeadSubmission({
+    parentName: payload.intake.parentName,
+    email: payload.intake.email,
+    phone: payload.intake.phone,
+    childBirthdate: payload.intake.childAge ?? "",
+    diagnosisStatus: getLiveVideoReasonLabel(payload.intake.reasonForCall),
+    message: buildLiveVideoLeadMessage(payload),
+  });
+
+  if (isLeadInsertFailure(leadResult)) {
+    console.error("[daily/create-room] Supabase leads insert failed", {
+      reason: leadResult.reason,
+      message: leadResult.message,
+      code: leadResult.code,
+      details: leadResult.details,
+      hint: leadResult.hint,
+      payloadKeys: leadResult.payloadKeys,
+      roomName: payload.roomName,
+    });
+    return;
+  }
+
+  console.info("[daily/create-room] live video intake lead saved", {
+    roomName: payload.roomName,
+    parentName: payload.intake.parentName,
+  });
 }
 
 export async function POST(request: Request) {
@@ -89,17 +101,23 @@ export async function POST(request: Request) {
     );
   }
 
-  let language: string | undefined;
   let pageUrl = parsePageUrl(undefined, request.headers.get("referer"));
-  let visitor: LiveVideoIntakeVisitor | undefined;
+  let intake: LiveVideoPreCallIntake | undefined;
 
   try {
     const body = (await request.json()) as CreateRoomRequestBody;
-    language = parseLanguage(body.language);
     pageUrl = parsePageUrl(body.pageUrl, request.headers.get("referer"));
-    visitor = parseVisitor(body.visitor);
+
+    const parsedIntake = parseLiveVideoPreCallIntake(body.intake);
+    if (parsedIntake.ok === false) {
+      return NextResponse.json({ ok: false, message: parsedIntake.error }, { status: 400 });
+    }
+    intake = parsedIntake.data;
   } catch {
-    // Empty body is allowed — metadata falls back to headers.
+    return NextResponse.json(
+      { ok: false, message: "Intake details are required before starting a live video call." },
+      { status: 400 },
+    );
   }
 
   try {
@@ -109,7 +127,15 @@ export async function POST(request: Request) {
       roomName: room.roomName,
       expiresAt: room.expiresAt,
       pageUrl,
-      language: language ?? null,
+      preferredLanguage: intake.preferredLanguage,
+      reasonForCall: intake.reasonForCall,
+      joinUrl: room.joinUrl,
+    });
+
+    await saveLiveVideoLead({
+      intake,
+      pageUrl,
+      roomName: room.roomName,
       joinUrl: room.joinUrl,
     });
 
@@ -117,8 +143,7 @@ export async function POST(request: Request) {
       joinUrl: room.joinUrl,
       roomName: room.roomName,
       pageUrl,
-      language,
-      visitor,
+      intake,
     });
 
     if (emailResult.sent) {

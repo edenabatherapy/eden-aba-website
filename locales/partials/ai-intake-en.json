@@ -128,8 +128,8 @@
   "coordinator": {
     "loadingTitle": "Connecting you with an Eden Intake Coordinator",
     "loadingStatus": "Setting up a secure live video room...",
-    "notifiedTitle": "An Eden intake coordinator has been notified",
-    "notifiedMessage": "An Eden intake coordinator has been notified. Please stay on this page. If no one joins shortly, you can continue with Eden AI, schedule a call, or leave a message.",
+    "notifiedTitle": "Thank you",
+    "notifiedMessage": "Thank you. An Eden intake coordinator has been notified. Please join the video room and someone will assist you shortly.",
     "emailFailedTitle": "Live video is ready",
     "emailFailedMessage": "We could not confirm staff notification by email, but you can still join the video call below or use these backup options.",
     "unavailableTitle": "Our intake coordinator is currently unavailable.",
@@ -140,6 +140,38 @@
     "continueChat": "Continue Chat",
     "leaveMessage": "Leave Message",
     "closeLabel": "Close coordinator dialog"
+  },
+  "precall": {
+    "title": "Speak with an Eden Intake Coordinator",
+    "description": "Please share a few details so our intake team can assist you during your live video call.",
+    "parentName": "Parent/Guardian Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "childAge": "Child's Age",
+    "preferredLanguage": "Preferred Language",
+    "reasonForCall": "Reason for Call",
+    "reasonPlaceholder": "Select a reason",
+    "submit": "Continue to Video Call",
+    "submitting": "Connecting...",
+    "closeLabel": "Close pre-call form",
+    "submitError": "Unable to start your video call right now. Please try again.",
+    "validationName": "Please enter a parent or guardian name.",
+    "validationPhone": "Please enter a phone number.",
+    "validationEmail": "Please enter a valid email address.",
+    "validationLanguage": "Please select a preferred language.",
+    "validationReason": "Please select a reason for your call.",
+    "languages": {
+      "en": "English",
+      "vi": "Vietnamese"
+    },
+    "reasons": {
+      "start-aba-therapy": "Start ABA Therapy",
+      "insurance-question": "Insurance Question",
+      "schedule-appointment": "Schedule Appointment",
+      "provider-referral": "Provider Referral",
+      "general-question": "General Question",
+      "other": "Other"
+    }
   },
   "callback": {
     "title": "Leave a Message for Our Intake Team",

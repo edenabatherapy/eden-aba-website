@@ -1136,7 +1136,8 @@
 }
 
 .eden-ai-callback-form__field input,
-.eden-ai-callback-form__field textarea {
+.eden-ai-callback-form__field textarea,
+.eden-ai-callback-form__field select {
   width: 100%;
   padding: 0.7rem 0.85rem;
   border: 1px solid rgba(18, 140, 140, 0.18);
@@ -1153,9 +1154,48 @@
 }
 
 .eden-ai-callback-form__field input:focus-visible,
-.eden-ai-callback-form__field textarea:focus-visible {
+.eden-ai-callback-form__field textarea:focus-visible,
+.eden-ai-callback-form__field select:focus-visible {
   outline: 2px solid rgba(73, 184, 200, 0.45);
   outline-offset: 1px;
+}
+
+.eden-ai-callback-form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.eden-ai-callback-form__fieldset legend {
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.eden-ai-callback-form__choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.eden-ai-callback-form__choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(18, 140, 140, 0.18);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.eden-ai-callback-form__choice input {
+  width: auto;
+  margin: 0;
 }
 
 .eden-ai-callback-form__error {
