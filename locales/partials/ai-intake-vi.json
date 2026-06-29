@@ -124,5 +124,39 @@
         "description": "Yêu cầu điều phối viên tiếp nhận Eden trực tiếp."
       }
     }
+  },
+  "coordinator": {
+    "connectingTitle": "Đang kết nối bạn với Điều phối viên Tiếp nhận Eden...",
+    "connectingStatus": "Đang kiểm tra tình trạng sẵn sàng của đội ngũ",
+    "waitLabel": "Thời gian chờ ước tính:",
+    "waitTime": "Dưới 2 phút",
+    "unavailableTitle": "Đội ngũ tiếp nhận của chúng tôi hiện đang hỗ trợ các gia đình khác",
+    "unavailableText": "Hiện không có điều phối viên trực tiếp. Bạn có thể chọn cách khác để tiếp tục với Eden.",
+    "scheduleCall": "Đặt lịch gọi",
+    "continueChat": "Tiếp tục trò chuyện",
+    "leaveMessage": "Để lại tin nhắn",
+    "closeLabel": "Đóng hộp thoại điều phối viên"
+  },
+  "callback": {
+    "title": "Để lại tin nhắn cho Đội ngũ Tiếp nhận",
+    "description": "Chia sẻ thông tin liên hệ của bạn và chúng tôi sẽ liên hệ sớm nhất có thể.",
+    "parentName": "Tên phụ huynh/người giám hộ",
+    "phone": "Số điện thoại",
+    "email": "Email",
+    "childAge": "Tuổi của con",
+    "preferredContactTime": "Thời gian liên hệ ưu tiên",
+    "message": "Tin nhắn",
+    "submit": "Gửi tin nhắn",
+    "submitting": "Đang gửi...",
+    "closeLabel": "Đóng biểu mẫu gọi lại",
+    "successMessage": "Cảm ơn bạn. Tin nhắn của bạn đã được gửi đến Eden ABA Therapy. Đội ngũ tiếp nhận sẽ liên hệ với bạn sớm nhất có thể.",
+    "errorMessage": "Không thể gửi tin nhắn của bạn lúc này. Vui lòng thử lại hoặc gọi trực tiếp cho Eden ABA Therapy.",
+    "validationName": "Vui lòng nhập tên phụ huynh hoặc người giám hộ.",
+    "validationPhone": "Vui lòng nhập số điện thoại.",
+    "validationEmail": "Vui lòng nhập địa chỉ email hợp lệ.",
+    "validationMessage": "Vui lòng nhập tin nhắn.",
+    "subject": "Trang chủ AI Tiếp nhận — Yêu cầu gọi lại",
+    "childAgeLabel": "Tuổi của con",
+    "preferredContactTimePlaceholder": "ví dụ: Buổi sáng các ngày trong tuần, sau 5 giờ chiều"
   }
 }

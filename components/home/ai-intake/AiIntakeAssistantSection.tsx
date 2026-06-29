@@ -7,6 +7,7 @@ import AiIntakeActionButtons from "./AiIntakeActionButtons";
 import AiReceptionistVideoPanel from "./AiReceptionistVideoPanel";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
 import LiveCoordinatorModal from "./LiveCoordinatorModal";
+import IntakeCallbackMessageModal from "./IntakeCallbackMessageModal";
 import TrustedHealthcareTech from "./TrustedHealthcareTech";
 import { getAiIntakeSection } from "./ai-intake-i18n";
 import type { AiIntakeAssistantHandlers, AiIntakeActionId, LiveCoordinatorModalPhase } from "./types";
@@ -24,8 +25,6 @@ export default function AiIntakeAssistantSection({
   onProviderReferral,
   onSpeakWithPerson,
   onScheduleCall,
-  onContinueChat,
-  onLeaveMessage,
 }: AiIntakeAssistantSectionProps) {
   const { language } = useSiteLanguage();
   const copy = useMemo(() => getAiIntakeSection(language), [language]);
@@ -34,6 +33,7 @@ export default function AiIntakeAssistantSection({
   const [isVisible, setIsVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalPhase, setModalPhase] = useState<LiveCoordinatorModalPhase>("connecting");
+  const [callbackModalOpen, setCallbackModalOpen] = useState(false);
   const [chatActive, setChatActive] = useState(false);
 
   useEffect(() => {
@@ -118,8 +118,16 @@ export default function AiIntakeAssistantSection({
   const handleContinueChat = useCallback(() => {
     closeModal();
     setChatActive(true);
-    onContinueChat?.();
-  }, [closeModal, onContinueChat]);
+    window.dispatchEvent(new CustomEvent(EDEN_START_AI_CHAT_EVENT));
+    sectionRef.current
+      ?.querySelector<HTMLElement>(".eden-ai-video")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [closeModal]);
+
+  const handleLeaveMessage = useCallback(() => {
+    closeModal();
+    setCallbackModalOpen(true);
+  }, [closeModal]);
 
   return (
     <section
@@ -181,10 +189,12 @@ export default function AiIntakeAssistantSection({
           onScheduleCall?.();
         }}
         onContinueChat={handleContinueChat}
-        onLeaveMessage={() => {
-          closeModal();
-          onLeaveMessage?.();
-        }}
+        onLeaveMessage={handleLeaveMessage}
+      />
+
+      <IntakeCallbackMessageModal
+        open={callbackModalOpen}
+        onClose={() => setCallbackModalOpen(false)}
       />
     </section>
   );

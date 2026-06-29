@@ -124,5 +124,39 @@
         "description": "Request a live Eden intake coordinator."
       }
     }
+  },
+  "coordinator": {
+    "connectingTitle": "Connecting you with an Eden Intake Coordinator...",
+    "connectingStatus": "Checking team availability",
+    "waitLabel": "Estimated wait:",
+    "waitTime": "Under 2 minutes",
+    "unavailableTitle": "Our intake team is currently assisting other families",
+    "unavailableText": "A live coordinator is not available right now. You may choose another way to continue with Eden.",
+    "scheduleCall": "Schedule Call",
+    "continueChat": "Continue Chat",
+    "leaveMessage": "Leave Message",
+    "closeLabel": "Close live coordinator dialog"
+  },
+  "callback": {
+    "title": "Leave a Message for Our Intake Team",
+    "description": "Share your contact details and we will reach out as soon as possible.",
+    "parentName": "Parent/Guardian Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "childAge": "Child's Age",
+    "preferredContactTime": "Preferred Contact Time",
+    "message": "Message",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "closeLabel": "Close callback form",
+    "successMessage": "Thank you. Your message has been sent to Eden ABA Therapy. Our intake team will contact you as soon as possible.",
+    "errorMessage": "Unable to send your message right now. Please try again or call Eden ABA Therapy directly.",
+    "validationName": "Please enter a parent or guardian name.",
+    "validationPhone": "Please enter a phone number.",
+    "validationEmail": "Please enter a valid email address.",
+    "validationMessage": "Please enter a message.",
+    "subject": "Homepage AI Intake — Callback Request",
+    "childAgeLabel": "Child's Age",
+    "preferredContactTimePlaceholder": "e.g. Weekday mornings, after 5 PM"
   }
 }
