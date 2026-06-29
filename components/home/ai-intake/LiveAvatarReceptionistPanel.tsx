@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AlertCircle, Loader2, Mic, Square, Volume2 } from "lucide-react";
+import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
 
 type LiveAvatarPanelState = "idle" | "loading" | "connecting" | "live" | "error";
@@ -215,27 +216,25 @@ export default function LiveAvatarReceptionistPanel({
       <div className="eden-ai-video__glow" aria-hidden="true" />
       <div className="eden-ai-video__frame">
         <div className="eden-ai-video__glass">
-          <div className="eden-ai-video__topbar">
-            <div className="eden-ai-video__status">
-              <span className="eden-ai-video__status-dot" aria-hidden="true" />
-              <span className="eden-ai-video__status-label">AI Receptionist</span>
-              <span className="eden-ai-video__status-badge">
-                {panelState === "live" ? "Live" : panelState === "error" ? "Unavailable" : "Available Now"}
-              </span>
-            </div>
-            <button
-              type="button"
-              className="eden-ai-video__sound"
-              aria-label={isMuted ? "Unmute avatar audio" : "Mute avatar audio"}
-              onClick={toggleMute}
-              disabled={panelState !== "live"}
-            >
-              <Volume2 size={16} aria-hidden="true" />
-            </button>
-          </div>
+          <AiIntakeVideoTopBar
+            badge={
+              panelState === "live" ? "Live" : panelState === "error" ? "Unavailable" : "Available Now"
+            }
+            soundButton={
+              <button
+                type="button"
+                className="eden-ai-video__sound"
+                aria-label={isMuted ? "Unmute avatar audio" : "Mute avatar audio"}
+                onClick={toggleMute}
+                disabled={panelState !== "live"}
+              >
+                <Volume2 size={16} aria-hidden="true" />
+              </button>
+            }
+          />
 
           <div className="eden-ai-video__stage eden-ai-video__stage--live">
-            <div className="eden-ai-video__media-wrap">
+            <AiIntakeBrandedMediaFrame>
               <video
                 ref={videoRef}
                 className="eden-ai-video__media"
@@ -288,7 +287,7 @@ export default function LiveAvatarReceptionistPanel({
                   )}
                 </div>
               ) : null}
-            </div>
+            </AiIntakeBrandedMediaFrame>
 
             {panelState === "live" ? (
               <div className="eden-ai-video__live-controls">

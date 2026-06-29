@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Play, Volume2 } from "lucide-react";
+import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
 import { AI_RECEPTIONIST_GREETING } from "./ai-intake-config";
 
 type AiReceptionistPlaceholderPanelProps = {
@@ -50,40 +51,42 @@ export default function AiReceptionistPlaceholderPanel({
       <div className="eden-ai-video__glow" aria-hidden="true" />
       <div className="eden-ai-video__frame">
         <div className="eden-ai-video__glass">
-          <div className="eden-ai-video__topbar">
-            <div className="eden-ai-video__status">
-              <span className="eden-ai-video__status-dot" aria-hidden="true" />
-              <span className="eden-ai-video__status-label">AI Receptionist</span>
-              <span className="eden-ai-video__status-badge">Preview Mode</span>
-            </div>
-            <button
-              type="button"
-              className="eden-ai-video__sound"
-              aria-label="Sound disabled in preview mode"
-              disabled
-            >
-              <Volume2 size={16} aria-hidden="true" />
-            </button>
-          </div>
+          <AiIntakeVideoTopBar
+            badge="Preview Mode"
+            soundButton={
+              <button
+                type="button"
+                className="eden-ai-video__sound"
+                aria-label="Sound disabled in preview mode"
+                disabled
+              >
+                <Volume2 size={16} aria-hidden="true" />
+              </button>
+            }
+          />
 
-          <div className="eden-ai-video__stage">
-            <p className="eden-ai-video__placeholder-label">AI Receptionist Video</p>
-            <button
-              type="button"
-              className="eden-ai-video__play"
-              aria-label="Preview placeholder"
-              disabled
-            >
-              <Play size={28} aria-hidden="true" />
-            </button>
-            <pre className="eden-ai-video__script" aria-live="polite" aria-atomic="true">
-              {typedText}
-              {!prefersReducedMotion && typedText.length < fullText.length ? (
-                <span className="eden-ai-video__cursor" aria-hidden="true">
-                  |
-                </span>
-              ) : null}
-            </pre>
+          <div className="eden-ai-video__stage eden-ai-video__stage--live">
+            <AiIntakeBrandedMediaFrame>
+              <div className="eden-ai-video__media-overlay eden-ai-video__media-overlay--preview">
+                <p className="eden-ai-video__placeholder-label">Katya · Eden AI Intake Assistant</p>
+                <button
+                  type="button"
+                  className="eden-ai-video__play"
+                  aria-label="Preview placeholder"
+                  disabled
+                >
+                  <Play size={28} aria-hidden="true" />
+                </button>
+                <pre className="eden-ai-video__script" aria-live="polite" aria-atomic="true">
+                  {typedText}
+                  {!prefersReducedMotion && typedText.length < fullText.length ? (
+                    <span className="eden-ai-video__cursor" aria-hidden="true">
+                      |
+                    </span>
+                  ) : null}
+                </pre>
+              </div>
+            </AiIntakeBrandedMediaFrame>
           </div>
 
           <div className="eden-ai-video__shimmer" aria-hidden="true" />
