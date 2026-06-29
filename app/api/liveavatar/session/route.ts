@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createLiveAvatarSessionToken, LiveAvatarSessionError } from "@/lib/liveavatar/create-session-token";
+import { parseLiveAvatarLanguage } from "@/lib/liveavatar/language";
 import {
   getLiveAvatarConfigStatus,
   getLiveAvatarServerConfig,
@@ -8,8 +9,17 @@ import {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST() {
-  const config = getLiveAvatarServerConfig();
+export async function POST(request: Request) {
+  let language = parseLiveAvatarLanguage(undefined);
+
+  try {
+    const body = (await request.json()) as { language?: unknown };
+    language = parseLiveAvatarLanguage(body.language);
+  } catch {
+    // Empty body defaults to English.
+  }
+
+  const config = getLiveAvatarServerConfig(language);
 
   if (!config) {
     const status = getLiveAvatarConfigStatus();
@@ -33,6 +43,7 @@ export async function POST() {
       ok: true,
       sessionToken: session.session_token,
       sessionId: session.session_id,
+      language: config.language,
     });
   } catch (error) {
     const message =

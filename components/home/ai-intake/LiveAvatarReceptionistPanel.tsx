@@ -1,10 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AlertCircle, Loader2, Mic, Square, Volume2 } from "lucide-react";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
 import AiIntakeAvatarBackdrop from "./AiIntakeAvatarBackdrop";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
+import { getAiIntakeCopy } from "./ai-intake-i18n";
 import { EDEN_CHROMA_KEY_OPTIONS } from "@/lib/liveavatar/chroma-key-config";
 import { setupChromaKey } from "@/lib/liveavatar/chromaKey";
 
@@ -23,6 +25,9 @@ export default function LiveAvatarReceptionistPanel({
   active = true,
   onFallback,
 }: LiveAvatarReceptionistPanelProps) {
+  const { language } = useSiteLanguage();
+  const copy = useMemo(() => getAiIntakeCopy(language), [language]);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chromaCleanupRef = useRef<(() => void) | null>(null);
@@ -32,12 +37,16 @@ export default function LiveAvatarReceptionistPanel({
   const isMutedRef = useRef(false);
 
   const [panelState, setPanelState] = useState<LiveAvatarPanelState>("idle");
-  const [statusMessage, setStatusMessage] = useState(
-    "Tap Start AI Chat to begin your intake conversation.",
-  );
+  const [statusMessage, setStatusMessage] = useState(copy.idleIntro);
   const [isMuted, setIsMuted] = useState(false);
 
   isMutedRef.current = isMuted;
+
+  useEffect(() => {
+    if (panelState === "idle") {
+      setStatusMessage(copy.idleIntro);
+    }
+  }, [copy.idleIntro, panelState]);
 
   const stopChromaKey = useCallback(() => {
     if (chromaCleanupRef.current) {
@@ -145,12 +154,16 @@ export default function LiveAvatarReceptionistPanel({
     }
 
     setPanelState("loading");
-    setStatusMessage("Preparing your Eden AI intake assistant...");
+    setStatusMessage(copy.preparing);
 
     try {
       const response = await fetch("/api/liveavatar/session", {
         method: "POST",
-        headers: { Accept: "application/json" },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ language }),
       });
 
       const payload = (await response.json()) as {
@@ -164,7 +177,7 @@ export default function LiveAvatarReceptionistPanel({
       }
 
       setPanelState("connecting");
-      setStatusMessage("Connecting to Eden. This may take a few seconds...");
+      setStatusMessage(copy.connecting);
 
       const sdk = sdkRef.current ?? (await import("@heygen/liveavatar-web-sdk"));
       sdkRef.current = sdk;
@@ -178,12 +191,12 @@ export default function LiveAvatarReceptionistPanel({
         clearConnectTimeout();
         attachStream();
         setPanelState("live");
-        setStatusMessage("Eden is ready. You can speak when the avatar is listening.");
+        setStatusMessage(copy.ready);
       });
 
       session.on(sdk.SessionEvent.SESSION_STATE_CHANGED, (state) => {
         if (state === sdk.SessionState.CONNECTING) {
-          setStatusMessage("Connecting to Eden...");
+          setStatusMessage(copy.connecting);
         }
         if (state === sdk.SessionState.CONNECTED) {
           attachStream();
@@ -193,31 +206,28 @@ export default function LiveAvatarReceptionistPanel({
       session.on(sdk.SessionEvent.SESSION_DISCONNECTED, (reason) => {
         clearConnectTimeout();
         if (reason === sdk.SessionDisconnectReason.SESSION_START_FAILED) {
-          void handleSessionFailure("LiveAvatar could not start. Please try again.");
+          void handleSessionFailure(copy.startFailed);
           return;
         }
         setPanelState("idle");
-        setStatusMessage("Session ended. Tap Start AI Chat to begin again.");
+        setStatusMessage(copy.sessionEnded);
       });
 
       connectTimeoutRef.current = window.setTimeout(() => {
-        void handleSessionFailure(
-          "Connection timed out. LiveAvatar may be unavailable right now.",
-        );
+        void handleSessionFailure(copy.timeout);
       }, CONNECT_TIMEOUT_MS);
 
       await session.start();
     } catch (error) {
-      const message =
-        error instanceof Error
-          ? error.message
-          : "LiveAvatar is unavailable right now. Please try again.";
+      const message = error instanceof Error ? error.message : copy.unavailable;
       await handleSessionFailure(message);
     }
   }, [
     attachStream,
     clearConnectTimeout,
+    copy,
     handleSessionFailure,
+    language,
     panelState,
   ]);
 
@@ -233,8 +243,8 @@ export default function LiveAvatarReceptionistPanel({
   const handleEndChat = useCallback(async () => {
     await cleanupSession();
     setPanelState("idle");
-    setStatusMessage("Session ended. Tap Start AI Chat to begin again.");
-  }, [cleanupSession]);
+    setStatusMessage(copy.sessionEnded);
+  }, [cleanupSession, copy.sessionEnded]);
 
   const toggleMute = useCallback(async () => {
     const session = sessionRef.current;
@@ -261,19 +271,24 @@ export default function LiveAvatarReceptionistPanel({
   const isBusy = panelState === "loading" || panelState === "connecting";
 
   return (
-    <div className="eden-ai-video eden-ai-video--liveavatar" aria-label="LiveAvatar AI receptionist">
+    <div className="eden-ai-video eden-ai-video--liveavatar" aria-label={copy.assistantTitle}>
       <div className="eden-ai-video__glow" aria-hidden="true" />
       <div className="eden-ai-video__frame">
         <div className="eden-ai-video__glass">
           <AiIntakeVideoTopBar
+            statusLabel={copy.statusLabel}
             badge={
-              panelState === "live" ? "Live" : panelState === "error" ? "Unavailable" : "Available Now"
+              panelState === "live"
+                ? copy.badgeLive
+                : panelState === "error"
+                  ? copy.badgeUnavailable
+                  : copy.badgeAvailable
             }
             soundButton={
               <button
                 type="button"
                 className="eden-ai-video__sound"
-                aria-label={isMuted ? "Unmute avatar audio" : "Mute avatar audio"}
+                aria-label={isMuted ? copy.unmute : copy.mute}
                 onClick={toggleMute}
                 disabled={panelState !== "live"}
               >
@@ -293,7 +308,7 @@ export default function LiveAvatarReceptionistPanel({
                 playsInline
                 muted={isMuted}
                 aria-hidden={panelState === "live"}
-                aria-label="Eden AI intake assistant avatar video"
+                aria-label={copy.avatarLabel}
               />
               <canvas
                 ref={canvasRef}
@@ -301,11 +316,11 @@ export default function LiveAvatarReceptionistPanel({
                   panelState === "live" ? " eden-ai-video__media-canvas--visible" : ""
                 }`}
                 aria-hidden={panelState !== "live"}
-                aria-label="Eden AI intake assistant avatar"
+                aria-label={copy.avatarLabel}
               />
               {panelState !== "live" ? (
                 <div className="eden-ai-video__media-overlay">
-                  <p className="eden-ai-video__placeholder-label">Katya · Eden AI Intake Assistant</p>
+                  <p className="eden-ai-video__placeholder-label">{copy.placeholderLabel}</p>
                   {isBusy ? (
                     <div className="eden-ai-video__loading" role="status" aria-live="polite">
                       <Loader2 size={28} className="eden-ai-video__spinner" aria-hidden="true" />
@@ -321,14 +336,14 @@ export default function LiveAvatarReceptionistPanel({
                           className="eden-ai-video__start-chat"
                           onClick={() => void handleStartChat()}
                         >
-                          Try Again
+                          {copy.tryAgain}
                         </button>
                         <button
                           type="button"
                           className="eden-ai-video__end-chat"
                           onClick={onFallback}
                         >
-                          Use Preview
+                          {copy.usePreview}
                         </button>
                       </div>
                     </div>
@@ -342,7 +357,7 @@ export default function LiveAvatarReceptionistPanel({
                         disabled={!active}
                       >
                         <Mic size={18} aria-hidden="true" />
-                        Start AI Chat
+                        {copy.startChat}
                       </button>
                     </>
                   )}
@@ -357,7 +372,7 @@ export default function LiveAvatarReceptionistPanel({
                 </p>
                 <button type="button" className="eden-ai-video__end-chat" onClick={() => void handleEndChat()}>
                   <Square size={14} aria-hidden="true" />
-                  End Chat
+                  {copy.endChat}
                 </button>
               </div>
             ) : null}

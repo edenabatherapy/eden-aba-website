@@ -2,9 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Play, Volume2 } from "lucide-react";
+import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import AiIntakeAvatarBackdrop from "./AiIntakeAvatarBackdrop";
 import { AiIntakeBrandedMediaFrame, AiIntakeVideoTopBar } from "./AiIntakeVideoBrand";
-import { AI_RECEPTIONIST_GREETING } from "./ai-intake-config";
+import { getAiIntakeCopy } from "./ai-intake-i18n";
 
 type AiReceptionistPlaceholderPanelProps = {
   active?: boolean;
@@ -13,7 +14,9 @@ type AiReceptionistPlaceholderPanelProps = {
 export default function AiReceptionistPlaceholderPanel({
   active = true,
 }: AiReceptionistPlaceholderPanelProps) {
-  const fullText = useMemo(() => AI_RECEPTIONIST_GREETING.join("\n"), []);
+  const { language } = useSiteLanguage();
+  const copy = useMemo(() => getAiIntakeCopy(language), [language]);
+  const fullText = useMemo(() => copy.greeting.join("\n"), [copy.greeting]);
   const [typedText, setTypedText] = useState("");
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
@@ -48,17 +51,18 @@ export default function AiReceptionistPlaceholderPanel({
   }, [active, fullText, prefersReducedMotion]);
 
   return (
-    <div className="eden-ai-video" aria-label="AI receptionist preview">
+    <div className="eden-ai-video" aria-label={copy.assistantTitle}>
       <div className="eden-ai-video__glow" aria-hidden="true" />
       <div className="eden-ai-video__frame">
         <div className="eden-ai-video__glass">
           <AiIntakeVideoTopBar
-            badge="Preview Mode"
+            statusLabel={copy.statusLabel}
+            badge={copy.badgePreview}
             soundButton={
               <button
                 type="button"
                 className="eden-ai-video__sound"
-                aria-label="Sound disabled in preview mode"
+                aria-label={copy.mute}
                 disabled
               >
                 <Volume2 size={16} aria-hidden="true" />
@@ -70,7 +74,7 @@ export default function AiReceptionistPlaceholderPanel({
             <AiIntakeBrandedMediaFrame showWatermark={false} showCornerBadge={false}>
               <AiIntakeAvatarBackdrop />
               <div className="eden-ai-video__media-overlay eden-ai-video__media-overlay--preview">
-                <p className="eden-ai-video__placeholder-label">Katya · Eden AI Intake Assistant</p>
+                <p className="eden-ai-video__placeholder-label">{copy.placeholderLabel}</p>
                 <button
                   type="button"
                   className="eden-ai-video__play"
