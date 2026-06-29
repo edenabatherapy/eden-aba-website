@@ -126,16 +126,15 @@
     }
   },
   "coordinator": {
-    "connectingTitle": "Đang kết nối bạn với Điều phối viên Tiếp nhận Eden...",
-    "connectingStatus": "Đang kiểm tra tình trạng sẵn sàng của đội ngũ",
-    "waitLabel": "Thời gian chờ ước tính:",
-    "waitTime": "Dưới 2 phút",
-    "unavailableTitle": "Đội ngũ tiếp nhận của chúng tôi hiện đang hỗ trợ các gia đình khác",
-    "unavailableText": "Hiện không có điều phối viên trực tiếp. Bạn có thể chọn cách khác để tiếp tục với Eden.",
+    "title": "Kết nối với Điều phối viên Tiếp nhận Eden",
+    "description": "Chọn cách bạn muốn liên hệ với đội ngũ tiếp nhận. Video trực tiếp kết nối bạn trực tiếp trong trình duyệt.",
+    "startLiveVideo": "Bắt đầu cuộc gọi video trực tiếp",
+    "callEdenNow": "Gọi Eden ngay",
     "scheduleCall": "Đặt lịch gọi",
-    "continueChat": "Tiếp tục trò chuyện",
+    "continueWithAi": "Tiếp tục với Eden AI",
     "leaveMessage": "Để lại tin nhắn",
-    "closeLabel": "Đóng hộp thoại điều phối viên"
+    "liveVideoUnavailable": "Video trực tiếp hiện không khả dụng. Vui lòng gọi, đặt lịch hoặc để lại tin nhắn.",
+    "closeLabel": "Đóng hộp thoại kết nối điều phối viên"
   },
   "callback": {
     "title": "Để lại tin nhắn cho Đội ngũ Tiếp nhận",

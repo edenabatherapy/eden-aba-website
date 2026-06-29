@@ -1,36 +1,37 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
-import { CalendarDays, MessageCircle, PenLine, Phone, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Bot, CalendarDays, PenLine, Phone, Video, X } from "lucide-react";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { EDEN_INTAKE_PHONE_HREF, getEdenLiveVideoUrl } from "./ai-intake-config";
 import { getAiIntakeSection } from "./ai-intake-i18n";
-import type { LiveCoordinatorModalPhase } from "./types";
 
 type LiveCoordinatorModalProps = {
   open: boolean;
-  phase: LiveCoordinatorModalPhase;
   onClose: () => void;
   onScheduleCall?: () => void;
-  onContinueChat?: () => void;
+  onContinueWithAi?: () => void;
   onLeaveMessage?: () => void;
 };
 
 export default function LiveCoordinatorModal({
   open,
-  phase,
   onClose,
   onScheduleCall,
-  onContinueChat,
+  onContinueWithAi,
   onLeaveMessage,
 }: LiveCoordinatorModalProps) {
   const { language } = useSiteLanguage();
   const copy = useMemo(() => getAiIntakeSection(language).coordinator, [language]);
 
-  const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [liveVideoUnavailable, setLiveVideoUnavailable] = useState(false);
 
   useEffect(() => {
-    if (!open) return undefined;
+    if (!open) {
+      setLiveVideoUnavailable(false);
+      return undefined;
+    }
 
     const previousFocus = document.activeElement as HTMLElement | null;
     closeButtonRef.current?.focus();
@@ -49,6 +50,18 @@ export default function LiveCoordinatorModal({
     };
   }, [open, onClose]);
 
+  const handleStartLiveVideo = useCallback(() => {
+    const liveVideoUrl = getEdenLiveVideoUrl();
+
+    if (liveVideoUrl) {
+      setLiveVideoUnavailable(false);
+      window.open(liveVideoUrl, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    setLiveVideoUnavailable(true);
+  }, []);
+
   if (!open) return null;
 
   return (
@@ -60,8 +73,7 @@ export default function LiveCoordinatorModal({
         onClick={onClose}
       />
       <div
-        ref={dialogRef}
-        className="eden-ai-modal__panel"
+        className="eden-ai-modal__panel eden-ai-modal__panel--connect"
         role="dialog"
         aria-modal="true"
         aria-labelledby="eden-ai-modal-title"
@@ -72,55 +84,60 @@ export default function LiveCoordinatorModal({
           type="button"
           className="eden-ai-modal__close"
           onClick={onClose}
-          aria-label="Close dialog"
+          aria-label={copy.closeLabel}
         >
           <X size={18} aria-hidden="true" />
         </button>
 
-        {phase === "connecting" ? (
-          <div className="eden-ai-modal__connecting">
-            <div className="eden-ai-modal__pulse-ring" aria-hidden="true">
-              <Phone size={24} />
-            </div>
-            <h2 id="eden-ai-modal-title" className="eden-ai-modal__title">
-              {copy.connectingTitle}
-            </h2>
-            <p id="eden-ai-modal-description" className="eden-ai-modal__status">
-              {copy.connectingStatus}
-              <span className="eden-ai-modal__dots" aria-hidden="true">
-                <span>.</span>
-                <span>.</span>
-                <span>.</span>
-              </span>
-            </p>
-            <p className="eden-ai-modal__wait">
-              {copy.waitLabel} <strong>{copy.waitTime}</strong>
-            </p>
+        <div className="eden-ai-modal__connect">
+          <div className="eden-ai-modal__video-ring" aria-hidden="true">
+            <Video size={26} />
           </div>
-        ) : (
-          <div className="eden-ai-modal__unavailable">
-            <h2 id="eden-ai-modal-title" className="eden-ai-modal__title">
-              {copy.unavailableTitle}
-            </h2>
-            <p id="eden-ai-modal-description" className="eden-ai-modal__text">
-              {copy.unavailableText}
+
+          <h2 id="eden-ai-modal-title" className="eden-ai-modal__title">
+            {copy.title}
+          </h2>
+          <p id="eden-ai-modal-description" className="eden-ai-modal__text">
+            {copy.description}
+          </p>
+
+          {liveVideoUnavailable ? (
+            <p className="eden-ai-modal__notice" role="alert">
+              {copy.liveVideoUnavailable}
             </p>
-            <div className="eden-ai-modal__actions">
-              <button type="button" className="eden-ai-modal__action" onClick={onScheduleCall}>
-                <CalendarDays size={18} aria-hidden="true" />
-                {copy.scheduleCall}
-              </button>
-              <button type="button" className="eden-ai-modal__action" onClick={onContinueChat}>
-                <MessageCircle size={18} aria-hidden="true" />
-                {copy.continueChat}
-              </button>
-              <button type="button" className="eden-ai-modal__action" onClick={onLeaveMessage}>
-                <PenLine size={18} aria-hidden="true" />
-                {copy.leaveMessage}
-              </button>
-            </div>
+          ) : null}
+
+          <div className="eden-ai-modal__actions">
+            <button
+              type="button"
+              className="eden-ai-modal__action eden-ai-modal__action--primary"
+              onClick={handleStartLiveVideo}
+            >
+              <Video size={18} aria-hidden="true" />
+              {copy.startLiveVideo}
+            </button>
+
+            <a className="eden-ai-modal__action" href={EDEN_INTAKE_PHONE_HREF}>
+              <Phone size={18} aria-hidden="true" />
+              {copy.callEdenNow}
+            </a>
+
+            <button type="button" className="eden-ai-modal__action" onClick={onScheduleCall}>
+              <CalendarDays size={18} aria-hidden="true" />
+              {copy.scheduleCall}
+            </button>
+
+            <button type="button" className="eden-ai-modal__action" onClick={onContinueWithAi}>
+              <Bot size={18} aria-hidden="true" />
+              {copy.continueWithAi}
+            </button>
+
+            <button type="button" className="eden-ai-modal__action" onClick={onLeaveMessage}>
+              <PenLine size={18} aria-hidden="true" />
+              {copy.leaveMessage}
+            </button>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

@@ -16,8 +16,6 @@ export type AiIntakeActionId =
   | "provider-referral"
   | "speak-with-person";
 
-export type LiveCoordinatorModalPhase = "connecting" | "unavailable";
-
 export type AiIntakeAssistantHandlers = {
   onAskQuestion?: () => void;
   onCheckInsurance?: () => void;

@@ -10,12 +10,10 @@ import LiveCoordinatorModal from "./LiveCoordinatorModal";
 import IntakeCallbackMessageModal from "./IntakeCallbackMessageModal";
 import TrustedHealthcareTech from "./TrustedHealthcareTech";
 import { getAiIntakeSection } from "./ai-intake-i18n";
-import type { AiIntakeAssistantHandlers, AiIntakeActionId, LiveCoordinatorModalPhase } from "./types";
+import type { AiIntakeAssistantHandlers, AiIntakeActionId } from "./types";
 import "./ai-intake-assistant.css";
 
 type AiIntakeAssistantSectionProps = AiIntakeAssistantHandlers;
-
-const CONNECTING_DURATION_MS = 3800;
 
 export default function AiIntakeAssistantSection({
   onAskQuestion,
@@ -31,8 +29,7 @@ export default function AiIntakeAssistantSection({
 
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalPhase, setModalPhase] = useState<LiveCoordinatorModalPhase>("connecting");
+  const [connectModalOpen, setConnectModalOpen] = useState(false);
   const [callbackModalOpen, setCallbackModalOpen] = useState(false);
   const [chatActive, setChatActive] = useState(false);
 
@@ -54,25 +51,13 @@ export default function AiIntakeAssistantSection({
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!modalOpen || modalPhase !== "connecting") return undefined;
-
-    const timer = window.setTimeout(() => {
-      setModalPhase("unavailable");
-    }, CONNECTING_DURATION_MS);
-
-    return () => window.clearTimeout(timer);
-  }, [modalOpen, modalPhase]);
-
-  const openLiveCoordinatorModal = useCallback(() => {
-    setModalPhase("connecting");
-    setModalOpen(true);
+  const openConnectModal = useCallback(() => {
+    setConnectModalOpen(true);
     onSpeakWithPerson?.();
   }, [onSpeakWithPerson]);
 
-  const closeModal = useCallback(() => {
-    setModalOpen(false);
-    setModalPhase("connecting");
+  const closeConnectModal = useCallback(() => {
+    setConnectModalOpen(false);
   }, []);
 
   const handleAction = useCallback(
@@ -99,7 +84,7 @@ export default function AiIntakeAssistantSection({
           onProviderReferral?.();
           break;
         case "speak-with-person":
-          openLiveCoordinatorModal();
+          openConnectModal();
           break;
         default:
           break;
@@ -111,23 +96,23 @@ export default function AiIntakeAssistantSection({
       onSchedule,
       onStartIntake,
       onProviderReferral,
-      openLiveCoordinatorModal,
+      openConnectModal,
     ],
   );
 
-  const handleContinueChat = useCallback(() => {
-    closeModal();
+  const handleContinueWithAi = useCallback(() => {
+    closeConnectModal();
     setChatActive(true);
     window.dispatchEvent(new CustomEvent(EDEN_START_AI_CHAT_EVENT));
     sectionRef.current
       ?.querySelector<HTMLElement>(".eden-ai-video")
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [closeModal]);
+  }, [closeConnectModal]);
 
   const handleLeaveMessage = useCallback(() => {
-    closeModal();
+    closeConnectModal();
     setCallbackModalOpen(true);
-  }, [closeModal]);
+  }, [closeConnectModal]);
 
   return (
     <section
@@ -170,7 +155,7 @@ export default function AiIntakeAssistantSection({
               <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--secondary" onClick={() => handleAction("ask-question")}>
                 {copy.cta.askQuestion}
               </button>
-              <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={openLiveCoordinatorModal}>
+              <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={openConnectModal}>
                 {copy.cta.speakWithPerson}
               </button>
             </div>
@@ -181,14 +166,13 @@ export default function AiIntakeAssistantSection({
       </div>
 
       <LiveCoordinatorModal
-        open={modalOpen}
-        phase={modalPhase}
-        onClose={closeModal}
+        open={connectModalOpen}
+        onClose={closeConnectModal}
         onScheduleCall={() => {
-          closeModal();
+          closeConnectModal();
           onScheduleCall?.();
         }}
-        onContinueChat={handleContinueChat}
+        onContinueWithAi={handleContinueWithAi}
         onLeaveMessage={handleLeaveMessage}
       />
 

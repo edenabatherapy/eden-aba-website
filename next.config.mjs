@@ -7,6 +7,7 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.RECAPTCHA_SITE_KEY || "",
     NEXT_PUBLIC_RECAPTCHA_BYPASS:
       process.env.NEXT_PUBLIC_RECAPTCHA_BYPASS || process.env.RECAPTCHA_BYPASS || "",
+    NEXT_PUBLIC_EDEN_LIVE_VIDEO_URL: process.env.NEXT_PUBLIC_EDEN_LIVE_VIDEO_URL || "",
   },
   async redirects() {
     return [

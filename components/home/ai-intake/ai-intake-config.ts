@@ -2,6 +2,14 @@ import type { AiIntakeActionId, AiIntakeIntegrationId } from "./types";
 
 export const EDEN_START_AI_CHAT_EVENT = "eden:start-ai-chat";
 
+/** Eden intake line — used by the Speak with a Person connect modal. */
+export const EDEN_INTAKE_PHONE_HREF = "tel:+17035875238";
+
+/** RingCentral Video or other web meeting URL (set in env at build time). */
+export function getEdenLiveVideoUrl(): string {
+  return process.env.NEXT_PUBLIC_EDEN_LIVE_VIDEO_URL?.trim() || "";
+}
+
 export type AiIntakeActionConfig = {
   id: AiIntakeActionId;
   icon: "message" | "shield" | "calendar" | "clipboard" | "referral" | "person";
