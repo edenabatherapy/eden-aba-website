@@ -1000,6 +1000,11 @@
   text-align: left;
 }
 
+.eden-ai-modal__text--notice {
+  text-align: left;
+  color: #334155;
+}
+
 .eden-ai-modal__pulse-ring {
   display: grid;
   place-items: center;

@@ -2,6 +2,9 @@ import type { AiIntakeActionId, AiIntakeIntegrationId } from "./types";
 
 export const EDEN_START_AI_CHAT_EVENT = "eden:start-ai-chat";
 
+/** Eden intake line for live video fallback options. */
+export const EDEN_INTAKE_PHONE_HREF = "tel:+17035875238";
+
 export type AiIntakeActionConfig = {
   id: AiIntakeActionId;
   icon: "message" | "shield" | "calendar" | "clipboard" | "referral" | "person";

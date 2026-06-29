@@ -1,15 +1,18 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import { CalendarDays, Loader2, MessageCircle, PenLine, Phone, X } from "lucide-react";
+import { CalendarDays, Loader2, MessageCircle, PenLine, Phone, Video, X } from "lucide-react";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
+import { EDEN_INTAKE_PHONE_HREF } from "./ai-intake-config";
 import { getAiIntakeSection } from "./ai-intake-i18n";
 import type { LiveCoordinatorModalPhase } from "./types";
 
 type LiveCoordinatorModalProps = {
   open: boolean;
   phase: LiveCoordinatorModalPhase;
+  joinUrl?: string | null;
   onClose: () => void;
+  onJoinVideoCall?: () => void;
   onScheduleCall?: () => void;
   onContinueChat?: () => void;
   onLeaveMessage?: () => void;
@@ -18,7 +21,9 @@ type LiveCoordinatorModalProps = {
 export default function LiveCoordinatorModal({
   open,
   phase,
+  joinUrl,
   onClose,
+  onJoinVideoCall,
   onScheduleCall,
   onContinueChat,
   onLeaveMessage,
@@ -49,6 +54,8 @@ export default function LiveCoordinatorModal({
   }, [open, onClose, phase]);
 
   if (!open) return null;
+
+  const canJoinVideo = Boolean(joinUrl && onJoinVideoCall);
 
   return (
     <div className="eden-ai-modal" role="presentation">
@@ -90,7 +97,77 @@ export default function LiveCoordinatorModal({
               {copy.loadingStatus}
             </p>
           </div>
-        ) : (
+        ) : null}
+
+        {phase === "notified" ? (
+          <div className="eden-ai-modal__connect">
+            <div className="eden-ai-modal__video-ring" aria-hidden="true">
+              <Video size={26} />
+            </div>
+            <h2 id="eden-ai-modal-title" className="eden-ai-modal__title">
+              {copy.notifiedTitle}
+            </h2>
+            <p id="eden-ai-modal-description" className="eden-ai-modal__text eden-ai-modal__text--notice">
+              {copy.notifiedMessage}
+            </p>
+            <div className="eden-ai-modal__actions">
+              {canJoinVideo ? (
+                <button type="button" className="eden-ai-modal__action eden-ai-modal__action--primary" onClick={onJoinVideoCall}>
+                  <Video size={18} aria-hidden="true" />
+                  {copy.joinVideoCall}
+                </button>
+              ) : null}
+              <button type="button" className="eden-ai-modal__action" onClick={onContinueChat}>
+                <MessageCircle size={18} aria-hidden="true" />
+                {copy.continueChat}
+              </button>
+              <button type="button" className="eden-ai-modal__action" onClick={onScheduleCall}>
+                <CalendarDays size={18} aria-hidden="true" />
+                {copy.scheduleCall}
+              </button>
+              <button type="button" className="eden-ai-modal__action" onClick={onLeaveMessage}>
+                <PenLine size={18} aria-hidden="true" />
+                {copy.leaveMessage}
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {phase === "emailFailed" ? (
+          <div className="eden-ai-modal__connect">
+            <div className="eden-ai-modal__video-ring eden-ai-modal__video-ring--muted" aria-hidden="true">
+              <Video size={26} />
+            </div>
+            <h2 id="eden-ai-modal-title" className="eden-ai-modal__title">
+              {copy.emailFailedTitle}
+            </h2>
+            <p id="eden-ai-modal-description" className="eden-ai-modal__text eden-ai-modal__text--notice">
+              {copy.emailFailedMessage}
+            </p>
+            <div className="eden-ai-modal__actions">
+              {canJoinVideo ? (
+                <button type="button" className="eden-ai-modal__action eden-ai-modal__action--primary" onClick={onJoinVideoCall}>
+                  <Video size={18} aria-hidden="true" />
+                  {copy.joinVideoCall}
+                </button>
+              ) : null}
+              <a className="eden-ai-modal__action" href={EDEN_INTAKE_PHONE_HREF}>
+                <Phone size={18} aria-hidden="true" />
+                {copy.callEdenNow}
+              </a>
+              <button type="button" className="eden-ai-modal__action" onClick={onScheduleCall}>
+                <CalendarDays size={18} aria-hidden="true" />
+                {copy.scheduleCall}
+              </button>
+              <button type="button" className="eden-ai-modal__action" onClick={onLeaveMessage}>
+                <PenLine size={18} aria-hidden="true" />
+                {copy.leaveMessage}
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {phase === "unavailable" ? (
           <div className="eden-ai-modal__connect">
             <div className="eden-ai-modal__video-ring eden-ai-modal__video-ring--muted" aria-hidden="true">
               <Phone size={26} />
@@ -116,7 +193,7 @@ export default function LiveCoordinatorModal({
               </button>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
