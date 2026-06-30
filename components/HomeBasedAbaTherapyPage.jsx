@@ -111,7 +111,7 @@ export default function HomeBasedAbaTherapyPage({
   ];
 
   return (
-    <div className="eden-page-shell text-[#0F172A]">
+    <div className="text-[#0F172A]">
       <PageSchema p={p} faqs={p.faq.items} />
 
       {/* HERO */}
@@ -144,7 +144,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* WHAT IS */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-4xl">
           <motion.h2 {...fadeUp} className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">
             {p.whatIs.title}
@@ -169,7 +169,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* BENEFITS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.h2 {...fadeUp} className="text-center text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">
           {p.benefits.title}
         </motion.h2>
@@ -225,7 +225,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* PREPARING */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...fadeUp} className="max-w-3xl">
           <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.preparing.title}</h2>
           <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.preparing.intro}</p>
@@ -246,7 +246,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* COMPARISON */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-5xl">
           <motion.h2 {...fadeUp} className="text-center text-3xl font-black text-[#0b4f4f] md:text-4xl">
             {p.comparison.title}
@@ -290,7 +290,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* PROGRAMS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.h2 {...fadeUp} className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">
           {p.programs.title}
         </motion.h2>
@@ -330,7 +330,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* FIND NEAR YOU */}
-      <section className="px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <motion.div
           {...fadeUp}
           className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#ddf4f4] via-white to-[#fff8df] p-8 shadow-xl md:p-12"
@@ -370,7 +370,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* TRUST */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...fadeUp} className="mx-auto max-w-4xl rounded-[1.75rem] border border-[#0E6B4F]/10 bg-[#FAF7F0] p-8 md:p-10">
           <h2 className="text-2xl font-black text-[#0b4f4f] md:text-3xl">{p.trust.title}</h2>
           <p className="mt-4 text-base font-semibold leading-8 text-slate-600">{p.trust.text}</p>
@@ -385,7 +385,7 @@ export default function HomeBasedAbaTherapyPage({
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.faq.title}</h2>

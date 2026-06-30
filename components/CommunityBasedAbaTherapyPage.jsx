@@ -118,7 +118,7 @@ export default function CommunityBasedAbaTherapyPage({
   const settingActions = [onHomeBased, onCenterBased, onSchoolBased, onVirtual];
 
   return (
-    <div className="eden-page-shell text-[#0F172A]">
+    <div className="text-[#0F172A]">
       <PageSchema p={p} />
 
       {/* HERO */}
@@ -151,7 +151,7 @@ export default function CommunityBasedAbaTherapyPage({
       </section>
 
       {/* WHAT IS */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-4xl">
           <motion.h2 {...fadeUp} className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">
             {p.whatIs.title}
@@ -177,7 +177,7 @@ export default function CommunityBasedAbaTherapyPage({
       </section>
 
       {/* WHY IT MATTERS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.whyMatters.title}</h2>
           {p.whyMatters.paragraphs.map((paragraph) => (
@@ -234,7 +234,7 @@ export default function CommunityBasedAbaTherapyPage({
       </section>
 
       {/* SKILLS ACCORDION */}
-      <section className="mx-auto max-w-4xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white mx-auto max-w-4xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...fadeUp} className="text-center">
           <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.skills.title}</h2>
         </motion.div>
@@ -244,7 +244,7 @@ export default function CommunityBasedAbaTherapyPage({
       </section>
 
       {/* HOW IT HELPS - decorative callout */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <motion.div
           {...fadeUp}
           className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-[#128c8c]/20 bg-gradient-to-br from-[#eef9f4] via-white to-[#ddf4f4] p-8 md:p-12"
@@ -261,7 +261,7 @@ export default function CommunityBasedAbaTherapyPage({
       </section>
 
       {/* MEDICAID */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...fadeUp} className="rounded-[1.75rem] border border-slate-200 bg-white p-8 shadow-lg md:p-10">
           <h2 className="text-2xl font-black text-[#0b4f4f] md:text-3xl">{p.medicaid.title}</h2>
           {p.medicaid.paragraphs.map((paragraph) => (
@@ -318,7 +318,7 @@ export default function CommunityBasedAbaTherapyPage({
       </section>
 
       {/* GET STARTED */}
-      <section className="px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <motion.div
           {...fadeUp}
           className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#ddf4f4] via-white to-[#fff8df] p-8 shadow-xl md:p-12"

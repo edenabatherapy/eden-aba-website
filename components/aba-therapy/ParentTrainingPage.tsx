@@ -31,13 +31,13 @@ import {
   WHY_PARENT_INVOLVEMENT,
 } from "@/lib/aba-therapy/parent-training-data";
 import { getButtonClasses } from "@/lib/button-styles";
+import { EDEN_CARD } from "@/lib/eden-design-system";
 
 const GUIDE_ICONS = [Target, Sparkles, BookOpen, MessageCircle, Calendar, Home] as const;
 const FAMILY_ICONS = [Calendar, Home, Users, BookOpen, HeartHandshake, MessageCircle] as const;
 const BENEFIT_ICONS = [Sparkles, Users, HeartHandshake, MessageCircle, CheckCircle2] as const;
 
-const cardClass =
-  "rounded-[1.75rem] border border-emerald-100/80 bg-white p-6 shadow-sm shadow-emerald-900/5 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-900/10";
+const cardClass = EDEN_CARD;
 
 export default function ParentTrainingPage() {
   const reduceMotion = useReducedMotion();
@@ -186,7 +186,7 @@ export default function ParentTrainingPage() {
       </section>
 
       {/* Downloadable Resources */}
-      <section className="bg-white px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{DOWNLOADABLE_RESOURCES.title}</h2>

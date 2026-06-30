@@ -37,6 +37,7 @@ import {
   WHO_CAN_BENEFIT,
 } from "@/lib/aba-therapy/what-is-aba-data";
 import { getButtonClasses } from "@/lib/button-styles";
+import { EDEN_CARD } from "@/lib/eden-design-system";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const BENEFIT_ICONS = [MessageCircle, GraduationCap, ShieldCheck, Users, Sparkles, Target] as const;
@@ -52,8 +53,7 @@ const PROCESS_ICONS = [
   GraduationCap,
 ] as const;
 
-const cardClass =
-  "rounded-[1.75rem] border border-emerald-100/80 bg-white p-6 shadow-sm shadow-emerald-900/5 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-900/10";
+const cardClass = EDEN_CARD;
 
 export default function WhatIsAbaTherapyPage() {
   const reduceMotion = useReducedMotion();
@@ -214,7 +214,7 @@ export default function WhatIsAbaTherapyPage() {
       </section>
 
       {/* Assessment & Treatment Planning */}
-      <section className="bg-white px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{ASSESSMENT_AND_PLANNING.title}</h2>

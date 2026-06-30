@@ -159,7 +159,7 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20">
+      <div className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20"><div className="mx-auto max-w-6xl">
         <section aria-labelledby="get-in-touch-heading" className="mb-20">
           <div className="max-w-2xl">
             <SectionEyebrow>Get in Touch</SectionEyebrow>
@@ -365,6 +365,7 @@ export default function ContactUsPage() {
         <section className="rounded-[2rem] border border-emerald-100 bg-white p-8 dark:border-slate-700 dark:bg-slate-900 sm:p-10">
           <FAQAccordion title="Frequently Asked Questions" items={CONTACT_US_FAQ} />
         </section>
+      </div>
       </div>
     </AboutPremiumLayout>
   );

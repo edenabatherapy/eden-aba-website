@@ -43,13 +43,13 @@ import {
   type SchoolResourceCategory,
 } from "@/lib/services/school-based-aba-data";
 import { getButtonClasses } from "@/lib/button-styles";
+import { EDEN_CARD } from "@/lib/eden-design-system";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const WHAT_ICONS = [School, Target, Users, ClipboardList, Sparkles, BarChart3] as const;
 const SERVICE_ICONS = [ShieldCheck, MessageCircle, Users, BookOpen, ArrowRight, CheckCircle2] as const;
 
-const cardClass =
-  "rounded-[1.75rem] border border-slate-200/80 bg-white p-6 shadow-sm shadow-slate-900/5 transition hover:-translate-y-1 hover:shadow-lg";
+const cardClass = EDEN_CARD;
 
 function FloatingEduIcon({ icon: Icon, className, delay = 0 }: { icon: typeof BookOpen; className: string; delay?: number }) {
   const reduceMotion = useReducedMotion();
@@ -165,7 +165,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* Who Benefits */}
-      <section className="px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHO_BENEFITS.title}</h2>
@@ -223,7 +223,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* Services in school */}
-      <section className="px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{SERVICES_IN_SCHOOL.title}</h2>
@@ -300,7 +300,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* MTSS */}
-      <section className="px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{MTSS_TIERS.title}</h2>
@@ -326,7 +326,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* Team collaboration */}
-      <section className="bg-white px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div {...reveal()}>
@@ -387,7 +387,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* Family partnership */}
-      <section className="px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl grid items-center gap-10 lg:grid-cols-2">
           <motion.div {...reveal()}>
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{FAMILY_PARTNERSHIP.title}</h2>
@@ -426,7 +426,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* Resource center */}
-      <section id="school-resources" className="scroll-mt-28 px-4 py-16 lg:px-8 lg:py-20">
+      <section id="school-resources" className="scroll-mt-28 eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">Resource Center</h2>

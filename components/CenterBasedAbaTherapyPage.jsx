@@ -215,7 +215,7 @@ export default function CenterBasedAbaTherapyPage({
   const settingActions = [onHomeBased, onCommunityBased, onSchoolBased, onVirtual];
 
   return (
-    <div className="eden-page-shell text-[#0F172A]">
+    <div className="text-[#0F172A]">
       <PageSchema p={p} faqs={p.faq.items} />
 
       {/* HERO */}
@@ -245,7 +245,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* OUR CENTERS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <motion.div {...fadeUp} className="overflow-hidden rounded-[2rem] shadow-xl">
             <img src={img.centers} alt={p.centers.imageAlt} className="aspect-[4/3] w-full object-cover" loading="lazy" />
@@ -261,7 +261,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* WHAT IS */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-4xl">
           <motion.h2 {...fadeUp} className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">
             {p.whatIs.title}
@@ -279,7 +279,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* BENEFITS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.benefits.title}</h2>
           <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.benefits.intro}</p>
@@ -306,7 +306,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* SERVICE SETTINGS */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.h2 {...fadeUp} className="text-center text-3xl font-black text-[#0b4f4f] md:text-4xl">
           {p.serviceSettings.title}
         </motion.h2>
@@ -346,7 +346,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* PROGRAMS */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <motion.div {...fadeUp}>
@@ -362,7 +362,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* FIND A CENTER */}
-      <section className="px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <motion.div
           {...fadeUp}
           className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#ddf4f4] via-white to-[#fff8df] p-8 shadow-xl md:p-12 lg:p-14"
@@ -398,7 +398,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* GALLERY */}
-      <section className="mx-auto max-w-7xl px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.h2 {...fadeUp} className="text-center text-3xl font-black text-[#0b4f4f] md:text-4xl">
           {p.gallery.title}
         </motion.h2>
@@ -415,7 +415,7 @@ export default function CenterBasedAbaTherapyPage({
       </section>
 
       {/* FAQ */}
-      <section className="bg-white px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.faq.title}</h2>
