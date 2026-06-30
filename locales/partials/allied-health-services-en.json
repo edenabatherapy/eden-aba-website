@@ -1,0 +1,2014 @@
+{
+  "shared": {
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "startAbaTherapy": "Start ABA Therapy",
+    "scheduleEvaluation": "Schedule an Evaluation",
+    "contactEden": "Contact Eden",
+    "insuranceVerification": "Insurance Verification",
+    "gettingStarted": "Getting Started",
+    "readingTimeLabel": "Reading time",
+    "sharePage": "Share this page",
+    "copyLink": "Copy link",
+    "copiedLink": "Link copied",
+    "tocTitle": "On this page",
+    "tocOverview": "Overview",
+    "tocWhoBenefits": "Who Benefits",
+    "tocConditions": "Conditions We Support",
+    "tocHowDeliver": "How We Deliver Care",
+    "tocTimeline": "Care Timeline",
+    "tocAssessment": "Assessment",
+    "tocTechniques": "Techniques",
+    "tocAbaIntegration": "ABA Integration",
+    "tocData": "Progress & Data",
+    "tocFamily": "Family Education",
+    "tocInsurance": "Insurance",
+    "tocFaq": "FAQ",
+    "tocResources": "Resources",
+    "tocCta": "Get Started",
+    "redFlagsTitle": "When to seek help sooner",
+    "signsTitle": "Common signs families notice",
+    "milestonesTitle": "Developmental milestones to watch",
+    "whenToSeekTitle": "When to consider a referral",
+    "chartDisclaimer": "Illustrative example only. Actual progress varies by child and is determined through clinical evaluation and ongoing data review."
+  },
+  "occupationalTherapy": {
+    "meta": {
+      "title": "Occupational Therapy | Eden ABA Therapy",
+      "description": "Pediatric occupational therapy at Eden ABA Therapy supports fine motor skills, sensory processing, daily living routines, and participation at home, school, and in the community across Northern Virginia.",
+      "keywords": [
+        "pediatric occupational therapy",
+        "OT for autism",
+        "sensory processing therapy",
+        "fine motor skills children",
+        "ADL training pediatric",
+        "occupational therapy Northern Virginia",
+        "OT and ABA coordination"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Allied Health Services",
+      "title": "Occupational Therapy",
+      "subtitle": "Hands-on occupational therapy helps children build the motor, sensory, and self-care skills they need to participate confidently in everyday life—coordinated with Eden's family-centered ABA approach when appropriate.",
+      "breadcrumbLabel": "Occupational Therapy",
+      "imageAlt": "Occupational therapist guiding a child through a fine motor activity at a child-friendly therapy table",
+      "readingTime": "18 min read"
+    },
+    "overview": {
+      "title": "What Is Pediatric Occupational Therapy?",
+      "whatIs": "Occupational therapy (OT) focuses on the skills children use throughout the day—dressing, eating, writing, playing, and moving through busy environments. At Eden, OT is delivered by licensed occupational therapists who understand neurodevelopment, sensory differences, and how motor challenges can affect learning and behavior.",
+      "whyMatters": "When daily tasks feel hard, children may avoid activities, become frustrated, or need more help than same-age peers. OT addresses root skill gaps with structured practice, environmental adjustments, and caregiver coaching so progress carries into real routines—not just the therapy room.",
+      "benefits": [
+        {
+          "title": "Stronger fine motor control",
+          "text": "Improved grasp, manipulation, and hand strength support writing, fasteners, utensils, and play with small objects."
+        },
+        {
+          "title": "Better sensory regulation",
+          "text": "Children learn strategies to tolerate textures, sounds, and movement demands so they can stay engaged longer."
+        },
+        {
+          "title": "Greater independence in daily routines",
+          "text": "Step-by-step training for dressing, grooming, and mealtime tasks builds confidence and reduces caregiver burden."
+        },
+        {
+          "title": "Improved classroom participation",
+          "text": "Visual-motor and organizational skills help children manage materials, seating, and multi-step classroom expectations."
+        },
+        {
+          "title": "More successful play and social interaction",
+          "text": "Motor and regulation skills make it easier to join peers in games, playgrounds, and cooperative activities."
+        },
+        {
+          "title": "Aligned support with ABA goals",
+          "text": "When families receive both services, OT and ABA teams coordinate on communication, behavior, and adaptive skill targets."
+        }
+      ]
+    },
+    "whoBenefits": {
+      "title": "Who Benefits from Occupational Therapy?",
+      "intro": "OT supports infants through young adults whose motor, sensory, or self-care needs affect participation at home, school, or in the community. Many children we serve also have autism, ADHD, or developmental differences—and some receive OT alongside ABA therapy.",
+      "ageGroups": [
+        {
+          "age": "Infants",
+          "text": "Early OT may address positioning, oral exploration, visual tracking, and caregiver handling strategies that support safe play and feeding development."
+        },
+        {
+          "age": "Toddlers",
+          "text": "Therapists focus on grasp patterns, cruising and climbing safety, sensory play, and beginning self-feeding and dressing steps."
+        },
+        {
+          "age": "Preschool",
+          "text": "Children work on scissor skills, pre-writing, pretend play, toilet routines, and tolerating group sensory environments."
+        },
+        {
+          "age": "School-age",
+          "text": "Goals often include handwriting legibility, backpack organization, playground participation, and independent lunch routines."
+        },
+        {
+          "age": "Teenagers",
+          "text": "Adolescents may work on vocational fine motor tasks, self-advocacy for accommodations, driving readiness components, and life skills for transitions."
+        },
+        {
+          "age": "Adults",
+          "text": "Young adults with developmental disabilities may continue OT for job-related motor tasks, community navigation, and adaptive equipment training when clinically appropriate."
+        }
+      ],
+      "signs": [
+        "Avoids messy play, certain clothing textures, or loud environments",
+        "Uses an immature pencil grasp or tires quickly during coloring and writing",
+        "Struggles with buttons, zippers, shoes, or toothbrushing independence",
+        "Appears clumsy, bumps into objects, or hesitates on stairs and playground equipment",
+        "Becomes overwhelmed in busy stores, cafeterias, or classrooms",
+        "Has difficulty organizing a backpack, following multi-step directions, or completing morning routines"
+      ],
+      "redFlags": [
+        "Frequent injury due to poor body awareness or unsafe climbing",
+        "Extreme distress during grooming, haircuts, or nail care that limits basic hygiene",
+        "Complete refusal of all finger foods or textures beyond a very narrow range when feeding is also a concern",
+        "Regression in previously mastered self-care skills without a clear medical explanation",
+        "Inability to participate in any structured group setting due to sensory overwhelm"
+      ],
+      "milestones": [
+        "Stacks blocks and turns pages in a book by age 2",
+        "Copies simple shapes and snips paper with scissors by age 4",
+        "Writes some letters and dresses with minimal help by age 5",
+        "Ties shoes and manages school supplies with occasional prompts by age 7",
+        "Organizes homework materials and uses utensils fluently by late elementary years"
+      ],
+      "whenToSeek": "Consider an OT evaluation if motor or sensory differences consistently limit your child's independence, cause distress during daily routines, or interfere with learning and social participation despite general support at home or school."
+    },
+    "conditions": {
+      "title": "Conditions & Needs We Commonly Address",
+      "intro": "Eden occupational therapists work with children who have a wide range of developmental, neurological, and genetic profiles. Treatment is individualized—diagnosis alone does not determine goals.",
+      "items": [
+        {
+          "name": "Autism spectrum disorder",
+          "text": "Sensory processing differences, motor planning, and adaptive routines are addressed with structured supports that respect communication and regulation needs."
+        },
+        {
+          "name": "ADHD",
+          "text": "Therapists target executive functioning, organization, seated posture, and movement breaks that help children sustain attention during tasks."
+        },
+        {
+          "name": "Developmental delay",
+          "text": "Global motor and adaptive milestones are broken into achievable steps with frequent caregiver practice between sessions."
+        },
+        {
+          "name": "Motor delay",
+          "text": "Fine and gross motor sequences are practiced to improve coordination, strength, and confidence during play and daily tasks."
+        },
+        {
+          "name": "Sensory processing differences",
+          "text": "Graduated exposure, regulation strategies, and environmental modifications help children tolerate necessary daily sensory experiences."
+        },
+        {
+          "name": "Cerebral palsy",
+          "text": "Therapists adapt tasks, recommend equipment, and train caregivers in positioning and one-handed techniques when needed."
+        },
+        {
+          "name": "Down syndrome",
+          "text": "Low-tone strengthening, hand skills, and independence routines are tailored to each child's learning style and medical history."
+        },
+        {
+          "name": "Genetic syndromes",
+          "text": "Individualized plans account for characteristic motor patterns, vision/hearing needs, and family priorities across the lifespan."
+        },
+        {
+          "name": "Neurological conditions",
+          "text": "Recovery and compensation strategies support children with acquired or progressive conditions affecting movement and daily function."
+        },
+        {
+          "name": "Handwriting and visual-motor difficulties",
+          "text": "Legibility, spacing, and speed goals are paired with core stability and perceptual skill building."
+        },
+        {
+          "name": "Feeding-related motor needs",
+          "text": "When oral-motor or utensil skills affect nutrition, OT coordinates closely with feeding specialists and the ABA team."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden Delivers Occupational Therapy",
+      "intro": "Our OT model emphasizes clinical reasoning, family partnership, and coordination with ABA and other providers so skills generalize beyond the clinic.",
+      "steps": [
+        {
+          "title": "Referral and intake",
+          "text": "Families share concerns, medical history, and current supports. Staff explain consent, scheduling options, and what to bring to the first visit."
+        },
+        {
+          "title": "Comprehensive evaluation",
+          "text": "Licensed OTs observe play, self-care, and motor tasks while gathering caregiver input about home and school routines."
+        },
+        {
+          "title": "Clinical reasoning",
+          "text": "Therapists analyze how sensory, motor, cognitive, and environmental factors interact to create barriers—or opportunities—for participation."
+        },
+        {
+          "title": "Collaborative goal development",
+          "text": "Priority goals reflect family values, school needs, and measurable outcomes agreed upon with caregivers."
+        },
+        {
+          "title": "Individualized treatment planning",
+          "text": "Session plans include therapeutic activities, home programs, and accommodations tailored to the child's profile."
+        },
+        {
+          "title": "Active family participation",
+          "text": "Caregivers learn hands-on strategies during sessions and receive clear guidance for practice between visits."
+        },
+        {
+          "title": "Progress review",
+          "text": "Data and observations are reviewed regularly to adjust difficulty, prompts, and goal focus."
+        },
+        {
+          "title": "Discharge and transition planning",
+          "text": "When goals are met, families receive maintenance strategies and recommendations for school or community supports."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Your OT Care Timeline",
+      "intro": "Every child's path is different. This timeline describes a typical sequence from first contact through graduation.",
+      "steps": [
+        {
+          "title": "Referral received",
+          "text": "Pediatrician, school, BCBA, or caregiver initiates contact with Eden's allied health team."
+        },
+        {
+          "title": "Benefits verification",
+          "text": "Insurance or Medicaid benefits are reviewed and authorization requirements are explained."
+        },
+        {
+          "title": "Evaluation scheduled",
+          "text": "A comprehensive OT evaluation is booked at a time that works for caregiver participation."
+        },
+        {
+          "title": "Assessment completed",
+          "text": "Therapist completes standardized and clinical observations with a written summary of findings."
+        },
+        {
+          "title": "Goal-setting meeting",
+          "text": "Families review results, ask questions, and agree on initial treatment priorities."
+        },
+        {
+          "title": "Treatment begins",
+          "text": "Regular sessions start with a home program and clear expectations for caregiver follow-through."
+        },
+        {
+          "title": "Mid-course review",
+          "text": "Progress data informs whether goals should be advanced, modified, or added."
+        },
+        {
+          "title": "Coordination checkpoints",
+          "text": "Updates are shared with BCBAs, teachers, or other therapists when families consent."
+        },
+        {
+          "title": "Graduation or step-down",
+          "text": "Services taper when skills are stable across settings, with a written summary for ongoing supports."
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Occupational Therapy Assessment",
+      "intro": "Assessment identifies strengths and participation barriers. Eden therapists select methods based on age, diagnosis context, and family concerns—without relying on a single score to tell the whole story.",
+      "methods": [
+        {
+          "title": "Caregiver interview",
+          "text": "Structured questions explore daily routines, prior therapies, sensory triggers, and what success would look like at home."
+        },
+        {
+          "title": "Clinical observation",
+          "text": "Therapists watch how a child moves, attends, and problem-solves during play and functional tasks."
+        },
+        {
+          "title": "Standardized motor testing",
+          "text": "Age-appropriate tools measure fine motor, visual-motor, or adaptive skill levels compared to developmental expectations."
+        },
+        {
+          "title": "Sensory processing review",
+          "text": "Questionnaires and structured activities clarify responses to touch, movement, sound, and visual input."
+        },
+        {
+          "title": "School and environment checklist",
+          "text": "Classroom demands, seating, and home setup are considered when they affect goal selection."
+        },
+        {
+          "title": "Written report and recommendations",
+          "text": "Families receive a plain-language summary with suggested goals, frequency, and coordination needs."
+        }
+      ]
+    },
+    "techniques": {
+      "title": "Therapeutic Techniques We Use",
+      "intro": "Interventions are evidence-informed and play-based whenever possible. Your therapist explains why each technique is chosen and how to practice safely at home.",
+      "categories": [
+        {
+          "title": "Fine motor",
+          "items": [
+            "Pincer grasp games and bead threading",
+            "Theraputty and hand strengthening circuits",
+            "In-hand manipulation with small objects",
+            "Bilateral coordination tasks such as folding and tearing"
+          ]
+        },
+        {
+          "title": "Gross motor",
+          "items": [
+            "Balance and core stability on therapy balls",
+            "Obstacle courses for motor planning",
+            "Stair and playground navigation practice",
+            "Ball skills for coordination and timing"
+          ]
+        },
+        {
+          "title": "Visual motor",
+          "items": [
+            "Copying shapes and block designs",
+            "Tracking moving objects during play",
+            "Puzzles and construction toys",
+            "Scanning activities for classroom readiness"
+          ]
+        },
+        {
+          "title": "Handwriting",
+          "items": [
+            "Grip refinements and adaptive tools",
+            "Letter formation in multi-sensory media",
+            "Spacing and line awareness strategies",
+            "Keyboarding readiness when appropriate"
+          ]
+        },
+        {
+          "title": "ADLs",
+          "items": [
+            "Backward chaining for dressing steps",
+            "Visual schedules for morning routines",
+            "Adaptive equipment trials",
+            "Toileting and hygiene sequencing"
+          ]
+        },
+        {
+          "title": "Executive functioning",
+          "items": [
+            "Task initiation timers and checklists",
+            "Workspace organization systems",
+            "Working memory games",
+            "Self-monitoring charts for older children"
+          ]
+        },
+        {
+          "title": "Sensory strategies",
+          "items": [
+            "Deep pressure and proprioceptive breaks",
+            "Graduated texture exposure bins",
+            "Noise-reducing tools for busy settings",
+            "Movement diets coordinated with teachers"
+          ]
+        },
+        {
+          "title": "Emotional regulation",
+          "items": [
+            "Zones of regulation–informed coping tools",
+            "Heavy work before demanding tasks",
+            "Co-regulation routines with caregivers",
+            "Safe spaces and break cards for school"
+          ]
+        },
+        {
+          "title": "Play skills",
+          "items": [
+            "Expanding pretend play scripts",
+            "Turn-taking games with peers",
+            "Constructive play with varied materials",
+            "Outdoor exploration for confidence building"
+          ]
+        },
+        {
+          "title": "Self-care",
+          "items": [
+            "Hair and nail desensitization plans",
+            "Toothbrushing tolerance programs",
+            "Mealtime positioning and utensil use",
+            "Age-appropriate chore participation"
+          ]
+        }
+      ]
+    },
+    "abaIntegration": {
+      "title": "Coordinating OT with ABA Therapy",
+      "intro": "Many Eden families receive both OT and ABA. Intentional coordination reduces conflicting prompts and helps children practice the same skills across settings.",
+      "points": [
+        {
+          "title": "Shared goal language",
+          "text": "OT and BCBA teams align on priority targets—such as independent dressing or seated attention—so data reflects the same outcomes."
+        },
+        {
+          "title": "Prompting consistency",
+          "text": "Therapists agree on prompt hierarchies and fading plans to avoid confusion during back-to-back sessions."
+        },
+        {
+          "title": "Sensory supports in behavior plans",
+          "text": "Regulation strategies from OT are embedded in ABA programs when sensory triggers affect learning or safety."
+        },
+        {
+          "title": "Caregiver coaching alignment",
+          "text": "Parents receive unified guidance on home practice rather than competing instructions from separate providers."
+        },
+        {
+          "title": "School and community carryover",
+          "text": "Joint recommendations help teachers implement accommodations that support both motor participation and behavioral success."
+        }
+      ]
+    },
+    "dataCollection": {
+      "title": "Progress Tracking & Data",
+      "intro": "Occupational therapy at Eden uses measurable goals so families can see how skills are changing across sessions, home practice, and coordinated ABA programming.",
+      "metrics": [
+        {
+          "label": "Goal mastery rate",
+          "value": 78
+        },
+        {
+          "label": "Caregiver strategy use",
+          "value": 84
+        },
+        {
+          "label": "Session attendance",
+          "value": 91
+        },
+        {
+          "label": "Home carryover reported",
+          "value": 72
+        }
+      ],
+      "chartTitle": "Sample fine motor independence across treatment",
+      "chartBars": [
+        {
+          "label": "Baseline",
+          "value": 22
+        },
+        {
+          "label": "Month 1",
+          "value": 38
+        },
+        {
+          "label": "Month 2",
+          "value": 52
+        },
+        {
+          "label": "Month 3",
+          "value": 67
+        },
+        {
+          "label": "Month 4",
+          "value": 79
+        },
+        {
+          "label": "Month 5",
+          "value": 86
+        }
+      ],
+      "items": [
+        {
+          "title": "Standardized baselines",
+          "text": "Therapists document starting levels for priority fine motor, sensory, and daily living goals using observation and clinically appropriate tools."
+        },
+        {
+          "title": "Session-level data",
+          "text": "Trials, prompts, and independence levels are recorded so progress trends are visible over time—not based on memory alone."
+        },
+        {
+          "title": "Goal graphs for families",
+          "text": "Caregivers receive visual summaries during check-ins so you can see what is improving and what still needs support."
+        },
+        {
+          "title": "BCBA coordination",
+          "text": "When ABA is active, OT data is shared with your BCBA so reinforcement, prompting, and environmental supports stay aligned."
+        },
+        {
+          "title": "Reassessment checkpoints",
+          "text": "Formal review periods help adjust goals when a child masters a skill or when new priorities emerge at school or home."
+        },
+        {
+          "title": "Discharge readiness",
+          "text": "Graduation decisions are based on sustained skill use across settings, not a single good session."
+        }
+      ]
+    },
+    "familyEducation": {
+      "title": "Family Education & Coaching",
+      "intro": "Parents are essential partners in OT. Eden therapists prioritize teaching you what to practice, when to prompt, and how to celebrate small wins at home.",
+      "cards": [
+        {
+          "title": "Home program design",
+          "text": "Short, realistic activities fit your schedule—often five to ten minutes embedded in existing routines."
+        },
+        {
+          "title": "Sensory diet guidance",
+          "text": "Therapists help you build regulation breaks that match your child's needs without overloading the day."
+        },
+        {
+          "title": "School collaboration letters",
+          "text": "When consented, Eden can share accommodation ideas for seating, breaks, and handwriting supports."
+        },
+        {
+          "title": "Equipment recommendations",
+          "text": "Families learn which adaptive tools are worth trying—and which are optional—for dressing, writing, and feeding."
+        },
+        {
+          "title": "Sibling and caregiver inclusion",
+          "text": "Coaching considers who helps with daily routines so strategies work for the whole household."
+        },
+        {
+          "title": "Transition planning",
+          "text": "Before discharge, families receive maintenance tips and signs that a booster session may be helpful later."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Authorization",
+      "intro": "Many families use insurance to access allied health services. Eden's team helps you understand plan requirements, documentation needs, and authorization steps before services begin. Occupational therapy may require a physician referral or prior authorization depending on your plan.",
+      "bullets": [
+        "We verify benefits and explain likely out-of-pocket costs when plan information is available.",
+        "Clinical documentation supports medical-necessity reviews based on assessment findings and recommended goals.",
+        "Authorizations are tracked and renewed according to each payer's rules and visit limits.",
+        "Medicaid and commercial plans may differ in covered settings, visit caps, and referral requirements.",
+        "Families receive plain-language updates when additional paperwork or physician orders are needed.",
+        "Billing questions are handled by staff who can explain claims, denials, and appeal options when applicable."
+      ],
+      "note": "Coverage varies by plan, diagnosis, and clinical documentation. Eden does not guarantee approval or payment from any insurer."
+    },
+    "faq": {
+      "title": "Occupational Therapy FAQ",
+      "items": [
+        {
+          "question": "What does a pediatric occupational therapist do?",
+          "answer": "Pediatric OTs help children develop skills for daily life—motor coordination, sensory regulation, self-care, and participation in play and learning. They analyze why tasks are difficult and design practice that fits each child's strengths."
+        },
+        {
+          "question": "How is OT different from physical therapy?",
+          "answer": "Physical therapy often emphasizes mobility, strength, and gross motor recovery. OT focuses on how children use movement and sensation to complete daily activities like writing, dressing, and feeding. Some children benefit from both."
+        },
+        {
+          "question": "Does my child need a diagnosis to start OT?",
+          "answer": "A diagnosis can help with insurance authorization, but clinical need is based on functional participation. Your therapist will discuss evaluation requirements for your specific plan."
+        },
+        {
+          "question": "How long is a typical OT session?",
+          "answer": "Sessions commonly last 30 to 60 minutes depending on age, attention, and authorization. Your therapist will recommend a frequency based on assessment findings."
+        },
+        {
+          "question": "Can OT help with handwriting?",
+          "answer": "Yes. Therapists address grasp, posture, visual-motor skills, and endurance. Goals focus on functional legibility and speed—not perfection on every worksheet."
+        },
+        {
+          "question": "What is sensory processing in OT?",
+          "answer": "It refers to how the nervous system receives and responds to touch, movement, sound, and other input. OT helps children tolerate necessary sensations and use strategies to stay regulated."
+        },
+        {
+          "question": "Will OT use a sensory gym?",
+          "answer": "Some activities may include swings, climbing, or textured materials when clinically appropriate. Not every child needs equipment-heavy sessions; plans are individualized."
+        },
+        {
+          "question": "Can OT help my child with autism?",
+          "answer": "Many autistic children benefit from OT for motor, sensory, and adaptive goals. Therapists coordinate with ABA and speech teams when families receive multiple services at Eden."
+        },
+        {
+          "question": "How do I know if my toddler needs OT?",
+          "answer": "Consider an evaluation if motor or sensory differences limit play, feeding, or self-care compared to peers, or if daily routines cause frequent distress."
+        },
+        {
+          "question": "Does Eden OT coordinate with my child's school?",
+          "answer": "With your consent, therapists can share recommendations and attend meetings when scheduling allows. School-based OT, if available, remains a separate district service."
+        },
+        {
+          "question": "What should we bring to the evaluation?",
+          "answer": "Comfortable clothes, any prior reports, glasses or hearing aids if used, and a snack if needed. Caregiver attendance is important for interview portions."
+        },
+        {
+          "question": "Is parent participation required?",
+          "answer": "Yes. Caregiver coaching is central to progress. You will learn strategies to practice between sessions."
+        },
+        {
+          "question": "How soon will we see progress?",
+          "answer": "Some families notice changes in weeks; others need longer for complex motor or sensory patterns. Your therapist will set realistic short-term benchmarks."
+        },
+        {
+          "question": "Are home exercises assigned?",
+          "answer": "Most children receive a brief home program. Consistency matters more than length—embedding practice in daily routines works best."
+        },
+        {
+          "question": "Can OT address picky eating?",
+          "answer": "When feeding is primarily motor or sensory-based, OT may overlap with feeding therapy. Eden's feeding specialists collaborate when both are needed."
+        },
+        {
+          "question": "What if my child refuses therapy activities?",
+          "answer": "Therapists use play, choice, and graded challenges to build trust. If refusal is persistent, the team reviews sensory triggers, medical factors, and coordination with ABA supports."
+        },
+        {
+          "question": "Does insurance cover pediatric OT?",
+          "answer": "Many plans cover OT when medically necessary documentation is met. Eden helps verify benefits but cannot guarantee payment."
+        },
+        {
+          "question": "Do we need a doctor's referral?",
+          "answer": "Some insurers require a referral or prescription. Intake staff will tell you what your plan needs before scheduling."
+        },
+        {
+          "question": "Can siblings attend sessions?",
+          "answer": "Policies vary by setting. Ask your coordinator about room size and distraction considerations for your child's plan of care."
+        },
+        {
+          "question": "How does OT support ADHD?",
+          "answer": "Therapists target organization, seated posture, motor overflow, and break schedules that help children complete tasks with less frustration."
+        },
+        {
+          "question": "What adaptive equipment might OT recommend?",
+          "answer": "Examples include pencil grips, specialized seating, dressing aids, or utensils. Therapists trial options before families purchase items."
+        },
+        {
+          "question": "When should OT services end?",
+          "answer": "Graduation occurs when goals are met and skills are stable across home and school—or when family priorities shift. Booster sessions can be requested later if needed."
+        },
+        {
+          "question": "Can OT help with toilet training?",
+          "answer": "Therapists support readiness skills, scheduling, clothing management, and sensory comfort. Medical or behavioral complexities may require coordination with other providers."
+        },
+        {
+          "question": "How does Eden protect my child's privacy?",
+          "answer": "Health information is shared only with consent and for clinical or authorization purposes permitted by law."
+        },
+        {
+          "question": "How do I schedule an OT evaluation at Eden?",
+          "answer": "Contact Eden to discuss concerns, insurance, and scheduling. You may also begin through our evaluation pathway if you are exploring multiple services."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Helpful Resources",
+      "intro": "These topics can help you prepare for OT and advocate effectively between sessions.",
+      "items": [
+        {
+          "title": "Preparing for your first OT visit",
+          "text": "Bring comfortable clothing, a list of concerns, and examples of school work or videos of daily routines if you have them."
+        },
+        {
+          "title": "Sensory-friendly home setups",
+          "text": "Simple changes to lighting, seating, and storage can reduce overwhelm during homework and meals."
+        },
+        {
+          "title": "Handwriting without battles",
+          "text": "Short, multi-sensory practice often works better than long worksheets—ask your therapist for a personalized plan."
+        },
+        {
+          "title": "When OT and ABA overlap",
+          "text": "Dressing, feeding, and play goals may appear in both services; coordination keeps expectations clear."
+        },
+        {
+          "title": "School OT vs. clinic OT",
+          "text": "School services focus on educational participation; clinic OT can address broader home and community goals when authorized."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to explore next steps?",
+      "subtitle": "Eden's care team can help you understand evaluation options, insurance questions, and how allied health services may fit alongside ABA therapy.",
+      "buttons": [
+        {
+          "label": "Start ABA Therapy",
+          "href": "/start-aba-therapy"
+        },
+        {
+          "label": "Schedule an Evaluation",
+          "href": "/services/evaluations-diagnosis/screening-evaluation"
+        },
+        {
+          "label": "Contact Eden",
+          "href": "/contact"
+        },
+        {
+          "label": "Insurance Coverage",
+          "href": "/insurance-coverage"
+        }
+      ]
+    }
+  },
+  "speechLanguageTherapy": {
+    "meta": {
+      "title": "Speech & Language Therapy | Eden ABA Therapy",
+      "description": "Speech and language therapy at Eden ABA Therapy supports communication, articulation, social language, fluency, and AAC for children and adolescents in Northern Virginia.",
+      "keywords": [
+        "pediatric speech therapy",
+        "speech language pathology autism",
+        "articulation therapy children",
+        "AAC evaluation",
+        "pragmatic language skills",
+        "speech therapy Northern Virginia",
+        "SLP and ABA coordination"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Allied Health Services",
+      "title": "Speech & Language Therapy",
+      "subtitle": "Licensed speech-language pathologists help children understand language, express ideas clearly, connect with others, and use augmentative tools when speech alone is not enough—all within Eden's collaborative care model.",
+      "breadcrumbLabel": "Speech & Language Therapy",
+      "imageAlt": "Speech-language pathologist engaging a child in a communication activity with picture cards",
+      "readingTime": "19 min read"
+    },
+    "overview": {
+      "title": "What Is Speech & Language Therapy?",
+      "whatIs": "Speech-language therapy addresses how children understand others, express themselves, pronounce sounds, use social language, and communicate across settings. Speech-language pathologists (SLPs) at Eden use play-based, structured, and family-guided methods matched to each child's profile.",
+      "whyMatters": "Communication skills shape learning, friendships, and emotional well-being. When children struggle to be understood or to follow language, frustration can grow. Early, targeted support can expand how children participate at home, in therapy, and at school.",
+      "benefits": [
+        {
+          "title": "Clearer speech production",
+          "text": "Children practice sounds and patterns so others can understand them with less repetition."
+        },
+        {
+          "title": "Stronger language comprehension",
+          "text": "Following directions, answering questions, and learning new vocabulary become more accessible."
+        },
+        {
+          "title": "Functional expressive language",
+          "text": "Kids learn to request, comment, describe, and tell stories using words, signs, or AAC as needed."
+        },
+        {
+          "title": "Improved social communication",
+          "text": "Turn-taking, topic maintenance, and reading social cues support peer relationships."
+        },
+        {
+          "title": "Confident AAC use",
+          "text": "When speech is limited, robust AAC systems reduce communication pressure and expand independence."
+        },
+        {
+          "title": "Better alignment with ABA programs",
+          "text": "SLPs and BCBAs coordinate on mand training, prompt fading, and generalization of communication skills."
+        }
+      ]
+    },
+    "whoBenefits": {
+      "title": "Who Benefits from Speech & Language Therapy?",
+      "intro": "Infants through teenagers who have difficulty being understood, following language, or connecting socially may benefit from SLP services. Many Eden families also receive ABA therapy for overlapping goals.",
+      "ageGroups": [
+        {
+          "age": "Infants",
+          "text": "Early intervention may address feeding-swallowing safety, vocal play, joint attention, and pre-linguistic communication foundations."
+        },
+        {
+          "age": "Toddlers",
+          "text": "Therapists support first words, gesture use, simple directions, and early sound development during play routines."
+        },
+        {
+          "age": "Preschool",
+          "text": "Children work on sentence length, speech clarity, answering wh- questions, and peer interaction in small groups."
+        },
+        {
+          "age": "School-age",
+          "text": "Goals may include reading comprehension support, classroom discourse, articulation carryover, and written language planning."
+        },
+        {
+          "age": "Teenagers",
+          "text": "Adolescents may focus on complex conversation, self-advocacy, job interview communication, and social media boundaries."
+        },
+        {
+          "age": "Adults",
+          "text": "Young adults with developmental disabilities may continue therapy for vocational communication and AAC system updates when appropriate."
+        }
+      ],
+      "signs": [
+        "Limited words or phrases compared to same-age peers",
+        "Speech that is difficult for family or teachers to understand",
+        "Difficulty following two-step directions without gestures",
+        "Minimal eye contact or joint attention during shared activities",
+        "Stuttering or frequent sound/word repetitions that cause avoidance",
+        "Challenges joining conversations, taking turns, or understanding jokes and idioms"
+      ],
+      "redFlags": [
+        "Loss of previously acquired words or social engagement",
+        "Hoarse or breathy voice lasting more than two weeks without illness",
+        "Frequent coughing or choking during meals or drinks",
+        "No response to name by 12 months or no single words by 18 months without evaluation",
+        "Extreme communication shutdown in all settings despite prior skills"
+      ],
+      "milestones": [
+        "Babbles with varied sounds by 9 months",
+        "Uses several single words and follows simple commands by 18 months",
+        "Combines two words and names common objects by age 2",
+        "Speaks in short sentences strangers mostly understand by age 3",
+        "Tells simple stories and asks many questions by kindergarten"
+      ],
+      "whenToSeek": "Seek a speech-language evaluation if communication differences persist, cause frustration, affect safety during meals, or limit participation at home and school despite routine support."
+    },
+    "conditions": {
+      "title": "Conditions & Needs We Commonly Address",
+      "intro": "Eden SLPs support children with diverse developmental and medical profiles. Therapy targets functional communication—not labels alone.",
+      "items": [
+        {
+          "name": "Autism spectrum disorder",
+          "text": "Joint attention, functional communication, AAC, and social language are addressed with neurodiversity-affirming strategies."
+        },
+        {
+          "name": "ADHD",
+          "text": "Therapists work on listening strategies, organization of expressive language, and self-monitoring during conversation."
+        },
+        {
+          "name": "Developmental language disorder",
+          "text": "Comprehension and expression goals are broken into measurable steps with heavy caregiver practice."
+        },
+        {
+          "name": "Motor speech disorders",
+          "text": "Apraxia and dysarthria protocols emphasize motor planning, repetition, and multimodal cues."
+        },
+        {
+          "name": "Articulation and phonological disorders",
+          "text": "Sound patterns are practiced in words, phrases, and conversation for generalization."
+        },
+        {
+          "name": "Fluency disorders",
+          "text": "Stuttering support includes easy onsets, pacing, and confidence-building—not shame-based correction."
+        },
+        {
+          "name": "Cerebral palsy",
+          "text": "AAC, positioning, and adapted access methods ensure communication despite motor limitations."
+        },
+        {
+          "name": "Down syndrome",
+          "text": "Speech, language, and hearing considerations are integrated into play-based, routine-focused therapy."
+        },
+        {
+          "name": "Genetic syndromes",
+          "text": "Individual profiles guide AAC selection, oral motor safety, and family coaching priorities."
+        },
+        {
+          "name": "Neurological conditions",
+          "text": "Therapists support recovery or compensation when injury or illness affects speech and language."
+        },
+        {
+          "name": "Voice and resonance differences",
+          "text": "Collaboration with ENT when needed ensures voice goals are safe and appropriate for age."
+        },
+        {
+          "name": "Social communication disorder",
+          "text": "Pragmatic goals teach perspective-taking, topic management, and repair strategies in real interactions."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden Delivers Speech & Language Therapy",
+      "intro": "Eden's SLP services combine clinical expertise, measurable goals, and coordination with ABA and other allied health providers.",
+      "steps": [
+        {
+          "title": "Referral and intake",
+          "text": "Families describe communication concerns, hearing status, and prior evaluations. Staff outline evaluation steps and insurance needs."
+        },
+        {
+          "title": "Comprehensive evaluation",
+          "text": "SLPs assess speech, language, fluency, voice, and pragmatics through observation, interaction, and standardized tools when appropriate."
+        },
+        {
+          "title": "Clinical reasoning",
+          "text": "Findings are interpreted alongside developmental history, sensory needs, and family priorities—not isolated test scores."
+        },
+        {
+          "title": "Collaborative goal development",
+          "text": "Goals reflect what matters daily: requesting help, classroom participation, clearer speech, or AAC independence."
+        },
+        {
+          "title": "Individualized treatment planning",
+          "text": "Session structures blend play, drills, naturalistic teaching, and caregiver coaching blocks."
+        },
+        {
+          "title": "Active family participation",
+          "text": "Parents learn models, cues, and carryover activities that fit meals, car rides, and bedtime routines."
+        },
+        {
+          "title": "Progress review",
+          "text": "Data on trials, utterances, or AAC use informs when to advance or modify targets."
+        },
+        {
+          "title": "Discharge and transition planning",
+          "text": "Families receive maintenance ideas and school recommendations when therapy frequency decreases."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Your Speech Therapy Care Timeline",
+      "intro": "Timelines vary by age and goal complexity. This overview shows how families typically move from referral to graduation.",
+      "steps": [
+        {
+          "title": "Referral received",
+          "text": "Pediatrician, teacher, BCBA, or caregiver contacts Eden about communication concerns."
+        },
+        {
+          "title": "Benefits verification",
+          "text": "Insurance benefits and authorization rules for speech therapy are reviewed with families."
+        },
+        {
+          "title": "Evaluation scheduled",
+          "text": "A comprehensive speech-language evaluation is booked with caregiver attendance encouraged."
+        },
+        {
+          "title": "Assessment completed",
+          "text": "SLP completes testing, observation, and a written summary of communication strengths and needs."
+        },
+        {
+          "title": "Goal-setting meeting",
+          "text": "Families review results and agree on initial targets and recommended session frequency."
+        },
+        {
+          "title": "Treatment begins",
+          "text": "Therapy starts with a home practice plan and clear expectations for between-session repetition."
+        },
+        {
+          "title": "Mid-course review",
+          "text": "Progress data guides decisions to add conversational goals, adjust AAC, or change articulation targets."
+        },
+        {
+          "title": "Coordination checkpoints",
+          "text": "Updates flow to BCBAs and teachers when consented so prompts and vocabulary stay consistent."
+        },
+        {
+          "title": "Graduation or step-down",
+          "text": "Services reduce when communication goals are stable across settings, with summaries for ongoing supports."
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Speech & Language Assessment",
+      "intro": "Assessment clarifies how a child communicates today and which supports will matter most. Eden SLPs describe findings in parent-friendly language.",
+      "methods": [
+        {
+          "title": "Developmental history interview",
+          "text": "Caregivers share milestones, hearing screenings, multilingual exposure, and daily communication breakdowns."
+        },
+        {
+          "title": "Speech sound analysis",
+          "text": "Therapists listen to conversational and structured speech to identify error patterns affecting intelligibility."
+        },
+        {
+          "title": "Language sampling",
+          "text": "Play-based or conversational samples reveal vocabulary, grammar, and narrative skills in natural contexts."
+        },
+        {
+          "title": "Standardized language testing",
+          "text": "Age-appropriate measures compare comprehension and expression to developmental expectations when valid."
+        },
+        {
+          "title": "AAC and access review",
+          "text": "For minimally speaking children, therapists explore gestures, pictures, and device options matched to motor skills."
+        },
+        {
+          "title": "Written report and plan",
+          "text": "Families receive recommendations for goals, service frequency, and coordination with other Eden providers."
+        }
+      ]
+    },
+    "techniques": {
+      "title": "Therapeutic Techniques We Use",
+      "intro": "Techniques are selected based on age, learning style, and family routines. Your SLP explains the purpose behind each approach.",
+      "categories": [
+        {
+          "title": "Receptive language",
+          "items": [
+            "Following graduated directions during play",
+            "Concept teaching with visual supports",
+            "Question comprehension drills",
+            "Listening strategies for noisy classrooms"
+          ]
+        },
+        {
+          "title": "Expressive language",
+          "items": [
+            "Expanding utterances through modeling",
+            "Core vocabulary practice",
+            "Sentence formulation games",
+            "Narrative retelling with picture sequences"
+          ]
+        },
+        {
+          "title": "Articulation",
+          "items": [
+            "Isolation-to-conversation sound hierarchies",
+            "Mirror and tactile cueing",
+            "Minimal pair discrimination",
+            "Carryover homework with functional phrases"
+          ]
+        },
+        {
+          "title": "Phonological skills",
+          "items": [
+            "Cycle-based pattern training",
+            "Auditory bombardment activities",
+            "Rhyme and sound awareness games",
+            "Connected speech practice"
+          ]
+        },
+        {
+          "title": "Fluency",
+          "items": [
+            "Easy onset and light contact drills",
+            "Pacing boards and pausing strategies",
+            "Desensitization to stuttering moments",
+            "Family education on supportive listening"
+          ]
+        },
+        {
+          "title": "Voice",
+          "items": [
+            "Breath support exercises",
+            "Resonance awareness activities",
+            "Vocal hygiene coaching",
+            "Volume modulation for classroom"
+          ]
+        },
+        {
+          "title": "Pragmatic language",
+          "items": [
+            "Social stories for specific situations",
+            "Role-play for greetings and requests",
+            "Topic initiation and maintenance games",
+            "Interpreting facial expressions and tone"
+          ]
+        },
+        {
+          "title": "AAC overview",
+          "items": [
+            "Core board modeling during play",
+            "Device programming for home routines",
+            "Partner-assisted scanning when needed",
+            "Transition planning between low- and high-tech systems"
+          ]
+        },
+        {
+          "title": "Conversation skills",
+          "items": [
+            "Conversation scripts fading to independence",
+            "Repair strategies when misunderstood",
+            "Group discourse practice",
+            "Phone and video call rehearsals for teens"
+          ]
+        },
+        {
+          "title": "School communication",
+          "items": [
+            "Classroom participation goals",
+            "Presentation planning supports",
+            "Written language organizers",
+            "Collaboration on IEP language targets"
+          ]
+        }
+      ]
+    },
+    "abaIntegration": {
+      "title": "Coordinating Speech Therapy with ABA",
+      "intro": "Communication is a shared priority across SLP and ABA services. Eden teams work to prevent mixed messages and promote generalization.",
+      "points": [
+        {
+          "title": "Functional communication alignment",
+          "text": "Mands, requests, and protests taught in ABA use vocabulary and modalities agreed upon with the SLP—including AAC."
+        },
+        {
+          "title": "Prompt fading across providers",
+          "text": "Verbal, gestural, and device prompts are coordinated so children do not become dependent on inconsistent cues."
+        },
+        {
+          "title": "Natural environment teaching",
+          "text": "SLPs and RBTs practice targets during meals, play, and transitions when families want integrated sessions."
+        },
+        {
+          "title": "Data shared on shared goals",
+          "text": "Utterance counts, AAC hits, and articulation accuracy can be tracked in formats both teams review."
+        },
+        {
+          "title": "Caregiver coaching unity",
+          "text": "Parents receive one set of strategies for modeling language at home rather than conflicting instructions."
+        }
+      ]
+    },
+    "dataCollection": {
+      "title": "Progress Tracking & Data",
+      "intro": "Speech therapy progress is tracked with clear metrics so families see how communication is changing week to week.",
+      "metrics": [
+        {
+          "label": "Articulation accuracy",
+          "value": 82
+        },
+        {
+          "label": "Mean length of utterance growth",
+          "value": 71
+        },
+        {
+          "label": "AAC independent use",
+          "value": 88
+        },
+        {
+          "label": "Caregiver modeling consistency",
+          "value": 76
+        }
+      ],
+      "chartTitle": "Sample expressive language growth across treatment",
+      "chartBars": [
+        {
+          "label": "Baseline",
+          "value": 18
+        },
+        {
+          "label": "Month 1",
+          "value": 34
+        },
+        {
+          "label": "Month 2",
+          "value": 48
+        },
+        {
+          "label": "Month 3",
+          "value": 61
+        },
+        {
+          "label": "Month 4",
+          "value": 74
+        },
+        {
+          "label": "Month 5",
+          "value": 89
+        }
+      ],
+      "items": [
+        {
+          "title": "Baseline communication samples",
+          "text": "Initial recordings or tallies document starting intelligibility, vocabulary, or AAC use."
+        },
+        {
+          "title": "Trial-by-trial accuracy",
+          "text": "Sound productions and language targets are scored during structured practice for trend analysis."
+        },
+        {
+          "title": "Naturalistic probes",
+          "text": "Therapists check whether skills appear during play and conversation—not only at the table."
+        },
+        {
+          "title": "Parent reporting tools",
+          "text": "Short check-ins capture whether new words or phrases appear at home between sessions."
+        },
+        {
+          "title": "BCBA data sharing",
+          "text": "When ABA is active, communication targets are aligned so session notes reflect the same outcomes."
+        },
+        {
+          "title": "Reevaluation triggers",
+          "text": "Plateaus or rapid gains prompt plan updates rather than continuing unchanged drills."
+        }
+      ]
+    },
+    "familyEducation": {
+      "title": "Family Education & Coaching",
+      "intro": "Children learn language from daily interactions. Eden SLPs coach parents to be effective communication partners—not passive observers.",
+      "cards": [
+        {
+          "title": "Modeling without pressure",
+          "text": "Learn how to expand language without demanding repeated words from your child."
+        },
+        {
+          "title": "AAC at home",
+          "text": "Families practice device navigation, core word placement, and modeling throughout routines."
+        },
+        {
+          "title": "Bilingual guidance",
+          "text": "Therapists respect home languages and help families choose practical strategies for multilingual homes."
+        },
+        {
+          "title": "Play-based practice",
+          "text": "Short games embed target sounds and vocabulary so practice feels natural."
+        },
+        {
+          "title": "School advocacy",
+          "text": "With consent, SLPs can suggest classroom accommodations and clarify IEP language goals."
+        },
+        {
+          "title": "Maintenance after discharge",
+          "text": "Families receive ideas to keep skills strong and know when to request a booster block of therapy."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Authorization",
+      "intro": "Many families use insurance to access allied health services. Eden's team helps you understand plan requirements, documentation needs, and authorization steps before services begin. Speech therapy authorizations often require diagnosis codes and measurable goals tied to functional communication.",
+      "bullets": [
+        "We verify benefits and explain likely out-of-pocket costs when plan information is available.",
+        "Clinical documentation supports medical-necessity reviews based on assessment findings and recommended goals.",
+        "Authorizations are tracked and renewed according to each payer's rules and visit limits.",
+        "Medicaid and commercial plans may differ in covered settings, visit caps, and referral requirements.",
+        "Families receive plain-language updates when additional paperwork or physician orders are needed.",
+        "Billing questions are handled by staff who can explain claims, denials, and appeal options when applicable."
+      ],
+      "note": "Coverage varies by plan, diagnosis, and clinical documentation. Eden does not guarantee approval or payment from any insurer."
+    },
+    "faq": {
+      "title": "Speech & Language Therapy FAQ",
+      "items": [
+        {
+          "question": "What is the difference between speech and language?",
+          "answer": "Speech refers to how sounds and words are produced. Language includes understanding others and expressing ideas with vocabulary and grammar. SLPs address both, plus social use of communication."
+        },
+        {
+          "question": "At what age should my child see an SLP?",
+          "answer": "If you notice persistent delays in babbling, words, or understanding compared to peers—or if teachers raise concerns—an evaluation is appropriate. Earlier support often expands learning opportunities."
+        },
+        {
+          "question": "Will speech therapy help my autistic child?",
+          "answer": "Many autistic children benefit from SLP services for functional communication, AAC, and social language. Eden coordinates with ABA when families receive both."
+        },
+        {
+          "question": "What is AAC?",
+          "answer": "Augmentative and alternative communication includes signs, picture boards, and speech devices that support expression when speech alone is insufficient or unreliable."
+        },
+        {
+          "question": "Does using AAC stop my child from talking?",
+          "answer": "Research shows AAC often supports speech development by reducing frustration and expanding language models. Your SLP will personalize recommendations."
+        },
+        {
+          "question": "How long are speech therapy sessions?",
+          "answer": "Sessions typically last 30 to 45 minutes depending on age and authorization. Frequency is based on assessment and medical necessity."
+        },
+        {
+          "question": "How do you measure progress?",
+          "answer": "Therapists track accuracy, utterance length, vocabulary use, or AAC hits—and share trends with families during reviews."
+        },
+        {
+          "question": "Can you help with stuttering?",
+          "answer": "Yes. Fluency therapy uses child-friendly strategies and family education. Severe or sudden onset may require additional medical review."
+        },
+        {
+          "question": "My child is bilingual. Should we only speak English at home?",
+          "answer": "Not necessarily. Maintaining home languages is valuable. Your SLP will help you choose practical strategies for your family."
+        },
+        {
+          "question": "Does Eden provide feeding therapy too?",
+          "answer": "Yes. When swallowing or oral motor feeding concerns exist, Eden's feeding specialists collaborate with SLPs."
+        },
+        {
+          "question": "How does speech therapy work with ABA?",
+          "answer": "Teams align on communication targets, prompting, and reinforcement so children practice consistent skills across services."
+        },
+        {
+          "question": "What happens during the first evaluation?",
+          "answer": "Expect caregiver interview, play-based interaction, and possibly standardized testing. Results are explained in accessible language."
+        },
+        {
+          "question": "Do I need a referral?",
+          "answer": "Some insurance plans require a physician referral. Eden intake staff will confirm your plan's requirements."
+        },
+        {
+          "question": "Can therapy happen at home?",
+          "answer": "Service settings depend on authorization and clinical need. Discuss options with your care coordinator."
+        },
+        {
+          "question": "How can I practice at home without overwhelming my child?",
+          "answer": "Short, routine-based practice works best. Your SLP will assign specific activities matched to your child's energy and attention."
+        },
+        {
+          "question": "What if my child is non-speaking?",
+          "answer": "SLPs explore gestures, AAC, and multimodal communication. Goals focus on functional expression—not speech alone."
+        },
+        {
+          "question": "Will my child outgrow articulation errors?",
+          "answer": "Some patterns resolve with age; others benefit from therapy. An evaluation clarifies whether errors are typical or disorder-level."
+        },
+        {
+          "question": "How do you support social skills?",
+          "answer": "Pragmatic goals teach conversation rules, repair strategies, and peer interaction in structured and natural activities."
+        },
+        {
+          "question": "Can you attend my child's IEP meeting?",
+          "answer": "With consent and scheduling availability, Eden clinicians may participate to share clinical recommendations."
+        },
+        {
+          "question": "Is teletherapy available?",
+          "answer": "Availability depends on payer rules and clinical appropriateness for your child's age and goals."
+        },
+        {
+          "question": "What voice concerns should I report?",
+          "answer": "Persistent hoarseness, pain, or sudden voice changes warrant medical review alongside therapy when appropriate."
+        },
+        {
+          "question": "How often will we get progress updates?",
+          "answer": "Frequency varies by authorization but expect regular summaries and opportunities to adjust goals."
+        },
+        {
+          "question": "When does speech therapy end?",
+          "answer": "Services taper when goals are met and skills generalize—or when family priorities shift. Re-entry is possible if needs change."
+        },
+        {
+          "question": "Does insurance cover speech therapy for autism?",
+          "answer": "Many plans cover medically necessary speech services, but benefits differ. Eden verifies when possible without guaranteeing payment."
+        },
+        {
+          "question": "How do I start speech therapy at Eden?",
+          "answer": "Contact Eden or begin with a screening evaluation to discuss concerns, insurance, and scheduling options."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Helpful Resources",
+      "intro": "These guides support families between speech therapy sessions.",
+      "items": [
+        {
+          "title": "Creating communication-rich routines",
+          "text": "Narrate daily activities, pause for responses, and keep interactions short and meaningful."
+        },
+        {
+          "title": "AAC myth-busting",
+          "text": "Using AAC supports speech development for many children—it does not replace verbal practice when speech is a goal."
+        },
+        {
+          "title": "Articulation carryover at home",
+          "text": "Practice target sounds in functional phrases during car rides or meals rather than long drill lists alone."
+        },
+        {
+          "title": "When speech and feeding overlap",
+          "text": "Swallowing concerns should be evaluated promptly; Eden's feeding team coordinates with SLPs."
+        },
+        {
+          "title": "Preparing for school meetings",
+          "text": "Bring recent therapy summaries and examples of home communication to align team expectations."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to explore next steps?",
+      "subtitle": "Eden's care team can help you understand evaluation options, insurance questions, and how allied health services may fit alongside ABA therapy.",
+      "buttons": [
+        {
+          "label": "Start ABA Therapy",
+          "href": "/start-aba-therapy"
+        },
+        {
+          "label": "Schedule an Evaluation",
+          "href": "/services/evaluations-diagnosis/screening-evaluation"
+        },
+        {
+          "label": "Contact Eden",
+          "href": "/contact"
+        },
+        {
+          "label": "Insurance Coverage",
+          "href": "/insurance-coverage"
+        }
+      ]
+    }
+  },
+  "feedingSwallowingTherapy": {
+    "meta": {
+      "title": "Feeding & Swallowing Therapy | Eden ABA Therapy",
+      "description": "Pediatric feeding and swallowing therapy at Eden ABA Therapy supports safe eating, oral motor skills, texture progression, and positive mealtime routines for children in Northern Virginia.",
+      "keywords": [
+        "pediatric feeding therapy",
+        "swallowing therapy children",
+        "feeding therapy autism",
+        "picky eating clinical support",
+        "oral motor feeding",
+        "dysphagia pediatric",
+        "feeding therapy Northern Virginia"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Allied Health Services",
+      "title": "Feeding & Swallowing Therapy",
+      "subtitle": "Specialized feeding therapists help families build safe, enjoyable mealtimes—addressing oral motor skills, sensory food differences, swallowing concerns, and routines that support nutrition and connection.",
+      "breadcrumbLabel": "Feeding & Swallowing Therapy",
+      "imageAlt": "Feeding therapist supporting a child during a calm, structured mealtime practice session",
+      "readingTime": "17 min read"
+    },
+    "overview": {
+      "title": "What Is Feeding & Swallowing Therapy?",
+      "whatIs": "Feeding and swallowing therapy supports children who have difficulty eating or drinking safely, accepting varied foods, or participating calmly in mealtimes. Eden's clinicians use structured exposure, oral motor training, caregiver coaching, and medical collaboration when swallowing risk is present.",
+      "whyMatters": "Mealtimes affect nutrition, growth, family stress, and social participation. Persistent refusal, choking, or extreme texture aversion can narrow a child's diet and increase caregiver burnout. Therapy aims to expand skills and safety—not force children to eat on an adult timeline.",
+      "benefits": [
+        {
+          "title": "Safer swallowing",
+          "text": "Therapists identify signs of aspiration risk and recommend textures, positions, and pacing that support airway protection."
+        },
+        {
+          "title": "Broader food acceptance",
+          "text": "Graduated exposure helps children tolerate new smells, textures, and tastes without pressure-heavy battles."
+        },
+        {
+          "title": "Improved oral motor skills",
+          "text": "Chewing, cup drinking, and utensil use are practiced so children can manage age-appropriate foods."
+        },
+        {
+          "title": "Calmer mealtime routines",
+          "text": "Predictable schedules, roles, and language reduce anxiety for children and caregivers alike."
+        },
+        {
+          "title": "Better nutrition opportunities",
+          "text": "As skills grow, families can offer more balanced options aligned with medical guidance."
+        },
+        {
+          "title": "Coordinated care with ABA and OT",
+          "text": "When behavior or sensory needs overlap, teams align on reinforcement, seating, and step-by-step mealtime plans."
+        }
+      ]
+    },
+    "whoBenefits": {
+      "title": "Who Benefits from Feeding & Swallowing Therapy?",
+      "intro": "Infants through school-age children—and some adolescents—may benefit when eating is unsafe, highly limited, or consistently stressful. Eden serves many children with autism, sensory differences, and complex medical histories.",
+      "ageGroups": [
+        {
+          "age": "Infants",
+          "text": "Therapy may address latch concerns, bottle transitions, oral motor tone, and safe introduction of purees when referred by medical providers."
+        },
+        {
+          "age": "Toddlers",
+          "text": "Goals often include cup drinking, finger foods, gagging reduction, and family meal participation with appropriate seating."
+        },
+        {
+          "age": "Preschool",
+          "text": "Children practice chewing mixed textures, using utensils, and tolerating group snack routines at daycare or preschool."
+        },
+        {
+          "age": "School-age",
+          "text": "Therapists support lunchbox variety, swallowing safety after medical events, and social eating at school."
+        },
+        {
+          "age": "Teenagers",
+          "text": "Adolescents may work on independent meal preparation, restaurant skills, and managing anxiety around new foods."
+        },
+        {
+          "age": "Adults",
+          "text": "Young adults with developmental disabilities may receive feeding support for vocational cafeteria settings when clinically indicated."
+        }
+      ],
+      "signs": [
+        "Choking, coughing, or wet voice during meals or drinks",
+        "Eats fewer than about 20 foods or refuses entire food groups for months",
+        "Gags intensely on textures that peers manage easily",
+        "Takes longer than 30 minutes to finish age-appropriate meals routinely",
+        "Avoids dining out, birthdays, or school lunch due to food anxiety",
+        "Shows poor weight gain or hydration despite caregiver effort"
+      ],
+      "redFlags": [
+        "Frequent respiratory illness after meals suggesting possible aspiration",
+        "Inability to swallow saliva or manage secretions safely",
+        "Sudden feeding regression after illness, injury, or procedure",
+        "Significant pain with eating or drinking",
+        "Failure to thrive or dehydration requiring urgent medical care"
+      ],
+      "milestones": [
+        "Transfers purees from front to back of mouth by 6–8 months",
+        "Handles soft meltable solids and cup sips with minimal spillage by 12 months",
+        "Chews soft table foods and uses fingers or utensils by 18–24 months",
+        "Eats a variety of textures at family meals with occasional prompts by preschool",
+        "Manages school lunch independently with safe swallowing by early elementary years"
+      ],
+      "whenToSeek": "Request a feeding evaluation if mealtimes are unsafe, severely limited, or cause daily distress—or if your pediatrician expresses concern about growth, hydration, or swallowing."
+    },
+    "conditions": {
+      "title": "Conditions & Needs We Commonly Address",
+      "intro": "Feeding difficulties arise from medical, sensory, motor, and behavioral factors—often together. Eden therapists treat the whole picture with your child's physicians involved when needed.",
+      "items": [
+        {
+          "name": "Autism spectrum disorder",
+          "text": "Rigid food preferences, sensory aversions, and routine dependence are addressed with structured, low-pressure exposure plans."
+        },
+        {
+          "name": "ADHD",
+          "text": "Therapists support sustained seated attention, pacing, and organization during meals without shame-based tactics."
+        },
+        {
+          "name": "Developmental delay",
+          "text": "Feeding milestones are taught in small steps with heavy caregiver modeling between sessions."
+        },
+        {
+          "name": "Oral motor delay",
+          "text": "Chewing, bolus control, and cup drinking are practiced with techniques matched to muscle tone and coordination."
+        },
+        {
+          "name": "Sensory food aversion",
+          "text": "Graduated sensory play and food chaining expand tolerance for smell, touch, and texture."
+        },
+        {
+          "name": "Pediatric dysphagia",
+          "text": "Swallowing safety is prioritized with texture modifications and medical follow-up when signs of aspiration appear."
+        },
+        {
+          "name": "Cerebral palsy",
+          "text": "Positioning, adaptive utensils, and safe texture selection support nutrition despite motor limitations."
+        },
+        {
+          "name": "Down syndrome",
+          "text": "Low-tone oral motor plans and pacing strategies help children manage chewing and drinking safely."
+        },
+        {
+          "name": "Genetic syndromes",
+          "text": "Individual medical profiles guide texture choices, equipment, and family education priorities."
+        },
+        {
+          "name": "Neurological conditions",
+          "text": "Therapists adapt plans after injury, surgery, or progressive conditions affecting swallow function."
+        },
+        {
+          "name": "Gastrointestinal and allergy contexts",
+          "text": "Therapy respects medical restrictions and coordinates with GI or allergy providers on safe food lists."
+        },
+        {
+          "name": "Restrictive eating patterns",
+          "text": "Clinical teams distinguish selective eating from ARFID-level concerns and recommend appropriate multidisciplinary care."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden Delivers Feeding & Swallowing Therapy",
+      "intro": "Feeding therapy at Eden is structured, trauma-informed, and family-centered—with safety guiding every recommendation.",
+      "steps": [
+        {
+          "title": "Referral and intake",
+          "text": "Families share mealtime videos if available, medical history, growth concerns, and current food lists."
+        },
+        {
+          "title": "Comprehensive evaluation",
+          "text": "Therapists observe oral motor skills, mealtime behavior, and swallowing signs during clinically appropriate food trials."
+        },
+        {
+          "title": "Clinical reasoning",
+          "text": "Sensory, motor, medical, and environmental factors are weighed before choosing exposure or skill targets."
+        },
+        {
+          "title": "Collaborative goal development",
+          "text": "Goals may include safe cup drinking, new protein acceptance, or reduced gagging—with family input on priorities."
+        },
+        {
+          "title": "Individualized treatment planning",
+          "text": "Session plans specify foods, seating, prompts, and reinforcement aligned with coordinated ABA supports when applicable."
+        },
+        {
+          "title": "Active family participation",
+          "text": "Caregivers practice serving, language, and pacing strategies during sessions and at home."
+        },
+        {
+          "title": "Progress review",
+          "text": "Food logs, weight trends when available, and trial data inform next steps."
+        },
+        {
+          "title": "Discharge and transition planning",
+          "text": "Families receive maintenance menus, emergency red flags, and guidance on when to re-refer."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Your Feeding Therapy Care Timeline",
+      "intro": "Feeding progress is rarely linear. This timeline outlines typical phases from referral through graduation.",
+      "steps": [
+        {
+          "title": "Referral received",
+          "text": "Pediatrician, GI specialist, BCBA, or caregiver contacts Eden about feeding or swallowing concerns."
+        },
+        {
+          "title": "Medical clearance when needed",
+          "text": "Some children require physician input before oral feeding trials—especially with complex swallowing histories."
+        },
+        {
+          "title": "Benefits verification",
+          "text": "Insurance requirements for feeding therapy are reviewed, including documentation needs."
+        },
+        {
+          "title": "Evaluation scheduled",
+          "text": "Families receive guidance on what foods to bring and how to prepare their child for the visit."
+        },
+        {
+          "title": "Assessment completed",
+          "text": "Therapist documents oral motor skills, sensory responses, and safety observations with a written summary."
+        },
+        {
+          "title": "Goal-setting meeting",
+          "text": "Caregivers review findings and agree on initial targets—often one or two foods or skills at a time."
+        },
+        {
+          "title": "Treatment begins",
+          "text": "Sessions combine skill building, exposure, and coaching with a home mealtime plan."
+        },
+        {
+          "title": "Coordination checkpoints",
+          "text": "Updates go to OT, SLP, BCBA, or physicians when consented so mealtime plans stay consistent."
+        },
+        {
+          "title": "Graduation or step-down",
+          "text": "Services reduce when swallowing is safe and mealtimes are stable, with a written home maintenance guide."
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Feeding & Swallowing Assessment",
+      "intro": "Assessment determines whether feeding challenges are primarily sensory, motor, medical, or behavioral—and whether swallowing safety requires immediate attention.",
+      "methods": [
+        {
+          "title": "Medical and diet history review",
+          "text": "Therapists gather growth trends, allergies, reflux treatment, and prior specialist recommendations."
+        },
+        {
+          "title": "Oral motor examination",
+          "text": "Structure, tone, and coordination for chewing, cup drinking, and bolus control are observed clinically."
+        },
+        {
+          "title": "Mealtime observation",
+          "text": "Families may bring preferred and challenge foods so therapists see real interactions, pacing, and refusal patterns."
+        },
+        {
+          "title": "Swallowing safety screening",
+          "text": "Coughing, wet voice, and fatigue signs are monitored; further instrumental testing is referred when indicated."
+        },
+        {
+          "title": "Sensory response profiling",
+          "text": "Reactions to smell, touch, temperature, and texture inform gradual exposure plans."
+        },
+        {
+          "title": "Written report and care plan",
+          "text": "Families receive prioritized goals, texture recommendations, and coordination needs in plain language."
+        }
+      ]
+    },
+    "techniques": {
+      "title": "Therapeutic Techniques We Use",
+      "intro": "Eden feeding therapists avoid force-feeding. Techniques emphasize safety, trust, and stepwise skill building with caregiver partnership.",
+      "categories": [
+        {
+          "title": "Food exploration",
+          "items": [
+            "Non-eating sensory play with food materials",
+            "Graduated look-touch-smell-taste ladders",
+            "Food chaining from preferred to similar items",
+            "Choice boards to increase child agency"
+          ]
+        },
+        {
+          "title": "Texture progression",
+          "items": [
+            "Stepwise upgrades from puree to soft solids",
+            "Mixed texture bowls with predictable components",
+            "Crunchy additions in small, controlled amounts",
+            "Temperature variation when tolerated"
+          ]
+        },
+        {
+          "title": "Safe chewing",
+          "items": [
+            "Bilateral chewing practice with soft strips",
+            "Pacing cues between bites",
+            "Boluses size monitoring",
+            "Posture adjustments for jaw stability"
+          ]
+        },
+        {
+          "title": "Cup drinking",
+          "items": [
+            "Open cup progression with small volumes",
+            "Straw hierarchy training",
+            "Spill-minimizing angles and supports",
+            "Coordination with breathing between sips"
+          ]
+        },
+        {
+          "title": "Utensil skills",
+          "items": [
+            "Adaptive spoon loading techniques",
+            "Stab-and-scoop practice foods",
+            "Non-dominant hand support strategies",
+            "Portion sizing for success"
+          ]
+        },
+        {
+          "title": "Mealtime routines",
+          "items": [
+            "Predictable seating and start rituals",
+            "Division of responsibility coaching for parents",
+            "Timed meals with clear endpoints",
+            "Neutral language scripts during refusal"
+          ]
+        },
+        {
+          "title": "Oral motor development",
+          "items": [
+            "Straw drinking for lip rounding",
+            "Chewy tools for proprioceptive input when appropriate",
+            "Tongue lateralization games",
+            "Jaw grading exercises with safe resistive items"
+          ]
+        },
+        {
+          "title": "Sensory considerations",
+          "items": [
+            "Smock and hand-wipe options for touch-sensitive children",
+            "Graduated spice and aroma exposure",
+            "Vibration desensitization when clinically appropriate",
+            "Lighting and sound adjustments at the table"
+          ]
+        },
+        {
+          "title": "Caregiver coaching",
+          "items": [
+            "Video review of home meals",
+            "Portion and plate presentation guidance",
+            "Reinforcement alignment with ABA when applicable",
+            "Stress reduction strategies for burned-out parents"
+          ]
+        }
+      ]
+    },
+    "abaIntegration": {
+      "title": "Coordinating Feeding Therapy with ABA",
+      "intro": "Mealtime difficulties often overlap with behavior support needs. Eden teams align so children experience consistent expectations and reinforcement.",
+      "points": [
+        {
+          "title": "Shared mealtime protocols",
+          "text": "Seating, token systems, and prompt hierarchies are documented for both feeding therapists and RBTs."
+        },
+        {
+          "title": "Reinforcement for participation—not empty plates",
+          "text": "ABA programs reward touch, taste, or pacing goals agreed upon with the feeding clinician."
+        },
+        {
+          "title": "Sensory breaks before meals",
+          "text": "OT and ABA regulation strategies are scheduled so children arrive at the table ready to practice."
+        },
+        {
+          "title": "Data on food trials",
+          "text": "Acceptance, volume, and safety signs are tracked in formats both teams review weekly."
+        },
+        {
+          "title": "Parent coaching consistency",
+          "text": "Caregivers receive unified scripts for language, pacing, and consequences during meals."
+        }
+      ]
+    },
+    "dataCollection": {
+      "title": "Progress Tracking & Data",
+      "intro": "Feeding therapy uses observable metrics so families see whether new foods and skills are sticking—not just good days in the clinic.",
+      "metrics": [
+        {
+          "label": "New food acceptance",
+          "value": 69
+        },
+        {
+          "label": "Safe swallowing trials",
+          "value": 92
+        },
+        {
+          "label": "Mealtime duration within goal",
+          "value": 77
+        },
+        {
+          "label": "Caregiver protocol fidelity",
+          "value": 81
+        }
+      ],
+      "chartTitle": "Sample food variety expansion across treatment",
+      "chartBars": [
+        {
+          "label": "Baseline",
+          "value": 12
+        },
+        {
+          "label": "Month 1",
+          "value": 28
+        },
+        {
+          "label": "Month 2",
+          "value": 41
+        },
+        {
+          "label": "Month 3",
+          "value": 55
+        },
+        {
+          "label": "Month 4",
+          "value": 68
+        },
+        {
+          "label": "Month 5",
+          "value": 80
+        }
+      ],
+      "items": [
+        {
+          "title": "Food inventory baselines",
+          "text": "Therapists document starting accepted foods, textures, and mealtime durations."
+        },
+        {
+          "title": "Trial logging",
+          "text": "Each session records bites, sips, prompts, and child responses for trend review."
+        },
+        {
+          "title": "Safety monitoring",
+          "text": "Coughing, color changes, and fatigue are noted and escalated medically when needed."
+        },
+        {
+          "title": "Home meal diaries",
+          "text": "Families track carryover meals so clinic gains appear on the kitchen table."
+        },
+        {
+          "title": "Growth liaison",
+          "text": "When weight is a concern, therapists coordinate with pediatricians on shared goals."
+        },
+        {
+          "title": "Step-down criteria",
+          "text": "Graduation requires stable swallowing and maintained variety—not perfection on every food group."
+        }
+      ]
+    },
+    "familyEducation": {
+      "title": "Family Education & Coaching",
+      "intro": "Feeding change happens at home. Eden therapists coach parents to lead calmer, safer meals with realistic expectations.",
+      "cards": [
+        {
+          "title": "Division of responsibility",
+          "text": "Parents decide what, when, and where; children decide whether and how much—within medical guidance."
+        },
+        {
+          "title": "Language that reduces pressure",
+          "text": "Learn neutral phrases that invite exploration without bargaining or force."
+        },
+        {
+          "title": "Kitchen setup for success",
+          "text": "Seating, foot support, and distraction limits make practice easier."
+        },
+        {
+          "title": "Introducing one new food at a time",
+          "text": "Therapists help you pair novel items with trusted foods to lower anxiety."
+        },
+        {
+          "title": "When to pause and seek medical care",
+          "text": "Families learn red flags for choking, dehydration, and aspiration that require prompt physician contact."
+        },
+        {
+          "title": "Sibling and caregiver roles",
+          "text": "Coaching clarifies who serves, who models eating, and how to avoid unintentional pressure."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Authorization",
+      "intro": "Many families use insurance to access allied health services. Eden's team helps you understand plan requirements, documentation needs, and authorization steps before services begin. Feeding therapy may require documentation linking goals to medical necessity, growth, or swallowing safety.",
+      "bullets": [
+        "We verify benefits and explain likely out-of-pocket costs when plan information is available.",
+        "Clinical documentation supports medical-necessity reviews based on assessment findings and recommended goals.",
+        "Authorizations are tracked and renewed according to each payer's rules and visit limits.",
+        "Medicaid and commercial plans may differ in covered settings, visit caps, and referral requirements.",
+        "Families receive plain-language updates when additional paperwork or physician orders are needed.",
+        "Billing questions are handled by staff who can explain claims, denials, and appeal options when applicable."
+      ],
+      "note": "Coverage varies by plan, diagnosis, and clinical documentation. Eden does not guarantee approval or payment from any insurer."
+    },
+    "faq": {
+      "title": "Feeding & Swallowing Therapy FAQ",
+      "items": [
+        {
+          "question": "What is feeding therapy?",
+          "answer": "Feeding therapy helps children eat and drink more safely and comfortably. Clinicians address oral motor skills, sensory aversions, swallowing concerns, and mealtime routines with caregiver coaching."
+        },
+        {
+          "question": "Is feeding therapy the same as picky eating advice online?",
+          "answer": "Clinical feeding therapy is individualized and safety-focused. Generic 'clean your plate' advice is not used. Plans respect medical restrictions and each child's sensory profile."
+        },
+        {
+          "question": "When is picky eating a clinical concern?",
+          "answer": "Consider evaluation when food variety is very limited for months, growth is affected, mealtimes are daily battles, or there are signs of unsafe swallowing."
+        },
+        {
+          "question": "What is dysphagia in children?",
+          "answer": "Dysphagia means difficulty swallowing safely. Symptoms may include coughing, wet voice, or recurrent respiratory issues after meals. Medical follow-up is essential."
+        },
+        {
+          "question": "Will you force my child to eat?",
+          "answer": "No. Eden uses gradual exposure, skill building, and positive routines—not force feeding or withheld affection."
+        },
+        {
+          "question": "How do you coordinate with my child's pediatrician?",
+          "answer": "Therapists share concerns about growth and swallowing safety and follow medical guidance on textures and restrictions."
+        },
+        {
+          "question": "Can feeding therapy help autistic children?",
+          "answer": "Yes. Many autistic children benefit from structured exposure, sensory supports, and routines coordinated with ABA when applicable."
+        },
+        {
+          "question": "What should I bring to a feeding evaluation?",
+          "answer": "Preferred and non-preferred foods, usual utensils, and any medical reports. Videos of home meals can help if sharing is comfortable."
+        },
+        {
+          "question": "How long are feeding sessions?",
+          "answer": "Sessions often run 45–60 minutes including setup and caregiver coaching. Frequency depends on assessment and authorization."
+        },
+        {
+          "question": "Do parents eat during sessions?",
+          "answer": "Modeling is often encouraged. Your therapist will guide whether tasting together supports your child's goals."
+        },
+        {
+          "question": "Can you help with bottle-to-cup transitions?",
+          "answer": "Yes. Oral motor and cup-drinking hierarchies are common goals for toddlers."
+        },
+        {
+          "question": "What if my child gags on many textures?",
+          "answer": "Gagging is assessed for oral motor versus sensory causes. Plans use graded exposure and pacing—not sudden jumps to challenging foods."
+        },
+        {
+          "question": "Is vomiting during therapy normal?",
+          "answer": "Vomiting is not a treatment goal. If it occurs, the team reviews medical factors and adjusts the plan immediately."
+        },
+        {
+          "question": "How do you work with ABA during meals?",
+          "answer": "Teams align on seating, reinforcement, prompts, and language so mealtime expectations are consistent."
+        },
+        {
+          "question": "Does insurance cover feeding therapy?",
+          "answer": "Coverage depends on medical necessity documentation and plan rules. Eden verifies benefits when possible without guaranteeing payment."
+        },
+        {
+          "question": "Do you treat ARFID?",
+          "answer": "Selective eating exists on a spectrum. Eden clinicians screen for restrictive patterns that need multidisciplinary care and refer when appropriate."
+        },
+        {
+          "question": "Can you help after a choking incident?",
+          "answer": "Safety comes first. Therapy resumes with physician guidance and may start with modified textures and close monitoring."
+        },
+        {
+          "question": "What role does OT play in feeding?",
+          "answer": "OT may address sensory regulation, positioning, and utensil skills. Feeding therapists coordinate when both services are active."
+        },
+        {
+          "question": "What role does speech therapy play?",
+          "answer": "SLPs address oral motor and swallowing components. Eden's feeding and speech teams collaborate on shared cases."
+        },
+        {
+          "question": "How fast will my child try new foods?",
+          "answer": "Progress varies widely. Some children add foods in weeks; others need longer graded exposure. Your therapist sets short-term measurable targets."
+        },
+        {
+          "question": "Should I hide vegetables in preferred foods?",
+          "answer": "Strategies depend on your child's plan. Some families use blending temporarily; others focus on visible exposure—your clinician will personalize guidance."
+        },
+        {
+          "question": "Can therapy happen at school?",
+          "answer": "School-based feeding support depends on district services and medical need. Clinic therapy can complement school plans."
+        },
+        {
+          "question": "What if my child only eats brand-specific foods?",
+          "answer": "Food chaining from trusted brands to similar options is a common strategy introduced gradually."
+        },
+        {
+          "question": "When should feeding therapy end?",
+          "answer": "Graduation occurs when swallowing is safe, variety is stable enough for nutrition goals, and families feel confident maintaining routines."
+        },
+        {
+          "question": "How do I start feeding therapy at Eden?",
+          "answer": "Contact Eden to discuss concerns and insurance, or begin with a screening evaluation if you are exploring multiple services."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Helpful Resources",
+      "intro": "Use these ideas to support feeding therapy between sessions.",
+      "items": [
+        {
+          "title": "Building a food inventory",
+          "text": "List accepted foods by texture and color to identify chaining opportunities with your therapist."
+        },
+        {
+          "title": "Safe seating for meals",
+          "text": "Feet flat, hips at 90 degrees, and stable trays reduce choking risk and improve focus."
+        },
+        {
+          "title": "School lunch planning",
+          "text": "Pack familiar foods alongside tiny challenge portions when your therapist recommends trials."
+        },
+        {
+          "title": "Hydration strategies",
+          "text": "Track sips across the day if drinking is limited—share patterns at your next visit."
+        },
+        {
+          "title": "When feeding and behavior overlap",
+          "text": "Coordinate with ABA so reinforcement targets participation, not empty plates."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to explore next steps?",
+      "subtitle": "Eden's care team can help you understand evaluation options, insurance questions, and how allied health services may fit alongside ABA therapy.",
+      "buttons": [
+        {
+          "label": "Start ABA Therapy",
+          "href": "/start-aba-therapy"
+        },
+        {
+          "label": "Schedule an Evaluation",
+          "href": "/services/evaluations-diagnosis/screening-evaluation"
+        },
+        {
+          "label": "Contact Eden",
+          "href": "/contact"
+        },
+        {
+          "label": "Insurance Coverage",
+          "href": "/insurance-coverage"
+        }
+      ]
+    }
+  }
+}

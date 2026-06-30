@@ -555,24 +555,9 @@
             "Liệu pháp ABA tại trường",
             "Liệu pháp ABA trực tuyến",
             "Chương trình ngoại khóa",
-            {
-              "key": "occupational-therapy-coming-soon",
-              "label": "Trị liệu hoạt động",
-              "badge": "Coming Soon to Eden Family",
-              "comingSoon": true
-            },
-            {
-              "key": "speech-language-therapy-coming-soon",
-              "label": "Trị liệu ngôn ngữ & lời nói",
-              "badge": "Coming Soon to Eden Family",
-              "comingSoon": true
-            },
-            {
-              "key": "feeding-swallowing-therapy-coming-soon",
-              "label": "Trị liệu ăn uống & nuốt",
-              "badge": "Coming Soon to Eden Family",
-              "comingSoon": true
-            }
+            "Trị liệu hoạt động",
+            "Trị liệu ngôn ngữ & lời nói",
+            "Trị liệu ăn uống & nuốt"
           ]
         }
       ]

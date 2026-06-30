@@ -555,24 +555,9 @@
             "School-Based ABA Therapy",
             "Virtual ABA Therapy",
             "After School Programs",
-            {
-              "key": "occupational-therapy-coming-soon",
-              "label": "Occupational Therapy",
-              "badge": "Coming Soon to Eden Family",
-              "comingSoon": true
-            },
-            {
-              "key": "speech-language-therapy-coming-soon",
-              "label": "Speech & Language Therapy",
-              "badge": "Coming Soon to Eden Family",
-              "comingSoon": true
-            },
-            {
-              "key": "feeding-swallowing-therapy-coming-soon",
-              "label": "Feeding & Swallowing Therapy",
-              "badge": "Coming Soon to Eden Family",
-              "comingSoon": true
-            }
+            "Occupational Therapy",
+            "Speech & Language Therapy",
+            "Feeding & Swallowing Therapy"
           ]
         }
       ]

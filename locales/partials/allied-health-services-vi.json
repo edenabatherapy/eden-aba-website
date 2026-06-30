@@ -1,0 +1,2014 @@
+{
+  "shared": {
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbServices": "Dịch vụ",
+    "startAbaTherapy": "Bắt đầu liệu pháp ABA",
+    "scheduleEvaluation": "Đặt lịch đánh giá",
+    "contactEden": "Liên hệ Eden",
+    "insuranceVerification": "Xác minh bảo hiểm",
+    "gettingStarted": "Bắt đầu",
+    "readingTimeLabel": "Thời gian đọc",
+    "sharePage": "Chia sẻ trang này",
+    "copyLink": "Sao chép liên kết",
+    "copiedLink": "Đã sao chép liên kết",
+    "tocTitle": "Trên trang này",
+    "tocOverview": "Tổng quan",
+    "tocWhoBenefits": "Đối tượng hưởng lợi",
+    "tocConditions": "Tình trạng chúng tôi hỗ trợ",
+    "tocHowDeliver": "Cách chúng tôi cung cấp dịch vụ",
+    "tocTimeline": "Lộ trình chăm sóc",
+    "tocAssessment": "Đánh giá",
+    "tocTechniques": "Kỹ thuật",
+    "tocAbaIntegration": "Tích hợp ABA",
+    "tocData": "Tiến trình & Dữ liệu",
+    "tocFamily": "Giáo dục gia đình",
+    "tocInsurance": "Bảo hiểm",
+    "tocFaq": "Câu hỏi thường gặp",
+    "tocResources": "Tài nguyên",
+    "tocCta": "Bắt đầu",
+    "redFlagsTitle": "Khi nào cần tìm kiếm sự trợ giúp sớm hơn",
+    "signsTitle": "Dấu hiệu phổ biến gia đình nhận thấy",
+    "milestonesTitle": "Các mốc phát triển cần theo dõi",
+    "whenToSeekTitle": "Khi nào nên cân nhắc chuyển khám",
+    "chartDisclaimer": "Chỉ là ví dụ minh họa. Tiến trình thực tế khác nhau tùy từng trẻ và được xác định qua đánh giá lâm sàng và xem xét dữ liệu liên tục."
+  },
+  "occupationalTherapy": {
+    "meta": {
+      "title": "Liệu pháp hoạt động trị liệu | Eden ABA Therapy",
+      "description": "Liệu pháp hoạt động trị liệu nhi khoa tại Eden ABA Therapy hỗ trợ kỹ năng vận động tinh, xử lý cảm giác, thói quen sinh hoạt hàng ngày và sự tham gia tại nhà, trường học và cộng đồng trên toàn khu vực Bắc Virginia.",
+      "keywords": [
+        "liệu pháp hoạt động trị liệu nhi khoa",
+        "OT cho trẻ tự kỷ",
+        "liệu pháp xử lý cảm giác",
+        "kỹ năng vận động tinh ở trẻ em",
+        "đào tạo ADL nhi khoa",
+        "hoạt động trị liệu Bắc Virginia",
+        "phối hợp OT và ABA"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Dịch vụ y tế liên quan",
+      "title": "Hoạt động trị liệu",
+      "subtitle": "Liệu pháp hoạt động trị liệu thực hành giúp trẻ xây dựng kỹ năng vận động, cảm giác và tự chăm sóc cần thiết để tự tin tham gia cuộc sống hàng ngày—được phối hợp với phương pháp ABA lấy gia đình làm trung tâm của Eden khi phù hợp.",
+      "breadcrumbLabel": "Hoạt động trị liệu",
+      "imageAlt": "Nhà trị liệu hoạt động hướng dẫn trẻ thực hiện bài tập vận động tinh tại bàn trị liệu thân thiện với trẻ em",
+      "readingTime": "18 phút đọc"
+    },
+    "overview": {
+      "title": "Liệu pháp hoạt động trị liệu nhi khoa là gì?",
+      "whatIs": "Hoạt động trị liệu (OT) tập trung vào các kỹ năng trẻ sử dụng trong suốt ngày—mặc quần áo, ăn uống, viết lách, chơi và di chuyển trong môi trường bận rộn. Tại Eden, OT được thực hiện bởi các nhà trị liệu hoạt động có giấy phép, hiểu rõ về phát triển thần kinh, sự khác biệt cảm giác và cách các thách thức vận động có thể ảnh hưởng đến việc học và hành vi.",
+      "whyMatters": "Khi các nhiệm vụ hàng ngày cảm thấy khó khăn, trẻ có thể tránh né các hoạt động, trở nên thất vọng hoặc cần nhiều sự trợ giúp hơn so với bạn cùng tuổi. OT giải quyết các khoảng cách kỹ năng căn bản thông qua luyện tập có cấu trúc, điều chỉnh môi trường và huấn luyện người chăm sóc để tiến trình được áp dụng vào các thói quen thực tế—không chỉ trong phòng trị liệu.",
+      "benefits": [
+        {
+          "title": "Kiểm soát vận động tinh tốt hơn",
+          "text": "Cải thiện khả năng cầm nắm, thao tác và sức mạnh bàn tay hỗ trợ việc viết, cài nút, sử dụng dụng cụ ăn uống và chơi với đồ vật nhỏ."
+        },
+        {
+          "title": "Điều tiết cảm giác tốt hơn",
+          "text": "Trẻ học các chiến lược để chịu đựng kết cấu, âm thanh và yêu cầu chuyển động để có thể tham gia lâu hơn."
+        },
+        {
+          "title": "Độc lập hơn trong thói quen hàng ngày",
+          "text": "Đào tạo từng bước cho việc mặc quần áo, vệ sinh cá nhân và các nhiệm vụ trong bữa ăn xây dựng sự tự tin và giảm gánh nặng cho người chăm sóc."
+        },
+        {
+          "title": "Cải thiện sự tham gia ở lớp học",
+          "text": "Kỹ năng thị giác-vận động và tổ chức giúp trẻ quản lý tài liệu, chỗ ngồi và các yêu cầu đa bước trong lớp học."
+        },
+        {
+          "title": "Chơi và tương tác xã hội thành công hơn",
+          "text": "Kỹ năng vận động và điều tiết giúp trẻ dễ dàng tham gia cùng bạn bè trong các trò chơi, sân chơi và hoạt động hợp tác."
+        },
+        {
+          "title": "Hỗ trợ phối hợp với mục tiêu ABA",
+          "text": "Khi gia đình nhận cả hai dịch vụ, các nhóm OT và ABA phối hợp về giao tiếp, hành vi và các mục tiêu kỹ năng thích ứng."
+        }
+      ]
+    },
+    "whoBenefits": {
+      "title": "Ai hưởng lợi từ hoạt động trị liệu?",
+      "intro": "OT hỗ trợ trẻ sơ sinh đến người trưởng thành trẻ có nhu cầu về vận động, cảm giác hoặc tự chăm sóc ảnh hưởng đến sự tham gia tại nhà, trường học hoặc cộng đồng. Nhiều trẻ chúng tôi phục vụ cũng có tự kỷ, ADHD hoặc sự khác biệt về phát triển—và một số nhận OT cùng với liệu pháp ABA.",
+      "ageGroups": [
+        {
+          "age": "Trẻ sơ sinh",
+          "text": "OT sớm có thể giải quyết định vị, khám phá bằng miệng, theo dõi thị giác và các chiến lược xử lý của người chăm sóc hỗ trợ phát triển chơi và ăn uống an toàn."
+        },
+        {
+          "age": "Trẻ tập đi",
+          "text": "Các nhà trị liệu tập trung vào mẫu cầm nắm, an toàn khi bám và leo trèo, chơi cảm giác và các bước tự ăn và mặc quần áo ban đầu."
+        },
+        {
+          "age": "Trẻ mầm non",
+          "text": "Trẻ làm việc về kỹ năng dùng kéo, tiền viết lách, chơi giả vờ, thói quen vệ sinh và chịu đựng môi trường cảm giác nhóm."
+        },
+        {
+          "age": "Trẻ tiểu học",
+          "text": "Các mục tiêu thường bao gồm tính dễ đọc của chữ viết tay, tổ chức ba lô, tham gia sân chơi và thói quen ăn trưa độc lập."
+        },
+        {
+          "age": "Thanh thiếu niên",
+          "text": "Thanh thiếu niên có thể làm việc về các nhiệm vụ vận động tinh liên quan đến nghề nghiệp, tự vận động xin hỗ trợ, các yếu tố sẵn sàng lái xe và kỹ năng sống cho các giai đoạn chuyển tiếp."
+        },
+        {
+          "age": "Người trưởng thành",
+          "text": "Người trưởng thành trẻ có khuyết tật phát triển có thể tiếp tục OT cho các nhiệm vụ vận động liên quan đến công việc, điều hướng cộng đồng và đào tạo thiết bị hỗ trợ khi phù hợp lâm sàng."
+        }
+      ],
+      "signs": [
+        "Tránh chơi bẩn, một số kết cấu quần áo hoặc môi trường ồn ào",
+        "Dùng cách cầm bút chì chưa trưởng thành hoặc mệt mỏi nhanh khi tô màu và viết",
+        "Gặp khó khăn với nút, khóa kéo, giày hoặc tự đánh răng",
+        "Có vẻ vụng về, va vào đồ vật hoặc do dự trên cầu thang và thiết bị sân chơi",
+        "Bị choáng ngợp ở cửa hàng đông đúc, căng tin hoặc lớp học",
+        "Khó tổ chức ba lô, thực hiện hướng dẫn nhiều bước hoặc hoàn thành thói quen buổi sáng"
+      ],
+      "redFlags": [
+        "Chấn thương thường xuyên do nhận thức cơ thể kém hoặc leo trèo không an toàn",
+        "Khó chịu cực độ khi chải đầu, cắt tóc hoặc cắt móng tay giới hạn vệ sinh cơ bản",
+        "Hoàn toàn từ chối tất cả thức ăn ngón tay hoặc kết cấu ngoài phạm vi rất hẹp khi ăn uống cũng là mối lo ngại",
+        "Hồi quy trong các kỹ năng tự chăm sóc đã thành thạo trước đó mà không có lý giải y tế rõ ràng",
+        "Không thể tham gia bất kỳ môi trường nhóm có cấu trúc nào do choáng ngợp cảm giác"
+      ],
+      "milestones": [
+        "Xếp khối và lật trang sách vào năm 2 tuổi",
+        "Sao chép hình dạng đơn giản và cắt giấy bằng kéo vào năm 4 tuổi",
+        "Viết một số chữ cái và tự mặc quần áo với sự trợ giúp tối thiểu vào năm 5 tuổi",
+        "Buộc dây giày và quản lý đồ dùng học tập với gợi ý đôi khi vào năm 7 tuổi",
+        "Tổ chức tài liệu bài tập về nhà và sử dụng dụng cụ ăn uống thành thạo vào cuối tiểu học"
+      ],
+      "whenToSeek": "Cân nhắc đánh giá OT nếu sự khác biệt về vận động hoặc cảm giác liên tục hạn chế sự độc lập của trẻ, gây khó chịu trong các thói quen hàng ngày hoặc ảnh hưởng đến việc học và tham gia xã hội dù đã có sự hỗ trợ chung tại nhà hay trường học."
+    },
+    "conditions": {
+      "title": "Các tình trạng & nhu cầu chúng tôi thường giải quyết",
+      "intro": "Các nhà trị liệu hoạt động của Eden làm việc với trẻ em có nhiều hồ sơ phát triển, thần kinh và di truyền đa dạng. Điều trị được cá nhân hóa—chẩn đoán đơn thuần không quyết định mục tiêu.",
+      "items": [
+        {
+          "name": "Rối loạn phổ tự kỷ",
+          "text": "Sự khác biệt trong xử lý cảm giác, lập kế hoạch vận động và thói quen thích ứng được giải quyết với các hỗ trợ có cấu trúc tôn trọng nhu cầu giao tiếp và điều tiết."
+        },
+        {
+          "name": "ADHD",
+          "text": "Các nhà trị liệu nhắm vào chức năng điều hành, tổ chức, tư thế ngồi và các giải lao vận động giúp trẻ duy trì sự chú ý trong các nhiệm vụ."
+        },
+        {
+          "name": "Chậm phát triển",
+          "text": "Các mốc vận động và thích ứng toàn diện được chia thành các bước có thể đạt được với việc luyện tập thường xuyên của người chăm sóc giữa các buổi."
+        },
+        {
+          "name": "Chậm phát triển vận động",
+          "text": "Các trình tự vận động tinh và thô được luyện tập để cải thiện sự phối hợp, sức mạnh và sự tự tin trong khi chơi và các nhiệm vụ hàng ngày."
+        },
+        {
+          "name": "Sự khác biệt trong xử lý cảm giác",
+          "text": "Tiếp xúc dần dần, chiến lược điều tiết và điều chỉnh môi trường giúp trẻ chịu đựng các trải nghiệm cảm giác hàng ngày cần thiết."
+        },
+        {
+          "name": "Bại não",
+          "text": "Các nhà trị liệu điều chỉnh nhiệm vụ, khuyến nghị thiết bị và đào tạo người chăm sóc về định vị và kỹ thuật một tay khi cần."
+        },
+        {
+          "name": "Hội chứng Down",
+          "text": "Tăng cường trương lực thấp, kỹ năng bàn tay và thói quen độc lập được điều chỉnh theo phong cách học và tiền sử y tế của từng trẻ."
+        },
+        {
+          "name": "Hội chứng di truyền",
+          "text": "Kế hoạch cá nhân hóa tính đến các mẫu vận động đặc trưng, nhu cầu thị giác/thính giác và ưu tiên của gia đình trong suốt cuộc đời."
+        },
+        {
+          "name": "Tình trạng thần kinh",
+          "text": "Các chiến lược phục hồi và bù trừ hỗ trợ trẻ với các tình trạng mắc phải hoặc tiến triển ảnh hưởng đến chuyển động và chức năng hàng ngày."
+        },
+        {
+          "name": "Khó khăn về chữ viết tay và thị giác-vận động",
+          "text": "Các mục tiêu về tính dễ đọc, khoảng cách và tốc độ được kết hợp với xây dựng kỹ năng ổn định cốt lõi và nhận thức."
+        },
+        {
+          "name": "Nhu cầu vận động liên quan đến ăn uống",
+          "text": "Khi kỹ năng vận động miệng hoặc dụng cụ ảnh hưởng đến dinh dưỡng, OT phối hợp chặt chẽ với chuyên gia ăn uống và nhóm ABA."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Cách Eden cung cấp liệu pháp hoạt động trị liệu",
+      "intro": "Mô hình OT của chúng tôi nhấn mạnh lý luận lâm sàng, hợp tác gia đình và phối hợp với ABA và các nhà cung cấp khác để các kỹ năng được áp dụng ngoài phòng khám.",
+      "steps": [
+        {
+          "title": "Giới thiệu và tiếp nhận",
+          "text": "Gia đình chia sẻ mối lo ngại, tiền sử y tế và các hỗ trợ hiện tại. Nhân viên giải thích sự đồng ý, các lựa chọn lịch trình và những gì cần mang đến lần khám đầu tiên."
+        },
+        {
+          "title": "Đánh giá toàn diện",
+          "text": "Các nhà trị liệu OT có giấy phép quan sát chơi, tự chăm sóc và các nhiệm vụ vận động trong khi thu thập thông tin từ người chăm sóc về thói quen tại nhà và trường học."
+        },
+        {
+          "title": "Lý luận lâm sàng",
+          "text": "Các nhà trị liệu phân tích cách các yếu tố cảm giác, vận động, nhận thức và môi trường tương tác để tạo ra rào cản—hoặc cơ hội—cho sự tham gia."
+        },
+        {
+          "title": "Phát triển mục tiêu cùng nhau",
+          "text": "Các mục tiêu ưu tiên phản ánh giá trị gia đình, nhu cầu trường học và các kết quả có thể đo lường được thống nhất với người chăm sóc."
+        },
+        {
+          "title": "Lập kế hoạch điều trị cá nhân hóa",
+          "text": "Kế hoạch buổi bao gồm các hoạt động trị liệu, chương trình tại nhà và các điều chỉnh phù hợp với hồ sơ của trẻ."
+        },
+        {
+          "title": "Sự tham gia tích cực của gia đình",
+          "text": "Người chăm sóc học các chiến lược thực hành trong buổi và nhận hướng dẫn rõ ràng để luyện tập giữa các lần khám."
+        },
+        {
+          "title": "Xem xét tiến trình",
+          "text": "Dữ liệu và quan sát được xem xét thường xuyên để điều chỉnh độ khó, gợi ý và trọng tâm mục tiêu."
+        },
+        {
+          "title": "Lập kế hoạch xuất viện và chuyển tiếp",
+          "text": "Khi đạt được mục tiêu, gia đình nhận các chiến lược duy trì và khuyến nghị về hỗ trợ tại trường học hoặc cộng đồng."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Lộ trình chăm sóc OT của bạn",
+      "intro": "Hành trình của mỗi trẻ khác nhau. Lộ trình này mô tả một trình tự điển hình từ lần liên hệ đầu tiên đến khi hoàn thành.",
+      "steps": [
+        {
+          "title": "Nhận giới thiệu",
+          "text": "Bác sĩ nhi, trường học, BCBA hoặc người chăm sóc liên hệ với nhóm y tế liên quan của Eden."
+        },
+        {
+          "title": "Xác minh quyền lợi",
+          "text": "Quyền lợi bảo hiểm hoặc Medicaid được xem xét và các yêu cầu ủy quyền được giải thích."
+        },
+        {
+          "title": "Lên lịch đánh giá",
+          "text": "Một đánh giá OT toàn diện được đặt lịch vào thời gian phù hợp cho sự tham gia của người chăm sóc."
+        },
+        {
+          "title": "Hoàn thành đánh giá",
+          "text": "Nhà trị liệu hoàn thành các quan sát tiêu chuẩn hóa và lâm sàng với bản tóm tắt bằng văn bản về các phát hiện."
+        },
+        {
+          "title": "Cuộc họp đặt mục tiêu",
+          "text": "Gia đình xem xét kết quả, đặt câu hỏi và thống nhất về các ưu tiên điều trị ban đầu."
+        },
+        {
+          "title": "Bắt đầu điều trị",
+          "text": "Các buổi thường xuyên bắt đầu với chương trình tại nhà và kỳ vọng rõ ràng cho việc theo dõi của người chăm sóc."
+        },
+        {
+          "title": "Xem xét giữa quá trình",
+          "text": "Dữ liệu tiến trình xác định liệu các mục tiêu có nên được nâng cao, điều chỉnh hay bổ sung."
+        },
+        {
+          "title": "Điểm kiểm tra phối hợp",
+          "text": "Cập nhật được chia sẻ với BCBA, giáo viên hoặc các nhà trị liệu khác khi gia đình đồng ý."
+        },
+        {
+          "title": "Tốt nghiệp hoặc giảm dần",
+          "text": "Dịch vụ giảm khi các kỹ năng ổn định trong các môi trường, với bản tóm tắt bằng văn bản cho các hỗ trợ tiếp tục."
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Đánh giá hoạt động trị liệu",
+      "intro": "Đánh giá xác định điểm mạnh và rào cản tham gia. Các nhà trị liệu Eden chọn phương pháp dựa trên tuổi, bối cảnh chẩn đoán và mối lo ngại của gia đình—không dựa vào một điểm số duy nhất để kể toàn bộ câu chuyện.",
+      "methods": [
+        {
+          "title": "Phỏng vấn người chăm sóc",
+          "text": "Các câu hỏi có cấu trúc khám phá thói quen hàng ngày, các liệu pháp trước đây, các tác nhân kích thích cảm giác và thành công trông như thế nào tại nhà."
+        },
+        {
+          "title": "Quan sát lâm sàng",
+          "text": "Các nhà trị liệu quan sát cách trẻ di chuyển, chú ý và giải quyết vấn đề trong khi chơi và các nhiệm vụ chức năng."
+        },
+        {
+          "title": "Kiểm tra vận động tiêu chuẩn hóa",
+          "text": "Các công cụ phù hợp với tuổi đo lường mức độ kỹ năng vận động tinh, thị giác-vận động hoặc thích ứng so với kỳ vọng phát triển."
+        },
+        {
+          "title": "Xem xét xử lý cảm giác",
+          "text": "Bảng câu hỏi và các hoạt động có cấu trúc làm rõ phản ứng với xúc giác, chuyển động, âm thanh và thị giác."
+        },
+        {
+          "title": "Danh sách kiểm tra trường học và môi trường",
+          "text": "Yêu cầu lớp học, chỗ ngồi và bố trí nhà được xem xét khi chúng ảnh hưởng đến việc lựa chọn mục tiêu."
+        },
+        {
+          "title": "Báo cáo bằng văn bản và khuyến nghị",
+          "text": "Gia đình nhận bản tóm tắt bằng ngôn ngữ dễ hiểu với các mục tiêu đề xuất, tần suất và nhu cầu phối hợp."
+        }
+      ]
+    },
+    "techniques": {
+      "title": "Các kỹ thuật trị liệu chúng tôi sử dụng",
+      "intro": "Các can thiệp dựa trên bằng chứng và dựa trên chơi khi có thể. Nhà trị liệu của bạn giải thích lý do mỗi kỹ thuật được chọn và cách luyện tập an toàn tại nhà.",
+      "categories": [
+        {
+          "title": "Vận động tinh",
+          "items": [
+            "Trò chơi cầm kẹp và xâu hạt cườm",
+            "Các bài tập Theraputty và tăng cường sức mạnh bàn tay",
+            "Thao tác trong tay với các vật nhỏ",
+            "Các nhiệm vụ phối hợp hai tay như gập và xé"
+          ]
+        },
+        {
+          "title": "Vận động thô",
+          "items": [
+            "Thăng bằng và ổn định cốt lõi trên bóng trị liệu",
+            "Các khóa học chướng ngại vật để lập kế hoạch vận động",
+            "Thực hành điều hướng cầu thang và sân chơi",
+            "Kỹ năng bóng để phối hợp và định thời gian"
+          ]
+        },
+        {
+          "title": "Thị giác-vận động",
+          "items": [
+            "Sao chép hình dạng và thiết kế khối",
+            "Theo dõi các vật thể chuyển động trong khi chơi",
+            "Xếp hình và đồ chơi xây dựng",
+            "Các hoạt động quét để chuẩn bị cho lớp học"
+          ]
+        },
+        {
+          "title": "Chữ viết tay",
+          "items": [
+            "Tinh chỉnh cách cầm và các công cụ thích ứng",
+            "Hình thành chữ cái trong phương tiện đa giác quan",
+            "Các chiến lược nhận biết khoảng cách và dòng kẻ",
+            "Chuẩn bị đánh máy khi phù hợp"
+          ]
+        },
+        {
+          "title": "ADL",
+          "items": [
+            "Xâu chuỗi ngược cho các bước mặc quần áo",
+            "Lịch trực quan cho thói quen buổi sáng",
+            "Thử nghiệm thiết bị thích ứng",
+            "Sắp xếp trình tự vệ sinh và vệ sinh cá nhân"
+          ]
+        },
+        {
+          "title": "Chức năng điều hành",
+          "items": [
+            "Bộ hẹn giờ khởi đầu nhiệm vụ và danh sách kiểm tra",
+            "Hệ thống tổ chức không gian làm việc",
+            "Trò chơi bộ nhớ làm việc",
+            "Biểu đồ tự theo dõi cho trẻ lớn hơn"
+          ]
+        },
+        {
+          "title": "Chiến lược cảm giác",
+          "items": [
+            "Áp lực sâu và nghỉ ngơi cảm thụ bản thể",
+            "Các hộp tiếp xúc kết cấu dần dần",
+            "Công cụ giảm tiếng ồn cho môi trường bận rộn",
+            "Chế độ vận động phối hợp với giáo viên"
+          ]
+        },
+        {
+          "title": "Điều tiết cảm xúc",
+          "items": [
+            "Các công cụ đối phó theo mô hình Zones of Regulation",
+            "Công việc nặng trước các nhiệm vụ khó khăn",
+            "Thói quen cùng điều tiết với người chăm sóc",
+            "Không gian an toàn và thẻ nghỉ ngơi cho trường học"
+          ]
+        },
+        {
+          "title": "Kỹ năng chơi",
+          "items": [
+            "Mở rộng kịch bản chơi giả vờ",
+            "Trò chơi lượt với bạn bè",
+            "Chơi sáng tạo với vật liệu đa dạng",
+            "Khám phá ngoài trời để xây dựng sự tự tin"
+          ]
+        },
+        {
+          "title": "Tự chăm sóc",
+          "items": [
+            "Kế hoạch giảm nhạy cảm tóc và móng tay",
+            "Chương trình chịu đựng đánh răng",
+            "Định vị bữa ăn và sử dụng dụng cụ",
+            "Tham gia việc nhà phù hợp với lứa tuổi"
+          ]
+        }
+      ]
+    },
+    "abaIntegration": {
+      "title": "Phối hợp OT với liệu pháp ABA",
+      "intro": "Nhiều gia đình Eden nhận cả OT và ABA. Phối hợp có chủ ý giảm thiểu xung đột gợi ý và giúp trẻ luyện tập các kỹ năng giống nhau trong các môi trường khác nhau.",
+      "points": [
+        {
+          "title": "Ngôn ngữ mục tiêu chung",
+          "text": "Các nhóm OT và BCBA thống nhất về các mục tiêu ưu tiên—chẳng hạn như mặc quần áo độc lập hoặc chú ý ngồi—để dữ liệu phản ánh cùng một kết quả."
+        },
+        {
+          "title": "Tính nhất quán trong gợi ý",
+          "text": "Các nhà trị liệu thống nhất về phân cấp gợi ý và kế hoạch giảm dần để tránh nhầm lẫn trong các buổi liên tiếp."
+        },
+        {
+          "title": "Hỗ trợ cảm giác trong kế hoạch hành vi",
+          "text": "Các chiến lược điều tiết từ OT được tích hợp vào các chương trình ABA khi các tác nhân kích thích cảm giác ảnh hưởng đến việc học hoặc an toàn."
+        },
+        {
+          "title": "Thống nhất huấn luyện người chăm sóc",
+          "text": "Cha mẹ nhận hướng dẫn thống nhất về luyện tập tại nhà thay vì các hướng dẫn mâu thuẫn từ các nhà cung cấp riêng biệt."
+        },
+        {
+          "title": "Áp dụng vào trường học và cộng đồng",
+          "text": "Các khuyến nghị chung giúp giáo viên thực hiện các điều chỉnh hỗ trợ cả sự tham gia vận động lẫn thành công hành vi."
+        }
+      ]
+    },
+    "dataCollection": {
+      "title": "Theo dõi tiến trình & Dữ liệu",
+      "intro": "Hoạt động trị liệu tại Eden sử dụng các mục tiêu có thể đo lường để gia đình có thể thấy kỹ năng đang thay đổi như thế nào qua các buổi, luyện tập tại nhà và lập trình ABA phối hợp.",
+      "metrics": [
+        {
+          "label": "Tỷ lệ đạt mục tiêu",
+          "value": 78
+        },
+        {
+          "label": "Sử dụng chiến lược của người chăm sóc",
+          "value": 84
+        },
+        {
+          "label": "Tỷ lệ tham dự buổi",
+          "value": 91
+        },
+        {
+          "label": "Báo cáo áp dụng tại nhà",
+          "value": 72
+        }
+      ],
+      "chartTitle": "Ví dụ về mức độ độc lập vận động tinh qua quá trình điều trị",
+      "chartBars": [
+        {
+          "label": "Cơ sở",
+          "value": 22
+        },
+        {
+          "label": "Tháng 1",
+          "value": 38
+        },
+        {
+          "label": "Tháng 2",
+          "value": 52
+        },
+        {
+          "label": "Tháng 3",
+          "value": 67
+        },
+        {
+          "label": "Tháng 4",
+          "value": 79
+        },
+        {
+          "label": "Tháng 5",
+          "value": 86
+        }
+      ],
+      "items": [
+        {
+          "title": "Mức cơ sở tiêu chuẩn hóa",
+          "text": "Các nhà trị liệu ghi lại mức khởi đầu cho các mục tiêu vận động tinh, cảm giác và sinh hoạt hàng ngày ưu tiên bằng cách sử dụng quan sát và các công cụ phù hợp lâm sàng."
+        },
+        {
+          "title": "Dữ liệu theo từng buổi",
+          "text": "Số lần thử, gợi ý và mức độ độc lập được ghi lại để xu hướng tiến trình có thể thấy theo thời gian—không dựa vào trí nhớ đơn thuần."
+        },
+        {
+          "title": "Biểu đồ mục tiêu cho gia đình",
+          "text": "Người chăm sóc nhận bản tóm tắt trực quan trong các buổi kiểm tra để bạn có thể thấy điều gì đang cải thiện và điều gì vẫn cần hỗ trợ."
+        },
+        {
+          "title": "Phối hợp BCBA",
+          "text": "Khi ABA đang hoạt động, dữ liệu OT được chia sẻ với BCBA của bạn để tăng cường, gợi ý và hỗ trợ môi trường luôn được căn chỉnh."
+        },
+        {
+          "title": "Điểm kiểm tra đánh giá lại",
+          "text": "Các giai đoạn xem xét chính thức giúp điều chỉnh mục tiêu khi trẻ thành thạo một kỹ năng hoặc khi xuất hiện các ưu tiên mới tại trường học hoặc ở nhà."
+        },
+        {
+          "title": "Sẵn sàng xuất viện",
+          "text": "Quyết định tốt nghiệp dựa trên việc sử dụng kỹ năng liên tục trong các môi trường khác nhau, không phải một buổi tốt duy nhất."
+        }
+      ]
+    },
+    "familyEducation": {
+      "title": "Giáo dục & Huấn luyện gia đình",
+      "intro": "Cha mẹ là những đối tác thiết yếu trong OT. Các nhà trị liệu Eden ưu tiên dạy bạn những gì cần luyện tập, khi nào nên gợi ý và cách kỷ niệm những thành công nhỏ tại nhà.",
+      "cards": [
+        {
+          "title": "Thiết kế chương trình tại nhà",
+          "text": "Các hoạt động ngắn, thực tế phù hợp với lịch trình của bạn—thường năm đến mười phút được tích hợp vào các thói quen hiện có."
+        },
+        {
+          "title": "Hướng dẫn chế độ cảm giác",
+          "text": "Các nhà trị liệu giúp bạn xây dựng các giải lao điều tiết phù hợp với nhu cầu của trẻ mà không làm quá tải ngày."
+        },
+        {
+          "title": "Thư hợp tác trường học",
+          "text": "Khi được đồng ý, Eden có thể chia sẻ ý tưởng điều chỉnh về chỗ ngồi, giải lao và hỗ trợ chữ viết tay."
+        },
+        {
+          "title": "Khuyến nghị thiết bị",
+          "text": "Gia đình tìm hiểu về các công cụ thích ứng nào đáng thử—và cái nào là tùy chọn—cho việc mặc quần áo, viết và ăn uống."
+        },
+        {
+          "title": "Bao gồm anh chị em và người chăm sóc",
+          "text": "Huấn luyện xem xét ai giúp đỡ với các thói quen hàng ngày để các chiến lược phù hợp với toàn bộ hộ gia đình."
+        },
+        {
+          "title": "Lập kế hoạch chuyển tiếp",
+          "text": "Trước khi xuất viện, gia đình nhận các mẹo duy trì và dấu hiệu cho thấy buổi củng cố có thể hữu ích sau này."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm & Ủy quyền",
+      "intro": "Nhiều gia đình sử dụng bảo hiểm để tiếp cận các dịch vụ y tế liên quan. Nhóm của Eden giúp bạn hiểu các yêu cầu của kế hoạch, nhu cầu tài liệu và các bước ủy quyền trước khi dịch vụ bắt đầu. Hoạt động trị liệu có thể yêu cầu giới thiệu từ bác sĩ hoặc ủy quyền trước tùy thuộc vào kế hoạch của bạn.",
+      "bullets": [
+        "Chúng tôi xác minh quyền lợi và giải thích các chi phí tự chi trả dự kiến khi có thông tin kế hoạch.",
+        "Tài liệu lâm sàng hỗ trợ các đánh giá về sự cần thiết y tế dựa trên kết quả đánh giá và các mục tiêu được khuyến nghị.",
+        "Các ủy quyền được theo dõi và gia hạn theo quy tắc và giới hạn lượt khám của từng người thanh toán.",
+        "Medicaid và các kế hoạch thương mại có thể khác nhau về môi trường được bảo hiểm, giới hạn lượt khám và yêu cầu giới thiệu.",
+        "Gia đình nhận các cập nhật bằng ngôn ngữ dễ hiểu khi cần thêm tài liệu hoặc đơn đặt hàng của bác sĩ.",
+        "Các câu hỏi về thanh toán được xử lý bởi nhân viên có thể giải thích các yêu cầu bồi thường, từ chối và các lựa chọn kháng cáo khi áp dụng."
+      ],
+      "note": "Phạm vi bảo hiểm khác nhau tùy theo kế hoạch, chẩn đoán và tài liệu lâm sàng. Eden không đảm bảo sự chấp thuận hoặc thanh toán từ bất kỳ công ty bảo hiểm nào."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về hoạt động trị liệu",
+      "items": [
+        {
+          "question": "Nhà trị liệu hoạt động nhi khoa làm gì?",
+          "answer": "Các nhà trị liệu OT nhi khoa giúp trẻ phát triển kỹ năng cho cuộc sống hàng ngày—phối hợp vận động, điều tiết cảm giác, tự chăm sóc và tham gia vui chơi và học tập. Họ phân tích lý do tại sao các nhiệm vụ khó khăn và thiết kế bài luyện tập phù hợp với điểm mạnh của từng trẻ."
+        },
+        {
+          "question": "OT khác với vật lý trị liệu như thế nào?",
+          "answer": "Vật lý trị liệu thường nhấn mạnh vào khả năng di chuyển, sức mạnh và phục hồi vận động thô. OT tập trung vào cách trẻ sử dụng chuyển động và cảm giác để hoàn thành các hoạt động hàng ngày như viết, mặc quần áo và ăn uống. Một số trẻ được hưởng lợi từ cả hai."
+        },
+        {
+          "question": "Con tôi có cần chẩn đoán để bắt đầu OT không?",
+          "answer": "Chẩn đoán có thể giúp ích cho việc ủy quyền bảo hiểm, nhưng nhu cầu lâm sàng dựa trên sự tham gia chức năng. Nhà trị liệu của bạn sẽ thảo luận về các yêu cầu đánh giá cho kế hoạch cụ thể của bạn."
+        },
+        {
+          "question": "Một buổi OT thông thường kéo dài bao lâu?",
+          "answer": "Các buổi thường kéo dài 30 đến 60 phút tùy thuộc vào tuổi, sự chú ý và ủy quyền. Nhà trị liệu của bạn sẽ khuyến nghị tần suất dựa trên kết quả đánh giá."
+        },
+        {
+          "question": "OT có thể giúp với chữ viết tay không?",
+          "answer": "Có. Các nhà trị liệu giải quyết cách cầm, tư thế, kỹ năng thị giác-vận động và sức bền. Các mục tiêu tập trung vào tính dễ đọc và tốc độ chức năng—không phải sự hoàn hảo trên mọi bài tập."
+        },
+        {
+          "question": "Xử lý cảm giác trong OT là gì?",
+          "answer": "Nó đề cập đến cách hệ thần kinh nhận và phản ứng với xúc giác, chuyển động, âm thanh và các đầu vào khác. OT giúp trẻ chịu đựng các cảm giác cần thiết và sử dụng các chiến lược để duy trì điều tiết."
+        },
+        {
+          "question": "OT có sử dụng phòng gym cảm giác không?",
+          "answer": "Một số hoạt động có thể bao gồm xích đu, leo trèo hoặc vật liệu có kết cấu khi phù hợp lâm sàng. Không phải mọi trẻ đều cần các buổi sử dụng nhiều thiết bị; kế hoạch được cá nhân hóa."
+        },
+        {
+          "question": "OT có thể giúp con tôi bị tự kỷ không?",
+          "answer": "Nhiều trẻ tự kỷ được hưởng lợi từ OT cho các mục tiêu vận động, cảm giác và thích ứng. Các nhà trị liệu phối hợp với các nhóm ABA và ngôn ngữ khi gia đình nhận nhiều dịch vụ tại Eden."
+        },
+        {
+          "question": "Làm thế nào tôi biết trẻ mới đi học của mình cần OT?",
+          "answer": "Cân nhắc đánh giá nếu sự khác biệt về vận động hoặc cảm giác hạn chế khả năng chơi, ăn uống hoặc tự chăm sóc so với bạn bè, hoặc nếu các thói quen hàng ngày thường xuyên gây khó chịu."
+        },
+        {
+          "question": "OT của Eden có phối hợp với trường học của trẻ không?",
+          "answer": "Với sự đồng ý của bạn, các nhà trị liệu có thể chia sẻ khuyến nghị và tham dự các cuộc họp khi lịch trình cho phép. OT tại trường học, nếu có, vẫn là dịch vụ riêng của học khu."
+        },
+        {
+          "question": "Chúng tôi nên mang gì đến buổi đánh giá?",
+          "answer": "Quần áo thoải mái, bất kỳ báo cáo trước đây nào, kính hoặc máy trợ thính nếu được sử dụng, và đồ ăn nhẹ nếu cần. Sự tham dự của người chăm sóc rất quan trọng cho các phần phỏng vấn."
+        },
+        {
+          "question": "Sự tham gia của phụ huynh có bắt buộc không?",
+          "answer": "Có. Huấn luyện người chăm sóc là trung tâm của tiến trình. Bạn sẽ học các chiến lược để luyện tập giữa các buổi."
+        },
+        {
+          "question": "Chúng tôi sẽ thấy tiến trình sớm như thế nào?",
+          "answer": "Một số gia đình nhận thấy sự thay đổi trong vài tuần; những gia đình khác cần thời gian dài hơn cho các mẫu vận động hoặc cảm giác phức tạp. Nhà trị liệu của bạn sẽ đặt các mốc ngắn hạn thực tế."
+        },
+        {
+          "question": "Có bài tập tại nhà được giao không?",
+          "answer": "Hầu hết trẻ nhận một chương trình tại nhà ngắn gọn. Sự nhất quán quan trọng hơn thời gian—tích hợp luyện tập vào thói quen hàng ngày hoạt động tốt nhất."
+        },
+        {
+          "question": "OT có thể giải quyết chứng kén ăn không?",
+          "answer": "Khi việc ăn uống chủ yếu dựa trên vận động hoặc cảm giác, OT có thể chồng lấp với liệu pháp ăn uống. Các chuyên gia ăn uống của Eden hợp tác khi cả hai đều cần thiết."
+        },
+        {
+          "question": "Điều gì xảy ra nếu trẻ từ chối các hoạt động trị liệu?",
+          "answer": "Các nhà trị liệu sử dụng chơi, lựa chọn và thử thách có mức độ để xây dựng sự tin tưởng. Nếu sự từ chối kéo dài, nhóm xem xét các tác nhân kích thích cảm giác, các yếu tố y tế và sự phối hợp với các hỗ trợ ABA."
+        },
+        {
+          "question": "Bảo hiểm có chi trả cho OT nhi khoa không?",
+          "answer": "Nhiều kế hoạch bảo hiểm bao gồm OT khi đáp ứng tài liệu về sự cần thiết y tế. Eden giúp xác minh quyền lợi nhưng không thể đảm bảo thanh toán."
+        },
+        {
+          "question": "Chúng tôi có cần giới thiệu từ bác sĩ không?",
+          "answer": "Một số công ty bảo hiểm yêu cầu giới thiệu hoặc đơn thuốc. Nhân viên tiếp nhận sẽ cho bạn biết kế hoạch của bạn cần gì trước khi đặt lịch."
+        },
+        {
+          "question": "Anh chị em có thể tham dự các buổi không?",
+          "answer": "Chính sách khác nhau tùy theo môi trường. Hỏi điều phối viên của bạn về kích thước phòng và các cân nhắc về sự phân tâm cho kế hoạch chăm sóc của trẻ."
+        },
+        {
+          "question": "OT hỗ trợ ADHD như thế nào?",
+          "answer": "Các nhà trị liệu nhắm vào tổ chức, tư thế ngồi, tràn vận động và lịch nghỉ giải lao giúp trẻ hoàn thành nhiệm vụ với ít thất vọng hơn."
+        },
+        {
+          "question": "OT có thể khuyến nghị thiết bị thích ứng nào?",
+          "answer": "Ví dụ bao gồm bộ hỗ trợ bút chì, chỗ ngồi chuyên dụng, dụng cụ hỗ trợ mặc quần áo hoặc dụng cụ ăn uống. Các nhà trị liệu thử nghiệm các lựa chọn trước khi gia đình mua các mặt hàng."
+        },
+        {
+          "question": "Khi nào nên kết thúc dịch vụ OT?",
+          "answer": "Tốt nghiệp xảy ra khi các mục tiêu đạt được và các kỹ năng ổn định trong nhà và trường học—hoặc khi ưu tiên của gia đình thay đổi. Các buổi củng cố có thể được yêu cầu sau này nếu cần."
+        },
+        {
+          "question": "OT có thể giúp đào tạo vệ sinh không?",
+          "answer": "Các nhà trị liệu hỗ trợ các kỹ năng sẵn sàng, lập lịch, quản lý quần áo và sự thoải mái cảm giác. Các phức tạp y tế hoặc hành vi có thể yêu cầu phối hợp với các nhà cung cấp khác."
+        },
+        {
+          "question": "Eden bảo vệ quyền riêng tư của con tôi như thế nào?",
+          "answer": "Thông tin sức khỏe chỉ được chia sẻ với sự đồng ý và cho các mục đích lâm sàng hoặc ủy quyền được phép theo luật."
+        },
+        {
+          "question": "Làm thế nào để đặt lịch đánh giá OT tại Eden?",
+          "answer": "Liên hệ Eden để thảo luận về mối lo ngại, bảo hiểm và lịch trình. Bạn cũng có thể bắt đầu qua lộ trình đánh giá của chúng tôi nếu bạn đang khám phá nhiều dịch vụ."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Tài nguyên hữu ích",
+      "intro": "Các chủ đề này có thể giúp bạn chuẩn bị cho OT và vận động hiệu quả giữa các buổi.",
+      "items": [
+        {
+          "title": "Chuẩn bị cho lần khám OT đầu tiên",
+          "text": "Mang quần áo thoải mái, danh sách mối lo ngại và ví dụ về bài làm trường học hoặc video về các thói quen hàng ngày nếu bạn có."
+        },
+        {
+          "title": "Bố trí nhà thân thiện với cảm giác",
+          "text": "Các thay đổi đơn giản về ánh sáng, chỗ ngồi và lưu trữ có thể giảm bớt cảm giác choáng ngợp trong giờ làm bài tập và bữa ăn."
+        },
+        {
+          "title": "Chữ viết tay không cần chiến đấu",
+          "text": "Luyện tập ngắn, đa giác quan thường hiệu quả hơn các bài tập dài—hỏi nhà trị liệu của bạn về kế hoạch cá nhân hóa."
+        },
+        {
+          "title": "Khi OT và ABA chồng lấp",
+          "text": "Các mục tiêu về mặc quần áo, ăn uống và chơi có thể xuất hiện trong cả hai dịch vụ; phối hợp giúp kỳ vọng rõ ràng."
+        },
+        {
+          "title": "OT tại trường so với OT tại phòng khám",
+          "text": "Dịch vụ trường học tập trung vào sự tham gia giáo dục; OT tại phòng khám có thể giải quyết các mục tiêu nhà và cộng đồng rộng hơn khi được ủy quyền."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Sẵn sàng khám phá các bước tiếp theo?",
+      "subtitle": "Nhóm chăm sóc của Eden có thể giúp bạn hiểu các lựa chọn đánh giá, câu hỏi bảo hiểm và cách các dịch vụ y tế liên quan có thể phù hợp cùng với liệu pháp ABA.",
+      "buttons": [
+        {
+          "label": "Bắt đầu liệu pháp ABA",
+          "href": "/start-aba-therapy"
+        },
+        {
+          "label": "Đặt lịch đánh giá",
+          "href": "/services/evaluations-diagnosis/screening-evaluation"
+        },
+        {
+          "label": "Liên hệ Eden",
+          "href": "/contact"
+        },
+        {
+          "label": "Phạm vi bảo hiểm",
+          "href": "/insurance-coverage"
+        }
+      ]
+    }
+  },
+  "speechLanguageTherapy": {
+    "meta": {
+      "title": "Liệu pháp ngôn ngữ & Lời nói | Eden ABA Therapy",
+      "description": "Liệu pháp ngôn ngữ và lời nói tại Eden ABA Therapy hỗ trợ giao tiếp, phát âm, ngôn ngữ xã hội, trôi chảy và AAC cho trẻ em và thanh thiếu niên ở Bắc Virginia.",
+      "keywords": [
+        "liệu pháp lời nói nhi khoa",
+        "bệnh lý ngôn ngữ lời nói tự kỷ",
+        "liệu pháp phát âm cho trẻ em",
+        "đánh giá AAC",
+        "kỹ năng ngôn ngữ thực dụng",
+        "liệu pháp lời nói Bắc Virginia",
+        "phối hợp SLP và ABA"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Dịch vụ y tế liên quan",
+      "title": "Liệu pháp ngôn ngữ & Lời nói",
+      "subtitle": "Các nhà bệnh lý ngôn ngữ lời nói có giấy phép giúp trẻ hiểu ngôn ngữ, diễn đạt ý tưởng rõ ràng, kết nối với người khác và sử dụng các công cụ tăng cường khi lời nói đơn thuần chưa đủ—tất cả trong mô hình chăm sóc hợp tác của Eden.",
+      "breadcrumbLabel": "Liệu pháp ngôn ngữ & Lời nói",
+      "imageAlt": "Nhà bệnh lý ngôn ngữ lời nói tương tác với trẻ trong hoạt động giao tiếp với thẻ hình ảnh",
+      "readingTime": "19 phút đọc"
+    },
+    "overview": {
+      "title": "Liệu pháp ngôn ngữ & Lời nói là gì?",
+      "whatIs": "Liệu pháp ngôn ngữ lời nói giải quyết cách trẻ hiểu người khác, tự thể hiện, phát âm, sử dụng ngôn ngữ xã hội và giao tiếp trong các môi trường khác nhau. Các nhà bệnh lý ngôn ngữ lời nói (SLP) tại Eden sử dụng các phương pháp dựa trên chơi, có cấu trúc và hướng dẫn gia đình phù hợp với hồ sơ của từng trẻ.",
+      "whyMatters": "Kỹ năng giao tiếp định hình việc học, tình bạn và sức khỏe cảm xúc. Khi trẻ gặp khó khăn khi được hiểu hoặc theo dõi ngôn ngữ, sự thất vọng có thể gia tăng. Hỗ trợ sớm và có mục tiêu có thể mở rộng cách trẻ tham gia ở nhà, trong trị liệu và ở trường.",
+      "benefits": [
+        {
+          "title": "Phát âm rõ ràng hơn",
+          "text": "Trẻ luyện tập các âm và mẫu để người khác có thể hiểu chúng với ít lần lặp lại hơn."
+        },
+        {
+          "title": "Hiểu ngôn ngữ tốt hơn",
+          "text": "Thực hiện hướng dẫn, trả lời câu hỏi và học từ vựng mới trở nên dễ tiếp cận hơn."
+        },
+        {
+          "title": "Ngôn ngữ diễn đạt chức năng",
+          "text": "Trẻ học cách yêu cầu, bình luận, mô tả và kể chuyện bằng lời nói, ký hiệu hoặc AAC khi cần."
+        },
+        {
+          "title": "Cải thiện giao tiếp xã hội",
+          "text": "Lượt nói, duy trì chủ đề và đọc các tín hiệu xã hội hỗ trợ mối quan hệ bạn bè."
+        },
+        {
+          "title": "Sử dụng AAC tự tin",
+          "text": "Khi lời nói bị hạn chế, các hệ thống AAC mạnh mẽ giảm áp lực giao tiếp và mở rộng sự độc lập."
+        },
+        {
+          "title": "Phù hợp tốt hơn với chương trình ABA",
+          "text": "SLP và BCBA phối hợp về đào tạo yêu cầu, giảm gợi ý và tổng quát hóa các kỹ năng giao tiếp."
+        }
+      ]
+    },
+    "whoBenefits": {
+      "title": "Ai hưởng lợi từ liệu pháp ngôn ngữ & Lời nói?",
+      "intro": "Trẻ sơ sinh đến thanh thiếu niên gặp khó khăn khi được hiểu, theo dõi ngôn ngữ hoặc kết nối xã hội có thể được hưởng lợi từ dịch vụ SLP. Nhiều gia đình Eden cũng nhận liệu pháp ABA cho các mục tiêu chồng lấp.",
+      "ageGroups": [
+        {
+          "age": "Trẻ sơ sinh",
+          "text": "Can thiệp sớm có thể giải quyết an toàn ăn uống-nuốt, chơi âm thanh, chú ý chung và nền tảng giao tiếp tiền ngôn ngữ."
+        },
+        {
+          "age": "Trẻ tập đi",
+          "text": "Các nhà trị liệu hỗ trợ từ đầu tiên, sử dụng cử chỉ, hướng dẫn đơn giản và phát triển âm thanh sớm trong các thói quen chơi."
+        },
+        {
+          "age": "Trẻ mầm non",
+          "text": "Trẻ làm việc về độ dài câu, rõ ràng lời nói, trả lời các câu hỏi wh- và tương tác với bạn bè trong các nhóm nhỏ."
+        },
+        {
+          "age": "Trẻ tiểu học",
+          "text": "Các mục tiêu có thể bao gồm hỗ trợ hiểu đọc, diễn ngôn lớp học, tiếp tục phát âm và lập kế hoạch ngôn ngữ viết."
+        },
+        {
+          "age": "Thanh thiếu niên",
+          "text": "Thanh thiếu niên có thể tập trung vào cuộc trò chuyện phức tạp, tự vận động, giao tiếp phỏng vấn việc làm và ranh giới mạng xã hội."
+        },
+        {
+          "age": "Người trưởng thành",
+          "text": "Người trưởng thành trẻ có khuyết tật phát triển có thể tiếp tục trị liệu cho giao tiếp nghề nghiệp và cập nhật hệ thống AAC khi phù hợp."
+        }
+      ],
+      "signs": [
+        "Từ vựng hoặc cụm từ hạn chế so với bạn cùng tuổi",
+        "Lời nói khó hiểu với gia đình hoặc giáo viên",
+        "Khó thực hiện hướng dẫn hai bước không có cử chỉ",
+        "Giao tiếp mắt tối thiểu hoặc chú ý chung trong các hoạt động chung",
+        "Nói lắp hoặc lặp âm/từ thường xuyên gây tránh né",
+        "Gặp khó khăn khi tham gia cuộc trò chuyện, luân phiên hoặc hiểu truyện cười và thành ngữ"
+      ],
+      "redFlags": [
+        "Mất các từ hoặc giao tiếp xã hội đã có trước đó",
+        "Giọng khàn hoặc thở kéo dài hơn hai tuần không có bệnh",
+        "Ho hoặc nghẹn thường xuyên trong bữa ăn hoặc đồ uống",
+        "Không phản ứng với tên ở 12 tháng hoặc không có từ đơn ở 18 tháng mà không có đánh giá",
+        "Đóng băng giao tiếp hoàn toàn trong tất cả môi trường mặc dù có kỹ năng trước đó"
+      ],
+      "milestones": [
+        "Bập bẹ với các âm đa dạng vào 9 tháng",
+        "Sử dụng một số từ đơn và thực hiện mệnh lệnh đơn giản vào 18 tháng",
+        "Kết hợp hai từ và đặt tên các đồ vật thông thường vào năm 2 tuổi",
+        "Nói câu ngắn người lạ phần lớn hiểu được vào năm 3 tuổi",
+        "Kể các câu chuyện đơn giản và đặt nhiều câu hỏi vào mầm non"
+      ],
+      "whenToSeek": "Tìm kiếm đánh giá ngôn ngữ lời nói nếu sự khác biệt giao tiếp kéo dài, gây thất vọng, ảnh hưởng đến an toàn trong bữa ăn hoặc hạn chế sự tham gia tại nhà và trường học mặc dù đã có hỗ trợ thông thường."
+    },
+    "conditions": {
+      "title": "Các tình trạng & nhu cầu chúng tôi thường giải quyết",
+      "intro": "SLP của Eden hỗ trợ trẻ em với nhiều hồ sơ phát triển và y tế đa dạng. Trị liệu nhắm vào giao tiếp chức năng—không chỉ dựa trên nhãn hiệu.",
+      "items": [
+        {
+          "name": "Rối loạn phổ tự kỷ",
+          "text": "Chú ý chung, giao tiếp chức năng, AAC và ngôn ngữ xã hội được giải quyết với các chiến lược khẳng định sự đa dạng thần kinh."
+        },
+        {
+          "name": "ADHD",
+          "text": "Các nhà trị liệu làm việc về các chiến lược lắng nghe, tổ chức ngôn ngữ diễn đạt và tự theo dõi trong cuộc trò chuyện."
+        },
+        {
+          "name": "Rối loạn ngôn ngữ phát triển",
+          "text": "Các mục tiêu hiểu và diễn đạt được chia thành các bước có thể đo lường với luyện tập nhiều của người chăm sóc."
+        },
+        {
+          "name": "Rối loạn lời nói vận động",
+          "text": "Các giao thức apraxia và dysarthria nhấn mạnh vào lập kế hoạch vận động, lặp lại và các tín hiệu đa phương thức."
+        },
+        {
+          "name": "Rối loạn phát âm và âm vị",
+          "text": "Các mẫu âm được luyện tập trong từ, cụm từ và cuộc trò chuyện để tổng quát hóa."
+        },
+        {
+          "name": "Rối loạn trôi chảy",
+          "text": "Hỗ trợ nói lắp bao gồm khởi đầu dễ dàng, nhịp độ và xây dựng sự tự tin—không sửa chữa dựa trên sự xấu hổ."
+        },
+        {
+          "name": "Bại não",
+          "text": "AAC, định vị và các phương pháp truy cập thích ứng đảm bảo giao tiếp bất chấp hạn chế vận động."
+        },
+        {
+          "name": "Hội chứng Down",
+          "text": "Các cân nhắc về lời nói, ngôn ngữ và thính giác được tích hợp vào trị liệu dựa trên chơi, tập trung vào thói quen."
+        },
+        {
+          "name": "Hội chứng di truyền",
+          "text": "Hồ sơ cá nhân hướng dẫn lựa chọn AAC, an toàn vận động miệng và ưu tiên huấn luyện gia đình."
+        },
+        {
+          "name": "Tình trạng thần kinh",
+          "text": "Các nhà trị liệu hỗ trợ phục hồi hoặc bù trừ khi chấn thương hoặc bệnh tật ảnh hưởng đến lời nói và ngôn ngữ."
+        },
+        {
+          "name": "Sự khác biệt về giọng nói và cộng hưởng",
+          "text": "Hợp tác với ENT khi cần đảm bảo các mục tiêu giọng nói an toàn và phù hợp với lứa tuổi."
+        },
+        {
+          "name": "Rối loạn giao tiếp xã hội",
+          "text": "Các mục tiêu thực dụng dạy quan điểm, quản lý chủ đề và các chiến lược sửa chữa trong các tương tác thực tế."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Cách Eden cung cấp liệu pháp ngôn ngữ & Lời nói",
+      "intro": "Dịch vụ SLP của Eden kết hợp chuyên môn lâm sàng, các mục tiêu có thể đo lường và phối hợp với ABA và các nhà cung cấp y tế liên quan khác.",
+      "steps": [
+        {
+          "title": "Giới thiệu và tiếp nhận",
+          "text": "Gia đình mô tả mối lo ngại về giao tiếp, tình trạng thính giác và các đánh giá trước đây. Nhân viên phác thảo các bước đánh giá và nhu cầu bảo hiểm."
+        },
+        {
+          "title": "Đánh giá toàn diện",
+          "text": "SLP đánh giá lời nói, ngôn ngữ, trôi chảy, giọng nói và ngôn ngữ thực dụng thông qua quan sát, tương tác và các công cụ tiêu chuẩn hóa khi phù hợp."
+        },
+        {
+          "title": "Lý luận lâm sàng",
+          "text": "Các phát hiện được diễn giải cùng với tiền sử phát triển, nhu cầu cảm giác và ưu tiên gia đình—không phải điểm số kiểm tra riêng lẻ."
+        },
+        {
+          "title": "Phát triển mục tiêu cùng nhau",
+          "text": "Các mục tiêu phản ánh những gì quan trọng hàng ngày: yêu cầu giúp đỡ, tham gia lớp học, lời nói rõ ràng hơn hoặc độc lập AAC."
+        },
+        {
+          "title": "Lập kế hoạch điều trị cá nhân hóa",
+          "text": "Cấu trúc buổi kết hợp chơi, luyện tập, dạy học tự nhiên và các khối huấn luyện người chăm sóc."
+        },
+        {
+          "title": "Sự tham gia tích cực của gia đình",
+          "text": "Cha mẹ học các mô hình, tín hiệu và các hoạt động áp dụng phù hợp với bữa ăn, đi xe và thói quen trước giờ ngủ."
+        },
+        {
+          "title": "Xem xét tiến trình",
+          "text": "Dữ liệu về số lần thử, phát ngôn hoặc sử dụng AAC thông báo khi nào nên nâng cao hoặc sửa đổi mục tiêu."
+        },
+        {
+          "title": "Lập kế hoạch xuất viện và chuyển tiếp",
+          "text": "Gia đình nhận các ý tưởng duy trì và khuyến nghị trường học khi tần suất trị liệu giảm."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Lộ trình chăm sóc liệu pháp lời nói của bạn",
+      "intro": "Lộ trình thời gian khác nhau tùy theo tuổi và độ phức tạp của mục tiêu. Tổng quan này cho thấy các gia đình thường di chuyển từ giới thiệu đến tốt nghiệp như thế nào.",
+      "steps": [
+        {
+          "title": "Nhận giới thiệu",
+          "text": "Bác sĩ nhi, giáo viên, BCBA hoặc người chăm sóc liên hệ Eden về mối lo ngại giao tiếp."
+        },
+        {
+          "title": "Xác minh quyền lợi",
+          "text": "Quyền lợi bảo hiểm và các quy tắc ủy quyền cho liệu pháp lời nói được xem xét với gia đình."
+        },
+        {
+          "title": "Lên lịch đánh giá",
+          "text": "Một đánh giá ngôn ngữ lời nói toàn diện được đặt lịch với sự tham dự của người chăm sóc được khuyến khích."
+        },
+        {
+          "title": "Hoàn thành đánh giá",
+          "text": "SLP hoàn thành kiểm tra, quan sát và bản tóm tắt bằng văn bản về điểm mạnh và nhu cầu giao tiếp."
+        },
+        {
+          "title": "Cuộc họp đặt mục tiêu",
+          "text": "Gia đình xem xét kết quả và thống nhất về các mục tiêu ban đầu và tần suất buổi được khuyến nghị."
+        },
+        {
+          "title": "Bắt đầu điều trị",
+          "text": "Trị liệu bắt đầu với kế hoạch luyện tập tại nhà và kỳ vọng rõ ràng để lặp lại giữa các buổi."
+        },
+        {
+          "title": "Xem xét giữa quá trình",
+          "text": "Dữ liệu tiến trình hướng dẫn các quyết định để thêm mục tiêu cuộc trò chuyện, điều chỉnh AAC hoặc thay đổi mục tiêu phát âm."
+        },
+        {
+          "title": "Điểm kiểm tra phối hợp",
+          "text": "Cập nhật được chuyển đến BCBA và giáo viên khi được đồng ý để các gợi ý và từ vựng giữ nhất quán."
+        },
+        {
+          "title": "Tốt nghiệp hoặc giảm dần",
+          "text": "Dịch vụ giảm khi các mục tiêu giao tiếp ổn định trong các môi trường, với các bản tóm tắt cho các hỗ trợ tiếp tục."
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Đánh giá ngôn ngữ & Lời nói",
+      "intro": "Đánh giá làm rõ cách trẻ giao tiếp ngày nay và hỗ trợ nào sẽ quan trọng nhất. Các SLP Eden mô tả các phát hiện bằng ngôn ngữ thân thiện với phụ huynh.",
+      "methods": [
+        {
+          "title": "Phỏng vấn tiền sử phát triển",
+          "text": "Người chăm sóc chia sẻ các mốc phát triển, sàng lọc thính giác, tiếp xúc đa ngôn ngữ và các sự cố giao tiếp hàng ngày."
+        },
+        {
+          "title": "Phân tích âm lời nói",
+          "text": "Các nhà trị liệu lắng nghe lời nói trò chuyện và có cấu trúc để xác định các mẫu lỗi ảnh hưởng đến khả năng hiểu."
+        },
+        {
+          "title": "Lấy mẫu ngôn ngữ",
+          "text": "Các mẫu dựa trên chơi hoặc trò chuyện tiết lộ từ vựng, ngữ pháp và kỹ năng tường thuật trong các bối cảnh tự nhiên."
+        },
+        {
+          "title": "Kiểm tra ngôn ngữ tiêu chuẩn hóa",
+          "text": "Các thước đo phù hợp với tuổi so sánh hiểu và diễn đạt với kỳ vọng phát triển khi hợp lệ."
+        },
+        {
+          "title": "Xem xét AAC và truy cập",
+          "text": "Đối với trẻ nói tối thiểu, các nhà trị liệu khám phá các cử chỉ, hình ảnh và các lựa chọn thiết bị phù hợp với kỹ năng vận động."
+        },
+        {
+          "title": "Báo cáo bằng văn bản và kế hoạch",
+          "text": "Gia đình nhận khuyến nghị về mục tiêu, tần suất dịch vụ và phối hợp với các nhà cung cấp Eden khác."
+        }
+      ]
+    },
+    "techniques": {
+      "title": "Các kỹ thuật trị liệu chúng tôi sử dụng",
+      "intro": "Các kỹ thuật được chọn dựa trên tuổi, phong cách học và thói quen gia đình. SLP của bạn giải thích mục đích đằng sau mỗi phương pháp.",
+      "categories": [
+        {
+          "title": "Ngôn ngữ tiếp nhận",
+          "items": [
+            "Thực hiện hướng dẫn dần dần trong khi chơi",
+            "Dạy khái niệm với hỗ trợ trực quan",
+            "Bài tập hiểu câu hỏi",
+            "Các chiến lược lắng nghe cho lớp học ồn ào"
+          ]
+        },
+        {
+          "title": "Ngôn ngữ diễn đạt",
+          "items": [
+            "Mở rộng phát ngôn thông qua mô hình",
+            "Luyện tập từ vựng cốt lõi",
+            "Trò chơi xây dựng câu",
+            "Kể lại tường thuật với chuỗi hình ảnh"
+          ]
+        },
+        {
+          "title": "Phát âm",
+          "items": [
+            "Hệ thống phân cấp âm từ cô lập đến cuộc trò chuyện",
+            "Tín hiệu gương và xúc giác",
+            "Phân biệt cặp tối thiểu",
+            "Bài tập tiếp tục với cụm từ chức năng"
+          ]
+        },
+        {
+          "title": "Kỹ năng âm vị",
+          "items": [
+            "Đào tạo mẫu theo chu kỳ",
+            "Các hoạt động bắn phá thính giác",
+            "Trò chơi nhận biết vần và âm",
+            "Luyện tập lời nói kết nối"
+          ]
+        },
+        {
+          "title": "Trôi chảy",
+          "items": [
+            "Bài tập khởi đầu dễ dàng và tiếp xúc nhẹ",
+            "Bảng nhịp độ và chiến lược tạm dừng",
+            "Giảm nhạy cảm với các khoảnh khắc nói lắp",
+            "Giáo dục gia đình về lắng nghe hỗ trợ"
+          ]
+        },
+        {
+          "title": "Giọng nói",
+          "items": [
+            "Bài tập hỗ trợ hơi thở",
+            "Các hoạt động nhận biết cộng hưởng",
+            "Huấn luyện vệ sinh giọng nói",
+            "Điều chỉnh âm lượng cho lớp học"
+          ]
+        },
+        {
+          "title": "Ngôn ngữ thực dụng",
+          "items": [
+            "Các câu chuyện xã hội cho các tình huống cụ thể",
+            "Nhập vai cho lời chào và yêu cầu",
+            "Trò chơi khởi đầu và duy trì chủ đề",
+            "Diễn giải biểu cảm khuôn mặt và giọng điệu"
+          ]
+        },
+        {
+          "title": "Tổng quan AAC",
+          "items": [
+            "Mô hình bảng cốt lõi trong khi chơi",
+            "Lập trình thiết bị cho thói quen tại nhà",
+            "Quét hỗ trợ đối tác khi cần",
+            "Lập kế hoạch chuyển tiếp giữa các hệ thống công nghệ thấp và cao"
+          ]
+        },
+        {
+          "title": "Kỹ năng trò chuyện",
+          "items": [
+            "Kịch bản cuộc trò chuyện giảm dần đến độc lập",
+            "Các chiến lược sửa chữa khi bị hiểu lầm",
+            "Luyện tập diễn ngôn nhóm",
+            "Thực hành gọi điện thoại và video cho thanh thiếu niên"
+          ]
+        },
+        {
+          "title": "Giao tiếp trường học",
+          "items": [
+            "Các mục tiêu tham gia lớp học",
+            "Hỗ trợ lập kế hoạch thuyết trình",
+            "Người tổ chức ngôn ngữ viết",
+            "Hợp tác về các mục tiêu ngôn ngữ IEP"
+          ]
+        }
+      ]
+    },
+    "abaIntegration": {
+      "title": "Phối hợp liệu pháp lời nói với ABA",
+      "intro": "Giao tiếp là ưu tiên chung của cả dịch vụ SLP và ABA. Các nhóm Eden làm việc để ngăn chặn các thông điệp lẫn lộn và thúc đẩy tổng quát hóa.",
+      "points": [
+        {
+          "title": "Căn chỉnh giao tiếp chức năng",
+          "text": "Các yêu cầu, yêu cầu và phản đối được dạy trong ABA sử dụng từ vựng và phương thức đã thống nhất với SLP—bao gồm AAC."
+        },
+        {
+          "title": "Giảm gợi ý giữa các nhà cung cấp",
+          "text": "Các gợi ý bằng lời nói, cử chỉ và thiết bị được phối hợp để trẻ không phụ thuộc vào các tín hiệu không nhất quán."
+        },
+        {
+          "title": "Dạy học môi trường tự nhiên",
+          "text": "SLP và RBT luyện tập các mục tiêu trong bữa ăn, chơi và chuyển tiếp khi gia đình muốn các buổi tích hợp."
+        },
+        {
+          "title": "Chia sẻ dữ liệu về các mục tiêu chung",
+          "text": "Số lượng phát ngôn, lượt truy cập AAC và độ chính xác phát âm có thể được theo dõi theo định dạng cả hai nhóm xem xét."
+        },
+        {
+          "title": "Thống nhất huấn luyện người chăm sóc",
+          "text": "Cha mẹ nhận một bộ chiến lược để mô hình hóa ngôn ngữ tại nhà thay vì các hướng dẫn mâu thuẫn."
+        }
+      ]
+    },
+    "dataCollection": {
+      "title": "Theo dõi tiến trình & Dữ liệu",
+      "intro": "Tiến trình liệu pháp lời nói được theo dõi với các số liệu rõ ràng để gia đình thấy giao tiếp đang thay đổi như thế nào từ tuần này sang tuần khác.",
+      "metrics": [
+        {
+          "label": "Độ chính xác phát âm",
+          "value": 82
+        },
+        {
+          "label": "Tăng trưởng độ dài phát ngôn trung bình",
+          "value": 71
+        },
+        {
+          "label": "Sử dụng AAC độc lập",
+          "value": 88
+        },
+        {
+          "label": "Tính nhất quán mô hình của người chăm sóc",
+          "value": 76
+        }
+      ],
+      "chartTitle": "Ví dụ về tăng trưởng ngôn ngữ diễn đạt qua quá trình điều trị",
+      "chartBars": [
+        {
+          "label": "Cơ sở",
+          "value": 18
+        },
+        {
+          "label": "Tháng 1",
+          "value": 34
+        },
+        {
+          "label": "Tháng 2",
+          "value": 48
+        },
+        {
+          "label": "Tháng 3",
+          "value": 61
+        },
+        {
+          "label": "Tháng 4",
+          "value": 74
+        },
+        {
+          "label": "Tháng 5",
+          "value": 89
+        }
+      ],
+      "items": [
+        {
+          "title": "Mẫu giao tiếp cơ sở",
+          "text": "Các ghi âm hoặc kiểm đếm ban đầu ghi lại khả năng hiểu, từ vựng hoặc sử dụng AAC khởi đầu."
+        },
+        {
+          "title": "Độ chính xác từng lần thử",
+          "text": "Phát âm và mục tiêu ngôn ngữ được tính điểm trong luyện tập có cấu trúc để phân tích xu hướng."
+        },
+        {
+          "title": "Khám phá tự nhiên",
+          "text": "Các nhà trị liệu kiểm tra xem các kỹ năng có xuất hiện trong khi chơi và trò chuyện—không chỉ ở bàn."
+        },
+        {
+          "title": "Công cụ báo cáo phụ huynh",
+          "text": "Các buổi kiểm tra ngắn ghi lại liệu các từ hoặc cụm từ mới có xuất hiện ở nhà giữa các buổi không."
+        },
+        {
+          "title": "Chia sẻ dữ liệu BCBA",
+          "text": "Khi ABA đang hoạt động, các mục tiêu giao tiếp được căn chỉnh để ghi chú buổi phản ánh cùng một kết quả."
+        },
+        {
+          "title": "Kích hoạt đánh giá lại",
+          "text": "Sự đình trệ hoặc tăng trưởng nhanh thúc đẩy cập nhật kế hoạch thay vì tiếp tục luyện tập không thay đổi."
+        }
+      ]
+    },
+    "familyEducation": {
+      "title": "Giáo dục & Huấn luyện gia đình",
+      "intro": "Trẻ học ngôn ngữ từ các tương tác hàng ngày. Các SLP Eden huấn luyện cha mẹ trở thành đối tác giao tiếp hiệu quả—không phải người quan sát thụ động.",
+      "cards": [
+        {
+          "title": "Mô hình hóa không áp lực",
+          "text": "Tìm hiểu cách mở rộng ngôn ngữ mà không yêu cầu trẻ lặp lại từ."
+        },
+        {
+          "title": "AAC tại nhà",
+          "text": "Gia đình luyện tập điều hướng thiết bị, vị trí từ cốt lõi và mô hình hóa trong suốt các thói quen."
+        },
+        {
+          "title": "Hướng dẫn song ngữ",
+          "text": "Các nhà trị liệu tôn trọng ngôn ngữ gia đình và giúp gia đình chọn các chiến lược thực tế cho các ngôi nhà đa ngôn ngữ."
+        },
+        {
+          "title": "Luyện tập dựa trên chơi",
+          "text": "Các trò chơi ngắn tích hợp các âm và từ vựng mục tiêu để luyện tập cảm thấy tự nhiên."
+        },
+        {
+          "title": "Vận động trường học",
+          "text": "Với sự đồng ý, SLP có thể đề xuất các điều chỉnh lớp học và làm rõ các mục tiêu ngôn ngữ IEP."
+        },
+        {
+          "title": "Duy trì sau xuất viện",
+          "text": "Gia đình nhận các ý tưởng để giữ các kỹ năng mạnh mẽ và biết khi nào cần yêu cầu một khối liệu pháp củng cố."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm & Ủy quyền",
+      "intro": "Nhiều gia đình sử dụng bảo hiểm để tiếp cận các dịch vụ y tế liên quan. Nhóm của Eden giúp bạn hiểu các yêu cầu của kế hoạch, nhu cầu tài liệu và các bước ủy quyền trước khi dịch vụ bắt đầu. Các ủy quyền liệu pháp lời nói thường yêu cầu mã chẩn đoán và các mục tiêu có thể đo lường gắn với giao tiếp chức năng.",
+      "bullets": [
+        "Chúng tôi xác minh quyền lợi và giải thích các chi phí tự chi trả dự kiến khi có thông tin kế hoạch.",
+        "Tài liệu lâm sàng hỗ trợ các đánh giá về sự cần thiết y tế dựa trên kết quả đánh giá và các mục tiêu được khuyến nghị.",
+        "Các ủy quyền được theo dõi và gia hạn theo quy tắc và giới hạn lượt khám của từng người thanh toán.",
+        "Medicaid và các kế hoạch thương mại có thể khác nhau về môi trường được bảo hiểm, giới hạn lượt khám và yêu cầu giới thiệu.",
+        "Gia đình nhận các cập nhật bằng ngôn ngữ dễ hiểu khi cần thêm tài liệu hoặc đơn đặt hàng của bác sĩ.",
+        "Các câu hỏi về thanh toán được xử lý bởi nhân viên có thể giải thích các yêu cầu bồi thường, từ chối và các lựa chọn kháng cáo khi áp dụng."
+      ],
+      "note": "Phạm vi bảo hiểm khác nhau tùy theo kế hoạch, chẩn đoán và tài liệu lâm sàng. Eden không đảm bảo sự chấp thuận hoặc thanh toán từ bất kỳ công ty bảo hiểm nào."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về liệu pháp ngôn ngữ và lời nói",
+      "items": [
+        {
+          "question": "Sự khác biệt giữa lời nói và ngôn ngữ là gì?",
+          "answer": "Lời nói đề cập đến cách âm và từ được tạo ra. Ngôn ngữ bao gồm hiểu người khác và diễn đạt ý tưởng bằng từ vựng và ngữ pháp. SLP giải quyết cả hai, cùng với việc sử dụng giao tiếp xã hội."
+        },
+        {
+          "question": "Ở độ tuổi nào con tôi nên gặp SLP?",
+          "answer": "Nếu bạn nhận thấy sự chậm trễ liên tục trong bập bẹ, từ vựng hoặc hiểu biết so với bạn bè—hoặc nếu giáo viên nêu lên mối lo ngại—đánh giá là phù hợp. Hỗ trợ sớm thường mở rộng các cơ hội học tập."
+        },
+        {
+          "question": "Liệu pháp lời nói có giúp ích cho trẻ tự kỷ của tôi không?",
+          "answer": "Nhiều trẻ tự kỷ được hưởng lợi từ dịch vụ SLP cho giao tiếp chức năng, AAC và ngôn ngữ xã hội. Eden phối hợp với ABA khi gia đình nhận cả hai."
+        },
+        {
+          "question": "AAC là gì?",
+          "answer": "Giao tiếp tăng cường và thay thế bao gồm các ký hiệu, bảng hình ảnh và thiết bị lời nói hỗ trợ diễn đạt khi lời nói đơn thuần không đủ hoặc không đáng tin cậy."
+        },
+        {
+          "question": "Sử dụng AAC có làm trẻ ngừng nói không?",
+          "answer": "Nghiên cứu cho thấy AAC thường hỗ trợ phát triển lời nói bằng cách giảm thất vọng và mở rộng các mô hình ngôn ngữ. SLP của bạn sẽ cá nhân hóa các khuyến nghị."
+        },
+        {
+          "question": "Các buổi liệu pháp lời nói kéo dài bao lâu?",
+          "answer": "Các buổi thường kéo dài 30 đến 45 phút tùy theo tuổi và ủy quyền. Tần suất dựa trên đánh giá và sự cần thiết y tế."
+        },
+        {
+          "question": "Làm thế nào để đo lường tiến trình?",
+          "answer": "Các nhà trị liệu theo dõi độ chính xác, độ dài phát ngôn, sử dụng từ vựng hoặc lượt truy cập AAC—và chia sẻ xu hướng với gia đình trong các buổi xem xét."
+        },
+        {
+          "question": "Bạn có thể giúp với chứng nói lắp không?",
+          "answer": "Có. Liệu pháp trôi chảy sử dụng các chiến lược thân thiện với trẻ và giáo dục gia đình. Trường hợp nặng hoặc khởi phát đột ngột có thể cần thêm đánh giá y tế."
+        },
+        {
+          "question": "Con tôi nói hai ngôn ngữ. Chúng tôi có nên chỉ nói tiếng Anh ở nhà không?",
+          "answer": "Không nhất thiết. Duy trì ngôn ngữ gia đình rất có giá trị. SLP của bạn sẽ giúp bạn chọn các chiến lược thực tế cho gia đình."
+        },
+        {
+          "question": "Eden có cung cấp liệu pháp ăn uống không?",
+          "answer": "Có. Khi có mối lo ngại về nuốt hoặc vận động miệng trong ăn uống, các chuyên gia ăn uống của Eden hợp tác với SLP."
+        },
+        {
+          "question": "Liệu pháp lời nói làm việc với ABA như thế nào?",
+          "answer": "Các nhóm căn chỉnh về mục tiêu giao tiếp, gợi ý và tăng cường để trẻ luyện tập các kỹ năng nhất quán trong các dịch vụ."
+        },
+        {
+          "question": "Điều gì xảy ra trong buổi đánh giá đầu tiên?",
+          "answer": "Mong đợi phỏng vấn người chăm sóc, tương tác dựa trên chơi và có thể kiểm tra tiêu chuẩn hóa. Kết quả được giải thích bằng ngôn ngữ dễ tiếp cận."
+        },
+        {
+          "question": "Tôi có cần giới thiệu không?",
+          "answer": "Một số kế hoạch bảo hiểm yêu cầu giới thiệu từ bác sĩ. Nhân viên tiếp nhận Eden sẽ xác nhận các yêu cầu của kế hoạch bạn."
+        },
+        {
+          "question": "Trị liệu có thể diễn ra tại nhà không?",
+          "answer": "Môi trường dịch vụ phụ thuộc vào ủy quyền và nhu cầu lâm sàng. Thảo luận các lựa chọn với điều phối viên chăm sóc của bạn."
+        },
+        {
+          "question": "Làm thế nào tôi có thể luyện tập ở nhà mà không làm con tôi quá tải?",
+          "answer": "Luyện tập ngắn, dựa trên thói quen hoạt động tốt nhất. SLP của bạn sẽ giao các hoạt động cụ thể phù hợp với năng lượng và sự chú ý của trẻ."
+        },
+        {
+          "question": "Điều gì nếu con tôi không nói được?",
+          "answer": "SLP khám phá cử chỉ, AAC và giao tiếp đa phương thức. Các mục tiêu tập trung vào diễn đạt chức năng—không chỉ lời nói."
+        },
+        {
+          "question": "Con tôi có tự khắc phục lỗi phát âm không?",
+          "answer": "Một số mẫu giải quyết theo tuổi; những mẫu khác được hưởng lợi từ trị liệu. Đánh giá làm rõ liệu các lỗi là điển hình hay ở mức độ rối loạn."
+        },
+        {
+          "question": "Bạn hỗ trợ kỹ năng xã hội như thế nào?",
+          "answer": "Các mục tiêu thực dụng dạy các quy tắc cuộc trò chuyện, chiến lược sửa chữa và tương tác bạn bè trong các hoạt động có cấu trúc và tự nhiên."
+        },
+        {
+          "question": "Bạn có thể tham dự cuộc họp IEP của con tôi không?",
+          "answer": "Với sự đồng ý và khả dụng lịch trình, các nhà lâm sàng Eden có thể tham gia để chia sẻ các khuyến nghị lâm sàng."
+        },
+        {
+          "question": "Teletherapy có sẵn không?",
+          "answer": "Tính khả dụng phụ thuộc vào các quy tắc của người thanh toán và sự phù hợp lâm sàng cho tuổi và mục tiêu của trẻ."
+        },
+        {
+          "question": "Tôi nên báo cáo những mối lo ngại về giọng nói nào?",
+          "answer": "Giọng khàn kéo dài, đau hoặc thay đổi giọng đột ngột đảm bảo đánh giá y tế cùng với trị liệu khi phù hợp."
+        },
+        {
+          "question": "Chúng tôi sẽ nhận cập nhật tiến trình bao lâu một lần?",
+          "answer": "Tần suất khác nhau tùy theo ủy quyền nhưng mong đợi các bản tóm tắt thường xuyên và cơ hội để điều chỉnh mục tiêu."
+        },
+        {
+          "question": "Khi nào liệu pháp lời nói kết thúc?",
+          "answer": "Dịch vụ giảm khi các mục tiêu được đáp ứng và các kỹ năng tổng quát hóa—hoặc khi ưu tiên của gia đình thay đổi. Có thể tái nhập nếu nhu cầu thay đổi."
+        },
+        {
+          "question": "Bảo hiểm có chi trả liệu pháp lời nói cho trẻ tự kỷ không?",
+          "answer": "Nhiều kế hoạch bao gồm các dịch vụ lời nói cần thiết về mặt y tế, nhưng quyền lợi khác nhau. Eden xác minh khi có thể mà không đảm bảo thanh toán."
+        },
+        {
+          "question": "Làm thế nào để bắt đầu liệu pháp lời nói tại Eden?",
+          "answer": "Liên hệ Eden hoặc bắt đầu với đánh giá sàng lọc để thảo luận về mối lo ngại, bảo hiểm và các lựa chọn lịch trình."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Tài nguyên hữu ích",
+      "intro": "Các hướng dẫn này hỗ trợ gia đình giữa các buổi liệu pháp lời nói.",
+      "items": [
+        {
+          "title": "Tạo ra thói quen phong phú về giao tiếp",
+          "text": "Kể về các hoạt động hàng ngày, dừng lại để nhận phản hồi và giữ các tương tác ngắn và có ý nghĩa."
+        },
+        {
+          "title": "Phá vỡ mitos về AAC",
+          "text": "Sử dụng AAC hỗ trợ phát triển lời nói cho nhiều trẻ—nó không thay thế luyện tập bằng lời nói khi lời nói là mục tiêu."
+        },
+        {
+          "title": "Tiếp tục phát âm tại nhà",
+          "text": "Luyện tập các âm mục tiêu trong các cụm từ chức năng trong khi đi xe hoặc bữa ăn thay vì chỉ danh sách luyện tập dài."
+        },
+        {
+          "title": "Khi lời nói và ăn uống chồng lấp",
+          "text": "Các mối lo ngại về nuốt nên được đánh giá kịp thời; nhóm ăn uống của Eden phối hợp với SLP."
+        },
+        {
+          "title": "Chuẩn bị cho các cuộc họp trường học",
+          "text": "Mang theo các bản tóm tắt trị liệu gần đây và ví dụ về giao tiếp tại nhà để căn chỉnh kỳ vọng nhóm."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Sẵn sàng khám phá các bước tiếp theo?",
+      "subtitle": "Nhóm chăm sóc của Eden có thể giúp bạn hiểu các lựa chọn đánh giá, câu hỏi bảo hiểm và cách các dịch vụ y tế liên quan có thể phù hợp cùng với liệu pháp ABA.",
+      "buttons": [
+        {
+          "label": "Bắt đầu liệu pháp ABA",
+          "href": "/start-aba-therapy"
+        },
+        {
+          "label": "Đặt lịch đánh giá",
+          "href": "/services/evaluations-diagnosis/screening-evaluation"
+        },
+        {
+          "label": "Liên hệ Eden",
+          "href": "/contact"
+        },
+        {
+          "label": "Phạm vi bảo hiểm",
+          "href": "/insurance-coverage"
+        }
+      ]
+    }
+  },
+  "feedingSwallowingTherapy": {
+    "meta": {
+      "title": "Liệu pháp ăn uống & Nuốt | Eden ABA Therapy",
+      "description": "Liệu pháp ăn uống và nuốt nhi khoa tại Eden ABA Therapy hỗ trợ ăn uống an toàn, kỹ năng vận động miệng, tiến triển kết cấu và thói quen bữa ăn tích cực cho trẻ em ở Bắc Virginia.",
+      "keywords": [
+        "liệu pháp ăn uống nhi khoa",
+        "liệu pháp nuốt cho trẻ em",
+        "liệu pháp ăn uống tự kỷ",
+        "hỗ trợ lâm sàng cho trẻ kén ăn",
+        "ăn uống vận động miệng",
+        "nuốt khó nhi khoa",
+        "liệu pháp ăn uống Bắc Virginia"
+      ]
+    },
+    "hero": {
+      "eyebrow": "Dịch vụ y tế liên quan",
+      "title": "Liệu pháp ăn uống & Nuốt",
+      "subtitle": "Các nhà trị liệu ăn uống chuyên biệt giúp gia đình xây dựng bữa ăn an toàn, thú vị—giải quyết kỹ năng vận động miệng, sự khác biệt cảm giác thực phẩm, mối lo ngại về nuốt và các thói quen hỗ trợ dinh dưỡng và kết nối.",
+      "breadcrumbLabel": "Liệu pháp ăn uống & Nuốt",
+      "imageAlt": "Nhà trị liệu ăn uống hỗ trợ trẻ trong buổi luyện tập bữa ăn bình tĩnh, có cấu trúc",
+      "readingTime": "17 phút đọc"
+    },
+    "overview": {
+      "title": "Liệu pháp ăn uống & Nuốt là gì?",
+      "whatIs": "Liệu pháp ăn uống và nuốt hỗ trợ trẻ gặp khó khăn khi ăn hoặc uống an toàn, chấp nhận thực phẩm đa dạng hoặc tham gia bình tĩnh vào bữa ăn. Các nhà lâm sàng của Eden sử dụng tiếp xúc có cấu trúc, đào tạo vận động miệng, huấn luyện người chăm sóc và hợp tác y tế khi có nguy cơ nuốt.",
+      "whyMatters": "Bữa ăn ảnh hưởng đến dinh dưỡng, tăng trưởng, căng thẳng gia đình và sự tham gia xã hội. Sự từ chối kéo dài, nghẹn hoặc ác cảm kết cấu cực độ có thể thu hẹp chế độ ăn của trẻ và làm tăng gánh nặng cho người chăm sóc. Trị liệu nhằm mục đích mở rộng kỹ năng và an toàn—không ép trẻ ăn theo thời gian biểu của người lớn.",
+      "benefits": [
+        {
+          "title": "Nuốt an toàn hơn",
+          "text": "Các nhà trị liệu xác định các dấu hiệu nguy cơ hít sặc và khuyến nghị các kết cấu, vị trí và nhịp độ hỗ trợ bảo vệ đường thở."
+        },
+        {
+          "title": "Chấp nhận thực phẩm rộng hơn",
+          "text": "Tiếp xúc dần dần giúp trẻ chịu đựng mùi, kết cấu và hương vị mới mà không cần các cuộc chiến áp lực."
+        },
+        {
+          "title": "Cải thiện kỹ năng vận động miệng",
+          "text": "Nhai, uống cốc và sử dụng dụng cụ được luyện tập để trẻ có thể quản lý thực phẩm phù hợp với lứa tuổi."
+        },
+        {
+          "title": "Thói quen bữa ăn bình tĩnh hơn",
+          "text": "Lịch trình, vai trò và ngôn ngữ dự đoán được giảm lo lắng cho cả trẻ và người chăm sóc."
+        },
+        {
+          "title": "Cơ hội dinh dưỡng tốt hơn",
+          "text": "Khi kỹ năng phát triển, gia đình có thể cung cấp các lựa chọn cân bằng hơn theo hướng dẫn y tế."
+        },
+        {
+          "title": "Chăm sóc phối hợp với ABA và OT",
+          "text": "Khi hành vi hoặc nhu cầu cảm giác chồng lấp, các nhóm căn chỉnh về tăng cường, chỗ ngồi và kế hoạch bữa ăn từng bước."
+        }
+      ]
+    },
+    "whoBenefits": {
+      "title": "Ai hưởng lợi từ liệu pháp ăn uống & Nuốt?",
+      "intro": "Trẻ sơ sinh đến trẻ tuổi học—và một số thanh thiếu niên—có thể được hưởng lợi khi ăn uống không an toàn, bị hạn chế nhiều hoặc liên tục gây căng thẳng. Eden phục vụ nhiều trẻ bị tự kỷ, sự khác biệt cảm giác và tiền sử y tế phức tạp.",
+      "ageGroups": [
+        {
+          "age": "Trẻ sơ sinh",
+          "text": "Trị liệu có thể giải quyết mối lo ngại về bú, chuyển đổi bình, trương lực vận động miệng và giới thiệu thức ăn nhuyễn an toàn khi được nhà cung cấp y tế giới thiệu."
+        },
+        {
+          "age": "Trẻ tập đi",
+          "text": "Các mục tiêu thường bao gồm uống cốc, thức ăn ngón tay, giảm nôn trớ và tham gia bữa ăn gia đình với chỗ ngồi phù hợp."
+        },
+        {
+          "age": "Trẻ mầm non",
+          "text": "Trẻ luyện tập nhai kết cấu hỗn hợp, sử dụng dụng cụ và chịu đựng các thói quen bữa ăn nhẹ nhóm tại nhà trẻ hoặc mầm non."
+        },
+        {
+          "age": "Trẻ tiểu học",
+          "text": "Các nhà trị liệu hỗ trợ đa dạng hộp cơm trưa, an toàn nuốt sau các sự kiện y tế và ăn uống xã hội ở trường."
+        },
+        {
+          "age": "Thanh thiếu niên",
+          "text": "Thanh thiếu niên có thể làm việc về chuẩn bị bữa ăn độc lập, kỹ năng nhà hàng và quản lý lo lắng xung quanh thực phẩm mới."
+        },
+        {
+          "age": "Người trưởng thành",
+          "text": "Người trưởng thành trẻ có khuyết tật phát triển có thể nhận hỗ trợ ăn uống cho các môi trường căng tin nghề nghiệp khi được chỉ định lâm sàng."
+        }
+      ],
+      "signs": [
+        "Nghẹn, ho hoặc giọng ướt trong bữa ăn hoặc đồ uống",
+        "Ăn ít hơn khoảng 20 loại thực phẩm hoặc từ chối toàn bộ nhóm thực phẩm trong nhiều tháng",
+        "Nôn trớ mạnh với các kết cấu mà bạn bè dễ dàng xử lý",
+        "Mất hơn 30 phút để hoàn thành bữa ăn phù hợp với lứa tuổi thường xuyên",
+        "Tránh ăn ngoài, sinh nhật hoặc bữa trưa trường học do lo lắng thực phẩm",
+        "Tăng cân hoặc bù nước kém mặc dù người chăm sóc đã cố gắng"
+      ],
+      "redFlags": [
+        "Bệnh hô hấp thường xuyên sau bữa ăn cho thấy có thể hít sặc",
+        "Không thể nuốt nước bọt hoặc quản lý các chất tiết an toàn",
+        "Hồi quy ăn uống đột ngột sau bệnh, chấn thương hoặc thủ thuật",
+        "Đau đáng kể khi ăn hoặc uống",
+        "Không tăng cân hoặc mất nước cần chăm sóc y tế khẩn cấp"
+      ],
+      "milestones": [
+        "Chuyển thức ăn nhuyễn từ trước ra sau miệng ở 6–8 tháng",
+        "Xử lý thực phẩm mềm tan và uống cốc với ít đổ tràn ở 12 tháng",
+        "Nhai thức ăn bàn mềm và sử dụng ngón tay hoặc dụng cụ ở 18–24 tháng",
+        "Ăn nhiều kết cấu trong bữa ăn gia đình với gợi ý đôi khi ở mầm non",
+        "Quản lý bữa trưa trường học độc lập với nuốt an toàn ở đầu tiểu học"
+      ],
+      "whenToSeek": "Yêu cầu đánh giá ăn uống nếu bữa ăn không an toàn, bị hạn chế nghiêm trọng hoặc gây khó chịu hàng ngày—hoặc nếu bác sĩ nhi của bạn bày tỏ lo ngại về tăng trưởng, bù nước hoặc nuốt."
+    },
+    "conditions": {
+      "title": "Các tình trạng & nhu cầu chúng tôi thường giải quyết",
+      "intro": "Khó khăn ăn uống xuất phát từ các yếu tố y tế, cảm giác, vận động và hành vi—thường cùng nhau. Các nhà trị liệu Eden điều trị toàn bộ bức tranh với sự tham gia của bác sĩ trẻ khi cần.",
+      "items": [
+        {
+          "name": "Rối loạn phổ tự kỷ",
+          "text": "Sở thích thực phẩm cứng nhắc, ác cảm cảm giác và phụ thuộc thói quen được giải quyết với các kế hoạch tiếp xúc có cấu trúc, áp lực thấp."
+        },
+        {
+          "name": "ADHD",
+          "text": "Các nhà trị liệu hỗ trợ sự chú ý ngồi liên tục, nhịp độ và tổ chức trong bữa ăn mà không sử dụng các chiến thuật dựa trên sự xấu hổ."
+        },
+        {
+          "name": "Chậm phát triển",
+          "text": "Các mốc ăn uống được dạy theo từng bước nhỏ với việc mô hình hóa nhiều của người chăm sóc giữa các buổi."
+        },
+        {
+          "name": "Chậm phát triển vận động miệng",
+          "text": "Nhai, kiểm soát viên và uống cốc được luyện tập với các kỹ thuật phù hợp với trương lực cơ và phối hợp."
+        },
+        {
+          "name": "Ác cảm thực phẩm cảm giác",
+          "text": "Chơi cảm giác dần dần và chuỗi thực phẩm mở rộng khả năng chịu đựng mùi, xúc giác và kết cấu."
+        },
+        {
+          "name": "Nuốt khó nhi khoa",
+          "text": "An toàn nuốt được ưu tiên với các sửa đổi kết cấu và theo dõi y tế khi xuất hiện các dấu hiệu hít sặc."
+        },
+        {
+          "name": "Bại não",
+          "text": "Định vị, dụng cụ thích ứng và lựa chọn kết cấu an toàn hỗ trợ dinh dưỡng bất chấp hạn chế vận động."
+        },
+        {
+          "name": "Hội chứng Down",
+          "text": "Kế hoạch vận động miệng trương lực thấp và các chiến lược nhịp độ giúp trẻ quản lý nhai và uống an toàn."
+        },
+        {
+          "name": "Hội chứng di truyền",
+          "text": "Hồ sơ y tế cá nhân hướng dẫn lựa chọn kết cấu, thiết bị và ưu tiên giáo dục gia đình."
+        },
+        {
+          "name": "Tình trạng thần kinh",
+          "text": "Các nhà trị liệu điều chỉnh kế hoạch sau chấn thương, phẫu thuật hoặc các tình trạng tiến triển ảnh hưởng đến chức năng nuốt."
+        },
+        {
+          "name": "Bối cảnh tiêu hóa và dị ứng",
+          "text": "Trị liệu tôn trọng các hạn chế y tế và phối hợp với các nhà cung cấp GI hoặc dị ứng về danh sách thực phẩm an toàn."
+        },
+        {
+          "name": "Các mẫu ăn uống hạn chế",
+          "text": "Các nhóm lâm sàng phân biệt ăn chọn lọc với các mối lo ngại ARFID và khuyến nghị chăm sóc đa chuyên khoa phù hợp."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Cách Eden cung cấp liệu pháp ăn uống & Nuốt",
+      "intro": "Liệu pháp ăn uống tại Eden có cấu trúc, được thông báo về chấn thương và lấy gia đình làm trung tâm—với an toàn hướng dẫn mọi khuyến nghị.",
+      "steps": [
+        {
+          "title": "Giới thiệu và tiếp nhận",
+          "text": "Gia đình chia sẻ video bữa ăn nếu có, tiền sử y tế, mối lo ngại về tăng trưởng và danh sách thực phẩm hiện tại."
+        },
+        {
+          "title": "Đánh giá toàn diện",
+          "text": "Các nhà trị liệu quan sát kỹ năng vận động miệng, hành vi bữa ăn và các dấu hiệu nuốt trong các thử nghiệm thực phẩm phù hợp lâm sàng."
+        },
+        {
+          "title": "Lý luận lâm sàng",
+          "text": "Các yếu tố cảm giác, vận động, y tế và môi trường được cân nhắc trước khi chọn mục tiêu tiếp xúc hoặc kỹ năng."
+        },
+        {
+          "title": "Phát triển mục tiêu cùng nhau",
+          "text": "Các mục tiêu có thể bao gồm uống cốc an toàn, chấp nhận protein mới hoặc giảm nôn trớ—với đầu vào của gia đình về ưu tiên."
+        },
+        {
+          "title": "Lập kế hoạch điều trị cá nhân hóa",
+          "text": "Kế hoạch buổi chỉ định thực phẩm, chỗ ngồi, gợi ý và tăng cường được căn chỉnh với hỗ trợ ABA phối hợp khi áp dụng."
+        },
+        {
+          "title": "Sự tham gia tích cực của gia đình",
+          "text": "Người chăm sóc luyện tập phục vụ, ngôn ngữ và các chiến lược nhịp độ trong các buổi và tại nhà."
+        },
+        {
+          "title": "Xem xét tiến trình",
+          "text": "Nhật ký thực phẩm, xu hướng cân nặng khi có và dữ liệu thử nghiệm thông báo các bước tiếp theo."
+        },
+        {
+          "title": "Lập kế hoạch xuất viện và chuyển tiếp",
+          "text": "Gia đình nhận thực đơn duy trì, các dấu hiệu nguy hiểm khẩn cấp và hướng dẫn về thời điểm tái giới thiệu."
+        }
+      ]
+    },
+    "timeline": {
+      "title": "Lộ trình chăm sóc liệu pháp ăn uống của bạn",
+      "intro": "Tiến trình ăn uống hiếm khi tuyến tính. Lộ trình thời gian này phác thảo các giai đoạn điển hình từ giới thiệu đến tốt nghiệp.",
+      "steps": [
+        {
+          "title": "Nhận giới thiệu",
+          "text": "Bác sĩ nhi, chuyên gia GI, BCBA hoặc người chăm sóc liên hệ Eden về mối lo ngại ăn uống hoặc nuốt."
+        },
+        {
+          "title": "Giấy phép y tế khi cần",
+          "text": "Một số trẻ yêu cầu đầu vào từ bác sĩ trước khi thử nghiệm ăn uống bằng miệng—đặc biệt với tiền sử nuốt phức tạp."
+        },
+        {
+          "title": "Xác minh quyền lợi",
+          "text": "Các yêu cầu bảo hiểm cho liệu pháp ăn uống được xem xét, bao gồm nhu cầu tài liệu."
+        },
+        {
+          "title": "Lên lịch đánh giá",
+          "text": "Gia đình nhận hướng dẫn về thực phẩm cần mang và cách chuẩn bị cho trẻ cho chuyến thăm."
+        },
+        {
+          "title": "Hoàn thành đánh giá",
+          "text": "Nhà trị liệu ghi lại kỹ năng vận động miệng, phản ứng cảm giác và quan sát an toàn với bản tóm tắt bằng văn bản."
+        },
+        {
+          "title": "Cuộc họp đặt mục tiêu",
+          "text": "Người chăm sóc xem xét kết quả và thống nhất về các mục tiêu ban đầu—thường một hoặc hai thực phẩm hoặc kỹ năng mỗi lần."
+        },
+        {
+          "title": "Bắt đầu điều trị",
+          "text": "Các buổi kết hợp xây dựng kỹ năng, tiếp xúc và huấn luyện với kế hoạch bữa ăn tại nhà."
+        },
+        {
+          "title": "Điểm kiểm tra phối hợp",
+          "text": "Cập nhật được gửi cho OT, SLP, BCBA hoặc bác sĩ khi được đồng ý để kế hoạch bữa ăn luôn nhất quán."
+        },
+        {
+          "title": "Tốt nghiệp hoặc giảm dần",
+          "text": "Dịch vụ giảm khi nuốt an toàn và bữa ăn ổn định, với hướng dẫn duy trì tại nhà bằng văn bản."
+        }
+      ]
+    },
+    "assessment": {
+      "title": "Đánh giá ăn uống & Nuốt",
+      "intro": "Đánh giá xác định liệu các thách thức ăn uống chủ yếu là cảm giác, vận động, y tế hay hành vi—và liệu an toàn nuốt có cần chú ý ngay lập tức không.",
+      "methods": [
+        {
+          "title": "Xem xét tiền sử y tế và chế độ ăn",
+          "text": "Các nhà trị liệu thu thập xu hướng tăng trưởng, dị ứng, điều trị trào ngược và các khuyến nghị của chuyên gia trước đây."
+        },
+        {
+          "title": "Kiểm tra vận động miệng",
+          "text": "Cấu trúc, trương lực và phối hợp để nhai, uống cốc và kiểm soát viên được quan sát lâm sàng."
+        },
+        {
+          "title": "Quan sát bữa ăn",
+          "text": "Gia đình có thể mang thực phẩm ưa thích và thử thách để các nhà trị liệu thấy các tương tác, nhịp độ và các mẫu từ chối thực tế."
+        },
+        {
+          "title": "Sàng lọc an toàn nuốt",
+          "text": "Ho, giọng ướt và các dấu hiệu mệt mỏi được theo dõi; kiểm tra công cụ thêm được giới thiệu khi có chỉ định."
+        },
+        {
+          "title": "Lập hồ sơ phản ứng cảm giác",
+          "text": "Các phản ứng với mùi, xúc giác, nhiệt độ và kết cấu thông báo các kế hoạch tiếp xúc dần dần."
+        },
+        {
+          "title": "Báo cáo bằng văn bản và kế hoạch chăm sóc",
+          "text": "Gia đình nhận các mục tiêu được ưu tiên, khuyến nghị kết cấu và nhu cầu phối hợp bằng ngôn ngữ dễ hiểu."
+        }
+      ]
+    },
+    "techniques": {
+      "title": "Các kỹ thuật trị liệu chúng tôi sử dụng",
+      "intro": "Các nhà trị liệu ăn uống của Eden tránh việc ép ăn. Các kỹ thuật nhấn mạnh vào an toàn, lòng tin và xây dựng kỹ năng từng bước với sự hợp tác của người chăm sóc.",
+      "categories": [
+        {
+          "title": "Khám phá thực phẩm",
+          "items": [
+            "Chơi cảm giác không ăn với vật liệu thực phẩm",
+            "Thang nhìn-chạm-ngửi-nếm dần dần",
+            "Chuỗi thực phẩm từ các mặt hàng ưa thích đến tương tự",
+            "Bảng lựa chọn để tăng quyền chủ động của trẻ"
+          ]
+        },
+        {
+          "title": "Tiến triển kết cấu",
+          "items": [
+            "Nâng cấp từng bước từ thức ăn nhuyễn đến thực phẩm mềm",
+            "Bát kết cấu hỗn hợp với các thành phần có thể dự đoán",
+            "Bổ sung giòn theo lượng nhỏ, kiểm soát",
+            "Biến thể nhiệt độ khi chịu đựng được"
+          ]
+        },
+        {
+          "title": "Nhai an toàn",
+          "items": [
+            "Luyện tập nhai hai bên với dải mềm",
+            "Tín hiệu nhịp độ giữa các miếng",
+            "Theo dõi kích thước viên",
+            "Điều chỉnh tư thế để ổn định hàm"
+          ]
+        },
+        {
+          "title": "Uống cốc",
+          "items": [
+            "Tiến trình cốc mở với lượng nhỏ",
+            "Đào tạo phân cấp ống hút",
+            "Góc và hỗ trợ giảm thiểu đổ",
+            "Phối hợp với thở giữa các ngụm"
+          ]
+        },
+        {
+          "title": "Kỹ năng dụng cụ",
+          "items": [
+            "Kỹ thuật xúc muỗng thích ứng",
+            "Thực phẩm luyện tập đâm và xúc",
+            "Chiến lược hỗ trợ tay không thuận",
+            "Cỡ phần phù hợp để thành công"
+          ]
+        },
+        {
+          "title": "Thói quen bữa ăn",
+          "items": [
+            "Nghi thức ngồi và bắt đầu dự đoán được",
+            "Huấn luyện phân chia trách nhiệm cho cha mẹ",
+            "Bữa ăn có thời gian với điểm kết thúc rõ ràng",
+            "Kịch bản ngôn ngữ trung lập trong khi từ chối"
+          ]
+        },
+        {
+          "title": "Phát triển vận động miệng",
+          "items": [
+            "Uống ống hút để tròn môi",
+            "Công cụ nhai để cung cấp thông tin cảm thụ bản thể khi phù hợp",
+            "Trò chơi vận động ngang lưỡi",
+            "Bài tập phân cấp hàm với các mặt hàng có sức cản an toàn"
+          ]
+        },
+        {
+          "title": "Cân nhắc cảm giác",
+          "items": [
+            "Tạp dề và tùy chọn lau tay cho trẻ nhạy cảm với xúc giác",
+            "Tiếp xúc gia vị và hương thơm dần dần",
+            "Giảm nhạy cảm rung khi phù hợp lâm sàng",
+            "Điều chỉnh ánh sáng và âm thanh tại bàn"
+          ]
+        },
+        {
+          "title": "Huấn luyện người chăm sóc",
+          "items": [
+            "Xem xét video bữa ăn tại nhà",
+            "Hướng dẫn trình bày phần và đĩa",
+            "Căn chỉnh tăng cường với ABA khi áp dụng",
+            "Các chiến lược giảm căng thẳng cho cha mẹ kiệt sức"
+          ]
+        }
+      ]
+    },
+    "abaIntegration": {
+      "title": "Phối hợp liệu pháp ăn uống với ABA",
+      "intro": "Khó khăn bữa ăn thường chồng lấp với nhu cầu hỗ trợ hành vi. Các nhóm Eden căn chỉnh để trẻ trải nghiệm kỳ vọng và tăng cường nhất quán.",
+      "points": [
+        {
+          "title": "Giao thức bữa ăn chung",
+          "text": "Chỗ ngồi, hệ thống token và phân cấp gợi ý được ghi lại cho cả nhà trị liệu ăn uống và RBT."
+        },
+        {
+          "title": "Tăng cường cho sự tham gia—không phải đĩa trống",
+          "text": "Các chương trình ABA thưởng cho việc chạm, nếm hoặc mục tiêu nhịp độ đã thống nhất với nhà lâm sàng ăn uống."
+        },
+        {
+          "title": "Nghỉ ngơi cảm giác trước bữa ăn",
+          "text": "Các chiến lược điều tiết OT và ABA được lên lịch để trẻ đến bàn sẵn sàng luyện tập."
+        },
+        {
+          "title": "Dữ liệu về thử nghiệm thực phẩm",
+          "text": "Sự chấp nhận, thể tích và các dấu hiệu an toàn được theo dõi theo định dạng cả hai nhóm xem xét hàng tuần."
+        },
+        {
+          "title": "Nhất quán huấn luyện cha mẹ",
+          "text": "Người chăm sóc nhận các kịch bản thống nhất cho ngôn ngữ, nhịp độ và hậu quả trong bữa ăn."
+        }
+      ]
+    },
+    "dataCollection": {
+      "title": "Theo dõi tiến trình & Dữ liệu",
+      "intro": "Liệu pháp ăn uống sử dụng các số liệu có thể quan sát được để gia đình thấy liệu các thực phẩm và kỹ năng mới có đang ổn định—không chỉ là những ngày tốt tại phòng khám.",
+      "metrics": [
+        {
+          "label": "Chấp nhận thực phẩm mới",
+          "value": 69
+        },
+        {
+          "label": "Thử nghiệm nuốt an toàn",
+          "value": 92
+        },
+        {
+          "label": "Thời gian bữa ăn trong mục tiêu",
+          "value": 77
+        },
+        {
+          "label": "Độ trung thành giao thức của người chăm sóc",
+          "value": 81
+        }
+      ],
+      "chartTitle": "Ví dụ về mở rộng đa dạng thực phẩm qua quá trình điều trị",
+      "chartBars": [
+        {
+          "label": "Cơ sở",
+          "value": 12
+        },
+        {
+          "label": "Tháng 1",
+          "value": 28
+        },
+        {
+          "label": "Tháng 2",
+          "value": 41
+        },
+        {
+          "label": "Tháng 3",
+          "value": 55
+        },
+        {
+          "label": "Tháng 4",
+          "value": 68
+        },
+        {
+          "label": "Tháng 5",
+          "value": 80
+        }
+      ],
+      "items": [
+        {
+          "title": "Mức cơ sở danh mục thực phẩm",
+          "text": "Các nhà trị liệu ghi lại các thực phẩm được chấp nhận ban đầu, kết cấu và thời gian bữa ăn."
+        },
+        {
+          "title": "Ghi chép thử nghiệm",
+          "text": "Mỗi buổi ghi lại các miếng cắn, ngụm, gợi ý và phản ứng của trẻ để xem xét xu hướng."
+        },
+        {
+          "title": "Theo dõi an toàn",
+          "text": "Ho, thay đổi màu sắc và mệt mỏi được ghi lại và được chuyển lên y tế khi cần."
+        },
+        {
+          "title": "Nhật ký bữa ăn tại nhà",
+          "text": "Gia đình theo dõi các bữa ăn áp dụng để những gì đạt được tại phòng khám xuất hiện trên bàn bếp."
+        },
+        {
+          "title": "Liên lạc tăng trưởng",
+          "text": "Khi cân nặng là mối lo ngại, các nhà trị liệu phối hợp với bác sĩ nhi về các mục tiêu chung."
+        },
+        {
+          "title": "Tiêu chí giảm dần",
+          "text": "Tốt nghiệp yêu cầu nuốt ổn định và duy trì đa dạng—không hoàn hảo trên mọi nhóm thực phẩm."
+        }
+      ]
+    },
+    "familyEducation": {
+      "title": "Giáo dục & Huấn luyện gia đình",
+      "intro": "Thay đổi ăn uống xảy ra ở nhà. Các nhà trị liệu Eden huấn luyện cha mẹ để dẫn dắt các bữa ăn bình tĩnh, an toàn hơn với kỳ vọng thực tế.",
+      "cards": [
+        {
+          "title": "Phân chia trách nhiệm",
+          "text": "Cha mẹ quyết định gì, khi nào và ở đâu; trẻ quyết định có hay không và bao nhiêu—trong hướng dẫn y tế."
+        },
+        {
+          "title": "Ngôn ngữ giảm áp lực",
+          "text": "Học các cụm từ trung lập mời khám phá mà không cần mặc cả hoặc ép buộc."
+        },
+        {
+          "title": "Thiết lập bếp để thành công",
+          "text": "Chỗ ngồi, hỗ trợ chân và giới hạn phân tâm giúp luyện tập dễ dàng hơn."
+        },
+        {
+          "title": "Giới thiệu một loại thực phẩm mới mỗi lần",
+          "text": "Các nhà trị liệu giúp bạn kết hợp các mặt hàng mới với thực phẩm đáng tin để giảm lo lắng."
+        },
+        {
+          "title": "Khi nào cần dừng lại và tìm kiếm chăm sóc y tế",
+          "text": "Gia đình học các dấu hiệu nguy hiểm về nghẹn, mất nước và hít sặc cần liên hệ bác sĩ kịp thời."
+        },
+        {
+          "title": "Vai trò của anh chị em và người chăm sóc",
+          "text": "Huấn luyện làm rõ ai phục vụ, ai làm mẫu ăn và cách tránh áp lực không cố ý."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm & Ủy quyền",
+      "intro": "Nhiều gia đình sử dụng bảo hiểm để tiếp cận các dịch vụ y tế liên quan. Nhóm của Eden giúp bạn hiểu các yêu cầu của kế hoạch, nhu cầu tài liệu và các bước ủy quyền trước khi dịch vụ bắt đầu. Liệu pháp ăn uống có thể yêu cầu tài liệu liên kết các mục tiêu với sự cần thiết y tế, tăng trưởng hoặc an toàn nuốt.",
+      "bullets": [
+        "Chúng tôi xác minh quyền lợi và giải thích các chi phí tự chi trả dự kiến khi có thông tin kế hoạch.",
+        "Tài liệu lâm sàng hỗ trợ các đánh giá về sự cần thiết y tế dựa trên kết quả đánh giá và các mục tiêu được khuyến nghị.",
+        "Các ủy quyền được theo dõi và gia hạn theo quy tắc và giới hạn lượt khám của từng người thanh toán.",
+        "Medicaid và các kế hoạch thương mại có thể khác nhau về môi trường được bảo hiểm, giới hạn lượt khám và yêu cầu giới thiệu.",
+        "Gia đình nhận các cập nhật bằng ngôn ngữ dễ hiểu khi cần thêm tài liệu hoặc đơn đặt hàng của bác sĩ.",
+        "Các câu hỏi về thanh toán được xử lý bởi nhân viên có thể giải thích các yêu cầu bồi thường, từ chối và các lựa chọn kháng cáo khi áp dụng."
+      ],
+      "note": "Phạm vi bảo hiểm khác nhau tùy theo kế hoạch, chẩn đoán và tài liệu lâm sàng. Eden không đảm bảo sự chấp thuận hoặc thanh toán từ bất kỳ công ty bảo hiểm nào."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp về liệu pháp ăn uống và nuốt",
+      "items": [
+        {
+          "question": "Liệu pháp ăn uống là gì?",
+          "answer": "Liệu pháp ăn uống giúp trẻ ăn và uống an toàn và thoải mái hơn. Các nhà lâm sàng giải quyết kỹ năng vận động miệng, ác cảm cảm giác, mối lo ngại về nuốt và thói quen bữa ăn với huấn luyện người chăm sóc."
+        },
+        {
+          "question": "Liệu pháp ăn uống có giống với lời khuyên về chứng kén ăn trực tuyến không?",
+          "answer": "Liệu pháp ăn uống lâm sàng được cá nhân hóa và tập trung vào an toàn. Lời khuyên chung 'ăn hết đĩa' không được sử dụng. Kế hoạch tôn trọng các hạn chế y tế và hồ sơ cảm giác của từng trẻ."
+        },
+        {
+          "question": "Khi nào kén ăn là mối lo ngại lâm sàng?",
+          "answer": "Cân nhắc đánh giá khi đa dạng thực phẩm rất hạn chế trong nhiều tháng, tăng trưởng bị ảnh hưởng, bữa ăn là các cuộc chiến hàng ngày hoặc có các dấu hiệu nuốt không an toàn."
+        },
+        {
+          "question": "Nuốt khó ở trẻ em là gì?",
+          "answer": "Nuốt khó có nghĩa là khó nuốt an toàn. Các triệu chứng có thể bao gồm ho, giọng ướt hoặc các vấn đề hô hấp tái phát sau bữa ăn. Theo dõi y tế là điều cần thiết."
+        },
+        {
+          "question": "Bạn có ép con tôi ăn không?",
+          "answer": "Không. Eden sử dụng tiếp xúc dần dần, xây dựng kỹ năng và thói quen tích cực—không ép ăn hoặc giữ lại tình cảm."
+        },
+        {
+          "question": "Bạn phối hợp với bác sĩ nhi của con tôi như thế nào?",
+          "answer": "Các nhà trị liệu chia sẻ mối lo ngại về tăng trưởng và an toàn nuốt và tuân theo hướng dẫn y tế về kết cấu và hạn chế."
+        },
+        {
+          "question": "Liệu pháp ăn uống có thể giúp trẻ tự kỷ không?",
+          "answer": "Có. Nhiều trẻ tự kỷ được hưởng lợi từ tiếp xúc có cấu trúc, hỗ trợ cảm giác và các thói quen phối hợp với ABA khi áp dụng."
+        },
+        {
+          "question": "Tôi nên mang gì đến buổi đánh giá ăn uống?",
+          "answer": "Thực phẩm ưa thích và không ưa thích, dụng cụ thông thường và bất kỳ báo cáo y tế nào. Video bữa ăn tại nhà có thể hữu ích nếu chia sẻ thoải mái."
+        },
+        {
+          "question": "Các buổi ăn uống kéo dài bao lâu?",
+          "answer": "Các buổi thường kéo dài 45–60 phút bao gồm thiết lập và huấn luyện người chăm sóc. Tần suất phụ thuộc vào đánh giá và ủy quyền."
+        },
+        {
+          "question": "Cha mẹ có ăn trong các buổi không?",
+          "answer": "Làm mẫu thường được khuyến khích. Nhà trị liệu của bạn sẽ hướng dẫn liệu nếm cùng nhau có hỗ trợ mục tiêu của trẻ không."
+        },
+        {
+          "question": "Bạn có thể giúp chuyển đổi từ bình sang cốc không?",
+          "answer": "Có. Phân cấp vận động miệng và uống cốc là các mục tiêu phổ biến cho trẻ tập đi."
+        },
+        {
+          "question": "Điều gì nếu trẻ nôn trớ với nhiều kết cấu?",
+          "answer": "Nôn trớ được đánh giá để tìm nguyên nhân vận động miệng so với cảm giác. Kế hoạch sử dụng tiếp xúc dần dần và nhịp độ—không nhảy đột ngột sang thực phẩm khó khăn."
+        },
+        {
+          "question": "Nôn mửa trong trị liệu có bình thường không?",
+          "answer": "Nôn mửa không phải là mục tiêu điều trị. Nếu xảy ra, nhóm xem xét các yếu tố y tế và điều chỉnh kế hoạch ngay lập tức."
+        },
+        {
+          "question": "Bạn làm việc với ABA trong bữa ăn như thế nào?",
+          "answer": "Các nhóm căn chỉnh về chỗ ngồi, tăng cường, gợi ý và ngôn ngữ để kỳ vọng bữa ăn nhất quán."
+        },
+        {
+          "question": "Bảo hiểm có chi trả liệu pháp ăn uống không?",
+          "answer": "Phạm vi bảo hiểm phụ thuộc vào tài liệu về sự cần thiết y tế và các quy tắc kế hoạch. Eden xác minh quyền lợi khi có thể mà không đảm bảo thanh toán."
+        },
+        {
+          "question": "Bạn có điều trị ARFID không?",
+          "answer": "Ăn chọn lọc tồn tại trên một phổ. Các nhà lâm sàng Eden sàng lọc các mẫu hạn chế cần chăm sóc đa chuyên khoa và giới thiệu khi phù hợp."
+        },
+        {
+          "question": "Bạn có thể giúp sau sự cố nghẹn không?",
+          "answer": "An toàn là trên hết. Trị liệu tiếp tục với hướng dẫn của bác sĩ và có thể bắt đầu với kết cấu đã sửa đổi và theo dõi chặt chẽ."
+        },
+        {
+          "question": "OT đóng vai trò gì trong ăn uống?",
+          "answer": "OT có thể giải quyết điều tiết cảm giác, định vị và kỹ năng dụng cụ. Các nhà trị liệu ăn uống phối hợp khi cả hai dịch vụ đang hoạt động."
+        },
+        {
+          "question": "Liệu pháp lời nói đóng vai trò gì?",
+          "answer": "SLP giải quyết các thành phần vận động miệng và nuốt. Các nhóm ăn uống và lời nói của Eden hợp tác trên các trường hợp chung."
+        },
+        {
+          "question": "Con tôi sẽ thử thực phẩm mới nhanh như thế nào?",
+          "answer": "Tiến trình khác nhau rất nhiều. Một số trẻ thêm thực phẩm trong vài tuần; những trẻ khác cần tiếp xúc dần dần lâu hơn. Nhà trị liệu của bạn đặt các mục tiêu có thể đo lường ngắn hạn."
+        },
+        {
+          "question": "Tôi có nên giấu rau củ vào thực phẩm ưa thích không?",
+          "answer": "Các chiến lược phụ thuộc vào kế hoạch của trẻ. Một số gia đình sử dụng xay tạm thời; những gia đình khác tập trung vào tiếp xúc có thể thấy—nhà lâm sàng của bạn sẽ cá nhân hóa hướng dẫn."
+        },
+        {
+          "question": "Trị liệu có thể diễn ra ở trường không?",
+          "answer": "Hỗ trợ ăn uống dựa trên trường học phụ thuộc vào dịch vụ học khu và nhu cầu y tế. Trị liệu tại phòng khám có thể bổ sung cho kế hoạch trường học."
+        },
+        {
+          "question": "Điều gì nếu trẻ chỉ ăn thực phẩm của một thương hiệu cụ thể?",
+          "answer": "Chuỗi thực phẩm từ các thương hiệu đáng tin cậy đến các lựa chọn tương tự là chiến lược phổ biến được giới thiệu dần dần."
+        },
+        {
+          "question": "Khi nào nên kết thúc liệu pháp ăn uống?",
+          "answer": "Tốt nghiệp xảy ra khi nuốt an toàn, đa dạng đủ ổn định cho các mục tiêu dinh dưỡng và gia đình cảm thấy tự tin duy trì các thói quen."
+        },
+        {
+          "question": "Làm thế nào để bắt đầu liệu pháp ăn uống tại Eden?",
+          "answer": "Liên hệ Eden để thảo luận về mối lo ngại và bảo hiểm, hoặc bắt đầu với đánh giá sàng lọc nếu bạn đang khám phá nhiều dịch vụ."
+        }
+      ]
+    },
+    "resources": {
+      "title": "Tài nguyên hữu ích",
+      "intro": "Sử dụng các ý tưởng này để hỗ trợ liệu pháp ăn uống giữa các buổi.",
+      "items": [
+        {
+          "title": "Xây dựng danh mục thực phẩm",
+          "text": "Liệt kê các thực phẩm được chấp nhận theo kết cấu và màu sắc để xác định cơ hội chuỗi với nhà trị liệu của bạn."
+        },
+        {
+          "title": "Chỗ ngồi an toàn cho bữa ăn",
+          "text": "Bàn chân phẳng, hông ở 90 độ và khay ổn định giảm nguy cơ nghẹn và cải thiện sự tập trung."
+        },
+        {
+          "title": "Lập kế hoạch bữa trưa trường học",
+          "text": "Đóng gói thực phẩm quen thuộc cùng với các phần thử thách nhỏ khi nhà trị liệu của bạn khuyến nghị thử nghiệm."
+        },
+        {
+          "title": "Chiến lược bù nước",
+          "text": "Theo dõi các ngụm suốt ngày nếu việc uống bị hạn chế—chia sẻ các mẫu tại lần khám tiếp theo của bạn."
+        },
+        {
+          "title": "Khi ăn uống và hành vi chồng lấp",
+          "text": "Phối hợp với ABA để tăng cường nhắm vào sự tham gia, không phải đĩa trống."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Sẵn sàng khám phá các bước tiếp theo?",
+      "subtitle": "Nhóm chăm sóc của Eden có thể giúp bạn hiểu các lựa chọn đánh giá, câu hỏi bảo hiểm và cách các dịch vụ y tế liên quan có thể phù hợp cùng với liệu pháp ABA.",
+      "buttons": [
+        {
+          "label": "Bắt đầu liệu pháp ABA",
+          "href": "/start-aba-therapy"
+        },
+        {
+          "label": "Đặt lịch đánh giá",
+          "href": "/services/evaluations-diagnosis/screening-evaluation"
+        },
+        {
+          "label": "Liên hệ Eden",
+          "href": "/contact"
+        },
+        {
+          "label": "Phạm vi bảo hiểm",
+          "href": "/insurance-coverage"
+        }
+      ]
+    }
+  }
+}

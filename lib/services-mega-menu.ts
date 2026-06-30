@@ -87,22 +87,22 @@ const SERVICE_ITEM_DEFINITIONS: Array<{
   {
     title: "Occupational Therapy",
     description:
-      "Coming soon to Eden Family. Occupational therapy will support sensory needs, fine motor skills, self-care routines, and daily independence.",
-    comingSoon: true,
+      "Pediatric occupational therapy supporting fine motor skills, sensory processing, daily living routines, and participation—coordinated with Eden's ABA programs when appropriate.",
+    comingSoon: false,
     animationType: "occupational",
   },
   {
     title: "Speech & Language Therapy",
     description:
-      "Coming soon to Eden Family. Speech therapy will support communication, language development, social communication, and expressive skills.",
-    comingSoon: true,
+      "Speech-language therapy for communication, language development, articulation, social communication, and AAC—integrated with Eden's family-centered ABA care.",
+    comingSoon: false,
     animationType: "speech",
   },
   {
     title: "Feeding & Swallowing Therapy",
     description:
-      "Coming soon to Eden Family. Feeding support will help children with safe eating, food variety, oral-motor skills, and mealtime routines.",
-    comingSoon: true,
+      "Feeding therapy supporting safe eating, oral-motor skills, texture progression, and positive mealtime routines alongside Eden's interdisciplinary team.",
+    comingSoon: false,
     animationType: "feeding",
   },
 ];
