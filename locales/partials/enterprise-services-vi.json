@@ -1,0 +1,1033 @@
+{
+  "shared": {
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbServices": "Dịch vụ",
+    "startServices": "Bắt đầu dịch vụ",
+    "gettingStarted": "Bắt đầu",
+    "contactEden": "Liên hệ Eden"
+  },
+  "behaviorAssessment": {
+    "meta": {
+      "title": "Đánh giá hành vi | Eden ABA Therapy",
+      "description": "Đánh giá hành vi ABA toàn diện nhằm hiểu rõ nhu cầu giao tiếp, an toàn, sinh hoạt hàng ngày và ưu tiên của gia đình trước khi lập kế hoạch điều trị cá nhân hóa tại Bắc Virginia.",
+      "keywords": ["đánh giá hành vi", "đánh giá hành vi chức năng", "đánh giá ABA", "đánh giá BCBA", "hỗ trợ hành vi tự kỷ", "Medicaid ABA Virginia"]
+    },
+    "hero": {
+      "eyebrow": "Nền tảng lâm sàng",
+      "title": "Đánh giá hành vi",
+      "subtitle": "Đánh giá dựa trên bằng chứng giúp Eden ABA Therapy hiểu điểm mạnh, nhu cầu giao tiếp, mối quan tâm về an toàn và ưu tiên của gia đình bạn trước khi xây dựng kế hoạch điều trị cá nhân hóa.",
+      "breadcrumbLabel": "Đánh giá hành vi",
+      "imageAlt": "Chuyên viên lâm sàng xem lại ghi chép đánh giá hành vi trong khi quan sát trẻ trong môi trường trị liệu hỗ trợ"
+    },
+    "includes": {
+      "title": "Dịch vụ này bao gồm những gì",
+      "intro": "Đánh giá hành vi kỹ lưỡng là điểm khởi đầu lâm sàng cho chăm sóc ABA đạo đức và cá nhân hóa. Quy trình của Eden được thiết kế để thu thập thông tin có ý nghĩa—không vội vàng đẩy gia đình vào dịch vụ.",
+      "items": [
+        {
+          "title": "Xem xét hồ sơ tiếp nhận lâm sàng",
+          "text": "BCBA xem xét tiền sử phát triển, tài liệu chẩn đoán khi có, mối quan tâm của người chăm sóc, báo cáo trường học và hồ sơ trị liệu trước đó với sự đồng ý của bạn."
+        },
+        {
+          "title": "Quan sát trực tiếp",
+          "text": "Quan sát có cấu trúc về giao tiếp, chơi, tương tác xã hội, thói quen thích ứng và mẫu hành vi trong các bối cảnh phản ánh yêu cầu đời thực."
+        },
+        {
+          "title": "Xác định kỹ năng và rào cản",
+          "text": "Xác định thiếu hụt kỹ năng ưu tiên, hành vi cản trở và các yếu tố môi trường có thể hỗ trợ hoặc hạn chế việc học."
+        },
+        {
+          "title": "Đánh giá giao tiếp chức năng",
+          "text": "Đánh giá cách trẻ yêu cầu, phản đối, bình luận và báo hiệu nhu cầu—bao gồm ngôn ngữ nói, AAC, cử chỉ và các hình thức giao tiếp chức năng khác."
+        },
+        {
+          "title": "Bối cảnh an toàn và y tế cần thiết",
+          "text": "Ghi nhận các hành vi ảnh hưởng đến sức khỏe, an toàn hoặc tham gia sinh hoạt hàng ngày để hỗ trợ khuyến nghị dịch vụ phù hợp về mặt lâm sàng."
+        },
+        {
+          "title": "Khuyến nghị lập kế hoạch điều trị",
+          "text": "Bản tóm tắt bằng văn bản với mục tiêu đề xuất, cân nhắc về cường độ dịch vụ, ưu tiên đào tạo người chăm sóc và các bước tiếp theo phù hợp với tiêu chuẩn giám sát BCBA."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Dịch vụ này hỗ trợ ai",
+      "intro": "Đánh giá hành vi hỗ trợ các gia đình cần bức tranh lâm sàng rõ ràng trước khi bắt đầu điều trị ABA hoặc khi cần cập nhật hỗ trợ hiện tại.",
+      "items": [
+        {
+          "title": "Gia đình mới bắt đầu ABA",
+          "summary": "Mới tiếp cận dịch vụ và chưa biết bắt đầu từ đâu.",
+          "detail": "Đánh giá làm rõ mục tiêu ưu tiên, cài đặt dịch vụ đề xuất và cách huấn luyện người chăm sóc phù hợp với thói quen gia đình bạn."
+        },
+        {
+          "title": "Trẻ gặp rào cản giao tiếp",
+          "summary": "Hạn chế lời nói, dùng AAC hoặc dễ bực bội khi yêu cầu.",
+          "detail": "Chúng tôi đánh giá nhu cầu giao tiếp chức năng để điều trị tập trung vào cách thể hiện mong muốn, nhu cầu và cảm xúc có ý nghĩa, phù hợp xã hội."
+        },
+        {
+          "title": "Trẻ có hành vi cản trở",
+          "summary": "Hành vi ảnh hưởng đến học tập, an toàn hoặc đời sống gia đình.",
+          "detail": "Đánh giá khám phá mẫu hành vi, yếu tố kích hoạt và chức năng có thể của hành vi để hướng dẫn can thiệp tích cực, xây dựng kỹ năng—không dựa trên hình phạt."
+        },
+        {
+          "title": "Gia đình chuyển nhà cung cấp",
+          "summary": "Chuyển đổi chăm sóc hoặc tìm ý kiến thứ hai.",
+          "detail": "Đánh giá mới có thể giúp đội ngũ mới thống nhất về nhu cầu hiện tại, mục tiêu cập nhật và phương pháp thu thập dữ liệu nhất quán."
+        },
+        {
+          "title": "Phối hợp trường học và gia đình",
+          "summary": "Mẫu hành vi khác nhau giữa các môi trường.",
+          "detail": "Thông tin đa bối cảnh giúp đội ngũ hiểu thói quen, yêu cầu và hỗ trợ khác nhau giữa nhà, phòng khám và trường học."
+        },
+        {
+          "title": "Sẵn sàng cho Medicaid và bảo hiểm",
+          "summary": "Tài liệu cho yêu cầu phê duyệt.",
+          "detail": "Tóm tắt đánh giá có thể hỗ trợ tài liệu y tế cần thiết khi bên thanh toán yêu cầu, theo quy định cụ thể của từng gói."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Eden ABA cung cấp chăm sóc như thế nào",
+      "intro": "Quy trình đánh giá của chúng tôi tuân theo hướng dẫn thực hành ABA chuyên nghiệp với giám sát BCBA, thực hành đồng ý đạo đức và giao tiếp lấy gia đình làm trung tâm.",
+      "steps": [
+        {
+          "title": "Giới thiệu và trao đổi tiếp nhận",
+          "text": "Điều phối viên chăm sóc thu thập thông tin cơ bản, giải thích quy trình đánh giá, xem xét đồng ý và lên lịch buổi thăm lâm sàng đầu tiên."
+        },
+        {
+          "title": "Hồ sơ và phỏng vấn người chăm sóc",
+          "text": "BCBA xem xét hồ sơ có sẵn và tiến hành phỏng vấn có cấu trúc về thói quen, điểm mạnh, mối quan tâm và ưu tiên gia đình."
+        },
+        {
+          "title": "Buổi đánh giá trực tiếp",
+          "text": "BCBA và đội ngũ lâm sàng quan sát và tương tác với con bạn bằng công cụ đánh giá chuẩn hóa và cá nhân hóa khi phù hợp về mặt lâm sàng."
+        },
+        {
+          "title": "Hợp tác với người chăm sóc",
+          "text": "Cha mẹ và người chăm sóc chia sẻ bối cảnh chỉ gia đình mới biết—giấc ngủ, bữa ăn, chuyển đổi hoạt động, đi chơi cộng đồng và động lực anh chị em."
+        },
+        {
+          "title": "Tổng hợp lâm sàng và khuyến nghị",
+          "text": "BCBA phân tích dữ liệu, xác định mục tiêu ưu tiên và soạn khuyến nghị về loại dịch vụ, cường độ và cấu trúc giám sát."
+        },
+        {
+          "title": "Buổi trao đổi kết quả với gia đình",
+          "text": "Kết quả được giải thích bằng ngôn ngữ dễ hiểu. Gia đình có cơ hội đặt câu hỏi trước khi bắt đầu các bước phê duyệt điều trị."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Mục tiêu lâm sàng của đánh giá",
+      "intro": "Mục tiêu đánh giá được cá nhân hóa—không áp dụng chung cho mọi trẻ. Eden tập trung vào thông tin dẫn đến lập kế hoạch điều trị thực tế, có thể đo lường.",
+      "goals": [
+        {
+          "title": "Xác định mục tiêu kỹ năng ưu tiên",
+          "text": "Xác định mục tiêu giao tiếp, xã hội, thích ứng và học tập quan trọng nhất với con bạn và gia đình hiện tại."
+        },
+        {
+          "title": "Hiểu hành vi trong bối cảnh",
+          "text": "Mô tả khi nào và vì sao các mẫu hành vi khó khăn xảy ra để can thiệp dạy kỹ năng thay thế và điều chỉnh môi trường một cách hỗ trợ."
+        },
+        {
+          "title": "Thiết lập dữ liệu nền",
+          "text": "Tạo phép đo ban đầu cho các mục tiêu chính để theo dõi tiến bộ một cách khách quan theo thời gian."
+        },
+        {
+          "title": "Làm rõ nhu cầu giám sát",
+          "text": "Xác định mức giám sát BCBA và triển khai RBT phù hợp dựa trên độ phức tạp lâm sàng và cân nhắc an toàn."
+        },
+        {
+          "title": "Hỗ trợ chăm sóc cá nhân hóa đạo đức",
+          "text": "Đảm bảo dịch vụ đề xuất phù hợp với nhu cầu của trẻ, giá trị gia đình và tiêu chuẩn đạo đức chuyên nghiệp cho thực hành ABA."
+        },
+        {
+          "title": "Chuẩn bị phê duyệt khi cần",
+          "text": "Cung cấp tài liệu phản ánh lý do lâm sàng cho dịch vụ ABA đề xuất theo yêu cầu bảo hiểm hoặc Medicaid áp dụng."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Sự tham gia của gia đình",
+      "intro": "Cha mẹ là đối tác thiết yếu trong đánh giá. Quan sát của bạn giúp chuyên viên lâm sàng diễn giải hành vi chính xác và lập kế hoạch chăm sóc phù hợp đời thực.",
+      "cards": [
+        {
+          "title": "Phỏng vấn người chăm sóc",
+          "text": "Chia sẻ thói quen, yếu tố kích hoạt, chiến lược thành công và mối quan tâm trong các cuộc trò chuyện có cấu trúc với BCBA."
+        },
+        {
+          "title": "Bối cảnh gia đình quan trọng",
+          "text": "Mô tả buổi sáng, bữa ăn, giờ đi ngủ và đi chơi cộng đồng hiện tại để khuyến nghị thực tế."
+        },
+        {
+          "title": "Luôn sẵn sàng giải đáp thắc mắc",
+          "text": "Eden khuyến khích gia đình hỏi về phương pháp, thu thập dữ liệu, giám sát và cách đo lường mục tiêu."
+        },
+        {
+          "title": "Đồng ý và quyền riêng tư",
+          "text": "Bạn kiểm soát hồ sơ nào được chia sẻ. Thông tin chỉ được dùng để hỗ trợ chăm sóc lâm sàng và phê duyệt khi được phép."
+        },
+        {
+          "title": "Tôn trọng văn hóa và ngôn ngữ",
+          "text": "Đánh giá xem xét ưu tiên ngôn ngữ gia đình, thói quen văn hóa và phong cách giao tiếp, với hỗ trợ tiếng Việt và tiếng Anh."
+        },
+        {
+          "title": "Ra quyết định cùng nhau",
+          "text": "Khuyến nghị điều trị được thảo luận hợp tác—gia đình cần hiểu và đồng ý với các bước tiếp theo đề xuất."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Theo dõi tiến bộ sau đánh giá",
+      "intro": "Đánh giá không phải là kết thúc. Eden sử dụng thu thập dữ liệu liên tục để tinh chỉnh mục tiêu và thể hiện thay đổi có thể đo lường.",
+      "items": [
+        {
+          "title": "Biểu đồ từ nền đến điều trị",
+          "text": "Dữ liệu nền từ đánh giá trở thành điểm tham chiếu để theo dõi đạt kỹ năng và thay đổi hành vi qua các tuần và tháng."
+        },
+        {
+          "title": "BCBA xem xét dữ liệu",
+          "text": "BCBA giám sát thường xuyên phân tích dữ liệu buổi học, điều chỉnh chương trình và đào tạo RBT theo quy trình cập nhật."
+        },
+        {
+          "title": "Tiêu chí thành thạo mục tiêu",
+          "text": "Mỗi mục tiêu có định nghĩa thành thạo rõ ràng để gia đình biết tiến bộ trông như thế nào trong thực tế."
+        },
+        {
+          "title": "Báo cáo thân thiện với phụ huynh",
+          "text": "Tóm tắt tiến bộ được chia sẻ bằng ngôn ngữ dễ tiếp cận trong các buổi gặp người chăm sóc và cập nhật lâm sàng."
+        },
+        {
+          "title": "Đánh giá lại khi cần",
+          "text": "Nếu nhu cầu thay đổi đáng kể, đội ngũ lâm sàng có thể đề xuất đánh giá cập nhật để điều chỉnh dịch vụ."
+        },
+        {
+          "title": "Điều chỉnh điều trị đạo đức",
+          "text": "Chương trình được sửa đổi khi dữ liệu cho thấy kỹ năng không tiến triển, đảm bảo can thiệp vẫn cá nhân hóa và hiệu quả."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm và sẵn sàng Medicaid",
+      "intro": "Nhiều gia đình sử dụng bảo hiểm tư nhân hoặc Medicaid Virginia cho dịch vụ ABA. Tài liệu đánh giá thường đóng vai trò quan trọng trong phê duyệt.",
+      "bullets": [
+        "Tóm tắt đánh giá lâm sàng mô tả nhu cầu chức năng và dịch vụ ABA đề xuất",
+        "Hỗ trợ tài liệu chẩn đoán khi bên thanh toán cụ thể của bạn yêu cầu",
+        "Ngôn ngữ phù hợp EPSDT cho thành viên Medicaid đủ điều kiện khi phù hợp về mặt lâm sàng",
+        "Phối hợp với đội tiếp nhận Eden về giấy tờ phê duyệt",
+        "Giải thích minh bạch về những gì gói của bạn có thể hoặc không bao gồm",
+        "Không đảm bảo phê duyệt—mỗi bên thanh toán áp dụng tiêu chí y tế cần thiết riêng"
+      ],
+      "note": "Eden ABA Therapy không đảm bảo phê duyệt bảo hiểm hoặc Medicaid. Đội ngũ của chúng tôi giúp gia đình hiểu yêu cầu tài liệu và nộp thông tin theo quy định của từng gói. Mức bao phủ khác nhau theo hợp đồng, trạng thái mạng lưới và tiêu chí lâm sàng."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "question": "Đánh giá hành vi mất bao lâu?",
+          "answer": "Thời gian khác nhau tùy độ phức tạp lâm sàng, lịch hẹn và khả năng có hồ sơ. Nhiều đánh giá gồm phỏng vấn tiếp nhận, một hoặc nhiều buổi trực tiếp và buổi phản hồi với gia đình. BCBA của bạn sẽ nêu các bước dự kiến sau tiếp nhận."
+        },
+        {
+          "question": "Con tôi có cần chẩn đoán tự kỷ trước khi đánh giá không?",
+          "answer": "Nhiều gia đình đã có chẩn đoán trước khi bắt đầu ABA, nhưng tình huống khác nhau theo bên thanh toán và nhu cầu lâm sàng. Đội tiếp nhận Eden có thể giải thích tài liệu nào có thể cần cho gói bảo hiểm hoặc Medicaid cụ thể của bạn."
+        },
+        {
+          "question": "Ai thực hiện đánh giá?",
+          "answer": "Đánh giá hành vi do Chuyên gia phân tích hành vi được chứng nhận (BCBA) giám sát. Tùy trường hợp, nhân viên lâm sàng được đào tạo có thể hỗ trợ quan sát dưới giám sát BCBA."
+        },
+        {
+          "question": "Các bạn có dùng hình phạt hoặc chiến lược gây khó chịu không?",
+          "answer": "Eden nhấn mạnh can thiệp tích cực, xây dựng kỹ năng phù hợp với thực hành ABA đạo đức. Đánh giá tập trung hiểu hành vi để dạy lựa chọn chức năng—không dùng cách tiếp cận gây hại hoặc ép buộc."
+        },
+        {
+          "question": "Đánh giá có thể diễn ra tại nhà không?",
+          "answer": "Khi phù hợp về mặt lâm sàng, quan sát có thể diễn ra tại nhà, trung tâm hoặc cộng đồng—hoặc kết hợp—để hiểu hành vi trong môi trường thực."
+        },
+        {
+          "question": "Sau đánh giá sẽ diễn ra điều gì?",
+          "answer": "Gia đình nhận khuyến nghị lâm sàng, mục tiêu đề xuất và các bước tiếp theo để bắt đầu hoặc điều chỉnh dịch vụ. Nếu bạn chọn tiếp tục, Eden hỗ trợ quy trình phê duyệt và lên lịch."
+        },
+        {
+          "question": "Đánh giá có giống đánh giá chẩn đoán không?",
+          "answer": "Không. Đánh giá hành vi cho lập kế hoạch điều trị ABA khác với đánh giá chẩn đoán y khoa hoặc tâm lý. Eden có thể giúp gia đình hiểu mối liên hệ giữa các dịch vụ này."
+        },
+        {
+          "question": "Thông tin của con tôi được bảo vệ như thế nào?",
+          "answer": "Hồ sơ lâm sàng được xử lý theo luật bảo mật áp dụng và chính sách Eden. Thông tin chỉ được chia sẻ khi có đồng ý hoặc theo yêu cầu phối hợp chăm sóc và thanh toán được phép."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Sẵn sàng bắt đầu với đánh giá chu đáo?",
+      "subtitle": "Liên hệ Eden ABA Therapy để trao đổi xem đánh giá hành vi có phải bước tiếp theo phù hợp cho gia đình bạn không.",
+      "primaryLabel": "Bắt đầu dịch vụ",
+      "secondaryLabel": "Tìm hiểu cách bắt đầu"
+    }
+  },
+  "individualizedAbaPrograms": {
+    "meta": {
+      "title": "Chương trình ABA cá nhân hóa | Eden ABA Therapy",
+      "description": "Chương trình điều trị ABA tùy chỉnh với giám sát BCBA, triển khai RBT, mục tiêu dựa trên dữ liệu, huấn luyện người chăm sóc và tiến bộ có thể đo lường cho trẻ em tại Bắc Virginia.",
+      "keywords": ["chương trình ABA cá nhân hóa", "kế hoạch điều trị ABA tùy chỉnh", "ABA có giám sát BCBA", "trị liệu RBT", "ABA tự kỷ Virginia", "ABA dựa trên dữ liệu"]
+    },
+    "hero": {
+      "eyebrow": "Chăm sóc lâm sàng cá nhân hóa",
+      "title": "Chương trình ABA cá nhân hóa",
+      "subtitle": "Mỗi trẻ học khác nhau. Eden thiết kế chương trình ABA xoay quanh điểm mạnh, nhu cầu phát triển, ưu tiên người chăm sóc và mục tiêu có thể đo lường của con bạn—do BCBA giám sát và nhân viên lâm sàng được đào tạo triển khai.",
+      "breadcrumbLabel": "Chương trình ABA cá nhân hóa",
+      "imageAlt": "Nhà trị liệu làm việc một-một với trẻ theo mục tiêu trị liệu ABA cá nhân hóa"
+    },
+    "includes": {
+      "title": "Dịch vụ này bao gồm những gì",
+      "intro": "ABA cá nhân hóa tại Eden không phải chương trình giáo dục đóng sẵn. Chương trình được xây dựng từ dữ liệu đánh giá, ý kiến gia đình và xem xét lâm sàng liên tục.",
+      "items": [
+        {
+          "title": "Kế hoạch điều trị do BCBA soạn",
+          "text": "BCBA giám sát thiết kế chương trình với mục tiêu rõ ràng, quy trình dạy, chiến lược gợi ý và tiêu chí thành thạo phù hợp với con bạn."
+        },
+        {
+          "title": "Buổi kỹ năng do RBT dẫn dắt",
+          "text": "Kỹ thuật viên hành vi đã đăng ký (RBT) hoặc nhân viên được đào tạo tương đương triển khai chương trình trung thành dưới giám sát BCBA thường xuyên."
+        },
+        {
+          "title": "Mục tiêu giao tiếp và ngôn ngữ",
+          "text": "Mục tiêu có thể gồm yêu cầu, gọi tên, hội thoại, sử dụng AAC và kỹ năng giao tiếp chức năng khác theo nhu cầu lâm sàng."
+        },
+        {
+          "title": "Kỹ năng sinh hoạt và độc lập",
+          "text": "Chương trình có thể hỗ trợ mặc quần áo, vệ sinh, thói quen bữa ăn, chờ đợi, chuyển đổi hoạt động và kỹ năng thích ứng khác cho đời sống gia đình và cộng đồng."
+        },
+        {
+          "title": "Hỗ trợ hành vi khi cần",
+          "text": "Khi hành vi cản trở hạn chế việc học, chiến lược dựa trên chức năng dạy kỹ năng thay thế và điều chỉnh hỗ trợ—không ưu tiên hình phạt."
+        },
+        {
+          "title": "Tích hợp huấn luyện người chăm sóc",
+          "text": "Đào tạo phụ huynh được đan xen trong chăm sóc để chiến lược được dùng nhất quán giữa các buổi trong thói quen tự nhiên."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Dịch vụ này hỗ trợ ai",
+      "intro": "Chương trình ABA cá nhân hóa hỗ trợ trẻ em và thanh thiếu niên hưởng lợi từ giảng dạy có cấu trúc, dựa trên dữ liệu trên nhiều lĩnh vực phát triển.",
+      "items": [
+        {
+          "title": "Trẻ có tự kỷ",
+          "summary": "Nhóm đối tượng dịch vụ ABA cốt lõi.",
+          "detail": "Chương trình hỗ trợ mục tiêu giao tiếp, xã hội, chơi, thích ứng và học tập thường gặp với nhu cầu phổ tự kỷ—luôn cá nhân hóa, không áp dụng chung."
+        },
+        {
+          "title": "Trẻ chậm phát triển",
+          "summary": "Thiếu hụt kỹ năng trong học sớm hoặc sẵn sàng vào trường.",
+          "detail": "Can thiệp có thể tập trung bắt chước, ghép đôi, làm theo hướng dẫn và kỹ năng nền tảng hỗ trợ thành công học tập và xã hội sau này."
+        },
+        {
+          "title": "Trẻ cần hỗ trợ chuyên sâu",
+          "summary": "Tần suất dịch vụ cao hơn khi phù hợp về mặt lâm sàng.",
+          "detail": "Khuyến nghị cường độ dựa trên đánh giá, nhu cầu an toàn và tiêu chí y tế cần thiết—không phải áp lực bán hàng."
+        },
+        {
+          "title": "Trẻ cần khái quát hóa kỹ năng",
+          "summary": "Học phải áp dụng được ngoài phòng trị liệu.",
+          "detail": "Chương trình lên kế hoạch luyện tập tại nhà, trung tâm, trường học và cộng đồng để kỹ năng chuyển vào đời thực."
+        },
+        {
+          "title": "Gia đình muốn tiến bộ có thể đo lường",
+          "summary": "Dữ liệu rõ ràng và cập nhật minh bạch.",
+          "detail": "Phụ huynh nhận thông tin tiến bộ dễ hiểu gắn với mục tiêu cụ thể—không phải lời hứa mơ hồ."
+        },
+        {
+          "title": "Trẻ có hồ sơ phức tạp",
+          "summary": "Nhiều mục tiêu trên nhiều lĩnh vực.",
+          "detail": "BCBA phối hợp các mục tiêu giao tiếp, hành vi và thích ứng chồng chéo thành một kế hoạch thống nhất thay vì các buổi rời rạc."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Eden ABA cung cấp chăm sóc như thế nào",
+      "intro": "Mô hình cung cấp của chúng tôi phản ánh tiêu chuẩn giám sát BCBA, điều trị cá nhân hóa đạo đức và triển khai lấy gia đình làm trung tâm.",
+      "steps": [
+        {
+          "title": "Lập kế hoạch dựa trên đánh giá",
+          "text": "Chương trình bắt đầu từ dữ liệu đánh giá, ưu tiên người chăm sóc và xem xét bối cảnh cần dùng kỹ năng."
+        },
+        {
+          "title": "Chọn mục tiêu và đồng ý",
+          "text": "BCBA đề xuất mục tiêu bằng ngôn ngữ dễ hiểu. Gia đình xác nhận mục tiêu quan trọng nhất trước khi triển khai."
+        },
+        {
+          "title": "Soạn chương trình và đào tạo nhân viên",
+          "text": "Quy trình chi tiết được viết cho RBT, gồm gợi ý, củng cố và thu thập dữ liệu."
+        },
+        {
+          "title": "Triển khai trị liệu trực tiếp",
+          "text": "RBT giảng dạy 1:1 hoặc nhóm nhỏ tại nhà, trung tâm hoặc bối cảnh được phê duyệt khác bằng phương pháp tích cực, thân thiện với trẻ."
+        },
+        {
+          "title": "Giám sát BCBA liên tục",
+          "text": "BCBA quan sát buổi học, xem xét dữ liệu, cập nhật chương trình và phản hồi hiệu suất cho nhân viên lâm sàng."
+        },
+        {
+          "title": "Huấn luyện gia đình và cập nhật kế hoạch",
+          "text": "Người chăm sóc nhận đào tạo và xem xét tiến bộ. Chương trình phát triển khi kỹ năng cải thiện hoặc nhu cầu mới xuất hiện."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Mục tiêu lâm sàng",
+      "intro": "Mục tiêu được chọn hợp tác và đo lường khách quan. Eden không hứa hẹn kết quả—tiến bộ phụ thuộc nhiều yếu tố cá nhân.",
+      "goals": [
+        {
+          "title": "Giao tiếp chức năng",
+          "text": "Tăng cách thể hiện nhu cầu, lựa chọn và cảm xúc có ý nghĩa qua lời nói, AAC hoặc phương pháp cá nhân hóa khác."
+        },
+        {
+          "title": "Tham gia xã hội",
+          "text": "Xây dựng kỹ năng chú ý chung, chơi, tương tác bạn bè và phản ứng xã hội phù hợp trong bối cảnh tự nhiên."
+        },
+        {
+          "title": "Sinh hoạt hàng ngày thích ứng",
+          "text": "Tăng cường độc lập trong thói quen gia đình ưu tiên—bữa ăn, vệ sinh, mặc quần áo và chuyển đổi trong nhà."
+        },
+        {
+          "title": "Sẵn sàng học",
+          "text": "Phát triển kỹ năng chú ý, bắt chước và làm theo hướng dẫn hỗ trợ tham gia lớp học và cộng đồng."
+        },
+        {
+          "title": "Giảm hành vi cản trở",
+          "text": "Dạy hành vi thay thế và điều chỉnh hỗ trợ để mẫu hành vi khó khăn xảy ra ít hơn và việc học có thể tăng."
+        },
+        {
+          "title": "Tự tin của người chăm sóc",
+          "text": "Giúp cha mẹ triển khai chiến lược nhất quán với huấn luyện tôn trọng văn hóa gia đình và khả năng của họ."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Sự tham gia của gia đình",
+      "intro": "Nghiên cứu cho thấy sự tham gia của người chăm sóc cải thiện khái quát hóa. Eden tích hợp huấn luyện gia đình vào chương trình cá nhân hóa—không phải suy nghĩ sau cùng.",
+      "cards": [
+        {
+          "title": "Buổi đào tạo phụ huynh",
+          "text": "Huấn luyện theo lịch về chiến lược phù hợp chương trình hiện tại của con và thói quen gia đình."
+        },
+        {
+          "title": "Ưu tiên mục tiêu",
+          "text": "Gia đình giúp xếp hạng điều quan trọng nhất—ví dụ giao tiếp trong bữa ăn, chuyển đổi an toàn hơn hoặc sẵn sàng vào trường."
+        },
+        {
+          "title": "Kế hoạch luyện tập tại nhà",
+          "text": "Ý tưởng luyện tập đơn giản, thực tế phù hợp lịch trình của bạn—không phải danh sách bài tập quá tải."
+        },
+        {
+          "title": "Bao gồm anh chị em và người chăm sóc",
+          "text": "Khi phù hợp, người chăm sóc khác học phản ứng nhất quán để trẻ nhận hỗ trợ dự đoán được."
+        },
+        {
+          "title": "Buổi gặp về tiến bộ",
+          "text": "Cập nhật thường xuyên giải thích xu hướng dữ liệu, kỹ năng đã thành thạo và mục tiêu tiếp theo bằng ngôn ngữ thân thiện với phụ huynh."
+        },
+        {
+          "title": "Phản hồi văn hóa",
+          "text": "Huấn luyện tôn trọng gia đình song ngữ, chăm sóc đa thế hệ và giá trị gia đình về kỷ luật và thói quen."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Theo dõi tiến bộ",
+      "intro": "Thu thập dữ liệu là trung tâm của ABA đạo đức. Eden theo dõi tiến bộ liên tục để chương trình hiệu quả và minh bạch.",
+      "items": [
+        {
+          "title": "Dữ liệu từng buổi",
+          "text": "RBT ghi nhận hiệu suất trên từng mục tiêu trong trị liệu để xu hướng hiện rõ theo thời gian."
+        },
+        {
+          "title": "BCBA xem xét biểu đồ",
+          "text": "Người giám sát phân tích biểu đồ hàng tuần hoặc thường xuyên hơn khi cần quyết định lâm sàng nhanh."
+        },
+        {
+          "title": "Thành thạo và duy trì",
+          "text": "Kỹ năng đi qua các giai đoạn đạt được, khái quát hóa và duy trì với tiêu chí rõ ràng ở mỗi bước."
+        },
+        {
+          "title": "Cập nhật kế hoạch điều trị",
+          "text": "Kế hoạch bằng văn bản được sửa khi mục tiêu thành thạo, tạm dừng hoặc thay thế dựa trên dữ liệu và ý kiến gia đình."
+        },
+        {
+          "title": "Báo cáo phê duyệt",
+          "text": "Khi bên thanh toán yêu cầu cập nhật, Eden cung cấp tóm tắt tiến bộ phản ánh thay đổi lâm sàng được ghi nhận."
+        },
+        {
+          "title": "Thay đổi chương trình đạo đức",
+          "text": "Nếu can thiệp không tạo thay đổi, BCBA sửa phương pháp dạy thay vì tiếp tục quy trình không hiệu quả."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm và sẵn sàng Medicaid",
+      "intro": "Chương trình ABA cá nhân hóa thường được bao phủ khi có y tế cần thiết và được gói của bạn phê duyệt. Eden hỗ trợ gia đình qua yêu cầu tài liệu.",
+      "bullets": [
+        "Kế hoạch điều trị với mục tiêu có thể đo lường và tài liệu giám sát BCBA",
+        "Tóm tắt dữ liệu tiến bộ cho tái phê duyệt khi cần",
+        "Phối hợp với nhân viên tiếp nhận về quy trình Medicaid Virginia và bên thanh toán tư nhân",
+        "Thảo luận về cài đặt dịch vụ gói bao phủ—nhà, trung tâm hoặc khác",
+        "Giải thích rõ giờ đề xuất phụ thuộc nhu cầu lâm sàng, không phải mức tối đa tự động",
+        "Không đảm bảo bao phủ—mỗi gói áp dụng tiêu chí riêng"
+      ],
+      "note": "Y tế cần thiết do bên thanh toán xác định dựa trên tài liệu lâm sàng và quy tắc gói. Eden cung cấp hồ sơ lâm sàng chính xác nhưng không thể đảm bảo phê duyệt hoặc mức giờ cụ thể."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "question": "Chương trình cá nhân hóa khác ABA chung như thế nào?",
+          "answer": "Mỗi mục tiêu, quy trình dạy và phiếu dữ liệu được viết cho con bạn dựa trên đánh giá và ý kiến gia đình. Eden không dùng chương trình giống hệt cho mọi học viên."
+        },
+        {
+          "question": "Con tôi sẽ nhận bao nhiêu giờ ABA?",
+          "answer": "Số giờ phụ thuộc nhu cầu lâm sàng, an toàn, kết quả đánh giá và phê duyệt bên thanh toán—không phải lịch trình chung cho mọi trẻ. BCBA của bạn giải thích khuyến nghị và lý do."
+        },
+        {
+          "question": "Vai trò BCBA và RBT là gì?",
+          "answer": "BCBA thiết kế và giám sát chương trình, phân tích dữ liệu và cập nhật điều trị. RBT triển khai buổi học dưới giám sát BCBA và nhận đào tạo liên tục."
+        },
+        {
+          "question": "Mục tiêu có thể gồm kỹ năng liên quan trường học không?",
+          "answer": "Có, khi phù hợp về mặt lâm sàng và đồng ý của gia đình. Kỹ năng có thể hỗ trợ thói quen lớp học, giao tiếp với giáo viên và sẵn sàng vào trường."
+        },
+        {
+          "question": "Con tôi chỉ làm việc tại bàn sao?",
+          "answer": "Eden dùng giảng dạy tự nhiên, học qua chơi và thói quen đời thực—không chỉ bài tập tại bàn. Phương pháp phù hợp tuổi và phong cách học của trẻ."
+        },
+        {
+          "question": "Tôi sẽ nhận cập nhật tiến bộ bao lâu một lần?",
+          "answer": "Tần suất khác nhau theo cường độ chương trình và yêu cầu bên thanh toán, nhưng gia đình có thể mong đợi giao tiếp thường xuyên và buổi xem xét theo lịch."
+        },
+        {
+          "question": "Chương trình có thể cung cấp tại gia đình nói tiếng Việt không?",
+          "answer": "Eden hỗ trợ gia đình song ngữ và có thể phối hợp ưu tiên ngôn ngữ trong tiếp nhận và huấn luyện người chăm sóc khi nhân sự cho phép."
+        },
+        {
+          "question": "Nếu con tôi không tiến bộ với một mục tiêu thì sao?",
+          "answer": "BCBA xem xét dữ liệu, điều chỉnh chiến lược dạy và có thể sửa hoặc thay mục tiêu. ABA đạo đức yêu cầu phản hồi dữ liệu—không tiếp tục kế hoạch không hiệu quả."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Xây dựng chương trình dành riêng cho con bạn",
+      "subtitle": "Trao đổi với Eden về chương trình ABA cá nhân hóa dựa trên đánh giá, giám sát và hợp tác gia đình.",
+      "primaryLabel": "Bắt đầu dịch vụ",
+      "secondaryLabel": "Tìm hiểu cách bắt đầu"
+    }
+  },
+  "earlyInterventionAbaTherapy": {
+    "meta": {
+      "title": "Trị liệu ABA can thiệp sớm | Eden ABA Therapy",
+      "description": "Trị liệu ABA can thiệp sớm cho trẻ nhỏ tập trung giao tiếp, chơi, bắt chước, kỹ năng sinh hoạt và thói quen học tập tích cực với huấn luyện lấy gia đình làm trung tâm tại Bắc Virginia.",
+      "keywords": ["ABA can thiệp sớm", "trị liệu ABA trẻ mới biết đi", "can thiệp sớm tự kỷ", "ABA trẻ nhỏ", "hỗ trợ phát triển sớm", "can thiệp sớm Medicaid Virginia"]
+    },
+    "hero": {
+      "eyebrow": "Hỗ trợ phát triển sớm",
+      "title": "Trị liệu ABA can thiệp sớm",
+      "subtitle": "Với trẻ nhỏ, hỗ trợ sớm có thể tạo khác biệt có ý nghĩa. Eden cung cấp ABA lấy gia đình làm trung tâm, dựa trên chơi, tập trung giao tiếp, bắt chước, chơi, thói quen hàng ngày và trải nghiệm học tập tích cực.",
+      "breadcrumbLabel": "ABA can thiệp sớm",
+      "imageAlt": "Trẻ mới biết đi tham gia chơi can thiệp sớm với người chăm sóc trong trị liệu ABA"
+    },
+    "includes": {
+      "title": "Dịch vụ này bao gồm những gì",
+      "intro": "Can thiệp sớm tại Eden nhấn mạnh học tập tự nhiên, huấn luyện người chăm sóc và mục tiêu phù hợp phát triển—không phải bài tập cứng nhắc tách rời tuổi thơ.",
+      "items": [
+        {
+          "title": "Đánh giá phù hợp phát triển",
+          "text": "BCBA xem xét giao tiếp sớm, chơi, bắt chước vận động, tham gia xã hội và thói quen thích ứng phù hợp tuổi của con bạn."
+        },
+        {
+          "title": "Giảng dạy dựa trên chơi",
+          "text": "Học được đan xen trong chơi, vận động, bài hát và hoạt động hàng ngày để buổi học hấp dẫn với trẻ nhỏ."
+        },
+        {
+          "title": "Hỗ trợ giao tiếp sớm",
+          "text": "Xây dựng yêu cầu, chú ý chung, cử chỉ, phát âm và sẵn sàng AAC khi có chỉ định lâm sàng."
+        },
+        {
+          "title": "Bắt chước và kỹ năng học",
+          "text": "Kỹ năng nền tảng như bắt chước hành động, làm theo hướng dẫn đơn giản và chịu đựng hoạt động có cấu trúc ngắn."
+        },
+        {
+          "title": "Tích hợp thói quen hàng ngày",
+          "text": "Luyện tập trong bữa ăn nhẹ, mặc quần áo, tắm và chuyển đổi hoạt động để kỹ năng gắn với đời sống gia đình thực."
+        },
+        {
+          "title": "Huấn luyện người chăm sóc từ ngày đầu",
+          "text": "Cha mẹ học chiến lược trong buổi học để củng cố tiến bộ giữa các lần thăm."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Dịch vụ này hỗ trợ ai",
+      "intro": "ABA can thiệp sớm có thể hỗ trợ trẻ mới biết đi và trẻ nhỏ có khác biệt phát triển—hoặc gia đình tìm hỗ trợ chủ động sau chẩn đoán.",
+      "items": [
+        {
+          "title": "Trẻ mới biết đi có lo ngại tự kỷ",
+          "summary": "Chẩn đoán gần đây hoặc theo dõi phát triển.",
+          "detail": "Hỗ trợ tập trung giao tiếp sớm, chơi, tham gia xã hội và thói quen xây nền tảng cho học tập sau này."
+        },
+        {
+          "title": "Trẻ chậm ngôn ngữ",
+          "summary": "Hạn chế từ, cử chỉ hoặc giao tiếp xã hội.",
+          "detail": "Can thiệp dạy cách thể hiện nhu cầu chức năng và tham gia tương tác qua lại."
+        },
+        {
+          "title": "Trẻ hạn chế kỹ năng chơi",
+          "summary": "Chơi lặp lại hoặc khó khăn với đồ chơi và bạn bè.",
+          "detail": "Nhà trị liệu mở rộng cách chơi, lượt chơi và tham gia linh hoạt với đồ vật và con người."
+        },
+        {
+          "title": "Gia đình thiết lập thói quen",
+          "summary": "Thách thức bữa ăn, giấc ngủ hoặc chuyển đổi hoạt động.",
+          "detail": "Huấn luyện sớm giúp gia đình xây thói quen dự đoán được hỗ trợ điều hòa và học tập."
+        },
+        {
+          "title": "Trẻ chuẩn bị vào mẫu giáo",
+          "summary": "Nền tảng sẵn sàng vào trường.",
+          "detail": "Mục tiêu có thể gồm chịu đựng nhóm, hướng dẫn đơn giản, chia sẻ chú ý và kỹ năng tự phục vụ cơ bản."
+        },
+        {
+          "title": "Trẻ nhỏ đủ điều kiện Medicaid",
+          "summary": "Lộ trình can thiệp sớm EPSDT.",
+          "detail": "Khi phù hợp về mặt lâm sàng, tài liệu có thể phản ánh nhu cầu phát triển sớm theo quy định Medicaid áp dụng."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Eden ABA cung cấp chăm sóc như thế nào",
+      "intro": "Can thiệp sớm cần kiên nhẫn, ấm áp và chính xác lâm sàng. Eden kết hợp cả ba với giám sát BCBA và người triển khai được đào tạo.",
+      "steps": [
+        {
+          "title": "Tiếp nhận lấy gia đình làm trung tâm",
+          "text": "Điều phối viên và BCBA tìm hiểu đời sống hàng ngày, tiền sử phát triển và mục tiêu gia đình của con bạn."
+        },
+        {
+          "title": "Buổi nền dựa trên chơi",
+          "text": "Chuyên viên lâm sàng quan sát chơi và thói quen tự nhiên để xác định điểm mạnh và mục tiêu dạy ưu tiên."
+        },
+        {
+          "title": "Mục tiêu sớm cá nhân hóa",
+          "text": "Mục tiêu ngắn, đạt được được chọn để tạo đà—giao tiếp, bắt chước, chơi và kỹ năng thích ứng."
+        },
+        {
+          "title": "Mô hình hóa và huấn luyện người chăm sóc",
+          "text": "Cha mẹ luyện chiến lược trong buổi học với hướng dẫn thời gian thực từ đội lâm sàng."
+        },
+        {
+          "title": "Triển khai RBT nhất quán",
+          "text": "Nhân viên được đào tạo triển khai chương trình với củng cố tích cực và nghỉ theo nhịp trẻ khi cần."
+        },
+        {
+          "title": "BCBA xem xét và cập nhật chương trình",
+          "text": "Người giám sát phân tích dữ liệu sớm thường xuyên và điều chỉnh giảng dạy khi trẻ phát triển."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Mục tiêu lâm sàng",
+      "intro": "Mục tiêu sớm ưu tiên kỹ năng mở khóa học tập sau này—giao tiếp, kết nối xã hội và tham gia thói quen gia đình.",
+      "goals": [
+        {
+          "title": "Chú ý chung và tham gia",
+          "text": "Tăng tập trung chung vào đồ vật, con người và hoạt động với người chăm sóc và nhà trị liệu."
+        },
+        {
+          "title": "Giao tiếp sớm chức năng",
+          "text": "Xây dựng yêu cầu, phản đối và bình luận qua lời nói, ký hiệu hoặc AAC khi phù hợp."
+        },
+        {
+          "title": "Kỹ năng bắt chước",
+          "text": "Bắt chước hành động với đồ vật và cử động cơ thể để hỗ trợ học quan sát."
+        },
+        {
+          "title": "Mở rộng chơi",
+          "text": "Phát triển chơi chức năng và giả vờ hỗ trợ phát triển nhận thức và xã hội."
+        },
+        {
+          "title": "Tham gia sinh hoạt hàng ngày",
+          "text": "Hỗ trợ bữa ăn, mặc quần áo, vệ sinh và dọn dẹp với độc lập phù hợp tuổi."
+        },
+        {
+          "title": "Thói quen học tập tích cực",
+          "text": "Giúp trẻ chịu đựng hoạt động có cấu trúc ngắn, chuyển đổi và học có hướng dẫn của người lớn."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Sự tham gia của gia đình",
+      "intro": "Trong giai đoạn sớm, cha mẹ là người dạy quan trọng nhất. Eden thiết kế can thiệp để gia đình tham gia tự tin mỗi ngày.",
+      "cards": [
+        {
+          "title": "Huấn luyện trong buổi học",
+          "text": "Học chiến lược khi chơi và chăm sóc con—không chỉ qua bài giảng riêng."
+        },
+        {
+          "title": "Luyện tập theo thói quen",
+          "text": "Mục tiêu gắn với bữa ăn, tắm, giờ đi ngủ và đi chơi bạn đã làm mỗi ngày."
+        },
+        {
+          "title": "Hướng dẫn phát triển",
+          "text": "BCBA giải thích kỹ năng thường đến tiếp theo để kỳ vọng thực tế và đầy hy vọng."
+        },
+        {
+          "title": "Mẹo cho anh chị em và ông bà",
+          "text": "Hướng dẫn đơn giản để mọi người chăm sóc phản hồi nhất quán và tích cực."
+        },
+        {
+          "title": "Hỗ trợ gia đình song ngữ",
+          "text": "Gia đình nói tiếng Việt và tiếng Anh nhận giao tiếp tôn trọng văn hóa."
+        },
+        {
+          "title": "Ghi nhận tiến bộ nhỏ",
+          "text": "Tiến bộ sớm có thể tinh tế. Eden giúp gia đình nhận ra cột mốc có ý nghĩa trên hành trình."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Theo dõi tiến bộ",
+      "intro": "Dù với trẻ nhỏ, dữ liệu vẫn dẫn dắt quyết định. Eden theo dõi kỹ năng sớm để điều chỉnh giảng dạy nhanh chóng.",
+      "items": [
+        {
+          "title": "Dữ liệu kiểm tra thường xuyên",
+          "text": "Đo lường ngắn, lặp lại cho thấy mục tiêu sớm đang hình thành hay cần phương pháp dạy mới."
+        },
+        {
+          "title": "Xem xét video và quan sát",
+          "text": "BCBA có thể xem xét ví dụ buổi học để huấn luyện RBT và tinh chỉnh giảng dạy tự nhiên."
+        },
+        {
+          "title": "Ánh xạ cột mốc phát triển",
+          "text": "Tiến bộ được thảo luận theo cách gia đình hiểu—không chỉ thuật ngữ kỹ thuật."
+        },
+        {
+          "title": "Tích hợp báo cáo người chăm sóc",
+          "text": "Quan sát của phụ huynh tại nhà cho biết kỹ năng có khái quát hóa ngoài buổi học không."
+        },
+        {
+          "title": "Cập nhật kế hoạch khi trẻ lớn",
+          "text": "Mục tiêu thay đổi nhanh ở giai đoạn sớm; chương trình được sửa khi kỹ năng mới xuất hiện."
+        },
+        {
+          "title": "Tài liệu phê duyệt",
+          "text": "Khi cần, tóm tắt tiến bộ phản ánh tiến triển phát triển sớm cho bên thanh toán xem xét."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm và sẵn sàng Medicaid",
+      "intro": "Dịch vụ can thiệp sớm có thể được bao phủ qua bảo hiểm tư nhân hoặc Medicaid Virginia EPSDT khi có y tế cần thiết và được phê duyệt.",
+      "bullets": [
+        "Tài liệu đánh giá phát triển sớm khi được yêu cầu",
+        "Kế hoạch điều trị nhấn mạnh y tế cần thiết cho trẻ nhỏ có nhu cầu đủ điều kiện",
+        "Phối hợp với tiếp nhận Eden về yêu cầu Medicaid EPSDT và bảo hiểm tư nhân",
+        "Thảo luận cài đặt dịch vụ phù hợp trẻ mới biết đi—thường tại nhà hoặc trung tâm",
+        "Trao đổi minh bạch về yêu cầu chẩn đoán và tài liệu theo bên thanh toán",
+        "Không đảm bảo bao phủ—mỗi gói có tiêu chí riêng"
+      ],
+      "note": "Can thiệp sớm không đảm bảo kết quả phát triển cụ thể. Eden tập trung dịch vụ đạo đức, cá nhân hóa và tài liệu chính xác trong khi gia đình làm việc với bên thanh toán về phê duyệt."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "question": "ABA can thiệp sớm dành cho độ tuổi nào?",
+          "answer": "Can thiệp sớm thường tập trung trẻ mới biết đi và trẻ nhỏ, thường dưới năm tuổi, dù nhu cầu cá nhân và quy tắc bên thanh toán khác nhau. Đội tiếp nhận Eden có thể trao đổi dịch vụ này có phù hợp con bạn không."
+        },
+        {
+          "question": "ABA sớm có dựa trên chơi không?",
+          "answer": "Có. Eden nhấn mạnh giảng dạy tự nhiên, dựa trên chơi cho trẻ nhỏ đồng thời duy trì cấu trúc lâm sàng và thu thập dữ liệu phía sau."
+        },
+        {
+          "question": "Trẻ nhỏ cần bao nhiêu giờ?",
+          "answer": "Cường độ đề xuất phụ thuộc đánh giá, hồ sơ phát triển và phê duyệt—không phải con số mặc định cho mọi trẻ mới biết đi. BCBA của bạn giải thích lý do lâm sàng."
+        },
+        {
+          "question": "Can thiệp sớm có thể diễn ra tại nhà không?",
+          "answer": "Can thiệp sớm tại nhà phổ biến vì trẻ nhỏ học tốt nhất trong thói quen quen thuộc. Tùy chọn tại trung tâm cũng có thể có."
+        },
+        {
+          "question": "ABA sớm có 'sửa' tự kỷ không?",
+          "answer": "Eden không hứa hẹn kết quả đảm bảo. Can thiệp sớm nhằm xây dựng kỹ năng, hỗ trợ gia đình và cải thiện chất lượng cuộc sống qua giảng dạy đạo đức, cá nhân hóa."
+        },
+        {
+          "question": "Cha mẹ có ở lại trong buổi học không?",
+          "answer": "Khuyến khích người chăm sóc tham gia để luyện chiến lược và đưa vào thói quen hàng ngày. Sắp xếp cụ thể phụ thuộc nhu cầu của trẻ và kế hoạch lâm sàng."
+        },
+        {
+          "question": "Dịch vụ có thể bắt đầu sớm thế nào sau tiếp nhận?",
+          "answer": "Thời gian phụ thuộc hoàn thành đánh giá, nhân sự và phê duyệt khi cần. Đội Eden thông báo rõ các bước tiếp theo dự kiến."
+        },
+        {
+          "question": "Nếu con tôi chưa sẵn sàng ngồi tại bàn thì sao?",
+          "answer": "Điều đó bình thường với nhiều trẻ mới biết đi. Giảng dạy diễn ra qua chơi, vận động và thói quen—không ép làm việc tại bàn."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Hỗ trợ những bước học sớm nhất của con bạn",
+      "subtitle": "Liên hệ Eden để tìm hiểu ABA can thiệp sớm xây quanh thói quen gia đình và điểm mạnh riêng của con bạn.",
+      "primaryLabel": "Bắt đầu dịch vụ",
+      "secondaryLabel": "Tìm hiểu cách bắt đầu"
+    }
+  },
+  "socialSkillsTraining": {
+    "meta": {
+      "title": "Đào tạo kỹ năng xã hội | Eden ABA Therapy",
+      "description": "Đào tạo kỹ năng xã hội dựa trên ABA cho tương tác bạn bè, hội thoại, chơi, chú ý chung và xây dựng tình bạn với giám sát BCBA và mục tiêu có thể đo lường tại Bắc Virginia.",
+      "keywords": ["đào tạo kỹ năng xã hội ABA", "kỹ năng xã hội tự kỷ", "trị liệu tương tác bạn bè", "kỹ năng hội thoại ABA", "kỹ năng bạn bè tự kỷ", "nhóm kỹ năng xã hội Virginia"]
+    },
+    "hero": {
+      "eyebrow": "Kết nối và tham gia",
+      "title": "Đào tạo kỹ năng xã hội",
+      "subtitle": "Kỹ năng xã hội có thể dạy được khi chia thành các bước có ý nghĩa. Eden giúp trẻ luyện tập tương tác bạn bè, hội thoại, chơi, chú ý chung và kỹ năng tình bạn theo cách hỗ trợ, dựa trên dữ liệu.",
+      "breadcrumbLabel": "Đào tạo kỹ năng xã hội",
+      "imageAlt": "Trẻ luyện kỹ năng xã hội qua chơi cùng bạn và lượt chơi trong trị liệu ABA"
+    },
+    "includes": {
+      "title": "Dịch vụ này bao gồm những gì",
+      "intro": "Đào tạo kỹ năng xã hội tại Eden kết hợp khoa học hành vi với cơ hội xã hội thực—không chỉ bài tập trên giấy.",
+      "items": [
+        {
+          "title": "Đánh giá kỹ năng xã hội",
+          "text": "Xem xét tương tác bạn bè, hội thoại, chơi và tham gia nhóm hiện tại để xác định mục tiêu cụ thể, có thể dạy."
+        },
+        {
+          "title": "Mục tiêu xã hội cá nhân hóa",
+          "text": "Mục tiêu có thể gồm chào hỏi, lượt chơi, chia sẻ, không gian cá nhân, chủ đề hội thoại và đọc tín hiệu xã hội ở mức của trẻ."
+        },
+        {
+          "title": "Buổi luyện tập có cấu trúc",
+          "text": "Giảng dạy do RBT dẫn dắt với đóng vai, trò chơi và tương tác có hướng dẫn dùng củng cố tích cực và chiến lược gợi ý."
+        },
+        {
+          "title": "Cơ hội bạn bè và nhóm",
+          "text": "Khi phù hợp về mặt lâm sàng, luyện tập với bạn bè hoặc anh chị em để khái quát hóa ngoài mối quan hệ với nhà trị liệu."
+        },
+        {
+          "title": "Giám sát chương trình BCBA",
+          "text": "BCBA thiết kế chương trình xã hội, phân tích dữ liệu và điều chỉnh giảng dạy khi kỹ năng cải thiện hoặc thách thức mới xuất hiện."
+        },
+        {
+          "title": "Huấn luyện người chăm sóc cho cộng đồng",
+          "text": "Cha mẹ học cách hỗ trợ chơi cùng bạn, công viên, tiệc sinh nhật và họp mặt gia đình với tự tin."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Dịch vụ này hỗ trợ ai",
+      "intro": "Nhiều trẻ hưởng lợi từ giảng dạy xã hội rõ ràng—đặc biệt khi quan sát và bắt chước tự nhiên không đủ một mình.",
+      "items": [
+        {
+          "title": "Trẻ gặp khó với bạn bè",
+          "summary": "Khó tham gia chơi hoặc kết bạn.",
+          "detail": "Giảng dạy bao gồm cách tiếp cận bạn bè, chia sẻ đồ dùng, lượt chơi và phản ứng phù hợp khi bị từ chối."
+        },
+        {
+          "title": "Trẻ gặp khó hội thoại",
+          "summary": "Hạn chế trao đổi qua lại hoặc duy trì chủ đề.",
+          "detail": "Mục tiêu có thể gồm đặt câu hỏi, trả lời bạn bè, giữ chủ đề và dùng âm lượng phù hợp."
+        },
+        {
+          "title": "Trẻ có tự kỷ",
+          "summary": "Khác biệt xã hội ảnh hưởng tham gia.",
+          "detail": "Can thiệp tôn trọng đa dạng thần kinh đồng thời dạy kỹ năng trẻ và gia đình muốn xây dựng—không ép che giấu vì bản thân việc đó."
+        },
+        {
+          "title": "Trẻ chuẩn bị vào trường",
+          "summary": "Kỳ vọng nhóm trong lớp học.",
+          "detail": "Luyện tập gồm xếp hàng, phản hồi nhóm, làm việc cặp và điều hướng sân chơi hoặc căng tin."
+        },
+        {
+          "title": "Trẻ lo lắng trong tình huống xã hội",
+          "summary": "Tránh né hoặc căng thẳng quanh bạn bè.",
+          "detail": "Tiếp xúc dần, chiến lược đối phó và trải nghiệm thành công xây tự tin theo nhịp của trẻ."
+        },
+        {
+          "title": "Thanh thiếu niên cần kỹ năng tình bạn",
+          "summary": "Học viên lớn hơn có mục tiêu xã hội.",
+          "detail": "Mục tiêu có thể gồm ứng xử nhắn tin, dự án nhóm, lên kế hoạch giải trí và tự vận động trong bối cảnh xã hội."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "Eden ABA cung cấp chăm sóc như thế nào",
+      "intro": "Kỹ năng xã hội được luyện tập, củng cố, đo lường—rồi khái quát hóa vào mối quan hệ và bối cảnh thực.",
+      "steps": [
+        {
+          "title": "Đánh giá xã hội và đặt mục tiêu",
+          "text": "BCBA xác định thiếu hụt và điểm mạnh xã hội cụ thể qua quan sát, phỏng vấn và công cụ chuẩn hóa khi phù hợp."
+        },
+        {
+          "title": "Phân tích nhiệm vụ hành vi xã hội",
+          "text": "Kỹ năng phức tạp như tham gia chơi được chia thành bước nhỏ, có thể dạy với tiêu chí thành thạo rõ ràng."
+        },
+        {
+          "title": "Luyện tập có kiểm soát",
+          "text": "RBT tạo điều kiện luyện tập trong môi trường áp lực thấp trước khi chuyển sang yêu cầu xã hội phức tạp hơn."
+        },
+        {
+          "title": "Luyện tập môi trường tự nhiên",
+          "text": "Kỹ năng chuyển sang sân chơi, trung tâm, nhà và địa điểm cộng đồng nơi tương tác xã hội thực sự diễn ra."
+        },
+        {
+          "title": "BCBA xem xét dữ liệu",
+          "text": "Người giám sát theo dõi mục tiêu xã hội đang cải thiện và sửa chương trình khi tiến bộ chậm lại."
+        },
+        {
+          "title": "Phối hợp gia đình và trường học",
+          "text": "Khi có đồng ý, chiến lược có thể thống nhất giữa nhà và trường để trẻ nghe kỳ vọng nhất quán."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Mục tiêu lâm sàng",
+      "intro": "Mục tiêu xã hội được cá nhân hóa theo mức phát triển và ưu tiên gia đình—không sao chép từ danh sách chung.",
+      "goals": [
+        {
+          "title": "Tham gia với bạn bè",
+          "text": "Tăng khởi xướng và phản hồi trong chơi, trò chơi và hoạt động nhóm với bạn cùng tuổi khi có thể."
+        },
+        {
+          "title": "Kỹ năng hội thoại",
+          "text": "Xây dựng chào hỏi, câu hỏi, bình luận và duy trì chủ đề phù hợp tuổi của trẻ."
+        },
+        {
+          "title": "Chú ý chung",
+          "text": "Tăng cường nhìn, chỉ và phối hợp chú ý trong hoạt động chung."
+        },
+        {
+          "title": "Chơi hợp tác",
+          "text": "Dạy lượt chơi, chia sẻ, thắng/thua và trò chơi cộng tác."
+        },
+        {
+          "title": "Giải quyết vấn đề xã hội",
+          "text": "Luyện xử lý xung đột, chờ đợi và thương lượng với hỗ trợ người lớn phù hợp."
+        },
+        {
+          "title": "Tham gia cộng đồng",
+          "text": "Hỗ trợ hành vi tại thư viện, cửa hàng, nhà hàng và sự kiện gia đình nơi có quy tắc xã hội."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Sự tham gia của gia đình",
+      "intro": "Kỹ năng xã hội phát triển trong mối quan hệ. Eden huấn luyện gia đình tạo cơ hội luyện tập an toàn ngoài buổi trị liệu.",
+      "cards": [
+        {
+          "title": "Lên kế hoạch chơi cùng bạn",
+          "text": "Hướng dẫn cấu trúc tương tác bạn bè ngắn, thành công tại nhà hoặc cộng đồng."
+        },
+        {
+          "title": "Huấn luyện anh chị em",
+          "text": "Mẹo để anh chị em chơi bao gồm đồng thời hỗ trợ mục tiêu trị liệu."
+        },
+        {
+          "title": "Củng cố tại nhà",
+          "text": "Gia đình học nhận ra và củng cố nỗ lực xã hội—không chỉ khi hoàn hảo."
+        },
+        {
+          "title": "Hỗ trợ đi chơi cộng đồng",
+          "text": "Chiến lược cho công viên, tiệc sinh nhật và họp mặt tôn giáo hoặc văn hóa."
+        },
+        {
+          "title": "Giao tiếp với trường học",
+          "text": "Khi được phép, Eden có thể chia sẻ chiến lược giáo viên dùng để hỗ trợ giờ ra chơi và làm việc nhóm."
+        },
+        {
+          "title": "Tôn trọng quyền tự chủ",
+          "text": "Gia đình chọn mục tiêu xã hội quan trọng nhất, kể cả khi trẻ cần nghỉ ngơi thay vì bị ép tương tác."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Theo dõi tiến bộ",
+      "intro": "Tiến bộ xã hội có thể tinh tế. Eden dùng đo lường trực tiếp để cải thiện hiện rõ và chương trình có trách nhiệm giải trình.",
+      "items": [
+        {
+          "title": "Đếm tần suất và thời lượng",
+          "text": "Theo dõi tần suất trẻ khởi xướng, phản hồi hoặc duy trì tương tác trong kiểm tra có cấu trúc."
+        },
+        {
+          "title": "Kiểm tra khái quát hóa",
+          "text": "Đo kỹ năng có xảy ra với bạn mới, địa điểm hoặc đồ dùng khác—không chỉ với một nhà trị liệu."
+        },
+        {
+          "title": "Thang đánh giá và rubric",
+          "text": "Dùng hệ thống chấm điểm đơn giản để người chăm sóc hiểu thay đổi theo tuần."
+        },
+        {
+          "title": "Ghi chú giám sát BCBA",
+          "text": "Người giám sát ghi nhận thay đổi chương trình dựa trên xu hướng dữ liệu xã hội."
+        },
+        {
+          "title": "Vòng phản hồi người chăm sóc",
+          "text": "Báo cáo của phụ huynh từ chơi cùng bạn thực tế cho biết mục tiêu có hiệu quả ngoài buổi học không."
+        },
+        {
+          "title": "Cập nhật phê duyệt",
+          "text": "Tóm tắt tiến bộ cung cấp cho bên thanh toán khi cần tái phê duyệt."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Bảo hiểm và sẵn sàng Medicaid",
+      "intro": "Đào tạo kỹ năng xã hội thường là phần của kế hoạch điều trị ABA rộng hơn khi có y tế cần thiết. Bao phủ riêng phụ thuộc quy tắc bên thanh toán.",
+      "bullets": [
+        "Mục tiêu xã hội đan xen trong kế hoạch điều trị ABA cá nhân hóa",
+        "Tài liệu liên kết thiếu hụt xã hội với suy giảm chức năng khi được yêu cầu",
+        "Hồ sơ giám sát BCBA và thu thập dữ liệu cho phê duyệt",
+        "Phối hợp với tiếp nhận Eden về quy trình Medicaid và bảo hiểm tư nhân",
+        "Thảo luận kỹ năng xã hội có được bao phủ như phần ABA toàn diện không",
+        "Không đảm bảo bao phủ kỹ năng xã hội riêng nếu không có phê duyệt ABA rộng hơn"
+      ],
+      "note": "Bên thanh toán thường phê duyệt ABA dựa trên nhu cầu lâm sàng toàn diện, không chỉ kỹ năng xã hội riêng lẻ. Eden giúp gia đình hiểu đào tạo xã hội phù hợp chương trình cá nhân hóa và yêu cầu bên thanh toán như thế nào."
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "question": "Đào tạo kỹ năng xã hội có phải dịch vụ riêng với ABA không?",
+          "answer": "Kỹ năng xã hội thường được dạy trong chương trình ABA cá nhân hóa. Eden có thể giải quyết mục tiêu xã hội như phần điều trị toàn diện thay vì sản phẩm độc lập, tùy yêu cầu lâm sàng và bên thanh toán."
+        },
+        {
+          "question": "Eden có nhóm kỹ năng xã hội không?",
+          "answer": "Hình thức nhóm phụ thuộc nhân sự, độ tuổi và phù hợp lâm sàng. Một số trẻ học tốt nhất theo cặp hoặc nhóm nhỏ; trẻ khác cần chuẩn bị cá nhân trước."
+        },
+        {
+          "question": "Các bạn có dạy con tôi che giấu tự kỷ không?",
+          "answer": "Eden tập trung kỹ năng trẻ và gia đình chọn xây dựng—giao tiếp, tình bạn và tham gia—đồng thời tôn trọng đa dạng thần kinh, sự thoải mái và phẩm giá của trẻ."
+        },
+        {
+          "question": "Kỹ năng xã hội có thể dạy trực tuyến không?",
+          "answer": "Một số luyện tập có thể qua telehealth khi phù hợp, nhưng luyện tập với bạn trực tiếp thường quan trọng. BCBA đề xuất hình thức theo nhu cầu lâm sàng."
+        },
+        {
+          "question": "Bao lâu con tôi mới có bạn?",
+          "answer": "Tình bạn phát triển dần và phụ thuộc nhiều yếu tố. Eden đo các hành vi xã hội cụ thể và ghi nhận tiến bộ từng bước mà không hứa hẹn kết quả xã hội cụ thể."
+        },
+        {
+          "question": "Các bạn có phối hợp với trường của con tôi không?",
+          "answer": "Khi gia đình đồng ý, Eden có thể chia sẻ chiến lược liên quan giờ ra chơi, bữa trưa và học nhóm. Dịch vụ tại trường có thể cần thỏa thuận riêng."
+        },
+        {
+          "question": "Nếu con tôi từ chối hoạt động xã hội thì sao?",
+          "answer": "Chương trình dùng tiếp xúc dần, lựa chọn và củng cố—không ép tham gia. BCBA điều chỉnh mục tiêu cân bằng thách thức và thoải mái."
+        },
+        {
+          "question": "Kỹ năng xã hội chỉ dành cho trẻ nhỏ sao?",
+          "answer": "Không. Eden hỗ trợ mục tiêu xã hội ở mọi độ tuổi, nội dung phù hợp mức phát triển—từ chơi sớm đến tình bạn và tự vận động ở tuổi thanh thiếu niên."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Giúp con bạn xây dựng kết nối xã hội có ý nghĩa",
+      "subtitle": "Trao đổi với Eden về đào tạo kỹ năng xã hội dựa trên khoa học ABA, giám sát BCBA và thực hành lấy gia đình làm trung tâm.",
+      "primaryLabel": "Bắt đầu dịch vụ",
+      "secondaryLabel": "Tìm hiểu cách bắt đầu"
+    }
+  }
+}

@@ -1,0 +1,1033 @@
+{
+  "shared": {
+    "breadcrumbHome": "Home",
+    "breadcrumbServices": "Services",
+    "startServices": "Start Services",
+    "gettingStarted": "Getting Started",
+    "contactEden": "Contact Eden"
+  },
+  "behaviorAssessment": {
+    "meta": {
+      "title": "Behavior Assessment | Eden ABA Therapy",
+      "description": "Comprehensive ABA behavior assessments to understand communication, safety, daily living needs, and family priorities before individualized treatment planning in Northern Virginia.",
+      "keywords": ["behavior assessment", "functional behavior assessment", "ABA assessment", "BCBA evaluation", "autism behavior support", "Medicaid ABA Virginia"]
+    },
+    "hero": {
+      "eyebrow": "Clinical Foundation",
+      "title": "Behavior Assessment",
+      "subtitle": "Evidence-informed assessment helps Eden ABA Therapy understand your child's strengths, communication needs, safety concerns, and family priorities before building an individualized treatment plan.",
+      "breadcrumbLabel": "Behavior Assessment",
+      "imageAlt": "Clinician reviewing behavior assessment notes while observing a child in a supportive therapy setting"
+    },
+    "includes": {
+      "title": "What This Service Includes",
+      "intro": "A thorough behavior assessment is the clinical starting point for ethical, individualized ABA care. Eden's process is designed to gather meaningful information—not rush families toward services.",
+      "items": [
+        {
+          "title": "Clinical intake review",
+          "text": "BCBA-led review of developmental history, diagnosis documentation when available, caregiver concerns, school reports, and prior therapy records with your consent."
+        },
+        {
+          "title": "Direct observation",
+          "text": "Structured observation of communication, play, social interaction, adaptive routines, and behavior patterns in settings that reflect real-life demands."
+        },
+        {
+          "title": "Skill and barrier identification",
+          "text": "Identification of priority skill deficits, interfering behaviors, and environmental factors that may support or limit learning."
+        },
+        {
+          "title": "Functional communication review",
+          "text": "Assessment of how the child requests, protests, comments, and signals needs—including spoken language, AAC, gestures, and other functional communication forms."
+        },
+        {
+          "title": "Safety and medical-necessity context",
+          "text": "Documentation of behaviors that affect health, safety, or participation in daily life to support clinically appropriate service recommendations."
+        },
+        {
+          "title": "Treatment planning recommendations",
+          "text": "A written summary with recommended goals, service intensity considerations, caregiver training priorities, and next steps aligned with BCBA supervision standards."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Who This Service Helps",
+      "intro": "Behavior assessment supports families who need a clear clinical picture before ABA treatment begins or when current supports need to be updated.",
+      "items": [
+        {
+          "title": "Families starting ABA",
+          "summary": "New to services and unsure where to begin.",
+          "detail": "Assessment clarifies priority goals, recommended service settings, and how caregiver coaching can fit into your family's routine."
+        },
+        {
+          "title": "Children with communication barriers",
+          "summary": "Limited speech, AAC users, or frustration during requests.",
+          "detail": "We evaluate functional communication needs so treatment can focus on meaningful, socially appropriate ways to express wants, needs, and emotions."
+        },
+        {
+          "title": "Children with interfering behaviors",
+          "summary": "Behaviors that affect learning, safety, or family life.",
+          "detail": "Assessment explores patterns, triggers, and possible functions of behavior to guide positive, skill-building interventions—not punishment-based approaches."
+        },
+        {
+          "title": "Families changing providers",
+          "summary": "Transitioning care or seeking a second opinion.",
+          "detail": "A fresh assessment can align new teams around current needs, updated goals, and consistent data collection methods."
+        },
+        {
+          "title": "School and home coordination",
+          "summary": "Different behavior patterns across settings.",
+          "detail": "Multi-setting information helps teams understand how routines, demands, and supports differ between home, clinic, and school environments."
+        },
+        {
+          "title": "Medicaid and insurance readiness",
+          "summary": "Documentation for authorization requests.",
+          "detail": "Assessment summaries can support medical-necessity documentation when required by payers, within each plan's specific rules."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden ABA Delivers Care",
+      "intro": "Our assessment process follows professional ABA practice guidelines with BCBA oversight, ethical consent practices, and family-centered communication.",
+      "steps": [
+        {
+          "title": "Referral and intake conversation",
+          "text": "A care coordinator gathers basic information, explains the assessment process, reviews consent, and schedules the first clinical visit."
+        },
+        {
+          "title": "Records and caregiver interview",
+          "text": "The BCBA reviews available records and conducts a structured interview about routines, strengths, concerns, and family priorities."
+        },
+        {
+          "title": "Direct assessment sessions",
+          "text": "The BCBA and clinical team observe and interact with your child using standardized and individualized assessment tools as clinically appropriate."
+        },
+        {
+          "title": "Collaboration with caregivers",
+          "text": "Parents and caregivers share context that only families know—sleep, meals, transitions, community outings, and sibling dynamics."
+        },
+        {
+          "title": "Clinical synthesis and recommendations",
+          "text": "The BCBA analyzes data, identifies priority goals, and drafts recommendations for service type, intensity, and supervision structure."
+        },
+        {
+          "title": "Family review meeting",
+          "text": "Results are explained in plain language. Families receive opportunity to ask questions before any treatment authorization steps begin."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Clinical Goals of Assessment",
+      "intro": "Assessment goals are individualized—not one-size-fits-all. Eden focuses on information that leads to practical, measurable treatment planning.",
+      "goals": [
+        {
+          "title": "Define priority skill targets",
+          "text": "Identify communication, social, adaptive, and learning goals that matter most to your child and family right now."
+        },
+        {
+          "title": "Understand behavior in context",
+          "text": "Describe when and why challenging patterns occur so interventions can teach replacement skills and adjust environments supportively."
+        },
+        {
+          "title": "Establish baseline data",
+          "text": "Create starting measurements for key goals so progress can be tracked objectively over time."
+        },
+        {
+          "title": "Clarify supervision needs",
+          "text": "Determine appropriate BCBA oversight and RBT implementation levels based on clinical complexity and safety considerations."
+        },
+        {
+          "title": "Support ethical individualized care",
+          "text": "Ensure recommended services align with the child's needs, family values, and professional ethical standards for ABA practice."
+        },
+        {
+          "title": "Prepare for authorization when needed",
+          "text": "Provide documentation that reflects clinical rationale for recommended ABA services under applicable insurance or Medicaid requirements."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Family Involvement",
+      "intro": "Parents are essential partners in assessment. Your observations help clinicians interpret behavior accurately and plan care that fits real life.",
+      "cards": [
+        {
+          "title": "Caregiver interviews",
+          "text": "Share routines, triggers, successful strategies, and concerns during structured conversations with the BCBA."
+        },
+        {
+          "title": "Home context matters",
+          "text": "Describe how mornings, meals, bedtime, and community outings work today so recommendations are realistic."
+        },
+        {
+          "title": "Questions welcomed",
+          "text": "Eden encourages families to ask about methods, data collection, supervision, and how goals will be measured."
+        },
+        {
+          "title": "Consent and privacy",
+          "text": "You control which records are shared. Information is used to support clinical care and authorization only as permitted."
+        },
+        {
+          "title": "Cultural and language respect",
+          "text": "Assessment considers family language preferences, cultural routines, and communication styles with Vietnamese and English support available."
+        },
+        {
+          "title": "Shared decision-making",
+          "text": "Treatment recommendations are discussed collaboratively—families should understand and agree with proposed next steps."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Progress Tracking After Assessment",
+      "intro": "Assessment is not the end of the story. Eden uses ongoing data collection to refine goals and demonstrate measurable change.",
+      "items": [
+        {
+          "title": "Baseline to treatment graphs",
+          "text": "Assessment baselines become reference points for tracking skill acquisition and behavior change over weeks and months."
+        },
+        {
+          "title": "BCBA data review",
+          "text": "Supervising BCBAs regularly analyze session data, adjust programs, and train RBTs on updated protocols."
+        },
+        {
+          "title": "Goal mastery criteria",
+          "text": "Each goal includes clear mastery definitions so families know what progress looks like in practical terms."
+        },
+        {
+          "title": "Parent-friendly reporting",
+          "text": "Progress summaries are shared in accessible language during caregiver meetings and clinical updates."
+        },
+        {
+          "title": "Re-assessment when needed",
+          "text": "If needs change significantly, the clinical team may recommend updated assessment to realign services."
+        },
+        {
+          "title": "Ethical treatment adjustments",
+          "text": "Programs are modified when data show a skill is not progressing, ensuring interventions remain individualized and effective."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Medicaid Readiness",
+      "intro": "Many families use private insurance or Virginia Medicaid for ABA services. Assessment documentation often plays a key role in authorization.",
+      "bullets": [
+        "Clinical assessment summaries that describe functional needs and recommended ABA services",
+        "Diagnostic documentation support when required by your specific payer",
+        "EPSDT-aligned language for eligible Medicaid members when clinically appropriate",
+        "Coordination with Eden's intake team on authorization paperwork",
+        "Transparent explanation of what your plan may or may not cover",
+        "No guarantee of approval—each payer applies its own medical-necessity criteria"
+      ],
+      "note": "Eden ABA Therapy does not guarantee insurance or Medicaid approval. Our team helps families understand documentation requirements and submits information as permitted by each plan. Coverage varies by policy, network status, and clinical criteria."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How long does a behavior assessment take?",
+          "answer": "Timelines vary based on clinical complexity, scheduling, and records availability. Many assessments include an intake interview, one or more direct sessions, and a family feedback meeting. Your BCBA will outline expected steps after intake."
+        },
+        {
+          "question": "Does my child need an autism diagnosis before assessment?",
+          "answer": "Many families have a diagnosis before starting ABA, but situations differ by payer and clinical need. Eden's intake team can explain what documentation may be required for your specific insurance or Medicaid plan."
+        },
+        {
+          "question": "Who conducts the assessment?",
+          "answer": "Behavior assessments are overseen by a Board Certified Behavior Analyst (BCBA). Depending on the case, trained clinical staff may assist with observations under BCBA supervision."
+        },
+        {
+          "question": "Will you use punishment or aversive strategies?",
+          "answer": "Eden emphasizes positive, skill-building interventions aligned with ethical ABA practice. Assessment focuses on understanding behavior to teach functional alternatives—not on harmful or coercive approaches."
+        },
+        {
+          "question": "Can assessment happen at home?",
+          "answer": "When clinically appropriate, observations may occur in home, center, or community settings—or a combination—to understand behavior across real environments."
+        },
+        {
+          "question": "What happens after the assessment?",
+          "answer": "Families receive clinical recommendations, proposed goals, and next steps for starting or adjusting services. If you choose to proceed, Eden supports authorization and scheduling processes."
+        },
+        {
+          "question": "Is assessment the same as a diagnostic evaluation?",
+          "answer": "No. A behavior assessment for ABA treatment planning is different from a medical or psychological diagnostic evaluation. Eden can help families understand how these services relate."
+        },
+        {
+          "question": "How is my child's information protected?",
+          "answer": "Clinical records are handled according to applicable privacy laws and Eden policies. Information is shared only with consent or as required for care coordination and authorized billing."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Begin With a Thoughtful Assessment?",
+      "subtitle": "Connect with Eden ABA Therapy to discuss whether a behavior assessment is the right next step for your family.",
+      "primaryLabel": "Start Services",
+      "secondaryLabel": "Learn About Getting Started"
+    }
+  },
+  "individualizedAbaPrograms": {
+    "meta": {
+      "title": "Individualized ABA Programs | Eden ABA Therapy",
+      "description": "Customized ABA treatment programs with BCBA supervision, RBT implementation, data-driven goals, caregiver coaching, and measurable progress for children in Northern Virginia.",
+      "keywords": ["individualized ABA program", "custom ABA treatment plan", "BCBA supervised ABA", "RBT therapy", "autism ABA Virginia", "data-driven ABA"]
+    },
+    "hero": {
+      "eyebrow": "Personalized Clinical Care",
+      "title": "Individualized ABA Programs",
+      "subtitle": "Every child learns differently. Eden designs ABA programs around your child's strengths, developmental needs, caregiver priorities, and measurable goals—supervised by a BCBA and implemented by trained clinical staff.",
+      "breadcrumbLabel": "Individualized ABA Programs",
+      "imageAlt": "Therapist working one-on-one with a child on individualized ABA therapy goals"
+    },
+    "includes": {
+      "title": "What This Service Includes",
+      "intro": "Individualized ABA at Eden is not a pre-packaged curriculum. Programs are built from assessment data, family input, and ongoing clinical review.",
+      "items": [
+        {
+          "title": "BCBA-authored treatment plan",
+          "text": "A supervising BCBA designs programs with clear goals, teaching procedures, prompting strategies, and mastery criteria tailored to your child."
+        },
+        {
+          "title": "RBT-led skill sessions",
+          "text": "Registered Behavior Technicians (RBTs) or equivalent trained staff implement programs with fidelity under regular BCBA supervision."
+        },
+        {
+          "title": "Communication and language goals",
+          "text": "Targets may include requesting, labeling, conversation, AAC use, and other functional communication skills based on clinical need."
+        },
+        {
+          "title": "Daily living and independence skills",
+          "text": "Programs may address dressing, hygiene, mealtime routines, waiting, transitions, and other adaptive skills for home and community life."
+        },
+        {
+          "title": "Behavior support when needed",
+          "text": "When interfering behaviors limit learning, function-based strategies teach replacement skills and adjust supports—not punishment-first approaches."
+        },
+        {
+          "title": "Caregiver coaching integration",
+          "text": "Parent training is woven into care so strategies can be used consistently between sessions in natural routines."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Who This Service Helps",
+      "intro": "Individualized ABA programs support children and adolescents who benefit from structured, data-informed teaching across developmental domains.",
+      "items": [
+        {
+          "title": "Children with autism",
+          "summary": "Core ABA service population.",
+          "detail": "Programs address communication, social, play, adaptive, and learning goals commonly associated with autism spectrum needs—always individualized, never generic."
+        },
+        {
+          "title": "Children with developmental delays",
+          "summary": "Skill gaps in early learning or school readiness.",
+          "detail": "Interventions may focus on imitation, matching, following directions, and foundational learner skills that support later academic and social success."
+        },
+        {
+          "title": "Children needing intensive support",
+          "summary": "Higher frequency services when clinically appropriate.",
+          "detail": "Intensity recommendations are based on assessment, safety needs, and medical-necessity criteria—not sales pressure."
+        },
+        {
+          "title": "Children generalizing skills",
+          "summary": "Learning that must work outside the therapy room.",
+          "detail": "Programs plan for practice at home, in centers, at school, and in the community so skills transfer to real life."
+        },
+        {
+          "title": "Families wanting measurable progress",
+          "summary": "Clear data and transparent updates.",
+          "detail": "Parents receive understandable progress information tied to specific goals—not vague promises."
+        },
+        {
+          "title": "Children with complex profiles",
+          "summary": "Multiple goals across domains.",
+          "detail": "BCBAs coordinate overlapping communication, behavior, and adaptive targets into one coherent plan rather than disconnected sessions."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden ABA Delivers Care",
+      "intro": "Our delivery model reflects BCBA supervision standards, ethical individualized treatment, and family-centered implementation.",
+      "steps": [
+        {
+          "title": "Assessment-informed planning",
+          "text": "Programs begin with assessment data, caregiver priorities, and a review of settings where skills must be used."
+        },
+        {
+          "title": "Goal selection and consent",
+          "text": "The BCBA proposes goals in plain language. Families confirm which targets matter most before implementation begins."
+        },
+        {
+          "title": "Program authoring and staff training",
+          "text": "Detailed protocols are written for RBTs, including prompting, reinforcement, and data collection procedures."
+        },
+        {
+          "title": "Direct therapy implementation",
+          "text": "RBTs deliver 1:1 or small-group teaching in home, center, or other approved settings with positive, child-friendly methods."
+        },
+        {
+          "title": "Ongoing BCBA supervision",
+          "text": "BCBAs observe sessions, review data, update programs, and provide performance feedback to clinical staff."
+        },
+        {
+          "title": "Family coaching and plan updates",
+          "text": "Caregivers receive training and progress reviews. Programs evolve as skills improve or new needs emerge."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Clinical Goals",
+      "intro": "Goals are selected collaboratively and measured objectively. Eden does not promise outcomes—progress depends on many individual factors.",
+      "goals": [
+        {
+          "title": "Functional communication",
+          "text": "Increase meaningful ways to express needs, choices, and emotions through speech, AAC, or other individualized methods."
+        },
+        {
+          "title": "Social participation",
+          "text": "Build skills for joint attention, play, peer interaction, and appropriate social responses in natural contexts."
+        },
+        {
+          "title": "Adaptive daily living",
+          "text": "Strengthen independence in routines families identify as priorities—meals, hygiene, dressing, and household transitions."
+        },
+        {
+          "title": "Learner readiness",
+          "text": "Develop attending, imitation, and instruction-following skills that support classroom and community participation."
+        },
+        {
+          "title": "Reduction of interfering behavior",
+          "text": "Teach replacement behaviors and adjust supports so challenging patterns occur less often and learning can increase."
+        },
+        {
+          "title": "Caregiver confidence",
+          "text": "Help parents implement strategies consistently with coaching that respects family culture and capacity."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Family Involvement",
+      "intro": "Research consistently shows caregiver participation improves generalization. Eden builds family coaching into individualized programs—not as an afterthought.",
+      "cards": [
+        {
+          "title": "Parent training sessions",
+          "text": "Scheduled coaching on strategies matched to your child's current programs and home routines."
+        },
+        {
+          "title": "Goal prioritization",
+          "text": "Families help rank what matters most—communication at meals, safer transitions, or school readiness, for example."
+        },
+        {
+          "title": "Home practice plans",
+          "text": "Simple, realistic practice ideas that fit your schedule—not overwhelming homework lists."
+        },
+        {
+          "title": "Sibling and caregiver inclusion",
+          "text": "When appropriate, other caregivers learn consistent responses so the child experiences predictable support."
+        },
+        {
+          "title": "Progress meetings",
+          "text": "Regular updates explain data trends, mastered skills, and next targets in parent-friendly language."
+        },
+        {
+          "title": "Cultural responsiveness",
+          "text": "Coaching respects bilingual homes, multigenerational caregiving, and family values around discipline and routines."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Progress Tracking",
+      "intro": "Data collection is central to ethical ABA. Eden tracks progress continuously so programs stay effective and transparent.",
+      "items": [
+        {
+          "title": "Session-by-session data",
+          "text": "RBTs record performance on each target during therapy so trends are visible over time."
+        },
+        {
+          "title": "BCBA chart review",
+          "text": "Supervisors analyze graphs weekly or more often when rapid clinical decisions are needed."
+        },
+        {
+          "title": "Mastery and maintenance",
+          "text": "Skills move through acquisition, generalization, and maintenance phases with clear criteria at each step."
+        },
+        {
+          "title": "Treatment plan updates",
+          "text": "Written plans are revised when goals are mastered, paused, or replaced based on data and family input."
+        },
+        {
+          "title": "Authorization reporting",
+          "text": "When payers require updates, Eden provides progress summaries that reflect documented clinical change."
+        },
+        {
+          "title": "Ethical program changes",
+          "text": "If an intervention is not producing change, the BCBA modifies teaching methods rather than continuing ineffective procedures."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Medicaid Readiness",
+      "intro": "Individualized ABA programs are often covered when medically necessary and authorized by your plan. Eden supports families through documentation requirements.",
+      "bullets": [
+        "Treatment plans with measurable goals and BCBA supervision documentation",
+        "Progress data summaries for re-authorization when required",
+        "Coordination with intake staff on Virginia Medicaid and private payer processes",
+        "Discussion of service settings covered by your plan—home, center, or other",
+        "Clear explanation that recommended hours depend on clinical need, not automatic maximums",
+        "No coverage guarantees—each plan applies its own criteria"
+      ],
+      "note": "Medical necessity is determined by payers based on clinical documentation and plan rules. Eden provides accurate clinical records but cannot guarantee approval or specific hour levels."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How is an individualized program different from generic ABA?",
+          "answer": "Every goal, teaching procedure, and data sheet is written for your child based on assessment and family input. Eden does not use identical programs for every learner."
+        },
+        {
+          "question": "How many hours of ABA will my child receive?",
+          "answer": "Hours depend on clinical need, safety, assessment results, and payer authorization—not a one-size-fits-all schedule. Your BCBA explains recommendations and why."
+        },
+        {
+          "question": "What is the role of the BCBA versus the RBT?",
+          "answer": "The BCBA designs and supervises the program, analyzes data, and updates treatment. The RBT implements sessions under BCBA oversight and receives ongoing training."
+        },
+        {
+          "question": "Can goals include school-related skills?",
+          "answer": "Yes, when clinically appropriate and aligned with family consent. Skills may support classroom routines, communication with teachers, and school readiness."
+        },
+        {
+          "question": "Will my child only work at a table?",
+          "answer": "Eden uses naturalistic teaching, play-based learning, and real-life routines—not only tabletop drills. Methods are matched to the child's age and learning style."
+        },
+        {
+          "question": "How often will I receive progress updates?",
+          "answer": "Frequency varies by program intensity and payer requirements, but families can expect regular communication and scheduled review meetings."
+        },
+        {
+          "question": "Can programs be provided in Vietnamese-speaking homes?",
+          "answer": "Eden supports bilingual families and can coordinate language preferences during intake and caregiver coaching when staffing allows."
+        },
+        {
+          "question": "What if my child isn't making progress on a goal?",
+          "answer": "The BCBA reviews data, adjusts teaching strategies, and may revise or replace goals. Ethical ABA requires responding to data—not continuing ineffective plans."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Build a Program Designed for Your Child",
+      "subtitle": "Talk with Eden about individualized ABA programs grounded in assessment, supervision, and family partnership.",
+      "primaryLabel": "Start Services",
+      "secondaryLabel": "Learn About Getting Started"
+    }
+  },
+  "earlyInterventionAbaTherapy": {
+    "meta": {
+      "title": "Early Intervention ABA Therapy | Eden ABA Therapy",
+      "description": "Early intervention ABA therapy for young children focusing on communication, play, imitation, daily living skills, and positive learning routines with family-centered coaching in Northern Virginia.",
+      "keywords": ["early intervention ABA", "toddler ABA therapy", "early autism intervention", "young child ABA", "developmental early support", "Medicaid early intervention Virginia"]
+    },
+    "hero": {
+      "eyebrow": "Early Development Support",
+      "title": "Early Intervention ABA Therapy",
+      "subtitle": "For young children, early support can make a meaningful difference. Eden provides play-based, family-centered ABA focused on communication, imitation, play, daily routines, and positive learning experiences.",
+      "breadcrumbLabel": "Early Intervention ABA",
+      "imageAlt": "Toddler engaged in early intervention play with a caregiver during ABA therapy"
+    },
+    "includes": {
+      "title": "What This Service Includes",
+      "intro": "Early intervention at Eden emphasizes naturalistic learning, caregiver coaching, and developmentally appropriate goals—not rigid drills disconnected from childhood.",
+      "items": [
+        {
+          "title": "Developmentally matched assessment",
+          "text": "BCBA-led review of early communication, play, motor imitation, social engagement, and adaptive routines appropriate to your child's age."
+        },
+        {
+          "title": "Play-based teaching",
+          "text": "Learning embedded in play, movement, songs, and daily activities so sessions feel engaging for young children."
+        },
+        {
+          "title": "Early communication support",
+          "text": "Building requesting, joint attention, gesturing, vocalizations, and AAC readiness when clinically indicated."
+        },
+        {
+          "title": "Imitation and learner skills",
+          "text": "Foundational skills such as copying actions, following simple directions, and tolerating short structured activities."
+        },
+        {
+          "title": "Daily routine integration",
+          "text": "Practice during snacks, dressing, bath time, and transitions so skills connect to real family life."
+        },
+        {
+          "title": "Caregiver coaching from day one",
+          "text": "Parents learn strategies during sessions to reinforce progress between visits."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Who This Service Helps",
+      "intro": "Early intervention ABA may benefit toddlers and young children showing developmental differences—or families seeking proactive support after a diagnosis.",
+      "items": [
+        {
+          "title": "Toddlers with autism concerns",
+          "summary": "Recent diagnosis or developmental monitoring.",
+          "detail": "Support focuses on early communication, play, social engagement, and routines that build a foundation for later learning."
+        },
+        {
+          "title": "Children with language delays",
+          "summary": "Limited words, gestures, or social communication.",
+          "detail": "Interventions teach functional ways to express needs and participate in back-and-forth interaction."
+        },
+        {
+          "title": "Children with limited play skills",
+          "summary": "Repetitive play or difficulty with toys and peers.",
+          "detail": "Therapists expand play repertoires, turn-taking, and flexible engagement with objects and people."
+        },
+        {
+          "title": "Families establishing routines",
+          "summary": "Mealtime, sleep, or transition challenges.",
+          "detail": "Early coaching helps families build predictable routines that support regulation and learning."
+        },
+        {
+          "title": "Children preparing for preschool",
+          "summary": "School readiness foundations.",
+          "detail": "Targets may include group tolerance, simple instructions, sharing attention, and basic self-help skills."
+        },
+        {
+          "title": "Medicaid-eligible young children",
+          "summary": "EPSDT early intervention pathways.",
+          "detail": "When clinically appropriate, documentation may reflect early developmental needs under applicable Medicaid rules."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden ABA Delivers Care",
+      "intro": "Early intervention requires patience, warmth, and clinical precision. Eden combines all three with BCBA oversight and trained implementers.",
+      "steps": [
+        {
+          "title": "Family-centered intake",
+          "text": "Care coordinators and BCBAs learn about your child's daily life, developmental history, and family goals."
+        },
+        {
+          "title": "Play-based baseline sessions",
+          "text": "Clinicians observe natural play and routines to identify strengths and priority teaching targets."
+        },
+        {
+          "title": "Individualized early goals",
+          "text": "Short, achievable targets are selected to build momentum—communication, imitation, play, and adaptive skills."
+        },
+        {
+          "title": "Caregiver modeling and coaching",
+          "text": "Parents practice strategies during sessions with real-time guidance from the clinical team."
+        },
+        {
+          "title": "Consistent RBT implementation",
+          "text": "Trained staff deliver programs with positive reinforcement and child-led breaks as needed."
+        },
+        {
+          "title": "BCBA review and program updates",
+          "text": "Supervisors analyze early data frequently and adjust teaching as the child develops."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Clinical Goals",
+      "intro": "Early goals prioritize skills that unlock later learning—communication, social connection, and participation in family routines.",
+      "goals": [
+        {
+          "title": "Joint attention and engagement",
+          "text": "Increase shared focus on objects, people, and activities with caregivers and therapists."
+        },
+        {
+          "title": "Functional early communication",
+          "text": "Build requesting, protesting, and commenting through speech, signs, or AAC as appropriate."
+        },
+        {
+          "title": "Imitation skills",
+          "text": "Copy actions with objects and body movements to support observational learning."
+        },
+        {
+          "title": "Play expansion",
+          "text": "Develop functional and pretend play that supports cognitive and social growth."
+        },
+        {
+          "title": "Daily living participation",
+          "text": "Support mealtime, dressing, hygiene, and cleanup routines with age-appropriate independence."
+        },
+        {
+          "title": "Positive learning routines",
+          "text": "Help children tolerate short structured activities, transitions, and adult-guided learning."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Family Involvement",
+      "intro": "In early childhood, parents are the most important teachers. Eden designs intervention so families can participate confidently every day.",
+      "cards": [
+        {
+          "title": "Coaching during sessions",
+          "text": "Learn strategies while playing and caring for your child—not only through separate lectures."
+        },
+        {
+          "title": "Routine-based practice",
+          "text": "Targets connect to meals, bath, bedtime, and outings you already do each day."
+        },
+        {
+          "title": "Developmental guidance",
+          "text": "BCBAs explain what skills typically come next so expectations feel realistic and hopeful."
+        },
+        {
+          "title": "Sibling and grandparent tips",
+          "text": "Simple guidance for all caregivers to respond consistently and positively."
+        },
+        {
+          "title": "Bilingual family support",
+          "text": "Vietnamese- and English-speaking families receive culturally respectful communication."
+        },
+        {
+          "title": "Celebrating small wins",
+          "text": "Early progress can be subtle. Eden helps families recognize meaningful milestones along the way."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Progress Tracking",
+      "intro": "Even for young children, data guides decisions. Eden tracks early skills carefully to adjust teaching quickly.",
+      "items": [
+        {
+          "title": "Frequent probe data",
+          "text": "Short, repeated measures show whether early targets are emerging or need new teaching methods."
+        },
+        {
+          "title": "Video and observation review",
+          "text": "BCBAs may review session examples to coach RBTs and refine naturalistic teaching."
+        },
+        {
+          "title": "Developmental milestone mapping",
+          "text": "Progress is discussed in terms families understand—not only technical jargon."
+        },
+        {
+          "title": "Caregiver report integration",
+          "text": "Parent observations at home inform whether skills are generalizing beyond sessions."
+        },
+        {
+          "title": "Plan updates as children grow",
+          "text": "Goals evolve quickly in early childhood; programs are revised as new skills emerge."
+        },
+        {
+          "title": "Authorization documentation",
+          "text": "When required, progress summaries reflect early developmental gains for payer review."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Medicaid Readiness",
+      "intro": "Early intervention services may be covered through private insurance or Virginia Medicaid EPSDT when clinically necessary and authorized.",
+      "bullets": [
+        "Early developmental assessment documentation when required",
+        "Treatment plans emphasizing medical necessity for young children with qualifying needs",
+        "Coordination with Eden intake on Medicaid EPSDT and private insurance requirements",
+        "Discussion of appropriate service settings for toddlers—often home or center-based",
+        "Transparent conversation about diagnosis and documentation requirements by payer",
+        "No guarantee of coverage—each plan has unique criteria"
+      ],
+      "note": "Early intervention does not guarantee specific developmental outcomes. Eden focuses on ethical, individualized services and accurate documentation while families work with their payers on authorization."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What age is early intervention ABA for?",
+          "answer": "Early intervention typically focuses on toddlers and young children, often under age five, though individual needs and payer rules vary. Eden's intake team can discuss whether this service fits your child."
+        },
+        {
+          "question": "Is early ABA therapy play-based?",
+          "answer": "Yes. Eden emphasizes naturalistic, play-based teaching for young children while maintaining clinical structure and data collection behind the scenes."
+        },
+        {
+          "question": "How many hours do young children need?",
+          "answer": "Recommended intensity depends on assessment, developmental profile, and authorization—not a default number for every toddler. Your BCBA explains clinical rationale."
+        },
+        {
+          "question": "Can early intervention happen at home?",
+          "answer": "Home-based early intervention is common because young children learn best in familiar routines. Center-based options may also be available."
+        },
+        {
+          "question": "Will early ABA 'fix' autism?",
+          "answer": "Eden does not promise cures or guaranteed outcomes. Early intervention aims to build skills, support families, and improve quality of life through ethical, individualized teaching."
+        },
+        {
+          "question": "Do parents stay during sessions?",
+          "answer": "Caregiver participation is encouraged so strategies can be practiced and carried into daily routines. Specific arrangements depend on the child's needs and clinical plan."
+        },
+        {
+          "question": "How soon can services start after intake?",
+          "answer": "Timelines depend on assessment completion, staffing, and authorization when required. Eden's team communicates expected next steps clearly."
+        },
+        {
+          "question": "What if my child is not ready to sit at a table?",
+          "answer": "That is expected for many toddlers. Teaching occurs through play, movement, and routines—not forced tabletop work."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Support Your Child's Earliest Learning Steps",
+      "subtitle": "Connect with Eden to explore early intervention ABA built around your family routines and your child's unique strengths.",
+      "primaryLabel": "Start Services",
+      "secondaryLabel": "Learn About Getting Started"
+    }
+  },
+  "socialSkillsTraining": {
+    "meta": {
+      "title": "Social Skills Training | Eden ABA Therapy",
+      "description": "ABA-based social skills training for peer interaction, conversation, play, shared attention, and friendship-building with BCBA supervision and measurable goals in Northern Virginia.",
+      "keywords": ["social skills training ABA", "autism social skills", "peer interaction therapy", "conversation skills ABA", "friendship skills autism", "social skills groups Virginia"]
+    },
+    "hero": {
+      "eyebrow": "Connection & Participation",
+      "title": "Social Skills Training",
+      "subtitle": "Social skills are teachable when broken into meaningful steps. Eden helps children practice peer interaction, conversation, play, shared attention, and friendship skills in supportive, data-informed ways.",
+      "breadcrumbLabel": "Social Skills Training",
+      "imageAlt": "Children practicing social skills through peer play and turn-taking during ABA therapy"
+    },
+    "includes": {
+      "title": "What This Service Includes",
+      "intro": "Social skills training at Eden integrates behavioral science with real social opportunities—not worksheets alone.",
+      "items": [
+        {
+          "title": "Social skill assessment",
+          "text": "Review of current peer interaction, conversation, play, and group participation to identify specific, teachable targets."
+        },
+        {
+          "title": "Individualized social goals",
+          "text": "Goals may include greetings, turn-taking, sharing, personal space, conversation topics, and reading social cues at the child's level."
+        },
+        {
+          "title": "Structured practice sessions",
+          "text": "RBT-led teaching with role-play, games, and guided interactions using positive reinforcement and prompting strategies."
+        },
+        {
+          "title": "Peer and group opportunities",
+          "text": "When clinically appropriate, practice with peers or siblings to build generalization beyond the therapist relationship."
+        },
+        {
+          "title": "BCBA program supervision",
+          "text": "BCBAs design social curricula, analyze data, and adjust teaching as skills improve or new challenges appear."
+        },
+        {
+          "title": "Caregiver coaching for community",
+          "text": "Parents learn how to support playdates, parks, birthday parties, and family gatherings with confidence."
+        }
+      ]
+    },
+    "whoHelps": {
+      "title": "Who This Service Helps",
+      "intro": "Many children benefit from explicit social teaching—especially when natural observation and imitation are not sufficient alone.",
+      "items": [
+        {
+          "title": "Children who struggle with peers",
+          "summary": "Difficulty joining play or making friends.",
+          "detail": "Teaching covers how to approach peers, share materials, take turns, and respond to rejection appropriately."
+        },
+        {
+          "title": "Children with conversation challenges",
+          "summary": "Limited back-and-forth or topic maintenance.",
+          "detail": "Goals may include asking questions, answering peers, staying on topic, and using appropriate voice volume."
+        },
+        {
+          "title": "Children with autism",
+          "summary": "Social differences affecting participation.",
+          "detail": "Interventions respect neurodiversity while teaching skills the child and family want to build—not forcing masking for its own sake."
+        },
+        {
+          "title": "Children preparing for school",
+          "summary": "Classroom group expectations.",
+          "detail": "Practice includes lining up, group responses, partner work, and navigating cafeteria or recess environments."
+        },
+        {
+          "title": "Children with anxiety in social settings",
+          "summary": "Avoidance or distress around peers.",
+          "detail": "Gradual exposure, coping strategies, and success experiences build confidence at the child's pace."
+        },
+        {
+          "title": "Adolescents needing friendship skills",
+          "summary": "Older learners with social goals.",
+          "detail": "Targets may include texting etiquette, group projects, leisure planning, and self-advocacy in social contexts."
+        }
+      ]
+    },
+    "howDeliver": {
+      "title": "How Eden ABA Delivers Care",
+      "intro": "Social skills are practiced, reinforced, and measured—then generalized to real relationships and settings.",
+      "steps": [
+        {
+          "title": "Social assessment and goal setting",
+          "text": "The BCBA identifies specific social deficits and strengths through observation, interviews, and standardized tools when appropriate."
+        },
+        {
+          "title": "Task analysis of social behaviors",
+          "text": "Complex skills like joining play are broken into small, teachable steps with clear mastery criteria."
+        },
+        {
+          "title": "Controlled practice",
+          "text": "RBTs facilitate practice in low-pressure settings before moving to more complex social demands."
+        },
+        {
+          "title": "Natural environment practice",
+          "text": "Skills transfer to playgrounds, centers, homes, and community locations where social interaction actually occurs."
+        },
+        {
+          "title": "BCBA data review",
+          "text": "Supervisors track which social targets are improving and modify programs when progress stalls."
+        },
+        {
+          "title": "Family and school coordination",
+          "text": "With consent, strategies may align across home and school so the child hears consistent expectations."
+        }
+      ]
+    },
+    "clinicalGoals": {
+      "title": "Clinical Goals",
+      "intro": "Social goals are individualized to each child's developmental level and family priorities—never copied from a generic checklist.",
+      "goals": [
+        {
+          "title": "Peer engagement",
+          "text": "Increase initiation and response during play, games, and group activities with same-age peers when possible."
+        },
+        {
+          "title": "Conversation skills",
+          "text": "Build greetings, questions, comments, and topic maintenance appropriate to the child's age."
+        },
+        {
+          "title": "Shared attention",
+          "text": "Strengthen looking, showing, and coordinating attention during joint activities."
+        },
+        {
+          "title": "Cooperative play",
+          "text": "Teach turn-taking, sharing, winning/losing, and collaborative games."
+        },
+        {
+          "title": "Social problem-solving",
+          "text": "Practice handling conflicts, waiting, and negotiating with appropriate adult support."
+        },
+        {
+          "title": "Community participation",
+          "text": "Support behavior in libraries, stores, restaurants, and family events where social rules apply."
+        }
+      ]
+    },
+    "familyInvolvement": {
+      "title": "Family Involvement",
+      "intro": "Social skills grow in relationships. Eden coaches families to create safe practice opportunities outside therapy sessions.",
+      "cards": [
+        {
+          "title": "Playdate planning",
+          "text": "Guidance on structuring short, successful peer interactions at home or in the community."
+        },
+        {
+          "title": "Sibling coaching",
+          "text": "Tips for brothers and sisters to play inclusively while supporting therapeutic goals."
+        },
+        {
+          "title": "Reinforcement at home",
+          "text": "Families learn to notice and reinforce social attempts—not only perfect performance."
+        },
+        {
+          "title": "Community outing support",
+          "text": "Strategies for parks, birthday parties, and religious or cultural gatherings."
+        },
+        {
+          "title": "School communication",
+          "text": "With permission, Eden may share strategies teachers can use to support recess and group work."
+        },
+        {
+          "title": "Respecting autonomy",
+          "text": "Families choose which social goals matter most, including when a child needs rest rather than forced interaction."
+        }
+      ]
+    },
+    "progressTracking": {
+      "title": "Progress Tracking",
+      "intro": "Social progress can be subtle. Eden uses direct measurement so improvements are visible and programs stay accountable.",
+      "items": [
+        {
+          "title": "Frequency and duration counts",
+          "text": "Track how often a child initiates, responds, or maintains interaction during structured probes."
+        },
+        {
+          "title": "Generalization probes",
+          "text": "Measure whether skills occur with new peers, locations, or materials—not only with one therapist."
+        },
+        {
+          "title": "Rating scales and rubrics",
+          "text": "Use simple scoring systems so caregivers understand week-to-week change."
+        },
+        {
+          "title": "BCBA supervision notes",
+          "text": "Supervisors document program changes based on social data trends."
+        },
+        {
+          "title": "Caregiver feedback loops",
+          "text": "Parent reports from real playdates inform whether goals are working outside sessions."
+        },
+        {
+          "title": "Authorization updates",
+          "text": "Progress summaries provided to payers when re-authorization is required."
+        }
+      ]
+    },
+    "insurance": {
+      "title": "Insurance & Medicaid Readiness",
+      "intro": "Social skills training is often part of a broader ABA treatment plan when medically necessary. Stand-alone coverage depends on payer rules.",
+      "bullets": [
+        "Social goals embedded in individualized ABA treatment plans",
+        "Documentation linking social deficits to functional impairment when required",
+        "BCBA supervision and data collection records for authorization",
+        "Coordination with Eden intake on Medicaid and private insurance processes",
+        "Discussion of whether social skills are covered as part of comprehensive ABA",
+        "No guarantee of standalone social skills coverage without broader ABA authorization"
+      ],
+      "note": "Payers typically authorize ABA based on comprehensive clinical need, not isolated social skills alone. Eden helps families understand how social training fits within individualized programs and payer requirements."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Is social skills training a separate service from ABA?",
+          "answer": "Social skills are commonly taught within individualized ABA programs. Eden may address social goals as part of comprehensive treatment rather than as a standalone product, depending on clinical and payer requirements."
+        },
+        {
+          "question": "Does Eden offer social skills groups?",
+          "answer": "Group formats depend on staffing, age mix, and clinical fit. Some children learn best in dyads or small groups; others need individual preparation first."
+        },
+        {
+          "question": "Will you teach my child to mask autism?",
+          "answer": "Eden focuses on skills the child and family choose to build—communication, friendship, and participation—while respecting neurodiversity and the child's comfort and dignity."
+        },
+        {
+          "question": "Can social skills be taught online?",
+          "answer": "Some practice can occur via telehealth when appropriate, but in-person peer practice is often important. The BCBA recommends formats based on clinical need."
+        },
+        {
+          "question": "How long until my child makes friends?",
+          "answer": "Friendship develops gradually and depends on many factors. Eden measures specific social behaviors and celebrates incremental progress without promising particular social outcomes."
+        },
+        {
+          "question": "Can you coordinate with my child's school?",
+          "answer": "With family consent, Eden may share strategies relevant to recess, lunch, and group learning. School-based services may require separate agreements."
+        },
+        {
+          "question": "What if my child refuses social activities?",
+          "answer": "Programs use gradual exposure, choice, and reinforcement—not forced participation. The BCBA adjusts goals to balance challenge and comfort."
+        },
+        {
+          "question": "Are social skills only for young children?",
+          "answer": "No. Eden supports social goals across ages, with content matched to developmental level—from early play to adolescent friendship and self-advocacy."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Help Your Child Build Meaningful Social Connections",
+      "subtitle": "Speak with Eden about social skills training grounded in ABA science, BCBA supervision, and family-centered practice.",
+      "primaryLabel": "Start Services",
+      "secondaryLabel": "Learn About Getting Started"
+    }
+  }
+}

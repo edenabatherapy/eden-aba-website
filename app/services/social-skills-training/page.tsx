@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import BasicServicePage from "@/components/services/BasicServicePage";
-import {
-  BASIC_SERVICE_PAGE_INDICES,
-  getBasicServicePageMetadata,
-} from "@/lib/services/basic-service-page-data";
+import EnterpriseServicePage from "@/components/services/EnterpriseServicePage";
+import { getEnterpriseServiceMetadata } from "@/lib/services/enterprise-service-metadata";
 
-export const metadata: Metadata = getBasicServicePageMetadata("social-skills-training");
+export const metadata: Metadata = getEnterpriseServiceMetadata("social-skills-training");
 
 export default function Page() {
-  return <BasicServicePage serviceIndex={BASIC_SERVICE_PAGE_INDICES["social-skills-training"]} />;
+  return <EnterpriseServicePage slug="social-skills-training" />;
 }
