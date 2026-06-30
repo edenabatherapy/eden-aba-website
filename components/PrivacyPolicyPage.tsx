@@ -208,7 +208,7 @@ function ContactDetails({
 
 export default function PrivacyPolicyPage({
   businessInfo,
-  newsletter,
+  newsletter: _newsletter,
   onLearnAba,
   onConsultation,
 }: PrivacyPolicyPageProps) {
@@ -327,7 +327,7 @@ export default function PrivacyPolicyPage({
         </div>
       </section>
 
-      <PrivacyPolicyNewsletterSection labels={newsletter} />
+      <PrivacyPolicyNewsletterSection />
     </div>
   );
 }

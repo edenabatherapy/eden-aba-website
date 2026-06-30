@@ -29,6 +29,7 @@ import { ALLIED_HEALTH_HERO_IMAGES } from "@/lib/services/allied-health-images";
 import { ALLIED_HEALTH_CONTENT_KEYS, type AlliedHealthSlug } from "@/lib/services/allied-health-slugs";
 import { ALLIED_HEALTH_THEMES } from "@/lib/services/allied-health-themes";
 import { getButtonClasses } from "@/lib/button-styles";
+import { EDEN_CARD } from "@/lib/eden-design-system";
 
 const ANIMATION_BY_SLUG: Record<AlliedHealthSlug, ServiceMeaningAnimationType> = {
   "occupational-therapy": "occupational",
@@ -38,8 +39,7 @@ const ANIMATION_BY_SLUG: Record<AlliedHealthSlug, ServiceMeaningAnimationType> =
 
 const SECTION_ICONS = [ClipboardList, Target, Users, BookOpen, HeartHandshake, Sparkles] as const;
 
-const cardClass =
-  "rounded-[1.75rem] border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg";
+const cardClass = EDEN_CARD;
 
 type AlliedHealthServicePageProps = {
   slug: AlliedHealthSlug;
@@ -508,7 +508,7 @@ export default function AlliedHealthServicePage({ slug }: AlliedHealthServicePag
             </section>
 
             {/* Family education */}
-            <section id="family-education" className="scroll-mt-24 bg-[#FAF7F0] rounded-[2rem] px-6 py-12 lg:px-10">
+            <section id="family-education" className="scroll-mt-24 eden-section eden-section--warm rounded-[2rem] px-6 py-12 lg:px-10">
               <motion.h2 {...reveal()} className="text-3xl font-black text-[#0F172A] md:text-4xl">
                 {familyEducation.title}
               </motion.h2>

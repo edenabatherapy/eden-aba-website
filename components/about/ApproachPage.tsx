@@ -38,7 +38,7 @@ export default function ApproachPage() {
   }, [darkMode]);
 
   return (
-    <div className={darkMode ? "dark bg-slate-950 text-white" : "bg-white text-slate-900"}>
+    <div className={darkMode ? "dark bg-slate-950 text-white" : "eden-page-shell min-h-screen text-slate-900"}>
       <ApproachPageSchema />
       <AboutSiteHeader />
 

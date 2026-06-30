@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
 import AboutSiteHeader from "@/components/about/AboutSiteHeader";
-import FamilyNewsletter from "@/components/common/FamilyNewsletter";
+import EdenNewsletter from "@/components/common/EdenNewsletter";
 import Footer from "@/components/common/Footer";
 import CareersFutureLocations from "@/components/careers/CareersFutureLocations";
 import CareersPortal from "@/components/careers/CareersPortal";
@@ -24,7 +24,7 @@ function CareersPortalFallback() {
 
 export default function CareersPage() {
   return (
-    <div className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+    <div className="eden-page-shell min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       <AboutSiteHeader />
 
       <main id="main-content">
@@ -74,7 +74,7 @@ export default function CareersPage() {
         <CareersTalentNetwork />
       </main>
 
-      <FamilyNewsletter />
+      <EdenNewsletter source="careers-hub" />
       <Footer />
     </div>
   );

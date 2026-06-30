@@ -186,7 +186,7 @@ export default function GettingStartedPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20">
+      <div className="eden-section eden-section--mint mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20">
         <motion.section {...reveal()} aria-labelledby="core-topics-heading">
           <h2 id="core-topics-heading" className="text-3xl font-extrabold text-slate-900 sm:text-4xl">
             {ui.coreTopicsTitle}

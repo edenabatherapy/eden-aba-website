@@ -31,7 +31,9 @@ import {
 import { ENTERPRISE_SERVICE_THEMES } from "@/lib/services/enterprise-service-themes";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { getButtonClasses } from "@/lib/button-styles";
+import { EDEN_CARD } from "@/lib/eden-design-system";
 
+const cardClass = EDEN_CARD;
 const INCLUDE_ICONS = [ClipboardList, Target, Users, Brain, ShieldCheck, Sparkles] as const;
 const WHO_ICONS = [Users, MessageCircle, HeartHandshake, BookOpen, Target, Sparkles] as const;
 const GOAL_ICONS = [Target, MessageCircle, BookOpen, Users, LineChart, ShieldCheck] as const;
@@ -74,9 +76,6 @@ type EnterpriseServicesBundle = {
   earlyInterventionAbaTherapy: ServiceContent;
   socialSkillsTraining: ServiceContent;
 };
-
-const cardClass =
-  "rounded-[1.75rem] border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg";
 
 export default function EnterpriseServicePage({ slug }: EnterpriseServicePageProps) {
   const reduceMotion = useReducedMotion();
@@ -161,7 +160,7 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
       </section>
 
       {/* What this service includes */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{content.includes.title}</h2>
@@ -189,7 +188,7 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
       </section>
 
       {/* Who this service helps */}
-      <section className="px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{content.whoHelps.title}</h2>
@@ -261,7 +260,7 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
       </section>
 
       {/* Clinical goals */}
-      <section className="bg-white px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{content.clinicalGoals.title}</h2>
@@ -287,7 +286,7 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
       </section>
 
       {/* Family involvement */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{content.familyInvolvement.title}</h2>
@@ -315,7 +314,7 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
       </section>
 
       {/* Progress tracking */}
-      <section className="px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{content.progressTracking.title}</h2>
@@ -370,7 +369,7 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <motion.h2 {...reveal()} className="text-center text-3xl font-black text-[#0F172A] md:text-4xl">
             {content.faq.title}

@@ -5,6 +5,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Eden design system — Home page reference */
+  --eden-forest: #0b4f4f;
+  --eden-forest-deep: #021f1c;
+  --eden-teal: #128c8c;
+  --eden-emerald: #0e6b4f;
+  --eden-mint: #f6fbf8;
+  --eden-warm-white: #faf7f0;
+  --eden-gold: #f7c72f;
+  --eden-ink: #0f172a;
+  --eden-slate: #64748b;
+  --eden-section-py: 5rem;
+  --eden-container-max: 80rem;
+  --eden-card-radius: 1.75rem;
 }
 
 @theme inline {
@@ -30,6 +44,85 @@ body {
 .field-invalid {
   border-color: #d92d20 !important;
   box-shadow: 0 0 0 3px rgba(217, 45, 32, 0.08) !important;
+}
+
+/* Eden ABA Therapy — global page shell & section rhythm */
+
+.eden-page-shell {
+  background: linear-gradient(180deg, #ffffff 0%, var(--eden-mint) 48%, #ffffff 100%);
+  background-attachment: fixed;
+}
+
+.eden-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.eden-section--white {
+  background: #ffffff;
+}
+
+.eden-section--mint {
+  background: var(--eden-mint);
+}
+
+.eden-section--warm {
+  background: var(--eden-warm-white);
+}
+
+.eden-section--teal-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(246, 251, 248, 1) 0%,
+    rgba(221, 244, 244, 0.55) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.eden-section--forest-cta {
+  background: linear-gradient(to bottom right, var(--eden-forest-deep), #032f2b, var(--eden-forest));
+  color: #fff;
+}
+
+.eden-card {
+  border-radius: var(--eden-card-radius);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.eden-card-glass {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+@keyframes edenFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eden-reveal {
+  animation: edenFadeUp 0.65s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eden-reveal {
+    animation: none;
+  }
+
+  .eden-card,
+  .eden-card-glass,
+  .eden-newsletter-banner__card {
+    transition: none;
+  }
 }
 
 /* Eden ABA Therapy - Final compact animated insurance section */
@@ -750,6 +843,14 @@ body {
   background: linear-gradient(135deg, #064236 0%, #087a3d 55%, #0f8f74 100%);
   box-shadow: 0 22px 55px rgba(6, 66, 54, 0.18);
   text-align: center;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.eden-newsletter-banner__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 60px rgba(6, 66, 54, 0.22);
 }
 
 .eden-newsletter-banner__title {
@@ -810,6 +911,7 @@ body {
 
 .eden-newsletter-banner__button:hover:not(:disabled) {
   background: #ffdc5c;
+  box-shadow: 0 0 20px rgba(247, 199, 47, 0.35);
 }
 
 .eden-newsletter-banner__button:disabled {
