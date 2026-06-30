@@ -20,7 +20,7 @@ const LifelongGrowth = dynamic(() => import("@/components/about/LifelongGrowth")
 const ApproachValuesPreview = dynamic(() => import("@/components/about/ApproachValuesPreview"));
 const ApproachFAQ = dynamic(() => import("@/components/about/ApproachFAQ"));
 const ApproachFinalCTA = dynamic(() => import("@/components/about/ApproachFinalCTA"));
-const FamilyNewsletter = dynamic(() => import("@/components/common/FamilyNewsletter"));
+import EdenNewsletter from "@/components/common/EdenNewsletter";
 const Footer = dynamic(() => import("@/components/common/Footer"));
 
 export default function ApproachPage() {
@@ -69,7 +69,7 @@ export default function ApproachPage() {
         <ApproachFinalCTA />
       </main>
 
-      <FamilyNewsletter />
+      <EdenNewsletter source="about-page" />
       <Footer />
 
       <StickyCtaBar />

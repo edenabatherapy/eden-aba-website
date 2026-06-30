@@ -77,7 +77,7 @@ export default function BasicServicePage({ serviceIndex }: BasicServicePageProps
         </div>
       </section>
 
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">How Eden Can Help</h2>
           <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{description}</p>

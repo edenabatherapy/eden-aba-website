@@ -288,7 +288,7 @@ export default function AlliedHealthServicePage({ slug }: AlliedHealthServicePag
                 ))}
               </div>
               <div className="mt-10 grid gap-8 lg:grid-cols-2">
-                <motion.div {...reveal()} className="rounded-[1.75rem] border border-slate-100 bg-[#FAF7F0] p-6">
+                <motion.div {...reveal()} className={`${EDEN_CARD} p-6`}>
                   <h3 className="text-lg font-black text-[#0F172A]">{shared.signsTitle}</h3>
                   <ul className="mt-4 space-y-2">
                     {whoBenefits.signs.map((sign) => (

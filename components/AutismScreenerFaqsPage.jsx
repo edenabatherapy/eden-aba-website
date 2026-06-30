@@ -4,23 +4,15 @@ import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
-  BookOpen,
   Check,
   ChevronDown,
-  HeartHandshake,
-  Mail,
   MapPin,
   Search,
-  ShieldCheck,
-  Sparkles,
-  Sprout,
 } from "lucide-react";
 import { FAQ_CATEGORIES, FAQ_ITEMS } from "@/lib/autism-screener-faqs";
 import { SITE_IMAGES } from "@/lib/site-images";
 import EdenButton from "@/components/EdenButton";
-import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
-import { useNewsletterSignup } from "@/hooks/useNewsletterSignup";
+import EdenNewsletter from "@/components/common/EdenNewsletter";
 
 const fadeUp = {
   initial: false,
@@ -68,265 +60,8 @@ function FaqFilterList({ categories, selected, onToggle, onSelectAll, idPrefix =
   );
 }
 
-const BENEFIT_ICONS = [Sparkles, BookOpen, HeartHandshake, ShieldCheck, Sprout, Mail];
-
-function FaqNewsletterSection({ t }) {
-  const n = t.pages.autismScreenerFaqs.newsletter;
-  const reduceMotion = useReducedMotion();
-
-  const sectionMotion = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 32 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: "-60px" },
-        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
-      };
-
-  const cardHover = reduceMotion
-    ? {}
-    : {
-        whileHover: { y: -4, transition: { duration: 0.22 } },
-      };
-
-  return (
-    <section
-      id="faq-newsletter"
-      aria-labelledby="faq-newsletter-heading"
-      className="relative overflow-hidden px-4 py-16 lg:px-8 lg:py-24"
-    >
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-[#FFF7ED] via-[#ECFDF5] to-[#F0FDFA]"
-        aria-hidden
-      />
-      <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#0F7F4F]/15 blur-3xl" aria-hidden />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-80 w-80 rounded-full bg-[#0EA5A4]/20 blur-3xl" aria-hidden />
-      <div className="pointer-events-none absolute right-1/4 top-1/3 h-48 w-48 rounded-full bg-[#FBC02D]/25 blur-3xl" aria-hidden />
-
-      <motion.div {...sectionMotion} className="relative mx-auto max-w-6xl">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start lg:gap-12">
-          <div className="order-1">
-            <p className="inline-flex items-center gap-2 rounded-full border border-[#0F7F4F]/20 bg-white/80 px-4 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-[#064E3B] shadow-sm">
-              <Mail size={14} className="text-[#0F7F4F]" aria-hidden />
-              Eden Family Resources
-            </p>
-            <h2 id="faq-newsletter-heading" className="mt-5 text-3xl font-black leading-tight text-[#0F172A] md:text-4xl lg:text-[2.5rem]">
-              {n.title}
-            </h2>
-            <p className="mt-4 text-lg font-semibold leading-8 text-[#475569]">{n.intro}</p>
-
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2" aria-label="Newsletter benefits">
-              {(n.benefits || []).map((benefit, index) => {
-                const Icon = BENEFIT_ICONS[index] ?? Sparkles;
-                return (
-                  <motion.li
-                    key={benefit}
-                    whileHover={reduceMotion ? undefined : { y: -3, scale: 1.01 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex items-center gap-3 rounded-2xl border border-[#0F7F4F]/10 bg-white/90 px-4 py-3 text-sm font-bold text-[#064E3B] shadow-sm backdrop-blur-sm"
-                  >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ECFDF5] to-[#FFF7ED] text-[#0F7F4F]">
-                      <Icon size={18} aria-hidden />
-                    </span>
-                    {benefit}
-                  </motion.li>
-                );
-              })}
-            </ul>
-
-            <p className="mt-8 flex items-start gap-2 rounded-2xl border border-[#0F7F4F]/10 bg-white/70 px-4 py-3 text-sm font-semibold leading-7 text-[#475569]">
-              <ShieldCheck className="mt-0.5 shrink-0 text-[#0F7F4F]" size={18} aria-hidden />
-              {n.trustNote}
-            </p>
-          </div>
-
-          <motion.div {...cardHover} className="order-2">
-            <FaqNewsletterForm t={t} />
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
-function FaqNewsletterForm({ t }) {
-  const n = t.pages.autismScreenerFaqs.newsletter;
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    type: "parent",
-    consent: false,
-  });
-  const {
-    recaptchaRef,
-    recaptchaError,
-    verifying,
-    validating,
-    canSubmit: recaptchaReady,
-    handleTokenChange,
-    handleExpired,
-    submitting,
-    submittingMessage,
-    error,
-    success,
-    formDisabled,
-    submit,
-  } = useNewsletterSignup();
-
-  const valid = form.firstName.trim() && form.lastName.trim() && form.email.includes("@") && form.consent;
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!valid) return;
-
-    await submit({
-      firstName: form.firstName.trim(),
-      lastName: form.lastName.trim(),
-      email: form.email.trim(),
-      source: "screener-faq-newsletter",
-      type: form.type,
-      consent: form.consent,
-    });
-  };
-
-  if (success) {
-    return (
-      <div className="rounded-[28px] border border-[#0F7F4F]/15 bg-white p-8 text-center shadow-xl shadow-[#064E3B]/10 md:p-10">
-        <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[#ECFDF5] text-[#0F7F4F]">
-          <Check size={28} strokeWidth={2.5} aria-hidden />
-        </span>
-        <p className="mt-5 text-lg font-bold leading-8 text-[#064E3B]">{n.success}</p>
-      </div>
-    );
-  }
-
-  const fieldClass =
-    "w-full rounded-2xl border border-[#0F7F4F]/20 bg-white px-4 py-3.5 text-sm font-semibold text-[#0F172A] outline-none transition placeholder:text-slate-400 focus:border-[#0F7F4F] focus:ring-4 focus:ring-[#0F7F4F]/15";
-
-  return (
-    <div className="rounded-[28px] border border-[#0EA5A4]/25 bg-white p-6 shadow-xl shadow-[#064E3B]/8 md:p-8 lg:p-10">
-      <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#ECFDF5] to-[#FFF7ED] px-4 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-[#064E3B] ring-1 ring-[#0F7F4F]/15">
-        <Sparkles size={14} className="text-[#FBC02D]" aria-hidden />
-        {n.badge || "Free Family Resource Newsletter"}
-      </div>
-
-      <p className="mt-5 text-sm font-semibold leading-7 text-[#475569]">
-        {n.benefitTagline || "Helpful, practical, and family-friendly. No spam. Unsubscribe anytime."}
-      </p>
-
-      <form onSubmit={handleSubmit} className="mt-6" noValidate>
-        <div className="grid gap-4 md:grid-cols-2">
-          <label className="grid gap-2 text-sm font-extrabold text-[#0F172A]">
-            {n.fields.firstName}
-            <input
-              required
-              autoComplete="given-name"
-              className={fieldClass}
-              value={form.firstName}
-              onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-            />
-          </label>
-          <label className="grid gap-2 text-sm font-extrabold text-[#0F172A]">
-            {n.fields.lastName}
-            <input
-              required
-              autoComplete="family-name"
-              className={fieldClass}
-              value={form.lastName}
-              onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-            />
-          </label>
-          <label className="grid gap-2 text-sm font-extrabold text-[#0F172A] md:col-span-2">
-            {n.fields.email}
-            <input
-              required
-              type="email"
-              autoComplete="email"
-              className={fieldClass}
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-            />
-          </label>
-        </div>
-
-        <fieldset className="mt-6">
-          <legend className="mb-3 text-sm font-extrabold text-[#0F172A]">{n.typeLabel}</legend>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              ["parent", n.types.parent],
-              ["professional", n.types.professional],
-            ].map(([value, label]) => {
-              const selected = form.type === value;
-              return (
-                <label
-                  key={value}
-                  className={`flex cursor-pointer items-center gap-3 rounded-2xl border px-4 py-3.5 text-sm font-bold transition ${
-                    selected
-                      ? "border-[#0F7F4F] bg-[#ECFDF5] text-[#064E3B] shadow-sm ring-2 ring-[#0F7F4F]/15"
-                      : "border-[#0F7F4F]/15 bg-white text-[#475569] hover:border-[#0F7F4F]/30"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="newsletter-type"
-                    value={value}
-                    checked={selected}
-                    onChange={() => setForm({ ...form, type: value })}
-                    className="h-4 w-4 border-[#0F7F4F]/30 text-[#0F7F4F] focus:ring-[#0F7F4F]"
-                  />
-                  {label}
-                </label>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <div className="mt-6 rounded-2xl border border-[#FBC02D]/30 bg-[#FFF7ED]/80 p-4">
-          <label className="flex items-start gap-3 text-sm font-semibold leading-7 text-[#475569]">
-            <input
-              type="checkbox"
-              checked={form.consent}
-              onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-              className="mt-1 h-5 w-5 shrink-0 rounded border-[#0F7F4F]/30 text-[#0F7F4F] focus:ring-[#0F7F4F]"
-              aria-describedby="faq-newsletter-privacy-note"
-            />
-            <span>{n.consent}</span>
-          </label>
-          <p id="faq-newsletter-privacy-note" className="mt-3 pl-8 text-xs font-medium leading-6 text-[#64748B]">
-            {n.privacyNote ||
-              "We respect your privacy and only send helpful Eden ABA Therapy updates and resources."}
-          </p>
-        </div>
-
-        <div className="mt-6 max-w-sm">
-          <ReCaptchaVerification
-            ref={recaptchaRef}
-            onTokenChange={handleTokenChange}
-            onExpired={handleExpired}
-            error={recaptchaError}
-            disabled={formDisabled || success}
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={!valid || formDisabled || !recaptchaReady || success}
-          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#0F7F4F] via-[#0B6B4F] to-[#0EA5A4] px-8 py-4 text-base font-extrabold text-white shadow-lg shadow-[#064E3B]/20 transition enabled:hover:-translate-y-0.5 enabled:hover:brightness-110 enabled:hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-45 disabled:shadow-none sm:w-auto"
-        >
-          {submitting ? submittingMessage : verifying ? "Verifying…" : n.submit}
-          <ArrowRight size={18} aria-hidden />
-        </button>
-        <RecaptchaNotice />
-
-        {error ? (
-          <p role="alert" className="mt-4 text-xs text-red-600">
-            {error}
-          </p>
-        ) : null}
-      </form>
-    </div>
-  );
+function FaqNewsletterSection() {
+  return <EdenNewsletter source="screener-faq-newsletter" />;
 }
 
 function FaqSchema({ items }) {
@@ -411,7 +146,7 @@ export default function AutismScreenerFaqsPage({
   const resultsLabel = p.faqSection.resultsLabel.replace("{count}", String(filteredItems.length));
 
   return (
-    <div className="bg-[#FAF7F0] text-[#0F172A]">
+    <div className="eden-page-shell text-[#0F172A]">
       <FaqSchema items={FAQ_ITEMS} />
 
       {/* HERO */}
@@ -631,7 +366,7 @@ export default function AutismScreenerFaqsPage({
         </div>
       </section>
 
-      <FaqNewsletterSection t={t} />
+      <FaqNewsletterSection />
 
       {/* CTA */}
       <section className="px-4 py-16 lg:px-8">

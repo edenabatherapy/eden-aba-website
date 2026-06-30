@@ -67,7 +67,7 @@ export default function AutismEvaluationPage({ t, onStart, onMchat, onCast, onAd
   return (
     <div className="bg-white text-[#0F172A]">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(16,185,129,0.12),transparent_45%),radial-gradient(circle_at_85%_10%,rgba(14,107,79,0.08),transparent_40%)]" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <motion.div {...fadeUp}>

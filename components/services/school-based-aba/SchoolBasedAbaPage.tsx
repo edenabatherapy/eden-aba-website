@@ -143,7 +143,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* What Is School-Based ABA */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHAT_IS_SCHOOL_ABA.title}</h2>
@@ -252,7 +252,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* IEP Tabs */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-5xl">
           <motion.h2 {...reveal()} className="text-center text-3xl font-black text-[#0F172A] md:text-4xl">
             IEP Collaboration
@@ -414,7 +414,7 @@ export default function SchoolBasedAbaPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <motion.h2 {...reveal()} className="text-center text-3xl font-black text-[#0F172A] md:text-4xl">
             Frequently Asked Questions

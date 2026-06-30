@@ -230,7 +230,7 @@ export default function PrivacyPolicyPage({
   const contactSection = allSections.find((section) => section.id === "contact");
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className="eden-page-shell min-h-screen text-slate-900">
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f7fbf8] via-white to-[#eef8f3] px-4 py-16 sm:py-20 lg:px-8">
         <div className="pointer-events-none absolute -right-20 top-8 h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl" />
         <div className="pointer-events-none absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-teal-200/25 blur-3xl" />

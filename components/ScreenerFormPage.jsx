@@ -5,7 +5,7 @@ import React from "react";
 export default function ScreenerFormPage({ badge, title, subtitle, footerNote, children }) {
   return (
     <div className="bg-white text-[#0F172A]">
-      <section className="border-b border-[#0E6B4F]/10 bg-[#FAF7F0] px-4 py-10 lg:px-8">
+      <section className="border-b border-[#0E6B4F]/10 eden-section eden-section--warm px-4 py-10 lg:px-8">
         <div className="mx-auto max-w-4xl">
           {badge ? (
             <span className="inline-flex rounded-full bg-[#0E6B4F]/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#0E6B4F]">

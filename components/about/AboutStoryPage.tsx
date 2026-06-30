@@ -17,7 +17,7 @@ const TeamSection = dynamic(() => import("@/components/about/TeamSection"));
 const FutureSection = dynamic(() => import("@/components/about/FutureSection"));
 const ImpactSection = dynamic(() => import("@/components/about/ImpactSection"));
 const FinalCTA = dynamic(() => import("@/components/about/FinalCTA"));
-const FamilyNewsletter = dynamic(() => import("@/components/common/FamilyNewsletter"));
+import EdenNewsletter from "@/components/common/EdenNewsletter";
 const Footer = dynamic(() => import("@/components/common/Footer"));
 
 export default function AboutStoryPage() {
@@ -63,7 +63,7 @@ export default function AboutStoryPage() {
         <FinalCTA />
       </main>
 
-      <FamilyNewsletter />
+      <EdenNewsletter source="about-page" />
       <Footer />
 
       <StickyCtaBar />

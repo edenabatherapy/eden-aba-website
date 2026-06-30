@@ -103,7 +103,7 @@ export default function InsuranceCoveragePage({ t, onSchedule, onHome, onStart }
     document.getElementById("verify-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
-    <div className="bg-white text-slate-900">
+    <div className="eden-page-shell min-h-screen text-slate-900">
       {/* 1. Hero */}
       <section className={`relative overflow-hidden bg-gradient-to-br from-[#fff8df] via-white to-[#ddf4f4] ${sectionPad}`}>
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">

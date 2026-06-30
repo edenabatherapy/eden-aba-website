@@ -34,7 +34,7 @@ function Ados2FaqAccordion({ title, items }) {
   const [open, setOpen] = useState(0);
 
   return (
-    <section id="ados2-faq" className="scroll-mt-28 bg-[#FAF7F0] px-4 py-20 lg:px-8">
+    <section id="ados2-faq" className="scroll-mt-28 eden-section eden-section--warm px-4 py-20 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <motion.h2 {...fadeUp} className="text-center text-4xl font-black tracking-tight text-[#0F172A] md:text-5xl">
           {title}
@@ -133,7 +133,7 @@ export default function Ados2AssessmentPage({ t, onStart, onMchat, onCast, onLoc
       <Ados2Schema p={p} />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(16,185,129,0.14),transparent_50%),radial-gradient(circle_at_90%_10%,rgba(14,107,79,0.08),transparent_40%)]" />
         <div className="relative mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm font-bold text-[#0E6B4F]">
@@ -256,7 +256,7 @@ export default function Ados2AssessmentPage({ t, onStart, onMchat, onCast, onLoc
       </section>
 
       {/* MODULES */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--warm px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <motion.h2 {...fadeUp} className="text-center text-4xl font-black text-[#0F172A] md:text-5xl">
             {p.modules.title}
@@ -329,7 +329,7 @@ export default function Ados2AssessmentPage({ t, onStart, onMchat, onCast, onLoc
       </section>
 
       {/* WHO CAN TAKE */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--warm px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <motion.h2 {...fadeUp} className="text-center text-4xl font-black text-[#0F172A] md:text-5xl">
             {p.whoCan.title}

@@ -120,7 +120,7 @@ export default function WhatIsAbaTherapyPage() {
       </section>
 
       {/* What Is ABA */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <motion.div {...reveal()}>
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{section.title}</h2>
@@ -245,7 +245,7 @@ export default function WhatIsAbaTherapyPage() {
       </section>
 
       {/* BCBA & RBT Roles */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{BCBA_RBT_ROLES.title}</h2>

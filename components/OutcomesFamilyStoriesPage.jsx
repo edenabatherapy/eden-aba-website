@@ -155,7 +155,7 @@ export default function OutcomesFamilyStoriesPage({
   };
 
   return (
-    <div className="bg-[#FAF7F0] text-[#0F172A]">
+    <div className="eden-page-shell text-[#0F172A]">
       <PageSchema p={p} faqs={p.faq.items} />
 
       {/* HERO */}

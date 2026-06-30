@@ -113,8 +113,95 @@ body {
   animation: edenFadeUp 0.65s ease both;
 }
 
+.eden-reveal-left {
+  animation: edenFadeLeft 0.65s ease both;
+}
+
+.eden-reveal-right {
+  animation: edenFadeRight 0.65s ease both;
+}
+
+.eden-reveal-scale {
+  animation: edenScaleIn 0.55s ease both;
+}
+
+.eden-btn-glow {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.eden-btn-glow:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 0 24px rgba(247, 199, 47, 0.35);
+}
+
+.eden-parallax-bg {
+  background-attachment: fixed;
+}
+
+@keyframes edenFadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes edenFadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes edenScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes edenGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.eden-gradient-animate {
+  background-size: 200% 200%;
+  animation: edenGradientShift 18s ease infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .eden-reveal {
+    animation: none;
+  }
+
+  .eden-reveal-left,
+  .eden-reveal-right,
+  .eden-reveal-scale {
+    animation: none;
+  }
+
+  .eden-gradient-animate {
     animation: none;
   }
 

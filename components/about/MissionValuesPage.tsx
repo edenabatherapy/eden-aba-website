@@ -16,7 +16,7 @@ const MissionValuesOutcomesSection = dynamic(() => import("@/components/about/Mi
 const EdenDifferenceSection = dynamic(() => import("@/components/about/EdenDifferenceSection"));
 const MissionInActionSection = dynamic(() => import("@/components/about/MissionInActionSection"));
 const MissionFinalCTA = dynamic(() => import("@/components/about/MissionFinalCTA"));
-const FamilyNewsletter = dynamic(() => import("@/components/common/FamilyNewsletter"));
+import EdenNewsletter from "@/components/common/EdenNewsletter";
 const Footer = dynamic(() => import("@/components/common/Footer"));
 
 export default function MissionValuesPage() {
@@ -61,7 +61,7 @@ export default function MissionValuesPage() {
         <MissionFinalCTA />
       </main>
 
-      <FamilyNewsletter />
+      <EdenNewsletter source="about-page" />
       <Footer />
 
       <StickyCtaBar />

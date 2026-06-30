@@ -213,7 +213,7 @@ export default function IdeEvaluationPage({
       </section>
 
       {/* WHO CAN COMPLETE */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--warm px-4 py-20 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
           <motion.div {...fadeUp}>
             <h2 className="text-4xl font-black text-[#0F172A] md:text-5xl">{p.whoCan.title}</h2>
@@ -301,7 +301,7 @@ export default function IdeEvaluationPage({
       </section>
 
       {/* TOOLS */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--warm px-4 py-20 lg:px-8">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <motion.div {...fadeUp}>
             <img
@@ -375,7 +375,7 @@ export default function IdeEvaluationPage({
       </section>
 
       {/* AFTER IDE */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--warm px-4 py-20 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
           <motion.div {...fadeUp}>
             <img

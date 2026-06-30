@@ -226,7 +226,7 @@ export default function ParentGuidancePage({
   const img = SITE_IMAGES.parentGuidance;
 
   return (
-    <div className="bg-[#FAF7F0] text-[#0F172A]">
+    <div className="eden-page-shell text-[#0F172A]">
       <PageSchema p={p} faqs={p.faqs.items} />
 
       {/* HERO */}

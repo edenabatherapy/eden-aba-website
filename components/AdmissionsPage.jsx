@@ -123,7 +123,7 @@ export default function AdmissionsPage({
   };
 
   return (
-    <div className="bg-[#FAF7F0] text-[#0F172A]">
+    <div className="eden-page-shell text-[#0F172A]">
       <PageSchema p={p} />
 
       {/* HERO */}
@@ -435,7 +435,7 @@ export default function AdmissionsPage({
         </div>
       </section>
 
-      <AdmissionsNewsletterSection labels={p.newsletter} />
+      <AdmissionsNewsletterSection />
     </div>
   );
 }

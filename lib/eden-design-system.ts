@@ -41,3 +41,16 @@ export const EDEN_REVEAL = "eden-reveal";
 
 export const EDEN_HERO_EYEBROW =
   "text-sm font-black uppercase tracking-[0.2em] text-[#128c8c]";
+
+export const EDEN_BTN_GLOW =
+  "transition hover:scale-[1.02] hover:shadow-[0_0_24px_rgba(16,185,129,0.35)]";
+
+export const EDEN_SECTION_ALT = {
+  /** Use on alternating sections: 0=white, 1=mint, 2=white, 3=teal gradient */
+  forIndex: (index: number) => {
+    const mod = index % 4;
+    if (mod === 1) return EDEN_SECTION.mint;
+    if (mod === 3) return EDEN_SECTION.tealGradient;
+    return EDEN_SECTION.white;
+  },
+} as const;

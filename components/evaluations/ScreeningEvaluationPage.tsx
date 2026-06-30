@@ -158,7 +158,7 @@ export default function ScreeningEvaluationPage() {
       </section>
 
       {/* Early Signs */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{EARLY_SIGNS.title}</h2>
@@ -310,7 +310,7 @@ export default function ScreeningEvaluationPage() {
       </section>
 
       {/* ADOS-2 */}
-      <section id="ados-2-assessment" className="scroll-mt-28 bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section id="ados-2-assessment" className="scroll-mt-28 eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{ADOS2_SECTION.title}</h2>
@@ -421,7 +421,7 @@ export default function ScreeningEvaluationPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-20">
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <motion.div {...reveal()} className="text-center">
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">Frequently Asked Questions</h2>

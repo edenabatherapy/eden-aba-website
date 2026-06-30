@@ -119,7 +119,7 @@ export default function CastScreenerPage({ t, onStart, onMchat, questionnaire })
       <CastSchema p={p} />
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-[#FAF7F0] px-4 py-16 lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-24">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(16,185,129,0.12),transparent_45%)]" />
         <div className="relative mx-auto max-w-7xl">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm font-bold text-[#0E6B4F]">
@@ -245,7 +245,7 @@ export default function CastScreenerPage({ t, onStart, onMchat, questionnaire })
       </section>
 
       {/* AFTER CAST */}
-      <section className="bg-[#FAF7F0] px-4 py-20 lg:px-8">
+      <section className="eden-section eden-section--warm px-4 py-20 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <motion.h2 {...fadeUp} className="text-center text-4xl font-black text-[#0F172A] md:text-5xl">
             {p.after.title}
