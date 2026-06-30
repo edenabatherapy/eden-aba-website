@@ -13,7 +13,7 @@ export const FOOTER_SERVICE_LINKS: FooterLinkItem[] = [
   { label: "Screening & Evaluation", href: "/services/evaluations-diagnosis/screening-evaluation" },
   { label: "School & IEP Evaluations", href: "/autism-evaluation/ide-evaluation" },
   { label: "Parent Training", href: "/aba-therapy/parent-training" },
-  { label: "After School Programs", href: "/service-settings/afterschool-programs" },
+  { label: "After School Programs", href: "/services/after-school-programs" },
 ];
 
 export const FOOTER_RESOURCE_LINKS: FooterLinkItem[] = [

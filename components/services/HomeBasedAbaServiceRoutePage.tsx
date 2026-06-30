@@ -6,7 +6,7 @@ import HomeBasedAbaTherapyPage from "@/components/HomeBasedAbaTherapyPage";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
 
-export default function InHomeAbaServiceRoutePage() {
+export default function HomeBasedAbaServiceRoutePage() {
   const router = useRouter();
   const { language } = useSiteLanguage();
   const t = getTranslation(language);

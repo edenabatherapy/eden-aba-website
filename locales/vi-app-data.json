@@ -100,22 +100,43 @@
   },
   "SERVICES_MEGA_MENU_ITEMS": [
     {
+      "description": "Tìm hiểu cách liệu pháp ABA dựa trên bằng chứng hỗ trợ giao tiếp, học tập, hành vi và độc lập cho trẻ em và gia đình."
+    },
+    {
       "description": "Liệu pháp ABA cá nhân hóa tại nhà con bạn, giúp xây dựng giao tiếp, sinh hoạt hàng ngày, hành vi và kỹ năng xã hội trong môi trường quen thuộc."
+    },
+    {
+      "description": "Dịch vụ ABA tại nhà tại Bắc Virginia với giám sát BCBA, mục tiêu cá nhân hóa và huấn luyện gia đình trong thói quen tự nhiên."
     },
     {
       "description": "Liệu pháp có cấu trúc tại trung tâm với không gian học tập, tương tác bạn bè, giám sát lâm sàng và chương trình điều trị cá nhân hóa."
     },
     {
-      "description": "Hỗ trợ ABA trong thực tế giúp trẻ thực hành an toàn, giao tiếp, tham gia xã hội và độc lập trong môi trường cộng đồng."
+      "description": "Hỗ trợ ABA phối hợp với môi trường trường học để cải thiện sẵn sàng lớp học, hành vi, giao tiếp và tham gia học tập."
     },
     {
-      "description": "Hỗ trợ ABA phối hợp với môi trường trường học để cải thiện sẵn sàng lớp học, hành vi, giao tiếp và tham gia học tập."
+      "description": "Hỗ trợ ABA trong thực tế giúp trẻ thực hành an toàn, giao tiếp, tham gia xã hội và độc lập trong môi trường cộng đồng."
     },
     {
       "description": "Hỗ trợ ABA từ xa, huấn luyện phụ huynh và tư vấn qua phiên ảo bảo mật cho gia đình cần linh hoạt tiếp cận dịch vụ."
     },
     {
       "description": "Chương trình ABA sau giờ học có cấu trúc hỗ trợ kỹ năng xã hội, thói quen bài tập, giao tiếp và tham gia an toàn sau ngày học."
+    },
+    {
+      "description": "Hỗ trợ sớm cho trẻ nhỏ xây dựng giao tiếp, bắt chước, chơi, kỹ năng sinh hoạt hàng ngày và thói quen học tập tích cực."
+    },
+    {
+      "description": "Đánh giá chi tiết mô hình hành vi, yếu tố kích hoạt, nhu cầu giao tiếp, an toàn và ưu tiên gia đình trước khi lập kế hoạch điều trị."
+    },
+    {
+      "description": "Mục tiêu điều trị tùy chỉnh dựa trên điểm mạnh, nhu cầu phát triển, ưu tiên người chăm sóc và dữ liệu tiến bộ có thể đo lường."
+    },
+    {
+      "description": "Hỗ trợ tương tác bạn bè, chờ lượt, chào hỏi, chơi, chú ý chung, hội thoại và xây dựng kỹ năng kết bạn."
+    },
+    {
+      "description": "Huấn luyện thực tế giúp người chăm sóc củng cố kỹ năng, quản lý thói quen và hỗ trợ tiến bộ giữa các buổi trị liệu."
     },
     {
       "description": "Trị liệu hoạt động nhi khoa hỗ trợ vận động tinh, xử lý cảm giác, thói quen sinh hoạt và tham gia hàng ngày—phối hợp với chương trình ABA của Eden khi phù hợp."
@@ -128,9 +149,7 @@
     }
   ],
   "ABA_MEGA_MENU_LABELS": {
-    "comingSoonBadge": "Sắp ra mắt tại Eden Family",
-    "servicePreviewLabel": "DỊCH VỤ LIỆU PHÁP ABA",
-    "comingSoonPreviewLabel": "SẮP RA MẮT",
+    "servicePreviewLabel": "DỊCH VỤ EDEN",
     "learnMoreText": "Tìm hiểu thêm →"
   },
   "RESOURCES_MEGA_MENU_SECTIONS": [

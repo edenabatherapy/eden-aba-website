@@ -110,6 +110,31 @@ const nextConfig = {
         destination: "/careers/career-growth-pathways",
         permanent: true,
       },
+      {
+        source: "/service-settings/center-based-aba-therapy",
+        destination: "/services/center-based-aba-therapy",
+        permanent: true,
+      },
+      {
+        source: "/service-settings/home-based-aba-therapy",
+        destination: "/services/home-based-aba-therapy",
+        permanent: true,
+      },
+      {
+        source: "/service-settings/community-based-aba-therapy",
+        destination: "/services/community-based-aba-therapy",
+        permanent: true,
+      },
+      {
+        source: "/service-settings/virtual-aba-therapy",
+        destination: "/services/virtual-aba-therapy",
+        permanent: true,
+      },
+      {
+        source: "/service-settings/afterschool-programs",
+        destination: "/services/after-school-programs",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
@@ -124,10 +149,6 @@ const nextConfig = {
         { source: "/autism-evaluation/:path*", destination: "/" },
         { source: "/aba-therapy/admissions", destination: "/" },
         { source: "/aba-therapy/outcomes-family-stories", destination: "/" },
-        { source: "/service-settings/center-based-aba-therapy", destination: "/" },
-        { source: "/service-settings/home-based-aba-therapy", destination: "/" },
-        { source: "/service-settings/community-based-aba-therapy", destination: "/" },
-        { source: "/service-settings/virtual-aba-therapy", destination: "/" },
         { source: "/intake", destination: "/" },
         { source: "/schedule-appointment", destination: "/" },
         { source: "/insurance-coverage", destination: "/" },

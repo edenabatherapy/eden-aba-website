@@ -16,21 +16,26 @@ export function buildMenuDisplayTitleResolver(
   enGroup: { columns?: { links: unknown[] }[] } | undefined,
 ) {
   const titleByEnglishLabel: Record<string, string> = {};
-  const column = menuGroup?.columns?.[0];
-  const enColumn = enGroup?.columns?.[0];
 
-  if (!column || !enColumn) {
+  enGroup?.columns?.forEach((enColumn, colIdx) => {
+    const displayColumn = menuGroup?.columns?.[colIdx];
+    if (!displayColumn) return;
+
+    enColumn.links.forEach((enLink, linkIdx) => {
+      const englishLabel =
+        typeof enLink === "object" && enLink !== null ? (enLink as { label: string }).label : String(enLink);
+      const displayLink = displayColumn.links[linkIdx];
+      const displayLabel =
+        typeof displayLink === "object" && displayLink !== null
+          ? (displayLink as { label: string }).label
+          : String(displayLink);
+      titleByEnglishLabel[englishLabel] = displayLabel;
+    });
+  });
+
+  if (Object.keys(titleByEnglishLabel).length === 0) {
     return (item: { title: string }) => item.title;
   }
-
-  column.links.forEach((link, linkIdx) => {
-    const enLink = enColumn.links[linkIdx];
-    const englishLabel =
-      typeof enLink === "object" && enLink !== null ? (enLink as { label: string }).label : String(enLink);
-    const displayLabel =
-      typeof link === "object" && link !== null ? (link as { label: string }).label : String(link);
-    titleByEnglishLabel[englishLabel] = displayLabel;
-  });
 
   return (item: { title: string }) => titleByEnglishLabel[item.title] || item.title;
 }

@@ -127,7 +127,8 @@ export default function EdenSiteHeader() {
   const abaMenuGroup = menuItems.find((group, idx) => enMenu[idx]?.id === SERVICES_MENU_ID);
   const abaEnGroup = enMenu.find((group) => group.id === SERVICES_MENU_ID);
   const getAbaDisplayTitle = buildMenuDisplayTitleResolver(abaMenuGroup, abaEnGroup);
-  const abaServicesLabel = abaMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "SERVICES";
+  const getAbaSectionTitle = buildSectionTitleResolver(abaMenuGroup, abaEnGroup);
+  const abaServicesLabel = abaMenuGroup?.label?.toUpperCase?.() || "SERVICES";
 
   const aboutMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "About Eden");
   const aboutEnGroup = enMenu.find((group) => group.label === "About Eden");
@@ -202,6 +203,7 @@ export default function EdenSiteHeader() {
                       <AbaTherapyMegaMenu
                         onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
                         getDisplayTitle={getAbaDisplayTitle}
+                        getSectionTitle={getAbaSectionTitle}
                         servicesLabel={abaServicesLabel}
                       />
                     ) : isAboutEden ? (
@@ -286,6 +288,7 @@ export default function EdenSiteHeader() {
                           variant="mobile"
                           onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
                           getDisplayTitle={getAbaDisplayTitle}
+                          getSectionTitle={getAbaSectionTitle}
                           servicesLabel={abaServicesLabel}
                           onClose={() => setOpen(false)}
                         />

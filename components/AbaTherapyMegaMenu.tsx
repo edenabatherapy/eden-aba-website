@@ -1,9 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import EdenLogo from "@/components/EdenLogo";
 import ServiceMeaningAnimation, { type ServiceMeaningAnimationType } from "@/components/ServiceMeaningAnimation";
-import { servicesMegaMenuItems, type ServicesMegaMenuItem } from "@/lib/services-mega-menu";
+import {
+  servicesMegaMenuItems,
+  servicesMegaMenuSections,
+  type ServicesMegaMenuItem,
+} from "@/lib/services-mega-menu";
 import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
@@ -17,10 +22,9 @@ export const abaTherapyItems = servicesMegaMenuItems;
 type AbaTherapyMegaMenuProps = {
   onNavigate: (menuLinkLabel: string) => void;
   getDisplayTitle: (item: AbaTherapyMegaMenuItem) => string;
+  getSectionTitle?: (englishSectionTitle: string) => string;
   servicesLabel?: string;
-  comingSoonBadge?: string;
   servicePreviewLabel?: string;
-  comingSoonPreviewLabel?: string;
   learnMoreText?: string;
   variant?: "desktop" | "mobile";
   onClose?: () => void;
@@ -49,19 +53,17 @@ function PreviewCardHeader({
 function PreviewCard({
   item,
   displayTitle,
-  comingSoonPreviewLabel,
   learnMoreText,
   servicePreviewLabel,
-  comingSoonBadge = "Coming Soon to Eden Family",
   compact = false,
+  onNavigate,
 }: {
   item: AbaTherapyMegaMenuItem;
   displayTitle: string;
-  comingSoonPreviewLabel: string;
   learnMoreText: string;
   servicePreviewLabel: string;
-  comingSoonBadge?: string;
   compact?: boolean;
+  onNavigate: (item: AbaTherapyMegaMenuItem) => void;
 }) {
   const className = compact ? "aba-menu-mobile-preview" : "preview-card";
 
@@ -70,19 +72,19 @@ function PreviewCard({
       <PreviewCardHeader animationType={item.animationType} compact={compact} />
 
       <div className="preview-card-body">
-        <p className="preview-label">
-          {item.comingSoon ? comingSoonPreviewLabel : servicePreviewLabel}
-        </p>
-
+        <p className="preview-label">{servicePreviewLabel}</p>
         <h3>{displayTitle}</h3>
-
         <p>{item.description}</p>
-
-        {!item.comingSoon ? (
-          <span className="learn-more-text">{learnMoreText}</span>
-        ) : (
-          <span className="coming-soon-preview-badge">{comingSoonBadge}</span>
-        )}
+        <Link
+          href={item.href}
+          className="learn-more-text"
+          onClick={(event) => {
+            event.preventDefault();
+            onNavigate(item);
+          }}
+        >
+          {learnMoreText}
+        </Link>
       </div>
     </div>
   );
@@ -91,10 +93,9 @@ function PreviewCard({
 export default function AbaTherapyMegaMenu({
   onNavigate,
   getDisplayTitle,
+  getSectionTitle = (title) => title,
   servicesLabel = "SERVICES",
-  comingSoonBadge = "Coming Soon to Eden Family",
   servicePreviewLabel = "ABA THERAPY SERVICE",
-  comingSoonPreviewLabel = "COMING SOON",
   learnMoreText = "Learn more →",
   variant = "desktop",
   onClose,
@@ -106,9 +107,7 @@ export default function AbaTherapyMegaMenu({
     [],
   );
   const localizedLabels = useLocalizedContent("ABA_MEGA_MENU_LABELS", {
-    comingSoonBadge: comingSoonBadge,
     servicePreviewLabel: servicePreviewLabel,
-    comingSoonPreviewLabel: comingSoonPreviewLabel,
     learnMoreText: learnMoreText,
   });
   const localizedDescriptions = useLocalizedContent(
@@ -124,22 +123,33 @@ export default function AbaTherapyMegaMenu({
     [localizedDescriptions],
   );
 
-  const [activeAbaItem, setActiveAbaItem] = useState(menuItems[0]);
+  const sections = useMemo(
+    () =>
+      servicesMegaMenuSections.map((section) => ({
+        ...section,
+        items: section.items.map((item) => {
+          const localized = menuItems.find((entry) => entry.id === item.id);
+          return localized ?? item;
+        }),
+      })),
+    [menuItems],
+  );
+
+  const [activeItem, setActiveItem] = useState(menuItems[0]);
 
   useEffect(() => {
-    setActiveAbaItem((current) => menuItems.find((item) => item.title === current.title) ?? menuItems[0]);
+    setActiveItem((current) => menuItems.find((item) => item.id === current.id) ?? menuItems[0]);
   }, [menuItems]);
 
   const handleSelect = useCallback(
     (item: AbaTherapyMegaMenuItem) => {
-      if (item.comingSoon) return;
       onNavigate(item.title);
       onClose?.();
     },
     [onClose, onNavigate],
   );
 
-  const activeDisplayTitle = getDisplayTitle(activeAbaItem);
+  const activeDisplayTitle = getDisplayTitle(activeItem);
   const isMobile = variant === "mobile";
 
   return (
@@ -147,59 +157,58 @@ export default function AbaTherapyMegaMenu({
       <div className="aba-menu-left">
         <p className="mega-menu-label">{servicesLabel || megaMenu?.servicesLabel || "SERVICES"}</p>
 
-        <div className="aba-menu-left__items">
-          {menuItems.map((item) => {
-            const displayTitle = getDisplayTitle(item);
-            const isActive = activeAbaItem.title === item.title;
+        <div className="aba-menu-left__columns">
+          {sections.map((section) => (
+            <div key={section.id} className="aba-menu-column">
+              <p className="aba-menu-column__title">{getSectionTitle(section.title)}</p>
+              <ul className="aba-menu-column__list">
+                {section.items.map((item) => {
+                  const displayTitle = getDisplayTitle(item);
+                  const isActive = activeItem.id === item.id;
 
-            return (
-              <button
-                key={item.title}
-                type="button"
-                className={`aba-menu-item${isActive ? " active" : ""}${item.comingSoon ? " aba-menu-item--disabled" : ""}`}
-                onMouseEnter={() => setActiveAbaItem(item)}
-                onFocus={() => setActiveAbaItem(item)}
-                onClick={() => handleSelect(item)}
-                aria-current={isActive ? "true" : undefined}
-                aria-disabled={item.comingSoon ? true : undefined}
-              >
-                <span className="aba-menu-item__label">
-                  <span className="aba-menu-item__title">{displayTitle}</span>
-                  {item.comingSoon ? (
-                    <small className="coming-soon-badge">{localizedLabels.comingSoonBadge}</small>
-                  ) : null}
-                </span>
-
-                <span className="menu-arrow" aria-hidden="true">
-                  →
-                </span>
-              </button>
-            );
-          })}
+                  return (
+                    <li key={item.id}>
+                      <button
+                        type="button"
+                        className={`aba-menu-item${isActive ? " active" : ""}`}
+                        onMouseEnter={() => setActiveItem(item)}
+                        onFocus={() => setActiveItem(item)}
+                        onClick={() => handleSelect(item)}
+                        aria-current={isActive ? "true" : undefined}
+                      >
+                        <span className="aba-menu-item__title">{displayTitle}</span>
+                        <span className="menu-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
 
       {!isMobile ? (
-        <div className="aba-menu-right" key={activeAbaItem.title}>
+        <div className="aba-menu-right" key={activeItem.id}>
           <PreviewCard
-            item={activeAbaItem}
+            item={activeItem}
             displayTitle={activeDisplayTitle}
-            comingSoonPreviewLabel={localizedLabels.comingSoonPreviewLabel}
             learnMoreText={localizedLabels.learnMoreText}
             servicePreviewLabel={localizedLabels.servicePreviewLabel}
-            comingSoonBadge={localizedLabels.comingSoonBadge}
+            onNavigate={handleSelect}
           />
         </div>
       ) : (
-        <div key={activeAbaItem.title}>
+        <div key={activeItem.id}>
           <PreviewCard
-            item={activeAbaItem}
+            item={activeItem}
             displayTitle={activeDisplayTitle}
-            comingSoonPreviewLabel={localizedLabels.comingSoonPreviewLabel}
             learnMoreText={localizedLabels.learnMoreText}
             servicePreviewLabel={localizedLabels.servicePreviewLabel}
-            comingSoonBadge={localizedLabels.comingSoonBadge}
             compact
+            onNavigate={handleSelect}
           />
         </div>
       )}

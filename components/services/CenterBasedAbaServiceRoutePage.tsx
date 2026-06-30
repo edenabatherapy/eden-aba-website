@@ -18,10 +18,10 @@ export default function CenterBasedAbaServiceRoutePage() {
         onStart={() => router.push("/intake")}
         onLocations={() => router.push("/about/contact-us")}
         onAba={() => router.push("/aba-therapy/what-is-aba-therapy")}
-        onHomeBased={() => router.push("/services/in-home-aba-therapy")}
-        onCommunityBased={() => router.push("/?page=community-based-aba-therapy")}
-        onSchoolBased={() => router.push("/services/school-support-aba-therapy")}
-        onVirtual={() => router.push("/?page=virtual-aba-therapy")}
+        onHomeBased={() => router.push("/services/home-based-aba-therapy")}
+        onCommunityBased={() => router.push("/services/community-based-aba-therapy")}
+        onSchoolBased={() => router.push("/services/school-based-aba-therapy")}
+        onVirtual={() => router.push("/services/virtual-aba-therapy")}
       />
     </AboutPremiumLayout>
   );

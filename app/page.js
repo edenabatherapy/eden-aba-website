@@ -220,19 +220,22 @@ function MenuLinkBadge({ badge }) {
 
 function buildMenuDisplayTitleResolver(menuGroup, enGroup) {
   const titleByEnglishLabel = {};
-  const column = menuGroup?.columns?.[0];
-  const enColumn = enGroup?.columns?.[0];
 
-  if (!column || !enColumn) {
+  enGroup?.columns?.forEach((enColumn, colIdx) => {
+    const displayColumn = menuGroup?.columns?.[colIdx];
+    if (!displayColumn) return;
+
+    enColumn.links.forEach((enLink, linkIdx) => {
+      const englishLabel = typeof enLink === "object" && enLink !== null ? enLink.label : enLink;
+      const displayLink = displayColumn.links[linkIdx];
+      const displayLabel = typeof displayLink === "object" && displayLink !== null ? displayLink.label : displayLink;
+      titleByEnglishLabel[englishLabel] = displayLabel;
+    });
+  });
+
+  if (Object.keys(titleByEnglishLabel).length === 0) {
     return (item) => item.title;
   }
-
-  column.links.forEach((link, linkIdx) => {
-    const enLink = enColumn.links[linkIdx];
-    const englishLabel = typeof enLink === "object" && enLink !== null ? enLink.label : enLink;
-    const displayLabel = typeof link === "object" && link !== null ? link.label : link;
-    titleByEnglishLabel[englishLabel] = displayLabel;
-  });
 
   return (item) => titleByEnglishLabel[item.title] || item.title;
 }
@@ -331,7 +334,8 @@ function Header({ onStart, onNavigate }) {
   const abaMenuGroup = menuItems.find((group, idx) => enMenu[idx]?.id === SERVICES_MENU_ID);
   const abaEnGroup = enMenu.find((group) => group.id === SERVICES_MENU_ID);
   const getAbaDisplayTitle = buildAbaDisplayTitleResolver(abaMenuGroup, abaEnGroup);
-  const abaServicesLabel = abaMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "SERVICES";
+  const getAbaSectionTitle = buildSectionTitleResolver(abaMenuGroup, abaEnGroup);
+  const abaServicesLabel = abaMenuGroup?.label?.toUpperCase?.() || "SERVICES";
 
   const aboutMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "About Eden");
   const aboutEnGroup = enMenu.find((group) => group.label === "About Eden");
@@ -415,6 +419,7 @@ function Header({ onStart, onNavigate }) {
                         <AbaTherapyMegaMenu
                           onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
                           getDisplayTitle={getAbaDisplayTitle}
+                          getSectionTitle={getAbaSectionTitle}
                           servicesLabel={abaServicesLabel}
                         />
                       ) : isAboutEden ? (
@@ -607,6 +612,7 @@ function Header({ onStart, onNavigate }) {
                           variant="mobile"
                           onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
                           getDisplayTitle={getAbaDisplayTitle}
+                          getSectionTitle={getAbaSectionTitle}
                           servicesLabel={abaServicesLabel}
                           onClose={() => setOpen(false)}
                         />
