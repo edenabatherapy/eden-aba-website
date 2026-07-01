@@ -580,6 +580,25 @@
       ]
     },
     {
+      "id": "about-eden",
+      "label": "About Eden",
+      "type": "about-mega",
+      "columns": [
+        {
+          "title": "About Eden",
+          "links": [
+            "Our Story",
+            "Our Mission & Values",
+            "Our Approach",
+            "Our Team",
+            "Clinical Quality",
+            "Community Impact",
+            "Contact Us"
+          ]
+        }
+      ]
+    },
+    {
       "label": "Resources",
       "type": "compact",
       "columns": [
@@ -624,24 +643,6 @@
           "links": [
             "Blog & Articles",
             "Webinars & Videos"
-          ]
-        }
-      ]
-    },
-    {
-      "label": "About Eden",
-      "type": "compact",
-      "columns": [
-        {
-          "title": "About Eden",
-          "links": [
-            "Our Story",
-            "Our Mission & Values",
-            "Our Approach",
-            "Our Team",
-            "Clinical Quality",
-            "Community Impact",
-            "Contact Us"
           ]
         }
       ]
@@ -6834,9 +6835,7 @@
     },
     "megaMenu": {
       "servicesLabel": "SERVICES",
-      "comingSoonBadge": "Coming Soon to Eden Family",
       "servicePreviewLabel": "ABA THERAPY SERVICE",
-      "comingSoonPreviewLabel": "COMING SOON",
       "learnMoreText": "Learn more →",
       "connectWithUsText": "Connect with us →",
       "aboutSectionLabel": "ABOUT EDEN",

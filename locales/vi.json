@@ -580,6 +580,25 @@
       ]
     },
     {
+      "id": "about-eden",
+      "label": "Về Eden",
+      "type": "about-mega",
+      "columns": [
+        {
+          "title": "Về Eden",
+          "links": [
+            "Câu chuyện của chúng tôi",
+            "Sứ mệnh & Giá trị",
+            "Phương pháp của chúng tôi",
+            "Đội ngũ của chúng tôi",
+            "Chất lượng lâm sàng",
+            "Tác động cộng đồng",
+            "Liên hệ"
+          ]
+        }
+      ]
+    },
+    {
       "label": "Tài nguyên",
       "type": "compact",
       "columns": [
@@ -629,23 +648,6 @@
           "links": [
             "Blog & Bài viết",
             "Webinar & Video"
-          ]
-        }
-      ]
-    },
-    {
-      "label": "Về Eden",
-      "type": "compact",
-      "columns": [
-        {
-          "title": "Về Eden",
-          "links": [
-            "Câu chuyện của chúng tôi",
-            "Sứ mệnh & Giá trị",
-            "Đội ngũ lãnh đạo",
-            "Xuất sắc lâm sàng",
-            "Tác động cộng đồng",
-            "Liên hệ"
           ]
         }
       ]
@@ -6838,9 +6840,7 @@
     },
     "megaMenu": {
       "servicesLabel": "DỊCH VỤ",
-      "comingSoonBadge": "Sắp ra mắt tại Eden Family",
       "servicePreviewLabel": "DỊCH VỤ LIỆU PHÁP ABA",
-      "comingSoonPreviewLabel": "SẮP RA MẮT",
       "learnMoreText": "Tìm hiểu thêm →",
       "connectWithUsText": "Kết nối với chúng tôi →",
       "aboutSectionLabel": "VỀ EDEN",

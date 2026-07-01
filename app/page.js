@@ -31,6 +31,9 @@ import CareersMegaMenu from "@/components/CareersMegaMenu";
 import ProvidersMegaMenu from "@/components/providers/ProvidersMegaMenu";
 import ResourcesMegaMenu, { resourcesDefaultPreview } from "@/components/ResourcesMegaMenu";
 import {
+  isAboutMegaMenuGroup,
+} from "@/lib/about-mega-menu";
+import {
   isServicesMegaMenuGroup,
   SERVICES_MENU_ID,
 } from "@/lib/services-mega-menu";
@@ -337,8 +340,8 @@ function Header({ onStart, onNavigate }) {
   const getAbaSectionTitle = buildSectionTitleResolver(abaMenuGroup, abaEnGroup);
   const abaServicesLabel = abaMenuGroup?.label?.toUpperCase?.() || "SERVICES";
 
-  const aboutMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "About Eden");
-  const aboutEnGroup = enMenu.find((group) => group.label === "About Eden");
+  const aboutMenuGroup = menuItems.find((_, idx) => isAboutMegaMenuGroup(enMenu[idx]));
+  const aboutEnGroup = enMenu.find((group) => isAboutMegaMenuGroup(group));
   const getAboutDisplayTitle = buildMenuDisplayTitleResolver(aboutMenuGroup, aboutEnGroup);
   const aboutSectionLabel = aboutMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "ABOUT EDEN";
   const aboutDefaultDescription =
@@ -378,7 +381,7 @@ function Header({ onStart, onNavigate }) {
               const menuKey = enGroup?.label || group.label;
               const isLocations = enGroup?.label === "Locations";
               const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-              const isAboutEden = enGroup?.label === "About Eden";
+              const isAboutEden = isAboutMegaMenuGroup(enGroup);
               const isCareers = enGroup?.label === "Careers";
               const isProviders = enGroup?.label === "For Providers";
               const isResources = enGroup?.label === "Resources";
@@ -587,7 +590,7 @@ function Header({ onStart, onNavigate }) {
                 const enGroup = enMenu[groupIdx];
                 const isLocations = enGroup?.label === "Locations";
                 const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-                const isAboutEden = enGroup?.label === "About Eden";
+                const isAboutEden = isAboutMegaMenuGroup(enGroup);
                 const isCareers = enGroup?.label === "Careers";
                 const isProviders = enGroup?.label === "For Providers";
                 const isResources = enGroup?.label === "Resources";

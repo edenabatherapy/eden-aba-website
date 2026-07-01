@@ -19,6 +19,9 @@ import { getMenu, getTranslation } from "@/lib/i18n";
 import { handleMenuLink } from "@/lib/navigation";
 import { getPagePath } from "@/lib/site-routes";
 import {
+  isAboutMegaMenuGroup,
+} from "@/lib/about-mega-menu";
+import {
   isServicesMegaMenuGroup,
   SERVICES_MENU_ID,
 } from "@/lib/services-mega-menu";
@@ -130,8 +133,8 @@ export default function EdenSiteHeader() {
   const getAbaSectionTitle = buildSectionTitleResolver(abaMenuGroup, abaEnGroup);
   const abaServicesLabel = abaMenuGroup?.label?.toUpperCase?.() || "SERVICES";
 
-  const aboutMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "About Eden");
-  const aboutEnGroup = enMenu.find((group) => group.label === "About Eden");
+  const aboutMenuGroup = menuItems.find((_, idx) => isAboutMegaMenuGroup(enMenu[idx]));
+  const aboutEnGroup = enMenu.find((group) => isAboutMegaMenuGroup(group));
   const getAboutDisplayTitle = buildMenuDisplayTitleResolver(aboutMenuGroup, aboutEnGroup);
   const aboutSectionLabel = aboutMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "ABOUT EDEN";
   const aboutDefaultDescription =
@@ -168,7 +171,7 @@ export default function EdenSiteHeader() {
               const enGroup = enMenu[groupIdx];
               const menuKey = enGroup?.label || group.label;
               const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-              const isAboutEden = enGroup?.label === "About Eden";
+              const isAboutEden = isAboutMegaMenuGroup(enGroup);
               const isCareers = enGroup?.label === "Careers";
               const isProviders = enGroup?.label === "For Providers";
               const isResources = enGroup?.label === "Resources";
@@ -177,7 +180,7 @@ export default function EdenSiteHeader() {
               const dropdownPanelClass = getDropdownPanelClass(isDropdownOpen);
               const isActive =
                 (isCareers && isCareersActive) ||
-                (isAboutEden && pathname.startsWith("/about")) ||
+                (isAboutEden && (pathname.startsWith("/about") || pathname === "/contact")) ||
                 (isProviders && isProvidersActive) ||
                 false;
 
@@ -274,7 +277,7 @@ export default function EdenSiteHeader() {
               {menuItems.map((group, groupIdx) => {
                 const enGroup = enMenu[groupIdx];
                 const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-                const isAboutEden = enGroup?.label === "About Eden";
+                const isAboutEden = isAboutMegaMenuGroup(enGroup);
                 const isCareers = enGroup?.label === "Careers";
                 const isProviders = enGroup?.label === "For Providers";
                 const isResources = enGroup?.label === "Resources";

@@ -8,7 +8,7 @@ export const ABOUT_NAV_LINKS: AboutNavLink[] = [
   { label: "Our Story", href: "/about/our-story", menuKey: "Our Story" },
   {
     label: "Our Mission & Values",
-    href: "/about/our-mission-values",
+    href: "/about/mission-values",
     menuKey: "Our Mission & Values",
   },
   { label: "Our Approach", href: "/about/our-approach", menuKey: "Our Approach" },
@@ -23,5 +23,5 @@ export const ABOUT_NAV_LINKS: AboutNavLink[] = [
     href: "/about/community-impact",
     menuKey: "Community Impact",
   },
-  { label: "Contact Us", href: "/about/contact-us", menuKey: "Contact Us" },
+  { label: "Contact Us", href: "/contact", menuKey: "Contact Us" },
 ];

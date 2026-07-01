@@ -203,16 +203,10 @@ export default function AboutEdenMegaMenu({
         return;
       }
 
-      if (item.href.startsWith("/about/")) {
-        window.location.assign(item.href);
-        onClose?.();
-        return;
-      }
-
-      onNavigate(item.title);
+      window.location.assign(item.href);
       onClose?.();
     },
-    [onClose, onNavigate, onStart],
+    [onClose, onStart],
   );
 
   const displayTitle = activeItem ? getDisplayTitle(activeItem) : defaultTitle;
@@ -227,7 +221,7 @@ export default function AboutEdenMegaMenu({
   const isMobile = variant === "mobile";
 
   return (
-    <div className={`aba-mega-menu${isMobile ? " aba-mega-menu--mobile" : ""}`}>
+    <div className={`aba-mega-menu aba-mega-menu--about${isMobile ? " aba-mega-menu--mobile" : ""}`}>
       <div
         className="aba-menu-left"
         onMouseLeave={() => setActiveItem(null)}

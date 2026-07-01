@@ -143,10 +143,10 @@ export default function AbaTherapyMegaMenu({
 
   const handleSelect = useCallback(
     (item: AbaTherapyMegaMenuItem) => {
-      onNavigate(item.title);
+      window.location.assign(item.href);
       onClose?.();
     },
-    [onClose, onNavigate],
+    [onClose],
   );
 
   const activeDisplayTitle = getDisplayTitle(activeItem);
