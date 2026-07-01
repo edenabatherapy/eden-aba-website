@@ -25,18 +25,7 @@ import HomeBasedAbaTherapyPage from "@/components/HomeBasedAbaTherapyPage";
 import CommunityBasedAbaTherapyPage from "@/components/CommunityBasedAbaTherapyPage";
 import VirtualAbaTherapyPage from "@/components/VirtualAbaTherapyPage";
 import ResourcePlaceholderPage from "@/components/ResourcePlaceholderPage";
-import AbaTherapyMegaMenu from "@/components/AbaTherapyMegaMenu";
-import AboutEdenMegaMenu, { aboutEdenDefaultPreview } from "@/components/AboutEdenMegaMenu";
-import CareersMegaMenu from "@/components/CareersMegaMenu";
-import ProvidersMegaMenu from "@/components/providers/ProvidersMegaMenu";
-import ResourcesMegaMenu, { resourcesDefaultPreview } from "@/components/ResourcesMegaMenu";
-import {
-  isAboutMegaMenuGroup,
-} from "@/lib/about-mega-menu";
-import {
-  isServicesMegaMenuGroup,
-  SERVICES_MENU_ID,
-} from "@/lib/services-mega-menu";
+import EdenSiteHeader from "@/components/common/EdenSiteHeader";
 import AdvancedIntakeForm from "@/components/intake/AdvancedIntakeForm";
 import HomepageInterestForm from "@/components/HomepageInterestForm";
 import RecaptchaNotice from "@/components/RecaptchaNotice";
@@ -45,11 +34,7 @@ import EdenLogo from "@/components/EdenLogo";
 import GoogleReviews from "@/components/GoogleReviews";
 import HomepageHero from "@/components/HomepageHero";
 import dynamic from "next/dynamic";
-import SiteHeaderBrand from "@/components/common/SiteHeaderBrand";
-import SiteLanguageSwitcher from "@/components/common/LanguageSwitcher";
-import { useHeaderScrolled } from "@/hooks/useHeaderScrolled";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
-import { getHeaderShellClasses } from "@/lib/header-brand";
 import Footer from "@/components/common/Footer";
 import HomeCareersHero from "@/components/home/HomeCareersHero";
 import ClientReviewsSection from "@/components/home/ClientReviewsSection";
@@ -68,8 +53,6 @@ import {
   MapPin,
   Phone,
   Mail,
-  Menu,
-  X,
   CheckCircle2,
   LockKeyhole,
   CalendarDays,
@@ -83,7 +66,6 @@ import {
   MessageCircle,
   Star,
   Search,
-  ChevronDown,
   UploadCloud,
   UserRound,
   Baby,
@@ -102,7 +84,6 @@ import {
 import {
   getTranslation,
   getMeta,
-  getMenu,
   getJobs,
   getServiceData,
   getIntakeSteps,
@@ -111,7 +92,6 @@ import {
   STORAGE_KEY,
   DEFAULT_LANGUAGE,
 } from "@/lib/i18n";
-import { handleMenuLink } from "@/lib/navigation";
 import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { HOME_SERVICE_CARD_HREFS } from "@/lib/services/service-card-links";
@@ -136,7 +116,6 @@ const brandColors = {
 
 const SERVICE_ICONS = [Home, Building2, School, Users];
 const INTAKE_STEP_ICONS = [FileText, CreditCard, FileSignature, UserRound, ClipboardCheck, HeartHandshake];
-const HEADER_EVAL_ICONS = [ClipboardCheck, Users, ShieldCheck, CalendarDays];
 
 const IMG = SITE_IMAGES;
 
@@ -196,529 +175,6 @@ function InfoCard({ Icon, title, text }) {
       <h3 className="mt-4 text-xl font-black text-[#0b4f4f]">{title}</h3>
       <p className="mt-2 font-semibold leading-7 text-slate-700">{text}</p>
     </article>
-  );
-}
-
-function parseMenuLinkEntry(displayEntry, enEntry) {
-  const enMeta = typeof enEntry === "object" && enEntry !== null ? enEntry : null;
-  const displayMeta = typeof displayEntry === "object" && displayEntry !== null ? displayEntry : null;
-
-  return {
-    key: enMeta?.key || enMeta?.label || enEntry,
-    displayLabel: displayMeta?.label || displayEntry,
-    badge: enMeta?.badge || null,
-    comingSoon: Boolean(enMeta?.comingSoon),
-  };
-}
-
-function MenuLinkBadge({ badge }) {
-  if (!badge) return null;
-
-  return (
-    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold leading-snug tracking-wide text-emerald-700/80">
-      {badge}
-    </span>
-  );
-}
-
-function buildMenuDisplayTitleResolver(menuGroup, enGroup) {
-  const titleByEnglishLabel = {};
-
-  enGroup?.columns?.forEach((enColumn, colIdx) => {
-    const displayColumn = menuGroup?.columns?.[colIdx];
-    if (!displayColumn) return;
-
-    enColumn.links.forEach((enLink, linkIdx) => {
-      const englishLabel = typeof enLink === "object" && enLink !== null ? enLink.label : enLink;
-      const displayLink = displayColumn.links[linkIdx];
-      const displayLabel = typeof displayLink === "object" && displayLink !== null ? displayLink.label : displayLink;
-      titleByEnglishLabel[englishLabel] = displayLabel;
-    });
-  });
-
-  if (Object.keys(titleByEnglishLabel).length === 0) {
-    return (item) => item.title;
-  }
-
-  return (item) => titleByEnglishLabel[item.title] || item.title;
-}
-
-function buildAbaDisplayTitleResolver(menuGroup, enGroup) {
-  return buildMenuDisplayTitleResolver(menuGroup, enGroup);
-}
-
-function buildSectionTitleResolver(menuGroup, enGroup) {
-  const titleByEnglishSection = {};
-  enGroup?.columns?.forEach((enCol, idx) => {
-    titleByEnglishSection[enCol.title] = menuGroup?.columns?.[idx]?.title ?? enCol.title;
-  });
-  return (enSectionTitle) => titleByEnglishSection[enSectionTitle] ?? enSectionTitle;
-}
-
-function Header({ onStart, onNavigate }) {
-  const { language } = useSiteLanguage();
-  const scrolled = useHeaderScrolled();
-  const [open, setOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const t = getTranslation(language);
-  const menuItems = getMenu(language);
-  const enMenu = getMenu("en");
-  const evalHeader = t.headerEvaluation;
-
-  const closeMenus = () => {
-    setOpenDropdown(null);
-    setOpen(false);
-  };
-
-  const navigate = (page, options) => {
-    onNavigate?.(page, options);
-    closeMenus();
-  };
-
-  const onMenuLink = (enLinkLabel) => {
-    handleMenuLink(enLinkLabel, {
-      onNavigate: navigate,
-      onStart: () => {
-        onStart?.();
-        closeMenus();
-      },
-    });
-  };
-
-  const onCareersNavigate = (href) => {
-    closeMenus();
-    if (href.startsWith("mailto:")) {
-      window.location.href = href;
-      return;
-    }
-    window.location.assign(href);
-  };
-
-  const onProvidersNavigate = (href) => {
-    closeMenus();
-    if (href.startsWith("http")) {
-      window.open(href, "_blank", "noopener,noreferrer");
-      return;
-    }
-    window.location.assign(href);
-  };
-
-  const toggleDropdown = (menuKey) => {
-    setOpenDropdown((current) => (current === menuKey ? null : menuKey));
-  };
-
-  useEffect(() => {
-    if (!openDropdown) return undefined;
-
-    const handlePointerDown = (event) => {
-      if (event.target.closest("[data-nav-menu]")) return;
-      setOpenDropdown(null);
-    };
-    const handleEscape = (event) => {
-      if (event.key === "Escape") setOpenDropdown(null);
-    };
-
-    document.addEventListener("pointerdown", handlePointerDown);
-    document.addEventListener("keydown", handleEscape);
-    return () => {
-      document.removeEventListener("pointerdown", handlePointerDown);
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [openDropdown]);
-
-  const navItemClass =
-    "shrink-0 whitespace-nowrap rounded-full px-1.5 py-1.5 text-[10px] font-extrabold leading-tight text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800 lg:px-2 lg:py-1.5 lg:text-[11px] xl:px-2.5 xl:text-xs 2xl:px-3 2xl:py-2 2xl:text-sm";
-
-  const getDropdownPanelClass = (isDropdownOpen) =>
-    isDropdownOpen
-      ? "visible translate-y-0 opacity-100 pointer-events-auto"
-      : "invisible translate-y-2 opacity-0 pointer-events-none group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto";
-
-  const abaMenuGroup = menuItems.find((group, idx) => enMenu[idx]?.id === SERVICES_MENU_ID);
-  const abaEnGroup = enMenu.find((group) => group.id === SERVICES_MENU_ID);
-  const getAbaDisplayTitle = buildAbaDisplayTitleResolver(abaMenuGroup, abaEnGroup);
-  const getAbaSectionTitle = buildSectionTitleResolver(abaMenuGroup, abaEnGroup);
-  const abaServicesLabel = abaMenuGroup?.label?.toUpperCase?.() || "SERVICES";
-
-  const aboutMenuGroup = menuItems.find((_, idx) => isAboutMegaMenuGroup(enMenu[idx]));
-  const aboutEnGroup = enMenu.find((group) => isAboutMegaMenuGroup(group));
-  const getAboutDisplayTitle = buildMenuDisplayTitleResolver(aboutMenuGroup, aboutEnGroup);
-  const aboutSectionLabel = aboutMenuGroup?.columns?.[0]?.title?.toUpperCase?.() || "ABOUT EDEN";
-  const aboutDefaultDescription =
-    t.aboutEdenMegaMenuDefaultDescription || aboutEdenDefaultPreview.description;
-
-  const resourcesMenuGroup = menuItems.find((_, idx) => enMenu[idx]?.label === "Resources");
-  const resourcesEnGroup = enMenu.find((group) => group.label === "Resources");
-  const getResourcesDisplayTitle = buildMenuDisplayTitleResolver(resourcesMenuGroup, resourcesEnGroup);
-  const getResourcesSectionTitle = buildSectionTitleResolver(resourcesMenuGroup, resourcesEnGroup);
-  const resourcesDefaultDescription =
-    t.resourcesMegaMenuDefaultDescription || resourcesDefaultPreview.description;
-  const resourcesDefaultTitle =
-    t.resourcesMegaMenuDefaultTitle || resourcesDefaultPreview.title;
-
-  return (
-    <header
-      className={`sticky top-0 z-50 border-b border-[#49b8c8]/20 bg-white/92 backdrop-blur-xl transition-shadow duration-300 ${scrolled ? "shadow-sm shadow-emerald-950/5" : ""}`}
-    >
-      <div
-        className={`mx-auto grid w-full max-w-[100rem] grid-cols-[minmax(0,auto)_minmax(0,1fr)_auto] items-center gap-x-2 px-3 transition-[padding] duration-300 sm:gap-x-3 sm:px-4 lg:gap-x-4 lg:px-5 xl:px-6 2xl:gap-x-5 2xl:px-8 ${getHeaderShellClasses(scrolled)}`}
-      >
-        <div className="relative shrink-0 lg:z-[60]">
-          <SiteHeaderBrand compact={scrolled} />
-        </div>
-
-        {/* CENTER — Home + main navigation */}
-        <nav
-          className="relative z-0 hidden min-w-0 items-center justify-center lg:flex"
-          aria-label={t.ariaLabels?.mainNav ?? "Main navigation"}
-        >
-          <div className="flex max-w-full flex-nowrap items-center justify-center gap-1 lg:gap-1.5 xl:gap-2 2xl:gap-2.5">
-            <Link href="/" className={`relative z-[60] ${navItemClass}`} onClick={closeMenus}>
-              {t.navHome}
-            </Link>
-            {menuItems.map((group, groupIdx) => {
-              const enGroup = enMenu[groupIdx];
-              const menuKey = enGroup?.label || group.label;
-              const isLocations = enGroup?.label === "Locations";
-              const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-              const isAboutEden = isAboutMegaMenuGroup(enGroup);
-              const isCareers = enGroup?.label === "Careers";
-              const isProviders = enGroup?.label === "For Providers";
-              const isResources = enGroup?.label === "Resources";
-              const isMegaMenu = isServicesMenu || isAboutEden || isCareers || isResources || isProviders;
-              const isDropdownOpen = openDropdown === menuKey;
-              const dropdownPanelClass = getDropdownPanelClass(isDropdownOpen);
-
-              return (
-                <div key={group.label} className="group relative shrink-0" data-nav-menu>
-                  {isLocations ? (
-                    <button
-                      type="button"
-                      onClick={() => navigate("locations")}
-                      className={`flex items-center gap-0.5 ${navItemClass}`}
-                    >
-                      {group.label}
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => toggleDropdown(menuKey)}
-                      aria-expanded={isDropdownOpen}
-                      aria-haspopup="true"
-                      className={`flex items-center gap-0.5 ${navItemClass} group-hover:bg-emerald-50 group-hover:text-emerald-900 ${isDropdownOpen ? "bg-emerald-50 text-emerald-900" : ""}`}
-                    >
-                      {group.label}
-                      <ChevronDown size={12} className="shrink-0 opacity-70 2xl:size-[14px]" />
-                    </button>
-                  )}
-
-                  {!isLocations && (
-                    <div
-                      className={`absolute left-1/2 top-[calc(100%+0.25rem)] z-50 -translate-x-1/2 transition-all group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 ${dropdownPanelClass} ${
-                        isMegaMenu ? "w-auto" : "w-[560px] rounded-[1.4rem] border border-slate-100 bg-white p-5 shadow-2xl shadow-slate-900/10"
-                      }`}
-                    >
-                      {isServicesMenu ? (
-                        <AbaTherapyMegaMenu
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getAbaDisplayTitle}
-                          getSectionTitle={getAbaSectionTitle}
-                          servicesLabel={abaServicesLabel}
-                        />
-                      ) : isAboutEden ? (
-                        <AboutEdenMegaMenu
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          onStart={() => onStart()}
-                          getDisplayTitle={getAboutDisplayTitle}
-                          sectionLabel={aboutSectionLabel}
-                          defaultTitle={aboutMenuGroup?.label || "About Eden"}
-                          defaultPreview={{
-                            ...aboutEdenDefaultPreview,
-                            description: aboutDefaultDescription,
-                          }}
-                        />
-                      ) : isCareers ? (
-                        <CareersMegaMenu onNavigate={onCareersNavigate} />
-                      ) : isProviders ? (
-                        <ProvidersMegaMenu onNavigate={onProvidersNavigate} />
-                      ) : isResources ? (
-                        <ResourcesMegaMenu
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getResourcesDisplayTitle}
-                          getSectionTitle={getResourcesSectionTitle}
-                          defaultTitle={resourcesDefaultTitle}
-                          defaultPreview={{
-                            ...resourcesDefaultPreview,
-                            description: resourcesDefaultDescription,
-                          }}
-                        />
-                      ) : (
-                        <div className="grid gap-5 md:grid-cols-2">
-                        {group.type === "evaluation" && (
-                          <div className="overflow-hidden rounded-[1.8rem] bg-gradient-to-br from-emerald-800 via-emerald-700 to-teal-700 text-white shadow-xl">
-                            <div className="border-b border-white/10 p-5">
-                              <p className="text-xs font-black uppercase tracking-[0.25em] text-emerald-100">
-                                {evalHeader.eyebrow}
-                              </p>
-                              <h3 className="mt-3 text-2xl font-black leading-tight">{evalHeader.title}</h3>
-                              <p className="mt-3 text-sm leading-6 text-emerald-50">{evalHeader.text}</p>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-3 p-5">
-                              {evalHeader.cards.map(([cardTitle, cardText], cardIdx) => {
-                                const Icon = HEADER_EVAL_ICONS[cardIdx];
-                                const isScheduling = cardIdx === 3;
-                                const isParentGuidance = cardIdx === 1;
-                                const cardBody = (
-                                  <>
-                                    <Icon className="text-yellow-300" size={26} />
-                                    <p className="mt-3 text-sm font-black">{cardTitle}</p>
-                                    <p className="mt-1 text-xs text-emerald-50">{cardText}</p>
-                                  </>
-                                );
-                                return isScheduling ? (
-                                  <button
-                                    key={cardTitle}
-                                    type="button"
-                                    onClick={() => navigate("autism-assessment")}
-                                    className="rounded-2xl bg-white/10 p-4 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-                                  >
-                                    {cardBody}
-                                  </button>
-                                ) : isParentGuidance ? (
-                                  <button
-                                    key={cardTitle}
-                                    type="button"
-                                    onClick={() => navigate("parent-guidance")}
-                                    className="rounded-2xl bg-white/10 p-4 text-left backdrop-blur-sm transition hover:-translate-y-0.5 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-                                  >
-                                    {cardBody}
-                                  </button>
-                                ) : (
-                                  <div key={cardTitle} className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-                                    {cardBody}
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        )}
-
-                        {group.columns.map((col, colIdx) => (
-                          <div key={col.title}>
-                            <p className="mb-2 border-b border-slate-100 pb-2 text-xs font-black uppercase tracking-widest text-slate-500">
-                              {col.title}
-                            </p>
-
-                            {col.links.map((link, linkIdx) => {
-                              const enLink = enGroup.columns[colIdx].links[linkIdx];
-                              const { key, displayLabel, badge, comingSoon } = parseMenuLinkEntry(link, enLink);
-
-                              if (comingSoon) {
-                                return (
-                                  <div
-                                    key={key}
-                                    aria-disabled="true"
-                                    className="block w-full cursor-default rounded-xl px-2 py-2.5 text-left"
-                                  >
-                                    <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                                      <span className="text-sm font-black text-slate-600">{displayLabel}</span>
-                                      <MenuLinkBadge badge={badge} />
-                                    </span>
-                                  </div>
-                                );
-                              }
-
-                              return (
-                                <button
-                                  key={key}
-                                  type="button"
-                                  onClick={() => onMenuLink(enLink)}
-                                  className="block w-full rounded-xl px-2 py-2.5 text-left text-sm font-black text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800"
-                                >
-                                  {displayLabel}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </nav>
-
-        {/* RIGHT — language (desktop) / menu toggle (mobile) */}
-        <div className="flex shrink-0 items-center justify-end gap-2">
-          <div className="hidden lg:flex">
-            <SiteLanguageSwitcher comfortable />
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setOpen(!open)}
-            className="relative z-[21] rounded-full border border-emerald-100 p-2 lg:hidden"
-            aria-label={open ? (t.ariaLabels?.closeMenu ?? "Close menu") : (t.ariaLabels?.openMenu ?? "Open menu")}
-          >
-            {open ? <X /> : <Menu />}
-          </button>
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="relative z-[60] border-t border-emerald-100 bg-white lg:hidden"
-          >
-            <div className="grid gap-2 p-4">
-              <Link
-                href="/"
-                className="rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950"
-                onClick={closeMenus}
-              >
-                {t.navHome}
-              </Link>
-              {menuItems.map((group, groupIdx) => {
-                const enGroup = enMenu[groupIdx];
-                const isLocations = enGroup?.label === "Locations";
-                const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-                const isAboutEden = isAboutMegaMenuGroup(enGroup);
-                const isCareers = enGroup?.label === "Careers";
-                const isProviders = enGroup?.label === "For Providers";
-                const isResources = enGroup?.label === "Resources";
-
-                return isLocations ? (
-                  <button
-                    key={group.label}
-                    type="button"
-                    onClick={() => {
-                      navigate("locations");
-                    }}
-                    className="rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950"
-                  >
-                    {t.navLocations}
-                  </button>
-                ) : (
-                  <details key={group.label} className="rounded-2xl bg-emerald-50/50 p-3">
-                    <summary className="cursor-pointer font-black text-emerald-950">{group.label}</summary>
-                    {isServicesMenu ? (
-                      <div className="pt-3">
-                        <AbaTherapyMegaMenu
-                          variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getAbaDisplayTitle}
-                          getSectionTitle={getAbaSectionTitle}
-                          servicesLabel={abaServicesLabel}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isAboutEden ? (
-                      <div className="pt-3">
-                        <AboutEdenMegaMenu
-                          variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          onStart={() => {
-                            onStart();
-                            setOpen(false);
-                          }}
-                          getDisplayTitle={getAboutDisplayTitle}
-                          sectionLabel={aboutSectionLabel}
-                          defaultTitle={aboutMenuGroup?.label || "About Eden"}
-                          defaultPreview={{
-                            ...aboutEdenDefaultPreview,
-                            description: aboutDefaultDescription,
-                          }}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isCareers ? (
-                      <div className="pt-3">
-                        <CareersMegaMenu
-                          variant="mobile"
-                          onNavigate={onCareersNavigate}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isProviders ? (
-                      <div className="pt-3">
-                        <ProvidersMegaMenu
-                          variant="mobile"
-                          onNavigate={onProvidersNavigate}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isResources ? (
-                      <div className="pt-3">
-                        <ResourcesMegaMenu
-                          variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getResourcesDisplayTitle}
-                          getSectionTitle={getResourcesSectionTitle}
-                          defaultTitle={resourcesDefaultTitle}
-                          defaultPreview={{
-                            ...resourcesDefaultPreview,
-                            description: resourcesDefaultDescription,
-                          }}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : (
-                      group.columns.flatMap((col, colIdx) =>
-                        col.links.map((link, linkIdx) => {
-                          const enLink = enGroup.columns[colIdx].links[linkIdx];
-                          const { key, displayLabel, badge, comingSoon } = parseMenuLinkEntry(link, enLink);
-
-                          if (comingSoon) {
-                            return (
-                              <div
-                                key={key}
-                                aria-disabled="true"
-                                className="block w-full cursor-default py-2 pl-3 text-left"
-                              >
-                                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                                  <span className="text-sm font-semibold text-slate-600">{displayLabel}</span>
-                                  <MenuLinkBadge badge={badge} />
-                                </span>
-                              </div>
-                            );
-                          }
-
-                          return (
-                            <button
-                              key={key}
-                              type="button"
-                              onClick={() => {
-                                onMenuLink(enLink);
-                                setOpen(false);
-                              }}
-                              className="block w-full py-2 pl-3 text-left text-sm font-semibold text-slate-700"
-                            >
-                              {displayLabel}
-                            </button>
-                          );
-                        }),
-                      )
-                    )}
-                  </details>
-                );
-              })}
-
-              <div className="mt-3 flex justify-center">
-                <SiteLanguageSwitcher comfortable />
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
   );
 }
 
@@ -3433,7 +2889,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <WhatIsAutismPage t={t} onStart={() => goToPage("intake")} onAssessment={() => goToPage("autism-assessment")} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3460,7 +2916,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <LocationsPage t={t} onStart={() => goToPage("intake")} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3478,7 +2934,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <AboutEdenPage t={t} onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3496,7 +2952,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <AdvancedIntakeForm t={t} language={language} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3514,7 +2970,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <OnlineAppointmentSchedulerCTA t={t} autoStartWizard />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3532,7 +2988,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <InsuranceVerificationPage t={t} onSchedule={() => goToPage("schedule-appointment")} onHome={() => goToPage("home")} onStart={() => goToPage("intake")} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3564,7 +3020,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <MChatRFormPage t={t} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3582,7 +3038,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <CastFormPage t={t} onScheduleEvaluation={() => goToPage("autism-assessment")} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3600,7 +3056,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <IdeEvaluationPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3627,7 +3083,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <CenterBasedAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3654,7 +3110,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <HomeBasedAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3681,7 +3137,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <CommunityBasedAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3709,7 +3165,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <VirtualAbaTherapyPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3737,7 +3193,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <OutcomesFamilyStoriesPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3762,7 +3218,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <AdmissionsPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3790,7 +3246,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <ParentGuidancePageWrapper
           t={t}
           onMchat={() => goToPage("m-chat-r")}
@@ -3819,7 +3275,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <HomeCareersHero />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3904,7 +3360,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <ResourcePlaceholderPage content={content} onStart={onPrimary} onContact={() => goToPage("intake")} />
         <NewsletterBanner t={t} />
         <Footer />
@@ -3922,7 +3378,7 @@ export default function EdenABAWebsite() {
         >
           {darkMode ? t.lightMode : t.darkMode}
         </button>
-        <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+        <EdenSiteHeader />
         <AutismScreenerFaqsPageWrapper
           t={t}
           onStart={() => goToPage("intake")}
@@ -3949,7 +3405,7 @@ export default function EdenABAWebsite() {
       >
         {darkMode ? t.lightMode : t.darkMode}
       </button>
-      <Header onStart={() => goToPage("intake")} onNavigate={goToPage} />
+      <EdenSiteHeader />
       <HomepageHero onStart={() => goToPage("intake")} onFindCare={() => goToPage("locations")} language={language} />
       <AiIntakeAssistantSection
         onAskQuestion={() => {
