@@ -14,6 +14,9 @@ export const FOOTER_SERVICE_LINKS: FooterLinkItem[] = [
   { label: "School & IEP Evaluations", href: "/autism-evaluation/ide-evaluation" },
   { label: "Parent Training", href: "/aba-therapy/parent-training" },
   { label: "After School Programs", href: "/services/after-school-programs" },
+  { label: "Occupational Therapy", href: "/services/occupational-therapy" },
+  { label: "Speech & Language Therapy", href: "/services/speech-language-therapy" },
+  { label: "Feeding & Swallowing Therapy", href: "/services/feeding-swallowing-therapy" },
 ];
 
 export const FOOTER_RESOURCE_LINKS: FooterLinkItem[] = [
