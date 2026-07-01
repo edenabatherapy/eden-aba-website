@@ -2210,6 +2210,7 @@
         "servicesTitle": "Services",
         "resourcesTitle": "Resources",
         "careersTitle": "Careers",
+        "aboutEdenTitle": "About Eden",
         "contactTitle": "Contact",
         "mission": "Compassionate, evidence-informed ABA therapy and family support designed to help children build meaningful skills across home, school, and community.",
         "officePhoneLabel": "Office Phone:",
@@ -2283,6 +2284,29 @@
           },
           {
             "label": "Career Growth Pathways"
+          }
+        ],
+        "aboutEdenLinks": [
+          {
+            "label": "Our Story"
+          },
+          {
+            "label": "Our Mission & Values"
+          },
+          {
+            "label": "Our Approach"
+          },
+          {
+            "label": "Our Team"
+          },
+          {
+            "label": "Clinical Quality"
+          },
+          {
+            "label": "Community Impact"
+          },
+          {
+            "label": "Contact Us"
           }
         ],
         "complianceAria": "Compliance and trust notices",

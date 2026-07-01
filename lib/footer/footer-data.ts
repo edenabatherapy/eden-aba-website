@@ -35,6 +35,16 @@ export const FOOTER_CAREER_LINKS: FooterLinkItem[] = [
   { label: "Career Growth Pathways", href: "/careers/career-growth-pathways" },
 ];
 
+export const FOOTER_ABOUT_EDEN_LINKS: FooterLinkItem[] = [
+  { label: "Our Story", href: "/about/our-story" },
+  { label: "Our Mission & Values", href: "/about/mission-values" },
+  { label: "Our Approach", href: "/about/our-approach" },
+  { label: "Our Team", href: "/about/our-team" },
+  { label: "Clinical Quality", href: "/about/clinical-quality" },
+  { label: "Community Impact", href: "/about/community-impact" },
+  { label: "Contact Us", href: "/contact" },
+];
+
 export const FOOTER_COMPLIANCE = {
   accessibility: {
     title: "Accessibility Notice",

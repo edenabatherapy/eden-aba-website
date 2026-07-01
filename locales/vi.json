@@ -2215,6 +2215,7 @@
         "servicesTitle": "Dịch vụ",
         "resourcesTitle": "Tài nguyên",
         "careersTitle": "Tuyển dụng",
+        "aboutEdenTitle": "Về Eden",
         "contactTitle": "Liên hệ",
         "mission": "Liệu pháp ABA nhân văn, dựa trên bằng chứng và hỗ trợ gia đình, giúp trẻ xây dựng kỹ năng có ý nghĩa tại nhà, trường học và cộng đồng.",
         "officePhoneLabel": "Điện thoại văn phòng:",
@@ -2288,6 +2289,29 @@
           },
           {
             "label": "Lộ trình Phát triển Nghề nghiệp"
+          }
+        ],
+        "aboutEdenLinks": [
+          {
+            "label": "Câu chuyện của chúng tôi"
+          },
+          {
+            "label": "Sứ mệnh & Giá trị"
+          },
+          {
+            "label": "Phương pháp của chúng tôi"
+          },
+          {
+            "label": "Đội ngũ của chúng tôi"
+          },
+          {
+            "label": "Chất lượng lâm sàng"
+          },
+          {
+            "label": "Tác động cộng đồng"
+          },
+          {
+            "label": "Liên hệ"
           }
         ],
         "complianceAria": "Thông báo tuân thủ và tin cậy",

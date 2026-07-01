@@ -8,6 +8,7 @@ import EdenLogo from "@/components/EdenLogo";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
 import {
+  FOOTER_ABOUT_EDEN_LINKS,
   FOOTER_CAREER_LINKS,
   FOOTER_RESOURCE_LINKS,
   FOOTER_SERVICE_LINKS,
@@ -98,9 +99,10 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
   const serviceLinks = mergeFooterLinks(FOOTER_SERVICE_LINKS, grid?.serviceLinks);
   const resourceLinks = mergeFooterLinks(FOOTER_RESOURCE_LINKS, grid?.resourceLinks);
   const careerLinks = mergeFooterLinks(FOOTER_CAREER_LINKS, grid?.careerLinks);
+  const aboutEdenLinks = mergeFooterLinks(FOOTER_ABOUT_EDEN_LINKS, grid?.aboutEdenLinks);
 
   return (
-    <div className="grid gap-6 border-b border-white/10 pb-8 sm:gap-7 lg:grid-cols-[1.15fr_repeat(4,minmax(0,1fr))] lg:gap-8 lg:pb-10">
+    <div className="grid gap-6 border-b border-white/10 pb-8 sm:gap-7 lg:grid-cols-[1.15fr_repeat(5,minmax(0,1fr))] lg:gap-8 lg:pb-10">
       <motion.div
         {...(reduceMotion ? {} : { ...columnMotion, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } })}
       >
@@ -115,9 +117,14 @@ export default function FooterMainGrid({ brandName, phone, email }: FooterMainGr
       <FooterColumn title={grid?.servicesTitle ?? "Services"} links={serviceLinks} defaultOpen delay={0.05} />
       <FooterColumn title={grid?.resourcesTitle ?? "Resources"} links={resourceLinks} delay={0.1} />
       <FooterColumn title={grid?.careersTitle ?? "Careers"} links={careerLinks} delay={0.15} />
+      <FooterColumn
+        title={grid?.aboutEdenTitle ?? "About Eden"}
+        links={aboutEdenLinks}
+        delay={0.175}
+      />
 
       <motion.div
-        {...(reduceMotion ? {} : { ...columnMotion, transition: { duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] } })}
+        {...(reduceMotion ? {} : { ...columnMotion, transition: { duration: 0.5, delay: 0.225, ease: [0.22, 1, 0.36, 1] } })}
         className="border-b border-white/10 pb-4 lg:border-b-0 lg:pb-0"
       >
         <h3 className="text-sm font-black uppercase tracking-[0.2em] text-emerald-100">
