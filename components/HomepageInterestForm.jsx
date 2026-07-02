@@ -4,10 +4,11 @@ import { useState } from "react";
 import { CalendarDays, Check, LockKeyhole } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import RecaptchaNotice from "@/components/RecaptchaNotice";
+import StartAbaSmsConsentDisclosure from "@/components/start-aba-therapy/StartAbaSmsConsentDisclosure";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { START_ABA_THERAPY_SUCCESS_MESSAGE } from "@/lib/intake/messages.js";
 
-export default function HomepageInterestForm({ t, smsConsentLabel }) {
+export default function HomepageInterestForm({ t }) {
   const {
     recaptchaRef,
     recaptchaError,
@@ -273,7 +274,7 @@ export default function HomepageInterestForm({ t, smsConsentLabel }) {
               onChange={(e) => setConsentUpdates(e.target.checked)}
               className="mt-1 h-4 w-4 accent-emerald-600"
             />
-            <span>{smsConsentLabel ?? t.consentUpdates}</span>
+            <span><StartAbaSmsConsentDisclosure /></span>
           </label>
 
           <label className="flex items-start gap-3 text-sm font-semibold text-slate-600 md:col-span-2">
