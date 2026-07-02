@@ -4,7 +4,10 @@ import SiteLanguageProvider from "@/components/providers/SiteLanguageProvider";
 import SiteLanguageSync from "@/components/common/SiteLanguageSync";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EdenChatWidgetLoader from "@/components/EdenChatWidgetLoader";
+import { getRecaptchaSiteKeyFromServerEnv } from "@/lib/recaptcha/env";
 import "./globals.css";
+
+export const dynamic = "force-dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,10 +25,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const recaptchaSiteKey =
-    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY?.trim() ||
-    process.env.RECAPTCHA_SITE_KEY?.trim() ||
-    "";
+  const recaptchaSiteKey = getRecaptchaSiteKeyFromServerEnv();
 
   return (
     <html

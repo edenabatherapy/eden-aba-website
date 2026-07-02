@@ -4,13 +4,13 @@ import dynamic from "next/dynamic";
 import {
   forwardRef,
   useCallback,
+  useEffect,
   useId,
   useImperativeHandle,
   useRef,
   useState,
 } from "react";
 import {
-  isRecaptchaMisconfiguredOnClient,
   isRecaptchaWidgetEnabled,
   shouldBypassRecaptchaOnClient,
 } from "@/lib/recaptcha/config";
@@ -21,15 +21,12 @@ import {
   RECAPTCHA_EXPIRED_MESSAGE,
   RECAPTCHA_INCOMPLETE_MESSAGE,
   RECAPTCHA_LOAD_ERROR_MESSAGE,
-  RECAPTCHA_MISCONFIGURED_MESSAGE,
 } from "@/lib/recaptcha/messages";
 
-const isDevelopment = process.env.NODE_ENV === "development";
-
-function RecaptchaLoadingPlaceholder() {
+function RecaptchaLoadingPlaceholder({ className = "" }: { className?: string }) {
   return (
     <div
-      className="flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-[3px] border border-[#d3d3d3] bg-[#f9f9f9] px-4 shadow-[0_0_4px_rgba(0,0,0,0.08)]"
+      className={`flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-[3px] border border-[#d3d3d3] bg-[#f9f9f9] px-4 shadow-[0_0_4px_rgba(0,0,0,0.08)] ${className}`}
       role="status"
       aria-live="polite"
     >
@@ -40,7 +37,7 @@ function RecaptchaLoadingPlaceholder() {
 
 const ReCaptchaWidget = dynamic(() => import("@/components/security/ReCaptchaWidget"), {
   ssr: false,
-  loading: RecaptchaLoadingPlaceholder,
+  loading: () => <RecaptchaLoadingPlaceholder />,
 });
 
 export type ReCaptchaVerificationHandle = {
@@ -75,13 +72,20 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
     },
     ref,
   ) {
-    const siteKey = getRecaptchaSiteKey();
-    const widgetEnabled = isRecaptchaWidgetEnabled(siteKey);
-    const misconfigured = isRecaptchaMisconfiguredOnClient();
+    const [hasMounted, setHasMounted] = useState(false);
+    const [siteKey, setSiteKey] = useState("");
     const widgetRef = useRef<ReCaptchaVerificationHandle | null>(null);
     const [loadError, setLoadError] = useState("");
     const fieldsetId = useId();
     const errorId = `${fieldsetId}-error`;
+
+    useEffect(() => {
+      setSiteKey(getRecaptchaSiteKey());
+      setHasMounted(true);
+    }, []);
+
+    const bypass = shouldBypassRecaptchaOnClient(siteKey);
+    const widgetEnabled = isRecaptchaWidgetEnabled(siteKey);
 
     useImperativeHandle(ref, () => ({
       reset: () => {
@@ -118,37 +122,15 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
 
     const displayError = error || loadError;
 
-    if (shouldBypassRecaptchaOnClient()) {
+    if (!hasMounted) {
+      return bypass ? null : <RecaptchaLoadingPlaceholder className={className} />;
+    }
+
+    if (bypass) {
       return null;
     }
 
-    if (misconfigured) {
-      return (
-        <div className={`min-w-0 ${className}`} role="alert">
-          <div className="inline-flex min-h-[78px] min-w-[304px] max-w-full flex-col justify-center rounded-[3px] border border-red-200 bg-red-50 px-4 py-3 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
-            <p className="text-xs font-semibold text-red-700">{RECAPTCHA_MISCONFIGURED_MESSAGE}</p>
-          </div>
-          {showNotice ? (
-            <RecaptchaNotice align={noticeAlign} tone={noticeTone} className="mt-2" />
-          ) : null}
-        </div>
-      );
-    }
-
     if (!widgetEnabled) {
-      if (isDevelopment) {
-        return (
-          <div className={`min-w-0 ${className}`} role="status">
-            <div className="inline-flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-[3px] border border-amber-200 bg-amber-50 px-4 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
-              <p className="text-xs font-semibold text-amber-900">
-                reCAPTCHA disabled — set NEXT_PUBLIC_RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY in
-                .env.local, then restart npm run dev.
-              </p>
-            </div>
-          </div>
-        );
-      }
-
       return null;
     }
 

@@ -25,16 +25,16 @@ export function isRecaptchaFullyConfigured() {
 
 /** Client widget renders when the site key exists and bypass is off. */
 export function isRecaptchaWidgetEnabled(siteKey = getRecaptchaSiteKey()) {
-  if (shouldBypassRecaptchaOnClient()) {
+  if (shouldBypassRecaptchaOnClient(siteKey)) {
     return false;
   }
 
   return isRecaptchaClientConfigured(siteKey);
 }
 
-/** Skip the widget only when RECAPTCHA_BYPASS is explicitly enabled. */
-export function shouldBypassRecaptchaOnClient() {
-  return isRecaptchaBypassFlagEnabled();
+/** Skip the widget when bypass is enabled or the public site key is unavailable. */
+export function shouldBypassRecaptchaOnClient(siteKey = getRecaptchaSiteKey()) {
+  return isRecaptchaBypassFlagEnabled() || !isRecaptchaSiteKeyConfigured(siteKey);
 }
 
 /** Server skips token verification when keys are incomplete or bypass is enabled. */
@@ -43,23 +43,24 @@ export function shouldBypassRecaptchaVerificationOnServer() {
 }
 
 /**
- * Misconfigured when verification is expected on the client but the public site key is missing.
+ * Misconfigured only when bypass is off, a site key is present, but the widget cannot load.
+ * An absent site key is treated as bypass (forms stay usable without showing an error).
  */
-export function isRecaptchaMisconfiguredOnClient() {
-  if (shouldBypassRecaptchaOnClient()) {
+export function isRecaptchaMisconfiguredOnClient(siteKey = getRecaptchaSiteKey()) {
+  if (shouldBypassRecaptchaOnClient(siteKey)) {
     return false;
   }
 
-  return !isRecaptchaClientConfigured();
+  return false;
 }
 
 /** Require a completed challenge when the widget is enabled. */
-export function isRecaptchaRequiredForSubmission() {
-  if (shouldBypassRecaptchaOnClient()) {
+export function isRecaptchaRequiredForSubmission(siteKey = getRecaptchaSiteKey()) {
+  if (shouldBypassRecaptchaOnClient(siteKey)) {
     return false;
   }
 
-  return isRecaptchaWidgetEnabled();
+  return isRecaptchaWidgetEnabled(siteKey);
 }
 
 /** @deprecated Always require a completed challenge when the widget is shown. */

@@ -1,27 +1,33 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReCaptchaVerificationHandle } from "@/components/security/ReCaptchaVerification";
 import {
-  isRecaptchaMisconfiguredOnClient,
   isRecaptchaRequiredForSubmission,
   isRecaptchaWidgetEnabled,
+  shouldBypassRecaptchaOnClient,
 } from "@/lib/recaptcha/config";
 import { logRecaptchaDev } from "@/lib/recaptcha/dev-log";
 import { getRecaptchaSiteKey } from "@/lib/recaptcha/client";
 import {
   RECAPTCHA_EXPIRED_MESSAGE,
   RECAPTCHA_INCOMPLETE_MESSAGE,
-  RECAPTCHA_MISCONFIGURED_MESSAGE,
   RECAPTCHA_VALIDATION_IN_PROGRESS_MESSAGE,
   RECAPTCHA_VERIFYING_MESSAGE,
 } from "@/lib/recaptcha/messages";
 
 export function useReCaptchaV2() {
-  const siteKey = getRecaptchaSiteKey();
+  const [siteKey, setSiteKey] = useState(() =>
+    typeof window !== "undefined" ? getRecaptchaSiteKey() : "",
+  );
+
+  useEffect(() => {
+    setSiteKey(getRecaptchaSiteKey());
+  }, []);
+
   const enabled = isRecaptchaWidgetEnabled(siteKey);
-  const misconfigured = isRecaptchaMisconfiguredOnClient();
-  const required = isRecaptchaRequiredForSubmission();
+  const required = isRecaptchaRequiredForSubmission(siteKey);
+  const optional = shouldBypassRecaptchaOnClient(siteKey);
   const recaptchaRef = useRef<ReCaptchaVerificationHandle | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [recaptchaError, setRecaptchaError] = useState("");
@@ -52,11 +58,6 @@ export function useReCaptchaV2() {
   }, []);
 
   const requireRecaptcha = useCallback(() => {
-    if (misconfigured) {
-      setRecaptchaError(RECAPTCHA_MISCONFIGURED_MESSAGE);
-      return false;
-    }
-
     if (!required) {
       return true;
     }
@@ -67,15 +68,10 @@ export function useReCaptchaV2() {
     }
 
     return true;
-  }, [misconfigured, required, token]);
+  }, [required, token]);
 
   const verifyRecaptchaWithServer = useCallback(async () => {
     if (submitLockRef.current) {
-      return { success: false as const, token: null };
-    }
-
-    if (misconfigured) {
-      setRecaptchaError(RECAPTCHA_MISCONFIGURED_MESSAGE);
       return { success: false as const, token: null };
     }
 
@@ -93,7 +89,6 @@ export function useReCaptchaV2() {
     setValidating(true);
 
     try {
-      // reCAPTCHA v2 tokens are single-use. Form APIs verify once on the server.
       logRecaptchaDev("client validation passed", { hasToken: true });
       submitLockRef.current = true;
       return { success: true as const, token };
@@ -101,14 +96,15 @@ export function useReCaptchaV2() {
       setVerifying(false);
       setValidating(false);
     }
-  }, [misconfigured, required, token]);
+  }, [required, token]);
 
-  const canSubmit = !misconfigured && (!required || Boolean(token));
+  const canSubmit = !required || Boolean(token);
 
   return {
     enabled,
     required,
-    misconfigured,
+    optional,
+    misconfigured: false,
     token,
     verified: Boolean(token),
     recaptchaRef,
