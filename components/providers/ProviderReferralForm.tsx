@@ -1,4 +1,16 @@
+"use client";
+
+import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
+
 export default function ProviderReferralForm() {
+  const {
+    recaptchaRef,
+    recaptchaError,
+    handleTokenChange,
+    handleExpired,
+  } = useReCaptchaV2();
+
   return (
     <form className="eden-providers-form" aria-label="Provider referral form">
       <p className="eden-providers-form__notice">
@@ -60,7 +72,17 @@ export default function ProviderReferralForm() {
         <textarea name="notes" placeholder="Share any information you are authorized to provide." />
       </label>
 
-      <button type="button" className="eden-providers-btn eden-providers-btn--primary" disabled>
+      <ReCaptchaVerification
+        ref={recaptchaRef}
+        onTokenChange={handleTokenChange}
+        onExpired={handleExpired}
+        error={recaptchaError}
+        noticeAlign="left"
+        showNotice
+        className="mt-6"
+      />
+
+      <button type="button" className="eden-providers-btn eden-providers-btn--primary mt-6" disabled>
         Submit referral (coming soon)
       </button>
 

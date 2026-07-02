@@ -10,7 +10,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { RECAPTCHA_SUCCESS_MESSAGE } from "@/lib/recaptcha/messages";
 import { SITE_IMAGES } from "@/lib/site-images";
@@ -438,6 +437,8 @@ export default function InsuranceContactLanding({ t, onStartVerification }: Prop
                       onExpired={handleExpired}
                       error={recaptchaError}
                       disabled={formDisabled}
+                      noticeAlign="center"
+                      showNotice
                     />
                   </div>
 
@@ -456,7 +457,6 @@ export default function InsuranceContactLanding({ t, onStartVerification }: Prop
                         copy.submit
                       )}
                     </button>
-                    <RecaptchaNotice align="center" />
                   </div>
                 </form>
               </>

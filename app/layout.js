@@ -22,6 +22,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const recaptchaSiteKey =
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY?.trim() ||
+    process.env.RECAPTCHA_SITE_KEY?.trim() ||
+    "";
+
   return (
     <html
       lang="en"
@@ -29,6 +34,13 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
+        {recaptchaSiteKey ? (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.__EDEN_RECAPTCHA_SITE_KEY__=${JSON.stringify(recaptchaSiteKey)};`,
+            }}
+          />
+        ) : null}
         <SiteLanguageProvider>
           <SiteLanguageSync />
           {children}

@@ -18,7 +18,8 @@ import {
 } from "@/lib/recaptcha/messages";
 
 export function useReCaptchaV2() {
-  const enabled = isRecaptchaWidgetEnabled(getRecaptchaSiteKey());
+  const siteKey = getRecaptchaSiteKey();
+  const enabled = isRecaptchaWidgetEnabled(siteKey);
   const misconfigured = isRecaptchaMisconfiguredOnClient();
   const required = isRecaptchaRequiredForSubmission();
   const recaptchaRef = useRef<ReCaptchaVerificationHandle | null>(null);

@@ -29,7 +29,7 @@ const isDevelopment = process.env.NODE_ENV === "development";
 function RecaptchaLoadingPlaceholder() {
   return (
     <div
-      className="flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-lg border border-slate-200 bg-slate-50 px-4"
+      className="flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-[3px] border border-[#d3d3d3] bg-[#f9f9f9] px-4 shadow-[0_0_4px_rgba(0,0,0,0.08)]"
       role="status"
       aria-live="polite"
     >
@@ -70,7 +70,7 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
       theme = "light",
       className = "",
       noticeAlign = "left",
-      showNotice = false,
+      showNotice = true,
       noticeTone = "light",
     },
     ref,
@@ -118,21 +118,34 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
 
     const displayError = error || loadError;
 
+    if (shouldBypassRecaptchaOnClient()) {
+      return null;
+    }
+
     if (misconfigured) {
       return (
-        <p className={`text-xs text-red-600 ${className}`} role="alert">
-          {RECAPTCHA_MISCONFIGURED_MESSAGE}
-        </p>
+        <div className={`min-w-0 ${className}`} role="alert">
+          <div className="inline-flex min-h-[78px] min-w-[304px] max-w-full flex-col justify-center rounded-[3px] border border-red-200 bg-red-50 px-4 py-3 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+            <p className="text-xs font-semibold text-red-700">{RECAPTCHA_MISCONFIGURED_MESSAGE}</p>
+          </div>
+          {showNotice ? (
+            <RecaptchaNotice align={noticeAlign} tone={noticeTone} className="mt-2" />
+          ) : null}
+        </div>
       );
     }
 
     if (!widgetEnabled) {
-      if (isDevelopment && !shouldBypassRecaptchaOnClient()) {
+      if (isDevelopment) {
         return (
-          <p className={`text-xs text-amber-800 ${className}`} role="status">
-            reCAPTCHA disabled — set NEXT_PUBLIC_RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY in
-            .env.local, then restart npm run dev.
-          </p>
+          <div className={`min-w-0 ${className}`} role="status">
+            <div className="inline-flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-[3px] border border-amber-200 bg-amber-50 px-4 shadow-[0_0_4px_rgba(0,0,0,0.08)]">
+              <p className="text-xs font-semibold text-amber-900">
+                reCAPTCHA disabled — set NEXT_PUBLIC_RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY in
+                .env.local, then restart npm run dev.
+              </p>
+            </div>
+          </div>
         );
       }
 
@@ -151,7 +164,7 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
         </span>
 
         <div
-          className={`overflow-visible ${disabled ? "pointer-events-none opacity-60" : ""}`}
+          className={`inline-block max-w-full overflow-visible rounded-[3px] border border-[#d3d3d3] bg-[#f9f9f9] p-1 shadow-[0_0_4px_rgba(0,0,0,0.08)] ${disabled ? "pointer-events-none opacity-60" : ""}`}
           aria-disabled={disabled}
         >
           <ReCaptchaWidget

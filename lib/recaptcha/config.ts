@@ -32,12 +32,9 @@ export function isRecaptchaWidgetEnabled(siteKey = getRecaptchaSiteKey()) {
   return isRecaptchaClientConfigured(siteKey);
 }
 
-/**
- * Skip the widget when the site key is missing or RECAPTCHA_BYPASS is enabled.
- * Unblocks production until NEXT_PUBLIC_RECAPTCHA_SITE_KEY is set on Vercel.
- */
+/** Skip the widget only when RECAPTCHA_BYPASS is explicitly enabled. */
 export function shouldBypassRecaptchaOnClient() {
-  return isRecaptchaBypassFlagEnabled() || !isRecaptchaClientConfigured();
+  return isRecaptchaBypassFlagEnabled();
 }
 
 /** Server skips token verification when keys are incomplete or bypass is enabled. */
@@ -56,14 +53,10 @@ export function isRecaptchaMisconfiguredOnClient() {
   return !isRecaptchaClientConfigured();
 }
 
-/** Require a completed challenge only when the public site key is configured. */
+/** Require a completed challenge when the widget is enabled. */
 export function isRecaptchaRequiredForSubmission() {
   if (shouldBypassRecaptchaOnClient()) {
     return false;
-  }
-
-  if (isRecaptchaMisconfiguredOnClient()) {
-    return true;
   }
 
   return isRecaptchaWidgetEnabled();

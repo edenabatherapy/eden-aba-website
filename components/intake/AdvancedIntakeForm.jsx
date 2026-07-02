@@ -42,7 +42,6 @@ import { getOverallCompletion, getStepCompletion, validateStep } from "@/lib/int
 import ConsentModal from "./ConsentModal";
 import DocumentsPanel from "./DocumentsPanel";
 import EdenLogo from "@/components/EdenLogo";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import IntakeBrandHeader from "./IntakeBrandHeader";
@@ -816,6 +815,8 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
                       onExpired={handleExpired}
                       error={recaptchaError}
                       disabled={submitting || verifying || validating}
+                      noticeAlign="right"
+                      showNotice
                     />
                     <motion.button
                       type="button"
@@ -831,7 +832,6 @@ export default function AdvancedIntakeForm({ t, language = "en" }) {
                           : p.submitting || "Submitting…"
                         : p.reviewSubmit}
                     </motion.button>
-                    <RecaptchaNotice align="right" />
                   </div>
                 </div>
               )}

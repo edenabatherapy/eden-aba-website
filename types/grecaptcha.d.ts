@@ -8,4 +8,5 @@ interface Grecaptcha {
 
 interface Window {
   grecaptcha?: Grecaptcha;
+  __EDEN_RECAPTCHA_SITE_KEY__?: string;
 }

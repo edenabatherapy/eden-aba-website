@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
 import EdenButton from "@/components/EdenButton";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { RECAPTCHA_SUBMITTING_MESSAGE } from "@/lib/recaptcha/messages";
 
@@ -214,6 +213,8 @@ export default function Ados2ScheduleForm({ t }) {
         onExpired={handleExpired}
         error={recaptchaError}
         disabled={formDisabled}
+        noticeAlign="center"
+        showNotice
         className="mt-6"
       />
 
@@ -235,7 +236,6 @@ export default function Ados2ScheduleForm({ t }) {
       >
         {submitting ? RECAPTCHA_SUBMITTING_MESSAGE : verifying ? "Verifying…" : f.submit}
       </EdenButton>
-      <RecaptchaNotice />
     </form>
   );
 }

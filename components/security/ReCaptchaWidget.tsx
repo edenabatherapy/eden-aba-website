@@ -26,7 +26,7 @@ const ReCaptchaWidget = forwardRef<ReCaptchaVerificationHandle, Props>(
     }));
 
     return (
-      <div className="min-h-[78px] overflow-visible [&_.g-recaptcha]:inline-block">
+      <div className="min-h-[78px] min-w-[304px] overflow-visible [&_.g-recaptcha]:inline-block">
         <ReCAPTCHA
           ref={widgetRef}
           sitekey={siteKey}
