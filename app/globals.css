@@ -641,30 +641,19 @@ body {
   text-align: left;
 }
 
-.eden-insurance-ticker__category {
-  margin-top: 18px;
-  text-align: left;
-}
-
-.eden-insurance-ticker__category-label {
-  margin: 0 0 12px;
-  padding: 0 4px;
-  color: #087a3d;
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-}
-
 .eden-insurance-ticker__logo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
-  margin: 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .eden-insurance-ticker__logo-item {
+  flex: 0 0 calc((100% - 12px) / 2);
+  max-width: calc((100% - 12px) / 2);
   min-width: 0;
 }
 
@@ -699,15 +688,19 @@ body {
 
 @media (min-width: 640px) {
   .eden-insurance-ticker__logo-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
+  }
+
+  .eden-insurance-ticker__logo-item {
+    flex-basis: calc((100% - 28px) / 3);
+    max-width: calc((100% - 28px) / 3);
   }
 }
 
 @media (min-width: 1024px) {
-  .eden-insurance-ticker__logo-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 14px;
+  .eden-insurance-ticker__logo-item {
+    flex-basis: calc((100% - 70px) / 6);
+    max-width: calc((100% - 70px) / 6);
   }
 }
 
@@ -944,8 +937,9 @@ body {
     width: 100%;
   }
 
-  .eden-insurance-ticker__logo-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .eden-insurance-ticker__logo-item {
+    flex-basis: calc((100% - 12px) / 2);
+    max-width: calc((100% - 12px) / 2);
   }
 
   .eden-process-step {

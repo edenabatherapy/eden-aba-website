@@ -95,3 +95,8 @@ export const HOMEPAGE_INSURANCE_LOGO_GROUPS: HomepageInsuranceLogoGroup[] = [
     ],
   },
 ];
+
+/** Flat homepage logo list — preserves Medicaid then commercial order. */
+export const HOMEPAGE_INSURANCE_LOGOS: HomepageInsuranceLogo[] = HOMEPAGE_INSURANCE_LOGO_GROUPS.flatMap(
+  (group) => group.logos,
+);

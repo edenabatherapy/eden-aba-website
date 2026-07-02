@@ -12,7 +12,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { HOMEPAGE_INSURANCE_LOGO_GROUPS, type HomepageInsuranceLogo } from "@/lib/insurance/homepage-insurance-logos";
+import { HOMEPAGE_INSURANCE_LOGOS, type HomepageInsuranceLogo } from "@/lib/insurance/homepage-insurance-logos";
 
 const BENEFIT_ICONS = [ShieldCheck, ClipboardList, CircleDollarSign, Users];
 const STEP_ICONS = [ClipboardList, ShieldCheck, MessageCircle];
@@ -75,7 +75,6 @@ function InsuranceLogoCard({ logo, index }: { logo: HomepageInsuranceLogo; index
 export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: InsuranceSupportSectionProps) {
   const benefits = t.benefits ?? [];
   const steps = t.processSteps ?? [];
-  let logoIndex = 0;
 
   return (
     <section
@@ -171,25 +170,11 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
               <p className="eden-insurance-ticker__description">{t.toolbox.description}</p>
             ) : null}
 
-            {HOMEPAGE_INSURANCE_LOGO_GROUPS.map((group) => {
-              const groupLabel =
-                group.id === "medicaid"
-                  ? (t.toolbox?.medicaidLabel ?? group.label)
-                  : (t.toolbox?.commercialLabel ?? group.label);
-
-              return (
-                <div key={group.id} className="eden-insurance-ticker__category">
-                  <p className="eden-insurance-ticker__category-label">{groupLabel}</p>
-                  <ul className="eden-insurance-ticker__logo-grid" aria-label={groupLabel}>
-                    {group.logos.map((logo) => {
-                      const currentIndex = logoIndex;
-                      logoIndex += 1;
-                      return <InsuranceLogoCard key={logo.id} logo={logo} index={currentIndex} />;
-                    })}
-                  </ul>
-                </div>
-              );
-            })}
+            <ul className="eden-insurance-ticker__logo-grid" aria-label="Accepted insurance plans">
+              {HOMEPAGE_INSURANCE_LOGOS.map((logo, index) => (
+                <InsuranceLogoCard key={logo.id} logo={logo} index={index} />
+              ))}
+            </ul>
 
             {t.toolbox?.disclaimer ? (
               <p className="eden-insurance-ticker__disclaimer">{t.toolbox.disclaimer}</p>
