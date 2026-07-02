@@ -6,7 +6,7 @@ export default function StartAbaSmsConsentDisclosure() {
       I consent to receive customer care text messages from Eden ABA Therapy LLC. Reply STOP to opt out; Reply HELP
       for support; Message and data rates may apply; Messaging frequency may vary. Visit{" "}
       <a
-        href="https://www.edenabatherapy.com/privacy-policy"
+        href="/privacy-policy"
         target="_blank"
         rel="noopener noreferrer"
         className={linkClassName}
@@ -15,7 +15,7 @@ export default function StartAbaSmsConsentDisclosure() {
       </a>{" "}
       for our Privacy Policy and{" "}
       <a
-        href="https://www.edenabatherapy.com/terms-of-service"
+        href="/terms-of-service"
         target="_blank"
         rel="noopener noreferrer"
         className={linkClassName}

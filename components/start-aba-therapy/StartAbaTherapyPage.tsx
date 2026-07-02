@@ -2,7 +2,6 @@
 
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import HomepageInterestForm from "@/components/HomepageInterestForm";
-import StartAbaSmsConsentDisclosure from "@/components/start-aba-therapy/StartAbaSmsConsentDisclosure";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
 
@@ -27,7 +26,7 @@ export default function StartAbaTherapyPage() {
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-3xl">
-          <HomepageInterestForm t={t} smsConsentLabel={<StartAbaSmsConsentDisclosure />} />
+          <HomepageInterestForm t={t} />
         </div>
       </section>
     </AboutPremiumLayout>
