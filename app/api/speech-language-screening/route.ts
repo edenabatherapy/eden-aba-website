@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 import { generateSpeechLanguageScreeningConfirmationId } from "@/lib/speech-language-screening/confirmation";
 import { notifySpeechLanguageScreeningTeam } from "@/lib/speech-language-screening/notify";
 import {
@@ -33,6 +34,13 @@ export async function POST(request: Request) {
     body = await request.json();
   } catch {
     return NextResponse.json({ ok: false, message: "Invalid request body." }, { status: 400 });
+  }
+
+  const recaptcha = await verifyRecaptchaV2Token(
+    typeof body.recaptchaToken === "string" ? body.recaptchaToken : null,
+  );
+  if (recaptcha.ok === false) {
+    return recaptchaV2FailureResponse(recaptcha);
   }
 
   const childName = pickString(body, "childName");

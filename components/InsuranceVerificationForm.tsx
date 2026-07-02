@@ -10,7 +10,6 @@ import type {
 import { formatDOBForDisplay, validateDOB } from "@/lib/insurance/dates";
 import EdenLogo from "@/components/EdenLogo";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import InsuranceStatusTracker from "@/components/insurance/InsuranceStatusTracker";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -488,6 +487,8 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
           onExpired={handleExpired}
           error={recaptchaError}
           disabled={loading || verifying}
+          noticeAlign="center"
+          showNotice
           className="mt-6"
         />
 
@@ -506,7 +507,6 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
               ? formT.submitButton
               : formT.submitButtonManual || "Submit Verification Request"}
         </Button>
-        <RecaptchaNotice align="center" />
 
       </form>
 

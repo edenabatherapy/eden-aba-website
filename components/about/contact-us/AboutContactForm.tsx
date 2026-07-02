@@ -6,7 +6,6 @@ import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, LockKeyhole } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import FieldRequirementHint from "@/components/forms/FieldRequirementHint";
 import { validateContactForm, type ContactFieldErrors } from "@/lib/forms/contact-validation";
@@ -521,6 +520,8 @@ export default function AboutContactForm() {
         onExpired={handleExpired}
         error={recaptchaError}
         disabled={formDisabled}
+        showNotice
+        className="mt-2"
       />
 
       {error ? (
@@ -540,8 +541,6 @@ export default function AboutContactForm() {
         <LockKeyhole size={16} aria-hidden="true" />
         {submitting ? "Sending…" : verifying ? "Verifying…" : "Submit Inquiry"}
       </button>
-
-      <RecaptchaNotice />
     </form>
   );
 }

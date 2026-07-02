@@ -16,6 +16,7 @@ import {
 } from "@/lib/recaptcha/config";
 import { logRecaptchaDev } from "@/lib/recaptcha/dev-log";
 import { getRecaptchaSiteKey } from "@/lib/recaptcha/client";
+import RecaptchaNotice from "@/components/RecaptchaNotice";
 import {
   RECAPTCHA_EXPIRED_MESSAGE,
   RECAPTCHA_INCOMPLETE_MESSAGE,
@@ -25,13 +26,21 @@ import {
 
 const isDevelopment = process.env.NODE_ENV === "development";
 
+function RecaptchaLoadingPlaceholder() {
+  return (
+    <div
+      className="flex min-h-[78px] min-w-[304px] max-w-full items-center rounded-lg border border-slate-200 bg-slate-50 px-4"
+      role="status"
+      aria-live="polite"
+    >
+      <span className="text-xs font-semibold text-slate-500">Loading security verification…</span>
+    </div>
+  );
+}
+
 const ReCaptchaWidget = dynamic(() => import("@/components/security/ReCaptchaWidget"), {
   ssr: false,
-  loading: () => (
-    <span className="sr-only" role="status" aria-live="polite">
-      Loading security verification
-    </span>
-  ),
+  loading: RecaptchaLoadingPlaceholder,
 });
 
 export type ReCaptchaVerificationHandle = {
@@ -46,11 +55,24 @@ type Props = {
   disabled?: boolean;
   theme?: "light" | "dark";
   className?: string;
+  noticeAlign?: "left" | "center" | "right";
+  showNotice?: boolean;
+  noticeTone?: "light" | "dark";
 };
 
 const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
   function ReCaptchaVerification(
-    { onTokenChange, onExpired, error, disabled = false, theme = "light", className = "" },
+    {
+      onTokenChange,
+      onExpired,
+      error,
+      disabled = false,
+      theme = "light",
+      className = "",
+      noticeAlign = "left",
+      showNotice = false,
+      noticeTone = "light",
+    },
     ref,
   ) {
     const siteKey = getRecaptchaSiteKey();
@@ -118,14 +140,18 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
     }
 
     return (
-      <fieldset
-        className={`min-w-0 border-0 p-0 ${className}`}
+      <div
+        className={`min-w-0 ${className}`}
+        role="group"
+        aria-labelledby={`${fieldsetId}-legend`}
         aria-describedby={displayError ? errorId : undefined}
       >
-        <legend className="sr-only">Security verification</legend>
+        <span id={`${fieldsetId}-legend`} className="sr-only">
+          Security verification
+        </span>
 
         <div
-          className={disabled ? "pointer-events-none opacity-60" : ""}
+          className={`overflow-visible ${disabled ? "pointer-events-none opacity-60" : ""}`}
           aria-disabled={disabled}
         >
           <ReCaptchaWidget
@@ -144,7 +170,11 @@ const ReCaptchaVerification = forwardRef<ReCaptchaVerificationHandle, Props>(
             {displayError || RECAPTCHA_INCOMPLETE_MESSAGE}
           </p>
         ) : null}
-      </fieldset>
+
+        {showNotice ? (
+          <RecaptchaNotice align={noticeAlign} tone={noticeTone} className="mt-2" />
+        ) : null}
+      </div>
     );
   },
 );

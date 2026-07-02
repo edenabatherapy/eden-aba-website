@@ -26,14 +26,16 @@ const ReCaptchaWidget = forwardRef<ReCaptchaVerificationHandle, Props>(
     }));
 
     return (
-      <ReCAPTCHA
-        ref={widgetRef}
-        sitekey={siteKey}
-        theme={theme}
-        onChange={(token) => onChange(token)}
-        onExpired={onExpired}
-        onErrored={onErrored}
-      />
+      <div className="min-h-[78px] overflow-visible [&_.g-recaptcha]:inline-block">
+        <ReCAPTCHA
+          ref={widgetRef}
+          sitekey={siteKey}
+          theme={theme}
+          onChange={(token) => onChange(token)}
+          onExpired={onExpired}
+          onErrored={onErrored}
+        />
+      </div>
     );
   },
 );

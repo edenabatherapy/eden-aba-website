@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { CalendarDays, Check, LockKeyhole } from "lucide-react";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import RecaptchaNotice from "@/components/RecaptchaNotice";
 import StartAbaSmsConsentDisclosure from "@/components/start-aba-therapy/StartAbaSmsConsentDisclosure";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { START_ABA_THERAPY_SUCCESS_MESSAGE } from "@/lib/intake/messages.js";
@@ -132,8 +131,9 @@ export default function HomepageInterestForm({ t }) {
 
   return (
     <div className="rounded-[2.25rem] border border-white/70 bg-white p-6 shadow-2xl shadow-emerald-950/25 lg:p-8">
-      <fieldset disabled={formDisabled} className="min-w-0 border-0 p-0">
-        <header className="mb-8 px-2 pt-2 text-center sm:mb-10">
+      <form onSubmit={submit}>
+        <fieldset disabled={formDisabled} className="min-w-0 border-0 p-0">
+          <header className="mb-8 px-2 pt-2 text-center sm:mb-10">
           <h2 className="text-2xl font-extrabold tracking-tight text-[#0b4f4f] md:text-[28px] lg:text-[32px]">
             {t.homeIntakeFormHeading || "Start Your Child's ABA Journey"}
           </h2>
@@ -143,7 +143,7 @@ export default function HomepageInterestForm({ t }) {
           </p>
         </header>
 
-        <form onSubmit={submit} className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2">
           <label className="grid gap-2 text-sm font-bold text-slate-700 md:col-span-2">
             {t.parentName}
             <input
@@ -294,29 +294,28 @@ export default function HomepageInterestForm({ t }) {
           {error ? (
             <p className="md:col-span-2 rounded-2xl bg-red-50 p-4 text-sm font-bold text-red-700">{error}</p>
           ) : null}
+        </div>
+        </fieldset>
 
-          <div className="md:col-span-2">
-            <ReCaptchaVerification
-              ref={recaptchaRef}
-              onTokenChange={handleTokenChange}
-              onExpired={handleExpired}
-              error={recaptchaError}
-              disabled={formDisabled}
-            />
-          </div>
+        <ReCaptchaVerification
+          ref={recaptchaRef}
+          onTokenChange={handleTokenChange}
+          onExpired={handleExpired}
+          error={recaptchaError}
+        disabled={formDisabled}
+        noticeAlign="center"
+        showNotice
+        className="mt-4"
+        />
 
-          <div className="md:col-span-2">
-            <button
-              type="submit"
-              disabled={!recaptchaReady || formDisabled}
-              className="w-full rounded-full bg-gradient-to-r from-[#168f30] to-[#006d19] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-emerald-900/15 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {submitting ? t.contactFormSubmitting : verifying ? "Verifying…" : t.submitRequest}
-            </button>
-            <RecaptchaNotice align="center" />
-          </div>
-        </form>
-      </fieldset>
+        <button
+          type="submit"
+          disabled={!recaptchaReady || formDisabled}
+          className="mt-4 w-full rounded-full bg-gradient-to-r from-[#168f30] to-[#006d19] px-8 py-4 text-base font-extrabold text-white shadow-xl shadow-emerald-900/15 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {submitting ? t.contactFormSubmitting : verifying ? "Verifying…" : t.submitRequest}
+        </button>
+      </form>
     </div>
   );
 }

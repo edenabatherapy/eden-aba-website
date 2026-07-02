@@ -3,7 +3,7 @@
 import { isRecaptchaEnabled } from "@/lib/recaptcha/client";
 
 /**
- * Google reCAPTCHA disclosure — place below the submit button.
+ * Google reCAPTCHA disclosure — rendered with the verification widget before submit.
  * @param {object} props
  * @param {string} [props.className]
  * @param {"left"|"center"|"right"} [props.align]

@@ -4,6 +4,8 @@ import { useMemo, useState, type ReactNode } from "react";
 import { AlertTriangle, CheckCircle2, Shield } from "lucide-react";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import EdenButton from "@/components/EdenButton";
+import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { EDEN_CARD } from "@/lib/eden-design-system";
 import {
   calculateScreeningResult,
@@ -111,6 +113,19 @@ function FormCard({ title, children, className = "" }: { title: string; children
 }
 
 export default function SpeechLanguageScreeningForm() {
+  const {
+    recaptchaRef,
+    recaptchaError,
+    verifying,
+    canSubmit: recaptchaReady,
+    handleTokenChange,
+    handleExpired,
+    resetRecaptcha,
+    requireRecaptcha,
+    verifyRecaptchaWithServer,
+    releaseSubmitLock,
+  } = useReCaptchaV2();
+
   const [form, setForm] = useState(INITIAL_FORM);
   const [touched, setTouched] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -155,29 +170,45 @@ export default function SpeechLanguageScreeningForm() {
 
     if (hasErrors) return;
 
+    if (!requireRecaptcha()) {
+      setSubmitError("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
     setSubmitting(true);
 
     try {
+      const recaptcha = await verifyRecaptchaWithServer();
+      if (!recaptcha.success) {
+        setSubmitError("Security verification failed. Please try again.");
+        releaseSubmitLock();
+        return;
+      }
+
       const response = await fetch("/api/speech-language-screening", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, recaptchaToken: recaptcha.token }),
       });
 
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || !result.ok) {
         setSubmitError(result.message || "Unable to submit your screening. Please try again.");
+        resetRecaptcha();
         return;
       }
 
+      resetRecaptcha();
       setConfirmationId(result.confirmationId || "");
       setSuccess(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
       setSubmitError("Unable to submit your screening. Please try again.");
+      resetRecaptcha();
     } finally {
       setSubmitting(false);
+      releaseSubmitLock();
     }
   };
 
@@ -670,12 +701,6 @@ export default function SpeechLanguageScreeningForm() {
               {submitError}
             </div>
           ) : null}
-
-          <div className="lg:hidden">
-            <EdenButton type="submit" disabled={submitting} className="w-full justify-center">
-              {submitting ? "Submitting securely..." : "Submit Screening to Eden Intake Team"}
-            </EdenButton>
-          </div>
           </div>
 
           <aside className="lg:sticky lg:top-6 lg:self-start">
@@ -694,12 +719,23 @@ export default function SpeechLanguageScreeningForm() {
             <p className="mt-4 text-sm font-semibold leading-relaxed text-emerald-50">
               {screeningResult.recommendation}
             </p>
+            <ReCaptchaVerification
+              ref={recaptchaRef}
+              onTokenChange={handleTokenChange}
+              onExpired={handleExpired}
+              error={recaptchaError}
+              disabled={submitting || verifying}
+              noticeAlign="center"
+              noticeTone="dark"
+              showNotice
+              className="mt-6 rounded-xl border border-white/15 bg-white/5 p-3"
+            />
             <EdenButton
               type="submit"
-              disabled={submitting}
+              disabled={submitting || verifying || !recaptchaReady}
               className="mt-6 w-full justify-center bg-[#f97316] hover:bg-[#ea580c]"
             >
-              {submitting ? "Submitting securely..." : "Submit Screening to Eden Intake Team"}
+              {submitting ? "Submitting securely..." : verifying ? "Verifying…" : "Submit Screening to Eden Intake Team"}
             </EdenButton>
             {submitting ? (
               <p className="mt-3 text-sm font-bold text-emerald-100">Submitting securely...</p>
