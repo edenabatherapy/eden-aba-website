@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -25,6 +26,62 @@ import {
 } from "lucide-react";
 import EdenButton from "@/components/EdenButton";
 import { SITE_IMAGES } from "@/lib/site-images";
+
+const HOME_ABA_HEART_CLIP_ID = "home-aba-hero-heart-clip";
+
+function HeroHeartImageFrame({ src, alt }) {
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-[620px]">
+      <svg className="absolute h-0 w-0" aria-hidden="true">
+        <defs>
+          <clipPath id={HOME_ABA_HEART_CLIP_ID} clipPathUnits="objectBoundingBox">
+            <path d="M0.5,0.911 C0.371,0.79,0.105,0.597,0.105,0.355 C0.105,0.194,0.234,0.089,0.387,0.121 C0.452,0.137,0.492,0.185,0.5,0.234 C0.508,0.185,0.556,0.137,0.621,0.121 C0.774,0.089,0.895,0.194,0.895,0.355 C0.895,0.597,0.629,0.79,0.5,0.911 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <div className="absolute -inset-8 animate-pulse rounded-full bg-orange-300/30 blur-3xl" aria-hidden="true" />
+      <div className="absolute -inset-6 rounded-full bg-blue-400/20 blur-3xl" aria-hidden="true" />
+      <div className="absolute -inset-4 rounded-full bg-emerald-500/20 blur-2xl" aria-hidden="true" />
+
+      <span
+        className="absolute left-8 top-10 h-3 w-3 animate-bounce rounded-full bg-orange-400 shadow-[0_0_22px_rgba(249,115,22,0.9)]"
+        aria-hidden="true"
+      />
+      <span
+        className="absolute right-12 top-16 h-2.5 w-2.5 animate-ping rounded-full bg-blue-500 shadow-[0_0_22px_rgba(37,99,235,0.9)]"
+        aria-hidden="true"
+      />
+      <span
+        className="absolute bottom-20 left-10 h-3 w-3 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_22px_rgba(16,185,129,0.9)]"
+        aria-hidden="true"
+      />
+      <span
+        className="absolute bottom-12 right-16 h-4 w-4 animate-bounce rounded-full bg-orange-300 shadow-[0_0_25px_rgba(251,146,60,0.9)]"
+        aria-hidden="true"
+      />
+
+      <span className="absolute -left-2 top-24 animate-bounce text-2xl" aria-hidden="true">
+        💚
+      </span>
+      <span className="absolute right-4 top-8 animate-pulse text-2xl" aria-hidden="true">
+        💙
+      </span>
+      <span className="absolute bottom-8 left-24 animate-bounce text-2xl" aria-hidden="true">
+        🧡
+      </span>
+
+      <div
+        className="relative h-full w-full overflow-hidden shadow-2xl ring-4 ring-orange-300/70"
+        style={{ clipPath: `url(#${HOME_ABA_HEART_CLIP_ID})` }}
+      >
+        <Image src={src} alt={alt} fill priority className="object-cover object-center" sizes="(max-width: 1024px) 90vw, 620px" />
+      </div>
+
+      <div className="pointer-events-none absolute inset-0 rounded-full border border-orange-300/60 blur-sm" aria-hidden="true" />
+    </div>
+  );
+}
 
 const fadeUp = {
   initial: false,
@@ -294,10 +351,8 @@ export default function HomeBasedAbaTherapyPage({
               </EdenButton>
             </div>
           </motion.div>
-          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }} className="relative mx-auto w-full max-w-lg">
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl ring-4 ring-white/80">
-              <img src={img.hero} alt={p.hero.imageAlt} className="aspect-[4/5] w-full object-cover" loading="eager" />
-            </div>
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }} className="relative mx-auto w-full">
+            <HeroHeartImageFrame src={img.hero} alt={p.hero.imageAlt} />
           </motion.div>
         </div>
       </section>
