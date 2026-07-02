@@ -101,6 +101,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/speech-language-screening",
+        destination: "/services/speech-language-therapy/screening",
+        permanent: true,
+      },
+      {
         source: "/careers/behavior-technician-rbt",
         destination: "/careers/behavior-technician-careers",
         permanent: true,
