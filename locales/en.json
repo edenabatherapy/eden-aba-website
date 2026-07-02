@@ -1079,24 +1079,12 @@
         }
       ],
       "toolbox": {
-        "headline": "We help review benefits for many Virginia insurance plans",
-        "subheadline": "Eden ABA Therapy helps families understand ABA therapy benefits, review coverage, verify eligibility, explain authorization requirements, and guide them through the next steps. Coverage varies by plan and individual eligibility.",
+        "headline": "Accepted Insurance",
+        "subheadline": "We help review benefits for many Virginia insurance plans.",
+        "description": "Eden ABA Therapy helps families understand ABA therapy benefits, review coverage, verify eligibility, explain authorization requirements, and guide them through the next steps. Coverage varies by plan and individual eligibility.",
         "disclaimer": "Insurance coverage, benefits, eligibility, and authorization requirements vary by plan. Benefits are verified before services begin. Listing a health plan does not indicate participation, approval, or in-network status.",
-        "plans": [
-          "Virginia Medicaid",
-          "Aetna",
-          "Aetna Better Health",
-          "Anthem HealthKeepers Plus",
-          "Blue Cross Blue Shield",
-          "Cigna",
-          "Kaiser Permanente",
-          "MedStar Family Choice",
-          "Molina Healthcare",
-          "Sentara Health Plans",
-          "TRICARE",
-          "UMR",
-          "UnitedHealthcare"
-        ],
+        "medicaidLabel": "MEDICAID",
+        "commercialLabel": "COMMERCIAL",
         "verifyCta": "Verify Insurance",
         "viewCoverageLink": "View Insurance Coverage"
       }

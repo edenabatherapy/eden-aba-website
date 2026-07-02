@@ -1084,24 +1084,12 @@
         }
       ],
       "toolbox": {
-        "headline": "Chúng tôi giúp xem xét quyền lợi cho nhiều gói bảo hiểm Virginia",
-        "subheadline": "Eden ABA Therapy giúp các gia đình hiểu quyền lợi liệu pháp ABA, xem xét phạm vi bảo hiểm, xác minh điều kiện đủ điều kiện, giải thích yêu cầu ủy quyền và hướng dẫn các bước tiếp theo. Phạm vi bảo hiểm khác nhau tùy theo gói và điều kiện cá nhân.",
+        "headline": "Bảo hiểm được chấp nhận",
+        "subheadline": "Chúng tôi giúp xem xét quyền lợi cho nhiều gói bảo hiểm Virginia.",
+        "description": "Eden ABA Therapy giúp các gia đình hiểu quyền lợi liệu pháp ABA, xem xét phạm vi bảo hiểm, xác minh điều kiện đủ điều kiện, giải thích yêu cầu ủy quyền và hướng dẫn các bước tiếp theo. Phạm vi bảo hiểm khác nhau tùy theo gói và điều kiện cá nhân.",
         "disclaimer": "Phạm vi bảo hiểm, quyền lợi, điều kiện đủ điều kiện và yêu cầu ủy quyền khác nhau tùy theo gói. Quyền lợi được xác minh trước khi bắt đầu dịch vụ. Việc liệt kê một gói sức khỏe không có nghĩa là tham gia, phê duyệt hoặc thuộc mạng lưới.",
-        "plans": [
-          "Virginia Medicaid",
-          "Aetna",
-          "Aetna Better Health",
-          "Anthem HealthKeepers Plus",
-          "Blue Cross Blue Shield",
-          "Cigna",
-          "Kaiser Permanente",
-          "MedStar Family Choice",
-          "Molina Healthcare",
-          "Sentara Health Plans",
-          "TRICARE",
-          "UMR",
-          "UnitedHealthcare"
-        ],
+        "medicaidLabel": "MEDICAID",
+        "commercialLabel": "THƯƠNG MẠI",
         "verifyCta": "Xác minh bảo hiểm",
         "viewCoverageLink": "Xem phạm vi bảo hiểm"
       }

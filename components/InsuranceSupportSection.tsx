@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   CircleDollarSign,
   ClipboardList,
@@ -10,7 +12,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { INSURANCE_TICKER_PLANS } from "@/lib/insurance/ticker-plans";
+import { HOMEPAGE_INSURANCE_LOGO_GROUPS, type HomepageInsuranceLogo } from "@/lib/insurance/homepage-insurance-logos";
 
 const BENEFIT_ICONS = [ShieldCheck, ClipboardList, CircleDollarSign, Users];
 const STEP_ICONS = [ClipboardList, ShieldCheck, MessageCircle];
@@ -31,8 +33,10 @@ export type InsuranceSupportContent = {
   toolbox?: {
     headline?: string;
     subheadline?: string;
+    description?: string;
     disclaimer?: string;
-    plans?: string[];
+    medicaidLabel?: string;
+    commercialLabel?: string;
   };
 };
 
@@ -42,10 +46,36 @@ type InsuranceSupportSectionProps = {
   onTalkToTeam: () => void;
 };
 
+function InsuranceLogoCard({ logo, index }: { logo: HomepageInsuranceLogo; index: number }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.li
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={reduceMotion ? undefined : { y: -4, transition: { duration: 0.2 } }}
+      className="eden-insurance-ticker__logo-item"
+    >
+      <article className="eden-insurance-ticker__logo-card" aria-label={logo.name}>
+        <Image
+          src={logo.src}
+          alt={`${logo.name} logo`}
+          width={220}
+          height={80}
+          className="eden-insurance-ticker__logo-image"
+          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 16vw"
+        />
+      </article>
+    </motion.li>
+  );
+}
+
 export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: InsuranceSupportSectionProps) {
   const benefits = t.benefits ?? [];
   const steps = t.processSteps ?? [];
-  const tickerPlans = INSURANCE_TICKER_PLANS;
+  let logoIndex = 0;
 
   return (
     <section
@@ -134,30 +164,32 @@ export default function InsuranceSupportSection({ t, onVerify, onTalkToTeam }: I
           <div className="eden-insurance-ticker" aria-labelledby="eden-insurance-ticker-heading">
             <h3 id="eden-insurance-ticker-heading" className="eden-insurance-ticker__title">
               <Sparkles size={20} className="eden-insurance-ticker__spark" aria-hidden="true" />
-              {t.toolbox?.headline ?? "We help review benefits for many Virginia insurance plans"}
+              {t.toolbox?.headline ?? "Accepted Insurance"}
             </h3>
             <p className="eden-insurance-ticker__subtitle">{t.toolbox?.subheadline}</p>
+            {t.toolbox?.description ? (
+              <p className="eden-insurance-ticker__description">{t.toolbox.description}</p>
+            ) : null}
 
-            <div className="eden-insurance-ticker__marquee" aria-hidden="true">
-              <div className="eden-insurance-ticker__viewport">
-                <ul className="eden-insurance-ticker__track">
-                  {tickerPlans.map((name, index) => (
-                    <li key={`plan-${index}`} className="eden-insurance-ticker__item">
-                      <span>{name}</span>
-                    </li>
-                  ))}
-                  {tickerPlans.map((name, index) => (
-                    <li
-                      key={`loop-${index}`}
-                      className="eden-insurance-ticker__item eden-insurance-ticker__item--loop"
-                      aria-hidden="true"
-                    >
-                      <span>{name}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            {HOMEPAGE_INSURANCE_LOGO_GROUPS.map((group) => {
+              const groupLabel =
+                group.id === "medicaid"
+                  ? (t.toolbox?.medicaidLabel ?? group.label)
+                  : (t.toolbox?.commercialLabel ?? group.label);
+
+              return (
+                <div key={group.id} className="eden-insurance-ticker__category">
+                  <p className="eden-insurance-ticker__category-label">{groupLabel}</p>
+                  <ul className="eden-insurance-ticker__logo-grid" aria-label={groupLabel}>
+                    {group.logos.map((logo) => {
+                      const currentIndex = logoIndex;
+                      logoIndex += 1;
+                      return <InsuranceLogoCard key={logo.id} logo={logo} index={currentIndex} />;
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
 
             {t.toolbox?.disclaimer ? (
               <p className="eden-insurance-ticker__disclaimer">{t.toolbox.disclaimer}</p>
