@@ -2,26 +2,16 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
-import {
-  Handshake,
-  LayoutGrid,
-  LogIn,
-  Route,
-  ScanSearch,
-  ShieldCheck,
-  UserPlus,
-  type LucideIcon,
-} from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
+import AboutMeaningAnimation, { type AboutMeaningAnimationType } from "@/components/AboutMeaningAnimation";
 import {
   PROVIDERS_DEFAULT_PREVIEW,
   PROVIDERS_MENU_ITEMS,
   PROVIDERS_MEGA_MENU_LABEL,
-  PROVIDERS_MEGA_MENU_TAGLINE,
   type ProvidersMenuItem,
-  type ProvidersMegaMenuIcon,
+  type ProvidersPreviewPanel,
 } from "@/lib/providers/provider-menu-data";
-import "./ProvidersMegaMenu.css";
+import "../AbaTherapyMegaMenu.css";
 
 type ProvidersMegaMenuProps = {
   onNavigate?: (href: string) => void;
@@ -29,15 +19,17 @@ type ProvidersMegaMenuProps = {
   onClose?: () => void;
 };
 
-const ICON_MAP: Record<ProvidersMegaMenuIcon, LucideIcon> = {
-  "user-plus": UserPlus,
-  "layout-grid": LayoutGrid,
-  "log-in": LogIn,
-  route: Route,
-  handshake: Handshake,
-  screening: ScanSearch,
-  insurance: ShieldCheck,
+const PROVIDER_ANIMATION_TYPES: Record<string, AboutMeaningAnimationType> = {
+  "refer-a-child": "contact",
+  "referral-portal": "contact",
+  centralreach: "contact",
+  "referral-process": "quality",
+  "clinical-collaboration": "team",
+  "autism-screening": "quality",
+  "insurance-intake": "contact",
 };
+
+const DEFAULT_PROVIDER_ANIMATION: AboutMeaningAnimationType = "contact";
 
 function isActiveHref(
   pathname: string,
@@ -64,40 +56,60 @@ function isActiveHref(
   return pathname === path || pathname.startsWith(`${path}/`);
 }
 
-function PreviewPanel({
-  preview,
+function getAnimationType(itemId: string | undefined): AboutMeaningAnimationType {
+  if (!itemId) return DEFAULT_PROVIDER_ANIMATION;
+  return PROVIDER_ANIMATION_TYPES[itemId] ?? DEFAULT_PROVIDER_ANIMATION;
+}
+
+function PreviewCardHeader({
+  animationType,
   compact = false,
-  onCtaClick,
 }: {
-  preview: typeof PROVIDERS_DEFAULT_PREVIEW;
+  animationType: AboutMeaningAnimationType;
   compact?: boolean;
-  onCtaClick: (href: string, external?: boolean) => void;
 }) {
-  const className = compact ? "providers-preview providers-preview--compact" : "providers-preview";
-  const isExternal = preview.ctaHref.startsWith("http");
+  return (
+    <div className={`preview-card-header${compact ? " preview-card-header--compact" : ""}`}>
+      <div className="preview-brand">
+        <EdenLogo
+          size="compact"
+          className={compact ? "preview-logo preview-logo--compact" : "preview-logo"}
+        />
+      </div>
+      <AboutMeaningAnimation type={animationType} compact={compact} />
+    </div>
+  );
+}
+
+function PreviewCard({
+  preview,
+  displayTitle,
+  previewLabel,
+  learnMoreText,
+  animationType,
+  compact = false,
+}: {
+  preview: ProvidersPreviewPanel;
+  displayTitle: string;
+  previewLabel: string;
+  learnMoreText: string;
+  animationType: AboutMeaningAnimationType;
+  compact?: boolean;
+}) {
+  const className = compact ? "aba-menu-mobile-preview" : "preview-card";
 
   return (
     <div className={className} aria-live="polite">
-      <div className="providers-preview__header">
-        <div className="providers-preview__brand">
-          <EdenLogo size="compact" className="preview-logo" />
-        </div>
-        <span className="providers-preview__badge" aria-hidden="true">
-          +
-        </span>
-      </div>
+      <PreviewCardHeader animationType={animationType} compact={compact} />
 
-      <div className="providers-preview__body">
-        <p className="providers-preview__label">{preview.categoryLabel}</p>
-        <h3 className="providers-preview__headline">{preview.headline}</h3>
-        <p className="providers-preview__description">{preview.description}</p>
-        <button
-          type="button"
-          className="providers-preview__cta"
-          onClick={() => onCtaClick(preview.ctaHref, isExternal)}
-        >
-          {preview.cta}
-        </button>
+      <div className="preview-card-body">
+        <p className="preview-label">{previewLabel}</p>
+
+        <h3>{displayTitle}</h3>
+
+        <p>{preview.description}</p>
+
+        <span className="learn-more-text">{learnMoreText}</span>
       </div>
     </div>
   );
@@ -142,64 +154,73 @@ export default function ProvidersMegaMenu({
 
   const preview = activeItem?.preview ?? PROVIDERS_DEFAULT_PREVIEW;
   const previewKey = activeItem?.id ?? "providers-default";
+  const displayTitle = activeItem?.label ?? preview.headline;
+  const previewLabel = preview.categoryLabel;
+  const learnMoreText = preview.cta;
+  const animationType = getAnimationType(activeItem?.id);
 
   return (
     <div
-      className={`providers-mega-menu${isMobile ? " providers-mega-menu--mobile" : ""}`}
+      className={`aba-mega-menu aba-mega-menu--about${isMobile ? " aba-mega-menu--mobile" : ""}`}
       role="navigation"
       aria-label="For Providers menu"
     >
       <div
-        className="providers-mega-menu__nav"
+        className="aba-menu-left"
         onMouseLeave={() => setActiveItem(null)}
         role="menu"
         aria-label={PROVIDERS_MEGA_MENU_LABEL}
       >
-        <div className="providers-mega-menu__head">
-          <p className="providers-mega-menu__label">{PROVIDERS_MEGA_MENU_LABEL}</p>
-          {!isMobile ? <p className="providers-mega-menu__tagline">{PROVIDERS_MEGA_MENU_TAGLINE}</p> : null}
-        </div>
+        <p className="mega-menu-label">{PROVIDERS_MEGA_MENU_LABEL}</p>
 
-        <ul className="providers-mega-menu__list">
-          {menuItems.map((item) => {
-            const Icon = ICON_MAP[item.icon];
-            const isHovered = activeItem?.id === item.id;
-            const isRouteActive = isActiveHref(pathname, item.href, item.activePaths);
-            const isActive = isHovered || (activeItem === null && isRouteActive);
+        {menuItems.map((item) => {
+          const isHovered = activeItem?.id === item.id;
+          const isRouteActive = isActiveHref(pathname, item.href, item.activePaths);
+          const isActive = isHovered || (activeItem === null && isRouteActive);
 
-            return (
-              <li key={item.id} className="providers-mega-menu__item">
-                <button
-                  type="button"
-                  role="menuitem"
-                  className={`providers-mega-menu__link${isActive ? " active" : ""}`}
-                  onMouseEnter={() => setActiveItem(item)}
-                  onFocus={() => setActiveItem(item)}
-                  onClick={() => handleSelect(item)}
-                  aria-current={isActive ? "true" : undefined}
-                >
-                  <span className="providers-mega-menu__link-icon" aria-hidden="true">
-                    <Icon size={16} strokeWidth={2.25} />
-                  </span>
-                  <span className="providers-mega-menu__link-text">
-                    <span className="providers-mega-menu__link-title">{item.label}</span>
-                    <span className="providers-mega-menu__link-description">{item.description}</span>
-                  </span>
-                  <span className="providers-mega-menu__arrow" aria-hidden="true">
-                    →
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+          return (
+            <button
+              key={item.id}
+              type="button"
+              role="menuitem"
+              className={`aba-menu-item${isActive ? " active" : ""}`}
+              onMouseEnter={() => setActiveItem(item)}
+              onFocus={() => setActiveItem(item)}
+              onClick={() => handleSelect(item)}
+              aria-current={isActive ? "true" : undefined}
+            >
+              <span>{item.label}</span>
+
+              <span className="menu-arrow" aria-hidden="true">
+                →
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {!isMobile ? (
-        <div className="providers-mega-menu__preview-wrap" key={previewKey}>
-          <PreviewPanel preview={preview} onCtaClick={handleNavigate} />
+        <div className="aba-menu-right" key={previewKey}>
+          <PreviewCard
+            preview={preview}
+            displayTitle={displayTitle}
+            previewLabel={previewLabel}
+            learnMoreText={learnMoreText}
+            animationType={animationType}
+          />
         </div>
-      ) : null}
+      ) : (
+        <div key={previewKey}>
+          <PreviewCard
+            preview={preview}
+            displayTitle={displayTitle}
+            previewLabel={previewLabel}
+            learnMoreText={learnMoreText}
+            animationType={animationType}
+            compact
+          />
+        </div>
+      )}
     </div>
   );
 }
