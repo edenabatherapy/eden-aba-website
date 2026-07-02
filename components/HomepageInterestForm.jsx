@@ -7,7 +7,7 @@ import RecaptchaNotice from "@/components/RecaptchaNotice";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { START_ABA_THERAPY_SUCCESS_MESSAGE } from "@/lib/intake/messages.js";
 
-export default function HomepageInterestForm({ t }) {
+export default function HomepageInterestForm({ t, smsConsentLabel }) {
   const {
     recaptchaRef,
     recaptchaError,
@@ -273,7 +273,7 @@ export default function HomepageInterestForm({ t }) {
               onChange={(e) => setConsentUpdates(e.target.checked)}
               className="mt-1 h-4 w-4 accent-emerald-600"
             />
-            <span>{t.consentUpdates}</span>
+            <span>{smsConsentLabel ?? t.consentUpdates}</span>
           </label>
 
           <label className="flex items-start gap-3 text-sm font-semibold text-slate-600 md:col-span-2">
