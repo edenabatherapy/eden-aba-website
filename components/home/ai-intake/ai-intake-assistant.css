@@ -804,107 +804,6 @@
   line-height: 1.35;
 }
 
-/* Trusted tech */
-
-.eden-ai-tech {
-  margin-top: 2.75rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(18, 140, 140, 0.12);
-}
-
-.eden-ai-tech__head {
-  max-width: 44rem;
-  margin-bottom: 1.35rem;
-}
-
-.eden-ai-tech__eyebrow {
-  margin: 0;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--eden-ai-teal);
-}
-
-.eden-ai-tech__title {
-  margin: 0.45rem 0 0;
-  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
-  font-weight: 900;
-  color: #0f172a;
-}
-
-.eden-ai-tech__disclaimer {
-  margin: 0.65rem 0 0;
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  color: #64748b;
-}
-
-.eden-ai-tech__grid {
-  display: grid;
-  gap: 0.85rem;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-@media (min-width: 640px) {
-  .eden-ai-tech__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .eden-ai-tech__grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-}
-
-.eden-ai-tech__card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  min-height: 7.5rem;
-  padding: 1rem 1.05rem;
-  border-radius: 1.1rem;
-  border: 1px solid rgba(18, 140, 140, 0.1);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.eden-ai-tech__card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(11, 79, 79, 0.08);
-}
-
-.eden-ai-tech__card-top {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.eden-ai-tech__card-name {
-  font-size: 0.98rem;
-  font-weight: 900;
-  color: #0f172a;
-}
-
-.eden-ai-tech__card-role {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--eden-ai-teal);
-}
-
-.eden-ai-tech__card-text {
-  margin: 0;
-  font-size: 0.8125rem;
-  line-height: 1.55;
-  color: #64748b;
-}
-
 /* Modal */
 
 .eden-ai-modal {
@@ -1245,15 +1144,13 @@
   .eden-ai-modal__panel,
   .eden-ai-modal__dots span,
   .eden-ai-intake__cta,
-  .eden-ai-actions__button,
-  .eden-ai-tech__card {
+  .eden-ai-actions__button {
     animation: none !important;
     transition: none !important;
   }
 
   .eden-ai-intake__cta:hover,
   .eden-ai-actions__button:hover,
-  .eden-ai-tech__card:hover,
   .eden-ai-modal__action:hover,
   .eden-ai-video__start-chat:hover {
     transform: none;

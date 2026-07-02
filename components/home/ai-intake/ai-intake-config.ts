@@ -1,4 +1,4 @@
-import type { AiIntakeActionId, AiIntakeIntegrationId } from "./types";
+import type { AiIntakeActionId } from "./types";
 
 export const EDEN_START_AI_CHAT_EVENT = "eden:start-ai-chat";
 
@@ -17,14 +17,4 @@ export const AI_INTAKE_ACTIONS: AiIntakeActionConfig[] = [
   { id: "start-intake", icon: "clipboard" },
   { id: "provider-referral", icon: "referral" },
   { id: "speak-with-person", icon: "person" },
-];
-
-export const TRUSTED_HEALTHCARE_TECH_IDS: AiIntakeIntegrationId[] = [
-  "heygen",
-  "elevenlabs",
-  "openai",
-  "calendly",
-  "daily",
-  "ringcentral",
-  "centralreach",
 ];

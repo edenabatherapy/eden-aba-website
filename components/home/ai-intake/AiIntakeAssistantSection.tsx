@@ -10,7 +10,6 @@ import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
 import LiveCoordinatorModal from "./LiveCoordinatorModal";
 import LiveVideoPreCallFormModal from "./LiveVideoPreCallFormModal";
 import IntakeCallbackMessageModal from "./IntakeCallbackMessageModal";
-import TrustedHealthcareTech from "./TrustedHealthcareTech";
 import { getAiIntakeSection } from "./ai-intake-i18n";
 import type { AiIntakeAssistantHandlers, AiIntakeActionId, LiveCoordinatorModalPhase } from "./types";
 import "./ai-intake-assistant.css";
@@ -231,8 +230,6 @@ export default function AiIntakeAssistantSection({
             </div>
           </div>
         </div>
-
-        {isVisible ? <TrustedHealthcareTech /> : null}
       </div>
 
       <LiveVideoPreCallFormModal

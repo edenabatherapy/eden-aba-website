@@ -20,48 +20,6 @@
     "askQuestion": "Hỏi Eden một câu hỏi",
     "speakWithPerson": "Nói chuyện với nhân viên"
   },
-  "tech": {
-    "eyebrow": "Công nghệ",
-    "title": "Được hỗ trợ bởi công nghệ y tế đáng tin cậy",
-    "disclaimer": "Chỉ mang tính tham khảo. Eden ABA Therapy không ngụ ý quan hệ đối tác chính thức, chứng nhận hoặc xác nhận từ các nhà cung cấp này trừ khi được nêu riêng.",
-    "cards": {
-      "heygen": {
-        "name": "HeyGen",
-        "role": "Ảnh đại diện AI",
-        "description": "Trải nghiệm avatar trong tương lai cho các cuộc trò chuyện tiếp nhận trực quan, chào đón."
-      },
-      "elevenlabs": {
-        "name": "ElevenLabs",
-        "role": "Giọng nói tự nhiên",
-        "description": "Lớp giọng nói tự nhiên dự kiến cho hướng dẫn ấm áp, dễ tiếp cận."
-      },
-      "openai": {
-        "name": "OpenAI",
-        "role": "Trí tuệ hội thoại",
-        "description": "Hỗ trợ hội thoại có cấu trúc cho các câu hỏi tiếp nhận phổ biến."
-      },
-      "calendly": {
-        "name": "Calendly",
-        "role": "Đặt lịch",
-        "description": "Điều phối lịch hẹn khi gia đình sẵn sàng đặt lịch."
-      },
-      "daily": {
-        "name": "Daily.co",
-        "role": "Cuộc gọi video bảo mật",
-        "description": "Tùy chọn kết nối video bảo mật cho hỗ trợ tiếp nhận ảo."
-      },
-      "ringcentral": {
-        "name": "RingCentral",
-        "role": "Điện thoại doanh nghiệp",
-        "description": "Định tuyến điện thoại chuyên nghiệp đến điều phối viên tiếp nhận Eden."
-      },
-      "centralreach": {
-        "name": "CentralReach",
-        "role": "Quản lý thực hành ABA",
-        "description": "Nền tảng vận hành lâm sàng hỗ trợ quy trình chăm sóc của Eden."
-      }
-    }
-  },
   "panel": {
     "actionsAriaLabel": "Các thao tác trợ lý tiếp nhận AI",
     "assistantTitle": "Trợ lý Tiếp nhận AI Eden",

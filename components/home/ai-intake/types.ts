@@ -1,13 +1,3 @@
-/** Phase 2 integration identifiers — wired when backends are connected. */
-export type AiIntakeIntegrationId =
-  | "openai"
-  | "heygen"
-  | "elevenlabs"
-  | "calendly"
-  | "daily"
-  | "ringcentral"
-  | "centralreach";
-
 export type AiIntakeActionId =
   | "ask-question"
   | "check-insurance"
