@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "title": "Home-Based ABA Therapy in Northern Virginia | Eden ABA Therapy",
+    "description": "Evidence-informed home-based ABA therapy for children in Northern Virginia and Annandale. BCBA-supervised care, caregiver training, individualized goals in daily routines, and progress monitoring in your child's natural environment."
+  },
+  "hero": {
+    "eyebrow": "Northern Virginia · Home-Based ABA",
+    "title": "Home-Based ABA Therapy That Fits Real Family Life",
+    "paragraphs": [
+      "Home-based ABA therapy brings clinically supervised Applied Behavior Analysis into the place your child already knows best—their home. Skills are practiced during meals, play, hygiene, homework, bedtime, and everyday transitions so learning may carry over into daily life.",
+      "Eden ABA Therapy serves families across Northern Virginia with individualized treatment plans, BCBA oversight, and caregiver coaching designed around your child's strengths, priorities, and routines. Individual progress varies; our team focuses on meaningful, measurable goals—not promises of a cure."
+    ]
+  },
+  "complianceNote": "ABA therapy is designed to support skill development and quality of life. It does not cure autism. Services, settings, and coverage depend on clinical need, assessment results, medical necessity, payer authorization, and insurance eligibility. Outcomes vary by child and family participation.",
+  "naturalSetting": {
+    "title": "Why Home Is a Natural, Effective Setting for ABA",
+    "intro": "Leading public health and pediatric guidance recognizes that children often learn best in environments where skills will actually be used. Home-based ABA allows therapy to be woven into real routines rather than isolated in a separate setting.",
+    "points": [
+      {
+        "title": "Generalization where it matters",
+        "text": "Practicing communication, self-care, and social skills at home may help children use those skills during the routines they face every day."
+      },
+      {
+        "title": "Less transition stress",
+        "text": "For some children, learning in a familiar space may reduce anxiety linked to new buildings, long commutes, or crowded waiting areas."
+      },
+      {
+        "title": "Family-centered learning",
+        "text": "Siblings, caregivers, and household routines become part of the teaching context—supporting carryover between formal sessions."
+      },
+      {
+        "title": "Realistic goal design",
+        "text": "BCBAs can observe actual home demands—noise levels, schedules, safety concerns—and write goals that reflect your family's reality."
+      }
+    ]
+  },
+  "skillAreas": {
+    "title": "Skills Home-Based ABA May Support",
+    "intro": "Treatment goals are individualized. Depending on assessment and family priorities, home-based programs may focus on:",
+    "items": [
+      {
+        "title": "Communication",
+        "text": "Functional requests, comments, AAC use, conversation starters, and understanding others during natural interactions."
+      },
+      {
+        "title": "Social skills",
+        "text": "Turn-taking, joint attention, sibling play, greetings, and age-appropriate peer interaction coached in context."
+      },
+      {
+        "title": "Daily living skills",
+        "text": "Dressing, toileting, hygiene, meal participation, and household tasks practiced where they naturally occur."
+      },
+      {
+        "title": "Behavior reduction",
+        "text": "Skill-building approaches designed to reduce interfering behaviors that limit learning, safety, or family participation."
+      },
+      {
+        "title": "Routines & transitions",
+        "text": "Morning, after-school, and bedtime sequences; moving between activities with less distress and more predictability."
+      },
+      {
+        "title": "Safety awareness",
+        "text": "Staying with caregivers, responding to name, door and street safety, and emergency routines appropriate to age."
+      },
+      {
+        "title": "Independence",
+        "text": "Self-management, waiting, following multi-step directions, and building confidence for age-appropriate autonomy."
+      },
+      {
+        "title": "Community preparation",
+        "text": "Practicing skills that support outings—waiting in line, tolerating stores, using public restrooms, and following community rules."
+      }
+    ]
+  },
+  "parentTraining": {
+    "title": "Caregiver Training Is Part of the Plan",
+    "intro": "Research and clinical practice consistently show that caregiver involvement may improve how well skills carry over outside therapy sessions. Eden includes parent and caregiver training as a core part of home-based care—not an optional add-on.",
+    "items": [
+      {
+        "title": "Coaching during live routines",
+        "text": "BCBAs and supervising clinicians model strategies during meals, play, and transitions so caregivers learn what to do in the moment."
+      },
+      {
+        "title": "Clear, practical guidance",
+        "text": "Families receive step-by-step support on reinforcement, prompting, visual supports, and consistency—aligned with the child's current treatment plan."
+      },
+      {
+        "title": "Shared language across caregivers",
+        "text": "When multiple adults support a child, training helps everyone use similar approaches to reduce confusion and support progress."
+      },
+      {
+        "title": "Ethical, collaborative decisions",
+        "text": "Goal changes, new strategies, and discharge planning are discussed with families using consent-based, transparent communication."
+      }
+    ]
+  },
+  "homeRoutines": {
+    "title": "Goals Practiced During Real Home Routines",
+    "intro": "Home-based ABA is designed to meet children where they are—literally. Therapists and BT/RBT staff embed teaching into the activities your family already does.",
+    "routines": [
+      {
+        "title": "Meals",
+        "text": "Mealtimes offer rich opportunities for communication, tolerance of foods, utensil use, sitting at the table, and family conversation.",
+        "goals": [
+          "Requesting preferred foods or drinks",
+          "Tolerating new textures or sitting for longer periods",
+          "Using utensils, napkins, or cups independently",
+          "Turn-taking and appropriate mealtime communication"
+        ]
+      },
+      {
+        "title": "Play",
+        "text": "Play sessions support engagement, imitation, creativity, and social connection with siblings or caregivers in a low-pressure setting.",
+        "goals": [
+          "Functional and pretend play expansion",
+          "Sharing, waiting, and cooperative games",
+          "Following play scripts and flexible thinking",
+          "Joint attention and commenting during activities"
+        ]
+      },
+      {
+        "title": "Hygiene",
+        "text": "Bathroom, hand-washing, tooth-brushing, and grooming routines are taught where they happen—building independence step by step.",
+        "goals": [
+          "Toileting and bathroom routines",
+          "Hand-washing sequences and tooth-brushing",
+          "Dressing and grooming with reduced prompting",
+          "Tolerating sensory aspects of hygiene tasks"
+        ]
+      },
+      {
+        "title": "Homework",
+        "text": "For school-age children, therapists may support focus, task completion, organization, and asking for help during homework time.",
+        "goals": [
+          "Sitting and attending to short work periods",
+          "Following written and verbal directions",
+          "Requesting breaks or help appropriately",
+          "Organizing materials and transitioning off screens"
+        ]
+      },
+      {
+        "title": "Bedtime",
+        "text": "Evening routines often combine communication, self-regulation, and independence goals in a predictable sequence.",
+        "goals": [
+          "Following a visual bedtime schedule",
+          "Calming strategies and reduced bedtime resistance",
+          "Independent pajamas, brushing, and room preparation",
+          "Appropriate requests and protests during wind-down"
+        ]
+      },
+      {
+        "title": "Community prep",
+        "text": "Before outings, teams practice skills that may support success in stores, parks, appointments, and neighborhood activities.",
+        "goals": [
+          "Waiting, walking with an adult, and staying with the group",
+          "Tolerating crowds, noise, or unfamiliar environments",
+          "Using communication tools in public settings",
+          "Following safety rules for streets, parking lots, and stores"
+        ]
+      }
+    ]
+  },
+  "progressMonitoring": {
+    "title": "Data Collection & Adjusting Care Over Time",
+    "intro": "ABA treatment is data-informed. Eden's clinical team uses session information to understand what is working, what needs refinement, and when goals should be updated.",
+    "steps": [
+      {
+        "title": "Session data collection",
+        "text": "BT/RBT staff record objective information on target skills and behaviors during each visit, following protocols written by the supervising BCBA."
+      },
+      {
+        "title": "BCBA review & supervision",
+        "text": "Supervising BCBAs analyze trends, observe sessions, and ensure treatment remains ethical, effective, and aligned with the authorization."
+      },
+      {
+        "title": "Progress reporting for families",
+        "text": "Caregivers receive understandable updates on mastery, emerging skills, and areas that may need more practice or a strategy change."
+      },
+      {
+        "title": "Plan updates when needed",
+        "text": "When data show plateau or regression, goals and teaching procedures may be modified—always with family input and clinical justification."
+      }
+    ]
+  },
+  "whoBenefits": {
+    "title": "Who May Benefit from Home-Based ABA",
+    "intro": "Home-based services are not the right fit for every child. A BCBA-led assessment helps determine the most appropriate setting. Home-based ABA may be especially helpful when:",
+    "items": [
+      "The child is most comfortable learning in familiar surroundings",
+      "Priority goals involve home routines such as meals, sleep, hygiene, or sibling interaction",
+      "Caregivers can participate in coaching and carryover between sessions",
+      "Transportation or clinic wait times create barriers to consistent attendance",
+      "Generalization at home is a primary clinical focus",
+      "A hybrid model combines home sessions with center, school, or community services"
+    ],
+    "note": "Clinical recommendations always depend on individual assessment, safety considerations, and family preferences."
+  },
+  "firstWeeks": {
+    "title": "What Families Can Expect in the First Few Weeks",
+    "intro": "Starting home-based ABA is a partnership. While every family's timeline differs, most intake paths include similar early milestones.",
+    "weeks": [
+      {
+        "label": "Week 1",
+        "title": "Intake & documentation",
+        "text": "Families complete intake forms, share diagnostic and insurance information when available, and discuss scheduling and home logistics with Eden's team."
+      },
+      {
+        "label": "Weeks 1–2",
+        "title": "Assessment visits",
+        "text": "A BCBA conducts clinical interviews and observations—often in the home—to understand strengths, barriers, routines, and caregiver priorities."
+      },
+      {
+        "label": "Weeks 2–3",
+        "title": "Treatment plan & authorization",
+        "text": "The BCBA drafts individualized goals and recommended hours. Eden supports insurance or Medicaid authorization paperwork when benefits apply."
+      },
+      {
+        "label": "Weeks 3–4",
+        "title": "Therapy begins",
+        "text": "Assigned BT/RBT staff start direct sessions under BCBA supervision. Caregivers receive initial coaching on how to support goals between visits."
+      },
+      {
+        "label": "Ongoing",
+        "title": "Review & refinement",
+        "text": "Data review meetings and supervision visits help the team adjust strategies, celebrate progress, and align on next steps with your family."
+      }
+    ]
+  },
+  "whyEden": {
+    "title": "Why Families Choose Eden ABA Therapy",
+    "intro": "Eden combines enterprise-level clinical structure with the warmth families expect from in-home care across Northern Virginia.",
+    "items": [
+      {
+        "title": "BCBA-led, ethically supervised care",
+        "text": "Every home program is designed and overseen by a Board Certified Behavior Analyst following BACB and CASP-aligned practice expectations."
+      },
+      {
+        "title": "Goals rooted in daily life",
+        "text": "We prioritize skills that matter at home—not worksheets isolated from your child's real routines and family culture."
+      },
+      {
+        "title": "Transparent caregiver partnership",
+        "text": "Parents are treated as essential team members with clear communication, consent-based decisions, and practical coaching."
+      },
+      {
+        "title": "Intake support for busy families",
+        "text": "From benefits questions to authorization paperwork, Eden's intake team helps families navigate next steps without unnecessary runaround."
+      },
+      {
+        "title": "Northern Virginia focus",
+        "text": "Local clinicians understand the schools, communities, and insurance landscape families navigate across Annandale and surrounding areas."
+      },
+      {
+        "title": "Setting flexibility when clinically appropriate",
+        "text": "When needs change, Eden can coordinate across home, center, school, community, and virtual options for continuity of care."
+      }
+    ]
+  },
+  "gettingStarted": {
+    "title": "Insurance Authorization & Intake at Eden",
+    "intro": "Getting started should feel clear—not overwhelming. Eden guides families through clinical and administrative steps in a logical order.",
+    "steps": [
+      {
+        "title": "Start intake",
+        "text": "Share basic contact information, your child's age, location, and primary concerns so our team can route you to the right clinical contact."
+      },
+      {
+        "title": "Verify benefits",
+        "text": "We help families understand whether their plan or Virginia Medicaid may cover home-based ABA and what documentation is typically required."
+      },
+      {
+        "title": "Clinical assessment",
+        "text": "A BCBA evaluates whether home-based services are medically appropriate and develops an individualized treatment recommendation."
+      },
+      {
+        "title": "Authorization & scheduling",
+        "text": "Once clinical documentation is submitted, Eden coordinates with payers as permitted and schedules consistent therapy hours when approved."
+      }
+    ],
+    "note": "Approval timelines and covered hours vary by payer. Eden does not guarantee authorization or specific benefit amounts."
+  },
+  "midCta": {
+    "title": "Ready to Explore Home-Based ABA?",
+    "text": "Our intake team can help you understand next steps, insurance questions, and whether home-based services may be appropriate for your child.",
+    "startButton": "Start Intake",
+    "verifyButton": "Verify Insurance",
+    "speakButton": "Speak with a Person"
+  },
+  "trust": {
+    "title": "Evidence-Informed, Family-Centered Care",
+    "text": "Eden's home-based programs draw on widely cited clinical and public-health guidance while remaining individualized for each child. We use careful language—ABA may help support communication, adaptive behavior, and daily participation when clinically appropriate. Autism is a lifelong neurodevelopmental condition; ABA is not a cure, and individual progress varies.",
+    "sources": [
+      "CDC — Autism treatment and intervention guidance for families",
+      "American Academy of Pediatrics — Early identification and evidence-based intervention principles",
+      "NICHD — Early intervention in natural environments",
+      "Johns Hopkins Medicine — Family education on autism therapies and developmental support",
+      "Autism Speaks — Overview of ABA and caregiver resources",
+      "Kennedy Krieger Institute — Autism and ABA clinical education resources",
+      "Behavior Analyst Certification Board (BACB) — RBT and BCBA supervision standards",
+      "Council of Autism Service Providers (CASP) — ABA practice standards for quality care"
+    ]
+  },
+  "faq": {
+    "intro": "Answers to common questions about home-based ABA therapy, supervision, routines, insurance, and what to expect at Eden.",
+    "items": [
+      {
+        "q": "What is home-based ABA therapy?",
+        "a": "Home-based ABA therapy delivers Applied Behavior Analysis in your child's home. Skills are taught and practiced during everyday routines such as meals, play, hygiene, and transitions, with treatment supervised by a BCBA."
+      },
+      {
+        "q": "How is home-based ABA different from clinic-based ABA?",
+        "a": "Both can be effective when clinically appropriate. Home-based care emphasizes learning in the child's natural environment and high caregiver involvement; center-based care offers structured therapy spaces and peer opportunities. Many families use a combination."
+      },
+      {
+        "q": "Who provides direct therapy in the home?",
+        "a": "Direct sessions are typically delivered by Behavior Technicians or Registered Behavior Technicians (BT/RBT) implementing protocols written and supervised by a Board Certified Behavior Analyst (BCBA)."
+      },
+      {
+        "q": "What does a BCBA do on a home-based case?",
+        "a": "The BCBA conducts assessment, writes the individualized treatment plan, trains staff, analyzes data, supervises sessions, coordinates with caregivers, and updates goals based on progress and family input."
+      },
+      {
+        "q": "Is parent training really included?",
+        "a": "Yes. Caregiver coaching is a standard part of Eden's home-based model. Families learn practical strategies to reinforce skills between sessions and maintain consistency across caregivers."
+      },
+      {
+        "q": "What skills can be worked on at home?",
+        "a": "Goals may include communication, social skills, daily living skills, safety, routines, behavior reduction, homework participation, bedtime, and preparation for community outings—depending on assessment and clinical need."
+      },
+      {
+        "q": "How is progress measured?",
+        "a": "Staff collect session data on target skills and behaviors. Supervising BCBAs review trends, adjust teaching strategies when needed, and share understandable progress updates with families."
+      },
+      {
+        "q": "Is home-based ABA covered by insurance or Medicaid?",
+        "a": "Many commercial plans and Virginia Medicaid programs cover ABA for eligible children, but benefits, networks, and authorization requirements vary. Eden helps families verify benefits and understand documentation needs without guaranteeing approval."
+      },
+      {
+        "q": "How long does authorization take?",
+        "a": "Timelines depend on your payer, completeness of documentation, and whether prior authorization is required. Eden's intake team can explain typical steps after benefits verification."
+      },
+      {
+        "q": "What should we prepare before the first session?",
+        "a": "A safe, consistent area for therapy, minimal distractions during focused work, and willingness to participate in caregiver coaching all help. Your BCBA will discuss home logistics during assessment."
+      },
+      {
+        "q": "Does ABA cure autism?",
+        "a": "No. ABA is designed to teach skills and reduce interfering behaviors that may limit learning and participation. Autism is a lifelong condition; treatment goals focus on meaningful quality-of-life improvements, and outcomes vary by individual."
+      },
+      {
+        "q": "How do I know if home-based ABA is right for my child?",
+        "a": "A BCBA-led assessment reviews your child's needs, safety, learning style, and family priorities to recommend home-based, center-based, school-based, community-based, or hybrid services when clinically appropriate."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Start Home-Based ABA with Eden in Northern Virginia",
+    "text": "Connect with a team that treats your home as the classroom for real-life skills. We can help with intake, insurance verification, and finding the right service setting for your family."
+  }
+}

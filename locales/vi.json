@@ -551,7 +551,6 @@
           "links": [
             "Liệu pháp ABA",
             "Liệu pháp ABA tại nhà (Home-Based)",
-            "Liệu pháp ABA tại nhà (In-Home)",
             "Liệu pháp ABA tại trung tâm",
             "Liệu pháp ABA tại trường",
             "Liệu pháp ABA tại cộng đồng",
@@ -5852,6 +5851,11 @@
         "cta": "Tìm liệu pháp ABA gần tôi",
         "imageAlt": "Nhà trị liệu và trẻ thực hành liệu pháp ABA tại nhà trong không gian gia đình thoải mái"
       },
+      "heroCtas": {
+        "startIntake": "Bắt đầu Intake",
+        "verifyInsurance": "Xác minh bảo hiểm",
+        "speakWithPerson": "Nói chuyện với nhân viên"
+      },
       "whatIs": {
         "title": "Liệu pháp ABA tại nhà là gì?",
         "paragraphs": [
@@ -5903,6 +5907,36 @@
           {
             "title": "Huấn luyện & hướng dẫn phụ huynh",
             "text": "Gia đình nhận công cụ và chiến lược thực tế để hỗ trợ tiến bộ ngoài buổi trị liệu chính thức."
+          }
+        ]
+      },
+      "clinicalModel": {
+        "title": "Mô hình lâm sàng ABA tại nhà của Eden",
+        "intro": "ABA tại nhà tại Eden tuân theo tiêu chuẩn giám sát chuyên nghiệp với giám sát BCBA, thực hành đồng ý đạo đức và hợp tác lấy gia đình làm trung tâm trong thói quen tự nhiên.",
+        "steps": [
+          {
+            "title": "Intake và đánh giá lâm sàng",
+            "text": "Đánh giá do BCBA dẫn dắt về tiền sử phát triển, ưu tiên người chăm sóc và thói quen tại nhà giúp xác định liệu dịch vụ tại nhà có phù hợp lâm sàng hay không."
+          },
+          {
+            "title": "Lập kế hoạch điều trị cá nhân hóa",
+            "text": "Mục tiêu được viết xoay quanh giao tiếp, sinh hoạt hằng ngày, hành vi, an toàn và kỹ năng xã hội quan trọng trong môi trường nhà thực tế của trẻ."
+          },
+          {
+            "title": "RBT thực hiện với giám sát BCBA",
+            "text": "Kỹ thuật viên Hành vi Đăng ký thực hiện buổi trị liệu trong khi BCBA giám sát theo dõi dữ liệu, điều chỉnh chương trình và đào tạo nhân viên."
+          },
+          {
+            "title": "Huấn luyện người chăm sóc trong thói quen tự nhiên",
+            "text": "Phụ huynh học chiến lược thực tế trong bữa ăn, chuyển tiếp, vui chơi và giờ ngủ để tiến bộ tiếp tục giữa các buổi trị liệu."
+          },
+          {
+            "title": "Xem xét dữ liệu và cập nhật chương trình",
+            "text": "Dữ liệu buổi trị liệu hướng dẫn điều chỉnh điều trị, quyết định thành thạo mục tiêu và sửa đổi đạo đức khi kỹ năng không tiến triển như mong đợi."
+          },
+          {
+            "title": "Phối hợp giữa các môi trường khi cần",
+            "text": "Khi phù hợp lâm sàng, Eden phối hợp với trường học, nhà cung cấp khác và hỗ trợ cộng đồng để thúc đẩy khái quát hóa."
           }
         ]
       },
@@ -6050,6 +6084,19 @@
           "Council of Autism Service Providers (CASP) — tiêu chuẩn thực hành lâm sàng"
         ]
       },
+      "insurance": {
+        "title": "Bảo hiểm & Medicaid cho ABA tại nhà",
+        "intro": "Nhiều gia đình Bắc Virginia sử dụng bảo hiểm tư nhân hoặc Medicaid Virginia cho dịch vụ ABA tại nhà. Đội intake của Eden giúp gia đình hiểu yêu cầu tài liệu và ủy quyền.",
+        "bullets": [
+          "Xác minh quyền lợi cho phạm vi ABA tại nhà theo gói cụ thể của bạn",
+          "Tài liệu lâm sàng mô tả nhu cầu chức năng và môi trường dịch vụ được khuyến nghị",
+          "Hỗ trợ tài liệu chẩn đoán khi nhà bảo hiểm yêu cầu",
+          "Ngôn ngữ phù hợp EPSDT cho thành viên Medicaid đủ điều kiện khi phù hợp lâm sàng",
+          "Phối hợp với đội intake của Eden về giấy tờ ủy quyền",
+          "Giải thích rõ ràng về những gì gói của bạn có thể hoặc không chi trả"
+        ],
+        "note": "Eden ABA Therapy không đảm bảo phê duyệt bảo hiểm hoặc Medicaid. Phạm vi chi trả khác nhau theo chính sách, trạng thái mạng lưới và tiêu chí y khoa cần thiết. Đội ngũ của chúng tôi giúp gia đình hiểu yêu cầu và gửi thông tin theo quy định của từng gói."
+      },
       "faq": {
         "title": "Câu hỏi thường gặp",
         "intro": "Câu hỏi phổ biến về liệu pháp ABA tại nhà, bảo hiểm, giám sát và so sánh với các môi trường khác.",
@@ -6083,8 +6130,9 @@
       "finalCta": {
         "title": "Bắt đầu dịch vụ ABA tại nhà tại Eden ABA Therapy",
         "text": "Kết nối với liệu pháp ABA tại nhà nhân ái gần bạn. Đội ngũ của chúng tôi có thể giúp bạn khám phá intake, xác minh bảo hiểm và môi trường dịch vụ phù hợp.",
-        "startButton": "Bắt đầu",
-        "findButton": "Tìm liệu pháp ABA gần tôi"
+        "startButton": "Bắt đầu Intake",
+        "verifyButton": "Xác minh bảo hiểm",
+        "speakButton": "Nói chuyện với nhân viên"
       }
     },
     "communityBasedAbaTherapy": {

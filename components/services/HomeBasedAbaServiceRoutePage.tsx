@@ -15,7 +15,9 @@ export default function HomeBasedAbaServiceRoutePage() {
     <AboutPremiumLayout>
       <HomeBasedAbaTherapyPage
         t={t}
-        onStart={() => router.push("/intake")}
+        onStart={() => router.push("/start-aba-therapy")}
+        onVerifyInsurance={() => router.push("/insurance-coverage")}
+        onSpeakWithPerson={() => router.push("/#meet-eden-ai")}
         onLocations={() => router.push("/about/contact-us")}
         onSchedule={() => router.push("/getting-started")}
         onCenterBased={() => router.push("/services/center-based-aba-therapy")}

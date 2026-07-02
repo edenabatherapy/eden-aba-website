@@ -62,7 +62,7 @@
         "Collaboration with families and school teams to support classroom readiness, communication, routines, and positive behavior strategies."
       ],
       [
-        "In-Home ABA Therapy",
+        "Home-Based ABA Therapy",
         "Personalized ABA therapy in the child's natural home environment to strengthen daily routines, communication, and independence."
       ],
       [
@@ -551,7 +551,6 @@
           "links": [
             "ABA Therapy",
             "Home-Based ABA Therapy",
-            "In-Home ABA Therapy",
             "Center-Based ABA Therapy",
             "School-Based ABA Therapy",
             "Community-Based ABA Therapy",
@@ -5835,8 +5834,8 @@
     },
     "homeBasedAbaTherapy": {
       "meta": {
-        "title": "Home-Based ABA Therapy for Autism | In-Home ABA Services | Eden ABA Therapy",
-        "description": "Home-based ABA therapy brings evidence-based in-home autism support to Northern Virginia families. Individualized treatment, caregiver coaching, BCBA supervision, and flexible scheduling in your child's natural environment."
+        "title": "Home-Based ABA Therapy for Autism | Eden ABA Therapy",
+        "description": "Home-based ABA therapy brings evidence-based autism support to Northern Virginia families. Individualized treatment, caregiver coaching, BCBA supervision, and flexible scheduling in your child's natural environment."
       },
       "hero": {
         "eyebrow": "ABA Therapy in the Comfort of Your Home",
@@ -5845,7 +5844,7 @@
           "Services",
           "Home-Based ABA Therapy"
         ],
-        "title": "In-Home ABA Therapy & Autism Support",
+        "title": "Home-Based ABA Therapy & Autism Support",
         "paragraphs": [
           "Home-based ABA therapy brings evidence-based autism treatment directly into your child's everyday environment. By providing Applied Behavior Analysis services in the home, children can practice communication, social, behavioral, and daily living skills where they naturally occur.",
           "Our experienced clinical team develops individualized treatment plans designed around your child's unique strengths, challenges, developmental goals, and family priorities. Therapy is delivered by highly trained professionals under ongoing clinical supervision, helping children learn meaningful skills while empowering caregivers to support progress throughout daily routines."
@@ -5853,8 +5852,13 @@
         "cta": "Find ABA Therapy Near Me",
         "imageAlt": "Therapist and child practicing home-based ABA therapy in a comfortable family setting"
       },
+      "heroCtas": {
+        "startIntake": "Start Intake",
+        "verifyInsurance": "Verify Insurance",
+        "speakWithPerson": "Speak with a Person"
+      },
       "whatIs": {
-        "title": "What Is In-Home ABA Therapy?",
+        "title": "What Is Home-Based ABA Therapy?",
         "paragraphs": [
           "Home-based ABA therapy is Applied Behavior Analysis delivered within a child's home environment. Rather than traveling to a clinic, therapy takes place where children spend much of their day, allowing learning opportunities to occur naturally during everyday activities and routines.",
           "Research-supported ABA programs use positive reinforcement, data collection, skill-building strategies, and individualized treatment planning to help children develop communication, independence, social interaction, emotional regulation, and adaptive living skills.",
@@ -5904,6 +5908,36 @@
           {
             "title": "Parent Training & Coaching",
             "text": "Families receive practical tools and strategies to support continued progress outside formal therapy sessions."
+          }
+        ]
+      },
+      "clinicalModel": {
+        "title": "Eden's Home-Based Clinical Model",
+        "intro": "Home-based ABA at Eden follows professional supervision standards with BCBA oversight, ethical consent practices, and family-centered collaboration in natural routines.",
+        "steps": [
+          {
+            "title": "Intake and clinical assessment",
+            "text": "A BCBA-led review of developmental history, caregiver priorities, and home routines helps determine whether home-based services are clinically appropriate."
+          },
+          {
+            "title": "Individualized treatment planning",
+            "text": "Goals are written around communication, daily living, behavior, safety, and social skills that matter in your child's real home environment."
+          },
+          {
+            "title": "RBT implementation with BCBA supervision",
+            "text": "Registered Behavior Technicians deliver sessions while supervising BCBAs monitor data, adjust programs, and train staff on updated protocols."
+          },
+          {
+            "title": "Caregiver coaching in natural routines",
+            "text": "Parents learn practical strategies during meals, transitions, play, and bedtime so progress continues between formal therapy sessions."
+          },
+          {
+            "title": "Ongoing data review and program updates",
+            "text": "Session data guides treatment adjustments, goal mastery decisions, and ethical modifications when a skill is not progressing as expected."
+          },
+          {
+            "title": "Coordination across settings when needed",
+            "text": "When clinically appropriate, Eden coordinates with schools, other providers, and community supports to support generalization."
           }
         ]
       },
@@ -6032,9 +6066,9 @@
         "cta": "Schedule an ABA Consultation"
       },
       "findNear": {
-        "title": "Find In-Home ABA Therapy Near You",
+        "title": "Find Home-Based ABA Therapy Near You",
         "paragraphs": [
-          "Families searching for in-home ABA therapy deserve access to compassionate, evidence-based care close to home.",
+          "Families searching for home-based ABA therapy deserve access to compassionate, evidence-based care close to home.",
           "Our team partners with caregivers to develop individualized treatment plans designed around meaningful goals, family priorities, and everyday success. Whether your child is beginning therapy for the first time or transitioning from another setting, we work to create a supportive and collaborative treatment experience."
         ],
         "placeholder": "Search by zip or city",
@@ -6051,16 +6085,29 @@
           "Council of Autism Service Providers (CASP) — clinical practice standards for ABA providers"
         ]
       },
+      "insurance": {
+        "title": "Insurance & Medicaid for Home-Based ABA",
+        "intro": "Many Northern Virginia families use private insurance or Virginia Medicaid for home-based ABA services. Eden's intake team helps families understand documentation and authorization requirements.",
+        "bullets": [
+          "Benefits verification for home-based ABA coverage under your specific plan",
+          "Clinical documentation that describes functional needs and recommended service settings",
+          "Diagnostic documentation support when required by your payer",
+          "EPSDT-aligned language for eligible Medicaid members when clinically appropriate",
+          "Coordination with Eden's intake team on authorization paperwork",
+          "Transparent explanation of what your plan may or may not cover"
+        ],
+        "note": "Eden ABA Therapy does not guarantee insurance or Medicaid approval. Coverage varies by policy, network status, and medical-necessity criteria. Our team helps families understand requirements and submits information as permitted by each plan."
+      },
       "faq": {
         "title": "Frequently Asked Questions",
-        "intro": "Common questions about in-home ABA therapy, insurance, supervision, and how home-based services compare to other settings.",
+        "intro": "Common questions about home-based ABA therapy, insurance, supervision, and how home-based services compare to other settings.",
         "items": [
           {
             "q": "What is home-based ABA therapy?",
             "a": "Home-based ABA therapy delivers Applied Behavior Analysis services in the child's home environment, allowing skills to be taught and practiced during everyday routines."
           },
           {
-            "q": "Who provides in-home ABA therapy?",
+            "q": "Who provides home-based ABA therapy?",
             "a": "Treatment is commonly delivered by Registered Behavior Technicians (RBTs) under the supervision of Board Certified Behavior Analysts (BCBAs)."
           },
           {
@@ -6083,9 +6130,10 @@
       },
       "finalCta": {
         "title": "Begin Home-Based ABA Services at Eden ABA Therapy",
-        "text": "Connect with compassionate in-home ABA therapy near you. Our team can help you explore intake, insurance verification, and the right service setting for your family.",
-        "startButton": "Get Started",
-        "findButton": "Find ABA Therapy Near Me"
+        "text": "Connect with compassionate home-based ABA therapy near you. Our team can help you explore intake, insurance verification, and the right service setting for your family.",
+        "startButton": "Start Intake",
+        "verifyButton": "Verify Insurance",
+        "speakButton": "Speak with a Person"
       }
     },
     "communityBasedAbaTherapy": {

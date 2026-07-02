@@ -1,7 +1,7 @@
 /** Homepage service card order matches `home.services` in locale files. */
 export const HOME_SERVICE_CARD_HREFS = [
   "/services/school-support-aba-therapy",
-  "/services/in-home-aba-therapy",
+  "/services/home-based-aba-therapy",
   "/services/center-based-aba-therapy",
   "/services/early-intervention-aba-therapy",
   "/services/behavior-assessment",

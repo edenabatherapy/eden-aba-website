@@ -1,9 +1,5 @@
-import type { Metadata } from "next";
-import InHomeAbaServiceRoutePage from "@/components/services/InHomeAbaServiceRoutePage";
-import { IN_HOME_ABA_META } from "@/lib/services/service-page-metadata";
-
-export const metadata: Metadata = IN_HOME_ABA_META;
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <InHomeAbaServiceRoutePage />;
+  redirect("/services/home-based-aba-therapy");
 }

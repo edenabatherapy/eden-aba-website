@@ -6,15 +6,22 @@ import {
   ArrowRight,
   BookOpen,
   Check,
+  CheckCircle2,
   ChevronDown,
   Clock3,
+  Droplets,
+  Gamepad2,
   HeartHandshake,
   Home,
+  LineChart,
   MapPin,
   MessageCircle,
+  Moon,
+  ShieldCheck,
   Sparkles,
   Target,
   Users,
+  UtensilsCrossed,
 } from "lucide-react";
 import EdenButton from "@/components/EdenButton";
 import { SITE_IMAGES } from "@/lib/site-images";
@@ -27,6 +34,8 @@ const fadeUp = {
 };
 
 const BENEFIT_ICONS = [Users, Target, Home, Sparkles, Clock3, MessageCircle, HeartHandshake, BookOpen];
+const SKILL_ICONS = [MessageCircle, Users, Home, Target, Clock3, ShieldCheck, Sparkles, MapPin];
+const ROUTINE_ICONS = [UtensilsCrossed, Gamepad2, Droplets, BookOpen, Moon, MapPin];
 
 function PageSchema({ p, faqs }) {
   const schema = {
@@ -89,9 +98,151 @@ function FaqAccordion({ items }) {
   );
 }
 
+function RoutineTabs({ routines }) {
+  const [active, setActive] = useState(0);
+  const routine = routines[active];
+  const panelId = "home-aba-routine-panel";
+
+  const focusTab = (index) => {
+    document.getElementById(`routine-tab-${index}`)?.focus();
+  };
+
+  const handleTabKeyDown = (e, index) => {
+    let next = index;
+    if (e.key === "ArrowRight") next = (index + 1) % routines.length;
+    else if (e.key === "ArrowLeft") next = (index - 1 + routines.length) % routines.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = routines.length - 1;
+    else return;
+
+    e.preventDefault();
+    setActive(next);
+    focusTab(next);
+  };
+
+  return (
+    <div>
+      <div role="tablist" aria-label="Home routine examples" className="flex flex-wrap gap-2">
+        {routines.map((r, i) => {
+          const Icon = ROUTINE_ICONS[i] ?? Home;
+          const selected = active === i;
+          return (
+            <button
+              key={r.title}
+              type="button"
+              role="tab"
+              id={`routine-tab-${i}`}
+              aria-selected={selected}
+              aria-controls={panelId}
+              onClick={() => setActive(i)}
+              onKeyDown={(e) => handleTabKeyDown(e, i)}
+              tabIndex={selected ? 0 : -1}
+              className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-black transition ${
+                selected
+                  ? "bg-[#0b4f4f] text-white shadow-md"
+                  : "border border-[#0E6B4F]/15 bg-white text-[#0b4f4f] hover:border-[#1f7a2e]/40"
+              }`}
+            >
+              <Icon size={16} aria-hidden="true" />
+              {r.title}
+            </button>
+          );
+        })}
+      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={routine.title}
+          id={panelId}
+          role="tabpanel"
+          aria-labelledby={`routine-tab-${active}`}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.25 }}
+          className="mt-6 rounded-[1.75rem] border border-[#0E6B4F]/10 bg-white p-8 shadow-lg"
+        >
+          <h3 className="text-xl font-black text-[#0b4f4f]">{routine.title}</h3>
+          <p className="mt-3 text-base font-semibold leading-7 text-slate-600">{routine.text}</p>
+          {routine.goals?.length > 0 && (
+            <ul className="mt-6 space-y-2">
+              {routine.goals.map((goal) => (
+                <li key={goal} className="flex items-start gap-3 text-sm font-bold text-[#0b4f4f]">
+                  <Check size={16} className="mt-0.5 shrink-0 text-[#1f7a2e]" aria-hidden="true" />
+                  {goal}
+                </li>
+              ))}
+            </ul>
+          )}
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function FirstWeeksTimeline({ weeks }) {
+  return (
+    <ol className="relative space-y-0 border-l-2 border-[#1f7a2e]/25 pl-8">
+      {weeks.map((week, i) => (
+        <motion.li
+          key={week.title}
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: i * 0.06 }}
+          className="relative pb-10 last:pb-0"
+        >
+          <span
+            className="absolute -left-[2.35rem] top-1 grid h-8 w-8 place-items-center rounded-full bg-[#1f7a2e] text-xs font-black text-white ring-4 ring-[#eef9f4]"
+            aria-hidden="true"
+          >
+            {i + 1}
+          </span>
+          <p className="text-xs font-black uppercase tracking-widest text-[#128c8c]">{week.label}</p>
+          <h3 className="mt-1 text-lg font-black text-[#0b4f4f]">{week.title}</h3>
+          <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{week.text}</p>
+        </motion.li>
+      ))}
+    </ol>
+  );
+}
+
+function MidCtaBand({ cta, onStart, onVerifyInsurance, onSpeakWithPerson }) {
+  if (!cta) return null;
+  return (
+    <section className="bg-gradient-to-r from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-4 py-14 lg:px-8">
+      <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center">
+        <h2 className="text-2xl font-black text-white md:text-3xl">{cta.title}</h2>
+        <p className="mt-4 text-base font-semibold leading-7 text-white/90 md:text-lg">{cta.text}</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <EdenButton variant="gold" onClick={onStart}>
+            {cta.startButton} <ArrowRight size={18} />
+          </EdenButton>
+          <EdenButton variant="secondarySite" onClick={onVerifyInsurance ?? onStart}>
+            {cta.verifyButton}
+          </EdenButton>
+          <EdenButton variant="secondarySite" onClick={onSpeakWithPerson ?? onStart}>
+            {cta.speakButton}
+          </EdenButton>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
+function ComplianceBar({ text }) {
+  if (!text) return null;
+  return (
+    <div className="border-t border-slate-200 bg-slate-50 px-4 py-6 lg:px-8">
+      <p className="mx-auto max-w-4xl text-center text-xs font-semibold leading-6 text-slate-500 md:text-sm">
+        {text}
+      </p>
+    </div>
+  );
+}
+
 export default function HomeBasedAbaTherapyPage({
   t,
   onStart,
+  onVerifyInsurance,
+  onSpeakWithPerson,
   onLocations,
   onSchedule,
   onCenterBased,
@@ -131,9 +282,17 @@ export default function HomeBasedAbaTherapyPage({
                 {paragraph}
               </p>
             ))}
-            <EdenButton variant="primarySite" className="mt-8" onClick={onLocations}>
-              {p.hero.cta} <ArrowRight size={18} />
-            </EdenButton>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <EdenButton variant="primarySite" onClick={onStart}>
+                {p.heroCtas.startIntake} <ArrowRight size={18} />
+              </EdenButton>
+              <EdenButton variant="secondarySite" onClick={onVerifyInsurance ?? onStart}>
+                {p.heroCtas.verifyInsurance}
+              </EdenButton>
+              <EdenButton variant="secondarySite" onClick={onSpeakWithPerson ?? onStart}>
+                {p.heroCtas.speakWithPerson}
+              </EdenButton>
+            </div>
           </motion.div>
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }} className="relative mx-auto w-full max-w-lg">
             <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl ring-4 ring-white/80">
@@ -168,6 +327,60 @@ export default function HomeBasedAbaTherapyPage({
         </div>
       </section>
 
+      {/* NATURAL SETTING */}
+      {p.naturalSetting && (
+        <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+          <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.naturalSetting.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.naturalSetting.intro}</p>
+          </motion.div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            {p.naturalSetting.points.map((point, i) => (
+              <motion.article
+                key={point.title}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.04 }}
+                className="rounded-[1.75rem] border border-slate-100 bg-white p-6 shadow-lg"
+              >
+                <h3 className="text-lg font-black text-[#0b4f4f]">{point.title}</h3>
+                <p className="mt-3 text-sm font-semibold leading-7 text-slate-600">{point.text}</p>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SKILL AREAS */}
+      {p.skillAreas && (
+        <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.skillAreas.title}</h2>
+              <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.skillAreas.intro}</p>
+            </motion.div>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {p.skillAreas.items.map((item, i) => {
+                const Icon = SKILL_ICONS[i] ?? Target;
+                return (
+                  <motion.article
+                    key={item.title}
+                    {...fadeUp}
+                    transition={{ ...fadeUp.transition, delay: i * 0.03 }}
+                    className="rounded-[1.75rem] border border-[#0E6B4F]/10 bg-[#FAF7F0] p-6"
+                  >
+                    <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#128c8c]/10 text-[#128c8c]">
+                      <Icon size={20} aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-4 text-base font-black text-[#0b4f4f]">{item.title}</h3>
+                    <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{item.text}</p>
+                  </motion.article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* BENEFITS */}
       <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <motion.h2 {...fadeUp} className="text-center text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">
@@ -194,22 +407,122 @@ export default function HomeBasedAbaTherapyPage({
         </div>
       </section>
 
-      {/* WHY FAMILIES CHOOSE */}
+      {/* CLINICAL MODEL */}
       <section className="bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-4 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-start">
+        <div className="mx-auto max-w-7xl">
+          <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-black text-white md:text-4xl lg:text-5xl">{p.clinicalModel.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-white/90">{p.clinicalModel.intro}</p>
+          </motion.div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {p.clinicalModel.steps.map((step, i) => (
+              <motion.article
+                key={step.title}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.04 }}
+                className="rounded-[1.75rem] border border-white/10 bg-white/10 p-6 backdrop-blur-sm"
+              >
+                <span className="text-sm font-black uppercase tracking-widest text-[#f7c72f]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-3 text-lg font-black text-white">{step.title}</h3>
+                <p className="mt-3 text-sm font-semibold leading-7 text-white/85">{step.text}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PARENT TRAINING */}
+      {p.parentTraining && (
+        <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <motion.div {...fadeUp} className="max-w-3xl">
+              <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.parentTraining.title}</h2>
+              <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.parentTraining.intro}</p>
+            </motion.div>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2">
+              {p.parentTraining.items.map((item, i) => (
+                <motion.article
+                  key={item.title}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: i * 0.04 }}
+                  className="flex gap-4 rounded-[1.75rem] border border-[#f7c72f]/30 bg-gradient-to-br from-[#fff8df]/60 to-white p-6 shadow-md"
+                >
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#f7c72f]/20 text-[#0b4f4f]">
+                    <HeartHandshake size={20} aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-black text-[#0b4f4f]">{item.title}</h3>
+                    <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{item.text}</p>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* HOME ROUTINES */}
+      {p.homeRoutines && (
+        <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+          <motion.div {...fadeUp} className="max-w-3xl">
+            <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.homeRoutines.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.homeRoutines.intro}</p>
+          </motion.div>
+          <motion.div {...fadeUp} className="mt-10">
+            <RoutineTabs routines={p.homeRoutines.routines} />
+          </motion.div>
+        </section>
+      )}
+
+      {/* PROGRESS MONITORING */}
+      {p.progressMonitoring && (
+        <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <motion.div {...fadeUp}>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#128c8c]/10 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#128c8c]">
+                  <LineChart size={14} aria-hidden="true" />
+                  Data-informed care
+                </span>
+                <h2 className="mt-4 text-3xl font-black text-[#0b4f4f] md:text-4xl">{p.progressMonitoring.title}</h2>
+                <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.progressMonitoring.intro}</p>
+              </motion.div>
+              <div className="space-y-4">
+                {p.progressMonitoring.steps.map((step, i) => (
+                  <motion.article
+                    key={step.title}
+                    {...fadeUp}
+                    transition={{ ...fadeUp.transition, delay: i * 0.05 }}
+                    className="rounded-[1.5rem] border border-slate-100 bg-[#FAF7F0] p-5 shadow-sm"
+                  >
+                    <h3 className="text-base font-black text-[#0b4f4f]">{step.title}</h3>
+                    <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{step.text}</p>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* WHY FAMILIES CHOOSE — light section */}
+      <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
           <motion.div {...fadeUp}>
-            <h2 className="text-3xl font-black text-white md:text-4xl">{p.whyChoose.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-white/90">{p.whyChoose.intro}</p>
-            <p className="mt-4 text-sm font-black uppercase tracking-widest text-[#f7c72f]">{p.whyChoose.skillsLabel}</p>
+            <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl">{p.whyChoose.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.whyChoose.intro}</p>
+            <p className="mt-4 text-sm font-black uppercase tracking-widest text-[#128c8c]">{p.whyChoose.skillsLabel}</p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">
               {p.whyChoose.skills.map((skill) => (
-                <li key={skill} className="text-sm font-bold text-white/90">
+                <li key={skill} className="text-sm font-bold text-[#0b4f4f]">
                   · {skill}
                 </li>
               ))}
             </ul>
           </motion.div>
-          <motion.div {...fadeUp} className="rounded-[1.75rem] bg-white p-8 shadow-2xl">
+          <motion.div {...fadeUp} className="rounded-[1.75rem] border border-[#0E6B4F]/10 bg-white p-8 shadow-xl">
             <ul className="space-y-4">
               {p.whyChoose.checklist.map((item) => (
                 <li key={item} className="flex items-center gap-3 text-base font-black text-[#0b4f4f]">
@@ -223,6 +536,109 @@ export default function HomeBasedAbaTherapyPage({
           </motion.div>
         </div>
       </section>
+
+      {/* WHO BENEFITS */}
+      {p.whoBenefits && (
+        <section className="bg-gradient-to-br from-[#fff8df] via-white to-[#49b8c8]/10 px-4 py-16 lg:px-8 lg:py-20">
+          <motion.div {...fadeUp} className="mx-auto max-w-4xl">
+            <h2 className="text-center text-3xl font-black text-[#0b4f4f] md:text-4xl">{p.whoBenefits.title}</h2>
+            <p className="mt-5 text-center text-lg font-semibold leading-8 text-slate-600">{p.whoBenefits.intro}</p>
+            <ul className="mt-10 space-y-3">
+              {p.whoBenefits.items.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 rounded-2xl border border-[#0E6B4F]/10 bg-white px-5 py-4 text-sm font-bold text-[#0b4f4f] shadow-sm"
+                >
+                  <CheckCircle2 className="mt-0.5 shrink-0 text-[#1f7a2e]" size={18} aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            {p.whoBenefits.note && (
+              <p className="mt-6 text-center text-sm font-semibold text-slate-500">{p.whoBenefits.note}</p>
+            )}
+          </motion.div>
+        </section>
+      )}
+
+      {/* FIRST WEEKS */}
+      {p.firstWeeks && (
+        <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <motion.div {...fadeUp}>
+                <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.firstWeeks.title}</h2>
+                <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.firstWeeks.intro}</p>
+              </motion.div>
+              <FirstWeeksTimeline weeks={p.firstWeeks.weeks} />
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* WHY EDEN */}
+      {p.whyEden && (
+        <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
+          <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center">
+            <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl lg:text-5xl">{p.whyEden.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{p.whyEden.intro}</p>
+          </motion.div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {p.whyEden.items.map((item, i) => (
+              <motion.article
+                key={item.title}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.04 }}
+                className="rounded-[1.75rem] border border-slate-100 bg-white p-6 shadow-lg"
+              >
+                <span className="text-xs font-black uppercase tracking-widest text-[#f7c72f]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-2 text-lg font-black text-[#0b4f4f]">{item.title}</h3>
+                <p className="mt-3 text-sm font-semibold leading-7 text-slate-600">{item.text}</p>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* GETTING STARTED */}
+      {p.gettingStarted && (
+        <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto max-w-5xl">
+            <motion.div {...fadeUp} className="text-center">
+              <h2 className="text-3xl font-black text-[#0b4f4f] md:text-4xl">{p.gettingStarted.title}</h2>
+              <p className="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-8 text-slate-600">{p.gettingStarted.intro}</p>
+            </motion.div>
+            <ol className="mt-12 grid gap-5 sm:grid-cols-2">
+              {p.gettingStarted.steps.map((step, i) => (
+                <motion.li
+                  key={step.title}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: i * 0.05 }}
+                  className="list-none rounded-[1.75rem] border border-[#128c8c]/15 bg-gradient-to-br from-[#ddf4f4]/40 to-white p-6 shadow-md"
+                >
+                  <span className="text-sm font-black text-[#128c8c]">Step {i + 1}</span>
+                  <h3 className="mt-2 text-lg font-black text-[#0b4f4f]">{step.title}</h3>
+                  <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{step.text}</p>
+                </motion.li>
+              ))}
+            </ol>
+            {p.gettingStarted.note && (
+              <motion.p {...fadeUp} className="mt-8 text-center text-sm font-semibold text-slate-500">
+                {p.gettingStarted.note}
+              </motion.p>
+            )}
+          </div>
+        </section>
+      )}
+
+      <MidCtaBand
+        cta={p.midCta}
+        onStart={onStart}
+        onVerifyInsurance={onVerifyInsurance}
+        onSpeakWithPerson={onSpeakWithPerson}
+      />
 
       {/* PREPARING */}
       <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
@@ -384,6 +800,31 @@ export default function HomeBasedAbaTherapyPage({
         </motion.div>
       </section>
 
+      {/* INSURANCE */}
+      <section className="bg-slate-900 px-4 py-16 text-white lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-5xl">
+          <motion.div {...fadeUp} className="text-center">
+            <ShieldCheck className="mx-auto text-emerald-300" size={40} aria-hidden="true" />
+            <h2 className="mt-4 text-3xl font-black md:text-4xl">{p.insurance.title}</h2>
+            <p className="mx-auto mt-4 max-w-3xl text-lg font-semibold leading-8 text-white/85">{p.insurance.intro}</p>
+          </motion.div>
+          <motion.ul {...fadeUp} className="mt-10 grid gap-3 sm:grid-cols-2">
+            {p.insurance.bullets.map((bullet) => (
+              <li
+                key={bullet}
+                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold leading-7 text-white/90"
+              >
+                <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-300" size={18} aria-hidden="true" />
+                {bullet}
+              </li>
+            ))}
+          </motion.ul>
+          <motion.p {...fadeUp} className="mt-8 text-center text-sm font-semibold leading-7 text-white/70">
+            {p.insurance.note}
+          </motion.p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="eden-section eden-section--mint mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
@@ -397,6 +838,8 @@ export default function HomeBasedAbaTherapyPage({
         </div>
       </section>
 
+      <ComplianceBar text={p.complianceNote} />
+
       {/* FINAL CTA */}
       <section className="bg-gradient-to-br from-[#0b4f4f] via-[#128c8c] to-[#1f7a2e] px-4 py-16 lg:px-8">
         <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center">
@@ -405,7 +848,8 @@ export default function HomeBasedAbaTherapyPage({
           <p className="mt-4 text-lg font-semibold leading-8 text-white/90">{p.finalCta.text}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <EdenButton variant="gold" onClick={onStart}>{p.finalCta.startButton}</EdenButton>
-            <EdenButton variant="secondarySite" onClick={onLocations}>{p.finalCta.findButton}</EdenButton>
+            <EdenButton variant="secondarySite" onClick={onVerifyInsurance ?? onStart}>{p.finalCta.verifyButton}</EdenButton>
+            <EdenButton variant="secondarySite" onClick={onSpeakWithPerson ?? onStart}>{p.finalCta.speakButton}</EdenButton>
           </div>
         </motion.div>
       </section>

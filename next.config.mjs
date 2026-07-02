@@ -126,6 +126,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/services/in-home-aba-therapy",
+        destination: "/services/home-based-aba-therapy",
+        permanent: true,
+      },
+      {
         source: "/service-settings/community-based-aba-therapy",
         destination: "/services/community-based-aba-therapy",
         permanent: true,

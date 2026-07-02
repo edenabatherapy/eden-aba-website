@@ -45,15 +45,6 @@ const SERVICE_SECTIONS: ServicesMegaMenuSection[] = [
         sectionId: "aba-services",
       },
       {
-        id: "in-home-aba",
-        title: "In-Home ABA Therapy",
-        href: "/services/in-home-aba-therapy",
-        description:
-          "In-home ABA services in Northern Virginia with BCBA supervision, individualized goals, and family-centered coaching in natural routines.",
-        animationType: "home",
-        sectionId: "aba-services",
-      },
-      {
         id: "center-based-aba",
         title: "Center-Based ABA Therapy",
         href: "/services/center-based-aba-therapy",

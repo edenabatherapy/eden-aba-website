@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
 import HomeBasedAbaServiceRoutePage from "@/components/services/HomeBasedAbaServiceRoutePage";
-import { IN_HOME_ABA_META } from "@/lib/services/service-page-metadata";
+import homeBasedAbaEn from "@/locales/partials/home-based-aba-en.json";
+
+const { title, description } = homeBasedAbaEn.meta;
 
 export const metadata: Metadata = {
-  ...IN_HOME_ABA_META,
-  title: "Home-Based ABA Therapy | Eden ABA Therapy",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
   alternates: {
     canonical: "/services/home-based-aba-therapy",
   },
