@@ -170,7 +170,7 @@ deepMerge(vi.common, {
   secureConfidentialText:
     "Thông tin của bạn được bảo vệ theo các tiêu chuẩn bảo mật và quyền riêng tư nghiêm ngặt.",
   consentUpdates:
-    "Tôi đồng ý nhận nhắc lịch hẹn và cập nhật intake từ Eden ABA Therapy.",
+    "Tôi đồng ý nhận tin nhắn chăm sóc khách hàng từ Eden ABA Therapy LLC. Trả lời STOP để hủy; Trả lời HELP để được hỗ trợ; Có thể áp dụng phí tin nhắn và dữ liệu; Tần suất nhắn tin có thể thay đổi. Truy cập https://www.edenabatherapy.com/privacy-policy cho Chính sách Quyền riêng tư và https://www.edenabatherapy.com/terms-of-service cho Điều khoản Dịch vụ của chúng tôi.",
   consentTerms: "Tôi đồng ý với Chính sách Quyền riêng tư và Điều khoản Dịch vụ.",
   recaptcha: "được bảo vệ bởi reCAPTCHA",
   liveChat: "Trò chuyện trực tuyến",

@@ -712,7 +712,11 @@
       "subtitle": "Licensed speech-language pathologists help children understand language, express ideas clearly, connect with others, and use augmentative tools when speech alone is not enough—all within Eden's collaborative care model.",
       "breadcrumbLabel": "Speech & Language Therapy",
       "imageAlt": "Speech-language pathologist engaging a child in a communication activity with picture cards",
-      "readingTime": "19 min read"
+      "readingTime": "19 min read",
+      "screeningCta": {
+        "label": "Request Speech & Language Screening",
+        "href": "/services/speech-language-therapy/screening"
+      }
     },
     "overview": {
       "title": "What Is Speech & Language Therapy?",
@@ -1342,8 +1346,8 @@
           "href": "/start-aba-therapy"
         },
         {
-          "label": "Schedule an Evaluation",
-          "href": "/services/evaluations-diagnosis/screening-evaluation"
+          "label": "Request Speech & Language Screening",
+          "href": "/services/speech-language-therapy/screening"
         },
         {
           "label": "Contact Eden",

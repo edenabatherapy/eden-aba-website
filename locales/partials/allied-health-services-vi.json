@@ -712,7 +712,11 @@
       "subtitle": "Các nhà bệnh lý ngôn ngữ lời nói có giấy phép giúp trẻ hiểu ngôn ngữ, diễn đạt ý tưởng rõ ràng, kết nối với người khác và sử dụng các công cụ tăng cường khi lời nói đơn thuần chưa đủ—tất cả trong mô hình chăm sóc hợp tác của Eden.",
       "breadcrumbLabel": "Liệu pháp ngôn ngữ & Lời nói",
       "imageAlt": "Nhà bệnh lý ngôn ngữ lời nói tương tác với trẻ trong hoạt động giao tiếp với thẻ hình ảnh",
-      "readingTime": "19 phút đọc"
+      "readingTime": "19 phút đọc",
+      "screeningCta": {
+        "label": "Yêu cầu Sàng lọc Ngôn ngữ & Lời nói",
+        "href": "/services/speech-language-therapy/screening"
+      }
     },
     "overview": {
       "title": "Liệu pháp ngôn ngữ & Lời nói là gì?",
@@ -1342,8 +1346,8 @@
           "href": "/start-aba-therapy"
         },
         {
-          "label": "Đặt lịch đánh giá",
-          "href": "/services/evaluations-diagnosis/screening-evaluation"
+          "label": "Yêu cầu Sàng lọc Ngôn ngữ & Lời nói",
+          "href": "/services/speech-language-therapy/screening"
         },
         {
           "label": "Liên hệ Eden",

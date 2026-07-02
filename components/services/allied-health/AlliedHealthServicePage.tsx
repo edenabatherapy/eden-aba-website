@@ -63,6 +63,7 @@ export default function AlliedHealthServicePage({ slug }: AlliedHealthServicePag
     breadcrumbLabel: string;
     imageAlt: string;
     readingTime: string;
+    screeningCta?: { label: string; href: string };
   };
   const overview = content.overview as {
     title: string;
@@ -201,10 +202,10 @@ export default function AlliedHealthServicePage({ slug }: AlliedHealthServicePag
                   {shared.startAbaTherapy} <ArrowRight size={18} aria-hidden />
                 </Link>
                 <Link
-                  href="/services/evaluations-diagnosis/screening-evaluation"
+                  href={hero.screeningCta?.href ?? "/services/evaluations-diagnosis/screening-evaluation"}
                   className={getButtonClasses("secondaryOnDark")}
                 >
-                  {shared.scheduleEvaluation}
+                  {hero.screeningCta?.label ?? shared.scheduleEvaluation}
                 </Link>
                 <Link href="/contact" className={getButtonClasses("secondaryOnDark")}>
                   {shared.contactEden}
