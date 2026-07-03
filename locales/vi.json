@@ -529,14 +529,42 @@
     "newsletterSuccess": "Cảm ơn bạn đã tham gia bản tin gia đình Eden ABA Therapy.",
     "submitting": "Đang gửi...",
     "cookieConsent": {
-      "title": "Đồng ý Cookie & Tùy chọn",
-      "message": "Chúng tôi dùng cookie để cải thiện trải nghiệm và hiểu cách gia đình sử dụng website.",
-      "acceptAll": "Chấp nhận tất cả Cookie",
-      "preferences": "Tùy chọn Cookie",
-      "preferencesTitle": "Tùy chọn Cookie",
-      "preferencesIntro": "Chọn cách Eden ABA Therapy sử dụng cookie. Cookie thiết yếu giúp website hoạt động. Cookie phân tích giúp chúng tôi cải thiện trải nghiệm gia đình.",
-      "essentialOnly": "Chỉ Cookie thiết yếu",
-      "savePreferences": "Lưu tùy chọn",
+      "title": "Website này sử dụng cookie",
+      "message": "Eden ABA Therapy sử dụng cookie để cải thiện trải nghiệm, ghi nhớ tùy chọn và hiểu cách gia đình sử dụng website. Bạn có thể chọn cookie tùy chọn nào được phép.",
+      "acceptAll": "Chấp nhận tất cả",
+      "allowSelection": "Cho phép lựa chọn",
+      "deny": "Từ chối",
+      "showDetails": "Xem chi tiết",
+      "modalTitle": "Tùy chọn Cookie",
+      "tabs": {
+        "consent": "Đồng ý",
+        "details": "Chi tiết",
+        "about": "Giới thiệu"
+      },
+      "categories": {
+        "necessary": {
+          "title": "Cần thiết",
+          "description": "Bắt buộc để website hoạt động. Không thể tắt."
+        },
+        "preferences": {
+          "title": "Tùy chọn",
+          "description": "Ghi nhớ cài đặt của bạn, chẳng hạn ngôn ngữ và hiển thị."
+        },
+        "statistics": {
+          "title": "Thống kê",
+          "description": "Giúp chúng tôi hiểu cách khách truy cập sử dụng website để cải thiện trải nghiệm gia đình."
+        },
+        "marketing": {
+          "title": "Tiếp thị",
+          "description": "Có thể dùng để chia sẻ thông tin Eden ABA Therapy phù hợp trên các nền tảng khác."
+        }
+      },
+      "alwaysActive": "Luôn bật",
+      "saveSelection": "Cho phép lựa chọn",
+      "aboutIntro": "Eden ABA Therapy tôn trọng quyền riêng tư của bạn. Cookie là tệp nhỏ lưu trên thiết bị. Chúng tôi không bán dữ liệu cá nhân.",
+      "aboutAnalytics": "Cookie thống kê có thể hỗ trợ công cụ phân tích ẩn danh khi bạn cho phép. Cookie tùy chọn chỉ được dùng sau khi bạn đồng ý.",
+      "privacyLink": "Chính sách quyền riêng tư",
+      "closeModal": "Đóng tùy chọn",
       "reopenLabel": "Cài đặt cookie"
     }
   },

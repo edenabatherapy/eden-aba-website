@@ -529,14 +529,42 @@
     "newsletterSuccess": "Thank you for joining the Eden ABA Therapy family newsletter.",
     "submitting": "Submitting...",
     "cookieConsent": {
-      "title": "Cookie Consent & Preferences",
-      "message": "We use cookies to improve your experience and understand how families use our website.",
-      "acceptAll": "Accept All Cookies",
-      "preferences": "Cookie Preferences",
-      "preferencesTitle": "Cookie Preferences",
-      "preferencesIntro": "Choose how Eden ABA Therapy uses cookies. Essential cookies help the site function. Analytics cookies help us improve the family experience.",
-      "essentialOnly": "Essential Only",
-      "savePreferences": "Save Preferences",
+      "title": "This website uses cookies",
+      "message": "Eden ABA Therapy uses cookies to improve your experience, remember preferences, and understand how families use our website. You can choose which optional cookies to allow.",
+      "acceptAll": "Accept All",
+      "allowSelection": "Allow Selection",
+      "deny": "Deny",
+      "showDetails": "Show Details",
+      "modalTitle": "Cookie Preferences",
+      "tabs": {
+        "consent": "Consent",
+        "details": "Details",
+        "about": "About"
+      },
+      "categories": {
+        "necessary": {
+          "title": "Necessary",
+          "description": "Required for the website to function. These cannot be disabled."
+        },
+        "preferences": {
+          "title": "Preferences",
+          "description": "Remember your settings, such as language and display choices."
+        },
+        "statistics": {
+          "title": "Statistics",
+          "description": "Help us understand how visitors use the site so we can improve the family experience."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "May be used to deliver relevant Eden ABA Therapy information on other platforms."
+        }
+      },
+      "alwaysActive": "Always active",
+      "saveSelection": "Allow Selection",
+      "aboutIntro": "Eden ABA Therapy respects your privacy. Cookies are small files stored on your device. We do not sell personal data.",
+      "aboutAnalytics": "Statistics cookies may support anonymous analytics tools when you allow them. Optional cookies are only used after you consent.",
+      "privacyLink": "Privacy Policy",
+      "closeModal": "Close preferences",
       "reopenLabel": "Cookie settings"
     }
   },
