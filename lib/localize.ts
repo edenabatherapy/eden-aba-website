@@ -7,7 +7,7 @@ export type LocalizedRecord<T> = {
 
 export function pickLocalized<T>(record: LocalizedRecord<T>, language: string): T {
   if (language === "vi" && record.vi) {
-    if (typeof record.en === "object" && record.en !== null && !Array.isArray(record.en)) {
+    if (typeof record.en === "object" && record.en !== null) {
       return deepMerge(record.en as object, record.vi as object) as T;
     }
     return record.vi;
@@ -17,7 +17,7 @@ export function pickLocalized<T>(record: LocalizedRecord<T>, language: string): 
 
 export function localizeValue<T>(english: T, vietnamese: T | undefined, language: string): T {
   if (language !== "vi" || vietnamese === undefined) return english;
-  if (typeof english === "object" && english !== null && !Array.isArray(english)) {
+  if (typeof english === "object" && english !== null) {
     return deepMerge(english as object, vietnamese as object) as T;
   }
   return vietnamese;
