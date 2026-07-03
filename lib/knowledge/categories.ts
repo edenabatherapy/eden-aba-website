@@ -80,6 +80,27 @@ export const KNOWLEDGE_CATEGORY_META: Record<KnowledgeCategory, KnowledgeCategor
     description: "Service settings and programs offered by Eden ABA Therapy.",
     aliases: ["eden services", "center based", "in home", "home based", "early intervention eden"],
   },
+  "eden-allied-health-services": {
+    id: "eden-allied-health-services",
+    label: "Eden Allied Health Services",
+    description:
+      "Occupational therapy, speech-language therapy, and feeding & swallowing therapy at Eden.",
+    aliases: [
+      "occupational therapy",
+      "occupational therapist",
+      "ot",
+      "speech therapy",
+      "speech language",
+      "speech-language",
+      "slp",
+      "feeding therapy",
+      "swallowing",
+      "feeding and swallowing",
+      "allied health",
+      "fine motor",
+      "sensory processing",
+    ],
+  },
   "eden-aba-contact": {
     id: "eden-aba-contact",
     label: "Eden ABA Contact Information",

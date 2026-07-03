@@ -52,6 +52,7 @@ export const EDEN_AI_KNOWLEDGE_SECTIONS: AiKnowledgeSection[] = [
       "Applied Behavior Analysis (ABA) is a evidence-based approach that may help children build communication, social, adaptive, and learning-readiness skills through structured teaching, positive reinforcement, and data-informed adjustments.",
       "Eden ABA programs are individualized and overseen by a BCBA. Direct therapy may be delivered by trained behavior technicians under BCBA supervision when clinically appropriate.",
       "ABA at Eden may address goals such as functional communication, social engagement, daily routines, emotional regulation, school readiness, safety skills, and generalization across settings.",
+      "Eden may also offer or coordinate Occupational Therapy, Speech & Language Therapy, and Feeding & Swallowing Therapy depending on assessment, authorization, staffing, and insurance eligibility. Availability varies by child and location.",
     ],
     subsections: [
       {
@@ -125,6 +126,36 @@ export const EDEN_AI_KNOWLEDGE_SECTIONS: AiKnowledgeSection[] = [
       "Guidance on routines, transitions, and reinforcement",
       "Collaboration on home goals aligned with the treatment plan",
       "Support understanding data, progress, and next steps",
+    ],
+  },
+  {
+    id: "occupational-therapy",
+    title: "Occupational Therapy",
+    paragraphs: [
+      "Occupational Therapy (OT) at Eden may help children build daily living skills, fine motor skills, sensory processing, self-care, feeding readiness, play skills, school participation, and independence.",
+      "OT is provided by licensed occupational therapists when available. Families may request OT evaluation or support through Eden intake.",
+      "Services depend on clinical assessment, authorization, and availability. Eden does not guarantee specific outcomes.",
+      "Learn more: https://www.edenabatherapy.com/services/occupational-therapy",
+    ],
+  },
+  {
+    id: "speech-language-therapy",
+    title: "Speech & Language Therapy",
+    paragraphs: [
+      "Speech & Language Therapy at Eden may support communication, expressive and receptive language, social communication, articulation, AAC support, and caregiver strategies.",
+      "Licensed speech-language pathologists provide services when available. Screening and evaluation pathways depend on clinical review and payer rules.",
+      "Families may request speech-language support through Eden intake or complete the online screening at https://www.edenabatherapy.com/services/speech-language-therapy/screening. Screening does not replace a full evaluation.",
+      "Learn more: https://www.edenabatherapy.com/services/speech-language-therapy",
+    ],
+  },
+  {
+    id: "feeding-swallowing-therapy",
+    title: "Feeding & Swallowing Therapy",
+    paragraphs: [
+      "Feeding & Swallowing Therapy at Eden may support children with feeding challenges, oral-motor needs, food selectivity, mealtime routines, swallowing concerns, and caregiver support.",
+      "A formal evaluation may be needed before therapy begins. Medical and clinical appropriateness depends on provider review and authorization.",
+      "For urgent swallowing or choking safety concerns, families should contact a medical provider or emergency services (911) — not the website or AI assistant.",
+      "Learn more: https://www.edenabatherapy.com/services/feeding-swallowing-therapy",
     ],
   },
   {
@@ -357,6 +388,11 @@ export const EDEN_AI_KNOWLEDGE_SECTIONS: AiKnowledgeSection[] = [
         question: "Does Eden guarantee therapy will start immediately?",
         answer:
           "No. Start dates depend on intake review, authorization, clinical capacity, and family availability. Eden does not guarantee immediate openings.",
+      },
+      {
+        question: "Does Eden offer occupational therapy, speech therapy, or feeding therapy?",
+        answer:
+          "Eden may offer Occupational Therapy, Speech & Language Therapy, and Feeding & Swallowing Therapy depending on clinical assessment, authorization, staffing, and insurance eligibility. Families can request information through intake at (703) 587-5238 or the website. Speech screening: edenabatherapy.com/services/speech-language-therapy/screening",
       },
       {
         question: "What is the Eden AI Intake Assistant?",

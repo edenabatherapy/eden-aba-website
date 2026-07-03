@@ -11,6 +11,7 @@ export const KNOWLEDGE_CATEGORIES = [
   "insurance-faqs",
   "intake-faqs",
   "eden-aba-services",
+  "eden-allied-health-services",
   "eden-aba-contact",
 ] as const;
 

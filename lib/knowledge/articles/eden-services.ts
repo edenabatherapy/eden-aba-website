@@ -7,13 +7,16 @@ export const edenServicesArticles: KnowledgeArticle[] = [
     title: "Eden ABA Therapy Service Overview",
     summary: "Eden offers family-centered ABA programs across multiple settings with individualized goals and caregiver involvement.",
     content:
-      "Eden ABA Therapy provides Applied Behavior Analysis (ABA) services designed around each child's strengths, family priorities, and daily routines. Programs emphasize compassionate care, clear communication with caregivers, and measurable progress.\n\nService areas commonly include communication, social skills, daily living skills, behavior support, and school collaboration — tailored through individualized treatment plans supervised by a BCBA.\n\nEden supports families across Northern Virginia and works with major insurance providers. Admissions and intake teams help verify benefits and explain next steps.\n\nSpecific services, availability, and settings depend on location, clinical recommendation, and authorization. Contact Eden directly to confirm what is available for your child and area.",
+      "Eden ABA Therapy provides Applied Behavior Analysis (ABA) services designed around each child's strengths, family priorities, and daily routines. Programs emphasize compassionate care, clear communication with caregivers, and measurable progress.\n\nEden may also support Occupational Therapy, Speech & Language Therapy, and Feeding & Swallowing Therapy depending on clinical assessment, authorization, staffing, and service availability in the family's area.\n\nService areas commonly include communication, social skills, daily living skills, behavior support, and school collaboration — tailored through individualized treatment plans supervised by a BCBA.\n\nEden supports families across Northern Virginia and works with major insurance providers. Admissions and intake teams help verify benefits and explain next steps.\n\nSpecific services, availability, and settings depend on location, clinical recommendation, and authorization. Contact Eden directly to confirm what is available for your child and area.",
     keywords: [
       "eden services",
       "eden aba",
       "what eden offers",
       "programs",
       "northern virginia",
+      "occupational therapy",
+      "speech therapy",
+      "feeding therapy",
     ],
     sources: [
       {
@@ -60,6 +63,9 @@ export const edenServicesArticles: KnowledgeArticle[] = [
       "consultation",
       "get started eden",
       "referral eden",
+      "diagnose autism",
+      "does eden diagnose",
+      "autism diagnosis eden",
     ],
     sources: [
       {

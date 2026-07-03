@@ -1,3 +1,4 @@
+import { alliedHealthServicesArticles } from "@/lib/knowledge/articles/allied-health-services";
 import { abaTherapyArticles } from "@/lib/knowledge/articles/aba-therapy";
 import { autismEducationArticles } from "@/lib/knowledge/articles/autism-education";
 import { communicationDevelopmentArticles } from "@/lib/knowledge/articles/communication-development";
@@ -26,6 +27,7 @@ export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
   ...insuranceFaqsArticles,
   ...intakeFaqsArticles,
   ...edenServicesArticles,
+  ...alliedHealthServicesArticles,
   ...edenContactArticles,
 ];
 
