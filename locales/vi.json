@@ -358,7 +358,7 @@
     "recaptchaPrivacy": "Quyền riêng tư",
     "recaptchaTerms": "Điều khoản",
     "recaptchaGoogleLegal": "Trang web này được bảo vệ bởi reCAPTCHA và áp dụng Chính sách quyền riêng tư cùng Điều khoản dịch vụ của Google.",
-    "languageLabel": "Select Language",
+    "languageLabel": "Chọn ngôn ngữ",
     "recaptchaFailed": "Xác minh bảo mật không thành công. Vui lòng làm mới trang và thử lại, hoặc liên hệ Eden ABA Therapy để được hỗ trợ.",
     "startAbaRecaptchaFailed": "Chúng tôi không thể xác minh yêu cầu của bạn. Vui lòng làm mới trang và thử lại.",
     "startAbaRecaptchaIncomplete": "Vui lòng hoàn tất xác minh reCAPTCHA.",
@@ -703,13 +703,13 @@
         {
           "title": "Dành cho nhà cung cấp",
           "links": [
-            "Refer a Child",
-            "Provider Referral Portal",
-            "CentralReach Staff Login",
-            "Referral Process",
-            "Clinical Collaboration",
-            "Autism Screening Support",
-            "Insurance & Intake Coordination"
+            "Giới thiệu trẻ",
+            "Cổng giới thiệu nhà cung cấp",
+            "Đăng nhập nhân viên CentralReach",
+            "Quy trình giới thiệu",
+            "Hợp tác lâm sàng",
+            "Hỗ trợ sàng lọc tự kỷ",
+            "Phối hợp bảo hiểm & tiếp nhận"
           ]
         }
       ]
@@ -2237,7 +2237,7 @@
         "emailLabel": "Email:",
         "addressLabel": "Địa chỉ:",
         "faxLabel": "Fax:",
-        "websiteLabel": "Website",
+        "websiteLabel": "Trang web",
         "allRightsReserved": "Bảo lưu mọi quyền.",
         "builtBy": "Xây dựng bởi ITMagnum",
         "serviceLinks": [
@@ -2406,7 +2406,7 @@
             [
               "Ngôn ngữ chính của trẻ",
               "text",
-              "English, Vietnamese, Spanish, etc."
+              "Tiếng Anh, Tiếng Việt, Tiếng Tây Ban Nha, v.v."
             ],
             [
               "Địa chỉ đường phố",
@@ -4193,131 +4193,131 @@
       },
       "whatIs": {
         "title": "ADOS-2 là gì?",
-        "intro": "The ADOS-2 is a standardized, play-based assessment and a trusted tool for helping evaluate possible autism in children.",
+        "intro": "ADOS-2 là đánh giá chuẩn hóa dựa trên vui chơi và là công cụ đáng tin cậy giúp đánh giá khả năng tự kỷ ở trẻ.",
         "cards": [
           [
-            "A Gold Standard",
-            "The ADOS-2 is considered a gold-standard measure for evaluating children for ASD. It is backed by research and helps professionals identify autism-related characteristics."
+            "Tiêu chuẩn vàng",
+            "ADOS-2 được coi là thước đo tiêu chuẩn vàng để đánh giá trẻ mắc ASD. Công cụ này được nghiên cứu hỗ trợ và giúp chuyên gia xác định đặc điểm liên quan đến tự kỷ."
           ],
           [
-            "Play-Based",
-            "The ADOS-2 is not like a typical doctor's visit. During the assessment, the clinician engages your child in activities tailored to their age, communication skills, and developmental level."
+            "Dựa trên vui chơi",
+            "ADOS-2 không giống buổi khám bác sĩ thông thường. Trong buổi đánh giá, chuyên viên lâm sàng tương tác với con bạn qua các hoạt động phù hợp với độ tuổi, kỹ năng giao tiếp và mức phát triển."
           ],
           [
-            "Scoring",
-            "After the assessment, scores are calculated to show how closely your child's behaviors in key areas match autism characteristics. A summary may be shared with your child's pediatrician or referring provider to support the diagnostic process."
+            "Chấm điểm",
+            "Sau đánh giá, điểm số được tính để cho thấy mức độ hành vi của con bạn ở các lĩnh vực chính khớp với đặc điểm tự kỷ. Bản tóm tắt có thể được chia sẻ với bác sĩ nhi khoa hoặc nhà cung cấp giới thiệu để hỗ trợ quá trình chẩn đoán."
           ]
         ]
       },
       "measure": {
         "title": "ADOS-2 đo lường điều gì?",
-        "intro": "The ADOS-2 looks at areas of a child's development often linked to autism. During the evaluation, a trained clinician observes how your child communicates, plays, and interacts.",
+        "intro": "ADOS-2 xem xét các lĩnh vực phát triển của trẻ thường liên quan đến tự kỷ. Trong buổi đánh giá, chuyên viên được đào tạo quan sát cách con bạn giao tiếp, chơi và tương tác.",
         "areas": [
           [
-            "Social communication",
-            "Making eye contact, using gestures, or sharing enjoyment with others."
+            "Giao tiếp xã hội",
+            "Giao tiếp bằng mắt, dùng cử chỉ hoặc chia sẻ niềm vui với người khác."
           ],
           [
-            "Play and imagination",
-            "How your child uses toys and whether they engage in pretend play."
+            "Vui chơi và trí tưởng tượng",
+            "Cách con bạn dùng đồ chơi và có tham gia chơi giả vờ hay không."
           ],
           [
-            "Language use",
-            "How your child talks and responds in social situations."
+            "Sử dụng ngôn ngữ",
+            "Cách con bạn nói chuyện và phản hồi trong tình huống xã hội."
           ],
           [
-            "Repetitive behaviors or strong interests",
-            "Repeated movements or intense focus on specific topics."
+            "Hành vi lặp lại hoặc sở thích mạnh",
+            "Chuyển động lặp lại hoặc tập trung mãnh liệt vào chủ đề cụ thể."
           ]
         ],
-        "closing": "Behaviors most closely associated with autism are scored to show how your child's responses compare to common autism characteristics.",
-        "imageAlt": "Therapist using picture cards during a play-based assessment with a child"
+        "closing": "Các hành vi gắn chặt nhất với tự kỷ được chấm điểm để cho thấy phản ứng của con bạn so với đặc điểm tự kỷ phổ biến.",
+        "imageAlt": "Nhà trị liệu dùng thẻ hình ảnh trong buổi đánh giá dựa trên vui chơi với trẻ"
       },
       "modules": {
         "title": "Giải thích các Module ADOS-2",
-        "intro": "The ADOS-2 includes five modules, each matched to a child's age and language abilities.",
+        "intro": "ADOS-2 gồm năm module, mỗi module phù hợp với độ tuổi và khả năng ngôn ngữ của trẻ.",
         "list": [
           [
-            "Toddler Module",
-            "For children 12 to 30 months old."
+            "Module Toddler",
+            "Dành cho trẻ từ 12 đến 30 tháng tuổi."
           ],
           [
             "Module 1",
-            "For children who do not yet speak in phrases."
+            "Dành cho trẻ chưa nói được cụm từ."
           ],
           [
             "Module 2",
-            "For children who speak in phrases but are not yet verbally fluent."
+            "Dành cho trẻ nói được cụm từ nhưng chưa lưu loát."
           ],
           [
             "Module 3",
-            "For verbally fluent children."
+            "Dành cho trẻ nói lưu loát."
           ],
           [
             "Module 4",
-            "For verbally fluent adolescents and adults."
+            "Dành cho thanh thiếu niên và người lớn nói lưu loát."
           ]
         ],
-        "edenNoteLabel": "Eden ABA note:",
-        "edenNote": "At Eden ABA Therapy, assessment availability may vary by region. Clinicians select the appropriate module based on the child's communication skills, age, and developmental stage."
+        "edenNoteLabel": "Ghi chú Eden ABA:",
+        "edenNote": "Tại Eden ABA Therapy, tình trạng có sẵn đánh giá có thể khác nhau theo khu vực. Chuyên viên lâm sàng chọn module phù hợp dựa trên kỹ năng giao tiếp, độ tuổi và giai đoạn phát triển của trẻ."
       },
       "results": {
         "title": "Hiểu Kết quả ADOS-2",
-        "intro": "Once the ADOS-2 is complete, the clinician scores the assessment using a standardized system. Behaviors most associated with autism are totaled, and the results show how closely the child's responses compare to common autism characteristics.",
-        "additional": "The ADOS-2 is one piece of the bigger picture. Parent concerns, developmental history, clinical observation, and provider review are also important parts of the evaluation process.",
-        "imageAlt": "Parent and clinician reviewing developmental assessment information together",
+        "intro": "Khi ADOS-2 hoàn tất, chuyên viên lâm sàng chấm điểm đánh giá theo hệ thống chuẩn hóa. Các hành vi gắn với tự kỷ nhất được tổng hợp, và kết quả cho thấy mức độ phản ứng của trẻ so với đặc điểm tự kỷ phổ biến.",
+        "additional": "ADOS-2 chỉ là một phần của bức tranh tổng thể. Mối quan tâm của phụ huynh, tiền sử phát triển, quan sát lâm sàng và đánh giá của nhà cung cấp cũng là phần quan trọng của quá trình đánh giá.",
+        "imageAlt": "Phụ huynh và chuyên viên lâm sàng xem xét thông tin đánh giá phát triển cùng nhau",
         "steps": [
           [
-            "Step 1",
-            "Assessment completed",
-            "Your child completes the play-based ADOS-2 activities with a trained clinician."
+            "Bước 1",
+            "Hoàn thành đánh giá",
+            "Con bạn hoàn thành các hoạt động ADOS-2 dựa trên vui chơi với chuyên viên được đào tạo."
           ],
           [
-            "Step 2",
-            "Clinician scores results",
-            "Responses are scored using the standardized ADOS-2 system."
+            "Bước 2",
+            "Chuyên viên chấm điểm kết quả",
+            "Phản ứng được chấm điểm theo hệ thống ADOS-2 chuẩn hóa."
           ],
           [
-            "Step 3",
-            "Results reviewed",
-            "The summary is reviewed alongside developmental history and parent concerns."
+            "Bước 3",
+            "Xem xét kết quả",
+            "Bản tóm tắt được xem xét cùng tiền sử phát triển và mối quan tâm của phụ huynh."
           ],
           [
-            "Step 4",
-            "Next steps discussed",
-            "Your family receives guidance on recommended follow-up and care options."
+            "Bước 4",
+            "Thảo luận bước tiếp theo",
+            "Gia đình nhận hướng dẫn về theo dõi và lựa chọn chăm sóc được đề xuất."
           ]
         ]
       },
       "whoCan": {
         "title": "Ai có thể làm ADOS-2?",
-        "intro": "The ADOS-2 may be appropriate for children who are showing possible signs of autism, such as limited eye contact, delayed communication, differences in play, repetitive behaviors, or social communication challenges.",
-        "onlineBadge": "Online",
-        "professionalBadge": "Professional",
+        "intro": "ADOS-2 có thể phù hợp với trẻ đang có dấu hiệu có thể mắc tự kỷ, như hạn chế giao tiếp bằng mắt, chậm giao tiếp, khác biệt trong vui chơi, hành vi lặp lại hoặc thách thức giao tiếp xã hội.",
+        "onlineBadge": "Trực tuyến",
+        "professionalBadge": "Chuyên nghiệp",
         "learnMore": "Tìm hiểu thêm",
         "options": [
           [
-            "Online",
-            "The M-CHAT-R",
-            "Online autism screener for toddlers.",
+            "Trực tuyến",
+            "M-CHAT-R",
+            "Công cụ sàng lọc tự kỷ trực tuyến cho trẻ nhỏ.",
             "mchat"
           ],
           [
-            "Online",
-            "The CAST",
-            "Online autism screener for older children.",
+            "Trực tuyến",
+            "CAST",
+            "Công cụ sàng lọc tự kỷ trực tuyến cho trẻ lớn hơn.",
             "cast"
           ],
           [
-            "Professional",
-            "The ADOS-2",
-            "Play-based, in-person ASD assessment.",
+            "Chuyên nghiệp",
+            "ADOS-2",
+            "Đánh giá ASD trực tiếp dựa trên vui chơi.",
             "ados"
           ],
           [
-            "Professional",
+            "Chuyên nghiệp",
             "IDE",
-            "Initial Diagnostic Evaluation, in person or via telehealth if available.",
+            "Đánh giá Chẩn đoán Ban đầu, trực tiếp hoặc qua telehealth nếu có sẵn.",
             "ide"
           ]
         ]
@@ -4326,36 +4326,36 @@
         "title": "Câu Hỏi Thường Gặp Về ADOS-2",
         "items": [
           [
-            "Why is it important to get an autism diagnosis for your child?",
-            "A formal autism diagnosis may help your child access certain developmental therapies, school supports, and services such as ABA therapy."
+            "Tại sao chẩn đoán tự kỷ cho con lại quan trọng?",
+            "Chẩn đoán tự kỷ chính thức có thể giúp con tiếp cận các liệu pháp phát triển, hỗ trợ trường học và dịch vụ như liệu pháp ABA."
           ],
           [
-            "Who conducts the ADOS-2?",
-            "The ADOS-2 is conducted by a trained clinician who meets the publisher's criteria for administering and scoring the tool."
+            "Ai thực hiện ADOS-2?",
+            "ADOS-2 do chuyên viên lâm sàng được đào tạo, đáp ứng tiêu chí của nhà xuất bản về thực hiện và chấm điểm công cụ."
           ],
           [
-            "What happens during the ADOS-2?",
-            "The clinician completes a set of play-based activities while observing key behaviors associated with autism. Activities may vary depending on the child's age, communication skills, and developmental level."
+            "Điều gì xảy ra trong buổi ADOS-2?",
+            "Chuyên viên lâm sàng thực hiện các hoạt động dựa trên vui chơi đồng thời quan sát hành vi chính liên quan đến tự kỷ. Hoạt động có thể khác nhau tùy độ tuổi, kỹ năng giao tiếp và mức phát triển của trẻ."
           ],
           [
-            "Does the ADOS-2 diagnose autism?",
-            "The ADOS-2 does not diagnose autism by itself. It provides important information that helps a qualified provider make diagnostic decisions."
+            "ADOS-2 có chẩn đoán tự kỷ không?",
+            "ADOS-2 không tự chẩn đoán tự kỷ. Công cụ cung cấp thông tin quan trọng giúp nhà cung cấp đủ điều kiện đưa ra quyết định chẩn đoán."
           ],
           [
-            "What happens after the ADOS-2?",
-            "The results summary may be reviewed by your child's treating provider. They will consider all available information to determine whether your child meets diagnostic criteria for autism and what next steps may be recommended."
+            "Điều gì xảy ra sau ADOS-2?",
+            "Bản tóm tắt kết quả có thể được nhà cung cấp điều trị của con xem xét. Họ sẽ cân nhắc mọi thông tin có sẵn để xác định con có đáp ứng tiêu chí chẩn đoán tự kỷ và bước tiếp theo được đề xuất."
           ],
           [
-            "Who can administer the ADOS-2?",
-            "Only professionals trained in the tool and qualified under the publisher's standards should administer the ADOS-2."
+            "Ai có thể thực hiện ADOS-2?",
+            "Chỉ chuyên gia được đào tạo về công cụ và đủ điều kiện theo tiêu chuẩn nhà xuất bản mới nên thực hiện ADOS-2."
           ],
           [
-            "How often can the ADOS-2 be administered?",
-            "The ADOS-2 can be administered more than once, but repeated assessments are usually spaced out and recommended only when new developmental questions arise or earlier results were inconclusive."
+            "ADOS-2 có thể thực hiện bao nhiêu lần?",
+            "ADOS-2 có thể thực hiện nhiều hơn một lần, nhưng đánh giá lặp lại thường cách xa và chỉ được đề xuất khi có câu hỏi phát triển mới hoặc kết quả trước không rõ ràng."
           ],
           [
-            "Does insurance cover the ADOS-2?",
-            "Coverage and cost may vary by location, provider, and insurance plan. Families should contact Eden ABA Therapy to confirm availability and options in their region."
+            "Bảo hiểm có chi trả ADOS-2 không?",
+            "Chi trả và chi phí có thể khác nhau theo địa điểm, nhà cung cấp và gói bảo hiểm. Gia đình nên liên hệ Eden ABA Therapy để xác nhận tình trạng có sẵn và lựa chọn trong khu vực."
           ]
         ]
       },
@@ -4387,18 +4387,18 @@
             "Annandale"
           ],
           "screenerOptions": [
-            "Yes — M-CHAT-R",
-            "Yes — CAST",
-            "Yes — both",
-            "No, not yet"
+            "Có — M-CHAT-R",
+            "Có — CAST",
+            "Có — cả hai",
+            "Chưa"
           ],
           "diagnosisOptions": [
-            "Yes",
-            "No",
-            "Evaluation in progress",
-            "Not sure"
+            "Có",
+            "Không",
+            "Đang đánh giá",
+            "Không chắc"
           ],
-          "consent": "I consent to receive occasional text messages from Eden ABA Therapy regarding educational resources and follow-up related to my inquiry. Message and data rates may apply. Reply STOP to opt out or HELP for help.",
+          "consent": "Tôi đồng ý nhận tin nhắn văn bản thỉnh thoảng từ Eden ABA Therapy về tài nguyên giáo dục và theo dõi liên quan đến yêu cầu của tôi. Có thể áp dụng phí tin nhắn và dữ liệu. Trả lời STOP để hủy hoặc HELP để được trợ giúp.",
           "submit": "Yêu cầu Lịch hẹn ADOS-2",
           "validationError": "Vui lòng hoàn thành các trường bắt buộc, nhập email và số điện thoại hợp lệ, và chấp nhận điều khoản đồng ý.",
           "successMessage": "Cảm ơn bạn. Yêu cầu lịch hẹn ADOS-2 đã được nhận. Thành viên đội ngũ sẽ liên hệ trong một ngày làm việc."
@@ -4431,141 +4431,141 @@
       },
       "whatIs": {
         "title": "Đánh giá Chẩn đoán Ban đầu (IDE) là gì?",
-        "intro": "There is no single test that can diagnose autism spectrum disorder. Instead, licensed professionals use multiple sources of information to determine whether a child meets criteria for ASD. An IDE is focused on autism-related concerns and may include caregiver input, direct observation, standardized tools, and a results review.",
-        "subheading": "Here's what to expect during the process:",
+        "intro": "Không có xét nghiệm đơn lẻ nào chẩn đoán rối loạn phổ tự kỷ. Thay vào đó, chuyên gia có giấy phép dùng nhiều nguồn thông tin để xác định trẻ có đáp ứng tiêu chí ASD hay không. IDE tập trung vào mối quan tâm liên quan đến tự kỷ và có thể gồm ý kiến người chăm sóc, quan sát trực tiếp, công cụ chuẩn hóa và xem xét kết quả.",
+        "subheading": "Đây là những gì bạn có thể mong đợi trong quá trình:",
         "steps": [
           [
-            "Parent Interview",
-            "Caregivers share information about the child's medical history, developmental milestones, daily behaviors, and current concerns."
+            "Phỏng vấn phụ huynh",
+            "Người chăm sóc chia sẻ thông tin về tiền sử y tế, cột mốc phát triển, hành vi hàng ngày và mối quan tâm hiện tại của trẻ."
           ],
           [
-            "Direct Observation",
-            "The clinician engages the child in interactive activities to observe how they communicate, play, and respond."
+            "Quan sát trực tiếp",
+            "Chuyên viên lâm sàng tương tác với trẻ qua hoạt động tương tác để quan sát cách trẻ giao tiếp, chơi và phản hồi."
           ],
           [
-            "Autism-Specific Tools",
-            "Standardized tools and questionnaires may be used to gather information about behaviors associated with autism."
+            "Công cụ chuyên biệt về tự kỷ",
+            "Công cụ và bảng câu hỏi chuẩn hóa có thể được dùng để thu thập thông tin về hành vi liên quan đến tự kỷ."
           ],
           [
-            "Results Review Session",
-            "The clinician explains findings, discusses whether the child meets criteria for autism, and provides individualized recommendations for next steps. Families may also receive a written diagnostic report to share with pediatricians, teachers, or other providers."
+            "Buổi xem xét kết quả",
+            "Chuyên viên lâm sàng giải thích phát hiện, thảo luận trẻ có đáp ứng tiêu chí tự kỷ hay không và đưa khuyến nghị cá nhân hóa cho bước tiếp theo. Gia đình cũng có thể nhận báo cáo chẩn đoán bằng văn bản để chia sẻ với bác sĩ nhi khoa, giáo viên hoặc nhà cung cấp khác."
           ]
         ]
       },
       "whoCan": {
         "title": "Ai có thể hoàn thành IDE?",
-        "intro": "An IDE may be appropriate for children ages 18 months through 6 years who are showing possible signs of autism.",
+        "intro": "IDE có thể phù hợp với trẻ từ 18 tháng đến 6 tuổi đang có dấu hiệu có thể mắc tự kỷ.",
         "signs": [
-          "Limited eye contact or difficulty responding to their name",
-          "Delays in speech or language development",
-          "Repetitive movements like hand-flapping or rocking",
-          "Becoming upset by changes in routine",
-          "Strong focus on specific topics or objects",
-          "Difficulties forming relationships or playing with peers"
+          "Hạn chế giao tiếp bằng mắt hoặc khó phản hồi khi được gọi tên",
+          "Chậm phát triển lời nói hoặc ngôn ngữ",
+          "Chuyển động lặp lại như vẫy tay hoặc lắc người",
+          "Khó chịu khi thói quen thay đổi",
+          "Tập trung mạnh vào chủ đề hoặc vật cụ thể",
+          "Khó khăn hình thành mối quan hệ hoặc chơi với bạn bè"
         ],
-        "referralText": "Children are often referred for an IDE after completing an autism screener like the M-CHAT-R or CAST, or when concerns come up during a pediatrician visit.",
-        "complexNote": "For children with multiple or complex developmental needs, a more comprehensive evaluation may be recommended. Eden ABA Therapy can help families understand what type of evaluation may be the best fit.",
+        "referralText": "Trẻ thường được giới thiệu làm IDE sau khi hoàn thành công cụ sàng lọc tự kỷ như M-CHAT-R hoặc CAST, hoặc khi mối quan tâm phát sinh trong buổi khám nhi khoa.",
+        "complexNote": "Với trẻ có nhiều nhu cầu phát triển phức tạp, đánh giá toàn diện hơn có thể được đề xuất. Eden ABA Therapy có thể giúp gia đình hiểu loại đánh giá nào phù hợp nhất.",
         "relatedCards": [
           [
-            "M-CHAT-R Online Screener",
-            "Online autism screener for toddlers ages 16–30 months.",
+            "Công cụ sàng lọc M-CHAT-R trực tuyến",
+            "Công cụ sàng lọc tự kỷ trực tuyến cho trẻ nhỏ từ 16–30 tháng.",
             "mchat"
           ],
           [
-            "CAST Online Screener",
-            "Online autism screener for children ages 4–11.",
+            "Công cụ sàng lọc CAST trực tuyến",
+            "Công cụ sàng lọc tự kỷ trực tuyến cho trẻ từ 4–11 tuổi.",
             "cast"
           ]
         ]
       },
       "measure": {
         "title": "IDE đo lường điều gì?",
-        "intro": "An Initial Diagnostic Evaluation examines key areas of development that are closely related to autism.",
+        "intro": "Đánh giá Chẩn đoán Ban đầu xem xét các lĩnh vực phát triển chính gắn chặt với tự kỷ.",
         "areas": [
           [
-            "Social Communication",
-            "The clinician observes how your child uses eye contact, gestures, facial expressions, and whether they share enjoyment or interest with others."
+            "Giao tiếp xã hội",
+            "Chuyên viên lâm sàng quan sát cách con bạn dùng giao tiếp bằng mắt, cử chỉ, biểu cảm khuôn mặt và có chia sẻ niềm vui hoặc sự quan tâm với người khác hay không."
           ],
           [
-            "Play and Imagination",
-            "The evaluation looks at how your child engages with toys, participates in pretend play, and builds simple stories or scenarios."
+            "Vui chơi và trí tưởng tượng",
+            "Đánh giá xem con bạn tương tác với đồ chơi, tham gia chơi giả vờ và xây dựng câu chuyện hoặc tình huống đơn giản như thế nào."
           ],
           [
-            "Language and Communication",
-            "The clinician assesses expressive skills, such as talking, asking questions, and responding to others, as well as receptive skills like understanding and following directions."
+            "Ngôn ngữ và giao tiếp",
+            "Chuyên viên lâm sàng đánh giá kỹ năng biểu đạt như nói chuyện, đặt câu hỏi và phản hồi người khác, cũng như kỹ năng tiếp nhận như hiểu và làm theo hướng dẫn."
           ],
           [
-            "Restricted or Repetitive Behaviors",
-            "The clinician notes repeated movements, intense interests, sensory differences, or sensitivities to changes in routines or environments."
+            "Hành vi hạn chế hoặc lặp lại",
+            "Chuyên viên lâm sàng ghi nhận chuyển động lặp lại, sở thích mãnh liệt, khác biệt cảm giác hoặc nhạy cảm với thay đổi thói quen hoặc môi trường."
           ],
           [
-            "Emotional Responses",
-            "The clinician observes how your child manages transitions, handles frustration, and reacts to unexpected changes or new experiences."
+            "Phản ứng cảm xúc",
+            "Chuyên viên lâm sàng quan sát cách con bạn xử lý chuyển tiếp, đối phó thất vọng và phản ứng với thay đổi bất ngờ hoặc trải nghiệm mới."
           ]
         ]
       },
       "tools": {
         "title": "Công cụ nào được dùng trong IDE?",
-        "intro": "Not every child will need every tool. Clinicians choose tools based on the child's age, developmental history, communication skills, and needs. These tools help support the diagnostic process and guide individualized recommendations.",
-        "listLabel": "Tools may include:",
+        "intro": "Không phải trẻ nào cũng cần mọi công cụ. Chuyên viên lâm sàng chọn công cụ dựa trên độ tuổi, tiền sử phát triển, kỹ năng giao tiếp và nhu cầu của trẻ. Các công cụ này hỗ trợ quá trình chẩn đoán và hướng dẫn khuyến nghị cá nhân hóa.",
+        "listLabel": "Công cụ có thể bao gồm:",
         "items": [
           "Autism Diagnostic Interview-Revised",
           "Autism Diagnostic Observation Schedule",
           "Childhood Autism Rating Scale",
           "Tele-ASD-PEDS",
-          "Parent questionnaires",
-          "Developmental history review",
-          "Direct child observation"
+          "Bảng câu hỏi phụ huynh",
+          "Xem xét tiền sử phát triển",
+          "Quan sát trẻ trực tiếp"
         ],
-        "imageAlt": "Child-friendly evaluation materials including picture cards and pretend play toys"
+        "imageAlt": "Vật liệu đánh giá thân thiện với trẻ gồm thẻ hình ảnh và đồ chơi chơi giả vờ"
       },
       "where": {
         "title": "IDE được thực hiện ở đâu?",
-        "intro": "IDEs may be offered in select locations through in-center evaluation or telehealth, depending on availability and regional requirements. No matter the setting, evaluations should include caregiver input, developmental history, direct observation, and other relevant information.",
-        "howTitle": "How it works",
+        "intro": "IDE có thể được cung cấp tại một số địa điểm qua đánh giá tại trung tâm hoặc telehealth, tùy tình trạng có sẵn và yêu cầu khu vực. Dù ở hình thức nào, đánh giá nên gồm ý kiến người chăm sóc, tiền sử phát triển, quan sát trực tiếp và thông tin liên quan khác.",
+        "howTitle": "Cách thức hoạt động",
         "virtual": {
-          "title": "Virtual evaluation",
-          "text": "A virtual evaluation may allow the child to be observed in a familiar home environment. The clinician may coach the caregiver through simple activities while observing behaviors and interactions."
+          "title": "Đánh giá trực tuyến",
+          "text": "Đánh giá trực tuyến có thể cho phép quan sát trẻ trong môi trường nhà quen thuộc. Chuyên viên lâm sàng có thể hướng dẫn người chăm sóc qua các hoạt động đơn giản đồng thời quan sát hành vi và tương tác."
         },
         "inCenter": {
-          "title": "In-center evaluation",
-          "text": "For families who prefer or require in-person support, the clinician may guide structured activities while observing the child's responses directly. Parents may be asked to participate in portions of the assessment and complete parent-report measures."
+          "title": "Đánh giá tại trung tâm",
+          "text": "Với gia đình muốn hoặc cần hỗ trợ trực tiếp, chuyên viên lâm sàng có thể hướng dẫn hoạt động có cấu trúc đồng thời quan sát phản ứng của trẻ trực tiếp. Phụ huynh có thể được yêu cầu tham gia một phần đánh giá và hoàn thành các thước đo báo cáo của phụ huynh."
         },
-        "cta": "Contact us to learn which autism assessment services are available in your area."
+        "cta": "Liên hệ chúng tôi để biết dịch vụ đánh giá tự kỷ nào có sẵn trong khu vực của bạn."
       },
       "insurance": {
         "title": "Bảo hiểm có chi trả IDE không?",
-        "text": "Insurance coverage for IDEs may vary by location, insurance plan, and provider requirements. Eden ABA Therapy can help families review available options and understand whether evaluation services may be covered.",
+        "text": "Bảo hiểm cho IDE có thể khác nhau theo địa điểm, gói bảo hiểm và yêu cầu nhà cung cấp. Eden ABA Therapy có thể giúp gia đình xem xét lựa chọn có sẵn và hiểu liệu dịch vụ đánh giá có được chi trả hay không.",
         "button": "Bảo hiểm & Hỗ trợ Tài chính"
       },
       "after": {
         "title": "Điều gì xảy ra sau IDE?",
-        "intro": "After the evaluation, families typically meet with the clinician for a feedback session. During this meeting, families may receive:",
+        "intro": "Sau đánh giá, gia đình thường gặp chuyên viên lâm sàng trong buổi phản hồi. Trong buổi này, gia đình có thể nhận:",
         "checklist": [
-          "A detailed diagnostic report with test results and clinical observations",
-          "Diagnostic insights explaining whether the child shows characteristics of autism",
-          "Individualized recommendations for next steps, which may include ABA therapy, speech therapy, occupational therapy, school supports, or other interventions"
+          "Báo cáo chẩn đoán chi tiết với kết quả xét nghiệm và quan sát lâm sàng",
+          "Thông tin chẩn đoán giải thích trẻ có đặc điểm tự kỷ hay không",
+          "Khuyến nghị cá nhân hóa cho bước tiếp theo, có thể gồm liệu pháp ABA, trị liệu ngôn ngữ, trị liệu hoạt động, hỗ trợ trường học hoặc can thiệp khác"
         ],
-        "additional": "At the family's request, the report may be shared with the child's pediatrician, school team, or other providers to support referrals, planning, and ongoing care."
+        "additional": "Theo yêu cầu của gia đình, báo cáo có thể được chia sẻ với bác sĩ nhi khoa, đội ngũ trường hoặc nhà cung cấp khác để hỗ trợ giới thiệu, lập kế hoạch và chăm sóc liên tục."
       },
       "timing": {
         "title": "Khi nào là thời điểm phù hợp cho IDE?",
         "cards": [
           [
-            "Does an IDE diagnose autism?",
-            "An IDE helps evaluate whether autism is present. If a child meets diagnostic criteria, a diagnosis of autism may be provided by the evaluating professional. If the child does not meet criteria, other recommendations or referrals may be provided."
+            "IDE có chẩn đoán tự kỷ không?",
+            "IDE giúp đánh giá liệu tự kỷ có hiện diện hay không. Nếu trẻ đáp ứng tiêu chí chẩn đoán, chẩn đoán tự kỷ có thể được đưa ra bởi chuyên gia đánh giá. Nếu trẻ không đáp ứng tiêu chí, khuyến nghị hoặc giới thiệu khác có thể được cung cấp."
           ],
           [
-            "Why is early autism diagnosis important?",
-            "Early diagnosis can help families access early intervention, therapy services, school supports, and insurance-covered care. Many therapies, including ABA therapy, may require a formal diagnosis for coverage."
+            "Tại sao chẩn đoán tự kỷ sớm lại quan trọng?",
+            "Chẩn đoán sớm có thể giúp gia đình tiếp cận can thiệp sớm, dịch vụ trị liệu, hỗ trợ trường học và chăm sóc được bảo hiểm chi trả. Nhiều liệu pháp, gồm liệu pháp ABA, có thể yêu cầu chẩn đoán chính thức để được chi trả."
           ],
           [
-            "What can we expect during an IDE?",
-            "The process is designed to be as comfortable as possible for the child. It may include a parent interview, parent questionnaires, child observation, and standardized testing."
+            "Chúng ta có thể mong đợi gì trong buổi IDE?",
+            "Quá trình được thiết kế thoải mái nhất có thể cho trẻ. Có thể gồm phỏng vấn phụ huynh, bảng câu hỏi phụ huynh, quan sát trẻ và xét nghiệm chuẩn hóa."
           ],
           [
-            "What's the difference between an IDE and the ADOS-2?",
-            "An IDE is a broader diagnostic evaluation completed by a qualified professional and may include developmental history, behavioral observations, parent questionnaires, and standardized tools. The ADOS-2 is one assessment tool that may be used to gather information about autism-related behaviors, but it does not diagnose autism by itself."
+            "Sự khác biệt giữa IDE và ADOS-2 là gì?",
+            "IDE là đánh giá chẩn đoán rộng hơn do chuyên gia đủ điều kiện thực hiện và có thể gồm tiền sử phát triển, quan sát hành vi, bảng câu hỏi phụ huynh và công cụ chuẩn hóa. ADOS-2 là một công cụ đánh giá có thể được dùng để thu thập thông tin về hành vi liên quan đến tự kỷ, nhưng không tự chẩn đoán tự kỷ."
           ]
         ]
       },
@@ -4587,8 +4587,8 @@
           "concerns": "Mối quan tâm của bạn là gì?",
           "hasDiagnosis": "Con đã được chẩn đoán chưa?"
         },
-        "locationPlaceholder": "Select a location",
-        "selectPlaceholder": "Please select",
+        "locationPlaceholder": "Chọn cơ sở",
+        "selectPlaceholder": "Vui lòng chọn",
         "locationOptions": [
           "Fairfax",
           "Centreville",
@@ -4598,18 +4598,18 @@
           "Annandale"
         ],
         "screenerOptions": [
-          "Yes — M-CHAT-R",
-          "Yes — CAST",
-          "Yes — both",
-          "No, not yet"
+          "Có — M-CHAT-R",
+          "Có — CAST",
+          "Có — cả hai",
+          "Chưa"
         ],
         "diagnosisOptions": [
-          "Yes",
-          "No",
-          "Evaluation in progress",
-          "Not sure"
+          "Có",
+          "Không",
+          "Đang đánh giá",
+          "Không chắc"
         ],
-        "consent": "I consent to receive occasional text messages from Eden ABA Therapy regarding educational resources and follow-up related to my inquiry. Message and data rates may apply. Reply STOP to opt out or HELP for help.",
+        "consent": "Tôi đồng ý nhận tin nhắn văn bản thỉnh thoảng từ Eden ABA Therapy về tài nguyên giáo dục và theo dõi liên quan đến yêu cầu của tôi. Có thể áp dụng phí tin nhắn và dữ liệu. Trả lời STOP để hủy hoặc HELP để được trợ giúp.",
         "submit": "Gửi",
         "validationError": "Vui lòng hoàn thành các trường bắt buộc, nhập email và số điện thoại hợp lệ, chọn cơ sở, và chấp nhận điều khoản đồng ý.",
         "successMessage": "Cảm ơn bạn. Yêu cầu đánh giá IDE đã được nhận. Thành viên đội ngũ sẽ liên hệ trong một ngày làm việc."
@@ -4618,16 +4618,16 @@
         "title": "FAQ về Đánh giá Chẩn đoán Ban đầu",
         "items": [
           [
-            "What happens after the IDE?",
-            "The clinician who completes the IDE will schedule a feedback appointment to review results and recommendations. A written report may also be provided. At your request, the report can be shared with other providers to support planning and next steps."
+            "Điều gì xảy ra sau IDE?",
+            "Chuyên viên lâm sàng hoàn thành IDE sẽ lên lịch buổi hẹn phản hồi để xem xét kết quả và khuyến nghị. Báo cáo bằng văn bản cũng có thể được cung cấp. Theo yêu cầu của bạn, báo cáo có thể được chia sẻ với nhà cung cấp khác để hỗ trợ lập kế hoạch và bước tiếp theo."
           ],
           [
-            "Do you offer virtual autism evaluations?",
-            "Evaluation options may vary by region. Some families may be able to complete parts of the evaluation through telehealth, while others may complete the evaluation in person. Contact Eden ABA Therapy to learn what options are available near you."
+            "Bạn có cung cấp đánh giá tự kỷ trực tuyến không?",
+            "Lựa chọn đánh giá có thể khác nhau theo khu vực. Một số gia đình có thể hoàn thành một phần đánh giá qua telehealth, trong khi gia đình khác hoàn thành trực tiếp. Liên hệ Eden ABA Therapy để biết lựa chọn có sẵn gần bạn."
           ],
           [
-            "Why is it important to get an autism diagnosis?",
-            "A formal diagnosis may help children access therapies such as ABA, speech therapy, or occupational therapy. It may also be necessary for school services and insurance coverage. Early diagnosis can open the door to early intervention and long-term support."
+            "Tại sao chẩn đoán tự kỷ lại quan trọng?",
+            "Chẩn đoán chính thức có thể giúp trẻ tiếp cận các liệu pháp như ABA, trị liệu ngôn ngữ hoặc trị liệu hoạt động. Chẩn đoán cũng có thể cần cho dịch vụ trường học và chi trả bảo hiểm. Chẩn đoán sớm có thể mở cánh cửa can thiệp sớm và hỗ trợ dài hạn."
           ]
         ]
       }
@@ -5203,7 +5203,7 @@
             "url": "https://www.dmas.virginia.gov/"
           },
           {
-            "label": "CDC — Learn the Signs. Act Early.",
+            "label": "CDC — Nhận biết dấu hiệu. Hành động sớm.",
             "url": "https://www.cdc.gov/ncbddd/actearly/index.html"
           },
           {
@@ -5243,24 +5243,24 @@
         "title": "FAQ về Sàng lọc, Đánh giá và Liệu pháp ABA",
         "searchPlaceholder": "Thử tìm: \"ABA\"",
         "emptyState": "Không tìm thấy FAQ. Hãy bỏ bớt bộ lọc hoặc thay đổi từ khóa tìm kiếm.",
-        "resultsLabel": "Showing {count} FAQs"
+        "resultsLabel": "Hiển thị {count} câu hỏi thường gặp"
       },
       "newsletter": {
         "title": "Kết nối với Bản tin Gia đình",
         "intro": "Get helpful autism resources, therapy tips, family guidance, and Eden ABA updates in your inbox.",
         "fields": {
-          "firstName": "First Name",
-          "lastName": "Last Name",
+          "firstName": "Tên",
+          "lastName": "Họ",
           "email": "Email"
         },
-        "typeLabel": "Newsletter sign-up type",
+        "typeLabel": "Loại đăng ký bản tin",
         "types": {
-          "parent": "Parent / Caregiver",
-          "professional": "Professional / Provider"
+          "parent": "Phụ huynh / Người chăm sóc",
+          "professional": "Chuyên nghiệp / Nhà cung cấp"
         },
-        "consent": "By subscribing, you agree to receive emails from Eden ABA Therapy. You can unsubscribe anytime. We respect your privacy.",
+        "consent": "Bằng việc đăng ký, bạn đồng ý nhận email từ Eden ABA Therapy. Bạn có thể hủy đăng ký bất cứ lúc nào. Chúng tôi tôn trọng quyền riêng tư của bạn.",
         "submit": "Tham gia Bản tin",
-        "success": "Thank you for subscribing to the Eden ABA Therapy family newsletter.",
+        "success": "Cảm ơn bạn đã đăng ký bản tin gia đình Eden ABA Therapy.",
         "badge": "Bản tin gia đình",
         "benefitTagline": "Mẹo ABA, tài nguyên và cập nhật từ Eden",
         "privacyNote": "Chúng tôi tôn trọng quyền riêng tư của gia đình bạn.",
@@ -5276,21 +5276,21 @@
       },
       "cta": {
         "title": "Con bạn được chào đón ở đây",
-        "intro": "At Eden ABA Therapy, we provide compassionate, evidence-based ABA therapy for children with autism. Our programs are designed to help children build communication, independence, social, and daily living skills while supporting the whole family.",
+        "intro": "Tại Eden ABA Therapy, chúng tôi cung cấp liệu pháp ABA nhân ái, dựa trên bằng chứng cho trẻ mắc tự kỷ. Chương trình được thiết kế giúp trẻ xây dựng giao tiếp, độc lập, kỹ năng xã hội và sinh hoạt hàng ngày đồng thời hỗ trợ cả gia đình.",
         "autismButton": "Tìm hiểu về Tự kỷ",
         "abaButton": "Liệu pháp ABA là gì?",
-        "imageAlt": "Child smiling while playing and learning in a supportive therapy setting"
+        "imageAlt": "Trẻ mỉm cười khi chơi và học trong môi trường trị liệu hỗ trợ"
       },
       "linkLabels": {
-        "mchat": "Take the M-CHAT-R screener",
-        "cast": "Take the CAST screener",
-        "ados": "Learn about ADOS-2",
-        "ide": "Learn about IDE evaluations",
-        "insurance": "Insurance & financial assistance",
-        "locations": "View Eden ABA locations",
-        "aba": "What is ABA therapy?",
-        "autism": "Learn about autism",
-        "intake": "Get started with Eden ABA"
+        "mchat": "Làm công cụ sàng lọc M-CHAT-R",
+        "cast": "Làm công cụ sàng lọc CAST",
+        "ados": "Tìm hiểu về ADOS-2",
+        "ide": "Tìm hiểu về đánh giá IDE",
+        "insurance": "Bảo hiểm & hỗ trợ tài chính",
+        "locations": "Xem địa điểm Eden ABA",
+        "aba": "Liệu pháp ABA là gì?",
+        "autism": "Tìm hiểu về tự kỷ",
+        "intake": "Bắt đầu với Eden ABA"
       }
     },
     "outcomesFamilyStories": {
@@ -5389,69 +5389,69 @@
         "items": [
           {
             "title": "Phát triển giao tiếp",
-            "description": "We track how children express needs, respond to others, and build functional language across home and community settings.",
+            "description": "Chúng tôi theo dõi cách trẻ diễn đạt nhu cầu, phản hồi người khác và xây dựng ngôn ngữ chức năng tại nhà và trong cộng đồng.",
             "milestonesLabel": "Ví dụ cột mốc",
             "milestones": [
-              "Requesting preferred items",
-              "Answering simple questions",
-              "Using gestures or AAC tools"
+              "Yêu cầu vật ưa thích",
+              "Trả lời câu hỏi đơn giản",
+              "Dùng cử chỉ hoặc công cụ AAC"
             ],
-            "whyItMatters": "Communication reduces frustration and helps children participate more fully in daily life."
+            "whyItMatters": "Giao tiếp giảm sự thất vọng và giúp trẻ tham gia đầy đủ hơn trong cuộc sống hàng ngày."
           },
           {
             "title": "Tương tác xã hội",
-            "description": "Social goals focus on engagement, joint attention, play skills, and meaningful interaction with caregivers and peers.",
+            "description": "Mục tiêu xã hội tập trung vào sự tham gia, chú ý chung, kỹ năng vui chơi và tương tác ý nghĩa với người chăm sóc và bạn bè.",
             "milestonesLabel": "Ví dụ cột mốc",
             "milestones": [
-              "Turn-taking in play",
-              "Responding to name",
-              "Sharing attention during activities"
+              "Luân phiên khi chơi",
+              "Phản hồi khi được gọi tên",
+              "Chia sẻ sự chú ý trong hoạt động"
             ],
-            "whyItMatters": "Social connection supports friendships, learning, and confidence in group settings."
+            "whyItMatters": "Kết nối xã hội hỗ trợ tình bạn, học tập và tự tin trong môi trường nhóm."
           },
           {
             "title": "Kỹ năng sống hàng ngày",
-            "description": "Independence with routines like dressing, hygiene, meals, and transitions is measured through repeated practice and generalization.",
+            "description": "Độc lập với thói quen như mặc quần áo, vệ sinh, bữa ăn và chuyển tiếp được đo lường qua thực hành lặp lại và khái quát hóa.",
             "milestonesLabel": "Ví dụ cột mốc",
             "milestones": [
-              "Toileting progress",
-              "Mealtime participation",
-              "Following multi-step routines"
+              "Tiến bộ vệ sinh",
+              "Tham gia bữa ăn",
+              "Làm theo thói quen nhiều bước"
             ],
-            "whyItMatters": "Daily living skills help families manage routines with less stress and more predictability."
+            "whyItMatters": "Kỹ năng sinh hoạt hàng ngày giúp gia đình quản lý thói quen với ít căng thẳng và dễ dự đoán hơn."
           },
           {
             "title": "Điều hòa cảm xúc",
-            "description": "Therapists monitor how children cope with change, sensory input, and challenging moments using individualized support plans.",
+            "description": "Nhà trị liệu theo dõi cách trẻ đối phó với thay đổi, đầu vào cảm giác và khoảnh khắc khó khăn bằng kế hoạch hỗ trợ cá nhân hóa.",
             "milestonesLabel": "Ví dụ cột mốc",
             "milestones": [
-              "Using coping strategies",
-              "Shorter meltdown duration",
-              "Tolerating transitions"
+              "Dùng chiến lược điều hòa",
+              "Thời gian tantrum ngắn hơn",
+              "Chấp nhận chuyển tiếp"
             ],
-            "whyItMatters": "Regulation skills help children feel safer, calmer, and more ready to learn."
+            "whyItMatters": "Kỹ năng điều hòa giúp trẻ cảm thấy an toàn, bình tĩnh và sẵn sàng học hơn."
           },
           {
             "title": "Độc lập",
-            "description": "We celebrate steps toward doing tasks with less prompting, from play choices to self-care and community participation.",
+            "description": "Chúng tôi ghi nhận các bước tiến khi trẻ làm việc với ít gợi ý hơn, từ lựa chọn vui chơi đến tự chăm sóc và tham gia cộng đồng.",
             "milestonesLabel": "Ví dụ cột mốc",
             "milestones": [
-              "Completing tasks with fewer prompts",
-              "Making choices independently",
-              "Generalizing skills across settings"
+              "Hoàn thành nhiệm vụ với ít gợi ý hơn",
+              "Tự đưa ra lựa chọn",
+              "Khái quát hóa kỹ năng qua các môi trường"
             ],
-            "whyItMatters": "Independence builds confidence and prepares children for school and community life."
+            "whyItMatters": "Độc lập xây dựng tự tin và chuẩn bị trẻ cho trường học và cuộc sống cộng đồng."
           },
           {
             "title": "Tự tin gia đình",
-            "description": "Parents and caregivers are partners in therapy. We track how supported families feel implementing strategies at home.",
+            "description": "Phụ huynh và người chăm sóc là đối tác trong liệu pháp. Chúng tôi theo dõi mức độ gia đình cảm thấy được hỗ trợ khi áp dụng chiến lược tại nhà.",
             "milestonesLabel": "Ví dụ cột mốc",
             "milestones": [
-              "Using strategies between sessions",
-              "Understanding progress reports",
-              "Feeling prepared for transitions"
+              "Dùng chiến lược giữa các buổi",
+              "Hiểu báo cáo tiến bộ",
+              "Cảm thấy sẵn sàng cho chuyển tiếp"
             ],
-            "whyItMatters": "When families feel confident, progress continues beyond the therapy room."
+            "whyItMatters": "Khi gia đình tự tin, tiến bộ tiếp tục vượt ra ngoài phòng trị liệu."
           }
         ]
       },
@@ -5499,23 +5499,23 @@
         "note": "Chỉ là số liệu minh họa. Kết quả cá nhân khác nhau tùy hồ sơ trẻ, cường độ điều trị và sự tham gia của gia đình.",
         "metrics": [
           {
-            "label": "Communication Goal Achievement",
+            "label": "Đạt mục tiêu giao tiếp",
             "value": 89
           },
           {
-            "label": "Parent Satisfaction",
+            "label": "Hài lòng của phụ huynh",
             "value": 97
           },
           {
-            "label": "Social Engagement Growth",
+            "label": "Tăng trưởng tham gia xã hội",
             "value": 85
           },
           {
-            "label": "Daily Living Skill Progress",
+            "label": "Tiến bộ kỹ năng sinh hoạt hàng ngày",
             "value": 83
           },
           {
-            "label": "School Readiness Development",
+            "label": "Phát triển sẵn sàng đi học",
             "value": 87
           }
         ],
@@ -5532,7 +5532,7 @@
       },
       "school": {
         "title": "Chuẩn bị trẻ thành công ở trường",
-        "intro": "School readiness is about more than academics. We help children build the routines, communication, and independence they need to participate confidently in classroom environments.",
+        "intro": "Sẵn sàng đi học không chỉ là học thuật. Chúng tôi giúp trẻ xây dựng thói quen, giao tiếp và độc lập cần thiết để tham gia tự tin trong môi trường lớp học.",
         "focusAreas": [
           "Làm theo thói quen lớp học",
           "Tương tác bạn bè và tham gia nhóm",
@@ -5542,19 +5542,19 @@
         ],
         "beforeLabel": "Trước khi có hỗ trợ tập trung",
         "beforeItems": [
-          "Difficulty staying seated during group time",
-          "Limited peer interaction",
-          "Needs frequent adult redirection",
-          "Challenging transitions between activities",
-          "Relies heavily on caregiver prompts"
+          "Khó ngồi yên trong giờ nhóm",
+          "Tương tác với bạn bè hạn chế",
+          "Cần hướng dẫn lại thường xuyên từ người lớn",
+          "Chuyển tiếp giữa các hoạt động khó khăn",
+          "Phụ thuộc nhiều vào gợi ý của người chăm sóc"
         ],
         "afterLabel": "Với hỗ trợ ABA nhất quán",
         "afterItems": [
-          "Participates in structured group activities",
-          "Initiates or joins peer play with support",
-          "Follows visual schedules and classroom routines",
-          "Transitions with fewer disruptions",
-          "Builds independence with daily school tasks"
+          "Tham gia hoạt động nhóm có cấu trúc",
+          "Chủ động hoặc tham gia chơi cùng bạn với hỗ trợ",
+          "Làm theo lịch trực quan và thói quen lớp học",
+          "Chuyển tiếp với ít gián đoạn hơn",
+          "Xây dựng độc lập với nhiệm vụ hàng ngày ở trường"
         ],
         "imageAlt": "Trẻ luyện hoạt động sẵn sàng đi học với nhà trị liệu hỗ trợ"
       },
@@ -5681,91 +5681,91 @@
           "ABA tại trung tâm"
         ],
         "title": "Liệu pháp ABA tại trung tâm hỗ trợ tự kỷ",
-        "paragraph": "Center-based ABA therapy provides children with autism a structured, supportive environment where learning can happen through consistent routines, individualized teaching, and hands-on clinical support. In a dedicated ABA therapy center, children work one-on-one with trained therapy staff while practicing communication, social, behavior, school-readiness, and daily living skills in a setting designed for progress.",
+        "paragraph": "Liệu pháp ABA tại trung tâm cung cấp cho trẻ mắc tự kỷ môi trường có cấu trúc, hỗ trợ, nơi học tập diễn ra qua thói quen nhất quán, giảng dạy cá nhân hóa và hỗ trợ lâm sàng thực hành. Trong trung tâm liệu pháp ABA chuyên dụng, trẻ làm việc một-một với nhân viên trị liệu được đào tạo đồng thời luyện giao tiếp, xã hội, hành vi, sẵn sàng đi học và kỹ năng sinh hoạt hàng ngày trong môi trường được thiết kế cho tiến bộ.",
         "cta": "Tìm trung tâm liệu pháp ABA gần tôi",
         "imageAlt": "Nhà trị liệu và trẻ luyện kỹ năng trong trung tâm Eden ABA ấm áp"
       },
       "centers": {
         "title": "Trung tâm liệu pháp ABA của chúng tôi",
-        "text": "Our ABA therapy centers are designed to give children a safe, organized, and engaging place to learn. Center-based services allow children to receive individualized ABA therapy while also having opportunities to practice skills with peers, follow structured routines, and participate in developmentally appropriate activities. Treatment is typically guided by Board Certified Behavior Analysts and delivered with support from trained behavior technicians.",
+        "text": "Trung tâm liệu pháp ABA của chúng tôi được thiết kế mang đến cho trẻ nơi học tập an toàn, có tổ chức và hấp dẫn. Dịch vụ tại trung tâm cho phép trẻ nhận liệu pháp ABA cá nhân hóa đồng thời có cơ hội luyện kỹ năng với bạn bè, theo thói quen có cấu trúc và tham gia hoạt động phù hợp phát triển. Điều trị thường do Board Certified Behavior Analysts hướng dẫn và được hỗ trợ bởi kỹ thuật viên hành vi được đào tạo.",
         "cta": "Tìm liệu pháp ABA gần tôi",
-        "imageAlt": "Bright, welcoming Eden ABA therapy center with play-based learning spaces"
+        "imageAlt": "Trung tâm Eden ABA Therapy sáng sủa, thân thiện với không gian học tập dựa trên vui chơi"
       },
       "whatIs": {
         "title": "Liệu pháp ABA tại trung tâm là gì?",
         "paragraphs": [
-          "Center-based ABA therapy is Applied Behavior Analysis delivered in a clinic or learning center instead of the home, school, or community. The setting is intentionally arranged to reduce distractions, support consistent teaching, and give children access to therapy rooms, learning materials, social practice opportunities, and clinical resources.",
-          "ABA is a behavioral treatment that uses evidence-based strategies to increase helpful skills and reduce behaviors that interfere with learning or safety. Goals may include communication, social interaction, independence, classroom readiness, emotional regulation, play skills, and behavior reduction.",
-          "According to guidance from the CDC, ABA can encourage desired behaviors, discourage undesired behaviors, and track progress over time. Autism Speaks notes that ABA can be individualized, provided in multiple settings, and include one-on-one or group teaching. Eden ABA Therapy follows professional practice standards that emphasize individualized, clinically appropriate treatment supervised by qualified behavior analysts."
+          "Liệu pháp ABA tại trung tâm là Phân tích Hành vi Ứng dụng được cung cấp tại phòng khám hoặc trung tâm học tập thay vì tại nhà, trường hoặc cộng đồng. Môi trường được sắp xếp có chủ đích để giảm xao nhãng, hỗ trợ giảng dạy nhất quán và cho trẻ tiếp cận phòng trị liệu, vật liệu học tập, cơ hội luyện xã hội và nguồn lực lâm sàng.",
+          "ABA là liệu pháp hành vi dùng chiến lược dựa trên bằng chứng để tăng kỹ năng hữu ích và giảm hành vi cản trở học tập hoặc an toàn. Mục tiêu có thể gồm giao tiếp, tương tác xã hội, độc lập, sẵn sàng lớp học, điều chỉnh cảm xúc, kỹ năng vui chơi và giảm hành vi.",
+          "Theo hướng dẫn của CDC, ABA có thể khuyến khích hành vi mong muốn, hạn chế hành vi không mong muốn và theo dõi tiến bộ theo thời gian. Autism Speaks lưu ý ABA có thể được cá nhân hóa, cung cấp ở nhiều môi trường và gồm giảng dạy một-một hoặc nhóm. Eden ABA Therapy tuân theo tiêu chuẩn thực hành chuyên nghiệp nhấn mạnh điều trị cá nhân hóa, phù hợp lâm sàng dưới giám sát của nhà phân tích hành vi đủ điều kiện."
         ],
-        "researchLabel": "Evidence-informed care",
-        "researchNote": "Registered Behavior Technicians (RBTs) and behavior technicians typically deliver direct therapy under ongoing BCBA supervision, consistent with BACB practice standards. Treatment plans should be individualized to each child's needs, as recommended by professional ABA practice guidance."
+        "researchLabel": "Chăm sóc dựa trên bằng chứng",
+        "researchNote": "Registered Behavior Technicians (RBT) và kỹ thuật viên hành vi thường cung cấp trị liệu trực tiếp dưới giám sát BCBA liên tục, phù hợp tiêu chuẩn thực hành BACB. Kế hoạch điều trị nên được cá nhân hóa theo nhu cầu từng trẻ, như khuyến nghị trong hướng dẫn thực hành ABA chuyên nghiệp."
       },
       "benefits": {
         "title": "Lợi ích của liệu pháp ABA tại trung tâm",
-        "intro": "Clinic-based ABA therapy may support children who benefit from structure, repetition, and access to therapy materials in a dedicated learning environment. Benefits can vary by child, program intensity, and family participation.",
-        "subtitle": "Benefits of center-based ABA therapy may include:",
+        "intro": "Liệu pháp ABA tại phòng khám có thể hỗ trợ trẻ hưởng lợi từ cấu trúc, lặp lại và tiếp cận vật liệu trị liệu trong môi trường học tập chuyên dụng. Lợi ích có thể khác nhau tùy trẻ, cường độ chương trình và sự tham gia của gia đình.",
+        "subtitle": "Lợi ích của liệu pháp ABA tại trung tâm có thể gồm:",
         "items": [
           {
-            "title": "Peer Interaction",
-            "text": "Children can practice social communication, turn-taking, group participation, and play skills with peers in a supervised setting."
+            "title": "Tương tác với bạn bè",
+            "text": "Trẻ có thể luyện giao tiếp xã hội, luân phiên, tham gia nhóm và kỹ năng vui chơi với bạn bè trong môi trường được giám sát."
           },
           {
-            "title": "Structured Routine",
-            "text": "A predictable daily schedule may help children build consistency, transitions, independence, and learning readiness."
+            "title": "Thói quen có cấu trúc",
+            "text": "Lịch trình hàng ngày dự đoán được có thể giúp trẻ xây dựng tính nhất quán, chuyển tiếp, độc lập và sẵn sàng học tập."
           },
           {
-            "title": "Clinical Support",
-            "text": "Center teams can provide access to therapy materials, observation spaces, supervision, and additional staff support when needed."
+            "title": "Hỗ trợ lâm sàng",
+            "text": "Đội ngũ trung tâm có thể cung cấp vật liệu trị liệu, không gian quan sát, giám sát và hỗ trợ nhân viên bổ sung khi cần."
           },
           {
-            "title": "Fewer Distractions",
-            "text": "A clinic-based environment can reduce common home distractions and help children focus on skill development."
+            "title": "Ít xao nhãng hơn",
+            "text": "Môi trường tại phòng khám có thể giảm xao nhãng thường gặp ở nhà và giúp trẻ tập trung phát triển kỹ năng."
           },
           {
-            "title": "School Readiness",
-            "text": "Center-based therapy can include group activities, following instructions, transitions, sitting for tasks, and classroom-like routines."
+            "title": "Sẵn sàng đi học",
+            "text": "Liệu pháp tại trung tâm có thể gồm hoạt động nhóm, làm theo hướng dẫn, chuyển tiếp, ngồi làm nhiệm vụ và thói quen giống lớp học."
           },
           {
-            "title": "Parent Collaboration",
-            "text": "Families can receive updates, caregiver training, and practical strategies designed to support progress outside the center."
+            "title": "Hợp tác với phụ huynh",
+            "text": "Gia đình có thể nhận cập nhật, đào tạo người chăm sóc và chiến lược thực tế hỗ trợ tiến bộ ngoài trung tâm."
           }
         ],
         "testimonial": {
-          "quote": "The consistency of the center helped our son follow routines more confidently. We noticed improvements in communication and focus after several months of structured support.",
-          "attribution": "Eden ABA Therapy Parent"
+          "quote": "Sự nhất quán của trung tâm giúp con trai chúng tôi theo thói quen tự tin hơn. Chúng tôi nhận thấy cải thiện về giao tiếp và tập trung sau vài tháng hỗ trợ có cấu trúc.",
+          "attribution": "Phụ huynh Eden ABA Therapy"
         }
       },
       "fit": {
         "title": "Liệu pháp ABA tại trung tâm có phù hợp với con bạn?",
-        "text": "Center-based ABA therapy may be a good fit for children who benefit from structure, repetition, peer interaction, and a learning environment designed specifically for therapy. A clinical team should assess each child's needs and recommend the setting that best supports communication, behavior, independence, and family goals.",
-        "cta": "Find a Location"
+        "text": "Liệu pháp ABA tại trung tâm có thể phù hợp với trẻ hưởng lợi từ cấu trúc, lặp lại, tương tác bạn bè và môi trường học tập được thiết kế riêng cho trị liệu. Đội ngũ lâm sàng nên đánh giá nhu cầu từng trẻ và đề xuất hình thức phù hợp nhất hỗ trợ giao tiếp, hành vi, độc lập và mục tiêu gia đình.",
+        "cta": "Tìm địa điểm"
       },
       "serviceSettings": {
         "title": "Hình thức dịch vụ",
-        "intro": "We provide ABA therapy in different settings to meet your child's specific needs.",
+        "intro": "Chúng tôi cung cấp liệu pháp ABA ở các hình thức khác nhau để đáp ứng nhu cầu cụ thể của con bạn.",
         "items": [
           {
             "title": "Liệu pháp ABA tại nhà",
-            "text": "Xây dựng kỹ năng trong môi trường tự nhiên của trẻ với huấn luyện người chăm sóc.",
+            "text": "Xây dựng kỹ năng trong môi trường nhà tự nhiên của trẻ với huấn luyện người chăm sóc và hỗ trợ khái quát hóa.",
             "cta": "Tìm hiểu thêm",
             "active": false
           },
           {
             "title": "Liệu pháp ABA tại cộng đồng",
-            "text": "Luyện kỹ năng ở công viên, cửa hàng và các hoạt động xã hội với hỗ trợ lâm sàng.",
+            "text": "Luyện kỹ năng tại công viên, cửa hàng và hoạt động xã hội với hỗ trợ lâm sàng.",
             "cta": "Tìm hiểu thêm",
             "active": false
           },
           {
-            "title": "Liệu pháp ABA tại trường",
-            "text": "Hợp tác với đội ngũ trường để hỗ trợ mục tiêu lớp học và chuyển tiếp.",
+            "title": "Liệu pháp ABA tại trường học",
+            "text": "Phối hợp với đội ngũ trường để hỗ trợ mục tiêu lớp học, chuyển tiếp và tham gia giáo dục.",
             "cta": "Tìm hiểu thêm",
             "active": false
           },
           {
             "title": "Liệu pháp ABA trực tuyến",
-            "text": "Tùy chọn telehealth và huấn luyện phụ huynh từ xa khi phù hợp với kế hoạch của trẻ.",
+            "text": "Telehealth và huấn luyện phụ huynh từ xa khi phù hợp với kế hoạch của trẻ và nhu cầu gia đình.",
             "cta": "Tìm hiểu thêm",
             "active": false
           }
@@ -5773,90 +5773,90 @@
       },
       "programs": {
         "title": "Đối tượng phục vụ & Chương trình",
-        "intro": "Our center-based ABA programs support children at different developmental stages, from early learners to adolescents.",
-        "secondary": "Services can be adapted for children who need help with communication, behavior, social skills, independence, transitions, school readiness, or daily routines.",
+        "intro": "Chương trình ABA tại trung tâm của chúng tôi hỗ trợ trẻ ở các giai đoạn phát triển khác nhau, từ trẻ học sớm đến thanh thiếu niên.",
+        "secondary": "Dịch vụ có thể được điều chỉnh cho trẻ cần hỗ trợ giao tiếp, hành vi, kỹ năng xã hội, độc lập, chuyển tiếp, sẵn sàng đi học hoặc thói quen hàng ngày.",
         "items": [
           {
-            "title": "Early Intervention ABA Therapy",
-            "text": "Play-based support for young learners building communication, play, and daily routines.",
-            "cta": "Learn More"
+            "title": "Can thiệp sớm ABA",
+            "text": "Hỗ trợ dựa trên vui chơi cho trẻ nhỏ xây dựng giao tiếp, vui chơi và thói quen hàng ngày.",
+            "cta": "Tìm hiểu thêm"
           },
           {
-            "title": "ABA Therapy for Children",
-            "text": "Individualized programs focused on school readiness, social skills, and independence.",
-            "cta": "Learn More"
+            "title": "Liệu pháp ABA cho trẻ em",
+            "text": "Chương trình cá nhân hóa tập trung sẵn sàng đi học, kỹ năng xã hội và độc lập.",
+            "cta": "Tìm hiểu thêm"
           },
           {
-            "title": "Adolescent ABA Programs",
-            "text": "Support for older children and teens working on life skills, regulation, and transitions.",
-            "cta": "Learn More"
+            "title": "Chương trình ABA cho thanh thiếu niên",
+            "text": "Hỗ trợ trẻ lớn và thanh thiếu niên phát triển kỹ năng sống, điều chỉnh và chuyển tiếp.",
+            "cta": "Tìm hiểu thêm"
           },
           {
-            "title": "Social Skills Support",
-            "text": "Structured practice with peers for communication, play, and group participation.",
-            "cta": "Learn More"
+            "title": "Hỗ trợ kỹ năng xã hội",
+            "text": "Luyện tập có cấu trúc với bạn bè về giao tiếp, vui chơi và tham gia nhóm.",
+            "cta": "Tìm hiểu thêm"
           },
           {
-            "title": "Parent Training",
-            "text": "Caregiver coaching designed to help families support progress at home and in the community.",
-            "cta": "Learn More"
+            "title": "Đào tạo phụ huynh",
+            "text": "Huấn luyện người chăm sóc giúp gia đình hỗ trợ tiến bộ tại nhà và trong cộng đồng.",
+            "cta": "Tìm hiểu thêm"
           },
           {
-            "title": "Specialty Services",
-            "text": "Additional clinical support based on individualized assessment and family goals.",
-            "cta": "Learn More"
+            "title": "Dịch vụ chuyên biệt",
+            "text": "Hỗ trợ lâm sàng bổ sung dựa trên đánh giá cá nhân hóa và mục tiêu gia đình.",
+            "cta": "Tìm hiểu thêm"
           }
         ]
       },
       "findCenter": {
         "title": "Tìm trung tâm gần bạn",
-        "text": "Families looking for center-based ABA therapy can search by zip code or city to find nearby ABA services. The goal is to connect each child with a welcoming clinical environment, a supportive care team, and an individualized plan built around meaningful progress.",
-        "placeholder": "Search by zip or city",
-        "button": "Find ABA Therapy Near Me"
+        "text": "Gia đình tìm liệu pháp ABA tại trung tâm có thể tìm theo mã ZIP hoặc thành phố để tìm dịch vụ ABA gần đó. Mục tiêu là kết nối mỗi trẻ với môi trường lâm sàng thân thiện, đội ngũ chăm sóc hỗ trợ và kế hoạch cá nhân hóa xoay quanh tiến bộ có ý nghĩa.",
+        "placeholder": "Tìm theo mã ZIP hoặc thành phố",
+        "button": "Tìm liệu pháp ABA gần tôi"
       },
       "gallery": {
         "title": "Thư viện ảnh",
-        "intro": "Take a look at the welcoming, structured environments where Eden ABA Therapy supports children and families.",
+        "intro": "Xem các môi trường thân thiện, có cấu trúc nơi Eden ABA Therapy hỗ trợ trẻ và gia đình.",
         "alts": [
-          "Therapy room with learning materials and child-friendly furniture",
-          "Therapist engaging a child in play-based ABA activities",
-          "Group learning area designed for social and school-readiness practice",
-          "Parent meeting space for caregiver collaboration and updates",
-          "Bright clinic hallway with welcoming, family-friendly design",
-          "Skill-building session with individualized teaching materials"
+          "Phòng trị liệu với vật liệu học tập và nội thất thân thiện với trẻ",
+          "Nhà trị liệu tương tác với trẻ qua hoạt động ABA dựa trên vui chơi",
+          "Khu vực học nhóm thiết kế cho luyện xã hội và sẵn sàng đi học",
+          "Không gian họp phụ huynh cho hợp tác người chăm sóc và cập nhật",
+          "Hành lang phòng khám sáng với thiết kế thân thiện gia đình",
+          "Buổi xây dựng kỹ năng với vật liệu giảng dạy cá nhân hóa"
         ]
       },
       "faq": {
         "title": "Câu hỏi thường gặp",
-        "intro": "Common questions about center-based ABA therapy, supervision, and how clinic-based services compare to other settings.",
+        "intro": "Câu hỏi thường gặp về liệu pháp ABA tại trung tâm, giám sát và cách dịch vụ tại phòng khám so với các hình thức khác.",
         "items": [
           {
-            "q": "What happens at a center-based ABA therapy session?",
-            "a": "Sessions may include one-on-one teaching, play-based learning, communication practice, behavior support, peer activities, daily living skills, and caregiver updates."
+            "q": "Điều gì xảy ra trong buổi liệu pháp ABA tại trung tâm?",
+            "a": "Buổi trị liệu có thể gồm giảng dạy một-một, học tập dựa trên vui chơi, luyện giao tiếp, hỗ trợ hành vi, hoạt động với bạn bè, kỹ năng sinh hoạt hàng ngày và cập nhật cho người chăm sóc."
           },
           {
-            "q": "How is center-based ABA different from home-based ABA?",
-            "a": "Center-based ABA happens in a clinic setting with structured rooms, therapy materials, peer opportunities, and clinical supervision. Home-based ABA focuses on skills in the child's natural home environment."
+            "q": "Liệu pháp ABA tại trung tâm khác gì so với tại nhà?",
+            "a": "ABA tại trung tâm diễn ra trong môi trường phòng khám với phòng có cấu trúc, vật liệu trị liệu, cơ hội với bạn bè và giám sát lâm sàng. ABA tại nhà tập trung kỹ năng trong môi trường tự nhiên của trẻ."
           },
           {
-            "q": "Who supervises ABA therapy?",
-            "a": "ABA programs are commonly supervised by Board Certified Behavior Analysts, while direct therapy may be delivered by trained behavior technicians or Registered Behavior Technicians under supervision."
+            "q": "Ai giám sát liệu pháp ABA?",
+            "a": "Chương trình ABA thường do Board Certified Behavior Analysts giám sát, trong khi trị liệu trực tiếp có thể do kỹ thuật viên hành vi hoặc Registered Behavior Technicians được đào tạo thực hiện dưới giám sát."
           },
           {
-            "q": "What skills can children learn in center-based ABA?",
-            "a": "Goals may include communication, social skills, play skills, following directions, transitions, classroom readiness, independence, and reducing challenging behaviors."
+            "q": "Trẻ có thể học những kỹ năng gì trong liệu pháp ABA tại trung tâm?",
+            "a": "Mục tiêu có thể gồm giao tiếp, kỹ năng xã hội, kỹ năng vui chơi, làm theo hướng dẫn, chuyển tiếp, sẵn sàng lớp học, độc lập và giảm hành vi thách thức."
           },
           {
-            "q": "Is center-based ABA right for every child?",
-            "a": "Not always. The best setting depends on the child's needs, family goals, availability, and clinical recommendation."
+            "q": "Liệu pháp ABA tại trung tâm có phù hợp với mọi trẻ không?",
+            "a": "Không phải lúc nào cũng vậy. Hình thức phù hợp nhất phụ thuộc nhu cầu của trẻ, mục tiêu gia đình, tình trạng có sẵn và khuyến nghị lâm sàng."
           }
         ]
       },
       "finalCta": {
         "title": "Bắt đầu dịch vụ ABA tại trung tâm tại Eden ABA Therapy",
-        "text": "Find clinic-based ABA therapy for children with autism near you. Our admissions team can help you explore intake, insurance, and the right program for your family.",
-        "startButton": "Get Started",
-        "findButton": "Find a Center"
+        "text": "Tìm liệu pháp ABA tại phòng khám cho trẻ mắc tự kỷ gần bạn. Đội ngũ tiếp nhận có thể giúp bạn tìm hiểu intake, bảo hiểm và chương trình phù hợp cho gia đình.",
+        "startButton": "Bắt đầu",
+        "findButton": "Tìm trung tâm"
       }
     },
     "homeBasedAbaTherapy": {
