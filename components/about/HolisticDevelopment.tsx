@@ -10,13 +10,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const AREA_ICONS = [MessageCircle, Users, Home, Heart, School, BookOpen];
 
 export default function HolisticDevelopment() {
-  const content = OUR_APPROACH_PAGE.holistic;
+  const content = useOurApproachPage().holistic;
 
   return (
     <section className="bg-slate-50 px-4 py-20 dark:bg-slate-900/50 lg:px-8" aria-labelledby="holistic-development-heading">

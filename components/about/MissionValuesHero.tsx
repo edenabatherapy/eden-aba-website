@@ -3,12 +3,12 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { fadeUp, staggerContainer, staggerItem } from "./shared";
 
 export default function MissionValuesHero() {
-  const content = MISSION_VALUES_PAGE.hero;
+  const content = useMissionValuesPage().hero;
 
   return (
     <section

@@ -2,6 +2,19 @@ import { getJobDetailsPath } from "@/lib/careers-routes";
 
 export const CAREERS_HOME_RECRUITING_EMAIL = "info@edenabatherapy.com";
 
+export const CAREERS_HOME_HERO_COPY = {
+  badge: "Now Hiring in Annandale, Virginia",
+  location: "Annandale, VA · Northern Virginia",
+  title: "Build a Meaningful Career in Autism Care",
+  subtitle:
+    "Join Eden ABA Therapy and help children, families, and communities thrive through compassionate, evidence-based ABA services across Annandale and Northern Virginia.",
+  searchRoles: "Search Open Roles",
+  viewPaths: "View Career Paths",
+  joinNetwork: "Join Talent Network",
+  journeyLabel: "Your Career Journey",
+  journeyAria: "Your career journey at Eden",
+};
+
 export const CAREERS_HOME_HERO_JOURNEY = [
   { step: 1, label: "Apply" },
   { step: 2, label: "Interview" },

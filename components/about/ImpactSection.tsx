@@ -4,13 +4,13 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { useInViewport } from "@/lib/use-in-viewport";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { AnimatedCounter, fadeUp } from "./shared";
 
 export default function ImpactSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useInViewport(ref, 0.2);
-  const content = OUR_STORY_PAGE.impact;
+  const content = useOurStoryPage().impact;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="impact-heading">

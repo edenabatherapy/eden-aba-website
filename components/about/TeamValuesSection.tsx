@@ -12,13 +12,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const VALUE_ICONS = [HeartHandshake, ShieldCheck, Users, Sparkles, Lightbulb, Award];
 
 export default function TeamValuesSection() {
-  const content = OUR_TEAM_PAGE.teamValues;
+  const content = useOurTeamPage().teamValues;
   const [expandedTitle, setExpandedTitle] = useState<string | null>(null);
 
   return (

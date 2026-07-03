@@ -1,10 +1,13 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { motion, useReducedMotion } from "framer-motion";
 import { SUCCESS_MILESTONES } from "@/lib/careers/salary-estimator-data";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function SuccessMilestones() {
+  const successMilestones = useLocalizedContent("SUCCESS_MILESTONES", SUCCESS_MILESTONES);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -16,7 +19,7 @@ export default function SuccessMilestones() {
 
       <ol className="relative mt-8 space-y-0">
         <div className="absolute bottom-4 left-[15px] top-4 w-0.5 bg-teal-200" aria-hidden />
-        {SUCCESS_MILESTONES.map((milestone, index) => (
+        {successMilestones.map((milestone, index) => (
           <motion.li
             key={milestone.id}
             initial={reduceMotion ? false : { opacity: 0, x: 20 }}

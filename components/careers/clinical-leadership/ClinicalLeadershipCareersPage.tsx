@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -37,6 +38,20 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function ClinicalLeadershipCareersPage() {
+  const clCultureValues = useLocalizedContent("CL_CULTURE_VALUES", CL_CULTURE_VALUES);
+  const clDayTimeline = useLocalizedContent("CL_DAY_TIMELINE", CL_DAY_TIMELINE);
+  const clEducationalNotice = useLocalizedContent("CL_EDUCATIONAL_NOTICE", CL_EDUCATIONAL_NOTICE);
+  const clInterviewPrepCards = useLocalizedContent("CL_INTERVIEW_PREP_CARDS", CL_INTERVIEW_PREP_CARDS);
+  const clLeadershipResponsibilityCards = useLocalizedContent("CL_LEADERSHIP_RESPONSIBILITY_CARDS", CL_LEADERSHIP_RESPONSIBILITY_CARDS);
+  const clPhotoGallery = useLocalizedContent("CL_PHOTO_GALLERY", CL_PHOTO_GALLERY);
+  const clReadinessIndicatorsLegacy = useLocalizedContent("CL_READINESS_INDICATORS_LEGACY", CL_READINESS_INDICATORS_LEGACY);
+  const clRoleCategories = useLocalizedContent("CL_ROLE_CATEGORIES", CL_ROLE_CATEGORIES);
+  const clSampleInterviewQuestions = useLocalizedContent("CL_SAMPLE_INTERVIEW_QUESTIONS", CL_SAMPLE_INTERVIEW_QUESTIONS);
+  const clSupportCards = useLocalizedContent("CL_SUPPORT_CARDS", CL_SUPPORT_CARDS);
+  const clSupportDisclaimer = useLocalizedContent("CL_SUPPORT_DISCLAIMER", CL_SUPPORT_DISCLAIMER);
+  const clWhatLeadersDo = useLocalizedContent("CL_WHAT_LEADERS_DO", CL_WHAT_LEADERS_DO);
+  const clWhyMattersStats = useLocalizedContent("CL_WHY_MATTERS_STATS", CL_WHY_MATTERS_STATS);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -65,7 +80,7 @@ export default function ClinicalLeadershipCareersPage() {
             </p>
           </RbtScrollReveal>
           <RbtStaggerGrid className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CL_WHY_MATTERS_STATS.map((stat) => (
+            {clWhyMattersStats.map((stat) => (
               <RbtStaggerItem key={stat.title}>
                 <div className="h-full rounded-[1.5rem] border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                   <div className="h-1 w-10 rounded-full bg-teal-600" aria-hidden="true" />
@@ -86,7 +101,7 @@ export default function ClinicalLeadershipCareersPage() {
               Leadership responsibilities
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-3">
-              {CL_LEADERSHIP_RESPONSIBILITY_CARDS.map((card) => (
+              {clLeadershipResponsibilityCards.map((card) => (
                 <RbtStaggerItem key={card.title}>
                   <div className="h-full rounded-[1.5rem] border border-teal-100 bg-gradient-to-br from-white to-teal-50/30 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-slate-900">{card.title}</h3>
@@ -111,7 +126,7 @@ export default function ClinicalLeadershipCareersPage() {
               organizational needs.
             </p>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {CL_ROLE_CATEGORIES.map((role) => (
+              {clRoleCategories.map((role) => (
                 <RbtStaggerItem key={role.title}>
                   <div className="h-full rounded-[1.5rem] border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-teal-900">{role.title}</h3>
@@ -132,7 +147,7 @@ export default function ClinicalLeadershipCareersPage() {
               What leaders do at Eden
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {CL_WHAT_LEADERS_DO.map((item, index) => (
+              {clWhatLeadersDo.map((item, index) => (
                 <motion.li
                   key={item.title}
                   whileHover={reduceMotion ? undefined : { y: -4, scale: 1.01 }}
@@ -165,7 +180,7 @@ export default function ClinicalLeadershipCareersPage() {
               Leadership readiness indicators
             </h2>
             <ol className="relative mt-10 space-y-0">
-              {CL_READINESS_INDICATORS_LEGACY.map((item, index) => (
+              {clReadinessIndicatorsLegacy.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -16 }}
@@ -174,7 +189,7 @@ export default function ClinicalLeadershipCareersPage() {
                   transition={{ duration: 0.45, delay: index * 0.08, ease: EASE_OUT }}
                   className="relative flex gap-5 pb-10 last:pb-0"
                 >
-                  {index < CL_READINESS_INDICATORS_LEGACY.length - 1 && (
+                  {index < clReadinessIndicatorsLegacy.length - 1 && (
                     <span className="absolute left-4 top-10 h-[calc(100%-0.5rem)] w-0.5 bg-teal-200" aria-hidden="true" />
                   )}
                   <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-700 text-xs font-black text-white">
@@ -234,7 +249,7 @@ export default function ClinicalLeadershipCareersPage() {
         {/* Educational notice */}
         <RbtScrollReveal>
           <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-            {CL_EDUCATIONAL_NOTICE}
+            {clEducationalNotice}
           </p>
         </RbtScrollReveal>
 
@@ -250,7 +265,7 @@ export default function ClinicalLeadershipCareersPage() {
               How to stand out as a clinical leader
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {CL_INTERVIEW_PREP_CARDS.map((card) => (
+              {clInterviewPrepCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -261,7 +276,7 @@ export default function ClinicalLeadershipCareersPage() {
               ))}
             </ul>
             <div className="mt-10">
-              <FAQAccordion title="Sample interview questions to prepare for" items={CL_SAMPLE_INTERVIEW_QUESTIONS} />
+              <FAQAccordion title="Sample interview questions to prepare for" items={clSampleInterviewQuestions} />
             </div>
           </section>
         </RbtScrollReveal>
@@ -277,7 +292,7 @@ export default function ClinicalLeadershipCareersPage() {
               strategic collaboration.
             </p>
             <ol className="relative mt-10 space-y-0 border-l-2 border-teal-200 pl-8">
-              {CL_DAY_TIMELINE.map((item, index) => (
+              {clDayTimeline.map((item, index) => (
                 <li key={item.step} className="relative pb-8 last:pb-0">
                   <span
                     className="absolute -left-[2.35rem] flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-xs font-black text-white"
@@ -300,7 +315,7 @@ export default function ClinicalLeadershipCareersPage() {
               Clinical leadership in action
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {CL_PHOTO_GALLERY.map((photo, index) => (
+              {clPhotoGallery.map((photo, index) => (
                 <li
                   key={`${photo.src}-${index}`}
                   className="overflow-hidden rounded-[1.5rem] border border-teal-100 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -328,7 +343,7 @@ export default function ClinicalLeadershipCareersPage() {
               Support designed for sustainable leadership
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {CL_SUPPORT_CARDS.map((card) => (
+              {clSupportCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -338,7 +353,7 @@ export default function ClinicalLeadershipCareersPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-7 text-slate-500">{CL_SUPPORT_DISCLAIMER}</p>
+            <p className="mt-6 text-sm leading-7 text-slate-500">{clSupportDisclaimer}</p>
           </section>
         </RbtScrollReveal>
 
@@ -356,7 +371,7 @@ export default function ClinicalLeadershipCareersPage() {
               expected to model professionalism, humility, accountability, ethical care, and continuous improvement.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {CL_CULTURE_VALUES.map((value) => (
+              {clCultureValues.map((value) => (
                 <li key={value.title} className="rounded-xl border border-teal-100 bg-white p-5 shadow-sm">
                   <h3 className="font-extrabold text-teal-900">{value.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{value.description}</p>

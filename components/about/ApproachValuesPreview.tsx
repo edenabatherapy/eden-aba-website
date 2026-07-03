@@ -4,13 +4,13 @@ import { ArrowRight, Award, HeartHandshake, Lightbulb, ShieldCheck, Sparkles, Ta
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const VALUE_ICONS = [HeartHandshake, ShieldCheck, Users, Sparkles, Lightbulb, Award];
 
 export default function ApproachValuesPreview() {
-  const content = OUR_APPROACH_PAGE.valuesPreview;
+  const content = useOurApproachPage().valuesPreview;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="approach-values-heading">

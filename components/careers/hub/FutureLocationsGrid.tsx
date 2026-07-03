@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { FUTURE_LOCATIONS, FUTURE_LOCATIONS_DESCRIPTION } from "@/lib/careers/future-locations-data";
@@ -10,16 +13,23 @@ type FutureLocationsGridProps = {
 
 export default function FutureLocationsGrid({
   title = "Growing Across Virginia",
-  description = FUTURE_LOCATIONS_DESCRIPTION,
+  description,
 }: FutureLocationsGridProps) {
+  const futureLocations = useLocalizedContent("FUTURE_LOCATIONS", FUTURE_LOCATIONS);
+  const futureLocationsDescription = useLocalizedContent(
+    "FUTURE_LOCATIONS_DESCRIPTION",
+    FUTURE_LOCATIONS_DESCRIPTION,
+  );
+  const resolvedDescription = description ?? futureLocationsDescription;
+
   return (
     <section aria-labelledby="future-locations-heading">
       <h2 id="future-locations-heading" className="text-2xl font-extrabold text-slate-900 dark:text-white sm:text-3xl">
         {title}
       </h2>
-      <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">{description}</p>
+      <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600 dark:text-slate-300">{resolvedDescription}</p>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {FUTURE_LOCATIONS.map((city) => (
+        {futureLocations.map((city) => (
           <li key={city.city}>
             <article className="flex h-full flex-col rounded-[1.5rem] border border-emerald-100 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-900">
               <div className="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-300">

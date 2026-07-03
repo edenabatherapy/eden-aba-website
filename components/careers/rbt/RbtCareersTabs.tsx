@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -156,13 +157,21 @@ export default function RbtCareersTabs() {
 }
 
 function TabPanelContent({ tabId }: { tabId: TabId }) {
+  const rbtFaqItems = useLocalizedContent("RBT_FAQ_ITEMS", RBT_FAQ_ITEMS);
+  const rbtGrowthLadderDetailed = useLocalizedContent("RBT_GROWTH_LADDER_DETAILED", RBT_GROWTH_LADDER_DETAILED);
+  const rbtInterviewTips = useLocalizedContent("RBT_INTERVIEW_TIPS", RBT_INTERVIEW_TIPS);
+  const rbtResponsibilities = useLocalizedContent("RBT_RESPONSIBILITIES", RBT_RESPONSIBILITIES);
+  const rbtSkillCategories = useLocalizedContent("RBT_SKILL_CATEGORIES", RBT_SKILL_CATEGORIES);
+  const rbtSkills = useLocalizedContent("RBT_SKILLS", RBT_SKILLS);
+  const rbtTabOverview = useLocalizedContent("RBT_TAB_OVERVIEW", RBT_TAB_OVERVIEW);
+
   switch (tabId) {
     case "overview":
       return (
         <>
-          <p className="text-base leading-8 text-slate-600">{RBT_TAB_OVERVIEW.summary}</p>
+          <p className="text-base leading-8 text-slate-600">{rbtTabOverview.summary}</p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {RBT_TAB_OVERVIEW.highlights.map((item) => (
+            {rbtTabOverview.highlights.map((item) => (
               <li
                 key={item}
                 className="flex gap-2 rounded-xl bg-emerald-50/80 px-4 py-3 text-sm font-semibold leading-6 text-slate-700"
@@ -177,7 +186,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "responsibilities":
       return (
         <ul className="grid gap-3 sm:grid-cols-2">
-          {RBT_RESPONSIBILITIES.map((item, i) => (
+          {rbtResponsibilities.map((item, i) => (
             <li key={item} className="flex gap-3 rounded-xl border border-emerald-100 px-4 py-3 text-sm leading-7 text-slate-600">
               <span className="font-black text-emerald-700">{i + 1}.</span>
               {item}
@@ -190,7 +199,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
         <>
           <p className="mb-4 text-sm font-semibold text-slate-500">Grouped by clinical and professional readiness:</p>
           <div className="grid gap-4 sm:grid-cols-2">
-            {RBT_SKILL_CATEGORIES.map((cat) => (
+            {rbtSkillCategories.map((cat) => (
               <div key={cat.title} className="rounded-xl border border-emerald-100 bg-emerald-50/40 p-4">
                 <h3 className="text-sm font-extrabold text-slate-900">{cat.title}</h3>
                 <ul className="mt-2 space-y-1">
@@ -204,7 +213,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
             ))}
           </div>
           <ul className="mt-4 grid gap-2 sm:grid-cols-3">
-            {RBT_SKILLS.map((skill) => (
+            {rbtSkills.map((skill) => (
               <li key={skill} className="rounded-lg bg-white px-3 py-2 text-xs font-semibold text-slate-700 ring-1 ring-emerald-100">
                 {skill}
               </li>
@@ -219,7 +228,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
             Eden supports structured growth from entry-level direct care toward clinical leadership.
           </p>
           <ol className="space-y-3">
-            {RBT_GROWTH_LADDER_DETAILED.map((step) => (
+            {rbtGrowthLadderDetailed.map((step) => (
               <li key={step.title} className="rounded-xl border border-emerald-100 px-4 py-3">
                 <p className="font-extrabold text-slate-900">{step.title}</p>
                 <p className="mt-1 text-sm text-slate-600">{step.description}</p>
@@ -231,7 +240,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "interview":
       return (
         <ul className="space-y-3">
-          {RBT_INTERVIEW_TIPS.map((tip) => (
+          {rbtInterviewTips.map((tip) => (
             <li key={tip} className="flex gap-3 rounded-xl border border-emerald-100 px-4 py-3 text-sm leading-7 text-slate-600">
               <span className="font-black text-emerald-700" aria-hidden="true">
                 •
@@ -242,7 +251,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
         </ul>
       );
     case "faq":
-      return <FAQAccordion title="" items={RBT_FAQ_ITEMS} />;
+      return <FAQAccordion title="" items={rbtFaqItems} />;
     default:
       return null;
   }

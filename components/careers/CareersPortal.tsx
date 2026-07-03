@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { Bookmark, Search, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -29,6 +30,11 @@ import { useSavedJobs } from "@/components/careers/useSavedJobs";
 import { getButtonClasses } from "@/lib/button-styles";
 
 export default function CareersPortal() {
+  const allJobs = useLocalizedContent("ALL_JOBS", ALL_JOBS);
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+  const careersTabs = useLocalizedContent("CAREERS_TABS", CAREERS_TABS);
+  const sortOptions = useLocalizedContent("SORT_OPTIONS", SORT_OPTIONS);
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const [filters, setFilters] = useState<JobFilters>(EMPTY_FILTERS);
@@ -39,12 +45,12 @@ export default function CareersPortal() {
   const { toggleSaved, isSaved, hydrated, savedIds } = useSavedJobs();
 
   const filteredJobs = useMemo(() => {
-    const filtered = filterJobs(ALL_JOBS, filters, activeTab);
+    const filtered = filterJobs(allJobs, filters, activeTab);
     return sortJobs(filtered, sort);
   }, [filters, activeTab, sort]);
 
   const activeChips = useMemo(() => getActiveFilterChips(filters), [filters]);
-  const totalActiveJobs = ALL_JOBS.filter((job) => job.status !== "Future Opening").length;
+  const totalActiveJobs = allJobs.filter((job) => job.status !== "Future Opening").length;
 
   useEffect(() => {
     const jobId = searchParams.get("job");
@@ -77,21 +83,21 @@ export default function CareersPortal() {
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative block flex-1">
             <label className="relative block">
-              <span className="sr-only">{CAREERS_PAGE.search.placeholder}</span>
+              <span className="sr-only">{careersPage.search.placeholder}</span>
               <Search className="absolute left-4 top-3.5 text-slate-400" size={18} aria-hidden="true" />
               <input
                 value={filters.search}
                 onChange={(event) => setFilters({ ...filters, search: event.target.value })}
-                placeholder={CAREERS_PAGE.search.placeholder}
+                placeholder={careersPage.search.placeholder}
                 className="h-12 w-full rounded-2xl border border-emerald-100 bg-white pl-11 pr-24 text-sm font-semibold outline-none focus:border-emerald-400 dark:border-slate-700 dark:bg-slate-900"
-                aria-label={CAREERS_PAGE.search.placeholder}
+                aria-label={careersPage.search.placeholder}
               />
               {filters.search && (
                 <button
                   type="button"
                   onClick={() => setFilters({ ...filters, search: "" })}
                   className="absolute right-3 top-2 inline-flex h-8 items-center gap-1 rounded-xl px-2 text-xs font-bold text-emerald-800 hover:bg-emerald-50 dark:text-emerald-200 dark:hover:bg-slate-800"
-                  aria-label={CAREERS_PAGE.search.clearLabel}
+                  aria-label={careersPage.search.clearLabel}
                 >
                   <X size={14} aria-hidden="true" />
                   Clear
@@ -117,7 +123,7 @@ export default function CareersPortal() {
           role="tablist"
           aria-label="Job category tabs"
         >
-          {CAREERS_TABS.map((tab) => {
+          {careersTabs.map((tab) => {
             const selected = activeTab === tab.id;
             return (
               <button
@@ -140,11 +146,11 @@ export default function CareersPortal() {
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm font-semibold text-slate-700 dark:text-slate-300" aria-live="polite">
-            {CAREERS_PAGE.results.showing} {filteredJobs.length} {CAREERS_PAGE.results.of}{" "}
+            {careersPage.results.showing} {filteredJobs.length} {careersPage.results.of}{" "}
             {activeTab === "future-locations"
-              ? ALL_JOBS.filter((job) => job.isFutureOpening).length
+              ? allJobs.filter((job) => job.isFutureOpening).length
               : totalActiveJobs}{" "}
-            {CAREERS_PAGE.results.roles}
+            {careersPage.results.roles}
           </p>
           <label className="inline-flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-[0.14em] text-emerald-800 dark:text-emerald-300">
@@ -156,7 +162,7 @@ export default function CareersPortal() {
               className="h-10 rounded-xl border border-emerald-100 bg-white px-3 text-sm font-semibold outline-none focus:border-emerald-400 dark:border-slate-700 dark:bg-slate-900"
               aria-label="Sort jobs"
             >
-              {SORT_OPTIONS.map((option) => (
+              {sortOptions.map((option) => (
                 <option key={option.id} value={option.id}>
                   {option.label}
                 </option>
@@ -186,7 +192,7 @@ export default function CareersPortal() {
               onClick={clearAllFilters}
               className="text-xs font-bold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-300"
             >
-              {CAREERS_PAGE.results.clearAll}
+              {careersPage.results.clearAll}
             </button>
           </div>
         )}
@@ -216,17 +222,17 @@ export default function CareersPortal() {
           ) : (
             <div className="rounded-[1.75rem] border border-emerald-100 bg-white p-8 text-center dark:border-slate-700 dark:bg-slate-900">
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-                {CAREERS_PAGE.results.emptyTitle}
+                {careersPage.results.emptyTitle}
               </h3>
               <p className="mt-3 text-base font-semibold text-slate-700 dark:text-slate-300">
-                {CAREERS_PAGE.results.emptyBody}
+                {careersPage.results.emptyBody}
               </p>
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                 <button type="button" onClick={clearAllFilters} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
-                  {CAREERS_PAGE.results.clearFilters}
+                  {careersPage.results.clearFilters}
                 </button>
                 <button type="button" onClick={scrollToTalentNetwork} className={getButtonClasses("primary", "w-full sm:w-auto")}>
-                  {CAREERS_PAGE.results.submitResume}
+                  {careersPage.results.submitResume}
                 </button>
               </div>
             </div>

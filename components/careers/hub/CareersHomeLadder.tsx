@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -8,7 +9,9 @@ import RbtScrollReveal from "@/components/careers/rbt/RbtScrollReveal";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function CareersHomeLadder() {
-  const [expandedId, setExpandedId] = useState<string | null>(PUBLIC_CAREER_PATH_STEPS[0]?.id ?? null);
+  const publicCareerPathSteps = useLocalizedContent("PUBLIC_CAREER_PATH_STEPS", PUBLIC_CAREER_PATH_STEPS);
+
+  const [expandedId, setExpandedId] = useState<string | null>(publicCareerPathSteps[0]?.id ?? null);
   const reduceMotion = useReducedMotion();
 
   const toggle = (id: string) => {
@@ -44,7 +47,7 @@ export default function CareersHomeLadder() {
             />
           </div>
 
-          {PUBLIC_CAREER_PATH_STEPS.map((step, index) => {
+          {publicCareerPathSteps.map((step, index) => {
             const isOpen = expandedId === step.id;
             return (
               <motion.li

@@ -1,11 +1,14 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { motion, useReducedMotion } from "framer-motion";
 import { CL_LEADERSHIP_LADDER } from "@/lib/careers/clinical-leadership-careers-data";
 import RbtScrollReveal from "@/components/careers/rbt/RbtScrollReveal";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function ClinicalLeadershipJourneySection() {
+  const clLeadershipLadder = useLocalizedContent("CL_LEADERSHIP_LADDER", CL_LEADERSHIP_LADDER);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -24,7 +27,7 @@ export default function ClinicalLeadershipJourneySection() {
         </p>
 
         <div className="mt-10 flex flex-col items-center">
-          {CL_LEADERSHIP_LADDER.map((level, index) => (
+          {clLeadershipLadder.map((level, index) => (
             <div key={level.title} className="flex w-full max-w-2xl flex-col items-center">
               <motion.article
                 initial={reduceMotion ? false : { opacity: 0, y: 20 }}
@@ -53,7 +56,7 @@ export default function ClinicalLeadershipJourneySection() {
                   </div>
                 </dl>
               </motion.article>
-              {index < CL_LEADERSHIP_LADDER.length - 1 && (
+              {index < clLeadershipLadder.length - 1 && (
                 <span className="my-2 text-xl font-black text-teal-500" aria-hidden="true">
                   ↓
                 </span>

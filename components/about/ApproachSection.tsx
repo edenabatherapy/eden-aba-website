@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { fadeUp, GlassPanel, SectionEyebrow } from "./shared";
 
 export default function ApproachSection() {
-  const content = OUR_STORY_PAGE.approach;
+  const content = useOurStoryPage().approach;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="clinical-approach-heading">

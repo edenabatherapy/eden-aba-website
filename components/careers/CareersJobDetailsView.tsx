@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Bookmark, MapPin, Share2 } from "lucide-react";
 import { useState } from "react";
@@ -19,6 +20,8 @@ type CareersJobDetailsViewProps = {
 };
 
 export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProps) {
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+
   const applyHref = resolveJobApplyHref(job);
   const { toggleSaved, isSaved, hydrated } = useSavedJobs();
   const saved = hydrated && isSaved(job.id);
@@ -27,7 +30,7 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
   const handleShare = async () => {
     const result = await shareJob(job);
     if (result === "copied") {
-      setShareMessage(CAREERS_PAGE.shareSuccess);
+      setShareMessage(careersPage.shareSuccess);
     } else if (result === "shared") {
       setShareMessage("Job shared.");
     }
@@ -43,7 +46,7 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
         className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:text-emerald-900 dark:text-emerald-300"
       >
         <ArrowLeft size={16} aria-hidden="true" />
-        {CAREERS_PAGE.backToCareers}
+        {careersPage.backToCareers}
       </Link>
 
       <header className="mt-8 rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-8 dark:border-slate-700 dark:from-emerald-950/30 dark:via-slate-900 dark:to-teal-950/20">
@@ -67,7 +70,7 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
         <div className="relative z-[111] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
           <CareersActionLink href={applyHref} className={getButtonClasses("primary", "w-full sm:w-auto")}>
-            {CAREERS_PAGE.applyLabel}
+            {careersPage.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
           </CareersActionLink>
           <button
@@ -77,11 +80,11 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
             aria-pressed={saved}
           >
             <Bookmark size={16} className={saved ? "fill-current" : ""} aria-hidden="true" />
-            {saved ? CAREERS_PAGE.unsaveJobLabel : CAREERS_PAGE.saveJobLabel}
+            {saved ? careersPage.unsaveJobLabel : careersPage.saveJobLabel}
           </button>
           <button type="button" onClick={handleShare} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
             <Share2 size={16} aria-hidden="true" />
-            {CAREERS_PAGE.shareJobLabel}
+            {careersPage.shareJobLabel}
           </button>
           {shareMessage && (
             <span role="status" className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
@@ -172,7 +175,7 @@ export default function CareersJobDetailsView({ job }: CareersJobDetailsViewProp
           <div className="relative z-[111] mt-5">
             {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
             <CareersActionLink href={applyHref} className={getButtonClasses("primary")}>
-              {CAREERS_PAGE.applyLabel}
+              {careersPage.applyLabel}
               <ArrowRight size={16} aria-hidden="true" />
             </CareersActionLink>
           </div>

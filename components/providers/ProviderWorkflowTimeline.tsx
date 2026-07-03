@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { REFERRAL_WORKFLOW } from "@/lib/providers/provider-content";
 
 type ProviderWorkflowTimelineProps = {
@@ -5,13 +8,15 @@ type ProviderWorkflowTimelineProps = {
 };
 
 export default function ProviderWorkflowTimeline({ showDetail = false }: ProviderWorkflowTimelineProps) {
+  const referralWorkflow = useLocalizedContent("REFERRAL_WORKFLOW", REFERRAL_WORKFLOW);
+
   return (
     <ol className="eden-providers-timeline">
-      {REFERRAL_WORKFLOW.map((step, index) => (
+      {referralWorkflow.map((step, index) => (
         <li key={step.step} className="eden-providers-step">
           <div className="eden-providers-step__marker" aria-hidden="true">
             <span className="eden-providers-step__number">{step.step}</span>
-            {index < REFERRAL_WORKFLOW.length - 1 ? <span className="eden-providers-step__line" /> : null}
+            {index < referralWorkflow.length - 1 ? <span className="eden-providers-step__line" /> : null}
           </div>
           <article className="eden-providers-step__body">
             <h3 className="eden-providers-step__title">{step.title}</h3>

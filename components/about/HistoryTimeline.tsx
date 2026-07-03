@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { fadeUp } from "./shared";
 
 export default function HistoryTimeline() {
-  const content = OUR_STORY_PAGE.timeline;
+  const content = useOurStoryPage().timeline;
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (

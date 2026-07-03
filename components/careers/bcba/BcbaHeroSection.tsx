@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -8,6 +9,9 @@ import { getButtonClasses } from "@/lib/button-styles";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function BcbaHeroSection() {
+  const bcbaHeroBadges = useLocalizedContent("BCBA_HERO_BADGES", BCBA_HERO_BADGES);
+  const bcbaHeroJourneySteps = useLocalizedContent("BCBA_HERO_JOURNEY_STEPS", BCBA_HERO_JOURNEY_STEPS);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -47,7 +51,7 @@ export default function BcbaHeroSection() {
             Annandale and Northern Virginia.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap gap-2">
-            {BCBA_HERO_BADGES.map((badge) => (
+            {bcbaHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -86,7 +90,7 @@ export default function BcbaHeroSection() {
                 style={{ transformOrigin: "top" }}
               />
             </div>
-            {BCBA_HERO_JOURNEY_STEPS.map((item, index) => (
+            {bcbaHeroJourneySteps.map((item, index) => (
               <motion.li
                 key={item.label}
                 initial={reduceMotion ? false : { opacity: 0, x: 12 }}

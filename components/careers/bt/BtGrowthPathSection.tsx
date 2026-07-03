@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -9,6 +10,8 @@ import RbtScrollReveal from "@/components/careers/rbt/RbtScrollReveal";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function BtGrowthPathSection() {
+  const btGrowthLadderDetailed = useLocalizedContent("BT_GROWTH_LADDER_DETAILED", BT_GROWTH_LADDER_DETAILED);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -26,7 +29,7 @@ export default function BtGrowthPathSection() {
         </p>
 
         <div className="mt-10 flex flex-col items-center">
-          {BT_GROWTH_LADDER_DETAILED.map((step, index) => (
+          {btGrowthLadderDetailed.map((step, index) => (
             <div key={step.title} className="flex w-full max-w-xl flex-col items-center">
               <motion.div
                 initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -38,7 +41,7 @@ export default function BtGrowthPathSection() {
                 <h3 className="text-base font-extrabold text-slate-900">{step.title}</h3>
                 <p className="mt-1 text-sm leading-7 text-slate-600">{step.description}</p>
               </motion.div>
-              {index < BT_GROWTH_LADDER_DETAILED.length - 1 && (
+              {index < btGrowthLadderDetailed.length - 1 && (
                 <span className="my-2 text-xl font-black text-emerald-500" aria-hidden="true">
                   ↓
                 </span>

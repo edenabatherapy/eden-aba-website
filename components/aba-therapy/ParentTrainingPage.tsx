@@ -19,6 +19,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import FAQAccordion from "@/components/getting-started/FAQAccordion";
 import ParentTrainingPageSchema from "@/components/aba-therapy/ParentTrainingPageSchema";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   DOWNLOADABLE_RESOURCES,
   FAMILY_TRAINING_SECTION,
@@ -40,6 +41,15 @@ const BENEFIT_ICONS = [Sparkles, Users, HeartHandshake, MessageCircle, CheckCirc
 const cardClass = EDEN_CARD;
 
 export default function ParentTrainingPage() {
+  const hero = useLocalizedContent("PARENT_TRAINING_HERO", PARENT_TRAINING_HERO);
+  const whatIs = useLocalizedContent("WHAT_IS_PARENT_TRAINING", WHAT_IS_PARENT_TRAINING);
+  const whyInvolve = useLocalizedContent("WHY_PARENT_INVOLVEMENT", WHY_PARENT_INVOLVEMENT);
+  const guides = useLocalizedContent("PARENT_GUIDES_SECTION", PARENT_GUIDES_SECTION);
+  const familyTraining = useLocalizedContent("FAMILY_TRAINING_SECTION", FAMILY_TRAINING_SECTION);
+  const downloads = useLocalizedContent("DOWNLOADABLE_RESOURCES", DOWNLOADABLE_RESOURCES);
+  const faq = useLocalizedContent("PARENT_TRAINING_FAQ", PARENT_TRAINING_FAQ);
+  const relatedLinks = useLocalizedContent("PARENT_TRAINING_RELATED_LINKS", PARENT_TRAINING_RELATED_LINKS);
+  const cta = useLocalizedContent("PARENT_TRAINING_CTA", PARENT_TRAINING_CTA);
   const reduceMotion = useReducedMotion();
 
   const reveal = (delay = 0) =>
@@ -74,11 +84,11 @@ export default function ParentTrainingPage() {
               </ol>
             </nav>
             <span className="inline-flex rounded-full bg-[#FACC15] px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-[#0F172A]">
-              {PARENT_TRAINING_HERO.badge}
+              {hero.badge}
             </span>
-            <h1 className="mt-6 text-3xl font-black leading-tight md:text-5xl">{PARENT_TRAINING_HERO.title}</h1>
+            <h1 className="mt-6 text-3xl font-black leading-tight md:text-5xl">{hero.title}</h1>
             <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-white/90">
-              {PARENT_TRAINING_HERO.subtitle}
+              {hero.subtitle}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/intake" className={getButtonClasses("primarySite")}>
@@ -106,9 +116,9 @@ export default function ParentTrainingPage() {
       <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHAT_IS_PARENT_TRAINING.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{WHAT_IS_PARENT_TRAINING.intro}</p>
-            <p className="mt-4 text-base font-semibold leading-8 text-slate-600">{WHAT_IS_PARENT_TRAINING.body}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{whatIs.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{whatIs.intro}</p>
+            <p className="mt-4 text-base font-semibold leading-8 text-slate-600">{whatIs.body}</p>
           </motion.div>
         </div>
       </section>
@@ -117,11 +127,11 @@ export default function ParentTrainingPage() {
       <section className="px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHY_PARENT_INVOLVEMENT.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{WHY_PARENT_INVOLVEMENT.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{whyInvolve.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{whyInvolve.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY_PARENT_INVOLVEMENT.benefits.map((benefit, i) => {
+            {whyInvolve.benefits.map((benefit, i) => {
               const Icon = BENEFIT_ICONS[i] ?? CheckCircle2;
               return (
                 <motion.article key={benefit.title} {...reveal(i * 0.06)} className={cardClass}>
@@ -141,11 +151,11 @@ export default function ParentTrainingPage() {
       <section className="bg-gradient-to-br from-[#e8f8f2] via-white to-[#fff8df] px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{PARENT_GUIDES_SECTION.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{PARENT_GUIDES_SECTION.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{guides.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{guides.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {PARENT_GUIDES_SECTION.cards.map((card, i) => {
+            {guides.cards.map((card, i) => {
               const Icon = GUIDE_ICONS[i] ?? BookOpen;
               return (
                 <motion.article key={card.title} {...reveal(i * 0.05)} className={cardClass}>
@@ -165,11 +175,11 @@ export default function ParentTrainingPage() {
       <section className="px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{FAMILY_TRAINING_SECTION.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{FAMILY_TRAINING_SECTION.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{familyTraining.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{familyTraining.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {FAMILY_TRAINING_SECTION.cards.map((card, i) => {
+            {familyTraining.cards.map((card, i) => {
               const Icon = FAMILY_ICONS[i] ?? Users;
               return (
                 <motion.article key={card.title} {...reveal(i * 0.05)} className={cardClass}>
@@ -189,11 +199,11 @@ export default function ParentTrainingPage() {
       <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{DOWNLOADABLE_RESOURCES.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{DOWNLOADABLE_RESOURCES.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{downloads.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{downloads.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {DOWNLOADABLE_RESOURCES.items.map((item, i) => (
+            {downloads.items.map((item, i) => (
               <motion.article
                 key={item.title}
                 {...reveal(i * 0.06)}
@@ -227,7 +237,7 @@ export default function ParentTrainingPage() {
             </p>
           </motion.div>
           <motion.div {...reveal(0.08)} className="mt-10">
-            <FAQAccordion items={PARENT_TRAINING_FAQ} />
+            <FAQAccordion items={faq} />
           </motion.div>
         </div>
       </section>
@@ -237,7 +247,7 @@ export default function ParentTrainingPage() {
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-2xl font-black text-[#0F172A]">Explore More ABA Resources</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {PARENT_TRAINING_RELATED_LINKS.map((link) => (
+            {relatedLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -258,14 +268,14 @@ export default function ParentTrainingPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0E6B4F] to-[#10B981] px-4 py-16 text-white lg:px-8 lg:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(250,204,21,0.2),transparent_50%)]" aria-hidden />
         <motion.div {...reveal()} className="relative mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-black md:text-4xl">{PARENT_TRAINING_CTA.title}</h2>
-          <p className="mt-4 text-lg font-semibold leading-8 text-white/90">{PARENT_TRAINING_CTA.subtitle}</p>
+          <h2 className="text-3xl font-black md:text-4xl">{cta.title}</h2>
+          <p className="mt-4 text-lg font-semibold leading-8 text-white/90">{cta.subtitle}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/intake" className={getButtonClasses("primarySite")}>
-              {PARENT_TRAINING_CTA.primaryLabel} <ArrowRight size={18} aria-hidden />
+              {cta.primaryLabel} <ArrowRight size={18} aria-hidden />
             </Link>
             <Link href="/about/contact-us" className={getButtonClasses("secondaryOnDark")}>
-              {PARENT_TRAINING_CTA.secondaryLabel}
+              {cta.secondaryLabel}
             </Link>
           </div>
         </motion.div>

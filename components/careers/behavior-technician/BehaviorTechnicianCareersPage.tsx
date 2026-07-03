@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -24,6 +25,15 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function BehaviorTechnicianCareersPage() {
+  const btRbtDifferences = useLocalizedContent("BT_RBT_DIFFERENCES", BT_RBT_DIFFERENCES);
+  const btRbtEducationalNotice = useLocalizedContent("BT_RBT_EDUCATIONAL_NOTICE", BT_RBT_EDUCATIONAL_NOTICE);
+  const btRbtFaq = useLocalizedContent("BT_RBT_FAQ", BT_RBT_FAQ);
+  const btRbtHeroBadges = useLocalizedContent("BT_RBT_HERO_BADGES", BT_RBT_HERO_BADGES);
+  const btRbtResponsibilities = useLocalizedContent("BT_RBT_RESPONSIBILITIES", BT_RBT_RESPONSIBILITIES);
+  const btRbtSupervision = useLocalizedContent("BT_RBT_SUPERVISION", BT_RBT_SUPERVISION);
+  const btRbtWhatIsBt = useLocalizedContent("BT_RBT_WHAT_IS_BT", BT_RBT_WHAT_IS_BT);
+  const btRbtWhatIsRbt = useLocalizedContent("BT_RBT_WHAT_IS_RBT", BT_RBT_WHAT_IS_RBT);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -68,7 +78,7 @@ export default function BehaviorTechnicianCareersPage() {
             pathways toward clinical growth across Annandale and Northern Virginia.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap justify-center gap-2">
-            {BT_RBT_HERO_BADGES.map((badge) => (
+            {btRbtHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -97,11 +107,11 @@ export default function BehaviorTechnicianCareersPage() {
           <section className="grid gap-6 lg:grid-cols-2" aria-labelledby="what-is-bt-heading">
             <article className={`${FRAME} bg-gradient-to-br from-white to-teal-50/30`}>
               <h2 id="what-is-bt-heading" className="text-2xl font-extrabold text-slate-900">
-                {BT_RBT_WHAT_IS_BT.title}
+                {btRbtWhatIsBt.title}
               </h2>
-              <p className="mt-4 text-base leading-8 text-slate-600">{BT_RBT_WHAT_IS_BT.summary}</p>
+              <p className="mt-4 text-base leading-8 text-slate-600">{btRbtWhatIsBt.summary}</p>
               <ul className="mt-6 space-y-3">
-                {BT_RBT_WHAT_IS_BT.points.map((point) => (
+                {btRbtWhatIsBt.points.map((point) => (
                   <li key={point} className="flex gap-2 text-sm leading-7 text-slate-600">
                     <CheckCircle2 size={16} className="mt-1 shrink-0 text-teal-700" aria-hidden="true" />
                     {point}
@@ -115,10 +125,10 @@ export default function BehaviorTechnicianCareersPage() {
             </article>
 
             <article className={`${FRAME} bg-gradient-to-br from-white to-emerald-50/30`}>
-              <h2 className="text-2xl font-extrabold text-slate-900">{BT_RBT_WHAT_IS_RBT.title}</h2>
-              <p className="mt-4 text-base leading-8 text-slate-600">{BT_RBT_WHAT_IS_RBT.summary}</p>
+              <h2 className="text-2xl font-extrabold text-slate-900">{btRbtWhatIsRbt.title}</h2>
+              <p className="mt-4 text-base leading-8 text-slate-600">{btRbtWhatIsRbt.summary}</p>
               <ul className="mt-6 space-y-3">
-                {BT_RBT_WHAT_IS_RBT.points.map((point) => (
+                {btRbtWhatIsRbt.points.map((point) => (
                   <li key={point} className="flex gap-2 text-sm leading-7 text-slate-600">
                     <CheckCircle2 size={16} className="mt-1 shrink-0 text-teal-700" aria-hidden="true" />
                     {point}
@@ -158,7 +168,7 @@ export default function BehaviorTechnicianCareersPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {BT_RBT_DIFFERENCES.map((row) => (
+                  {btRbtDifferences.map((row) => (
                     <tr key={row.aspect} className="border-t border-teal-50">
                       <th scope="row" className="px-4 py-4 font-bold text-slate-800 sm:px-6">
                         {row.aspect}
@@ -182,7 +192,7 @@ export default function BehaviorTechnicianCareersPage() {
               <div>
                 <h3 className="text-sm font-black uppercase tracking-[0.12em] text-teal-800">Shared focus</h3>
                 <ul className="mt-4 space-y-2">
-                  {BT_RBT_RESPONSIBILITIES.shared.map((item) => (
+                  {btRbtResponsibilities.shared.map((item) => (
                     <li key={item} className="flex gap-2 text-sm leading-7 text-slate-600">
                       <span className="text-teal-600" aria-hidden="true">
                         •
@@ -195,7 +205,7 @@ export default function BehaviorTechnicianCareersPage() {
               <div>
                 <h3 className="text-sm font-black uppercase tracking-[0.12em] text-teal-800">BT emphasis</h3>
                 <ul className="mt-4 space-y-2">
-                  {BT_RBT_RESPONSIBILITIES.bt.map((item) => (
+                  {btRbtResponsibilities.bt.map((item) => (
                     <li key={item} className="flex gap-2 text-sm leading-7 text-slate-600">
                       <span className="text-teal-600" aria-hidden="true">
                         •
@@ -208,7 +218,7 @@ export default function BehaviorTechnicianCareersPage() {
               <div>
                 <h3 className="text-sm font-black uppercase tracking-[0.12em] text-teal-800">RBT emphasis</h3>
                 <ul className="mt-4 space-y-2">
-                  {BT_RBT_RESPONSIBILITIES.rbt.map((item) => (
+                  {btRbtResponsibilities.rbt.map((item) => (
                     <li key={item} className="flex gap-2 text-sm leading-7 text-slate-600">
                       <span className="text-teal-600" aria-hidden="true">
                         •
@@ -228,7 +238,7 @@ export default function BehaviorTechnicianCareersPage() {
               Training and supervision expectations
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-2">
-              {BT_RBT_SUPERVISION.map((item) => (
+              {btRbtSupervision.map((item) => (
                 <RbtStaggerItem key={item.title}>
                   <div className="h-full rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-base font-extrabold text-teal-900">{item.title}</h3>
@@ -283,12 +293,12 @@ export default function BehaviorTechnicianCareersPage() {
         </RbtScrollReveal>
 
         <RbtScrollReveal>
-          <FAQAccordion title="BT & RBT career questions" items={BT_RBT_FAQ} />
+          <FAQAccordion title="BT & RBT career questions" items={btRbtFaq} />
         </RbtScrollReveal>
 
         <RbtScrollReveal>
           <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-            {BT_RBT_EDUCATIONAL_NOTICE}
+            {btRbtEducationalNotice}
           </p>
         </RbtScrollReveal>
 

@@ -32,6 +32,14 @@ export default function CareersHubHome() {
   const t = getTranslation(language);
   const snapshotStats = useLocalizedContent("CAREERS_HOME_SNAPSHOT_STATS", CAREERS_HOME_SNAPSHOT_STATS);
   const whyJoinCards = useLocalizedContent("CAREERS_HOME_WHY_JOIN_CARDS", CAREERS_HOME_WHY_JOIN_CARDS);
+  const roleCards = useLocalizedContent("CAREERS_HOME_ROLE_CARDS", CAREERS_HOME_ROLE_CARDS);
+  const findYourFit = useLocalizedContent("CAREERS_HOME_FIND_YOUR_FIT", CAREERS_HOME_FIND_YOUR_FIT);
+  const benefits = useLocalizedContent("CAREERS_HOME_BENEFITS", CAREERS_HOME_BENEFITS);
+  const benefitsDisclaimer = useLocalizedContent("CAREERS_HOME_BENEFITS_DISCLAIMER", CAREERS_HOME_BENEFITS_DISCLAIMER);
+  const hiringSteps = useLocalizedContent("CAREERS_HOME_HIRING_STEPS", CAREERS_HOME_HIRING_STEPS);
+  const locations = useLocalizedContent("CAREERS_HOME_LOCATIONS", CAREERS_HOME_LOCATIONS);
+  const complianceCopy = useLocalizedContent("CAREERS_HOME_COMPLIANCE_COPY", CAREERS_HOME_COMPLIANCE_COPY);
+  const complianceDisclaimer = useLocalizedContent("CAREERS_HOME_COMPLIANCE_DISCLAIMER", CAREERS_HOME_COMPLIANCE_DISCLAIMER);
 
   return (
     <CareerPageShell>
@@ -91,7 +99,7 @@ export default function CareersHubHome() {
               Find the pathway that matches your experience, credentials, and career goals.
             </p>
             <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {CAREERS_HOME_ROLE_CARDS.map((card) => (
+              {roleCards.map((card) => (
                 <li key={card.title}>
                   <motion.article
                     whileHover={reduceMotion ? undefined : { y: -4 }}
@@ -145,7 +153,7 @@ export default function CareersHubHome() {
               Not sure where to start? Choose the option that best describes you.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {CAREERS_HOME_FIND_YOUR_FIT.map((item) => (
+              {findYourFit.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
@@ -177,7 +185,7 @@ export default function CareersHubHome() {
               Eden invests in sustainable careers through competitive support, training, and team culture.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {CAREERS_HOME_BENEFITS.map((benefit) => (
+              {benefits.map((benefit) => (
                 <li
                   key={benefit.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -188,7 +196,7 @@ export default function CareersHubHome() {
               ))}
             </ul>
             <p className="mt-6 rounded-xl border border-amber-200/80 bg-amber-50/60 px-4 py-3 text-sm leading-6 text-amber-950">
-              {CAREERS_HOME_BENEFITS_DISCLAIMER}
+              {benefitsDisclaimer}
             </p>
             <div className="mt-4">
               <Link href="/careers/benefits" className={getButtonClasses("secondary", "inline-flex text-sm")}>
@@ -213,7 +221,7 @@ export default function CareersHubHome() {
               prepared support.
             </p>
             <ol className="relative mt-10 space-y-0 border-l-2 border-teal-200 pl-8">
-              {CAREERS_HOME_HIRING_STEPS.map((step, index) => (
+              {hiringSteps.map((step, index) => (
                 <motion.li
                   key={step.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -12 }}
@@ -253,7 +261,7 @@ export default function CareersHubHome() {
               communities.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {CAREERS_HOME_LOCATIONS.map((location) => (
+              {locations.map((location) => (
                 <li key={location.city}>
                   <article className="flex h-full flex-col rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <div className="inline-flex items-center gap-2 text-teal-800">
@@ -292,7 +300,7 @@ export default function CareersHubHome() {
             <h2 id="compliance-culture-heading" className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
               Compliance-aware culture
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{CAREERS_HOME_COMPLIANCE_COPY}</p>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{complianceCopy}</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {[
                 "BACB-aware career pathways",
@@ -312,7 +320,7 @@ export default function CareersHubHome() {
               ))}
             </ul>
             <p className="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-              {CAREERS_HOME_COMPLIANCE_DISCLAIMER}
+              {complianceDisclaimer}
             </p>
           </section>
         </RbtScrollReveal>

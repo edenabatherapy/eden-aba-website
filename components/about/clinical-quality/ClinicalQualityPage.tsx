@@ -8,6 +8,7 @@ import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import AboutSectionNav from "@/components/about/AboutSectionNav";
 import { AnimatedCounter, fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "@/components/about/shared";
 import FAQAccordion from "@/components/careers/hub/FAQAccordion";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   CLINICAL_PROCESS_TIMELINE,
   CLINICAL_QUALITY_FAQ,
@@ -46,6 +47,17 @@ function MetricCard({ label, value, suffix, detail }: (typeof CLINICAL_QUALITY_M
 }
 
 export default function ClinicalQualityPage() {
+  const clinicalProcessTimeline = useLocalizedContent("CLINICAL_PROCESS_TIMELINE", CLINICAL_PROCESS_TIMELINE);
+  const clinicalQualityFaq = useLocalizedContent("CLINICAL_QUALITY_FAQ", CLINICAL_QUALITY_FAQ);
+  const clinicalQualityMetrics = useLocalizedContent("CLINICAL_QUALITY_METRICS", CLINICAL_QUALITY_METRICS);
+  const clinicalQualitySectionNav = useLocalizedContent("CLINICAL_QUALITY_SECTION_NAV", CLINICAL_QUALITY_SECTION_NAV);
+  const clinicalStandardsPoints = useLocalizedContent("CLINICAL_STANDARDS_POINTS", CLINICAL_STANDARDS_POINTS);
+  const dataDrivenVisuals = useLocalizedContent("DATA_DRIVEN_VISUALS", DATA_DRIVEN_VISUALS);
+  const ethicalCarePoints = useLocalizedContent("ETHICAL_CARE_POINTS", ETHICAL_CARE_POINTS);
+  const evidenceBasedPoints = useLocalizedContent("EVIDENCE_BASED_POINTS", EVIDENCE_BASED_POINTS);
+  const excellenceFrameworkPillars = useLocalizedContent("EXCELLENCE_FRAMEWORK_PILLARS", EXCELLENCE_FRAMEWORK_PILLARS);
+  const familyCenteredPrinciples = useLocalizedContent("FAMILY_CENTERED_PRINCIPLES", FAMILY_CENTERED_PRINCIPLES);
+  const supervisionStructure = useLocalizedContent("SUPERVISION_STRUCTURE", SUPERVISION_STRUCTURE);
   const reduceMotion = useReducedMotion();
 
   return (
@@ -90,7 +102,7 @@ export default function ClinicalQualityPage() {
         </div>
       </section>
 
-      <AboutSectionNav items={[...CLINICAL_QUALITY_SECTION_NAV]} ariaLabel="Clinical Quality sections" />
+      <AboutSectionNav items={[...clinicalQualitySectionNav]} ariaLabel="Clinical Quality sections" />
 
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20">
         <section id="clinical-standards" className={FRAME} aria-labelledby="standards-heading">
@@ -103,7 +115,7 @@ export default function ClinicalQualityPage() {
             enterprise healthcare quality expectations—so every child receives safe, individualized, measurable care.
           </p>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {CLINICAL_STANDARDS_POINTS.map((point) => (
+            {clinicalStandardsPoints.map((point) => (
               <li key={point} className="flex gap-3 rounded-xl border border-emerald-100 bg-emerald-50/50 px-4 py-3 dark:border-slate-700 dark:bg-slate-800/50">
                 <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-700" size={18} aria-hidden="true" />
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">{point}</span>
@@ -122,7 +134,7 @@ export default function ClinicalQualityPage() {
             one-size-fits-all templates.
           </p>
           <ul className="mt-8 space-y-3">
-            {EVIDENCE_BASED_POINTS.map((point) => (
+            {evidenceBasedPoints.map((point) => (
               <li key={point} className="flex gap-3 text-sm leading-7 text-slate-700 dark:text-slate-200">
                 <Shield className="mt-0.5 shrink-0 text-emerald-700" size={16} aria-hidden="true" />
                 {point}
@@ -143,11 +155,11 @@ export default function ClinicalQualityPage() {
           <div className="mt-10 flex flex-col items-center gap-4">
             <div className="w-full max-w-md rounded-2xl border-2 border-emerald-700 bg-emerald-700 px-6 py-4 text-center text-white shadow-lg">
               <p className="text-xs font-bold uppercase tracking-wide opacity-90">Clinical Lead</p>
-              <p className="mt-1 text-lg font-extrabold">{SUPERVISION_STRUCTURE.bcba}</p>
+              <p className="mt-1 text-lg font-extrabold">{supervisionStructure.bcba}</p>
             </div>
             <div className="hidden h-8 w-0.5 bg-emerald-300 sm:block" aria-hidden="true" />
             <ul className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {SUPERVISION_STRUCTURE.roles.map((role, index) => (
+              {supervisionStructure.roles.map((role, index) => (
                 <motion.li
                   key={role.title}
                   initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -181,7 +193,7 @@ export default function ClinicalQualityPage() {
             viewport={{ once: true }}
             className="relative mt-10 space-y-0 border-l-2 border-emerald-200 pl-8 dark:border-emerald-800"
           >
-            {CLINICAL_PROCESS_TIMELINE.map((item) => (
+            {clinicalProcessTimeline.map((item) => (
               <motion.li key={item.step} variants={staggerItem} className="relative pb-10 last:pb-0">
                 <span className="absolute -left-[2.05rem] flex h-8 w-8 items-center justify-center rounded-full bg-emerald-700 text-xs font-bold text-white">
                   {item.step}
@@ -199,7 +211,7 @@ export default function ClinicalQualityPage() {
             Family-Centered Care Principles
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {FAMILY_CENTERED_PRINCIPLES.map((principle) => (
+            {familyCenteredPrinciples.map((principle) => (
               <li
                 key={principle.title}
                 className="rounded-2xl border border-emerald-100 bg-emerald-50/40 p-5 transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 dark:bg-slate-800/40"
@@ -220,7 +232,7 @@ export default function ClinicalQualityPage() {
             Transparent data helps families, clinicians, and partners see what is working—and adjust quickly when needed.
           </p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {DATA_DRIVEN_VISUALS.map((visual) => (
+            {dataDrivenVisuals.map((visual) => (
               <li
                 key={visual.title}
                 className="overflow-hidden rounded-2xl border border-emerald-100 bg-gradient-to-br from-slate-900 to-emerald-950 p-6 text-white shadow-lg"
@@ -253,7 +265,7 @@ export default function ClinicalQualityPage() {
             viewport={{ once: true }}
             className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {CLINICAL_QUALITY_METRICS.map((metric) => (
+            {clinicalQualityMetrics.map((metric) => (
               <MetricCard key={metric.label} {...metric} />
             ))}
           </motion.ul>
@@ -265,7 +277,7 @@ export default function ClinicalQualityPage() {
             Dignity, Safety &amp; Transparency First
           </h2>
           <ul className="mt-8 space-y-3">
-            {ETHICAL_CARE_POINTS.map((point) => (
+            {ethicalCarePoints.map((point) => (
               <li key={point} className="rounded-xl border border-emerald-100 px-4 py-3 text-sm leading-7 text-slate-700 dark:border-slate-700 dark:text-slate-200">
                 {point}
               </li>
@@ -279,7 +291,7 @@ export default function ClinicalQualityPage() {
             Four Pillars of Excellence
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {EXCELLENCE_FRAMEWORK_PILLARS.map((pillar, index) => (
+            {excellenceFrameworkPillars.map((pillar, index) => (
               <motion.li
                 key={pillar.title}
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.98 }}
@@ -296,7 +308,7 @@ export default function ClinicalQualityPage() {
         </section>
 
         <section id="faq" className={FRAME} aria-labelledby="clinical-faq-heading">
-          <FAQAccordion title="Frequently Asked Questions" items={CLINICAL_QUALITY_FAQ} />
+          <FAQAccordion title="Frequently Asked Questions" items={clinicalQualityFaq} />
         </section>
       </div>
     </AboutPremiumLayout>

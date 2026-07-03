@@ -3,11 +3,11 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function PersonalizedCollaborative() {
-  const content = OUR_APPROACH_PAGE.personalized;
+  const content = useOurApproachPage().personalized;
 
   return (
     <section className="bg-slate-50 px-4 py-20 dark:bg-slate-900/50 lg:px-8" aria-labelledby="personalized-collaborative-heading">

@@ -10,13 +10,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const IMPACT_ICONS = [MessageCircle, Home, Users, Brain, Heart, Smile];
 
 export default function MissionImpactSection() {
-  const content = MISSION_VALUES_PAGE.impact;
+  const content = useMissionValuesPage().impact;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="impact-heading">

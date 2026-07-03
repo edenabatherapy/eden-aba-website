@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { ArrowRight, Phone } from "lucide-react";
 import ProviderComplianceNote from "@/components/providers/ProviderComplianceNote";
 import { ProviderWhoCanReferGrid } from "@/components/providers/ProviderCardGrids";
@@ -21,6 +22,11 @@ import { PROVIDERS_HOME_PATH } from "@/lib/providers/provider-menu-data";
 import "./providers-pages.css";
 
 export default function ReferAChildPage() {
+  const autismScreeningSupport = useLocalizedContent("AUTISM_SCREENING_SUPPORT", AUTISM_SCREENING_SUPPORT);
+  const helpfulReferralDocuments = useLocalizedContent("HELPFUL_REFERRAL_DOCUMENTS", HELPFUL_REFERRAL_DOCUMENTS);
+  const insuranceIntakeCoordination = useLocalizedContent("INSURANCE_INTAKE_COORDINATION", INSURANCE_INTAKE_COORDINATION);
+  const providerOverview = useLocalizedContent("PROVIDER_OVERVIEW", PROVIDER_OVERVIEW);
+
   return (
     <ProviderPageShell
       breadcrumbs={[
@@ -41,12 +47,12 @@ export default function ReferAChildPage() {
 
       <ProviderSection
         eyebrow="Overview"
-        title={PROVIDER_OVERVIEW.title}
+        title={providerOverview.title}
         description="Use this page as Eden's provider referral entry point for phone, fax, email, and structured referral submissions."
         variant="soft"
       >
         <div className="eden-providers-prose">
-          {PROVIDER_OVERVIEW.paragraphs.map((paragraph) => (
+          {providerOverview.paragraphs.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
         </div>
@@ -95,7 +101,7 @@ export default function ReferAChildPage() {
         variant="muted"
       >
         <ul className="eden-providers-checklist">
-          {HELPFUL_REFERRAL_DOCUMENTS.map((item) => (
+          {helpfulReferralDocuments.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -103,12 +109,12 @@ export default function ReferAChildPage() {
 
       <ProviderSection
         eyebrow="Screening support"
-        title={AUTISM_SCREENING_SUPPORT.title}
-        description={AUTISM_SCREENING_SUPPORT.intro}
+        title={autismScreeningSupport.title}
+        description={autismScreeningSupport.intro}
         variant="soft"
       >
         <div className="eden-providers-grid eden-providers-grid--2">
-          {AUTISM_SCREENING_SUPPORT.points.slice(0, 2).map((point) => (
+          {autismScreeningSupport.points.slice(0, 2).map((point) => (
             <article key={point.title} className="eden-providers-card">
               <h3 className="eden-providers-card__title">{point.title}</h3>
               <p className="eden-providers-card__text">{point.description}</p>
@@ -119,11 +125,11 @@ export default function ReferAChildPage() {
 
       <ProviderSection
         eyebrow="Intake coordination"
-        title={INSURANCE_INTAKE_COORDINATION.title}
-        description={INSURANCE_INTAKE_COORDINATION.intro}
+        title={insuranceIntakeCoordination.title}
+        description={insuranceIntakeCoordination.intro}
       >
         <ol className="eden-providers-steps-list">
-          {INSURANCE_INTAKE_COORDINATION.steps.map((step, index) => (
+          {insuranceIntakeCoordination.steps.map((step, index) => (
             <li key={step.title} className="eden-providers-steps-list__item">
               <span className="eden-providers-steps-list__index">{String(index + 1).padStart(2, "0")}</span>
               <div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { Suspense } from "react";
@@ -23,6 +24,8 @@ function CareersPortalFallback() {
 }
 
 export default function CareersPage() {
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+
   return (
     <div className="eden-page-shell min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       <AboutSiteHeader />
@@ -39,17 +42,17 @@ export default function CareersPage() {
 
           <motion.div {...fadeUp} className="relative z-10 mx-auto max-w-4xl text-center">
             <span className="inline-flex rounded-full border border-lime-300/50 bg-lime-400/15 px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-emerald-800 dark:text-lime-200">
-              {CAREERS_PAGE.hero.badge}
+              {careersPage.hero.badge}
             </span>
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-bold text-emerald-800 shadow-sm dark:border-slate-700 dark:bg-slate-900 dark:text-emerald-200">
               <MapPin size={16} aria-hidden="true" />
-              {CAREERS_PAGE.hero.locationChip}
+              {careersPage.hero.locationChip}
             </div>
             <h1 id="careers-hero-heading" className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
-              {CAREERS_PAGE.hero.headline}
+              {careersPage.hero.headline}
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-              {CAREERS_PAGE.hero.subheadline}
+              {careersPage.hero.subheadline}
             </p>
           </motion.div>
         </section>
@@ -57,10 +60,10 @@ export default function CareersPage() {
         <section className="mx-auto max-w-7xl px-4 py-16 lg:px-8" aria-labelledby="open-positions-heading">
           <motion.div {...fadeUp} className="max-w-3xl">
             <h2 id="open-positions-heading" className="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">
-              {CAREERS_PAGE.openings.title}
+              {careersPage.openings.title}
             </h2>
-            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{CAREERS_PAGE.openings.description}</p>
-            <p className="mt-3 text-sm font-semibold text-emerald-800 dark:text-emerald-300">{CAREERS_PAGE.openings.note}</p>
+            <p className="mt-4 text-base leading-8 text-slate-600 dark:text-slate-300">{careersPage.openings.description}</p>
+            <p className="mt-3 text-sm font-semibold text-emerald-800 dark:text-emerald-300">{careersPage.openings.note}</p>
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }}>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
@@ -8,6 +9,8 @@ import RbtScrollReveal from "@/components/careers/rbt/RbtScrollReveal";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function ClinicalLeadershipReadinessSection() {
+  const clReadinessIndicators = useLocalizedContent("CL_READINESS_INDICATORS", CL_READINESS_INDICATORS);
+
   const [selected, setSelected] = useState<Set<number>>(new Set());
   const reduceMotion = useReducedMotion();
 
@@ -21,7 +24,7 @@ export default function ClinicalLeadershipReadinessSection() {
   };
 
   const count = selected.size;
-  const total = CL_READINESS_INDICATORS.length;
+  const total = clReadinessIndicators.length;
   const pct = Math.round((count / total) * 100);
 
   return (
@@ -61,7 +64,7 @@ export default function ClinicalLeadershipReadinessSection() {
         </div>
 
         <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-          {CL_READINESS_INDICATORS.map((indicator, index) => {
+          {clReadinessIndicators.map((indicator, index) => {
             const isSelected = selected.has(index);
             return (
               <li key={indicator}>

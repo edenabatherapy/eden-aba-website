@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function MissionInActionSection() {
-  const content = MISSION_VALUES_PAGE.missionInAction;
+  const content = useMissionValuesPage().missionInAction;
 
   return (
     <section

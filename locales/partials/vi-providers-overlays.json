@@ -1,0 +1,393 @@
+{
+  "PROVIDER_OVERVIEW": {
+    "title": "Tổng quan giới thiệu cho nhà cung cấp",
+    "paragraphs": [
+      "Eden ABA Therapy hoan nghênh giới thiệu từ bác sĩ nhi khoa, nhà lâm sàng sức khỏe hành vi, trường học, chuyên gia y tế liên kết và đối tác cộng đồng phục vụ gia đình tại Bắc Virginia.",
+      "Đội intake của chúng tôi có thể xem xét thông tin giới thiệu, liên hệ người chăm sóc khi phù hợp và hướng dẫn gia đình qua xem xét đủ điều kiện, intake và đánh giá lâm sàng dựa trên nhu cầu cá nhân và yêu cầu ủy quyền.",
+      "Eden là nhà cung cấp khu vực tập trung tại Annandale. Chúng tôi tập trung vào dịch vụ ABA nhân văn, dựa trên bằng chứng với đối tác gia đình—không phải mô hình giới thiệu trung tâm cuộc gọi toàn quốc."
+    ]
+  },
+  "PROVIDER_TRUST_SIGNALS": [
+    {
+      "label": "Tập trung khu vực",
+      "value": "Bắc Virginia",
+      "detail": "Dịch vụ tại nhà và tại phòng khám tập trung tại Annandale."
+    },
+    {
+      "label": "Mô hình chăm sóc",
+      "value": "ABA dựa trên bằng chứng",
+      "detail": "Kế hoạch cá nhân hóa với giám sát BCBA và hợp tác người chăm sóc."
+    },
+    {
+      "label": "Hỗ trợ giới thiệu",
+      "value": "Intake chuyên trách",
+      "detail": "Tùy chọn điện thoại, fax, email và biểu mẫu giới thiệu cho đối tác giới thiệu."
+    },
+    {
+      "label": "Hợp tác",
+      "value": "Khi có sự đồng ý",
+      "detail": "Điều phối tuân thủ HIPAA khi gia đình ủy quyền giao tiếp."
+    }
+  ],
+  "WHO_CAN_REFER": [
+    {
+      "title": "Bác sĩ nhi khoa & chăm sóc sơ cấp",
+      "description": "Nhà cung cấp y tế gia đình hỗ trợ giám sát phát triển, theo dõi sàng lọc và điều phối giới thiệu."
+    },
+    {
+      "title": "Nhà tâm lý học & bác sĩ tâm thần",
+      "description": "Nhà lâm sàng sức khỏe hành vi giới thiệu dịch vụ ABA khi đánh giá cho thấy có lợi ích và gia đình sẵn sàng tìm hiểu chăm sóc."
+    },
+    {
+      "title": "Trường học & đội IEP",
+      "description": "Giáo viên, điều phối viên và chuyên gia kết nối gia đình với hỗ trợ hành vi dựa trên cộng đồng."
+    },
+    {
+      "title": "Nhà trị liệu ngôn ngữ & nghề nghiệp",
+      "description": "Đối tác y tế liên kết điều phối mục tiêu chức năng giữa nhà, phòng khám và môi trường trường học."
+    },
+    {
+      "title": "Nhân viên xã hội & quản lý ca",
+      "description": "Chuyên gia cộng đồng giúp gia đình điều hướng dịch vụ, ủy quyền và tài nguyên địa phương."
+    },
+    {
+      "title": "Phòng khám cộng đồng & tổ chức gia đình",
+      "description": "Đối tác địa phương hỗ trợ gia đình tìm kiếm dịch vụ tự kỷ và phát triển tại Bắc Virginia."
+    }
+  ],
+  "WHEN_TO_CONSIDER_ABA_REFERRAL": [
+    {
+      "title": "Mối quan ngại phát triển kéo dài",
+      "description": "Trẻ có chậm trễ liên tục về giao tiếp, tương tác xã hội, kỹ năng thích ứng hoặc thói quen hàng ngày có thể hưởng lợi từ hỗ trợ hành vi có cấu trúc."
+    },
+    {
+      "title": "Sàng lọc hoặc đánh giá gợi ý nhu cầu",
+      "description": "Công cụ sàng lọc đã được xác thực hoặc đánh giá chẩn đoán cho thấy hành vi hoặc khoảng trống kỹ năng có thể đáng thảo luận về dịch vụ ABA khi gia đình quan tâm."
+    },
+    {
+      "title": "Thách thức chức năng qua nhiều bối cảnh",
+      "description": "Hành vi hoặc thiếu hụt kỹ năng ảnh hưởng đến sự tham gia tại nhà, trường học hoặc cộng đồng và có thể đáp ứng can thiệp cá nhân hóa với sự tham gia của người chăm sóc."
+    },
+    {
+      "title": "Gia đình yêu cầu tìm hiểu ABA",
+      "description": "Người chăm sóc hỏi hướng dẫn về tùy chọn liệu pháp ABA, các bước intake hoặc điều phối sau khi nhận chẩn đoán hoặc khuyến nghị lâm sàng."
+    },
+    {
+      "title": "Đội trường học hoặc trị liệu khuyến nghị điều phối",
+      "description": "Đội IEP hoặc nhà cung cấp liên kết xác định mục tiêu có thể hưởng lợi từ chương trình hành vi phù hợp khi được ủy quyền và phù hợp lâm sàng."
+    }
+  ],
+  "HELPFUL_REFERRAL_DOCUMENTS": [
+    "Tên người chăm sóc, số điện thoại và phương thức liên hệ ưu tiên",
+    "Ngày sinh hoặc tuổi của trẻ",
+    "Tóm tắt chẩn đoán hoặc báo cáo đánh giá, khi có sẵn và được ủy quyền",
+    "Thuốc hiện tại hoặc tiền sử y khoa liên quan, khi áp dụng",
+    "Nhà bảo hiểm và mã thành viên, nếu gia đình chọn chia sẻ",
+    "Thông tin liên hệ trường học hoặc IEP, khi có thể yêu cầu điều phối trường học",
+    "Giấy phép tiết lộ thông tin đã ký, khi hồ sơ lâm sàng sẽ được chia sẻ",
+    "Tuyên bố ngắn về lý do giới thiệu và mối quan tâm ưu tiên"
+  ],
+  "AUTISM_SCREENING_SUPPORT": {
+    "title": "Hỗ trợ sàng lọc tự kỷ",
+    "intro": "Nhận diện sớm và các bước tiếp theo kịp thời có thể hỗ trợ gia đình điều hướng lộ trình đánh giá và dịch vụ. Eden có thể thảo luận lịch sử sàng lọc, đánh giá trước đây và các tùy chọn giới thiệu phù hợp dựa trên xem xét lâm sàng.",
+    "points": [
+      {
+        "title": "Xem xét lịch sử sàng lọc",
+        "description": "Eden có thể xem xét liệu trẻ đã hoàn thành sàng lọc phát triển hoặc tự kỷ được khuyến nghị và các bước theo dõi gia đình đã thực hiện."
+      },
+      {
+        "title": "Hướng dẫn lộ trình đánh giá",
+        "description": "Khi phù hợp, Eden có thể giúp gia đình hiểu các tùy chọn đánh giá và intake ABA. Eden không đảm bảo chẩn đoán hoặc thời gian đánh giá."
+      },
+      {
+        "title": "Điều phối với y tế gia đình",
+        "description": "Khi có sự đồng ý, Eden có thể điều phối với bác sĩ nhi khoa hoặc nhà cung cấp sức khỏe hành vi giới thiệu để hỗ trợ liên tục chăm sóc."
+      },
+      {
+        "title": "Tài nguyên giáo dục gia đình",
+        "description": "Eden có thể chia sẻ tài liệu giáo dục về liệu pháp ABA, kỳ vọng intake và các câu hỏi bảo hiểm gia đình thường hỏi."
+      }
+    ]
+  },
+  "INSURANCE_INTAKE_COORDINATION": {
+    "title": "Điều phối bảo hiểm & intake",
+    "intro": "Đội intake của Eden có thể giúp gia đình hiểu xác minh quyền lợi, yêu cầu ủy quyền và tài liệu intake. Chi trả và phê duyệt phụ thuộc quy tắc bên trả tiền, thiết kế gói và tiêu chí lâm sàng.",
+    "steps": [
+      {
+        "title": "Yêu cầu quyền lợi",
+        "description": "Gia đình có thể chia sẻ thông tin bảo hiểm để Eden khám phá liệu quyền lợi ABA có thể có trong gói của họ."
+      },
+      {
+        "title": "Xem xét ủy quyền",
+        "description": "Khi cần thiết, Eden có thể hỗ trợ yêu cầu ủy quyền dựa trên tài liệu lâm sàng. Phê duyệt do bên trả tiền quyết định, không phải Eden."
+      },
+      {
+        "title": "Tài liệu intake",
+        "description": "Gia đình có thể hoàn tất biểu mẫu intake và cung cấp hồ sơ cần thiết cho xem xét lâm sàng và lập kế hoạch chăm sóc."
+      },
+      {
+        "title": "Điều phối lên lịch",
+        "description": "Khi dịch vụ có thể bắt đầu, Eden có thể điều phối lên lịch đánh giá và buổi trị liệu dựa trên năng lực lâm sàng và khả năng của gia đình."
+      }
+    ]
+  },
+  "SCHOOL_IEP_COORDINATION": {
+    "title": "Điều phối trường học & IEP",
+    "intro": "Khi gia đình ủy quyền giao tiếp, Eden có thể hợp tác với đội trường học để hỗ trợ mục tiêu phù hợp, chia sẻ dữ liệu và khái quát hóa thực tế qua các bối cảnh.",
+    "points": [
+      "Xem xét mục tiêu giáo dục có thể trùng với chương trình hành vi",
+      "Tham gia cuộc họp khi được ủy quyền và phù hợp lâm sàng",
+      "Điều phối khái quát hóa kỹ năng giữa nhà, trường học và cộng đồng",
+      "Thực hành tài liệu tôn trọng quyền riêng tư và yêu cầu đồng ý"
+    ]
+  },
+  "FAMILY_COMMUNICATION_WORKFLOW": [
+    {
+      "step": "Tiếp cận ban đầu",
+      "description": "Eden có thể liên hệ gia đình bằng thông tin trong giới thiệu để giới thiệu dịch vụ và trả lời câu hỏi sơ bộ."
+    },
+    {
+      "step": "Cuộc trò chuyện intake",
+      "description": "Thành viên đội có thể xem xét tiền sử của trẻ, mối quan ngại hiện tại và tài liệu gia đình được ủy quyền chia sẻ."
+    },
+    {
+      "step": "Thiết lập kỳ vọng",
+      "description": "Gia đình nhận hướng dẫn về các bước tiếp theo có thể, bao gồm đánh giá, ủy quyền và thời gian lên lịch có thể thay đổi."
+    },
+    {
+      "step": "Cập nhật liên tục",
+      "description": "Khi có sự đồng ý, Eden có thể cung cấp cho đối tác giới thiệu cập nhật điều phối định kỳ khi phù hợp lâm sàng và được ủy quyền."
+    }
+  ],
+  "REFERRAL_CHANNELS": [
+    {
+      "title": "Biểu mẫu giới thiệu nhà cung cấp",
+      "description": "Gửi chi tiết giới thiệu có cấu trúc qua trang giới thiệu nhà cung cấp của Eden.",
+      "actionLabel": "Mở biểu mẫu giới thiệu"
+    },
+    {
+      "title": "Đường dây giới thiệu điện thoại",
+      "description": "Nói chuyện với đội Eden để chia sẻ thông tin giới thiệu và bối cảnh lâm sàng.",
+      "actionLabel": "Gọi (703) 587-5238"
+    },
+    {
+      "title": "Fax bảo mật",
+      "description": "Gửi tài liệu giới thiệu và hồ sơ hỗ trợ khi được gia đình ủy quyền.",
+      "actionLabel": "Fax 571-445-8631"
+    },
+    {
+      "title": "Điều phối email",
+      "description": "Chia sẻ chi tiết giới thiệu với đội intake của Eden theo thực hành tuân thủ HIPAA.",
+      "actionLabel": "Email đội intake"
+    }
+  ],
+  "REFERRAL_WORKFLOW": [
+    {
+      "title": "Đã nhận giới thiệu",
+      "description": "Eden xác nhận giới thiệu của bạn và chuyển đến đội intake để xem xét ban đầu và tài liệu.",
+      "detail": "Bao gồm thông tin liên hệ người chăm sóc khi có sẵn, bối cảnh lâm sàng liên quan và bất kỳ ủy quyền chia sẻ thông tin nào."
+    },
+    {
+      "title": "Đã liên hệ gia đình",
+      "description": "Đội của chúng tôi có thể liên hệ gia đình để thảo luận dịch vụ, trả lời câu hỏi và giải thích các bước tiếp theo có thể.",
+      "detail": "Gia đình nhận hướng dẫn rõ ràng về yêu cầu intake. Thời gian phản hồi có thể thay đổi theo khả năng và thông tin liên hệ được cung cấp."
+    },
+    {
+      "title": "Đã xem xét bảo hiểm & đủ điều kiện",
+      "description": "Quyền lợi và chi trả có thể được xem xét với gia đình. Yêu cầu ủy quyền có thể khác nhau theo bên trả tiền và thiết kế gói.",
+      "detail": "Eden không đảm bảo phê duyệt bảo hiểm hoặc mức quyền lợi cụ thể. Đủ điều kiện có thể thay đổi theo gói, địa điểm và nhu cầu lâm sàng."
+    },
+    {
+      "title": "Intake, đánh giá & lập kế hoạch chăm sóc",
+      "description": "Khi phù hợp, Eden có thể bắt đầu intake, đánh giá lâm sàng và lập kế hoạch điều trị cá nhân hóa với sự đồng ý của người chăm sóc.",
+      "detail": "Bối cảnh dịch vụ có thể bao gồm ABA tại nhà, tư vấn tại phòng khám, hợp tác trường học và đào tạo phụ huynh khi phù hợp lâm sàng."
+    }
+  ],
+  "EDEN_SERVICES_FOR_REFERRALS": [
+    {
+      "title": "Liệu pháp ABA tại nhà",
+      "description": "Hỗ trợ dựa trên bằng chứng trong nhà và thói quen hàng ngày của trẻ khi phù hợp lâm sàng."
+    },
+    {
+      "title": "Tư vấn & đánh giá tại phòng khám",
+      "description": "Hỗ trợ tư vấn lâm sàng có cấu trúc và đánh giá tại địa điểm Annandale của Eden."
+    },
+    {
+      "title": "Hợp tác trường học & hỗ trợ IEP",
+      "description": "Điều phối với đội trường học khi được ủy quyền và phù hợp với kế hoạch của trẻ."
+    },
+    {
+      "title": "Đào tạo phụ huynh & hướng dẫn người chăm sóc",
+      "description": "Huấn luyện thực tế giúp gia đình hỗ trợ xây dựng kỹ năng tại nhà và trong cộng đồng."
+    },
+    {
+      "title": "Hỗ trợ sàng lọc & đánh giá tự kỷ",
+      "description": "Lộ trình sàng lọc và đánh giá có thể giúp gia đình hiểu các bước chẩn đoán và dịch vụ tiếp theo."
+    }
+  ],
+  "CLINICAL_COLLABORATION_POINTS": [
+    {
+      "title": "Giấy phép tiết lộ thông tin",
+      "description": "Eden có thể điều phối với nhà cung cấp giới thiệu khi gia đình ủy quyền tiết lộ thông tin và khi giao tiếp hỗ trợ liên tục chăm sóc."
+    },
+    {
+      "title": "Cập nhật tiến bộ & lập kế hoạch",
+      "description": "Khi có sự đồng ý, Eden có thể chia sẻ cập nhật điều trị phù hợp, ghi chú điều phối hoặc tóm tắt lập kế hoạch hỗ trợ chăm sóc hợp tác."
+    },
+    {
+      "title": "Giao tiếp tuân thủ HIPAA",
+      "description": "Thực hành giao tiếp được thiết kế để tôn trọng yêu cầu quyền riêng tư. Eden không tuyên bố rằng cổng nhà cung cấp bên ngoài đầy đủ có sẵn trừ khi được triển khai rõ ràng."
+    },
+    {
+      "title": "Phù hợp liên ngành",
+      "description": "Khi được ủy quyền, Eden có thể thảo luận mục tiêu chung với đối tác ngôn ngữ, nghề nghiệp, y khoa và giáo dục tham gia chăm sóc trẻ."
+    }
+  ],
+  "PROVIDER_RESOURCE_CARDS": [
+    {
+      "title": "Hỗ trợ sàng lọc tự kỷ",
+      "description": "Hướng dẫn về lộ trình sàng lọc và tài nguyên đánh giá có thể hỗ trợ nhận diện sớm."
+    },
+    {
+      "title": "Tổng quan liệu pháp ABA",
+      "description": "Tổng quan về cách tiếp cận ABA dựa trên bằng chứng của Eden cho gia đình được giới thiệu."
+    },
+    {
+      "title": "Xác minh bảo hiểm",
+      "description": "Thông tin về cách gia đình có thể khám phá quyền lợi và chi trả với đội Eden."
+    },
+    {
+      "title": "Intake gia đình",
+      "description": "Quy trình intake gia đình có thể hoàn tất sau khi nhận giới thiệu."
+    },
+    {
+      "title": "Hợp tác trường học",
+      "description": "Cách Eden có thể hợp tác với đội trường học khi phù hợp và được ủy quyền."
+    },
+    {
+      "title": "Điều phối tài liệu lâm sàng",
+      "description": "Thực hành giao tiếp tuân thủ HIPAA khi điều phối với nhà cung cấp giới thiệu."
+    }
+  ],
+  "PROVIDER_FAQ": [
+    {
+      "question": "Eden có cung cấp chẩn đoán không?",
+      "answer": "Eden có thể hỗ trợ lộ trình sàng lọc và đánh giá, nhưng không đảm bảo chẩn đoán. Xác định chẩn đoán phụ thuộc đánh giá lâm sàng, hồ sơ được ủy quyền và tiêu chuẩn chuyên môn áp dụng."
+    },
+    {
+      "question": "Mọi giới thiệu có được chấp nhận cho dịch vụ không?",
+      "answer": "Không. Chấp nhận phụ thuộc xem xét lâm sàng, khu vực dịch vụ, năng lực nhân sự, yêu cầu ủy quyền và sự sẵn sàng của gia đình. Gửi giới thiệu không đảm bảo ghi danh."
+    },
+    {
+      "question": "Eden có đảm bảo chi trả bảo hiểm không?",
+      "answer": "Không. Eden có thể giúp gia đình khám phá quyền lợi và yêu cầu ủy quyền, nhưng chi trả và phê duyệt do bên trả tiền và thiết kế gói quyết định."
+    },
+    {
+      "question": "Tôi nên bao gồm thông tin gì trong giới thiệu?",
+      "answer": "Chi tiết liên hệ người chăm sóc, tuổi hoặc ngày sinh của trẻ, lý do giới thiệu và bất kỳ hồ sơ lâm sàng hoặc giáo dục được ủy quyền nào đều hữu ích. Cần giấy phép tiết lộ thông tin đã ký trước khi chia sẻ hồ sơ lâm sàng."
+    },
+    {
+      "question": "Eden có thể liên lạc với văn phòng tôi về bệnh nhân được giới thiệu không?",
+      "answer": "Eden có thể giao tiếp với nhà cung cấp giới thiệu khi gia đình đã ủy quyền tiết lộ thông tin và khi giao tiếp phù hợp lâm sàng."
+    },
+    {
+      "question": "Eden có hợp tác với trường học không?",
+      "answer": "Khi gia đình ủy quyền, Eden có thể điều phối với đội trường học hoặc IEP để hỗ trợ mục tiêu phù hợp và khái quát hóa kỹ năng qua các bối cảnh."
+    },
+    {
+      "question": "CentralReach Staff Login là gì?",
+      "answer": "CentralReach Essentials là nền tảng lâm sàng và vận hành cho thành viên đội Eden được ủy quyền. Đây không phải cổng giới thiệu bệnh nhân hoặc nhà cung cấp công khai trừ khi Eden tuyên bố rõ ràng khác đi."
+    },
+    {
+      "question": "Eden sẽ liên hệ gia đình được giới thiệu nhanh như thế nào?",
+      "answer": "Thời gian liên hệ có thể thay đổi theo khối lượng intake, thông tin được cung cấp và khả năng của gia đình. Eden không đảm bảo phản hồi ngay lập tức hoặc ngày bắt đầu dịch vụ."
+    }
+  ],
+  "PROVIDER_COMPLIANCE_NOTE": "Gửi giới thiệu không đảm bảo chấp nhận, chẩn đoán, ủy quyền hoặc khả năng sẵn có ngay lập tức. Đủ điều kiện và tùy chọn dịch vụ có thể thay đổi theo gói, địa điểm và nhu cầu lâm sàng. Mọi dịch vụ phải qua xem xét lâm sàng và yêu cầu quyền riêng tư áp dụng.",
+  "PROVIDER_SECTION_NAV": [
+    { "label": "Tổng quan" },
+    { "label": "Giới thiệu Trẻ" },
+    { "label": "Quy trình Giới thiệu" },
+    { "label": "Hợp tác Lâm sàng" }
+  ],
+  "PROVIDERS_MEGA_MENU_LABEL": "CHO NHÀ CUNG CẤP",
+  "PROVIDERS_MEGA_MENU_TAGLINE": "Tài nguyên giới thiệu chuyên môn cho đối tác Bắc Virginia",
+  "PROVIDERS_DEFAULT_PREVIEW": {
+    "categoryLabel": "ĐỐI TÁC NHÀ CUNG CẤP",
+    "headline": "Giới thiệu trẻ đến Eden ABA Therapy",
+    "description": "Hợp tác với Eden để giúp gia đình tiếp cận dịch vụ ABA nhân văn, dựa trên bằng chứng với điều phối tuân thủ HIPAA khi phù hợp.",
+    "cta": "Khám phá tài nguyên nhà cung cấp →"
+  },
+  "PROVIDERS_MENU_ITEMS": [
+    {
+      "label": "Giới thiệu Trẻ",
+      "description": "Gửi giới thiệu chuyên môn hoặc chia sẻ thông tin liên hệ gia đình.",
+      "preview": {
+        "categoryLabel": "GIỚI THIỆU",
+        "headline": "Thực hiện giới thiệu chuyên môn",
+        "description": "Chia sẻ chi tiết giới thiệu qua điện thoại, fax, email hoặc biểu mẫu giới thiệu nhà cung cấp của Eden khi gia đình có thể hưởng lợi từ dịch vụ ABA.",
+        "cta": "Giới thiệu trẻ →"
+      }
+    },
+    {
+      "label": "Cổng Giới thiệu Nhà cung cấp",
+      "description": "Truy cập điểm vào giới thiệu của Eden và các tùy chọn liên hệ bảo mật.",
+      "preview": {
+        "categoryLabel": "CỔNG GIỚI THIỆU",
+        "headline": "Điểm vào giới thiệu nhà cung cấp",
+        "description": "Sử dụng cổng giới thiệu của Eden để chia sẻ thông tin bệnh nhân được ủy quyền và kết nối gia đình với hỗ trợ intake.",
+        "cta": "Mở cổng giới thiệu →"
+      }
+    },
+    {
+      "label": "CentralReach Staff Login",
+      "description": "Truy cập nhân viên Eden được ủy quyền vào CentralReach Essentials.",
+      "preview": {
+        "categoryLabel": "TRUY CẬP NHÂN VIÊN",
+        "headline": "CentralReach Staff Login",
+        "description": "Nhân viên Eden ABA Therapy được ủy quyền có thể đăng nhập CentralReach Essentials cho quy trình lâm sàng và vận hành.",
+        "cta": "CentralReach Staff Login →"
+      }
+    },
+    {
+      "label": "Quy trình Giới thiệu",
+      "description": "Xem lại quy trình intake từ khi nhận giới thiệu đến lập kế hoạch chăm sóc.",
+      "preview": {
+        "categoryLabel": "QUY TRÌNH GIỚI THIỆU",
+        "headline": "Điều gì xảy ra sau khi bạn giới thiệu",
+        "description": "Xem cách Eden có thể xác nhận giới thiệu, liên hệ gia đình, xem xét đủ điều kiện và bắt đầu intake dựa trên xem xét lâm sàng.",
+        "cta": "Xem quy trình giới thiệu →"
+      }
+    },
+    {
+      "label": "Hợp tác Lâm sàng",
+      "description": "Điều phối chăm sóc với nhà cung cấp giới thiệu khi phù hợp và có sự đồng ý.",
+      "preview": {
+        "categoryLabel": "HỢP TÁC",
+        "headline": "Điều phối chăm sóc với Eden",
+        "description": "Tìm hiểu cách Eden có thể hỗ trợ giao tiếp tuân thủ HIPAA và phù hợp liên ngành khi được ủy quyền.",
+        "cta": "Hợp tác lâm sàng →"
+      }
+    },
+    {
+      "label": "Hỗ trợ Sàng lọc Tự kỷ",
+      "description": "Xem xét lịch sử sàng lọc và hướng dẫn lộ trình đánh giá cho gia đình được giới thiệu.",
+      "preview": {
+        "categoryLabel": "HỖ TRỢ SÀNG LỌC",
+        "headline": "Hỗ trợ gia đình sau sàng lọc",
+        "description": "Eden có thể thảo luận lịch sử sàng lọc và các bước đánh giá tiếp theo. Chẩn đoán không được đảm bảo và phụ thuộc xem xét lâm sàng.",
+        "cta": "Hỗ trợ sàng lọc tự kỷ →"
+      }
+    },
+    {
+      "label": "Điều phối Bảo hiểm & Intake",
+      "description": "Yêu cầu quyền lợi, xem xét ủy quyền và hướng dẫn tài liệu intake.",
+      "preview": {
+        "categoryLabel": "ĐIỀU PHỐI INTAKE",
+        "headline": "Hỗ trợ bảo hiểm và intake",
+        "description": "Eden có thể giúp gia đình khám phá quyền lợi và hoàn tất các bước intake. Phê duyệt chi trả phụ thuộc quy tắc bên trả tiền.",
+        "cta": "Bảo hiểm & intake →"
+      }
+    }
+  ]
+}

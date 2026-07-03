@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { usePathname } from "next/navigation";
 import EdenLogo from "@/components/EdenLogo";
 import AboutMeaningAnimation, { type AboutMeaningAnimationType } from "@/components/AboutMeaningAnimation";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   PROVIDERS_DEFAULT_PREVIEW,
   PROVIDERS_MENU_ITEMS,
@@ -121,7 +122,9 @@ export default function ProvidersMegaMenu({
   onClose,
 }: ProvidersMegaMenuProps) {
   const pathname = usePathname() ?? "";
-  const menuItems = useMemo(() => PROVIDERS_MENU_ITEMS, []);
+  const menuItems = useLocalizedContent("PROVIDERS_MENU_ITEMS", PROVIDERS_MENU_ITEMS);
+  const megaMenuLabel = useLocalizedContent("PROVIDERS_MEGA_MENU_LABEL", PROVIDERS_MEGA_MENU_LABEL);
+  const defaultPreview = useLocalizedContent("PROVIDERS_DEFAULT_PREVIEW", PROVIDERS_DEFAULT_PREVIEW);
   const [activeItem, setActiveItem] = useState<ProvidersMenuItem | null>(null);
   const isMobile = variant === "mobile";
 
@@ -152,7 +155,7 @@ export default function ProvidersMegaMenu({
     [handleNavigate],
   );
 
-  const preview = activeItem?.preview ?? PROVIDERS_DEFAULT_PREVIEW;
+  const preview = activeItem?.preview ?? defaultPreview;
   const previewKey = activeItem?.id ?? "providers-default";
   const displayTitle = activeItem?.label ?? preview.headline;
   const previewLabel = preview.categoryLabel;
@@ -169,9 +172,9 @@ export default function ProvidersMegaMenu({
         className="aba-menu-left"
         onMouseLeave={() => setActiveItem(null)}
         role="menu"
-        aria-label={PROVIDERS_MEGA_MENU_LABEL}
+        aria-label={megaMenuLabel}
       >
-        <p className="mega-menu-label">{PROVIDERS_MEGA_MENU_LABEL}</p>
+        <p className="mega-menu-label">{megaMenuLabel}</p>
 
         {menuItems.map((item) => {
           const isHovered = activeItem?.id === item.id;

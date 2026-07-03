@@ -2,11 +2,11 @@
 
 import { BarChart3, CheckCircle2, ClipboardList, LineChart, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function DataDrivenProgress() {
-  const content = OUR_APPROACH_PAGE.dataDriven;
+  const content = useOurApproachPage().dataDriven;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="data-driven-heading">

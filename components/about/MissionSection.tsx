@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { fadeUp, GlassPanel } from "./shared";
 
 export default function MissionSection() {
-  const content = OUR_STORY_PAGE.mission;
+  const content = useOurStoryPage().mission;
 
   return (
     <section

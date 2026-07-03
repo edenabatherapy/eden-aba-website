@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import AboutSiteHeader from "@/components/about/AboutSiteHeader";
 import TeamPageSchema from "@/components/about/TeamPageSchema";
 import StickyCtaBar from "@/components/about/StickyCtaBar";
+import { OurTeamContentProvider } from "@/contexts/OurTeamContent";
 
 const TeamHero = dynamic(() => import("@/components/about/TeamHero"));
 const FoundersSection = dynamic(() => import("@/components/about/FoundersSection"));
@@ -34,6 +35,7 @@ export default function TeamPage() {
   }, [darkMode]);
 
   return (
+    <OurTeamContentProvider>
     <div className={darkMode ? "dark bg-slate-950 text-white" : "eden-page-shell min-h-screen text-slate-900"}>
       <TeamPageSchema />
       <AboutSiteHeader />
@@ -66,5 +68,6 @@ export default function TeamPage() {
 
       <StickyCtaBar />
     </div>
+    </OurTeamContentProvider>
   );
 }

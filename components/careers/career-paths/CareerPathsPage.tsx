@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -35,6 +36,21 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "scroll-mt-28 rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function CareerPathsPage() {
+  const careerPathsAdvancedLeadership = useLocalizedContent("CAREER_PATHS_ADVANCED_LEADERSHIP", CAREER_PATHS_ADVANCED_LEADERSHIP);
+  const careerPathsBcba = useLocalizedContent("CAREER_PATHS_BCBA", CAREER_PATHS_BCBA);
+  const careerPathsBtRbt = useLocalizedContent("CAREER_PATHS_BT_RBT", CAREER_PATHS_BT_RBT);
+  const careerPathsDisclaimer = useLocalizedContent("CAREER_PATHS_DISCLAIMER", CAREER_PATHS_DISCLAIMER);
+  const careerPathsFaq = useLocalizedContent("CAREER_PATHS_FAQ", CAREER_PATHS_FAQ);
+  const careerPathsHeroBadges = useLocalizedContent("CAREER_PATHS_HERO_BADGES", CAREER_PATHS_HERO_BADGES);
+  const careerPathsLongTerm = useLocalizedContent("CAREER_PATHS_LONG_TERM", CAREER_PATHS_LONG_TERM);
+  const careerPathsMentorship = useLocalizedContent("CAREER_PATHS_MENTORSHIP", CAREER_PATHS_MENTORSHIP);
+  const careerPathsOverview = useLocalizedContent("CAREER_PATHS_OVERVIEW", CAREER_PATHS_OVERVIEW);
+  const careerPathsRoleEntries = useLocalizedContent("CAREER_PATHS_ROLE_ENTRIES", CAREER_PATHS_ROLE_ENTRIES);
+  const careerPathsSectionNav = useLocalizedContent("CAREER_PATHS_SECTION_NAV", CAREER_PATHS_SECTION_NAV);
+  const careerPathsStats = useLocalizedContent("CAREER_PATHS_STATS", CAREER_PATHS_STATS);
+  const careerPathsTrainingRoadmap = useLocalizedContent("CAREER_PATHS_TRAINING_ROADMAP", CAREER_PATHS_TRAINING_ROADMAP);
+  const publicCareerProgressionLabels = useLocalizedContent("PUBLIC_CAREER_PROGRESSION_LABELS", PUBLIC_CAREER_PROGRESSION_LABELS);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -70,7 +86,7 @@ export default function CareerPathsPage() {
             mentorship across Northern Virginia.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap justify-center gap-2">
-            {CAREER_PATHS_HERO_BADGES.map((badge) => (
+            {careerPathsHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -91,7 +107,7 @@ export default function CareerPathsPage() {
         </div>
       </section>
 
-      <CareerSectionNav items={[...CAREER_PATHS_SECTION_NAV]} ariaLabel="Career pathways sections" />
+      <CareerSectionNav items={[...careerPathsSectionNav]} ariaLabel="Career pathways sections" />
 
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20 lg:pb-20">
         <RbtScrollReveal>
@@ -99,10 +115,10 @@ export default function CareerPathsPage() {
             <h2 id="overview-heading" className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
               Career Overview
             </h2>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{CAREER_PATHS_OVERVIEW.philosophy}</p>
-            <AnimatedStatCounter stats={CAREER_PATHS_STATS} className="mt-8" />
+            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{careerPathsOverview.philosophy}</p>
+            <AnimatedStatCounter stats={careerPathsStats} className="mt-8" />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {CAREER_PATHS_OVERVIEW.opportunities.map((item) => (
+              {careerPathsOverview.opportunities.map((item) => (
                 <li key={item} className="flex gap-2 rounded-xl border border-teal-100 bg-teal-50/40 px-4 py-3 text-sm text-slate-700">
                   <span className="font-black text-teal-600" aria-hidden="true">
                     ✓
@@ -112,12 +128,12 @@ export default function CareerPathsPage() {
               ))}
             </ul>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-              {PUBLIC_CAREER_PROGRESSION_LABELS.map((step, index) => (
+              {publicCareerProgressionLabels.map((step, index) => (
                 <span key={step} className="flex items-center gap-2 sm:gap-3">
                   <span className="rounded-xl border border-teal-200 bg-teal-50/50 px-3 py-2 text-xs font-extrabold text-teal-900 sm:text-sm">
                     {step}
                   </span>
-                  {index < PUBLIC_CAREER_PROGRESSION_LABELS.length - 1 && (
+                  {index < publicCareerProgressionLabels.length - 1 && (
                     <span className="text-lg font-black text-teal-500" aria-hidden="true">
                       →
                     </span>
@@ -131,11 +147,11 @@ export default function CareerPathsPage() {
         <CareersHomeLadder />
 
         <RbtScrollReveal>
-          <PathwayDetailSection pathway={CAREER_PATHS_BT_RBT} sectionId="bt-rbt-pathway" />
+          <PathwayDetailSection pathway={careerPathsBtRbt} sectionId="bt-rbt-pathway" />
         </RbtScrollReveal>
 
         <RbtScrollReveal>
-          <PathwayDetailSection pathway={CAREER_PATHS_BCBA} sectionId="bcba-pathway" />
+          <PathwayDetailSection pathway={careerPathsBcba} sectionId="bcba-pathway" />
         </RbtScrollReveal>
 
         <RbtScrollReveal>
@@ -157,7 +173,7 @@ export default function CareerPathsPage() {
             <div className="relative mt-10">
               <div className="absolute bottom-8 left-4 top-8 hidden w-0.5 bg-teal-200 sm:block" aria-hidden="true" />
               <ol className="space-y-6">
-                {CAREER_PATHS_TRAINING_ROADMAP.map((phase, index) => (
+                {careerPathsTrainingRoadmap.map((phase, index) => (
                   <motion.li
                     key={phase.period}
                     initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -196,7 +212,7 @@ export default function CareerPathsPage() {
               Mentorship Program
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {CAREER_PATHS_MENTORSHIP.map((item, index) => (
+              {careerPathsMentorship.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -219,7 +235,7 @@ export default function CareerPathsPage() {
               Long-Term Career Planning
             </h2>
             <ul className="mt-8 space-y-4">
-              {CAREER_PATHS_LONG_TERM.map((item, index) => (
+              {careerPathsLongTerm.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -10 }}
@@ -238,8 +254,8 @@ export default function CareerPathsPage() {
               id="advanced-clinical-leadership"
               className="mt-12 rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/30 p-6 sm:p-8"
             >
-              <h3 className="text-xl font-extrabold text-slate-900">{CAREER_PATHS_ADVANCED_LEADERSHIP.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{CAREER_PATHS_ADVANCED_LEADERSHIP.summary}</p>
+              <h3 className="text-xl font-extrabold text-slate-900">{careerPathsAdvancedLeadership.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{careerPathsAdvancedLeadership.summary}</p>
               <ol className="mt-6 space-y-3">
                 {ADVANCED_LEADERSHIP_PATH_STEPS.map((step) => (
                   <li key={step.id} className="rounded-lg border border-teal-100 bg-white p-4 text-sm">
@@ -249,10 +265,10 @@ export default function CareerPathsPage() {
                 ))}
               </ol>
               <Link
-                href={CAREER_PATHS_ADVANCED_LEADERSHIP.detailPageHref}
+                href={careerPathsAdvancedLeadership.detailPageHref}
                 className={`${getButtonClasses("secondary", "inline-flex")} mt-6`}
               >
-                {CAREER_PATHS_ADVANCED_LEADERSHIP.detailPageLabel}
+                {careerPathsAdvancedLeadership.detailPageLabel}
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
@@ -265,7 +281,7 @@ export default function CareerPathsPage() {
               Explore role pages
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-3">
-              {CAREER_PATHS_ROLE_ENTRIES.map((role) => (
+              {careerPathsRoleEntries.map((role) => (
                 <RbtStaggerItem key={role.title}>
                   <Link
                     href={role.href}
@@ -285,12 +301,12 @@ export default function CareerPathsPage() {
         </RbtScrollReveal>
 
         <RbtScrollReveal>
-          <FAQAccordion title="Career pathway FAQ" items={CAREER_PATHS_FAQ} />
+          <FAQAccordion title="Career pathway FAQ" items={careerPathsFaq} />
         </RbtScrollReveal>
 
         <RbtScrollReveal>
           <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-            {CAREER_PATHS_DISCLAIMER}
+            {careerPathsDisclaimer}
           </p>
         </RbtScrollReveal>
       </div>

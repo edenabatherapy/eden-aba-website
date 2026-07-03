@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -153,13 +154,21 @@ export default function BtCareersTabs() {
 }
 
 function TabPanelContent({ tabId }: { tabId: TabId }) {
+  const btFaqItems = useLocalizedContent("BT_FAQ_ITEMS", BT_FAQ_ITEMS);
+  const btGrowthLadderDetailed = useLocalizedContent("BT_GROWTH_LADDER_DETAILED", BT_GROWTH_LADDER_DETAILED);
+  const btInterviewTips = useLocalizedContent("BT_INTERVIEW_TIPS", BT_INTERVIEW_TIPS);
+  const btResponsibilitiesDetailed = useLocalizedContent("BT_RESPONSIBILITIES_DETAILED", BT_RESPONSIBILITIES_DETAILED);
+  const btSkillCategories = useLocalizedContent("BT_SKILL_CATEGORIES", BT_SKILL_CATEGORIES);
+  const btTabOverview = useLocalizedContent("BT_TAB_OVERVIEW", BT_TAB_OVERVIEW);
+  const btTrainingPath = useLocalizedContent("BT_TRAINING_PATH", BT_TRAINING_PATH);
+
   switch (tabId) {
     case "overview":
       return (
         <>
-          <p className="text-base leading-8 text-slate-600">{BT_TAB_OVERVIEW.summary}</p>
+          <p className="text-base leading-8 text-slate-600">{btTabOverview.summary}</p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {BT_TAB_OVERVIEW.highlights.map((item) => (
+            {btTabOverview.highlights.map((item) => (
               <li
                 key={item}
                 className="flex gap-2 rounded-xl bg-lime-50/80 px-4 py-3 text-sm font-semibold leading-6 text-slate-700"
@@ -174,7 +183,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "responsibilities":
       return (
         <ul className="space-y-3">
-          {BT_RESPONSIBILITIES_DETAILED.map((item, i) => (
+          {btResponsibilitiesDetailed.map((item, i) => (
             <li key={item.title} className="rounded-xl border border-lime-200 px-4 py-3">
               <p className="text-sm font-extrabold text-slate-900">
                 {i + 1}. {item.title}
@@ -187,7 +196,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "skills":
       return (
         <div className="grid gap-4 sm:grid-cols-2">
-          {BT_SKILL_CATEGORIES.map((cat) => (
+          {btSkillCategories.map((cat) => (
             <div key={cat.title} className="rounded-xl border border-lime-200 bg-lime-50/40 p-4">
               <h3 className="text-sm font-extrabold text-slate-900">{cat.title}</h3>
               <ul className="mt-2 space-y-1">
@@ -204,9 +213,9 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "training":
       return (
         <>
-          <p className="text-base leading-8 text-slate-600">{BT_TRAINING_PATH.summary}</p>
+          <p className="text-base leading-8 text-slate-600">{btTrainingPath.summary}</p>
           <ol className="mt-4 space-y-2">
-            {BT_TRAINING_PATH.steps.map((step, i) => (
+            {btTrainingPath.steps.map((step, i) => (
               <li key={step} className="flex gap-3 text-sm leading-7 text-slate-600">
                 <span className="font-black text-emerald-700">{i + 1}.</span>
                 {step}
@@ -216,7 +225,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
           <div className="mt-6">
             <p className="text-sm font-semibold text-slate-700">Long-term ladder preview:</p>
             <ul className="mt-2 space-y-2">
-              {BT_GROWTH_LADDER_DETAILED.slice(0, 4).map((step) => (
+              {btGrowthLadderDetailed.slice(0, 4).map((step) => (
                 <li key={step.title} className="text-sm text-slate-600">
                   <span className="font-bold text-slate-800">{step.title}</span> — {step.description}
                 </li>
@@ -228,7 +237,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "interview":
       return (
         <ul className="space-y-3">
-          {BT_INTERVIEW_TIPS.map((tip) => (
+          {btInterviewTips.map((tip) => (
             <li key={tip} className="flex gap-3 rounded-xl border border-lime-200 px-4 py-3 text-sm leading-7 text-slate-600">
               <span className="font-black text-emerald-700" aria-hidden="true">
                 •
@@ -239,7 +248,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
         </ul>
       );
     case "faq":
-      return <FAQAccordion title="" items={BT_FAQ_ITEMS} />;
+      return <FAQAccordion title="" items={btFaqItems} />;
     default:
       return null;
   }

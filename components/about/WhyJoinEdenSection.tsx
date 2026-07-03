@@ -10,13 +10,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const WHY_ICONS = [HeartHandshake, Award, Users, Sparkles, Lightbulb, Rocket];
 
 export default function WhyJoinEdenSection() {
-  const content = OUR_TEAM_PAGE.whyJoin;
+  const content = useOurTeamPage().whyJoin;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="why-join-heading">

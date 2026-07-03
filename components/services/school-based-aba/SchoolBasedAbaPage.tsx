@@ -24,6 +24,7 @@ import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import AnimatedStatCounter from "@/components/careers/hub/AnimatedStatCounter";
 import FAQAccordion from "@/components/getting-started/FAQAccordion";
 import SchoolBasedAbaPageSchema from "@/components/services/school-based-aba/SchoolBasedAbaPageSchema";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   DATA_TRACKING,
   FAMILY_PARTNERSHIP,
@@ -67,18 +68,33 @@ function FloatingEduIcon({ icon: Icon, className, delay = 0 }: { icon: typeof Bo
 }
 
 export default function SchoolBasedAbaPage() {
+  const dataTracking = useLocalizedContent("DATA_TRACKING", DATA_TRACKING);
+  const familyPartnership = useLocalizedContent("FAMILY_PARTNERSHIP", FAMILY_PARTNERSHIP);
+  const iepTabs = useLocalizedContent("IEP_TABS", IEP_TABS);
+  const mtssTiers = useLocalizedContent("MTSS_TIERS", MTSS_TIERS);
+  const schoolAbaFaq = useLocalizedContent("SCHOOL_ABA_FAQ", SCHOOL_ABA_FAQ);
+  const schoolAbaTimeline = useLocalizedContent("SCHOOL_ABA_TIMELINE", SCHOOL_ABA_TIMELINE);
+  const schoolCta = useLocalizedContent("SCHOOL_CTA", SCHOOL_CTA);
+  const schoolHero = useLocalizedContent("SCHOOL_HERO", SCHOOL_HERO);
+  const schoolResourceCategories = useLocalizedContent("SCHOOL_RESOURCE_CATEGORIES", SCHOOL_RESOURCE_CATEGORIES);
+  const schoolResources = useLocalizedContent("SCHOOL_RESOURCES", SCHOOL_RESOURCES);
+  const schoolTeam = useLocalizedContent("SCHOOL_TEAM", SCHOOL_TEAM);
+  const servicesInSchool = useLocalizedContent("SERVICES_IN_SCHOOL", SERVICES_IN_SCHOOL);
+  const successMetrics = useLocalizedContent("SUCCESS_METRICS", SUCCESS_METRICS);
+  const whatIsSchoolAba = useLocalizedContent("WHAT_IS_SCHOOL_ABA", WHAT_IS_SCHOOL_ABA);
+  const whoBenefits = useLocalizedContent("WHO_BENEFITS", WHO_BENEFITS);
   const reduceMotion = useReducedMotion();
   const img = SITE_IMAGES.schoolBasedAba;
-  const [expandedBenefit, setExpandedBenefit] = useState<string | null>(WHO_BENEFITS.items[0]?.id ?? null);
-  const [iepTab, setIepTab] = useState<(typeof IEP_TABS)[number]["id"]>(IEP_TABS[0].id);
+  const [expandedBenefit, setExpandedBenefit] = useState<string | null>(whoBenefits.items[0]?.id ?? null);
+  const [iepTab, setIepTab] = useState<(typeof iepTabs)[number]["id"]>(iepTabs[0].id);
   const [resourceQuery, setResourceQuery] = useState("");
   const [resourceCategory, setResourceCategory] = useState<SchoolResourceCategory | "All">("All");
 
-  const activeIep = IEP_TABS.find((tab) => tab.id === iepTab) ?? IEP_TABS[0];
+  const activeIep = iepTabs.find((tab) => tab.id === iepTab) ?? iepTabs[0];
 
   const filteredResources = useMemo(() => {
     const q = resourceQuery.trim().toLowerCase();
-    return SCHOOL_RESOURCES.filter((resource) => {
+    return schoolResources.filter((resource) => {
       const matchesCategory = resourceCategory === "All" || resource.category === resourceCategory;
       const matchesQuery =
         !q ||
@@ -122,8 +138,8 @@ export default function SchoolBasedAbaPage() {
                 <li className="text-white">School-Based ABA</li>
               </ol>
             </nav>
-            <h1 className="text-3xl font-black leading-tight md:text-5xl lg:text-6xl">{SCHOOL_HERO.title}</h1>
-            <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-white/90">{SCHOOL_HERO.subtitle}</p>
+            <h1 className="text-3xl font-black leading-tight md:text-5xl lg:text-6xl">{schoolHero.title}</h1>
+            <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-white/90">{schoolHero.subtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/schedule-appointment" className={`${getButtonClasses("primarySite")} transition hover:scale-[1.02]`}>
                 Request School Consultation <ArrowRight size={18} aria-hidden />
@@ -137,7 +153,7 @@ export default function SchoolBasedAbaPage() {
             </div>
           </motion.div>
           <motion.div {...heroMotion} transition={{ duration: 0.65, delay: 0.1 }}>
-            <Image src={img.hero} alt={SCHOOL_HERO.imageAlt} width={800} height={640} priority className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-2xl ring-4 ring-white/20" />
+            <Image src={img.hero} alt={schoolHero.imageAlt} width={800} height={640} priority className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-2xl ring-4 ring-white/20" />
           </motion.div>
         </div>
       </section>
@@ -146,11 +162,11 @@ export default function SchoolBasedAbaPage() {
       <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHAT_IS_SCHOOL_ABA.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{WHAT_IS_SCHOOL_ABA.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{whatIsSchoolAba.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{whatIsSchoolAba.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {WHAT_IS_SCHOOL_ABA.cards.map((card, i) => {
+            {whatIsSchoolAba.cards.map((card, i) => {
               const Icon = WHAT_ICONS[i] ?? Sparkles;
               return (
                 <motion.article key={card.title} {...reveal(i * 0.05)} whileHover={reduceMotion ? undefined : { y: -6 }} className={cardClass}>
@@ -168,11 +184,11 @@ export default function SchoolBasedAbaPage() {
       <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHO_BENEFITS.title}</h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{WHO_BENEFITS.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{whoBenefits.title}</h2>
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{whoBenefits.intro}</p>
           </motion.div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {WHO_BENEFITS.items.map((item, i) => {
+            {whoBenefits.items.map((item, i) => {
               const isOpen = expandedBenefit === item.id;
               return (
                 <motion.button
@@ -199,11 +215,11 @@ export default function SchoolBasedAbaPage() {
       <section className="bg-gradient-to-br from-slate-900 via-[#0E6B4F] to-teal-800 px-4 py-16 text-white lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black md:text-4xl">{SCHOOL_ABA_TIMELINE.title}</h2>
-            <p className="mt-4 text-lg font-semibold leading-8 text-white/85">{SCHOOL_ABA_TIMELINE.intro}</p>
+            <h2 className="text-3xl font-black md:text-4xl">{schoolAbaTimeline.title}</h2>
+            <p className="mt-4 text-lg font-semibold leading-8 text-white/85">{schoolAbaTimeline.intro}</p>
           </motion.div>
           <ol className="relative mt-14 space-y-0 border-l-2 border-white/20 pl-8 md:pl-0 md:border-l-0">
-            {SCHOOL_ABA_TIMELINE.steps.map((step, i) => (
+            {schoolAbaTimeline.steps.map((step, i) => (
               <motion.li
                 key={step.title}
                 {...reveal(i * 0.04)}
@@ -226,11 +242,11 @@ export default function SchoolBasedAbaPage() {
       <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{SERVICES_IN_SCHOOL.title}</h2>
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{SERVICES_IN_SCHOOL.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{servicesInSchool.title}</h2>
+            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{servicesInSchool.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {SERVICES_IN_SCHOOL.categories.map((cat, i) => {
+            {servicesInSchool.categories.map((cat, i) => {
               const Icon = SERVICE_ICONS[i] ?? Target;
               return (
                 <motion.article key={cat.title} {...reveal(i * 0.06)} className="rounded-[2rem] border border-blue-100 bg-gradient-to-br from-blue-50/80 via-white to-emerald-50/50 p-8 shadow-lg">
@@ -258,7 +274,7 @@ export default function SchoolBasedAbaPage() {
             IEP Collaboration
           </motion.h2>
           <div className="mt-8 flex flex-wrap justify-center gap-2" role="tablist" aria-label="IEP collaboration topics">
-            {IEP_TABS.map((tab) => (
+            {iepTabs.map((tab) => (
               <button
                 key={tab.id}
                 type="button"
@@ -303,11 +319,11 @@ export default function SchoolBasedAbaPage() {
       <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{MTSS_TIERS.title}</h2>
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{MTSS_TIERS.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{mtssTiers.title}</h2>
+            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{mtssTiers.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {MTSS_TIERS.tiers.map((tier, i) => (
+            {mtssTiers.tiers.map((tier, i) => (
               <motion.article
                 key={tier.tier}
                 {...reveal(i * 0.08)}
@@ -330,10 +346,10 @@ export default function SchoolBasedAbaPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <motion.div {...reveal()}>
-              <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{SCHOOL_TEAM.title}</h2>
-              <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{SCHOOL_TEAM.intro}</p>
+              <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{schoolTeam.title}</h2>
+              <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{schoolTeam.intro}</p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {SCHOOL_TEAM.roles.map((member) => (
+                {schoolTeam.roles.map((member) => (
                   <div key={member.role} className="rounded-xl border border-slate-100 bg-slate-50 px-4 py-3">
                     <p className="text-sm font-black text-emerald-800">{member.role}</p>
                     <p className="mt-1 text-xs font-semibold leading-6 text-slate-600">{member.text}</p>
@@ -357,11 +373,11 @@ export default function SchoolBasedAbaPage() {
       <section className="bg-gradient-to-br from-slate-50 to-emerald-50/40 px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{DATA_TRACKING.title}</h2>
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{DATA_TRACKING.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{dataTracking.title}</h2>
+            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{dataTracking.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {DATA_TRACKING.examples.map((example, i) => (
+            {dataTracking.examples.map((example, i) => (
               <motion.article key={example.title} {...reveal(i * 0.06)} className={cardClass}>
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -390,10 +406,10 @@ export default function SchoolBasedAbaPage() {
       <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl grid items-center gap-10 lg:grid-cols-2">
           <motion.div {...reveal()}>
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{FAMILY_PARTNERSHIP.title}</h2>
-            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{FAMILY_PARTNERSHIP.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{familyPartnership.title}</h2>
+            <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{familyPartnership.intro}</p>
             <ul className="mt-8 space-y-4">
-              {FAMILY_PARTNERSHIP.points.map((point) => (
+              {familyPartnership.points.map((point) => (
                 <li key={point.title} className="flex gap-3">
                   <HeartHandshake className="mt-1 shrink-0 text-emerald-600" size={22} aria-hidden />
                   <div>
@@ -420,7 +436,7 @@ export default function SchoolBasedAbaPage() {
             Frequently Asked Questions
           </motion.h2>
           <motion.div {...reveal(0.08)} className="mt-10">
-            <FAQAccordion items={SCHOOL_ABA_FAQ} />
+            <FAQAccordion items={schoolAbaFaq} />
           </motion.div>
         </div>
       </section>
@@ -446,7 +462,7 @@ export default function SchoolBasedAbaPage() {
               />
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
-              {(["All", ...SCHOOL_RESOURCE_CATEGORIES] as const).map((cat) => (
+              {(["All", ...schoolResourceCategories] as const).map((cat) => (
                 <button
                   key={cat}
                   type="button"
@@ -481,11 +497,11 @@ export default function SchoolBasedAbaPage() {
       <section className="bg-gradient-to-br from-[#1e3a5f] to-[#0E6B4F] px-4 py-16 text-white lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black md:text-4xl">{SUCCESS_METRICS.title}</h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-white/80">{SUCCESS_METRICS.intro}</p>
+            <h2 className="text-3xl font-black md:text-4xl">{successMetrics.title}</h2>
+            <p className="mt-4 text-base font-semibold leading-7 text-white/80">{successMetrics.intro}</p>
           </motion.div>
           <div className="mt-10">
-            <AnimatedStatCounter stats={[...SUCCESS_METRICS.stats]} className="lg:grid-cols-5" />
+            <AnimatedStatCounter stats={[...successMetrics.stats]} className="lg:grid-cols-5" />
           </div>
         </div>
       </section>
@@ -493,17 +509,17 @@ export default function SchoolBasedAbaPage() {
       {/* CTA */}
       <section className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-white to-emerald-50 px-4 py-16 lg:px-8 lg:py-20">
         <motion.div {...reveal()} className="relative mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{SCHOOL_CTA.title}</h2>
-          <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{SCHOOL_CTA.subtitle}</p>
+          <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{schoolCta.title}</h2>
+          <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{schoolCta.subtitle}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/schedule-appointment" className={getButtonClasses("primarySite")}>
-              {SCHOOL_CTA.primaryLabel} <ArrowRight size={18} aria-hidden />
+              {schoolCta.primaryLabel} <ArrowRight size={18} aria-hidden />
             </Link>
             <Link href="/about/contact-us" className={getButtonClasses("secondarySite")}>
-              {SCHOOL_CTA.secondaryLabel}
+              {schoolCta.secondaryLabel}
             </Link>
             <Link href="/intake" className={getButtonClasses("secondarySite")}>
-              {SCHOOL_CTA.tertiaryLabel}
+              {schoolCta.tertiaryLabel}
             </Link>
           </div>
         </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight, Brain, Calendar, DollarSign, Heart, Shield, Sparkles, Stethoscope } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -31,6 +32,19 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "scroll-mt-28 rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function BenefitsCareersPage() {
+  const benefitsFaqBenefits = useLocalizedContent("BENEFITS_FAQ_BENEFITS", BENEFITS_FAQ_BENEFITS);
+  const benefitsFaqEligibility = useLocalizedContent("BENEFITS_FAQ_ELIGIBILITY", BENEFITS_FAQ_ELIGIBILITY);
+  const benefitsFaqTraining = useLocalizedContent("BENEFITS_FAQ_TRAINING", BENEFITS_FAQ_TRAINING);
+  const benefitsHealthItems = useLocalizedContent("BENEFITS_HEALTH_ITEMS", BENEFITS_HEALTH_ITEMS);
+  const benefitsHeroBadges = useLocalizedContent("BENEFITS_HERO_BADGES", BENEFITS_HERO_BADGES);
+  const benefitsHeroJourney = useLocalizedContent("BENEFITS_HERO_JOURNEY", BENEFITS_HERO_JOURNEY);
+  const benefitsOverviewCards = useLocalizedContent("BENEFITS_OVERVIEW_CARDS", BENEFITS_OVERVIEW_CARDS);
+  const benefitsPtoItems = useLocalizedContent("BENEFITS_PTO_ITEMS", BENEFITS_PTO_ITEMS);
+  const benefitsRequiredDisclaimer = useLocalizedContent("BENEFITS_REQUIRED_DISCLAIMER", BENEFITS_REQUIRED_DISCLAIMER);
+  const benefitsSectionNav = useLocalizedContent("BENEFITS_SECTION_NAV", BENEFITS_SECTION_NAV);
+  const benefitsStats = useLocalizedContent("BENEFITS_STATS", BENEFITS_STATS);
+  const compensationPhilosophy = useLocalizedContent("COMPENSATION_PHILOSOPHY", COMPENSATION_PHILOSOPHY);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -71,7 +85,7 @@ export default function BenefitsCareersPage() {
               informational salary estimator for Northern Virginia clinical roles.
             </motion.p>
             <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start">
-              {BENEFITS_HERO_BADGES.map((badge) => (
+              {benefitsHeroBadges.map((badge) => (
                 <li
                   key={badge}
                   className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -98,7 +112,7 @@ export default function BenefitsCareersPage() {
             <p className="text-xs font-black uppercase tracking-[0.14em] text-teal-800">Your benefits journey</p>
             <ol className="relative mt-6 space-y-0">
               <div className="absolute bottom-4 left-[15px] top-4 w-0.5 bg-teal-200" aria-hidden="true" />
-              {BENEFITS_HERO_JOURNEY.map((item, index) => (
+              {benefitsHeroJourney.map((item, index) => (
                 <motion.li
                   key={item.label}
                   initial={reduceMotion ? false : { opacity: 0, x: 12 }}
@@ -117,7 +131,7 @@ export default function BenefitsCareersPage() {
         </div>
       </section>
 
-      <CareerSectionNav items={[...BENEFITS_SECTION_NAV]} ariaLabel="Benefits page sections" />
+      <CareerSectionNav items={[...benefitsSectionNav]} ariaLabel="Benefits page sections" />
 
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20 lg:pb-20">
         <RbtScrollReveal>
@@ -128,9 +142,9 @@ export default function BenefitsCareersPage() {
             <p className="mt-3 max-w-3xl text-base leading-8 text-slate-600">
               Eden&apos;s total rewards approach supports the whole professional—not just the job description.
             </p>
-            <AnimatedStatCounter stats={BENEFITS_STATS} className="mt-8" scaleReveal />
+            <AnimatedStatCounter stats={benefitsStats} className="mt-8" scaleReveal />
             <ul className="mt-10 grid gap-4 lg:grid-cols-3">
-              {BENEFITS_OVERVIEW_CARDS.map((card) => (
+              {benefitsOverviewCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-white to-teal-50/30 p-6 shadow-sm"
@@ -150,7 +164,7 @@ export default function BenefitsCareersPage() {
               Health &amp; Wellness
             </h2>
             <CareerIconGrid
-              items={BENEFITS_HEALTH_ITEMS.map((item, i) => ({
+              items={benefitsHealthItems.map((item, i) => ({
                 ...item,
                 icon: [Stethoscope, Heart, Sparkles, Brain, Shield][i] ?? Heart,
               }))}
@@ -164,7 +178,7 @@ export default function BenefitsCareersPage() {
               PTO &amp; Leave
             </h2>
             <CareerIconGrid
-              items={BENEFITS_PTO_ITEMS.map((item, i) => ({
+              items={benefitsPtoItems.map((item, i) => ({
                 ...item,
                 icon: [Calendar, Heart, Shield, Sparkles][i] ?? Calendar,
               }))}
@@ -186,9 +200,9 @@ export default function BenefitsCareersPage() {
                 Compensation Philosophy
               </h2>
             </div>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{COMPENSATION_PHILOSOPHY.intro}</p>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{compensationPhilosophy.intro}</p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {COMPENSATION_PHILOSOPHY.pillars.map((pillar, index) => (
+              {compensationPhilosophy.pillars.map((pillar, index) => (
                 <motion.li
                   key={pillar.title}
                   initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -225,15 +239,15 @@ export default function BenefitsCareersPage() {
             <h2 id="faq-heading" className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
               Benefits FAQ
             </h2>
-            <FAQAccordion title="Benefits questions" items={BENEFITS_FAQ_BENEFITS} />
-            <FAQAccordion title="Eligibility questions" items={BENEFITS_FAQ_ELIGIBILITY} />
-            <FAQAccordion title="Training & development questions" items={BENEFITS_FAQ_TRAINING} />
+            <FAQAccordion title="Benefits questions" items={benefitsFaqBenefits} />
+            <FAQAccordion title="Eligibility questions" items={benefitsFaqEligibility} />
+            <FAQAccordion title="Training & development questions" items={benefitsFaqTraining} />
           </section>
         </RbtScrollReveal>
 
         <RbtScrollReveal>
           <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-            {BENEFITS_REQUIRED_DISCLAIMER}
+            {benefitsRequiredDisclaimer}
           </p>
         </RbtScrollReveal>
 

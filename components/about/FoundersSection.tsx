@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 function FounderAvatar({ initials, name }: { initials: string; name: string }) {
@@ -18,7 +18,7 @@ function FounderAvatar({ initials, name }: { initials: string; name: string }) {
 }
 
 export default function FoundersSection() {
-  const content = OUR_TEAM_PAGE.founders;
+  const content = useOurTeamPage().founders;
 
   return (
     <section

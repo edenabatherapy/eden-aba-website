@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -19,6 +20,11 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function WhyEdenCareersPage() {
+  const whyEdenChooseCards = useLocalizedContent("WHY_EDEN_CHOOSE_CARDS", WHY_EDEN_CHOOSE_CARDS);
+  const whyEdenDifferentItems = useLocalizedContent("WHY_EDEN_DIFFERENT_ITEMS", WHY_EDEN_DIFFERENT_ITEMS);
+  const whyEdenHeroBadges = useLocalizedContent("WHY_EDEN_HERO_BADGES", WHY_EDEN_HERO_BADGES);
+  const whyEdenThrivesCards = useLocalizedContent("WHY_EDEN_THRIVES_CARDS", WHY_EDEN_THRIVES_CARDS);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -59,7 +65,7 @@ export default function WhyEdenCareersPage() {
             growth across Annandale and Northern Virginia.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap justify-center gap-2">
-            {WHY_EDEN_HERO_BADGES.map((badge) => (
+            {whyEdenHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -92,7 +98,7 @@ export default function WhyEdenCareersPage() {
               grow.
             </p>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {WHY_EDEN_CHOOSE_CARDS.map((card) => (
+              {whyEdenChooseCards.map((card) => (
                 <RbtStaggerItem key={card.title}>
                   <div className="h-full rounded-[1.5rem] border border-teal-100 bg-gradient-to-br from-white to-teal-50/30 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <div className="h-1 w-8 rounded-full bg-teal-600" aria-hidden="true" />
@@ -118,7 +124,7 @@ export default function WhyEdenCareersPage() {
               At Eden, team members are supported by:
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {WHY_EDEN_DIFFERENT_ITEMS.map((item, index) => (
+              {whyEdenDifferentItems.map((item, index) => (
                 <motion.li
                   key={item}
                   initial={reduceMotion ? false : { opacity: 0, x: -10 }}
@@ -197,7 +203,7 @@ export default function WhyEdenCareersPage() {
               Eden is a strong fit for professionals who combine clinical heart with professional discipline.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {WHY_EDEN_THRIVES_CARDS.map((card) => (
+              {whyEdenThrivesCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"

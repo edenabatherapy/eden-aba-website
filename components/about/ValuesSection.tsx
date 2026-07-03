@@ -10,13 +10,13 @@ import {
   Users,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const VALUE_ICONS = [HeartHandshake, Award, Users, ShieldCheck, Sparkles, Target];
 
 export default function ValuesSection() {
-  const values = OUR_STORY_PAGE.values.items;
+  const values = useOurStoryPage().values.items;
 
   return (
     <section className="bg-slate-50 px-4 py-20 dark:bg-slate-900/50 lg:px-8" aria-labelledby="core-values-heading">

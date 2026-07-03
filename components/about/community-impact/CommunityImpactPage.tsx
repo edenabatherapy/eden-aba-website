@@ -10,6 +10,7 @@ import AboutSectionNav from "@/components/about/AboutSectionNav";
 import { AnimatedCounter, fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "@/components/about/shared";
 import MasonryGallery from "@/components/careers/life-at-eden/MasonryGallery";
 import VideoHighlightCards from "@/components/careers/life-at-eden/VideoHighlightCards";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   ADVOCACY_EDUCATION,
   ANNUAL_HIGHLIGHTS,
@@ -52,6 +53,21 @@ function StatCard({ label, value, suffix, detail }: (typeof COMMUNITY_STATS)[num
 }
 
 export default function CommunityImpactPage() {
+  const advocacyEducation = useLocalizedContent("ADVOCACY_EDUCATION", ADVOCACY_EDUCATION);
+  const annualHighlights = useLocalizedContent("ANNUAL_HIGHLIGHTS", ANNUAL_HIGHLIGHTS);
+  const awarenessInitiatives = useLocalizedContent("AWARENESS_INITIATIVES", AWARENESS_INITIATIVES);
+  const communityGallery = useLocalizedContent("COMMUNITY_GALLERY", COMMUNITY_GALLERY);
+  const communitySectionNav = useLocalizedContent("COMMUNITY_IMPACT_SECTION_NAV", COMMUNITY_IMPACT_SECTION_NAV);
+  const communityPartners = useLocalizedContent("COMMUNITY_PARTNERS", COMMUNITY_PARTNERS);
+  const communityStats = useLocalizedContent("COMMUNITY_STATS", COMMUNITY_STATS);
+  const communityTimeline = useLocalizedContent("COMMUNITY_TIMELINE", COMMUNITY_TIMELINE);
+  const communityVideos = useLocalizedContent("COMMUNITY_VIDEOS", COMMUNITY_VIDEOS);
+  const familyEvents = useLocalizedContent("FAMILY_EVENTS", FAMILY_EVENTS);
+  const futureInitiatives = useLocalizedContent("FUTURE_INITIATIVES", FUTURE_INITIATIVES);
+  const photoSections = useLocalizedContent("PHOTO_SECTIONS", PHOTO_SECTIONS);
+  const schoolPartnerships = useLocalizedContent("SCHOOL_PARTNERSHIPS", SCHOOL_PARTNERSHIPS);
+  const successStories = useLocalizedContent("SUCCESS_STORIES", SUCCESS_STORIES);
+  const volunteerPrograms = useLocalizedContent("VOLUNTEER_PROGRAMS", VOLUNTEER_PROGRAMS);
   const reduceMotion = useReducedMotion();
 
   return (
@@ -96,7 +112,7 @@ export default function CommunityImpactPage() {
         </div>
       </section>
 
-      <AboutSectionNav items={[...COMMUNITY_IMPACT_SECTION_NAV]} ariaLabel="Community Impact sections" />
+      <AboutSectionNav items={[...communitySectionNav]} ariaLabel="Community Impact sections" />
 
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20">
         <section id="overview" className={FRAME} aria-labelledby="overview-heading">
@@ -115,7 +131,7 @@ export default function CommunityImpactPage() {
             viewport={{ once: true }}
             className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {COMMUNITY_STATS.map((stat) => (
+            {communityStats.map((stat) => (
               <StatCard key={stat.label} {...stat} />
             ))}
           </motion.ul>
@@ -127,7 +143,7 @@ export default function CommunityImpactPage() {
             Event Gallery &amp; Gatherings
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {FAMILY_EVENTS.map((event) => (
+            {familyEvents.map((event) => (
               <li
                 key={event.title}
                 className="rounded-2xl border border-emerald-100 p-5 transition hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700"
@@ -139,7 +155,7 @@ export default function CommunityImpactPage() {
             ))}
           </ul>
           <div className="mt-10">
-            <MasonryGallery items={COMMUNITY_GALLERY} />
+            <MasonryGallery items={communityGallery} />
           </div>
         </section>
 
@@ -149,7 +165,7 @@ export default function CommunityImpactPage() {
             Raising Awareness Year-Round
           </h2>
           <ul className="mt-8 space-y-3">
-            {AWARENESS_INITIATIVES.map((item) => (
+            {awarenessInitiatives.map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-7 text-slate-700 dark:text-slate-200">
                 <Megaphone className="mt-0.5 shrink-0 text-emerald-700" size={16} aria-hidden="true" />
                 {item}
@@ -164,7 +180,7 @@ export default function CommunityImpactPage() {
             Supporting Educators &amp; Students
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-            {SCHOOL_PARTNERSHIPS.map((item) => (
+            {schoolPartnerships.map((item) => (
               <li key={item.title} className="rounded-2xl border border-emerald-100 bg-emerald-50/40 p-5 dark:border-slate-700 dark:bg-slate-800/40">
                 <School className="text-emerald-700" size={22} aria-hidden="true" />
                 <p className="mt-3 text-base font-extrabold text-slate-900 dark:text-white">{item.title}</p>
@@ -180,7 +196,7 @@ export default function CommunityImpactPage() {
             Partners Across Northern Virginia
           </h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {COMMUNITY_PARTNERS.map((partner) => (
+            {communityPartners.map((partner) => (
               <li key={partner} className="rounded-xl border border-emerald-100 px-4 py-3 text-sm font-semibold text-slate-700 dark:border-slate-700 dark:text-slate-200">
                 {partner}
               </li>
@@ -194,7 +210,7 @@ export default function CommunityImpactPage() {
             Give Back With Eden
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-            {VOLUNTEER_PROGRAMS.map((program) => (
+            {volunteerPrograms.map((program) => (
               <li key={program.title} className="rounded-2xl border border-emerald-100 p-5 dark:border-slate-700">
                 <p className="text-base font-extrabold text-slate-900 dark:text-white">{program.title}</p>
                 <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">{program.description}</p>
@@ -209,7 +225,7 @@ export default function CommunityImpactPage() {
             Empowering Families &amp; Referral Partners
           </h2>
           <ul className="mt-8 space-y-3">
-            {ADVOCACY_EDUCATION.map((item) => (
+            {advocacyEducation.map((item) => (
               <li key={item} className="rounded-xl bg-emerald-50/60 px-4 py-3 text-sm leading-7 text-slate-700 dark:bg-slate-800/60 dark:text-slate-200">
                 {item}
               </li>
@@ -223,7 +239,7 @@ export default function CommunityImpactPage() {
             Success Stories
           </h2>
           <ul className="mt-8 grid gap-4 lg:grid-cols-3">
-            {SUCCESS_STORIES.map((story, index) => (
+            {successStories.map((story, index) => (
               <motion.li
                 key={story.attribution}
                 initial={reduceMotion ? false : { opacity: 0, y: 20 }}
@@ -240,7 +256,7 @@ export default function CommunityImpactPage() {
             ))}
           </ul>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {PHOTO_SECTIONS.map((section) => (
+            {photoSections.map((section) => (
               <article key={section.title} className="overflow-hidden rounded-2xl border border-emerald-100 dark:border-slate-700">
                 <div className="relative aspect-[16/10] bg-emerald-50">
                   <Image src={section.image} alt={section.title} fill className="object-cover" sizes="(max-width:768px) 100vw, 50vw" />
@@ -253,7 +269,7 @@ export default function CommunityImpactPage() {
             ))}
           </div>
           <div className="mt-10">
-            <VideoHighlightCards videos={COMMUNITY_VIDEOS} />
+            <VideoHighlightCards videos={communityVideos} />
           </div>
         </section>
 
@@ -263,7 +279,7 @@ export default function CommunityImpactPage() {
             2025 at a Glance
           </h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {ANNUAL_HIGHLIGHTS.map((item) => (
+            {annualHighlights.map((item) => (
               <li key={item.label} className="rounded-2xl bg-emerald-700 p-6 text-center text-white">
                 <p className="text-3xl font-extrabold">{item.metric}</p>
                 <p className="mt-2 text-sm font-semibold text-emerald-50">{item.label}</p>
@@ -284,7 +300,7 @@ export default function CommunityImpactPage() {
             viewport={{ once: true }}
             className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {COMMUNITY_TIMELINE.map((entry) => (
+            {communityTimeline.map((entry) => (
               <motion.li
                 key={entry.year}
                 variants={staggerItem}
@@ -297,7 +313,7 @@ export default function CommunityImpactPage() {
             ))}
           </motion.ol>
           <ul className="mt-10 space-y-3 border-t border-emerald-100 pt-8 dark:border-slate-700">
-            {FUTURE_INITIATIVES.map((item) => (
+            {futureInitiatives.map((item) => (
               <li key={item} className="text-sm leading-7 text-slate-700 dark:text-slate-200">
                 → {item}
               </li>

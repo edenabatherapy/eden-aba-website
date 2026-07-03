@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import {
   BookOpen,
@@ -30,9 +33,13 @@ const RESOURCE_ICONS = {
 } as const;
 
 export function ProviderServiceGrid() {
+  const edenServicesForReferrals = useLocalizedContent("EDEN_SERVICES_FOR_REFERRALS", EDEN_SERVICES_FOR_REFERRALS);
+  const providerResourceCards = useLocalizedContent("PROVIDER_RESOURCE_CARDS", PROVIDER_RESOURCE_CARDS);
+  const whoCanRefer = useLocalizedContent("WHO_CAN_REFER", WHO_CAN_REFER);
+
   return (
     <div className="eden-providers-grid eden-providers-grid--2">
-      {EDEN_SERVICES_FOR_REFERRALS.map((service) => {
+      {edenServicesForReferrals.map((service) => {
         const Icon = SERVICE_ICONS[service.icon];
         return (
           <article key={service.title} className="eden-providers-card">
@@ -49,9 +56,12 @@ export function ProviderServiceGrid() {
 }
 
 export function ProviderResourceGrid() {
+  const providerResourceCards = useLocalizedContent("PROVIDER_RESOURCE_CARDS", PROVIDER_RESOURCE_CARDS);
+  const whoCanRefer = useLocalizedContent("WHO_CAN_REFER", WHO_CAN_REFER);
+
   return (
     <div className="eden-providers-grid eden-providers-grid--3">
-      {PROVIDER_RESOURCE_CARDS.map((card) => {
+      {providerResourceCards.map((card) => {
         const Icon = RESOURCE_ICONS[card.icon];
         return (
           <article key={card.title} className="eden-providers-card">
@@ -71,9 +81,11 @@ export function ProviderResourceGrid() {
 }
 
 export function ProviderWhoCanReferGrid() {
+  const whoCanRefer = useLocalizedContent("WHO_CAN_REFER", WHO_CAN_REFER);
+
   return (
     <div className="eden-providers-grid eden-providers-grid--3">
-      {WHO_CAN_REFER.map((partner) => (
+      {whoCanRefer.map((partner) => (
         <article key={partner.title} className="eden-providers-card">
           <div className="eden-providers-card__icon" aria-hidden="true">
             <HeartHandshake size={18} />

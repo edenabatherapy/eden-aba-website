@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import CtaLink from "@/components/about/CtaLink";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, GlassPanel } from "./shared";
 
 export default function MissionFinalCTA() {
-  const content = MISSION_VALUES_PAGE.finalCta;
+  const content = useMissionValuesPage().finalCta;
 
   return (
     <section className="px-4 pb-28 lg:px-8 dark:bg-slate-950" aria-labelledby="mission-final-cta-heading">

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { ArrowRight, Phone } from "lucide-react";
 import ProviderComplianceNote from "@/components/providers/ProviderComplianceNote";
 import { ProviderResourceGrid, ProviderServiceGrid, ProviderWhoCanReferGrid } from "@/components/providers/ProviderCardGrids";
@@ -33,6 +34,15 @@ import {
 import "./providers-pages.css";
 
 export default function ProvidersHubPage() {
+  const autismScreeningSupport = useLocalizedContent("AUTISM_SCREENING_SUPPORT", AUTISM_SCREENING_SUPPORT);
+  const clinicalCollaborationPoints = useLocalizedContent("CLINICAL_COLLABORATION_POINTS", CLINICAL_COLLABORATION_POINTS);
+  const familyCommunicationWorkflow = useLocalizedContent("FAMILY_COMMUNICATION_WORKFLOW", FAMILY_COMMUNICATION_WORKFLOW);
+  const helpfulReferralDocuments = useLocalizedContent("HELPFUL_REFERRAL_DOCUMENTS", HELPFUL_REFERRAL_DOCUMENTS);
+  const insuranceIntakeCoordination = useLocalizedContent("INSURANCE_INTAKE_COORDINATION", INSURANCE_INTAKE_COORDINATION);
+  const providerOverview = useLocalizedContent("PROVIDER_OVERVIEW", PROVIDER_OVERVIEW);
+  const schoolIepCoordination = useLocalizedContent("SCHOOL_IEP_COORDINATION", SCHOOL_IEP_COORDINATION);
+  const whenToConsiderAbaReferral = useLocalizedContent("WHEN_TO_CONSIDER_ABA_REFERRAL", WHEN_TO_CONSIDER_ABA_REFERRAL);
+
   return (
     <ProviderPageShell
       breadcrumbs={[
@@ -63,12 +73,12 @@ export default function ProvidersHubPage() {
       <ProviderSection
         id={PROVIDER_HUB_SECTION_IDS.overview}
         eyebrow="Overview"
-        title={PROVIDER_OVERVIEW.title}
-        description={PROVIDER_OVERVIEW.paragraphs[0]}
+        title={providerOverview.title}
+        description={providerOverview.paragraphs[0]}
         variant="soft"
       >
         <div className="eden-providers-prose">
-          {PROVIDER_OVERVIEW.paragraphs.slice(1).map((paragraph) => (
+          {providerOverview.paragraphs.slice(1).map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
         </div>
@@ -91,7 +101,7 @@ export default function ProvidersHubPage() {
         variant="muted"
       >
         <div className="eden-providers-grid eden-providers-grid--2">
-          {WHEN_TO_CONSIDER_ABA_REFERRAL.map((item) => (
+          {whenToConsiderAbaReferral.map((item) => (
             <article key={item.title} className="eden-providers-card">
               <h3 className="eden-providers-card__title">{item.title}</h3>
               <p className="eden-providers-card__text">{item.description}</p>
@@ -107,7 +117,7 @@ export default function ProvidersHubPage() {
         description="Including the following information may help Eden respond efficiently. Share only records the family has authorized."
       >
         <ul className="eden-providers-checklist">
-          {HELPFUL_REFERRAL_DOCUMENTS.map((item) => (
+          {helpfulReferralDocuments.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -119,12 +129,12 @@ export default function ProvidersHubPage() {
       <ProviderSection
         id={PROVIDER_HUB_SECTION_IDS.screening}
         eyebrow="Screening support"
-        title={AUTISM_SCREENING_SUPPORT.title}
-        description={AUTISM_SCREENING_SUPPORT.intro}
+        title={autismScreeningSupport.title}
+        description={autismScreeningSupport.intro}
         variant="soft"
       >
         <div className="eden-providers-grid eden-providers-grid--2">
-          {AUTISM_SCREENING_SUPPORT.points.map((point) => (
+          {autismScreeningSupport.points.map((point) => (
             <article key={point.title} className="eden-providers-card">
               <h3 className="eden-providers-card__title">{point.title}</h3>
               <p className="eden-providers-card__text">{point.description}</p>
@@ -132,7 +142,7 @@ export default function ProvidersHubPage() {
           ))}
         </div>
         <div className="eden-providers-actions eden-providers-actions--spaced">
-          <ProviderButton href={AUTISM_SCREENING_SUPPORT.resourceHref} variant="secondary">
+          <ProviderButton href={autismScreeningSupport.resourceHref} variant="secondary">
             Learn about screening & evaluation
           </ProviderButton>
         </div>
@@ -141,11 +151,11 @@ export default function ProvidersHubPage() {
       <ProviderSection
         id={PROVIDER_HUB_SECTION_IDS.insurance}
         eyebrow="Intake coordination"
-        title={INSURANCE_INTAKE_COORDINATION.title}
-        description={INSURANCE_INTAKE_COORDINATION.intro}
+        title={insuranceIntakeCoordination.title}
+        description={insuranceIntakeCoordination.intro}
       >
         <ol className="eden-providers-steps-list">
-          {INSURANCE_INTAKE_COORDINATION.steps.map((step, index) => (
+          {insuranceIntakeCoordination.steps.map((step, index) => (
             <li key={step.title} className="eden-providers-steps-list__item">
               <span className="eden-providers-steps-list__index">{String(index + 1).padStart(2, "0")}</span>
               <div>
@@ -156,7 +166,7 @@ export default function ProvidersHubPage() {
           ))}
         </ol>
         <div className="eden-providers-actions eden-providers-actions--spaced">
-          <ProviderButton href={INSURANCE_INTAKE_COORDINATION.resourceHref} variant="secondary">
+          <ProviderButton href={insuranceIntakeCoordination.resourceHref} variant="secondary">
             Insurance coverage information
           </ProviderButton>
         </div>
@@ -186,7 +196,7 @@ export default function ProvidersHubPage() {
         description="Eden may support care coordination with referring providers when appropriate and with proper consent. Communication practices are designed to be HIPAA-conscious."
       >
         <div className="eden-providers-grid eden-providers-grid--2">
-          {CLINICAL_COLLABORATION_POINTS.map((point) => (
+          {clinicalCollaborationPoints.map((point) => (
             <article key={point.title} className="eden-providers-card">
               <h3 className="eden-providers-card__title">{point.title}</h3>
               <p className="eden-providers-card__text">{point.description}</p>
@@ -201,12 +211,12 @@ export default function ProvidersHubPage() {
       <ProviderSection
         id={PROVIDER_HUB_SECTION_IDS.schoolIep}
         eyebrow="School coordination"
-        title={SCHOOL_IEP_COORDINATION.title}
-        description={SCHOOL_IEP_COORDINATION.intro}
+        title={schoolIepCoordination.title}
+        description={schoolIepCoordination.intro}
         variant="muted"
       >
         <ul className="eden-providers-checklist">
-          {SCHOOL_IEP_COORDINATION.points.map((point) => (
+          {schoolIepCoordination.points.map((point) => (
             <li key={point}>{point}</li>
           ))}
         </ul>
@@ -224,7 +234,7 @@ export default function ProvidersHubPage() {
         description="Eden may guide families through intake with clear expectations while respecting privacy and authorization requirements."
       >
         <ol className="eden-providers-steps-list">
-          {FAMILY_COMMUNICATION_WORKFLOW.map((step, index) => (
+          {familyCommunicationWorkflow.map((step, index) => (
             <li key={step.step} className="eden-providers-steps-list__item">
               <span className="eden-providers-steps-list__index">{String(index + 1).padStart(2, "0")}</span>
               <div>

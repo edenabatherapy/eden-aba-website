@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -12,6 +13,8 @@ const inputClassName =
 const RESUME_EMAIL = "info@edenabatherapy.com";
 
 export default function TalentNetworkForm() {
+  const filterOptions = useLocalizedContent("FILTER_OPTIONS", FILTER_OPTIONS);
+
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -67,7 +70,7 @@ export default function TalentNetworkForm() {
         </span>
         <select name="credential" className={inputClassName} defaultValue="">
           <option value="">Select credential (optional)</option>
-          {FILTER_OPTIONS.credentials.map((credential) => (
+          {filterOptions.credentials.map((credential) => (
             <option key={credential} value={credential}>
               {credential}
             </option>
@@ -82,7 +85,7 @@ export default function TalentNetworkForm() {
           <option value="" disabled>
             Select a location
           </option>
-          {FILTER_OPTIONS.locations.map((location) => (
+          {filterOptions.locations.map((location) => (
             <option key={location} value={location}>
               {location}
             </option>
@@ -97,7 +100,7 @@ export default function TalentNetworkForm() {
           <option value="" disabled>
             Select employment type
           </option>
-          {FILTER_OPTIONS.employmentTypes.map((type) => (
+          {filterOptions.employmentTypes.map((type) => (
             <option key={type} value={type}>
               {type}
             </option>

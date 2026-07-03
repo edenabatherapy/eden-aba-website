@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -12,6 +13,9 @@ import { getButtonClasses } from "@/lib/button-styles";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function ClinicalLeadershipHeroSection() {
+  const clHeroBadges = useLocalizedContent("CL_HERO_BADGES", CL_HERO_BADGES);
+  const clHeroImpactSteps = useLocalizedContent("CL_HERO_IMPACT_STEPS", CL_HERO_IMPACT_STEPS);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -55,7 +59,7 @@ export default function ClinicalLeadershipHeroSection() {
             mentorship, and scalable care systems.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap gap-2">
-            {CL_HERO_BADGES.map((badge) => (
+            {clHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -97,7 +101,7 @@ export default function ClinicalLeadershipHeroSection() {
                 style={{ transformOrigin: "top" }}
               />
             </div>
-            {CL_HERO_IMPACT_STEPS.map((item, index) => (
+            {clHeroImpactSteps.map((item, index) => (
               <motion.li
                 key={item.label}
                 initial={reduceMotion ? false : { opacity: 0, x: 12 }}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -40,6 +41,26 @@ const FRAME =
   "rounded-[2rem] border border-emerald-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function RbtCareersPage() {
+  const rbtBacbNotice = useLocalizedContent("RBT_BACB_NOTICE", RBT_BACB_NOTICE);
+  const rbtCandidateFit = useLocalizedContent("RBT_CANDIDATE_FIT", RBT_CANDIDATE_FIT);
+  const rbtConfidenceCards = useLocalizedContent("RBT_CONFIDENCE_CARDS", RBT_CONFIDENCE_CARDS);
+  const rbtDayTimeline = useLocalizedContent("RBT_DAY_TIMELINE", RBT_DAY_TIMELINE);
+  const rbtInterviewPrepCards = useLocalizedContent("RBT_INTERVIEW_PREP_CARDS", RBT_INTERVIEW_PREP_CARDS);
+  const rbtJourneyTimeline = useLocalizedContent("RBT_JOURNEY_TIMELINE", RBT_JOURNEY_TIMELINE);
+  const rbtLearningPathway = useLocalizedContent("RBT_LEARNING_PATHWAY", RBT_LEARNING_PATHWAY);
+  const rbtMotivationStats = useLocalizedContent("RBT_MOTIVATION_STATS", RBT_MOTIVATION_STATS);
+  const rbtOverviewCards = useLocalizedContent("RBT_OVERVIEW_CARDS", RBT_OVERVIEW_CARDS);
+  const rbtPhotoGalleryExtended = useLocalizedContent("RBT_PHOTO_GALLERY_EXTENDED", RBT_PHOTO_GALLERY_EXTENDED);
+  const rbtPreferredQualifications = useLocalizedContent("RBT_PREFERRED_QUALIFICATIONS", RBT_PREFERRED_QUALIFICATIONS);
+  const rbtRequiredQualifications = useLocalizedContent("RBT_REQUIRED_QUALIFICATIONS", RBT_REQUIRED_QUALIFICATIONS);
+  const rbtResponsibilitiesDetailed = useLocalizedContent("RBT_RESPONSIBILITIES_DETAILED", RBT_RESPONSIBILITIES_DETAILED);
+  const rbtRoleSnapshot = useLocalizedContent("RBT_ROLE_SNAPSHOT", RBT_ROLE_SNAPSHOT);
+  const rbtSampleInterviewQuestions = useLocalizedContent("RBT_SAMPLE_INTERVIEW_QUESTIONS", RBT_SAMPLE_INTERVIEW_QUESTIONS);
+  const rbtSkillCategories = useLocalizedContent("RBT_SKILL_CATEGORIES", RBT_SKILL_CATEGORIES);
+  const rbtSkills = useLocalizedContent("RBT_SKILLS", RBT_SKILLS);
+  const rbtSupportCards = useLocalizedContent("RBT_SUPPORT_CARDS", RBT_SUPPORT_CARDS);
+  const rbtSupportDisclaimer = useLocalizedContent("RBT_SUPPORT_DISCLAIMER", RBT_SUPPORT_DISCLAIMER);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -68,7 +89,7 @@ export default function RbtCareersPage() {
             </p>
           </RbtScrollReveal>
           <RbtStaggerGrid className="mt-10 grid gap-4 sm:grid-cols-3">
-            {RBT_MOTIVATION_STATS.map((stat) => (
+            {rbtMotivationStats.map((stat) => (
               <RbtStaggerItem key={stat.title}>
                 <div className="h-full rounded-[1.5rem] border border-emerald-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                   <p className="text-2xl font-black text-emerald-700">•</p>
@@ -92,7 +113,7 @@ export default function RbtCareersPage() {
               From application to long-term growth—here is how many Eden RBT careers take shape.
             </p>
             <ol className="relative mt-10 space-y-0">
-              {RBT_JOURNEY_TIMELINE.map((item, index) => (
+              {rbtJourneyTimeline.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -16 }}
@@ -101,7 +122,7 @@ export default function RbtCareersPage() {
                   transition={{ duration: 0.45, delay: index * 0.08, ease: EASE_OUT }}
                   className="relative flex gap-5 pb-10 last:pb-0"
                 >
-                  {index < RBT_JOURNEY_TIMELINE.length - 1 && (
+                  {index < rbtJourneyTimeline.length - 1 && (
                     <span className="absolute left-4 top-10 h-[calc(100%-0.5rem)] w-0.5 bg-emerald-200" aria-hidden="true" />
                   )}
                   <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-black text-white">
@@ -130,7 +151,7 @@ export default function RbtCareersPage() {
               families and supervisors.
             </p>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-3">
-              {RBT_OVERVIEW_CARDS.map((card) => (
+              {rbtOverviewCards.map((card) => (
                 <RbtStaggerItem key={card.title}>
                   <div className="h-full rounded-[1.5rem] border border-emerald-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-slate-900">{card.title}</h3>
@@ -150,12 +171,12 @@ export default function RbtCareersPage() {
             </h2>
             <dl className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                ["Role Type", RBT_ROLE_SNAPSHOT.roleType],
-                ["Supervision", RBT_ROLE_SNAPSHOT.supervision],
-                ["Service Setting", RBT_ROLE_SNAPSHOT.serviceSetting],
-                ["Focus Areas", RBT_ROLE_SNAPSHOT.focusAreas],
-                ["Growth Path", RBT_ROLE_SNAPSHOT.growthPath],
-                ["Best Fit", RBT_ROLE_SNAPSHOT.bestFit],
+                ["Role Type", rbtRoleSnapshot.roleType],
+                ["Supervision", rbtRoleSnapshot.supervision],
+                ["Service Setting", rbtRoleSnapshot.serviceSetting],
+                ["Focus Areas", rbtRoleSnapshot.focusAreas],
+                ["Growth Path", rbtRoleSnapshot.growthPath],
+                ["Best Fit", rbtRoleSnapshot.bestFit],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-xl border border-emerald-100 bg-white px-4 py-3">
                   <dt className="text-xs font-black uppercase tracking-[0.12em] text-emerald-700">{label}</dt>
@@ -173,7 +194,7 @@ export default function RbtCareersPage() {
               Skill areas that matter
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-2">
-              {RBT_SKILL_CATEGORIES.map((cat) => (
+              {rbtSkillCategories.map((cat) => (
                 <RbtStaggerItem key={cat.title}>
                   <div className="h-full rounded-[1.5rem] border border-emerald-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-emerald-800">{cat.title}</h3>
@@ -202,7 +223,7 @@ export default function RbtCareersPage() {
             </h2>
             <p className="mt-3 text-base leading-8 text-slate-600">You&apos;ll build confidence in:</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {RBT_LEARNING_PATHWAY.map((item) => (
+              {rbtLearningPathway.map((item) => (
                 <li
                   key={item}
                   className="rounded-xl bg-emerald-50/70 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-emerald-100/80"
@@ -225,7 +246,7 @@ export default function RbtCareersPage() {
               communication.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {RBT_RESPONSIBILITIES_DETAILED.map((item, index) => (
+              {rbtResponsibilitiesDetailed.map((item, index) => (
                 <motion.li
                   key={item.title}
                   whileHover={reduceMotion ? undefined : { y: -4, scale: 1.01 }}
@@ -256,7 +277,7 @@ export default function RbtCareersPage() {
               Skills Eden looks for
             </h2>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {RBT_SKILLS.map((skill) => (
+              {rbtSkills.map((skill) => (
                 <li
                   key={skill}
                   className="flex items-center gap-3 rounded-xl border border-emerald-100 bg-white px-4 py-3.5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
@@ -280,7 +301,7 @@ export default function RbtCareersPage() {
               grow through practice, feedback, consistency, and teamwork.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {RBT_CONFIDENCE_CARDS.map((card) => (
+              {rbtConfidenceCards.map((card) => (
                 <li key={card.title} className="rounded-xl border border-emerald-100 bg-white p-5 shadow-sm">
                   <h3 className="font-extrabold text-slate-900">{card.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{card.description}</p>
@@ -297,7 +318,7 @@ export default function RbtCareersPage() {
               This role may be a strong fit if you are:
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {RBT_CANDIDATE_FIT.map((item) => (
+              {rbtCandidateFit.map((item) => (
                 <li
                   key={item}
                   className="rounded-[1.25rem] border border-emerald-100 bg-emerald-50/50 p-5 transition hover:-translate-y-0.5 hover:shadow-sm"
@@ -319,7 +340,7 @@ export default function RbtCareersPage() {
               <div className="rounded-[1.5rem] border border-emerald-100 bg-white p-6 shadow-sm">
                 <h3 className="text-lg font-extrabold text-slate-900">Required / Expected</h3>
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
-                  {RBT_REQUIRED_QUALIFICATIONS.map((item) => (
+                  {rbtRequiredQualifications.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -327,14 +348,14 @@ export default function RbtCareersPage() {
               <div className="rounded-[1.5rem] border border-teal-100 bg-teal-50/30 p-6 shadow-sm">
                 <h3 className="text-lg font-extrabold text-slate-900">Preferred</h3>
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-slate-600">
-                  {RBT_PREFERRED_QUALIFICATIONS.map((item) => (
+                  {rbtPreferredQualifications.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
             </div>
             <p className="mt-6 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-              {RBT_BACB_NOTICE}
+              {rbtBacbNotice}
             </p>
           </section>
         </RbtScrollReveal>
@@ -354,7 +375,7 @@ export default function RbtCareersPage() {
               How to stand out in your RBT interview
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {RBT_INTERVIEW_PREP_CARDS.map((card) => (
+              {rbtInterviewPrepCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-emerald-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -365,7 +386,7 @@ export default function RbtCareersPage() {
               ))}
             </ul>
             <div className="mt-10">
-              <FAQAccordion title="Sample interview questions to prepare for" items={RBT_SAMPLE_INTERVIEW_QUESTIONS} />
+              <FAQAccordion title="Sample interview questions to prepare for" items={rbtSampleInterviewQuestions} />
             </div>
           </section>
         </RbtScrollReveal>
@@ -380,7 +401,7 @@ export default function RbtCareersPage() {
               A typical RBT shift balances preparation, direct care, documentation, and supervision touchpoints.
             </p>
             <ol className="relative mt-10 space-y-0 border-l-2 border-emerald-200 pl-8">
-              {RBT_DAY_TIMELINE.map((item, index) => (
+              {rbtDayTimeline.map((item, index) => (
                 <li key={item.step} className="relative pb-8 last:pb-0">
                   <span
                     className="absolute -left-[2.35rem] flex h-8 w-8 items-center justify-center rounded-full bg-emerald-700 text-xs font-black text-white"
@@ -407,7 +428,7 @@ export default function RbtCareersPage() {
               across home and community settings.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {RBT_PHOTO_GALLERY_EXTENDED.map((photo) => (
+              {rbtPhotoGalleryExtended.map((photo) => (
                 <li
                   key={photo.src}
                   className="overflow-hidden rounded-[1.5rem] border border-emerald-100 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -429,7 +450,7 @@ export default function RbtCareersPage() {
               Support designed for growth
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {RBT_SUPPORT_CARDS.map((card) => (
+              {rbtSupportCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-emerald-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -439,7 +460,7 @@ export default function RbtCareersPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-7 text-slate-500">{RBT_SUPPORT_DISCLAIMER}</p>
+            <p className="mt-6 text-sm leading-7 text-slate-500">{rbtSupportDisclaimer}</p>
           </section>
         </RbtScrollReveal>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { FormEvent, useState } from "react";
@@ -15,6 +16,8 @@ type CareersJobApplyFormProps = {
 };
 
 export default function CareersJobApplyForm({ job }: CareersJobApplyFormProps) {
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -39,7 +42,7 @@ export default function CareersJobApplyForm({ job }: CareersJobApplyFormProps) {
 
       <header className="mt-8 rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-emerald-50 via-white to-teal-50 p-8 dark:border-slate-700 dark:from-emerald-950/30 dark:via-slate-900 dark:to-teal-950/20">
         <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300">
-          {CAREERS_PAGE.applyPageTitle}
+          {careersPage.applyPageTitle}
         </p>
         <h1 className="mt-3 text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">{job.title}</h1>
         <p className="mt-2 text-sm font-bold text-slate-600 dark:text-slate-300">
@@ -59,10 +62,10 @@ export default function CareersJobApplyForm({ job }: CareersJobApplyFormProps) {
           role="status"
           className="mt-8 rounded-[1.75rem] border border-emerald-200 bg-white p-8 text-base font-semibold leading-8 text-emerald-900 dark:border-emerald-800 dark:bg-slate-900 dark:text-emerald-200"
         >
-          {CAREERS_PAGE.applicationSuccess}
+          {careersPage.applicationSuccess}
           <div className="mt-6">
             <Link href="/careers" className={getButtonClasses("secondary", "w-full sm:w-auto")}>
-              {CAREERS_PAGE.backToCareers}
+              {careersPage.backToCareers}
             </Link>
           </div>
         </div>
@@ -151,12 +154,12 @@ export default function CareersJobApplyForm({ job }: CareersJobApplyFormProps) {
               className="w-full rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold file:mr-4 file:rounded-full file:border-0 file:bg-emerald-700 file:px-4 file:py-2 file:text-sm file:font-bold file:text-white dark:border-slate-700 dark:bg-slate-900"
             />
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
-              {CAREERS_PAGE.resumeNote}{" "}
+              {careersPage.resumeNote}{" "}
               <a
-                href={`mailto:${CAREERS_PAGE.recruitmentCta.resumeEmail}`}
+                href={`mailto:${careersPage.recruitmentCta.resumeEmail}`}
                 className="font-bold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-300"
               >
-                {CAREERS_PAGE.recruitmentCta.resumeEmail}
+                {careersPage.recruitmentCta.resumeEmail}
               </a>
             </p>
           </label>
@@ -188,7 +191,7 @@ export default function CareersJobApplyForm({ job }: CareersJobApplyFormProps) {
               className={getButtonClasses("primary", "w-full sm:w-auto")}
               aria-busy={submitting}
             >
-              {submitting ? "Submitting..." : CAREERS_PAGE.submitApplication}
+              {submitting ? "Submitting..." : careersPage.submitApplication}
               <ArrowRight size={18} aria-hidden="true" />
             </button>
           </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   BENEFITS_VALUE_TOOLTIPS,
@@ -34,11 +35,15 @@ function BreakdownRow({
   value,
   total,
   index,
+  breakdownLabels,
+  benefitsValueTooltips,
 }: {
   segmentKey: (typeof SEGMENTS)[number];
   value: number;
   total: number;
   index: number;
+  breakdownLabels: typeof BREAKDOWN_LABELS;
+  benefitsValueTooltips: typeof BENEFITS_VALUE_TOOLTIPS;
 }) {
   const reduceMotion = useReducedMotion();
   const animatedValue = useCountUp(value, { duration: 800 });
@@ -49,8 +54,8 @@ function BreakdownRow({
     <div>
       <div className="mb-2 flex items-center justify-between gap-3 text-sm">
         <span className="flex items-center font-extrabold text-slate-800">
-          {BREAKDOWN_LABELS[segmentKey]}
-          <InfoTooltip label={`About ${BREAKDOWN_LABELS[segmentKey]}`} text={BENEFITS_VALUE_TOOLTIPS[segmentKey]} />
+          {breakdownLabels[segmentKey]}
+          <InfoTooltip label={`About ${breakdownLabels[segmentKey]}`} text={benefitsValueTooltips[segmentKey]} />
         </span>
         <span className="font-bold text-teal-800" aria-live="polite">
           {animatedPercent}%
@@ -72,10 +77,21 @@ function BreakdownRow({
 }
 
 export default function BreakdownChart({ breakdown, recalcKey }: BreakdownChartProps) {
+  const breakdownLabels = useLocalizedContent("BREAKDOWN_LABELS", BREAKDOWN_LABELS);
+  const benefitsValueTooltips = useLocalizedContent("BENEFITS_VALUE_TOOLTIPS", BENEFITS_VALUE_TOOLTIPS);
+
   return (
     <div key={recalcKey} className="space-y-5" aria-label="Total rewards breakdown chart">
       {SEGMENTS.map((key, index) => (
-        <BreakdownRow key={key} segmentKey={key} value={breakdown[key]} total={breakdown.total} index={index} />
+        <BreakdownRow
+          key={key}
+          segmentKey={key}
+          value={breakdown[key]}
+          total={breakdown.total}
+          index={index}
+          breakdownLabels={breakdownLabels}
+          benefitsValueTooltips={benefitsValueTooltips}
+        />
       ))}
     </div>
   );

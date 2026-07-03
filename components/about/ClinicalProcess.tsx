@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function ClinicalProcess() {
-  const content = OUR_APPROACH_PAGE.clinicalProcess;
+  const content = useOurApproachPage().clinicalProcess;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="clinical-process-heading">

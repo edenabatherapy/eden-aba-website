@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, GlassPanel } from "./shared";
 
 export default function TeamFinalCTA() {
-  const content = OUR_TEAM_PAGE.finalCta;
+  const content = useOurTeamPage().finalCta;
 
   return (
     <section className="px-4 pb-28 lg:px-8 dark:bg-slate-950" aria-labelledby="team-final-cta-heading">

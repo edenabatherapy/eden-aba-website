@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, SectionEyebrow } from "./shared";
 
 export default function ApproachFAQ() {
-  const content = OUR_APPROACH_PAGE.faq;
+  const content = useOurApproachPage().faq;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

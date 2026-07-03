@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function GrowthTimelineSection() {
-  const content = OUR_TEAM_PAGE.growthTimeline;
+  const content = useOurTeamPage().growthTimeline;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="growth-timeline-heading">

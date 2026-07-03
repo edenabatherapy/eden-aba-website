@@ -4,11 +4,11 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function MissionValuesMissionSection() {
-  const content = MISSION_VALUES_PAGE.mission;
+  const content = useMissionValuesPage().mission;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="mission-statement-heading">

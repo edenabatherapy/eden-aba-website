@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowUpRight, Mail, Phone, Printer, FileText } from "lucide-react";
 import { REFERRAL_CHANNELS } from "@/lib/providers/provider-content";
@@ -10,9 +13,11 @@ const CHANNEL_ICONS = {
 } as const;
 
 export default function ProviderReferralChannels() {
+  const referralChannels = useLocalizedContent("REFERRAL_CHANNELS", REFERRAL_CHANNELS);
+
   return (
     <div className="eden-providers-channel-grid">
-      {REFERRAL_CHANNELS.map((channel) => {
+      {referralChannels.map((channel) => {
         const Icon = CHANNEL_ICONS[channel.id as keyof typeof CHANNEL_ICONS] ?? FileText;
         const isExternal = channel.href.startsWith("http");
 

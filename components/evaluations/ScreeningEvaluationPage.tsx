@@ -25,6 +25,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import FAQAccordion from "@/components/getting-started/FAQAccordion";
 import ScreeningEvaluationPageSchema from "@/components/evaluations/ScreeningEvaluationPageSchema";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import {
   ADOS2_SECTION,
   AFTER_EVALUATION,
@@ -70,6 +71,19 @@ function FloatingShape({ className, delay = 0 }: { className: string; delay?: nu
 }
 
 export default function ScreeningEvaluationPage() {
+  const ados2Section = useLocalizedContent("ADOS2_SECTION", ADOS2_SECTION);
+  const afterEvaluation = useLocalizedContent("AFTER_EVALUATION", AFTER_EVALUATION);
+  const autismScreeningTools = useLocalizedContent("AUTISM_SCREENING_TOOLS", AUTISM_SCREENING_TOOLS);
+  const documentsChecklist = useLocalizedContent("DOCUMENTS_CHECKLIST", DOCUMENTS_CHECKLIST);
+  const earlySigns = useLocalizedContent("EARLY_SIGNS", EARLY_SIGNS);
+  const evaluationProcess = useLocalizedContent("EVALUATION_PROCESS", EVALUATION_PROCESS);
+  const mchatSection = useLocalizedContent("MCHAT_SECTION", MCHAT_SECTION);
+  const screeningCta = useLocalizedContent("SCREENING_CTA", SCREENING_CTA);
+  const screeningEvaluationFaq = useLocalizedContent("SCREENING_EVALUATION_FAQ", SCREENING_EVALUATION_FAQ);
+  const screeningHero = useLocalizedContent("SCREENING_HERO", SCREENING_HERO);
+  const screeningRelatedLinks = useLocalizedContent("SCREENING_RELATED_LINKS", SCREENING_RELATED_LINKS);
+  const screeningVsEvaluation = useLocalizedContent("SCREENING_VS_EVALUATION", SCREENING_VS_EVALUATION);
+  const whatIsScreening = useLocalizedContent("WHAT_IS_SCREENING", WHAT_IS_SCREENING);
   const reduceMotion = useReducedMotion();
   const heroImage = SITE_IMAGES.autismEvaluation.hero;
 
@@ -102,10 +116,10 @@ export default function ScreeningEvaluationPage() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <motion.div {...heroReveal}>
             <span className="inline-flex rounded-full border border-emerald-200 bg-white/80 px-4 py-1.5 text-xs font-black uppercase tracking-[0.18em] text-emerald-800 shadow-sm">
-              {SCREENING_HERO.trustBadge}
+              {screeningHero.trustBadge}
             </span>
-            <h1 className="mt-6 text-3xl font-black leading-tight text-[#0F172A] md:text-5xl">{SCREENING_HERO.title}</h1>
-            <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-slate-700">{SCREENING_HERO.subtitle}</p>
+            <h1 className="mt-6 text-3xl font-black leading-tight text-[#0F172A] md:text-5xl">{screeningHero.title}</h1>
+            <p className="mt-5 max-w-xl text-lg font-semibold leading-8 text-slate-700">{screeningHero.subtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/intake" className={getButtonClasses("primarySite")}>
                 Start Evaluation <ArrowRight size={18} aria-hidden />
@@ -123,7 +137,7 @@ export default function ScreeningEvaluationPage() {
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-emerald-200/40 to-amber-100/30 blur-2xl" aria-hidden />
             <Image
               src={heroImage}
-              alt={SCREENING_HERO.imageAlt}
+              alt={screeningHero.imageAlt}
               width={800}
               height={640}
               priority
@@ -137,11 +151,11 @@ export default function ScreeningEvaluationPage() {
       <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{WHAT_IS_SCREENING.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{WHAT_IS_SCREENING.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{whatIsScreening.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{whatIsScreening.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {WHAT_IS_SCREENING.cards.map((card, i) => {
+            {whatIsScreening.cards.map((card, i) => {
               const Icon = SCREENING_ICONS[i] ?? Sparkles;
               return (
                 <motion.article key={card.title} {...reveal(i * 0.05)} className={cardClass}>
@@ -161,11 +175,11 @@ export default function ScreeningEvaluationPage() {
       <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{EARLY_SIGNS.title}</h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{EARLY_SIGNS.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{earlySigns.title}</h2>
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{earlySigns.intro}</p>
           </motion.div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {EARLY_SIGNS.signs.map((sign, i) => {
+            {earlySigns.signs.map((sign, i) => {
               const Icon = SIGN_ICONS[i] ?? CheckCircle2;
               return (
                 <motion.div
@@ -183,7 +197,7 @@ export default function ScreeningEvaluationPage() {
             {...reveal(0.15)}
             className="mx-auto mt-10 max-w-3xl rounded-2xl border border-amber-200/80 bg-amber-50/70 px-6 py-4 text-center text-sm font-semibold leading-7 text-amber-950"
           >
-            {EARLY_SIGNS.disclaimer}
+            {earlySigns.disclaimer}
           </motion.p>
         </div>
       </section>
@@ -192,11 +206,11 @@ export default function ScreeningEvaluationPage() {
       <section id="mchat-r-online-screener" className="scroll-mt-28 bg-gradient-to-br from-[#0F172A] via-[#0E6B4F] to-[#10B981] px-4 py-16 text-white lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black md:text-4xl">{MCHAT_SECTION.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-white/90">{MCHAT_SECTION.intro}</p>
+            <h2 className="text-3xl font-black md:text-4xl">{mchatSection.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-white/90">{mchatSection.intro}</p>
           </motion.div>
           <ul className="mx-auto mt-8 grid max-w-2xl gap-2">
-            {MCHAT_SECTION.points.map((point) => (
+            {mchatSection.points.map((point) => (
               <li key={point} className="flex items-start gap-2 text-sm font-semibold leading-7 text-white/85">
                 <CheckCircle2 className="mt-0.5 shrink-0 text-[#FACC15]" size={18} aria-hidden />
                 {point}
@@ -204,7 +218,7 @@ export default function ScreeningEvaluationPage() {
             ))}
           </ul>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {MCHAT_SECTION.featureCards.map((card, i) => {
+            {mchatSection.featureCards.map((card, i) => {
               const Icon = MCHAT_ICONS[i] ?? ClipboardList;
               return (
                 <motion.article
@@ -220,10 +234,10 @@ export default function ScreeningEvaluationPage() {
             })}
           </div>
           <motion.div {...reveal(0.12)} className="mt-10 text-center">
-            <Link href={MCHAT_SECTION.ctaHref} className={getButtonClasses("primarySite")}>
-              {MCHAT_SECTION.ctaLabel} <ArrowRight size={18} aria-hidden />
+            <Link href={mchatSection.ctaHref} className={getButtonClasses("primarySite")}>
+              {mchatSection.ctaLabel} <ArrowRight size={18} aria-hidden />
             </Link>
-            <p className="mx-auto mt-6 max-w-2xl text-sm font-semibold leading-7 text-white/75">{MCHAT_SECTION.disclaimer}</p>
+            <p className="mx-auto mt-6 max-w-2xl text-sm font-semibold leading-7 text-white/75">{mchatSection.disclaimer}</p>
           </motion.div>
         </div>
       </section>
@@ -232,12 +246,12 @@ export default function ScreeningEvaluationPage() {
       <section id="autism-screening-tools" className="scroll-mt-28 bg-gradient-to-br from-[#e8f8f2] via-white to-[#fff8df] px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{AUTISM_SCREENING_TOOLS.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{AUTISM_SCREENING_TOOLS.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{autismScreeningTools.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{autismScreeningTools.intro}</p>
           </motion.div>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            {AUTISM_SCREENING_TOOLS.tools.map((tool, i) => {
+            {autismScreeningTools.tools.map((tool, i) => {
               const Icon = TOOL_ICONS[i] ?? ClipboardList;
               return (
                 <motion.article
@@ -278,7 +292,7 @@ export default function ScreeningEvaluationPage() {
             {...reveal(0.12)}
             className="mx-auto mt-10 max-w-3xl rounded-2xl border border-slate-200/80 bg-white/80 px-6 py-4 text-center text-sm font-semibold leading-7 text-slate-600"
           >
-            {AUTISM_SCREENING_TOOLS.disclaimer}
+            {autismScreeningTools.disclaimer}
           </motion.p>
         </div>
       </section>
@@ -287,11 +301,11 @@ export default function ScreeningEvaluationPage() {
       <section className="px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{EVALUATION_PROCESS.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{EVALUATION_PROCESS.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{evaluationProcess.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{evaluationProcess.intro}</p>
           </motion.div>
           <ol className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {EVALUATION_PROCESS.steps.map((step, i) => (
+            {evaluationProcess.steps.map((step, i) => (
               <motion.li
                 key={step.title}
                 {...reveal(i * 0.05)}
@@ -313,11 +327,11 @@ export default function ScreeningEvaluationPage() {
       <section id="ados-2-assessment" className="scroll-mt-28 eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{ADOS2_SECTION.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{ADOS2_SECTION.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{ados2Section.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{ados2Section.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {ADOS2_SECTION.cards.map((card, i) => {
+            {ados2Section.cards.map((card, i) => {
               const Icon = ADOS_ICONS[i] ?? Eye;
               return (
                 <motion.article key={card.title} {...reveal(i * 0.05)} className={cardClass}>
@@ -331,8 +345,8 @@ export default function ScreeningEvaluationPage() {
             })}
           </div>
           <motion.div {...reveal(0.1)} className="mt-10 text-center">
-            <Link href={ADOS2_SECTION.ctaHref} className={getButtonClasses("primarySite")}>
-              {ADOS2_SECTION.ctaLabel} <ArrowRight size={18} aria-hidden />
+            <Link href={ados2Section.ctaHref} className={getButtonClasses("primarySite")}>
+              {ados2Section.ctaLabel} <ArrowRight size={18} aria-hidden />
             </Link>
           </motion.div>
         </div>
@@ -342,11 +356,11 @@ export default function ScreeningEvaluationPage() {
       <section className="px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <motion.div {...reveal()} className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{AFTER_EVALUATION.title}</h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{AFTER_EVALUATION.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{afterEvaluation.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{afterEvaluation.intro}</p>
           </motion.div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {AFTER_EVALUATION.cards.map((card, i) => {
+            {afterEvaluation.cards.map((card, i) => {
               const Icon = AFTER_ICONS[i] ?? CheckCircle2;
               return (
                 <motion.article key={card.title} {...reveal(i * 0.04)} className={cardClass}>
@@ -364,11 +378,11 @@ export default function ScreeningEvaluationPage() {
       <section className="bg-gradient-to-br from-[#e8f8f2] via-white to-[#fff8df] px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl">
           <motion.div {...reveal()} className="text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{DOCUMENTS_CHECKLIST.title}</h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{DOCUMENTS_CHECKLIST.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{documentsChecklist.title}</h2>
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{documentsChecklist.intro}</p>
           </motion.div>
           <motion.ul {...reveal(0.08)} className="mt-10 grid gap-3 sm:grid-cols-2">
-            {DOCUMENTS_CHECKLIST.items.map((item) => (
+            {documentsChecklist.items.map((item) => (
               <li
                 key={item}
                 className="flex items-start gap-3 rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm"
@@ -385,8 +399,8 @@ export default function ScreeningEvaluationPage() {
       <section className="px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-5xl">
           <motion.div {...reveal()} className="text-center">
-            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{SCREENING_VS_EVALUATION.title}</h2>
-            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{SCREENING_VS_EVALUATION.intro}</p>
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{screeningVsEvaluation.title}</h2>
+            <p className="mt-4 text-base font-semibold leading-7 text-slate-600">{screeningVsEvaluation.intro}</p>
           </motion.div>
           <motion.div
             {...reveal(0.08)}
@@ -394,9 +408,9 @@ export default function ScreeningEvaluationPage() {
           >
             <div className="grid md:grid-cols-2">
               <div className="border-b border-emerald-100 bg-emerald-50/60 p-8 md:border-b-0 md:border-r">
-                <h3 className="text-xl font-black text-emerald-900">{SCREENING_VS_EVALUATION.screening.label}</h3>
+                <h3 className="text-xl font-black text-emerald-900">{screeningVsEvaluation.screening.label}</h3>
                 <ul className="mt-5 space-y-3">
-                  {SCREENING_VS_EVALUATION.screening.items.map((item) => (
+                  {screeningVsEvaluation.screening.items.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm font-semibold leading-7 text-slate-700">
                       <CheckCircle2 className="mt-0.5 shrink-0 text-emerald-600" size={16} aria-hidden />
                       {item}
@@ -405,9 +419,9 @@ export default function ScreeningEvaluationPage() {
                 </ul>
               </div>
               <div className="p-8">
-                <h3 className="text-xl font-black text-[#0F172A]">{SCREENING_VS_EVALUATION.evaluation.label}</h3>
+                <h3 className="text-xl font-black text-[#0F172A]">{screeningVsEvaluation.evaluation.label}</h3>
                 <ul className="mt-5 space-y-3">
-                  {SCREENING_VS_EVALUATION.evaluation.items.map((item) => (
+                  {screeningVsEvaluation.evaluation.items.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm font-semibold leading-7 text-slate-700">
                       <CheckCircle2 className="mt-0.5 shrink-0 text-teal-600" size={16} aria-hidden />
                       {item}
@@ -427,7 +441,7 @@ export default function ScreeningEvaluationPage() {
             <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">Frequently Asked Questions</h2>
           </motion.div>
           <motion.div {...reveal(0.08)} className="mt-10">
-            <FAQAccordion items={SCREENING_EVALUATION_FAQ} />
+            <FAQAccordion items={screeningEvaluationFaq} />
           </motion.div>
         </div>
       </section>
@@ -437,7 +451,7 @@ export default function ScreeningEvaluationPage() {
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-2xl font-black text-[#0F172A]">Related Resources</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {SCREENING_RELATED_LINKS.map((link) => (
+            {screeningRelatedLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -455,17 +469,17 @@ export default function ScreeningEvaluationPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0E6B4F] to-[#10B981] px-4 py-16 text-white lg:px-8 lg:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(250,204,21,0.2),transparent_50%)]" aria-hidden />
         <motion.div {...reveal()} className="relative mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl font-black md:text-4xl">{SCREENING_CTA.title}</h2>
-          <p className="mt-4 text-lg font-semibold leading-8 text-white/90">{SCREENING_CTA.subtitle}</p>
+          <h2 className="text-3xl font-black md:text-4xl">{screeningCta.title}</h2>
+          <p className="mt-4 text-lg font-semibold leading-8 text-white/90">{screeningCta.subtitle}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/intake" className={getButtonClasses("primarySite")}>
-              {SCREENING_CTA.primaryLabel} <ArrowRight size={18} aria-hidden />
+              {screeningCta.primaryLabel} <ArrowRight size={18} aria-hidden />
             </Link>
             <Link href="/about/contact-us" className={getButtonClasses("secondaryOnDark")}>
-              {SCREENING_CTA.secondaryLabel}
+              {screeningCta.secondaryLabel}
             </Link>
             <Link href="/getting-started" className={getButtonClasses("secondaryOnDark")}>
-              {SCREENING_CTA.tertiaryLabel}
+              {screeningCta.tertiaryLabel}
             </Link>
           </div>
         </motion.div>

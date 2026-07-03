@@ -113,23 +113,24 @@ export default function GettingStartedPage() {
     "GETTING_STARTED_RESOURCE_CATEGORY_LABELS",
     Object.fromEntries(RESOURCE_CATEGORIES.map((category) => [category, category])),
   );
+  const resources = useLocalizedContent("GETTING_STARTED_RESOURCES", GETTING_STARTED_RESOURCES);
   const filterCategories = FILTER_CATEGORIES_EN;
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<GettingStartedResourceCategory | "All">("All");
 
   const filteredResources = useMemo(
-    () => searchGettingStartedResources(GETTING_STARTED_RESOURCES, query, category),
-    [query, category],
+    () => searchGettingStartedResources(resources, query, category),
+    [query, category, resources],
   );
 
   const filteredFeatured = useMemo(
     () =>
       searchGettingStartedResources(
-        GETTING_STARTED_RESOURCES.filter((resource) => FEATURED_RESOURCE_IDS.has(resource.id)),
+        resources.filter((resource) => FEATURED_RESOURCE_IDS.has(resource.id)),
         query,
         category,
       ),
-    [query, category],
+    [query, category, resources],
   );
 
   const filteredStandardResources = useMemo(

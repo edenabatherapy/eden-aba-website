@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -8,6 +9,9 @@ import { getButtonClasses } from "@/lib/button-styles";
 import { EASE_OUT } from "./rbt-motion";
 
 export default function RbtHeroSection() {
+  const rbtHeroBadges = useLocalizedContent("RBT_HERO_BADGES", RBT_HERO_BADGES);
+  const rbtHeroJourneySteps = useLocalizedContent("RBT_HERO_JOURNEY_STEPS", RBT_HERO_JOURNEY_STEPS);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -47,7 +51,7 @@ export default function RbtHeroSection() {
             environments.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap gap-2">
-            {RBT_HERO_BADGES.map((badge) => (
+            {rbtHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-emerald-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-emerald-800 shadow-sm"
@@ -86,7 +90,7 @@ export default function RbtHeroSection() {
                 style={{ transformOrigin: "top" }}
               />
             </div>
-            {RBT_HERO_JOURNEY_STEPS.map((item, index) => (
+            {rbtHeroJourneySteps.map((item, index) => (
               <motion.li
                 key={item.label}
                 initial={reduceMotion ? false : { opacity: 0, x: 12 }}

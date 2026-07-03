@@ -4,13 +4,13 @@ import { ArrowRight, Heart, Lightbulb, Sparkles, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const PHILOSOPHY_ICONS = [Heart, Lightbulb, Sparkles, Users];
 
 export default function ApproachPhilosophy() {
-  const content = OUR_APPROACH_PAGE.philosophy;
+  const content = useOurApproachPage().philosophy;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="approach-philosophy-heading">

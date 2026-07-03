@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -61,6 +62,8 @@ export default function CareersJobCard({
   onShare,
   shareFeedbackId,
 }: CareersJobCardProps) {
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+
   return (
     <article
       className="overflow-hidden rounded-[1.75rem] border border-emerald-100 bg-white shadow-lg transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl dark:border-slate-700 dark:bg-slate-900"
@@ -139,11 +142,11 @@ export default function CareersJobCard({
         <div className="relative z-[111] mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           {/* LOCKED: Do not change careers button routes unless intentionally updating the careers application flow. */}
           <CareersActionLink href={resolveJobApplyHref(job)} className={getButtonClasses("primary", "w-full sm:w-auto")}>
-            {CAREERS_PAGE.applyLabel}
+            {careersPage.applyLabel}
             <ArrowRight size={16} aria-hidden="true" />
           </CareersActionLink>
           <CareersActionLink href={resolveJobDetailsHref(job)} className={getButtonClasses("secondary", "w-full sm:w-auto")}>
-            {CAREERS_PAGE.viewDetailsLabel}
+            {careersPage.viewDetailsLabel}
           </CareersActionLink>
           <button
             type="button"
@@ -153,7 +156,7 @@ export default function CareersJobCard({
             aria-label={isSaved ? `Unsave ${job.title}` : `Save ${job.title}`}
           >
             <Bookmark size={16} className={isSaved ? "fill-current" : ""} aria-hidden="true" />
-            {isSaved ? CAREERS_PAGE.unsaveJobLabel : CAREERS_PAGE.saveJobLabel}
+            {isSaved ? careersPage.unsaveJobLabel : careersPage.saveJobLabel}
           </button>
           <button
             type="button"
@@ -162,11 +165,11 @@ export default function CareersJobCard({
             aria-label={`Share ${job.title}`}
           >
             <Share2 size={16} aria-hidden="true" />
-            {CAREERS_PAGE.shareJobLabel}
+            {careersPage.shareJobLabel}
           </button>
           {shareFeedbackId === job.id && (
             <span role="status" className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
-              {CAREERS_PAGE.shareSuccess}
+              {careersPage.shareSuccess}
             </span>
           )}
         </div>

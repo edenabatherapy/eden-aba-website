@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { PROVIDER_FAQ } from "@/lib/providers/provider-content";
 
 type ProviderFAQProps = {
@@ -9,7 +10,8 @@ type ProviderFAQProps = {
 };
 
 export default function ProviderFAQ({ limit }: ProviderFAQProps) {
-  const items = limit ? PROVIDER_FAQ.slice(0, limit) : PROVIDER_FAQ;
+  const faq = useLocalizedContent("PROVIDER_FAQ", PROVIDER_FAQ);
+  const items = limit ? faq.slice(0, limit) : faq;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

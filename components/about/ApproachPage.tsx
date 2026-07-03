@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import AboutSiteHeader from "@/components/about/AboutSiteHeader";
 import ApproachPageSchema from "@/components/about/ApproachPageSchema";
 import StickyCtaBar from "@/components/about/StickyCtaBar";
+import { OurApproachContentProvider } from "@/contexts/OurApproachContent";
 
 const ApproachHero = dynamic(() => import("@/components/about/ApproachHero"));
 const ApproachPhilosophy = dynamic(() => import("@/components/about/ApproachPhilosophy"));
@@ -38,6 +39,7 @@ export default function ApproachPage() {
   }, [darkMode]);
 
   return (
+    <OurApproachContentProvider>
     <div className={darkMode ? "dark bg-slate-950 text-white" : "eden-page-shell min-h-screen text-slate-900"}>
       <ApproachPageSchema />
       <AboutSiteHeader />
@@ -74,5 +76,6 @@ export default function ApproachPage() {
 
       <StickyCtaBar />
     </div>
+    </OurApproachContentProvider>
   );
 }

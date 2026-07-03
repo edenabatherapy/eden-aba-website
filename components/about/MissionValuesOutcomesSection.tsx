@@ -10,13 +10,13 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const OUTCOME_ICONS = [ClipboardCheck, GraduationCap, BarChart3, HeartHandshake, MapPin, ShieldCheck];
 
 export default function MissionValuesOutcomesSection() {
-  const content = MISSION_VALUES_PAGE.outcomes;
+  const content = useMissionValuesPage().outcomes;
 
   return (
     <section className="bg-slate-50 px-4 py-20 dark:bg-slate-900/50 lg:px-8" aria-labelledby="outcomes-heading">

@@ -3,13 +3,13 @@
 import { ArrowRight, GraduationCap, Heart, MapPin, MessageCircle, School, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const PILLAR_ICONS = [MessageCircle, Sparkles, Heart, GraduationCap, School, MapPin];
 
 export default function LifelongGrowth() {
-  const content = OUR_APPROACH_PAGE.lifelongGrowth;
+  const content = useOurApproachPage().lifelongGrowth;
 
   return (
     <section

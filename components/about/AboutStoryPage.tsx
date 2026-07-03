@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import AboutSiteHeader from "@/components/about/AboutSiteHeader";
 import AboutPageSchema from "@/components/about/PageSchema";
 import StickyCtaBar from "@/components/about/StickyCtaBar";
+import { OurStoryContentProvider } from "@/contexts/OurStoryContent";
 
 const HeroSection = dynamic(() => import("@/components/about/HeroSection"));
 const StorySection = dynamic(() => import("@/components/about/StorySection"));
@@ -35,6 +36,7 @@ export default function AboutStoryPage() {
   }, [darkMode]);
 
   return (
+    <OurStoryContentProvider>
     <div className={darkMode ? "dark bg-slate-950 text-white" : "eden-page-shell min-h-screen text-slate-900"}>
       <AboutPageSchema />
       <AboutSiteHeader />
@@ -68,5 +70,6 @@ export default function AboutStoryPage() {
 
       <StickyCtaBar />
     </div>
+    </OurStoryContentProvider>
   );
 }

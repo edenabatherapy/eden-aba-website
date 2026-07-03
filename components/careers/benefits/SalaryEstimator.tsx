@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Calculator, TrendingUp } from "lucide-react";
@@ -119,6 +120,14 @@ function PayRangeCard({ estimate, recalcKey }: { estimate: ReturnType<typeof cal
 }
 
 export default function SalaryEstimator() {
+  const estimatorHeroStats = useLocalizedContent("ESTIMATOR_HERO_STATS", ESTIMATOR_HERO_STATS);
+  const salaryBenefitsComparison = useLocalizedContent("SALARY_BENEFITS_COMPARISON", SALARY_BENEFITS_COMPARISON);
+  const salaryEstimatorDisclaimer = useLocalizedContent("SALARY_ESTIMATOR_DISCLAIMER", SALARY_ESTIMATOR_DISCLAIMER);
+  const salaryEstimatorEmployment = useLocalizedContent("SALARY_ESTIMATOR_EMPLOYMENT", SALARY_ESTIMATOR_EMPLOYMENT);
+  const salaryEstimatorExperience = useLocalizedContent("SALARY_ESTIMATOR_EXPERIENCE", SALARY_ESTIMATOR_EXPERIENCE);
+  const salaryEstimatorGeography = useLocalizedContent("SALARY_ESTIMATOR_GEOGRAPHY", SALARY_ESTIMATOR_GEOGRAPHY);
+  const salaryEstimatorRoles = useLocalizedContent("SALARY_ESTIMATOR_ROLES", SALARY_ESTIMATOR_ROLES);
+
   const reduceMotion = useReducedMotion();
   const [role, setRole] = useState<SalaryRoleType>("rbt");
   const [employment, setEmployment] = useState<SalaryEmploymentType>("full-time");
@@ -153,7 +162,7 @@ export default function SalaryEstimator() {
 
   const rolePreviews = useMemo(
     () =>
-      SALARY_ESTIMATOR_ROLES.map((r) => {
+      salaryEstimatorRoles.map((r) => {
         const preview = calculateSalaryEstimate({
           role: r.id,
           employment,
@@ -192,7 +201,7 @@ export default function SalaryEstimator() {
           Virginia clinical careers.
         </motion.p>
         <motion.div {...heroStagger(0.24)}>
-          <AnimatedStatCounter stats={[...ESTIMATOR_HERO_STATS]} className="mt-8" scaleReveal />
+          <AnimatedStatCounter stats={[...estimatorHeroStats]} className="mt-8" scaleReveal />
         </motion.div>
       </section>
 
@@ -253,7 +262,7 @@ export default function SalaryEstimator() {
                   value={employment}
                   onChange={(e) => setEmployment(e.target.value as SalaryEmploymentType)}
                 >
-                  {SALARY_ESTIMATOR_EMPLOYMENT.map((e) => (
+                  {salaryEstimatorEmployment.map((e) => (
                     <option key={e.id} value={e.id}>
                       {e.label}
                     </option>
@@ -269,7 +278,7 @@ export default function SalaryEstimator() {
                   value={experience}
                   onChange={(e) => setExperience(e.target.value as SalaryExperienceLevel)}
                 >
-                  {SALARY_ESTIMATOR_EXPERIENCE.map((e) => (
+                  {salaryEstimatorExperience.map((e) => (
                     <option key={e.id} value={e.id}>
                       {e.label}
                     </option>
@@ -285,7 +294,7 @@ export default function SalaryEstimator() {
                   value={geography}
                   onChange={(e) => setGeography(e.target.value as SalaryGeographicArea)}
                 >
-                  {SALARY_ESTIMATOR_GEOGRAPHY.map((g) => (
+                  {salaryEstimatorGeography.map((g) => (
                     <option key={g.id} value={g.id}>
                       {g.label}
                     </option>
@@ -383,7 +392,7 @@ export default function SalaryEstimator() {
                 </tr>
               </thead>
               <tbody>
-                {SALARY_BENEFITS_COMPARISON.map((row, index) => (
+                {salaryBenefitsComparison.map((row, index) => (
                   <motion.tr
                     key={row.benefit}
                     initial={reduceMotion ? false : { opacity: 0, y: 8 }}
@@ -407,7 +416,7 @@ export default function SalaryEstimator() {
 
       <ScrollReveal delay={0.14}>
         <p className="rounded-xl border border-amber-200/80 bg-amber-50/80 px-4 py-3 text-sm leading-7 text-slate-700">
-          {SALARY_ESTIMATOR_DISCLAIMER}
+          {salaryEstimatorDisclaimer}
         </p>
       </ScrollReveal>
     </div>

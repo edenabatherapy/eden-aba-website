@@ -3,11 +3,11 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function MissionValuesVisionSection() {
-  const content = MISSION_VALUES_PAGE.vision;
+  const content = useMissionValuesPage().vision;
 
   return (
     <section

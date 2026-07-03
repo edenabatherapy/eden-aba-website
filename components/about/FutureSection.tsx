@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { fadeUp, SectionEyebrow } from "./shared";
 
 export default function FutureSection() {
-  const content = OUR_STORY_PAGE.future;
+  const content = useOurStoryPage().future;
 
   return (
     <section

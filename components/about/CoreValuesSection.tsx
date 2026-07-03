@@ -11,13 +11,13 @@ import {
   Users,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MISSION_VALUES_PAGE } from "@/lib/mission-values-content";
+import { useMissionValuesPage } from "@/contexts/MissionValuesContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const VALUE_ICONS = [HeartHandshake, ShieldCheck, Users, Target, Sparkles, Lightbulb];
 
 export default function CoreValuesSection() {
-  const content = MISSION_VALUES_PAGE.values;
+  const content = useMissionValuesPage().values;
   const [expandedTitle, setExpandedTitle] = useState<string | null>(null);
 
   return (

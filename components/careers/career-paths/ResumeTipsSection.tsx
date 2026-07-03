@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { FileText } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import FAQAccordion from "@/components/careers/hub/FAQAccordion";
@@ -16,6 +17,13 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "scroll-mt-28 rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function ResumeTipsSection() {
+  const resumeBestPractices = useLocalizedContent("RESUME_BEST_PRACTICES", RESUME_BEST_PRACTICES);
+  const resumeClinicalSkills = useLocalizedContent("RESUME_CLINICAL_SKILLS", RESUME_CLINICAL_SKILLS);
+  const resumeEducationGuidance = useLocalizedContent("RESUME_EDUCATION_GUIDANCE", RESUME_EDUCATION_GUIDANCE);
+  const resumeExperienceExamples = useLocalizedContent("RESUME_EXPERIENCE_EXAMPLES", RESUME_EXPERIENCE_EXAMPLES);
+  const resumeFaq = useLocalizedContent("RESUME_FAQ", RESUME_FAQ);
+  const resumeFormattingTips = useLocalizedContent("RESUME_FORMATTING_TIPS", RESUME_FORMATTING_TIPS);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -33,7 +41,7 @@ export default function ResumeTipsSection() {
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        {RESUME_BEST_PRACTICES.map((item, index) => (
+        {resumeBestPractices.map((item, index) => (
           <motion.article
             key={item.title}
             initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -52,7 +60,7 @@ export default function ResumeTipsSection() {
         <div>
           <h3 className="text-lg font-extrabold text-slate-900">Experience examples</h3>
           <ul className="mt-4 space-y-2">
-            {RESUME_EXPERIENCE_EXAMPLES.map((line) => (
+            {resumeExperienceExamples.map((line) => (
               <li key={line} className="rounded-lg border border-teal-50 bg-teal-50/40 px-4 py-3 text-sm leading-7 text-slate-700">
                 {line}
               </li>
@@ -62,7 +70,7 @@ export default function ResumeTipsSection() {
         <div>
           <h3 className="text-lg font-extrabold text-slate-900">Clinical skills to highlight</h3>
           <ul className="mt-4 flex flex-wrap gap-2">
-            {RESUME_CLINICAL_SKILLS.map((skill) => (
+            {resumeClinicalSkills.map((skill) => (
               <li
                 key={skill}
                 className="rounded-full border border-teal-200 bg-white px-3 py-1.5 text-xs font-bold text-teal-900"
@@ -77,7 +85,7 @@ export default function ResumeTipsSection() {
       <div className="mt-12">
         <h3 className="text-lg font-extrabold text-slate-900">Education guidance</h3>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          {RESUME_EDUCATION_GUIDANCE.map((item) => (
+          {resumeEducationGuidance.map((item) => (
             <li key={item.title} className="rounded-xl border border-teal-100 bg-white p-4 shadow-sm">
               <h4 className="text-sm font-extrabold text-teal-900">{item.title}</h4>
               <p className="mt-1 text-sm leading-7 text-slate-600">{item.description}</p>
@@ -89,7 +97,7 @@ export default function ResumeTipsSection() {
       <div className="mt-12 rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-emerald-50/30 to-white p-6">
         <h3 className="text-lg font-extrabold text-slate-900">Professional formatting tips</h3>
         <ul className="mt-4 space-y-2">
-          {RESUME_FORMATTING_TIPS.map((tip) => (
+          {resumeFormattingTips.map((tip) => (
             <li key={tip} className="flex gap-2 text-sm leading-7 text-slate-600">
               <span className="font-black text-teal-600" aria-hidden="true">
                 •
@@ -101,7 +109,7 @@ export default function ResumeTipsSection() {
       </div>
 
       <div className="mt-10">
-        <FAQAccordion title="Resume FAQ" items={RESUME_FAQ} />
+        <FAQAccordion title="Resume FAQ" items={resumeFaq} />
       </div>
     </section>
   );

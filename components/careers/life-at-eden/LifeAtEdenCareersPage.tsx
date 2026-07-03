@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight, Heart, Sparkles, Users } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -35,6 +36,23 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "scroll-mt-28 rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function LifeAtEdenCareersPage() {
+  const lifeAtEdenCommunity = useLocalizedContent("LIFE_AT_EDEN_COMMUNITY", LIFE_AT_EDEN_COMMUNITY);
+  const lifeAtEdenCultureCards = useLocalizedContent("LIFE_AT_EDEN_CULTURE_CARDS", LIFE_AT_EDEN_CULTURE_CARDS);
+  const lifeAtEdenDeiCards = useLocalizedContent("LIFE_AT_EDEN_DEI_CARDS", LIFE_AT_EDEN_DEI_CARDS);
+  const lifeAtEdenDisclaimer = useLocalizedContent("LIFE_AT_EDEN_DISCLAIMER", LIFE_AT_EDEN_DISCLAIMER);
+  const lifeAtEdenExperienceItems = useLocalizedContent("LIFE_AT_EDEN_EXPERIENCE_ITEMS", LIFE_AT_EDEN_EXPERIENCE_ITEMS);
+  const lifeAtEdenGallery = useLocalizedContent("LIFE_AT_EDEN_GALLERY", LIFE_AT_EDEN_GALLERY);
+  const lifeAtEdenHeroBadges = useLocalizedContent("LIFE_AT_EDEN_HERO_BADGES", LIFE_AT_EDEN_HERO_BADGES);
+  const lifeAtEdenRecognition = useLocalizedContent("LIFE_AT_EDEN_RECOGNITION", LIFE_AT_EDEN_RECOGNITION);
+  const lifeAtEdenSectionNav = useLocalizedContent("LIFE_AT_EDEN_SECTION_NAV", LIFE_AT_EDEN_SECTION_NAV);
+  const lifeAtEdenSpotlights = useLocalizedContent("LIFE_AT_EDEN_SPOTLIGHTS", LIFE_AT_EDEN_SPOTLIGHTS);
+  const lifeAtEdenStats = useLocalizedContent("LIFE_AT_EDEN_STATS", LIFE_AT_EDEN_STATS);
+  const lifeAtEdenTeamCards = useLocalizedContent("LIFE_AT_EDEN_TEAM_CARDS", LIFE_AT_EDEN_TEAM_CARDS);
+  const lifeAtEdenTestimonials = useLocalizedContent("LIFE_AT_EDEN_TESTIMONIALS", LIFE_AT_EDEN_TESTIMONIALS);
+  const lifeAtEdenTraining = useLocalizedContent("LIFE_AT_EDEN_TRAINING", LIFE_AT_EDEN_TRAINING);
+  const lifeAtEdenVideos = useLocalizedContent("LIFE_AT_EDEN_VIDEOS", LIFE_AT_EDEN_VIDEOS);
+  const lifeAtEdenWorkLife = useLocalizedContent("LIFE_AT_EDEN_WORK_LIFE", LIFE_AT_EDEN_WORK_LIFE);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -70,7 +88,7 @@ export default function LifeAtEdenCareersPage() {
             culture built around families across Northern Virginia.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap justify-center gap-2">
-            {LIFE_AT_EDEN_HERO_BADGES.map((badge) => (
+            {lifeAtEdenHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-teal-200 bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-900 shadow-sm"
@@ -91,7 +109,7 @@ export default function LifeAtEdenCareersPage() {
         </div>
       </section>
 
-      <CareerSectionNav items={[...LIFE_AT_EDEN_SECTION_NAV]} ariaLabel="Life at Eden page sections" />
+      <CareerSectionNav items={[...lifeAtEdenSectionNav]} ariaLabel="Life at Eden page sections" />
 
       <div className="mx-auto max-w-6xl space-y-20 px-4 py-16 pb-24 lg:px-8 lg:py-20 lg:pb-20">
         <RbtScrollReveal>
@@ -99,9 +117,9 @@ export default function LifeAtEdenCareersPage() {
             <h2 id="culture-heading" className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
               Our Culture
             </h2>
-            <AnimatedStatCounter stats={LIFE_AT_EDEN_STATS} className="mt-8" />
+            <AnimatedStatCounter stats={lifeAtEdenStats} className="mt-8" />
             <RbtStaggerGrid className="mt-10 grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_CULTURE_CARDS.map((card) => (
+              {lifeAtEdenCultureCards.map((card) => (
                 <RbtStaggerItem key={card.title}>
                   <div className="h-full rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-white to-teal-50/30 p-6 shadow-sm">
                     <Heart className="text-teal-700" size={22} aria-hidden="true" />
@@ -120,7 +138,7 @@ export default function LifeAtEdenCareersPage() {
               Team Environment
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_TEAM_CARDS.map((card) => (
+              {lifeAtEdenTeamCards.map((card) => (
                 <li key={card.title} className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm">
                   <Users className="text-teal-700" size={20} aria-hidden="true" />
                   <h3 className="mt-3 text-base font-extrabold text-slate-900">{card.title}</h3>
@@ -141,7 +159,7 @@ export default function LifeAtEdenCareersPage() {
               direct care, documentation, and growth conversations.
             </p>
             <ol className="mt-8 space-y-4">
-              {LIFE_AT_EDEN_EXPERIENCE_ITEMS.map((item, index) => (
+              {lifeAtEdenExperienceItems.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -12 }}
@@ -168,9 +186,9 @@ export default function LifeAtEdenCareersPage() {
             <h2 id="stories-heading" className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
               Employee Stories
             </h2>
-            <TestimonialsCarousel testimonials={LIFE_AT_EDEN_TESTIMONIALS} />
+            <TestimonialsCarousel testimonials={lifeAtEdenTestimonials} />
             <RbtStaggerGrid className="grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_SPOTLIGHTS.map((spotlight) => (
+              {lifeAtEdenSpotlights.map((spotlight) => (
                 <RbtStaggerItem key={spotlight.title}>
                   <article className="h-full rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <span className="rounded-full bg-teal-100 px-2 py-0.5 text-[10px] font-bold uppercase text-teal-800">
@@ -191,7 +209,7 @@ export default function LifeAtEdenCareersPage() {
               Recognition Programs
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_RECOGNITION.map((item) => (
+              {lifeAtEdenRecognition.map((item) => (
                 <li key={item.title} className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm">
                   <Sparkles className="text-teal-700" size={20} aria-hidden="true" />
                   <h3 className="mt-3 text-base font-extrabold text-slate-900">{item.title}</h3>
@@ -208,7 +226,7 @@ export default function LifeAtEdenCareersPage() {
               Diversity &amp; Inclusion
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_DEI_CARDS.map((card) => (
+              {lifeAtEdenDeiCards.map((card) => (
                 <li key={card.title} className="rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-white to-emerald-50/30 p-5">
                   <h3 className="text-base font-extrabold text-slate-900">{card.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{card.description}</p>
@@ -224,7 +242,7 @@ export default function LifeAtEdenCareersPage() {
               Training &amp; Mentorship
             </h2>
             <ul className="mt-8 space-y-4">
-              {LIFE_AT_EDEN_TRAINING.map((item, index) => (
+              {lifeAtEdenTraining.map((item, index) => (
                 <li key={item.title} className="rounded-xl border border-teal-100 bg-white p-5 shadow-sm">
                   <span className="text-xs font-black uppercase tracking-[0.12em] text-teal-800">Step {index + 1}</span>
                   <h3 className="mt-1 text-base font-extrabold text-slate-900">{item.title}</h3>
@@ -241,7 +259,7 @@ export default function LifeAtEdenCareersPage() {
               Work-Life Balance
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_WORK_LIFE.map((item) => (
+              {lifeAtEdenWorkLife.map((item) => (
                 <li key={item.title} className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm">
                   <h3 className="text-base font-extrabold text-slate-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
@@ -257,7 +275,7 @@ export default function LifeAtEdenCareersPage() {
               Community Impact
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
-              {LIFE_AT_EDEN_COMMUNITY.map((item) => (
+              {lifeAtEdenCommunity.map((item) => (
                 <li key={item.title} className="rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-white to-teal-50/30 p-5">
                   <h3 className="text-base font-extrabold text-slate-900">{item.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
@@ -276,7 +294,7 @@ export default function LifeAtEdenCareersPage() {
               Team events, clinical collaboration, and family-centered moments across Eden.
             </p>
             <div className="mt-8">
-              <MasonryGallery items={LIFE_AT_EDEN_GALLERY} />
+              <MasonryGallery items={lifeAtEdenGallery} />
             </div>
           </section>
         </RbtScrollReveal>
@@ -290,14 +308,14 @@ export default function LifeAtEdenCareersPage() {
               Recruiting stories, employee journeys, and community impact—curated for candidates exploring Eden.
             </p>
             <div className="mt-8">
-              <VideoHighlightCards videos={LIFE_AT_EDEN_VIDEOS} />
+              <VideoHighlightCards videos={lifeAtEdenVideos} />
             </div>
           </section>
         </RbtScrollReveal>
 
         <RbtScrollReveal>
           <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-            {LIFE_AT_EDEN_DISCLAIMER}
+            {lifeAtEdenDisclaimer}
           </p>
         </RbtScrollReveal>
 

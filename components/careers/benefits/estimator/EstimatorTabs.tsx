@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Briefcase, MessageCircle, TrendingUp } from "lucide-react";
@@ -18,15 +19,18 @@ const TAB_ICONS = {
 } as const;
 
 export default function EstimatorTabs() {
+  const estimatorTabContent = useLocalizedContent("ESTIMATOR_TAB_CONTENT", ESTIMATOR_TAB_CONTENT);
+  const estimatorTabs = useLocalizedContent("ESTIMATOR_TABS", ESTIMATOR_TABS);
+
   const [activeTab, setActiveTab] = useState<EstimatorTabId>("rewards");
   const reduceMotion = useReducedMotion();
-  const content = ESTIMATOR_TAB_CONTENT[activeTab];
+  const content = estimatorTabContent[activeTab];
   const ActiveIcon = TAB_ICONS[activeTab];
 
   return (
     <div className="rounded-[1.5rem] border border-teal-100 bg-white p-6 shadow-sm sm:p-8">
       <div role="tablist" aria-label="Estimator insights" className="flex flex-wrap gap-2">
-        {ESTIMATOR_TABS.map((tab) => {
+        {estimatorTabs.map((tab) => {
           const selected = tab.id === activeTab;
           return (
             <MotionButton

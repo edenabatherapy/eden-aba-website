@@ -1,0 +1,1074 @@
+{
+  "DATA_TRACKING": {
+    "title": "Thu thập Dữ liệu & Theo dõi Tiến bộ",
+    "intro": "ABA tại trường dựa trên đo lường khách quan để đội ngũ thấy điều hiệu quả trong bối cảnh giáo dục thực tế.",
+    "examples": [
+      {
+        "title": "Theo dõi hành vi",
+        "text": "Dữ liệu tần suất, thời lượng hoặc khoảng thời gian về hành vi mục tiêu trong giảng dạy và chuyển tiếp."
+      },
+      {
+        "title": "Đo lường mục tiêu",
+        "text": "Phần trăm đúng, số lần thử đến thành thạo và mức độc lập trên kỹ năng phù hợp IEP."
+      },
+      {
+        "title": "Học kỹ năng",
+        "text": "Dữ liệu từng bước về mục tiêu giao tiếp, xã hội và thích ứng được dạy trong thói quen lớp học."
+      },
+      {
+        "title": "Quan sát lớp học",
+        "text": "Ghi chú quan sát có cấu trúc qua các môi trường như căng tin, sân chơi và môn đặc biệt."
+      },
+      {
+        "title": "Báo cáo tiến bộ",
+        "text": "Tóm tắt thân thiện gia đình kết nối xu hướng dữ liệu với bước tiếp theo và khuyến nghị đội ngũ."
+      }
+    ]
+  },
+  "FAMILY_PARTNERSHIP": {
+    "title": "Đối tác Gia đình",
+    "intro": "Học sinh đạt tiến bộ mạnh nhất khi gia đình và trường sử dụng chiến lược nhất quán giữa các môi trường.",
+    "points": [
+      {
+        "title": "Tính nhất quán nhà-trường",
+        "text": "Gợi ý, củng cố và thói quen chung giúp kỹ năng chuyển giữa nhà và trường."
+      },
+      {
+        "title": "Giao tiếp với phụ huynh",
+        "text": "Cập nhật thường xuyên giữ người chăm sóc được thông tin về tiến bộ, thách thức và khuyến nghị đội ngũ."
+      },
+      {
+        "title": "Khái quát hóa kỹ năng",
+        "text": "Gia đình thực hành mục tiêu trường học trong bài tập về nhà, bữa ăn và đi chơi cộng đồng khi phù hợp."
+      },
+      {
+        "title": "Cơ hội đào tạo",
+        "text": "Huấn luyện người chăm sóc giúp phụ huynh hiểu kế hoạch hành vi trường học và chiến lược giao tiếp."
+      },
+      {
+        "title": "Cập nhật tiến bộ",
+        "text": "Tóm tắt dữ liệu và họp đội ngũ hỗ trợ ra quyết định sáng suốt về dịch vụ và mục tiêu."
+      }
+    ]
+  },
+  "IEP_TABS": [
+    {
+      "label": "Hỗ trợ IEP",
+      "title": "Hiểu và hỗ trợ mục tiêu IEP",
+      "body": "Eden giúp gia đình hiểu cách chiến lược ABA có thể phù hợp mục tiêu IEP liên quan giao tiếp, hành vi, kỹ năng xã hội và chức năng thích ứng—không thay thế quy trình IEP của trường.",
+      "bullets": [
+        "Liên kết mục tiêu với ưu tiên giáo dục",
+        "Mục tiêu kỹ năng chức năng",
+        "Tài liệu cho họp đội ngũ"
+      ]
+    },
+    {
+      "label": "Hợp tác Giáo viên",
+      "title": "Hợp tác với đội lớp học",
+      "body": "BCBA và RBT phối hợp với giáo viên triển khai chiến lược thực tế phù hợp thói quen lớp học, giảng dạy nhóm và nhu cầu từng học sinh.",
+      "bullets": [
+        "Can thiệp phù hợp lớp học",
+        "Ngôn ngữ và gợi ý chung",
+        "Huấn luyện về hệ thống củng cố"
+      ]
+    },
+    {
+      "label": "Đối tác Phụ huynh",
+      "title": "Giữ gia đình được thông tin và tham gia",
+      "body": "Phụ huynh nhận cập nhật, tham gia lập kế hoạch và học cách củng cố kỹ năng trường học tại nhà để khái quát hóa tốt hơn.",
+      "bullets": [
+        "Giao tiếp tiến bộ thường xuyên",
+        "Cơ hội huấn luyện phụ huynh",
+        "Đồng bộ chiến lược nhà-trường"
+      ]
+    },
+    {
+      "label": "Theo dõi Tiến bộ",
+      "title": "Hỗ trợ giáo dục dựa trên dữ liệu",
+      "body": "Dữ liệu khách quan giúp đội ngũ thấy can thiệp có hiệu quả tại trường và khi nào cần điều chỉnh mục tiêu hoặc chiến lược.",
+      "bullets": [
+        "Dữ liệu buổi trị liệu và quan sát",
+        "Tiêu chí thành thạo mục tiêu",
+        "Họp xem xét đội ngũ"
+      ]
+    }
+  ],
+  "MTSS_TIERS": {
+    "title": "Hệ thống Hỗ trợ Đa Tầng",
+    "intro": "Hỗ trợ tại trường thường phù hợp mô hình đa tầng trong giáo dục—từ chiến lược phổ quát đến can thiệp cá nhân chuyên sâu.",
+    "tiers": [
+      {
+        "tier": "Tầng 1",
+        "title": "Hỗ trợ Phổ quát",
+        "text": "Kỳ vọng toàn lớp, lịch trình trực quan, thói quen dự đoán được và hệ thống củng cố tích cực có lợi cho mọi học sinh."
+      },
+      {
+        "tier": "Tầng 2",
+        "title": "Hỗ trợ Mục tiêu",
+        "text": "Luyện tập kỹ năng nhóm nhỏ, hệ thống kiểm tra, nhóm kỹ năng xã hội và gợi ý mục tiêu cho học sinh cần cấu trúc hơn."
+      },
+      {
+        "tier": "Tầng 3",
+        "title": "Hỗ trợ Chuyên sâu",
+        "text": "Can thiệp ABA cá nhân hóa, kế hoạch hỗ trợ hành vi, dạy kỹ năng 1:1 và lập trình do BCBA dẫn dắt cho học sinh có nhu cầu đáng kể."
+      }
+    ]
+  },
+  "SCHOOL_ABA_FAQ": [
+    {
+      "question": "Liệu pháp ABA tại trường là gì?",
+      "answer": "Liệu pháp ABA tại trường áp dụng chiến lược hành vi dựa trên bằng chứng trong môi trường giáo dục hỗ trợ giao tiếp, hành vi, kỹ năng xã hội và tham gia lớp học. Dịch vụ được phối hợp với gia đình và đội trường khi có giấy phép phù hợp."
+    },
+    {
+      "question": "ABA hỗ trợ mục tiêu IEP như thế nào?",
+      "answer": "Khi phù hợp lâm sàng, chiến lược ABA có thể phù hợp mục tiêu IEP liên quan giao tiếp, hành vi thích ứng, tham gia xã hội và độc lập. Eden hợp tác với gia đình hiểu ưu tiên IEP và ghi nhận cách ABA hỗ trợ kết quả giáo dục."
+    },
+    {
+      "question": "ABA có diễn ra trong giờ học không?",
+      "answer": "Có. Dịch vụ tại trường thường được cung cấp trong giờ học tại lớp học và môi trường giáo dục khác, tùy kế hoạch học sinh, chính sách trường và ủy quyền."
+    },
+    {
+      "question": "BCBA làm việc với giáo viên như thế nào?",
+      "answer": "BCBA quan sát trong lớp học, đề xuất chiến lược thực tế, đào tạo nhân viên triển khai, xem xét dữ liệu và tham gia họp đội ngũ với sự đồng ý của gia đình. Hợp tác tập trung vào hỗ trợ thực tế phù hợp thói quen giảng dạy."
+    },
+    {
+      "question": "Dữ liệu nào được thu thập?",
+      "answer": "Đội ngũ có thể theo dõi học kỹ năng, mô hình hành vi, mức độc lập và tham gia trong giảng dạy. Dữ liệu giúp xác định can thiệp có hiệu quả và khi nào cập nhật mục tiêu."
+    },
+    {
+      "question": "Mục tiêu được chọn như thế nào?",
+      "answer": "Mục tiêu dựa trên đánh giá, ưu tiên IEP, ý kiến gia đình, quan sát lớp học và hồ sơ giao tiếp và hành vi của học sinh. Mục tiêu nên đo lường được và có ý nghĩa trong bối cảnh trường học."
+    },
+    {
+      "question": "Phụ huynh tham gia như thế nào?",
+      "answer": "Phụ huynh tham gia lập kế hoạch, nhận cập nhật tiến bộ và có thể nhận huấn luyện củng cố kỹ năng trường học tại nhà. Hợp tác gia đình thiết yếu cho khái quát hóa giữa các môi trường."
+    },
+    {
+      "question": "Tiến bộ được đo như thế nào?",
+      "answer": "Tiến bộ được đo qua thu thập dữ liệu liên tục, tiêu chí thành thạo mục tiêu, phản hồi giáo viên và xem xét BCBA định kỳ. Xu hướng theo thời gian—không phải buổi đơn lẻ—hướng dẫn cập nhật điều trị."
+    },
+    {
+      "question": "ABA có thể hỗ trợ kỹ năng xã hội không?",
+      "answer": "Có. ABA tại trường thường nhắm tương tác bạn bè, tham gia nhóm, chú ý chung, chờ lượt và kỹ năng kết bạn trong giờ ra chơi, bữa trưa và hoạt động nhóm có cấu trúc."
+    },
+    {
+      "question": "ABA có thể hỗ trợ hành vi lớp học không?",
+      "answer": "Có. Đánh giá hành vi chức năng và hỗ trợ hành vi tích cực có thể giúp giảm hành vi cản trở đồng thời dạy kỹ năng thay thế an toàn hơn trong giảng dạy và chuyển tiếp."
+    },
+    {
+      "question": "ABA tại trường khác ABA tại phòng khám như thế nào?",
+      "answer": "ABA tại trường tập trung kỹ năng cần trong môi trường giáo dục với phối hợp trực tiếp giữa giáo viên và nhân viên trường. Dịch vụ phòng khám hoặc tại nhà có thể nhấn mạnh mục tiêu và bối cảnh khác. Nhiều học sinh hưởng lợi từ kết hợp khi được ủy quyền."
+    },
+    {
+      "question": "ABA có thể hỗ trợ lập kế hoạch chuyển tiếp không?",
+      "answer": "Có. ABA có thể hỗ trợ chuyển tiếp giữa lớp học, cấp lớp, trường và lập kế hoạch sau trung học bằng cách dạy linh hoạt, tự vận động, tổ chức và thói quen độc lập."
+    }
+  ],
+  "SCHOOL_ABA_TIMELINE": {
+    "title": "ABA Tại Trường Hoạt động Như thế nào",
+    "intro": "Quy trình hợp tác kết nối gia đình, trường học và đội lâm sàng của Eden từ giới thiệu đến xem xét liên tục.",
+    "steps": [
+      {
+        "title": "Giới thiệu",
+        "text": "Gia đình, trường học hoặc bác sĩ xác định nhu cầu hỗ trợ hành vi hoặc giao tiếp tại trường."
+      },
+      {
+        "title": "Xem xét hồ sơ",
+        "text": "Đội ngũ xem xét tài liệu IEP, đánh giá, kế hoạch hành vi và hồ sơ giáo dục liên quan."
+      },
+      {
+        "title": "Hợp tác trường học",
+        "text": "Eden phối hợp với quản trị viên và nhân viên trường để hiểu môi trường, lịch trình và ưu tiên."
+      },
+      {
+        "title": "Đánh giá",
+        "text": "BCBA quan sát học sinh trong và ngoài lớp học để xác định điểm mạnh và nhu cầu hỗ trợ."
+      },
+      {
+        "title": "Phát triển mục tiêu",
+        "text": "Mục tiêu đo lường được được viết để hỗ trợ tham gia giáo dục, giao tiếp, hành vi và độc lập."
+      },
+      {
+        "title": "Lập kế hoạch can thiệp",
+        "text": "Chiến lược, kế hoạch gợi ý, hệ thống củng cố và phương pháp dữ liệu được xác định cho triển khai tại trường."
+      },
+      {
+        "title": "Thu thập dữ liệu",
+        "text": "RBT và thành viên đội ngũ thu thập dữ liệu buổi trị liệu về học kỹ năng và mô hình hành vi trong ngày học."
+      },
+      {
+        "title": "Theo dõi tiến bộ",
+        "text": "Xu hướng dữ liệu được xem xét để xác định hỗ trợ có hiệu quả trong môi trường lớp học thực tế."
+      },
+      {
+        "title": "Hợp tác đội ngũ",
+        "text": "BCBA họp với giáo viên và gia đình để điều chỉnh chiến lược và đồng bộ giữa nhà và trường."
+      },
+      {
+        "title": "Xem xét liên tục",
+        "text": "Mục tiêu, cường độ và vị trí được xem xét lại khi nhu cầu học sinh và chương trình giáo dục phát triển."
+      }
+    ]
+  },
+  "SCHOOL_CTA": {
+    "title": "Giúp Con Phát triển Tại Trường",
+    "subtitle": "Eden hợp tác với gia đình và đội giáo dục hỗ trợ phát triển, tham gia và độc lập có ý nghĩa của học sinh.",
+    "primaryLabel": "Yêu cầu Tư vấn",
+    "secondaryLabel": "Liên hệ Eden",
+    "tertiaryLabel": "Bắt đầu Intake"
+  },
+  "SCHOOL_HERO": {
+    "title": "Liệu pháp ABA Tại Trường",
+    "subtitle": "Hỗ trợ thành công học sinh qua can thiệp hành vi, giao tiếp, xã hội và học thuật dựa trên bằng chứng trong môi trường giáo dục.",
+    "imageAlt": "Giáo viên và học sinh hợp tác trong môi trường học tập lớp học hỗ trợ"
+  },
+  "SCHOOL_RESOURCES": [
+    {
+      "title": "Hỗ trợ Thói quen Lớp học",
+      "summary": "Lịch trình trực quan và thói quen dự đoán được cho ngày học suôn sẻ hơn."
+    },
+    {
+      "title": "Tổng quan Hợp tác IEP",
+      "summary": "Cách gia đình, trường học và nhà cung cấp đồng bộ mục tiêu giáo dục."
+    },
+    {
+      "title": "Chiến lược Tương tác Bạn bè",
+      "summary": "Hỗ trợ chờ lượt, chào hỏi và chơi nhóm tại trường."
+    },
+    {
+      "title": "AAC trong Lớp học",
+      "summary": "Sử dụng thiết bị giao tiếp và hình ảnh trong giảng dạy."
+    },
+    {
+      "title": "Hiểu Kế hoạch Hỗ trợ Hành vi",
+      "summary": "Cách lập kế hoạch dựa trên chức năng hỗ trợ hành vi lớp học an toàn hơn."
+    },
+    {
+      "title": "Kỹ năng Sẵn sàng Đi học",
+      "summary": "Bắt chước, chờ đợi và phản hồi nhóm cho trẻ học sớm."
+    },
+    {
+      "title": "Lập kế hoạch Chuyển tiếp Tại Trường",
+      "summary": "Chiến lược cho hành lang, căng tin và thay đổi lịch trình."
+    },
+    {
+      "title": "Tổ chức & Bắt đầu Nhiệm vụ",
+      "summary": "Hỗ trợ bắt đầu công việc, sắp xếp bước và sử dụng danh sách kiểm tra."
+    },
+    {
+      "title": "Lộ trình Đánh giá & Sàng lọc",
+      "summary": "Khi gia đình nên khám phá sàng lọc và đánh giá toàn diện."
+    },
+    {
+      "title": "Đào tạo Phụ huynh cho Tính nhất quán Nhà-Trường",
+      "summary": "Huấn luyện người chăm sóc để củng cố mục tiêu trường học tại nhà."
+    }
+  ],
+  "SCHOOL_RESOURCE_CATEGORIES": [
+    "Sẵn sàng Đi học",
+    "Thành công Lớp học",
+    "Hỗ trợ Hành vi",
+    "Tài nguyên IEP",
+    "Kỹ năng Xã hội",
+    "Giao tiếp",
+    "Chức năng Điều hành"
+  ],
+  "SCHOOL_TEAM": {
+    "title": "Hợp tác Đội ngũ Trường",
+    "intro": "ABA tại trường có ý nghĩa kết nối những người hỗ trợ học sinh mỗi ngày.",
+    "roles": [
+      {
+        "role": "BCBA",
+        "text": "Đánh giá, giám sát, lập kế hoạch điều trị và đào tạo đội ngũ."
+      },
+      {
+        "role": "RBT",
+        "text": "Triển khai trực tiếp, thu thập dữ liệu và luyện tập kỹ năng tại trường."
+      },
+      {
+        "role": "Giáo viên",
+        "text": "Giảng dạy lớp học, thói quen và triển khai chiến lược hàng ngày."
+      },
+      {
+        "role": "Giáo viên Giáo dục Đặc biệt",
+        "text": "Dịch vụ IEP, giảng dạy chuyên biệt và hỗ trợ phối hợp."
+      },
+      {
+        "role": "Nhà trị liệu Ngôn ngữ",
+        "text": "Mục tiêu giao tiếp và hợp tác AAC khi phù hợp."
+      },
+      {
+        "role": "Nhà trị liệu Nghề nghiệp",
+        "text": "Phối hợp cảm giác, vận động tinh và kỹ năng sinh hoạt hàng ngày."
+      },
+      {
+        "role": "Nhà tâm lý học Trường",
+        "text": "Đầu vào đánh giá, tư vấn hành vi và lập kế hoạch đội ngũ."
+      },
+      {
+        "role": "Phụ huynh/Người chăm sóc",
+        "text": "Đồng ý, ưu tiên, tính nhất quán nhà-trường và đối tác tiến bộ."
+      }
+    ]
+  },
+  "SERVICES_IN_SCHOOL": {
+    "title": "Dịch vụ Cung cấp Tại Trường",
+    "intro": "ABA tại trường tại Eden được thiết kế hỗ trợ tham gia có ý nghĩa—không phải luyện tập cô lập tách khỏi lớp học.",
+    "categories": [
+      {
+        "title": "Hỗ trợ Hành vi",
+        "items": [
+          "Hỗ trợ hành vi chức năng",
+          "Chiến lược hành vi tích cực",
+          "Lập kế hoạch giảm hành vi"
+        ]
+      },
+      {
+        "title": "Phát triển Giao tiếp",
+        "items": [
+          "Giao tiếp chức năng",
+          "Hỗ trợ AAC",
+          "Giao tiếp xã hội"
+        ]
+      },
+      {
+        "title": "Kỹ năng Xã hội",
+        "items": [
+          "Tương tác bạn bè",
+          "Tham gia nhóm",
+          "Phát triển tình bạn"
+        ]
+      },
+      {
+        "title": "Hỗ trợ Học thuật",
+        "items": [
+          "Hoàn thành nhiệm vụ",
+          "Làm theo hướng dẫn",
+          "Thói quen lớp học"
+        ]
+      },
+      {
+        "title": "Hỗ trợ Chuyển tiếp",
+        "items": [
+          "Chuyển tiếp lớp học",
+          "Thay đổi lịch trình",
+          "Môi trường mới"
+        ]
+      },
+      {
+        "title": "Kỹ năng Độc lập",
+        "items": [
+          "Tự quản lý",
+          "Tổ chức",
+          "Thói quen hàng ngày"
+        ]
+      }
+    ]
+  },
+  "SUCCESS_METRICS": {
+    "title": "Kết quả Chúng tôi Theo dõi",
+    "intro": "Số liệu minh họa các loại tiến bộ tại trường Eden theo dõi với gia đình và đội giáo dục.",
+    "stats": [
+      {
+        "label": "Sự tham gia của học sinh",
+        "description": "Tăng tham gia trong giảng dạy có cấu trúc"
+      },
+      {
+        "label": "Đạt mục tiêu",
+        "description": "Kỹ năng đạt tiêu chí thành thạo tại trường"
+      },
+      {
+        "label": "Tham gia lớp học",
+        "description": "Cải thiện tham gia nhiệm vụ nhóm và độc lập"
+      },
+      {
+        "label": "Phát triển giao tiếp",
+        "description": "Giao tiếp chức năng trong thói quen trường học"
+      },
+      {
+        "label": "Phát triển xã hội",
+        "description": "Tiến bộ tương tác bạn bè và kỹ năng nhóm"
+      }
+    ]
+  },
+  "WHAT_IS_SCHOOL_ABA": {
+    "title": "Liệu pháp ABA Tại Trường là gì?",
+    "intro": "Liệu pháp ABA tại trường đưa phân tích hành vi ứng dụng vào môi trường giáo dục giúp học sinh tham gia, học, giao tiếp và điều hòa hành vi trong lớp học thực—không chỉ tại phòng khám hoặc nhà.",
+    "cards": [
+      {
+        "title": "ABA trong môi trường giáo dục",
+        "text": "Nhà trị liệu và BCBA hỗ trợ mục tiêu quan trọng tại trường: theo thói quen, tham gia giảng dạy, giao tiếp nhu cầu và tham gia với bạn bè."
+      },
+      {
+        "title": "Tập trung thành công giáo dục",
+        "text": "Can thiệp phù hợp yêu cầu lớp học như chuyển tiếp, làm việc nhóm, nhiệm vụ độc lập và hành vi an toàn trong giảng dạy."
+      },
+      {
+        "title": "Hợp tác giáo viên & đội trường",
+        "text": "Với sự đồng ý của gia đình, Eden phối hợp với giáo viên, giáo viên giáo dục đặc biệt và nhà cung cấp dịch vụ liên quan để đồng bộ chiến lược suốt ngày học."
+      },
+      {
+        "title": "Tích hợp mục tiêu IEP",
+        "text": "ABA tại trường có thể hỗ trợ mục tiêu IEP liên quan giao tiếp, hành vi, tham gia xã hội và kỹ năng thích ứng khi phù hợp lâm sàng."
+      },
+      {
+        "title": "Khái quát hóa trong lớp học",
+        "text": "Kỹ năng được thực hành nơi cần thiết—căng tin, sân chơi, môn đặc biệt và lớp giáo dục phổ thông hoặc chuyên biệt."
+      },
+      {
+        "title": "Điều chỉnh dựa trên dữ liệu",
+        "text": "Tiến bộ được theo dõi trong bối cảnh trường học để đội ngũ tinh chỉnh hỗ trợ dựa trên điều hiệu quả trong môi trường học thực tế."
+      }
+    ]
+  },
+  "WHO_BENEFITS": {
+    "title": "Ai Hưởng lợi?",
+    "intro": "ABA tại trường có thể giúp học sinh cần hỗ trợ mục tiêu trong một hoặc nhiều lĩnh vực này. Nhấp thẻ để tìm hiểu thêm.",
+    "items": [
+      {
+        "title": "Giao tiếp",
+        "summary": "Giao tiếp chức năng trong môi trường lớp học.",
+        "detail": "Hỗ trợ yêu cầu giúp đỡ, trả lời câu hỏi, sử dụng AAC, bình luận và giảm thất vọng liên quan rào cản giao tiếp trong giảng dạy."
+      },
+      {
+        "title": "Kỹ năng xã hội",
+        "summary": "Tương tác bạn bè và tham gia nhóm.",
+        "detail": "Dạy chờ lượt, chào hỏi, chơi chung, mở đầu hội thoại và cách tham gia hoạt động nhóm phù hợp với bạn cùng lớp."
+      },
+      {
+        "title": "Tham gia lớp học",
+        "summary": "Tham gia bài học và thói quen trường học.",
+        "detail": "Giúp học sinh chú ý bài giảng, phản hồi giáo viên, hoàn thành bài tập và tham gia hoạt động học nhóm."
+      },
+      {
+        "title": "Kỹ năng chuyển tiếp",
+        "summary": "Di chuyển giữa hoạt động và địa điểm.",
+        "detail": "Hỗ trợ chuyển tiếp hành lang, thói quen xếp hàng, thay đổi lịch trình và chuyển từ nhiệm vụ ưa thích sang không ưa thích."
+      },
+      {
+        "title": "Tự điều hòa",
+        "summary": "Chiến lược đối phó và làm dịu tại trường.",
+        "detail": "Dạy yêu cầu nghỉ, thói quen làm dịu, chiến lược cảm giác và hành vi thay thế cho mất điều hòa trong môi trường bận rộn."
+      },
+      {
+        "title": "Chú ý và tập trung",
+        "summary": "Duy trì tham gia trong nhiệm vụ.",
+        "detail": "Xây dựng kỹ năng học để học như ngồi trong thời gian ngắn, làm theo hướng dẫn nhiều bước và duy trì nhiệm vụ với hỗ trợ phù hợp."
+      },
+      {
+        "title": "Kỹ năng thích ứng",
+        "summary": "Kỹ năng sinh hoạt hàng ngày tại trường.",
+        "detail": "Hỗ trợ thói quen bữa trưa, vệ sinh, mặc đồ đi ngoài trời, sắp xếp đồ dùng và độc lập chức năng khác tại trường."
+      },
+      {
+        "title": "Nhu cầu hành vi chức năng",
+        "summary": "Mô hình hành vi an toàn, hiệu quả hơn.",
+        "detail": "Sử dụng hỗ trợ hành vi tích cực và lập kế hoạch dựa trên chức năng để giảm hành vi không an toàn hoặc cản trở đồng thời dạy kỹ năng thay thế."
+      },
+      {
+        "title": "Sẵn sàng đi học",
+        "summary": "Kỹ năng nền tảng cho môi trường học tập.",
+        "detail": "Tập trung bắt chước, ghép, chờ đợi, phản hồi nhóm và điều kiện tiên quyết khác cho thành công lớp học."
+      },
+      {
+        "title": "Chức năng điều hành",
+        "summary": "Lập kế hoạch, tổ chức và linh hoạt.",
+        "detail": "Hỗ trợ bắt đầu nhiệm vụ, sắp xếp bước, sử dụng lịch trình trực quan và thích ứng khi kế hoạch thay đổi trong ngày học."
+      }
+    ]
+  },
+  "ADOS2_SECTION": {
+    "title": "Đánh giá ADOS-2",
+    "intro": "Lịch Quan sát Chẩn đoán Tự kỷ, Ấn bản Thứ hai (ADOS-2) là đánh giá quan sát có cấu trúc được sử dụng trong đánh giá tự kỷ. Nó có thể giúp bác sĩ lâm sàng quan sát giao tiếp, tương tác xã hội, chơi và hành vi hạn chế hoặc lặp lại. Nên được thực hiện bởi chuyên gia được đào tạo và là một phần của quy trình chẩn đoán rộng hơn—không phải yếu tố duy nhất.",
+    "points": [
+      "ADOS-2 là công cụ đánh giá quan sát có cấu trúc được sử dụng trong đánh giá tự kỷ.",
+      "Nó có thể giúp bác sĩ lâm sàng quan sát giao tiếp, tương tác xã hội, chơi và hành vi hạn chế hoặc lặp lại.",
+      "Nên được thực hiện bởi chuyên gia được đào tạo.",
+      "Đây là một phần của quy trình chẩn đoán rộng hơn, không phải yếu tố duy nhất."
+    ],
+    "cards": [
+      {
+        "title": "Quan sát có cấu trúc",
+        "text": "Hoạt động dựa trên trò chơi được điều chỉnh theo tuổi, trình độ ngôn ngữ và giai đoạn phát triển của trẻ."
+      },
+      {
+        "title": "Giao tiếp xã hội",
+        "text": "Bác sĩ lâm sàng quan sát giao tiếp bằng mắt, cử chỉ, niềm vui chung và tương tác qua lại."
+      },
+      {
+        "title": "Chơi và tương tác",
+        "text": "Cách trẻ sử dụng đồ chơi, tham gia chơi giả vờ và hoạt động xã hội được quan sát."
+      },
+      {
+        "title": "Hành vi lặp lại",
+        "text": "Sở thích hạn chế, chuyển động lặp lại hoặc thói quen mạnh có thể được ghi nhận khi liên quan lâm sàng."
+      },
+      {
+        "title": "Giải thích lâm sàng",
+        "text": "Điểm số được xem xét cùng tiền sử phát triển, mối quan ngại phụ huynh và dữ liệu đánh giá khác."
+      },
+      {
+        "title": "Thảo luận với gia đình",
+        "text": "Kết quả được giải thích bằng ngôn ngữ thân thiện gia đình với hướng dẫn bước tiếp theo rõ ràng."
+      }
+    ],
+    "ctaLabel": "Tìm hiểu Điều Mong đợi Trong Đánh giá"
+  },
+  "AFTER_EVALUATION": {
+    "title": "Điều gì xảy ra sau đánh giá?",
+    "intro": "Sau đánh giá, gia đình nên nhận thông tin rõ ràng và hướng dẫn thực tế—không phải sự bối rối về bước tiếp theo.",
+    "cards": [
+      {
+        "title": "Xem xét kết quả",
+        "text": "Bác sĩ lâm sàng giải thích kết quả bằng ngôn ngữ dễ hiểu và trả lời câu hỏi của gia đình."
+      },
+      {
+        "title": "Khuyến nghị",
+        "text": "Hỗ trợ đề xuất có thể bao gồm trị liệu, dịch vụ trường học hoặc đánh giá bổ sung."
+      },
+      {
+        "title": "Lập kế hoạch liệu pháp ABA",
+        "text": "Nếu ABA phù hợp, Eden có thể giúp intake, đánh giá và lập kế hoạch điều trị."
+      },
+      {
+        "title": "Hướng dẫn phụ huynh",
+        "text": "Gia đình nhận chiến lược và tài nguyên hỗ trợ thói quen hàng ngày và giao tiếp."
+      },
+      {
+        "title": "Đề xuất hỗ trợ trường học",
+        "text": "Kết quả đánh giá có thể hỗ trợ thảo luận IEP và điều chỉnh lớp học khi phù hợp."
+      },
+      {
+        "title": "Tài liệu Bảo hiểm hoặc Medicaid",
+        "text": "Báo cáo và hồ sơ cần cho ủy quyền hoặc xem xét quyền lợi được thảo luận."
+      },
+      {
+        "title": "Mục tiêu điều trị",
+        "text": "Mục tiêu ban đầu tập trung giao tiếp, an toàn, độc lập và ưu tiên gia đình."
+      },
+      {
+        "title": "Bước tiếp theo với Eden",
+        "text": "Đội ngũ giúp kết nối sàng lọc, đánh giá và dịch vụ ABA khi phù hợp lâm sàng."
+      }
+    ]
+  },
+  "AUTISM_SCREENING_TOOLS": {
+    "title": "Công cụ Sàng lọc Tự kỷ",
+    "intro": "Eden cung cấp công cụ sàng lọc trực tuyến thân thiện phụ huynh giúp gia đình bước đầu sớm. Chọn công cụ phù hợp nhất với độ tuổi của con.",
+    "disclaimer": "Công cụ sàng lọc không chẩn đoán tự kỷ. Kết quả nên được thảo luận với chuyên gia đủ điều kiện.",
+    "tools": [
+      {
+        "title": "M-CHAT-R/F",
+        "badge": "Trẻ nhỏ • 16–30 tháng",
+        "buttonLabel": "Làm M-CHAT-R",
+        "features": [
+          "Cho trẻ khoảng 16–30 tháng",
+          "Bảng câu hỏi phụ huynh",
+          "Công cụ sàng lọc tự kỷ sớm",
+          "Không phải chẩn đoán"
+        ]
+      },
+      {
+        "title": "CAST (Childhood Autism Spectrum Test)",
+        "badge": "Tuổi đi học • 4–11 tuổi",
+        "buttonLabel": "Làm CAST",
+        "features": [
+          "Cho trẻ lớn hơn",
+          "Bảng câu hỏi phụ huynh",
+          "Giúp xác định mối quan ngại liên quan tự kỷ có thể có",
+          "Không phải chẩn đoán"
+        ]
+      }
+    ]
+  },
+  "DOCUMENTS_CHECKLIST": {
+    "title": "Tài liệu Hữu ích Cần Chuẩn bị",
+    "intro": "Thu thập hồ sơ trước đánh giá hoặc cuộc gọi intake có thể tiết kiệm thời gian và giúp bác sĩ lâm sàng hiểu toàn cảnh về con bạn.",
+    "items": [
+      "Ghi chú chẩn đoán hoặc giới thiệu của trẻ nếu có",
+      "Ghi chú bác sĩ nhi",
+      "Thẻ bảo hiểm",
+      "Thông tin Medicaid nếu áp dụng",
+      "Đánh giá trước đây",
+      "Tài liệu IEP hoặc trường học",
+      "Báo cáo Ngôn ngữ/OT/PT",
+      "Mối quan ngại và câu hỏi của phụ huynh",
+      "Tiền sử phát triển"
+    ]
+  },
+  "EARLY_SIGNS": {
+    "title": "Dấu hiệu Sớm Gia đình Có thể Nhận thấy",
+    "intro": "Các mô hình này là lý do phổ biến gia đình khám phá sàng lọc hoặc đánh giá. Mỗi trẻ khác nhau.",
+    "signs": [
+      "Hạn chế giao tiếp bằng mắt",
+      "Chậm nói hoặc giao tiếp",
+      "Hạn chế phản hồi khi gọi tên",
+      "Chuyển động lặp lại",
+      "Thích thói quen mạnh",
+      "Nhạy cảm cảm giác",
+      "Khó khăn với chuyển tiếp",
+      "Hạn chế chơi giả vờ",
+      "Khó khăn trong tương tác bạn bè"
+    ],
+    "disclaimer": "Mỗi trẻ phát triển khác nhau. Các dấu hiệu này không xác nhận tự kỷ, nhưng có thể cho thấy sàng lọc hoặc đánh giá có thể hữu ích."
+  },
+  "EVALUATION_PROCESS": {
+    "title": "Quy trình Đánh giá Tự kỷ Toàn diện",
+    "intro": "Đánh giá toàn diện kết hợp sàng lọc, tiền sử, quan sát và phán đoán lâm sàng để hỗ trợ chẩn đoán, khuyến nghị và lập kế hoạch điều trị.",
+    "steps": [
+      {
+        "title": "Mối quan ngại hoặc giới thiệu của phụ huynh",
+        "text": "Gia đình, bác sĩ nhi hoặc trường học nêu mối quan ngại về giao tiếp, hành vi hoặc phát triển."
+      },
+      {
+        "title": "Sàng lọc ban đầu",
+        "text": "Bảng câu hỏi phụ huynh hoặc công cụ sàng lọc giúp xác định đánh giá thêm có thể hữu ích."
+      },
+      {
+        "title": "Intake và tiền sử phát triển",
+        "text": "Bác sĩ lâm sàng xem xét cột mốc phát triển, tiền sử y tế, ưu tiên gia đình và hồ sơ trước đó."
+      },
+      {
+        "title": "Quan sát và đánh giá lâm sàng",
+        "text": "Quan sát trực tiếp giao tiếp, chơi, tương tác xã hội và kỹ năng sinh hoạt hàng ngày."
+      },
+      {
+        "title": "Công cụ chuẩn hóa khi phù hợp",
+        "text": "Công cụ như ADOS-2 có thể được sử dụng như phần của đánh giá rộng hơn—không phải yếu tố duy nhất."
+      },
+      {
+        "title": "Khuyến nghị lâm sàng",
+        "text": "Kết quả được giải thích cùng tiền sử, ý kiến phụ huynh và bối cảnh phát triển."
+      },
+      {
+        "title": "Lập kế hoạch liệu pháp ABA hoặc hỗ trợ giới thiệu",
+        "text": "Gia đình nhận hướng dẫn về lựa chọn trị liệu, hỗ trợ trường học và tài nguyên cộng đồng."
+      },
+      {
+        "title": "Hỗ trợ ủy quyền Bảo hiểm hoặc Medicaid",
+        "text": "Eden có thể giúp gia đình hiểu nhu cầu tài liệu cho bảo hiểm và ủy quyền."
+      }
+    ]
+  },
+  "MCHAT_SECTION": {
+    "title": "Công cụ Sàng lọc M-CHAT-R Trực tuyến",
+    "intro": "Bảng kiểm tra Sửa đổi Tự kỷ ở Trẻ nhỏ, Phiên bản Sửa đổi (M-CHAT-R) là công cụ sàng lọc thường dùng cho trẻ nhỏ. Nó được thiết kế cho trẻ khoảng 16–30 tháng và giúp xác định trẻ có thể hưởng lợi từ đánh giá thêm. Đây không phải chẩn đoán—bác sĩ lâm sàng nên xem xét mối quan ngại và bước tiếp theo với gia đình bạn.",
+    "points": [
+      "M-CHAT-R là công cụ sàng lọc thường dùng cho trẻ nhỏ.",
+      "Nó được thiết kế cho trẻ khoảng 16–30 tháng.",
+      "Nó giúp xác định trẻ có thể hưởng lợi từ đánh giá thêm.",
+      "Đây không phải chẩn đoán.",
+      "Bác sĩ lâm sàng nên xem xét các mối quan ngại và bước tiếp theo."
+    ],
+    "featureCards": [
+      {
+        "title": "Bảng câu hỏi phụ huynh nhanh",
+        "text": "Hầu hết gia đình hoàn thành 20 câu hỏi có/không trong dưới năm phút tại nhà."
+      },
+      {
+        "title": "Giúp xác định nguy cơ tự kỷ có thể có",
+        "text": "Công cụ sàng lọc làm nổi bật mô hình xã hội, giao tiếp và chơi có thể cần theo dõi."
+      },
+      {
+        "title": "Hỗ trợ bước tiếp theo sớm",
+        "text": "Kết quả có thể hướng dẫn theo dõi, tái khám nhi khoa hoặc đánh giá có thể hữu ích."
+      },
+      {
+        "title": "Nên sử dụng với hướng dẫn chuyên môn",
+        "text": "Chia sẻ kết quả với bác sĩ nhi hoặc đội Eden để lập kế hoạch bước tiếp theo phù hợp."
+      }
+    ],
+    "ctaLabel": "Hoàn tất Sàng lọc và Thảo luận Bước Tiếp theo",
+    "disclaimer": "Kết quả M-CHAT-R mang tính thông tin và không nên được coi là chẩn đoán."
+  },
+  "SCREENING_CTA": {
+    "title": "Sẵn sàng Bước Tiếp theo?",
+    "subtitle": "Nếu bạn lo ngại về phát triển của con, Eden có thể hướng dẫn gia đình qua sàng lọc, đánh giá, tài liệu và bước tiếp theo cho liệu pháp ABA.",
+    "primaryLabel": "Bắt đầu Đánh giá",
+    "secondaryLabel": "Liên hệ Eden",
+    "tertiaryLabel": "Xem Hướng dẫn Bắt đầu"
+  },
+  "SCREENING_EVALUATION_FAQ": [
+    {
+      "question": "Sàng lọc có giống chẩn đoán không?",
+      "answer": "Không. Công cụ sàng lọc xác định mối quan ngại có thể có và giúp gia đình quyết định đánh giá thêm có thể hữu ích. Chỉ bác sĩ lâm sàng đủ điều kiện mới có thể chẩn đoán tự kỷ sau đánh giá toàn diện."
+    },
+    {
+      "question": "M-CHAT-R dành cho độ tuổi nào?",
+      "answer": "M-CHAT-R được thiết kế cho trẻ nhỏ khoảng 16–30 tháng. Nếu con lớn hơn, công cụ sàng lọc khác như CAST có thể phù hợp hơn."
+    },
+    {
+      "question": "M-CHAT-R có chẩn đoán tự kỷ không?",
+      "answer": "Không. M-CHAT-R chỉ là công cụ sàng lọc. Kết quả nên được xem xét với bác sĩ nhi hoặc bác sĩ lâm sàng đủ điều kiện có thể đề xuất bước tiếp theo."
+    },
+    {
+      "question": "ADOS-2 là gì?",
+      "answer": "ADOS-2 là công cụ đánh giá quan sát có cấu trúc, dựa trên trò chơi, được sử dụng trong đánh giá tự kỷ. Các bác sĩ lâm sàng được đào tạo quan sát giao tiếp, tương tác xã hội, chơi và mô hình hành vi."
+    },
+    {
+      "question": "Mọi trẻ có cần ADOS-2 không?",
+      "answer": "Không nhất thiết. Việc đề xuất ADOS-2 phụ thuộc tuổi trẻ, mối quan ngại, đánh giá trước và phán đoán lâm sàng của người đánh giá như phần của đánh giá rộng hơn."
+    },
+    {
+      "question": "Ai có thể chẩn đoán tự kỷ?",
+      "answer": "Tự kỷ được chẩn đoán bởi các chuyên gia đủ điều kiện như bác sĩ nhi khoa phát triển, nhà tâm lý học, bác sĩ tâm thần hoặc bác sĩ lâm sàng có giấy phép với đào tạo phù hợp về đánh giá tự kỷ."
+    },
+    {
+      "question": "Đánh giá có thể giúp ủy quyền ABA không?",
+      "answer": "Có. Chẩn đoán chính thức và báo cáo đánh giá thường được yêu cầu cho ủy quyền bảo hiểm hoặc Medicaid liệu pháp ABA. Eden có thể giúp gia đình hiểu nhu cầu tài liệu."
+    },
+    {
+      "question": "Tôi nên mang gì đến buổi đánh giá?",
+      "answer": "Vật dụng hữu ích bao gồm báo cáo đánh giá trước, ghi chú bác sĩ nhi, thẻ bảo hiểm, hồ sơ IEP hoặc trường, báo cáo trị liệu và danh sách mối quan ngại và câu hỏi chính."
+    },
+    {
+      "question": "Điều gì xảy ra sau khi con tôi được đánh giá?",
+      "answer": "Gia đình thường nhận xem xét kết quả, khuyến nghị lâm sàng và hướng dẫn về trị liệu, hỗ trợ trường học và bước tiếp theo. Eden có thể giúp kết nối kết quả đánh giá với lập kế hoạch ABA khi phù hợp."
+    },
+    {
+      "question": "Eden có thể giúp giải thích bước tiếp theo không?",
+      "answer": "Có. Eden ABA Therapy hỗ trợ gia đình qua xem xét sàng lọc, điều phối đánh giá, intake, xác minh bảo hiểm và lập kế hoạch liệu pháp ABA khi phù hợp lâm sàng."
+    }
+  ],
+  "SCREENING_HERO": {
+    "title": "Sàng lọc & Đánh giá Tự kỷ",
+    "subtitle": "Hiểu dấu hiệu sớm tự kỷ, hoàn tất bước sàng lọc hữu ích và tìm hiểu đánh giá toàn diện hỗ trợ chẩn đoán, lập kế hoạch điều trị và tiếp cận dịch vụ.",
+    "trustBadge": "Lấy gia đình làm trung tâm • Dựa trên bằng chứng • Hướng dẫn bởi bác sĩ lâm sàng",
+    "imageAlt": "Bác sĩ lâm sàng và phụ huynh hỗ trợ trẻ nhỏ trong khoảnh khắc phát triển ấm áp"
+  },
+  "SCREENING_RELATED_LINKS": [
+    {
+      "label": "Bắt đầu với Eden",
+      "description": "Hướng dẫn các bước intake, hồ sơ, bảo hiểm và lên lịch."
+    },
+    {
+      "label": "Liệu pháp ABA là gì?",
+      "description": "Tìm hiểu cách ABA hỗ trợ giao tiếp, hành vi và kỹ năng hàng ngày."
+    },
+    {
+      "label": "Đào tạo Phụ huynh",
+      "description": "Huấn luyện người chăm sóc và hỗ trợ gia đình ngoài buổi trị liệu."
+    },
+    {
+      "label": "Đánh giá Trường & IEP",
+      "description": "Hỗ trợ đánh giá tại trường và lập kế hoạch giáo dục."
+    },
+    {
+      "label": "Bắt đầu Intake",
+      "description": "Chia sẻ thông tin gia đình và bắt đầu bước tiếp theo với Eden."
+    }
+  ],
+  "SCREENING_VS_EVALUATION": {
+    "title": "Sàng lọc so với Đánh giá",
+    "intro": "Hiểu sự khác biệt giúp gia đình biết mong đợi gì ở mỗi giai đoạn.",
+    "screening": {
+      "label": "Sàng lọc",
+      "items": [
+        "Quy trình ngắn hơn",
+        "Xác định mối quan ngại có thể có",
+        "Có thể sử dụng bảng câu hỏi phụ huynh",
+        "Không chẩn đoán",
+        "Giúp quyết định bước tiếp theo"
+      ]
+    },
+    "evaluation": {
+      "label": "Đánh giá",
+      "items": [
+        "Toàn diện hơn",
+        "Có thể bao gồm quan sát và kiểm tra",
+        "Xem xét tiền sử phát triển",
+        "Có thể hỗ trợ chẩn đoán và khuyến nghị",
+        "Giúp hướng dẫn lập kế hoạch điều trị"
+      ]
+    }
+  },
+  "WHAT_IS_SCREENING": {
+    "title": "Sàng lọc Tự kỷ là gì?",
+    "intro": "Sàng lọc tự kỷ giúp gia đình và bác sĩ lâm sàng xác định sớm các mối quan ngại phát triển hoặc liên quan tự kỷ. Công cụ sàng lọc có thể làm nổi bật các mô hình cần theo dõi—nhưng sàng lọc không thay thế đánh giá chẩn đoán đầy đủ bởi chuyên gia đủ điều kiện.",
+    "cards": [
+      {
+        "title": "Khác biệt giao tiếp sớm",
+        "text": "Cử chỉ hạn chế, chậm nói hoặc khó sử dụng từ để yêu cầu, bình luận hoặc phản hồi có thể xuất hiện trong cuộc trò chuyện sàng lọc sớm."
+      },
+      {
+        "title": "Khác biệt tương tác xã hội",
+        "text": "Hạn chế giao tiếp bằng mắt, hạn chế sự quan tâm chung hoặc khó tham gia chơi với bạn bè có thể là lĩnh vực gia đình nhận thấy trước."
+      },
+      {
+        "title": "Hành vi lặp lại",
+        "text": "Lặp lại từ, xếp đồ chơi, thói quen mạnh hoặc sở thích tập trung có thể là phần cách trẻ tự điều hòa và học."
+      },
+      {
+        "title": "Khác biệt cảm giác",
+        "text": "Một số trẻ nhạy cảm hơn với âm thanh, kết cấu hoặc ánh sáng; trẻ khác có thể tìm kiếm chuyển động hoặc đầu vào cảm giác."
+      },
+      {
+        "title": "Chậm cột mốc phát triển",
+        "text": "Thiếu cột mốc giao tiếp, chơi hoặc sinh hoạt hàng ngày mong đợi có thể báo hiệu cần sàng lọc hoặc đánh giá."
+      },
+      {
+        "title": "Mối quan ngại của phụ huynh",
+        "text": "Nếu điều gì đó khác với phát triển mong đợi, chia sẻ mối quan ngại với bác sĩ nhi hoặc người đánh giá là bước đầu quan trọng."
+      }
+    ]
+  },
+  "DOWNLOADABLE_RESOURCES": {
+    "title": "Tài nguyên Tải xuống",
+    "intro": "Công cụ in được gia đình sử dụng giữa các buổi. Hướng dẫn và danh sách kiểm tra mới được thêm thường xuyên.",
+    "items": [
+      {
+        "title": "PDF Bộ công cụ Phụ huynh",
+        "text": "Hướng dẫn tham khảo nhanh về củng cố, gợi ý và hỗ trợ thói quen hàng ngày."
+      },
+      {
+        "title": "Danh sách kiểm tra luyện tập tại nhà",
+        "text": "Danh sách kiểm tra đơn giản theo dõi lần thử giao tiếp, thói quen và mục tiêu luyện tập người chăm sóc."
+      },
+      {
+        "title": "Mẫu lịch trình trực quan",
+        "text": "Mẫu bảng first-then và lịch trình hàng ngày có thể chỉnh sửa cho nhà và cộng đồng."
+      },
+      {
+        "title": "Bảng lập kế hoạch chuyển tiếp & hành vi",
+        "text": "Bảng tính lập kế hoạch chuyển tiếp, chiến lược phòng ngừa và kỹ năng thay thế."
+      }
+    ]
+  },
+  "FAMILY_TRAINING_SECTION": {
+    "title": "Đào tạo & Hỗ trợ Gia đình",
+    "intro": "Eden hỗ trợ cả gia đình với huấn luyện, giáo dục và chiến lược phù hợp đời sống nhà và cộng đồng của bạn.",
+    "cards": [
+      {
+        "title": "Thói quen gia đình",
+        "text": "Xây dựng lịch trình dự đoán được và kỳ vọng chung để trẻ biết điều gì tiếp theo và người chăm sóc bớt quá tải."
+      },
+      {
+        "title": "Chiến lược ABA tại nhà",
+        "text": "Thực hành chiến lược phù hợp trị liệu khi chơi, việc nhà, đi chơi cộng đồng và hoạt động sinh hoạt hàng ngày."
+      },
+      {
+        "title": "Hỗ trợ anh chị em",
+        "text": "Giúp anh chị em hiểu tự kỷ, tham gia tích cực và cảm thấy được hỗ trợ như phần của đội gia đình."
+      },
+      {
+        "title": "Giáo dục người chăm sóc",
+        "text": "Tìm hiểu lý do đằng sau chiến lược để ông bà, người trông trẻ và người chăm sóc khác hỗ trợ mục tiêu nhất quán."
+      },
+      {
+        "title": "Tính nhất quán giữa các môi trường",
+        "text": "Đồng bộ ngôn ngữ, củng cố và kỳ vọng giữa nhà, phòng khám, trường học và cộng đồng."
+      },
+      {
+        "title": "Buổi huấn luyện phụ huynh",
+        "text": "Gặp BCBA hoặc giám sát viên để huấn luyện thực hành, phản hồi và điều chỉnh kế hoạch của con."
+      }
+    ]
+  },
+  "PARENT_GUIDES_SECTION": {
+    "title": "Hướng dẫn Phụ huynh",
+    "intro": "Hướng dẫn thực tế, thân thiện người chăm sóc giúp bạn hiểu mục tiêu của con và hỗ trợ tiến bộ tại nhà.",
+    "cards": [
+      {
+        "title": "Hiểu Mục tiêu ABA",
+        "text": "Tìm hiểu cách mục tiêu điều trị được chọn, thành thạo trông như thế nào và cách theo dõi tiến bộ có ý nghĩa với đội lâm sàng."
+      },
+      {
+        "title": "Củng cố Tích cực Tại Nhà",
+        "text": "Khám phá cách sử dụng khen ngợi, vật phẩm ưa thích và phần thưởng tự nhiên để khuyến khích giao tiếp, hợp tác và kỹ năng mới."
+      },
+      {
+        "title": "Quản lý Hành vi Thách thức",
+        "text": "Hiểu lý do phổ biến hành vi xảy ra và cách phản hồi bằng phòng ngừa, dạy và theo dõi nhất quán."
+      },
+      {
+        "title": "Xây dựng Kỹ năng Giao tiếp",
+        "text": "Hỗ trợ yêu cầu, bình luận và giao tiếp xã hội với gợi ý, mô hình hóa và cơ hội suốt ngày."
+      },
+      {
+        "title": "Hỗ trợ Thói quen Hàng ngày",
+        "text": "Sử dụng hỗ trợ trực quan, thói quen dự đoán được và dạy từng bước cho bữa ăn, giờ ngủ, vệ sinh và chuyển tiếp."
+      },
+      {
+        "title": "Chuẩn bị Thành công Ở Trường",
+        "text": "Luyện tập kỹ năng sẵn sàng lớp học, độc lập và hợp tác với đội trường khi có giấy phép phù hợp."
+      }
+    ]
+  },
+  "PARENT_TRAINING_CTA": {
+    "title": "Sẵn sàng Hỗ trợ Tiến bộ của Con Tại Nhà?",
+    "subtitle": "Kết nối với Eden để tìm hiểu cách đào tạo phụ huynh và hỗ trợ gia đình có thể là phần của hành trình ABA của con bạn.",
+    "primaryLabel": "Bắt đầu Intake",
+    "secondaryLabel": "Liên hệ Eden"
+  },
+  "PARENT_TRAINING_FAQ": [
+    {
+      "question": "Đào tạo phụ huynh diễn ra bao lâu một lần?",
+      "answer": "Tần suất phụ thuộc kế hoạch điều trị, mục tiêu và khuyến nghị lâm sàng của con. Một số gia đình gặp hàng tuần hoặc hai tuần một lần cho huấn luyện tập trung, trong khi những gia đình khác tích hợp kiểm tra ngắn vào dịch vụ ABA liên tục. BCBA sẽ đề xuất lịch phù hợp nhu cầu con và thói quen gia đình."
+    },
+    {
+      "question": "Ông bà hoặc người chăm sóc khác có thể tham gia không?",
+      "answer": "Có. Đào tạo phụ huynh hiệu quả nhất khi mọi người thường xuyên hỗ trợ trẻ sử dụng chiến lược nhất quán. Với sự cho phép của bạn, Eden có thể bao gồm ông bà, người trông trẻ và người chăm sóc khác trong buổi huấn luyện hoặc cung cấp hướng dẫn đơn giản hóa."
+    },
+    {
+      "question": "Phụ huynh có cần tham dự mọi buổi không?",
+      "answer": "Không nhất thiết. Đào tạo phụ huynh có thể diễn ra trong buổi huấn luyện riêng hoặc được tích hợp vào buổi trị liệu khi phù hợp. Đội ngũ sẽ làm rõ khi nào sự tham gia của người chăm sóc có giá trị nhất và cách luyện tập kỹ năng giữa các buổi."
+    },
+    {
+      "question": "Tôi sẽ học kỹ năng gì?",
+      "answer": "Đào tạo được cá nhân hóa, nhưng chủ đề phổ biến bao gồm gợi ý giao tiếp, củng cố, hỗ trợ trực quan, chuyển tiếp, thói quen hàng ngày, an toàn và phản hồi hành vi thách thức. Mục tiêu được chọn cộng tác và gắn với kế hoạch điều trị của con."
+    },
+    {
+      "question": "Đào tạo phụ huynh hỗ trợ tiến bộ tại nhà như thế nào?",
+      "answer": "Trẻ học nhanh hơn khi kỹ năng được luyện tập thường xuyên trong môi trường tự nhiên. Đào tạo phụ huynh trang bị cho người chăm sóc chiến lược rõ ràng, phản hồi và tự tin để củng cố tiến bộ trong bữa ăn, chơi, giờ ngủ và đi chơi cộng đồng—không chỉ trong trị liệu chính thức."
+    },
+    {
+      "question": "Đào tạo phụ huynh có phải phần của liệu pháp ABA không?",
+      "answer": "Có. Đào tạo người chăm sóc là thành phần được công nhận của dịch vụ ABA toàn diện khi phù hợp lâm sàng. Eden bao gồm hợp tác gia đình và huấn luyện như phần của chăm sóc cá nhân hóa, lấy gia đình làm trung tâm."
+    }
+  ],
+  "PARENT_TRAINING_HERO": {
+    "badge": "Đào tạo Phụ huynh",
+    "title": "Đào tạo Phụ huynh & Hỗ trợ Gia đình",
+    "subtitle": "Giúp gia đình xây dựng tự tin, tính nhất quán và chiến lược ABA thực tế ngoài buổi trị liệu.",
+    "imageAlt": "Người chăm sóc và trẻ luyện tập kỹ năng cùng nhau trong khoảnh khắc ấm áp, hỗ trợ tại nhà"
+  },
+  "PARENT_TRAINING_RELATED_LINKS": [
+    {
+      "label": "Liệu pháp ABA là gì?",
+      "description": "Tìm hiểu nền tảng ABA dựa trên bằng chứng và cách nó hỗ trợ trẻ tự kỷ."
+    },
+    {
+      "label": "Bắt đầu với Eden",
+      "description": "Theo lộ trình rõ ràng qua intake, hồ sơ, bảo hiểm và lên lịch."
+    },
+    {
+      "label": "Câu chuyện Thành công ABA",
+      "description": "Đọc câu chuyện gia đình nêu bật tiến bộ, hợp tác và hy vọng."
+    }
+  ],
+  "WHAT_IS_PARENT_TRAINING": {
+    "title": "Đào tạo Phụ huynh là gì?",
+    "intro": "Đào tạo phụ huynh (còn gọi huấn luyện người chăm sóc) giúp gia đình hiểu chiến lược ABA trong trị liệu và áp dụng trong thói quen hàng ngày. BCBA và đội lâm sàng dạy kỹ năng thực tế—như gợi ý giao tiếp, sử dụng củng cố, quản lý chuyển tiếp và phản hồi hành vi thách thức—để tiến bộ tiếp tục tại nhà, trường và cộng đồng.",
+    "body": "Thay vì yêu cầu người chăm sóc trở thành nhà trị liệu, đào tạo phụ huynh tập trung hợp tác: học điều hiệu quả với con, thực hành chiến lược với huấn luyện và xây dựng tự tin hỗ trợ xây dựng kỹ năng giữa các buổi."
+  },
+  "WHY_PARENT_INVOLVEMENT": {
+    "title": "Tại sao Sự Tham gia của Phụ huynh Quan trọng",
+    "intro": "Khi người chăm sóc là đối tác tích cực trong liệu pháp ABA, trẻ thường có nhiều cơ hội luyện tập kỹ năng trong môi trường quan trọng nhất.",
+    "benefits": [
+      {
+        "title": "Khái quát hóa kỹ năng tốt hơn",
+        "text": "Kỹ năng luyện tập với người chăm sóc trong thói quen thực có khả năng chuyển tiếp ra ngoài phòng trị liệu cao hơn."
+      },
+      {
+        "title": "Nhất quán hơn giữa nhà, trường và cộng đồng",
+        "text": "Ngôn ngữ và chiến lược chung giúp mọi người hỗ trợ cùng mục tiêu ở các môi trường khác nhau."
+      },
+      {
+        "title": "Tự tin người chăm sóc mạnh hơn",
+        "text": "Huấn luyện giúp gia đình cảm thấy sẵn sàng phản hồi bình tĩnh và hiệu quả trong thách thức hàng ngày."
+      },
+      {
+        "title": "Giao tiếp tốt hơn với đội lâm sàng",
+        "text": "Đào tạo phụ huynh thường xuyên tạo không gian chia sẻ cập nhật, đặt câu hỏi và điều chỉnh mục tiêu cùng nhau."
+      },
+      {
+        "title": "Tiến bộ có ý nghĩa hơn ngoài buổi trị liệu",
+        "text": "Trẻ có thêm cơ hội luyện tập khi người chăm sóc sử dụng chiến lược dựa trên bằng chứng suốt ngày."
+      }
+    ]
+  },
+  "GETTING_STARTED_RESOURCES": [
+    {
+      "title": "Dịch vụ Tự kỷ Medicaid",
+      "summary": "Tài nguyên Medicaid liên bang giải thích dịch vụ tự kỷ và lộ trình quyền lợi Medicaid.",
+      "featured": true
+    },
+    {
+      "title": "Bảo hiểm Tự kỷ EPSDT Medicaid",
+      "summary": "Giải thích EPSDT và cách dịch vụ tự kỷ Medicaid áp dụng cho trẻ và thanh niên dưới 21 tuổi."
+    },
+    {
+      "title": "Tổng quan Quyền lợi EPSDT",
+      "summary": "Tổng quan của CMS về quyền lợi Sàng lọc, Chẩn đoán và Điều trị Sớm và Định kỳ (EPSDT)."
+    },
+    {
+      "title": "Chương trình Medicaid Virginia DMAS",
+      "summary": "Thông tin Virginia Department of Medical Assistance Services về Medicaid và chương trình sức khỏe cho gia đình."
+    },
+    {
+      "title": "Chương trình ABA Medicaid Maryland",
+      "summary": "Thông tin Medicaid Maryland về dịch vụ ABA y học cần thiết cho thành viên dưới 21 tuổi."
+    },
+    {
+      "title": "Tài nguyên Người tiêu dùng BACB",
+      "summary": "Giúp gia đình hiểu chứng nhận BACB và tại sao nhà cung cấp ABA đủ điều kiện quan trọng.",
+      "featured": true
+    },
+    {
+      "title": "Chứng nhận BCBA",
+      "summary": "Giải thích chứng chỉ Board Certified Behavior Analyst và trách nhiệm giám sát."
+    },
+    {
+      "title": "Chứng nhận RBT",
+      "summary": "Tổng quan chứng nhận Registered Behavior Technician, đào tạo và yêu cầu liên tục."
+    },
+    {
+      "title": "Hướng dẫn Thực hành ABA CASP",
+      "summary": "Hướng dẫn thực hành lâm sàng cho điều trị ABA Rối loạn Phổ Tự kỷ.",
+      "featured": true
+    },
+    {
+      "title": "Hiệp hội Chuyên gia Phân tích Hành vi",
+      "summary": "Tổ chức ABA chuyên nghiệp hỗ trợ nhà thực hành, chính sách công và bảo vệ người tiêu dùng."
+    },
+    {
+      "title": "Hướng dẫn Tài nguyên Autism Speaks",
+      "summary": "Hướng dẫn tài nguyên gia đình có thể tìm kiếm về dịch vụ, hỗ trợ và thông tin tự kỷ.",
+      "featured": true
+    },
+    {
+      "title": "Phân tích Hành vi Ứng dụng là gì?",
+      "summary": "Giới thiệu thân thiện gia đình về liệu pháp ABA, cách hoạt động và gia đình có thể mong đợi gì."
+    },
+    {
+      "title": "CDC: Tìm hiểu về Tự kỷ",
+      "summary": "Thông tin dựa trên bằng chứng về dấu hiệu tự kỷ, sàng lọc, chẩn đoán và theo dõi phát triển."
+    },
+    {
+      "title": "Cột mốc Phát triển CDC",
+      "summary": "Tìm hiểu kỹ năng hầu hết trẻ đạt được theo tuổi và khi nào nên nói chuyện với bác sĩ về phát triển."
+    },
+    {
+      "title": "Tài nguyên Gia đình Autism Society",
+      "summary": "Kết nối, vận động và tài nguyên thực tế cho người chăm sóc tự kỷ suốt cuộc đời."
+    },
+    {
+      "title": "Cân bằng Sức khỏe Tâm thần và Nghiện",
+      "summary": "Hướng dẫn liên bang về cân bằng sức khỏe tâm thần và rối loạn sử dụng chất có thể ảnh hưởng quyền lợi tự kỷ."
+    },
+    {
+      "title": "Chuẩn bị cho Dịch vụ Tự kỷ",
+      "summary": "Hướng dẫn về hồ sơ và thông tin gia đình thường thu thập trước khi bắt đầu dịch vụ liên quan tự kỷ."
+    },
+    {
+      "title": "Can thiệp Sớm Virginia",
+      "summary": "Hệ thống can thiệp sớm Virginia hỗ trợ trẻ sơ sinh và nhỏ có chậm phát triển."
+    },
+    {
+      "title": "Hiểu Điều trị ABA",
+      "summary": "Trả lời các câu hỏi thường gặp của gia đình về phạm vi, chất lượng và kỳ vọng lâm sàng của liệu pháp ABA."
+    },
+    {
+      "title": "Can thiệp Qua Phụ huynh",
+      "summary": "Sự tham gia của người chăm sóc và đào tạo phụ huynh có thể hỗ trợ khái quát hóa kỹ năng tại nhà."
+    },
+    {
+      "title": "Cơ bản về Ủy quyền Trước",
+      "summary": "Giải thích ủy quyền trước và lý do bảo hiểm có thể xem xét dịch vụ trước khi phê duyệt chăm sóc."
+    },
+    {
+      "title": "IDEA và Hỗ trợ Tại Trường",
+      "summary": "Tổng quan quyền giáo dục đặc biệt và cách hỗ trợ trường học liên quan đến lập kế hoạch trị liệu lâm sàng."
+    }
+  ]
+}

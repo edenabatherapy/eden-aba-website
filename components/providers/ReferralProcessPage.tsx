@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { ArrowRight } from "lucide-react";
 import ProviderComplianceNote from "@/components/providers/ProviderComplianceNote";
 import ProviderFAQ from "@/components/providers/ProviderFAQ";
@@ -21,6 +22,11 @@ import {
 import "./providers-pages.css";
 
 export default function ReferralProcessPage() {
+  const familyCommunicationWorkflow = useLocalizedContent("FAMILY_COMMUNICATION_WORKFLOW", FAMILY_COMMUNICATION_WORKFLOW);
+  const helpfulReferralDocuments = useLocalizedContent("HELPFUL_REFERRAL_DOCUMENTS", HELPFUL_REFERRAL_DOCUMENTS);
+  const insuranceIntakeCoordination = useLocalizedContent("INSURANCE_INTAKE_COORDINATION", INSURANCE_INTAKE_COORDINATION);
+  const providerOverview = useLocalizedContent("PROVIDER_OVERVIEW", PROVIDER_OVERVIEW);
+
   return (
     <ProviderPageShell
       breadcrumbs={[
@@ -38,12 +44,12 @@ export default function ReferralProcessPage() {
 
       <ProviderSection
         eyebrow="Overview"
-        title={PROVIDER_OVERVIEW.title}
-        description={PROVIDER_OVERVIEW.paragraphs[1]}
+        title={providerOverview.title}
+        description={providerOverview.paragraphs[1]}
         variant="soft"
       >
         <div className="eden-providers-prose">
-          <p>{PROVIDER_OVERVIEW.paragraphs[2]}</p>
+          <p>{providerOverview.paragraphs[2]}</p>
         </div>
       </ProviderSection>
 
@@ -57,12 +63,12 @@ export default function ReferralProcessPage() {
 
       <ProviderSection
         eyebrow="Intake coordination"
-        title={INSURANCE_INTAKE_COORDINATION.title}
-        description={INSURANCE_INTAKE_COORDINATION.intro}
+        title={insuranceIntakeCoordination.title}
+        description={insuranceIntakeCoordination.intro}
         variant="muted"
       >
         <ol className="eden-providers-steps-list">
-          {INSURANCE_INTAKE_COORDINATION.steps.map((step, index) => (
+          {insuranceIntakeCoordination.steps.map((step, index) => (
             <li key={step.title} className="eden-providers-steps-list__item">
               <span className="eden-providers-steps-list__index">{String(index + 1).padStart(2, "0")}</span>
               <div>
@@ -80,7 +86,7 @@ export default function ReferralProcessPage() {
         description="Eden may guide families through intake with transparent expectations about possible next steps."
       >
         <ol className="eden-providers-steps-list">
-          {FAMILY_COMMUNICATION_WORKFLOW.map((step, index) => (
+          {familyCommunicationWorkflow.map((step, index) => (
             <li key={step.step} className="eden-providers-steps-list__item">
               <span className="eden-providers-steps-list__index">{String(index + 1).padStart(2, "0")}</span>
               <div>
@@ -99,7 +105,7 @@ export default function ReferralProcessPage() {
         variant="soft"
       >
         <ul className="eden-providers-checklist">
-          {HELPFUL_REFERRAL_DOCUMENTS.map((item) => (
+          {helpfulReferralDocuments.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>

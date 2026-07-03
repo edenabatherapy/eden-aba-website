@@ -3,13 +3,13 @@
 import { Gamepad2, MessageCircle, RefreshCw, Shield, Sparkles, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const EXAMPLE_ICONS = [Sparkles, Users, RefreshCw, Shield, MessageCircle, Gamepad2, Users, Sparkles];
 
 export default function ChildFocusedLearning() {
-  const content = OUR_APPROACH_PAGE.childFocused;
+  const content = useOurApproachPage().childFocused;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="child-focused-heading">

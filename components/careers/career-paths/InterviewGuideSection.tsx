@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useState } from "react";
 import { ChevronDown, ClipboardCheck, MessageCircle, Star } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -20,13 +21,22 @@ const FRAME = "scroll-mt-28 rounded-[2rem] border border-teal-100 bg-white p-8 s
 
 type InterviewTab = "bt" | "rbt" | "bcba";
 
-const QUESTION_SETS: Record<InterviewTab, { label: string; items: typeof INTERVIEW_BT_QUESTIONS }> = {
-  bt: { label: "BT questions", items: INTERVIEW_BT_QUESTIONS },
-  rbt: { label: "RBT questions", items: INTERVIEW_RBT_QUESTIONS },
-  bcba: { label: "BCBA questions", items: INTERVIEW_BCBA_QUESTIONS },
-};
-
 export default function InterviewGuideSection() {
+  const interviewBcbaQuestions = useLocalizedContent("INTERVIEW_BCBA_QUESTIONS", INTERVIEW_BCBA_QUESTIONS);
+  const interviewBtQuestions = useLocalizedContent("INTERVIEW_BT_QUESTIONS", INTERVIEW_BT_QUESTIONS);
+  const interviewGuideChecklist = useLocalizedContent("INTERVIEW_GUIDE_CHECKLIST", INTERVIEW_GUIDE_CHECKLIST);
+  const interviewGuideCommunication = useLocalizedContent("INTERVIEW_GUIDE_COMMUNICATION", INTERVIEW_GUIDE_COMMUNICATION);
+  const interviewGuideExpect = useLocalizedContent("INTERVIEW_GUIDE_EXPECT", INTERVIEW_GUIDE_EXPECT);
+  const interviewGuideProfessionalism = useLocalizedContent("INTERVIEW_GUIDE_PROFESSIONALISM", INTERVIEW_GUIDE_PROFESSIONALISM);
+  const interviewGuideStar = useLocalizedContent("INTERVIEW_GUIDE_STAR", INTERVIEW_GUIDE_STAR);
+  const interviewRbtQuestions = useLocalizedContent("INTERVIEW_RBT_QUESTIONS", INTERVIEW_RBT_QUESTIONS);
+
+  const questionSets: Record<InterviewTab, { label: string; items: typeof interviewBtQuestions }> = {
+    bt: { label: "BT questions", items: interviewBtQuestions },
+    rbt: { label: "RBT questions", items: interviewRbtQuestions },
+    bcba: { label: "BCBA questions", items: interviewBcbaQuestions },
+  };
+
   const reduceMotion = useReducedMotion();
   const [activeTab, setActiveTab] = useState<InterviewTab>("bt");
   const [checked, setChecked] = useState<Record<number, boolean>>({});
@@ -35,7 +45,7 @@ export default function InterviewGuideSection() {
     setChecked((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
-  const completedCount = INTERVIEW_GUIDE_CHECKLIST.filter((_, i) => checked[i]).length;
+  const completedCount = interviewGuideChecklist.filter((_, i) => checked[i]).length;
 
   return (
     <section id="interview-guide" className={FRAME} aria-labelledby="interview-guide-heading">
@@ -50,7 +60,7 @@ export default function InterviewGuideSection() {
         <h3 className="text-lg font-extrabold text-slate-900">What to expect</h3>
         <ol className="relative mt-6 space-y-4">
           <div className="absolute bottom-4 left-4 top-4 hidden w-0.5 bg-teal-200 sm:block" aria-hidden="true" />
-          {INTERVIEW_GUIDE_EXPECT.map((step, index) => (
+          {interviewGuideExpect.map((step, index) => (
             <motion.li
               key={step.title}
               initial={reduceMotion ? false : { opacity: 0, x: -12 }}
@@ -74,11 +84,11 @@ export default function InterviewGuideSection() {
       <div className="mt-12 rounded-[1.25rem] border border-teal-100 bg-gradient-to-br from-emerald-50/40 to-teal-50/30 p-6 sm:p-8">
         <div className="flex items-center gap-3">
           <Star className="text-teal-700" size={22} aria-hidden="true" />
-          <h3 className="text-lg font-extrabold text-slate-900">{INTERVIEW_GUIDE_STAR.title}</h3>
+          <h3 className="text-lg font-extrabold text-slate-900">{interviewGuideStar.title}</h3>
         </div>
-        <p className="mt-2 text-sm leading-7 text-slate-600">{INTERVIEW_GUIDE_STAR.summary}</p>
+        <p className="mt-2 text-sm leading-7 text-slate-600">{interviewGuideStar.summary}</p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {INTERVIEW_GUIDE_STAR.steps.map((step) => (
+          {interviewGuideStar.steps.map((step) => (
             <div key={step.letter} className="rounded-xl border border-teal-100 bg-white p-4 shadow-sm">
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-700 text-sm font-black text-white">
                 {step.letter}
@@ -97,7 +107,7 @@ export default function InterviewGuideSection() {
             <h3 className="text-base font-extrabold text-slate-900">Professional communication tips</h3>
           </div>
           <ul className="mt-4 space-y-2">
-            {INTERVIEW_GUIDE_COMMUNICATION.map((tip) => (
+            {interviewGuideCommunication.map((tip) => (
               <li key={tip} className="flex gap-2 text-sm leading-7 text-slate-600">
                 <span className="text-teal-600" aria-hidden="true">
                   ✓
@@ -113,7 +123,7 @@ export default function InterviewGuideSection() {
             <h3 className="text-base font-extrabold text-slate-900">Clinical professionalism guidance</h3>
           </div>
           <ul className="mt-4 space-y-2">
-            {INTERVIEW_GUIDE_PROFESSIONALISM.map((tip) => (
+            {interviewGuideProfessionalism.map((tip) => (
               <li key={tip} className="flex gap-2 text-sm leading-7 text-slate-600">
                 <span className="text-teal-600" aria-hidden="true">
                   ✓
@@ -128,7 +138,7 @@ export default function InterviewGuideSection() {
       <div className="mt-12">
         <h3 className="text-lg font-extrabold text-slate-900">Common interview questions</h3>
         <div className="mt-4 flex flex-wrap gap-2" role="tablist" aria-label="Interview question categories">
-          {(Object.keys(QUESTION_SETS) as InterviewTab[]).map((tab) => (
+          {(Object.keys(questionSets) as InterviewTab[]).map((tab) => (
             <button
               key={tab}
               type="button"
@@ -139,7 +149,7 @@ export default function InterviewGuideSection() {
                 activeTab === tab ? "bg-teal-700 text-white shadow-sm" : "border border-teal-100 bg-white text-slate-700 hover:bg-teal-50"
               }`}
             >
-              {QUESTION_SETS[tab].label}
+              {questionSets[tab].label}
             </button>
           ))}
         </div>
@@ -152,7 +162,7 @@ export default function InterviewGuideSection() {
             transition={{ duration: 0.25, ease: EASE_OUT }}
             className="mt-6"
           >
-            <FAQAccordion title={QUESTION_SETS[activeTab].label} items={QUESTION_SETS[activeTab].items} />
+            <FAQAccordion title={questionSets[activeTab].label} items={questionSets[activeTab].items} />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -161,11 +171,11 @@ export default function InterviewGuideSection() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h3 className="text-lg font-extrabold text-slate-900">Interview preparation checklist</h3>
           <span className="rounded-full bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">
-            {completedCount} / {INTERVIEW_GUIDE_CHECKLIST.length} complete
+            {completedCount} / {interviewGuideChecklist.length} complete
           </span>
         </div>
         <ul className="mt-6 space-y-2">
-          {INTERVIEW_GUIDE_CHECKLIST.map((item, index) => {
+          {interviewGuideChecklist.map((item, index) => {
             const isChecked = !!checked[index];
             return (
               <li key={item}>

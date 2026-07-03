@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
-import { CAREERS_HOME_HERO_JOURNEY } from "@/lib/careers/careers-home-data";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { CAREERS_HOME_HERO_COPY, CAREERS_HOME_HERO_JOURNEY } from "@/lib/careers/careers-home-data";
 import { getButtonClasses } from "@/lib/button-styles";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function CareersHomeHero() {
+  const careersHomeHeroJourney = useLocalizedContent("CAREERS_HOME_HERO_JOURNEY", CAREERS_HOME_HERO_JOURNEY);
+  const heroCopy = useLocalizedContent("CAREERS_HOME_HERO_COPY", CAREERS_HOME_HERO_COPY);
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -36,36 +39,35 @@ export default function CareersHomeHero() {
             {...fade(0)}
             className="inline-flex rounded-full border border-lime-300/50 bg-lime-400/15 px-4 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-emerald-800"
           >
-            Now Hiring in Annandale, Virginia
+            {heroCopy.badge}
           </motion.span>
           <motion.div
             {...fade(0.08)}
             className="mt-5 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-bold text-emerald-800 shadow-sm"
           >
             <MapPin size={16} aria-hidden="true" />
-            Annandale, VA · Northern Virginia
+            {heroCopy.location}
           </motion.div>
           <motion.h1
             {...fade(0.16)}
             id="careers-home-heading"
             className="mt-6 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl"
           >
-            Build a Meaningful Career in Autism Care
+            {heroCopy.title}
           </motion.h1>
           <motion.p {...fade(0.24)} className="mx-auto mt-5 max-w-xl text-lg leading-8 text-slate-600 lg:mx-0">
-            Join Eden ABA Therapy and help children, families, and communities thrive through compassionate,
-            evidence-based ABA services across Annandale and Northern Virginia.
+            {heroCopy.subtitle}
           </motion.p>
           <motion.div {...fade(0.32)} className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap lg:justify-start">
             <Link href="/careers/open-roles" className={getButtonClasses("primary", "w-full sm:w-auto")}>
-              Search Open Roles
+              {heroCopy.searchRoles}
               <ArrowRight size={18} aria-hidden="true" />
             </Link>
             <Link href="/careers/career-paths" className={getButtonClasses("secondary", "w-full sm:w-auto")}>
-              View Career Paths
+              {heroCopy.viewPaths}
             </Link>
             <Link href="/careers/talent-network" className={getButtonClasses("secondary", "w-full sm:w-auto")}>
-              Join Talent Network
+              {heroCopy.joinNetwork}
             </Link>
           </motion.div>
         </div>
@@ -73,9 +75,9 @@ export default function CareersHomeHero() {
         <motion.aside
           {...fade(0.2)}
           className="rounded-[1.75rem] border border-teal-100 bg-white p-6 shadow-lg shadow-teal-900/5"
-          aria-label="Your career journey at Eden"
+          aria-label={heroCopy.journeyAria}
         >
-          <p className="text-xs font-black uppercase tracking-[0.14em] text-teal-800">Your Career Journey</p>
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-teal-800">{heroCopy.journeyLabel}</p>
           <ol className="relative mt-6 space-y-0">
             <div className="absolute bottom-4 left-[15px] top-4 w-0.5 bg-teal-200" aria-hidden="true">
               <motion.div
@@ -86,7 +88,7 @@ export default function CareersHomeHero() {
                 style={{ transformOrigin: "top" }}
               />
             </div>
-            {CAREERS_HOME_HERO_JOURNEY.map((item, index) => (
+            {careersHomeHeroJourney.map((item, index) => (
               <motion.li
                 key={item.label}
                 initial={reduceMotion ? false : { opacity: 0, x: 12 }}

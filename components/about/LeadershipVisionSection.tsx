@@ -2,11 +2,11 @@
 
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, GlassPanel, SectionEyebrow } from "./shared";
 
 export default function LeadershipVisionSection() {
-  const content = OUR_TEAM_PAGE.leadershipVision;
+  const content = useOurTeamPage().leadershipVision;
 
   return (
     <section

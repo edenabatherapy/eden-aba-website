@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import AboutSiteHeader from "@/components/about/AboutSiteHeader";
 import MissionValuesPageSchema from "@/components/about/MissionValuesPageSchema";
 import StickyCtaBar from "@/components/about/StickyCtaBar";
+import { MissionValuesContentProvider } from "@/contexts/MissionValuesContent";
 
 const MissionValuesHero = dynamic(() => import("@/components/about/MissionValuesHero"));
 const MissionValuesMissionSection = dynamic(() => import("@/components/about/MissionValuesMissionSection"));
@@ -34,6 +35,7 @@ export default function MissionValuesPage() {
   }, [darkMode]);
 
   return (
+    <MissionValuesContentProvider>
     <div className={darkMode ? "dark bg-slate-950 text-white" : "eden-page-shell min-h-screen text-slate-900"}>
       <MissionValuesPageSchema />
       <AboutSiteHeader />
@@ -66,5 +68,6 @@ export default function MissionValuesPage() {
 
       <StickyCtaBar />
     </div>
+    </MissionValuesContentProvider>
   );
 }

@@ -3,12 +3,12 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { fadeUp } from "./shared";
 
 export default function HeroSection() {
-  const content = OUR_STORY_PAGE.hero;
+  const content = useOurStoryPage().hero;
 
   return (
     <section

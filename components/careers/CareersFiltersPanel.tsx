@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { SlidersHorizontal, X } from "lucide-react";
 import { CAREERS_PAGE, FILTER_OPTIONS, type JobFilters } from "@/lib/careers-content";
 import { countActiveFilters } from "@/lib/careers-filter";
@@ -66,6 +67,9 @@ export default function CareersFiltersPanel({
   mobileOpen,
   onMobileToggle,
 }: CareersFiltersPanelProps) {
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+  const filterOptions = useLocalizedContent("FILTER_OPTIONS", FILTER_OPTIONS);
+
   const activeCount = countActiveFilters(filters);
 
   const updateArray = (key: keyof JobFilters, values: string[]) => {
@@ -76,49 +80,49 @@ export default function CareersFiltersPanel({
     <div className="space-y-6">
       <FilterGroup
         title="Location"
-        options={FILTER_OPTIONS.locations}
+        options={filterOptions.locations}
         selected={filters.locations}
         onChange={(values) => updateArray("locations", values)}
       />
       <FilterGroup
         title="Department"
-        options={FILTER_OPTIONS.departments}
+        options={filterOptions.departments}
         selected={filters.departments}
         onChange={(values) => updateArray("departments", values)}
       />
       <FilterGroup
         title="Employment Type"
-        options={FILTER_OPTIONS.employmentTypes}
+        options={filterOptions.employmentTypes}
         selected={filters.employmentTypes}
         onChange={(values) => updateArray("employmentTypes", values)}
       />
       <FilterGroup
         title="Experience Level"
-        options={FILTER_OPTIONS.experienceLevels}
+        options={filterOptions.experienceLevels}
         selected={filters.experienceLevels}
         onChange={(values) => updateArray("experienceLevels", values)}
       />
       <FilterGroup
         title="Credential"
-        options={FILTER_OPTIONS.credentials}
+        options={filterOptions.credentials}
         selected={filters.credentials}
         onChange={(values) => updateArray("credentials", values)}
       />
       <FilterGroup
         title="Work Setting"
-        options={FILTER_OPTIONS.workSettings}
+        options={filterOptions.workSettings}
         selected={filters.workSettings}
         onChange={(values) => updateArray("workSettings", values)}
       />
       <FilterGroup
         title="Schedule"
-        options={FILTER_OPTIONS.schedules}
+        options={filterOptions.schedules}
         selected={filters.schedules}
         onChange={(values) => updateArray("schedules", values)}
       />
       <FilterGroup
         title="Status"
-        options={FILTER_OPTIONS.statuses}
+        options={filterOptions.statuses}
         selected={filters.statuses}
         onChange={(values) => updateArray("statuses", values)}
       />
@@ -129,7 +133,7 @@ export default function CareersFiltersPanel({
           onClick={onClearAll}
           className="w-full rounded-2xl border border-emerald-200 bg-white px-4 py-2.5 text-sm font-bold text-emerald-800 transition hover:bg-emerald-50 dark:border-slate-600 dark:bg-slate-900 dark:text-emerald-200 dark:hover:bg-slate-800"
         >
-          {CAREERS_PAGE.results.clearAll}
+          {careersPage.results.clearAll}
         </button>
       )}
     </div>

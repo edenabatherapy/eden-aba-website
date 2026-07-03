@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -24,9 +25,11 @@ const ICONS = {
 } as const;
 
 export default function BenefitsDashboard() {
-  const [activeId, setActiveId] = useState(BENEFITS_CATEGORIES[0].id);
+  const benefitsCategories = useLocalizedContent("BENEFITS_CATEGORIES", BENEFITS_CATEGORIES);
+
+  const [activeId, setActiveId] = useState(benefitsCategories[0].id);
   const reduceMotion = useReducedMotion();
-  const active = BENEFITS_CATEGORIES.find((c) => c.id === activeId) ?? BENEFITS_CATEGORIES[0];
+  const active = benefitsCategories.find((c) => c.id === activeId) ?? benefitsCategories[0];
   const ActiveIcon = ICONS[active.id as keyof typeof ICONS] ?? Sparkles;
 
   return (
@@ -45,7 +48,7 @@ export default function BenefitsDashboard() {
             aria-label="Benefits categories"
             className="flex flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible"
           >
-            {BENEFITS_CATEGORIES.map((category) => {
+            {benefitsCategories.map((category) => {
               const Icon = ICONS[category.id as keyof typeof ICONS] ?? Sparkles;
               const selected = activeId === category.id;
               return (

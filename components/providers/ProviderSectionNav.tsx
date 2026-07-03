@@ -1,10 +1,13 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PROVIDER_SECTION_NAV } from "@/lib/providers/provider-content";
 
 export default function ProviderSectionNav() {
+  const providerSectionNav = useLocalizedContent("PROVIDER_SECTION_NAV", PROVIDER_SECTION_NAV);
+
   const pathname = usePathname() ?? "";
 
   return (
@@ -13,7 +16,7 @@ export default function ProviderSectionNav() {
       className="sticky top-[4.5rem] z-30 border-b border-emerald-100/80 bg-white/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/95"
     >
       <div className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 py-2 lg:px-8">
-        {PROVIDER_SECTION_NAV.map((item) => {
+        {providerSectionNav.map((item) => {
           const isActive =
             item.href === "/providers"
               ? pathname === "/providers"

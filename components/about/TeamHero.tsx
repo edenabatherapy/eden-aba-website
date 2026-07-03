@@ -3,12 +3,12 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { fadeUp, staggerContainer, staggerItem } from "./shared";
 
 export default function TeamHero() {
-  const content = OUR_TEAM_PAGE.hero;
+  const content = useOurTeamPage().hero;
 
   return (
     <section

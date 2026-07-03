@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -36,6 +37,23 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "rounded-[2rem] border border-teal-100 bg-white p-8 shadow-sm sm:p-10";
 
 export default function BcbaCareersPage() {
+  const bcbaBacbNotice = useLocalizedContent("BCBA_BACB_NOTICE", BCBA_BACB_NOTICE);
+  const bcbaConfidenceCards = useLocalizedContent("BCBA_CONFIDENCE_CARDS", BCBA_CONFIDENCE_CARDS);
+  const bcbaCredentialDisclaimer = useLocalizedContent("BCBA_CREDENTIAL_DISCLAIMER", BCBA_CREDENTIAL_DISCLAIMER);
+  const bcbaDayTimeline = useLocalizedContent("BCBA_DAY_TIMELINE", BCBA_DAY_TIMELINE);
+  const bcbaImpactCards = useLocalizedContent("BCBA_IMPACT_CARDS", BCBA_IMPACT_CARDS);
+  const bcbaInterviewPrepCards = useLocalizedContent("BCBA_INTERVIEW_PREP_CARDS", BCBA_INTERVIEW_PREP_CARDS);
+  const bcbaJourneyTimeline = useLocalizedContent("BCBA_JOURNEY_TIMELINE", BCBA_JOURNEY_TIMELINE);
+  const bcbaLeadershipPathway = useLocalizedContent("BCBA_LEADERSHIP_PATHWAY", BCBA_LEADERSHIP_PATHWAY);
+  const bcbaMotivationStats = useLocalizedContent("BCBA_MOTIVATION_STATS", BCBA_MOTIVATION_STATS);
+  const bcbaPhotoGallery = useLocalizedContent("BCBA_PHOTO_GALLERY", BCBA_PHOTO_GALLERY);
+  const bcbaResponsibilitiesDetailed = useLocalizedContent("BCBA_RESPONSIBILITIES_DETAILED", BCBA_RESPONSIBILITIES_DETAILED);
+  const bcbaRoleSnapshot = useLocalizedContent("BCBA_ROLE_SNAPSHOT", BCBA_ROLE_SNAPSHOT);
+  const bcbaSampleInterviewQuestions = useLocalizedContent("BCBA_SAMPLE_INTERVIEW_QUESTIONS", BCBA_SAMPLE_INTERVIEW_QUESTIONS);
+  const bcbaSkillCategories = useLocalizedContent("BCBA_SKILL_CATEGORIES", BCBA_SKILL_CATEGORIES);
+  const bcbaSupportCards = useLocalizedContent("BCBA_SUPPORT_CARDS", BCBA_SUPPORT_CARDS);
+  const bcbaSupportDisclaimer = useLocalizedContent("BCBA_SUPPORT_DISCLAIMER", BCBA_SUPPORT_DISCLAIMER);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -69,7 +87,7 @@ export default function BcbaCareersPage() {
             </p>
           </RbtScrollReveal>
           <RbtStaggerGrid className="mt-10 grid gap-4 sm:grid-cols-3">
-            {BCBA_MOTIVATION_STATS.map((stat) => (
+            {bcbaMotivationStats.map((stat) => (
               <RbtStaggerItem key={stat.title}>
                 <div className="h-full rounded-[1.5rem] border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                   <div className="h-1 w-10 rounded-full bg-teal-600" aria-hidden="true" />
@@ -93,7 +111,7 @@ export default function BcbaCareersPage() {
               From application to clinical leadership—how many Eden BCBA careers develop over time.
             </p>
             <ol className="relative mt-10 space-y-0">
-              {BCBA_JOURNEY_TIMELINE.map((item, index) => (
+              {bcbaJourneyTimeline.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -16 }}
@@ -102,7 +120,7 @@ export default function BcbaCareersPage() {
                   transition={{ duration: 0.45, delay: index * 0.08, ease: EASE_OUT }}
                   className="relative flex gap-5 pb-10 last:pb-0"
                 >
-                  {index < BCBA_JOURNEY_TIMELINE.length - 1 && (
+                  {index < bcbaJourneyTimeline.length - 1 && (
                     <span className="absolute left-4 top-10 h-[calc(100%-0.5rem)] w-0.5 bg-teal-200" aria-hidden="true" />
                   )}
                   <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-700 text-xs font-black text-white">
@@ -125,7 +143,7 @@ export default function BcbaCareersPage() {
               BCBA impact areas
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-3">
-              {BCBA_IMPACT_CARDS.map((card) => (
+              {bcbaImpactCards.map((card) => (
                 <RbtStaggerItem key={card.title}>
                   <div className="h-full rounded-[1.5rem] border border-teal-100 bg-gradient-to-br from-white to-teal-50/30 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-slate-900">{card.title}</h3>
@@ -145,12 +163,12 @@ export default function BcbaCareersPage() {
             </h2>
             <dl className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                ["Role Type", BCBA_ROLE_SNAPSHOT.roleType],
-                ["Supervision", BCBA_ROLE_SNAPSHOT.supervision],
-                ["Service Setting", BCBA_ROLE_SNAPSHOT.serviceSetting],
-                ["Focus Areas", BCBA_ROLE_SNAPSHOT.focusAreas],
-                ["Growth Path", BCBA_ROLE_SNAPSHOT.growthPath],
-                ["Best Fit", BCBA_ROLE_SNAPSHOT.bestFit],
+                ["Role Type", bcbaRoleSnapshot.roleType],
+                ["Supervision", bcbaRoleSnapshot.supervision],
+                ["Service Setting", bcbaRoleSnapshot.serviceSetting],
+                ["Focus Areas", bcbaRoleSnapshot.focusAreas],
+                ["Growth Path", bcbaRoleSnapshot.growthPath],
+                ["Best Fit", bcbaRoleSnapshot.bestFit],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-xl border border-teal-100 bg-white px-4 py-3">
                   <dt className="text-xs font-black uppercase tracking-[0.12em] text-teal-800">{label}</dt>
@@ -168,7 +186,7 @@ export default function BcbaCareersPage() {
               Clinical skill areas
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BCBA_SKILL_CATEGORIES.map((cat) => (
+              {bcbaSkillCategories.map((cat) => (
                 <RbtStaggerItem key={cat.title}>
                   <div className="h-full rounded-[1.5rem] border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-teal-900">{cat.title}</h3>
@@ -197,7 +215,7 @@ export default function BcbaCareersPage() {
             </h2>
             <p className="mt-3 text-base leading-8 text-slate-600">You&apos;ll help lead:</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {BCBA_LEADERSHIP_PATHWAY.map((item) => (
+              {bcbaLeadershipPathway.map((item) => (
                 <li
                   key={item}
                   className="rounded-xl border border-teal-100 bg-teal-50/40 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-teal-50/70"
@@ -219,7 +237,7 @@ export default function BcbaCareersPage() {
               Clinical leadership responsibilities span assessment, supervision, family partnership, and quality care.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {BCBA_RESPONSIBILITIES_DETAILED.map((item, index) => (
+              {bcbaResponsibilitiesDetailed.map((item, index) => (
                 <motion.li
                   key={item.title}
                   whileHover={reduceMotion ? undefined : { y: -4, scale: 1.01 }}
@@ -255,7 +273,7 @@ export default function BcbaCareersPage() {
               thoughtful documentation, team mentorship, and meaningful client progress.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BCBA_CONFIDENCE_CARDS.map((card) => (
+              {bcbaConfidenceCards.map((card) => (
                 <li key={card.title} className="rounded-xl border border-teal-100 bg-white p-5 shadow-sm">
                   <h3 className="font-extrabold text-slate-900">{card.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{card.description}</p>
@@ -272,10 +290,10 @@ export default function BcbaCareersPage() {
               Educational notices
             </h2>
             <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-              {BCBA_BACB_NOTICE}
+              {bcbaBacbNotice}
             </p>
             <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-              {BCBA_CREDENTIAL_DISCLAIMER}
+              {bcbaCredentialDisclaimer}
             </p>
           </section>
         </RbtScrollReveal>
@@ -294,7 +312,7 @@ export default function BcbaCareersPage() {
               How to stand out in your BCBA interview
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {BCBA_INTERVIEW_PREP_CARDS.map((card) => (
+              {bcbaInterviewPrepCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -305,7 +323,7 @@ export default function BcbaCareersPage() {
               ))}
             </ul>
             <div className="mt-10">
-              <FAQAccordion title="Sample interview questions to prepare for" items={BCBA_SAMPLE_INTERVIEW_QUESTIONS} />
+              <FAQAccordion title="Sample interview questions to prepare for" items={bcbaSampleInterviewQuestions} />
             </div>
           </section>
         </RbtScrollReveal>
@@ -321,7 +339,7 @@ export default function BcbaCareersPage() {
               collaboration.
             </p>
             <ol className="relative mt-10 space-y-0 border-l-2 border-teal-200 pl-8">
-              {BCBA_DAY_TIMELINE.map((item, index) => (
+              {bcbaDayTimeline.map((item, index) => (
                 <li key={item.step} className="relative pb-8 last:pb-0">
                   <span
                     className="absolute -left-[2.35rem] flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-xs font-black text-white"
@@ -344,7 +362,7 @@ export default function BcbaCareersPage() {
               BCBA clinical leadership in action
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BCBA_PHOTO_GALLERY.map((photo) => (
+              {bcbaPhotoGallery.map((photo) => (
                 <li
                   key={photo.src}
                   className="overflow-hidden rounded-[1.5rem] border border-teal-100 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -366,7 +384,7 @@ export default function BcbaCareersPage() {
               Support designed for clinical quality
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {BCBA_SUPPORT_CARDS.map((card) => (
+              {bcbaSupportCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-teal-100 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -376,7 +394,7 @@ export default function BcbaCareersPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-7 text-slate-500">{BCBA_SUPPORT_DISCLAIMER}</p>
+            <p className="mt-6 text-sm leading-7 text-slate-500">{bcbaSupportDisclaimer}</p>
           </section>
         </RbtScrollReveal>
 

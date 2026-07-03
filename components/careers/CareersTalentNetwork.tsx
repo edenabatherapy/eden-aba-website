@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { ArrowRight } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
@@ -20,6 +21,9 @@ const inputClassName =
   "h-12 w-full rounded-2xl border border-emerald-100 bg-white px-4 text-sm font-semibold outline-none focus:border-emerald-400 dark:border-slate-700 dark:bg-slate-900";
 
 export default function CareersTalentNetwork() {
+  const careersPage = useLocalizedContent("CAREERS_PAGE", CAREERS_PAGE);
+  const filterOptions = useLocalizedContent("FILTER_OPTIONS", FILTER_OPTIONS);
+
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -40,10 +44,10 @@ export default function CareersTalentNetwork() {
       >
         <div className="max-w-2xl">
           <h2 id="recruitment-cta-heading" className="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">
-            {CAREERS_PAGE.recruitmentCta.headline}
+            {careersPage.recruitmentCta.headline}
           </h2>
           <p className="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">
-            {CAREERS_PAGE.recruitmentCta.body}
+            {careersPage.recruitmentCta.body}
           </p>
         </div>
 
@@ -88,7 +92,7 @@ export default function CareersTalentNetwork() {
                 <option value="" disabled>
                   Select a location
                 </option>
-                {FILTER_OPTIONS.locations.map((location) => (
+                {filterOptions.locations.map((location) => (
                   <option key={location} value={location}>
                     {location}
                   </option>
@@ -103,7 +107,7 @@ export default function CareersTalentNetwork() {
                 <option value="" disabled>
                   Select employment type
                 </option>
-                {FILTER_OPTIONS.employmentTypes.map((type) => (
+                {filterOptions.employmentTypes.map((type) => (
                   <option key={type} value={type}>
                     {type}
                   </option>
@@ -114,10 +118,10 @@ export default function CareersTalentNetwork() {
               <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">
                 Email your resume to{" "}
                 <a
-                  href={`mailto:${CAREERS_PAGE.recruitmentCta.resumeEmail}`}
+                  href={`mailto:${careersPage.recruitmentCta.resumeEmail}`}
                   className="font-bold text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-300"
                 >
-                  {CAREERS_PAGE.recruitmentCta.resumeEmail}
+                  {careersPage.recruitmentCta.resumeEmail}
                 </a>
               </p>
             </div>
@@ -138,14 +142,14 @@ export default function CareersTalentNetwork() {
                 className={getButtonClasses("primary", "w-full sm:w-auto")}
                 aria-busy={submitting}
               >
-                {submitting ? "Submitting..." : CAREERS_PAGE.recruitmentCta.primaryCta}
+                {submitting ? "Submitting..." : careersPage.recruitmentCta.primaryCta}
                 <ArrowRight size={18} aria-hidden="true" />
               </button>
               <a
-                href={`mailto:${CAREERS_PAGE.recruitmentCta.resumeEmail}?subject=Eden%20ABA%20Therapy%20Recruiting%20Inquiry`}
+                href={`mailto:${careersPage.recruitmentCta.resumeEmail}?subject=Eden%20ABA%20Therapy%20Recruiting%20Inquiry`}
                 className={getButtonClasses("secondary", "w-full sm:w-auto")}
               >
-                {CAREERS_PAGE.recruitmentCta.secondaryCta}
+                {careersPage.recruitmentCta.secondaryCta}
               </a>
             </div>
           </form>

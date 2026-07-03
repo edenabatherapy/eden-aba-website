@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -36,6 +37,14 @@ const TABS = [
 type TabId = (typeof TABS)[number]["id"];
 
 export default function BcbaCareersTabs() {
+  const bcbaFaqItems = useLocalizedContent("BCBA_FAQ_ITEMS", BCBA_FAQ_ITEMS);
+  const bcbaGrowthLadderDetailed = useLocalizedContent("BCBA_GROWTH_LADDER_DETAILED", BCBA_GROWTH_LADDER_DETAILED);
+  const bcbaInterviewTips = useLocalizedContent("BCBA_INTERVIEW_TIPS", BCBA_INTERVIEW_TIPS);
+  const bcbaResponsibilitiesDetailed = useLocalizedContent("BCBA_RESPONSIBILITIES_DETAILED", BCBA_RESPONSIBILITIES_DETAILED);
+  const bcbaSkillCategories = useLocalizedContent("BCBA_SKILL_CATEGORIES", BCBA_SKILL_CATEGORIES);
+  const bcbaSupervisionModel = useLocalizedContent("BCBA_SUPERVISION_MODEL", BCBA_SUPERVISION_MODEL);
+  const bcbaTabOverview = useLocalizedContent("BCBA_TAB_OVERVIEW", BCBA_TAB_OVERVIEW);
+
   const [activeTab, setActiveTab] = useState<TabId>("overview");
   const reduceMotion = useReducedMotion();
   const isMobileAccordion = useMobileAccordion();
@@ -82,7 +91,16 @@ export default function BcbaCareersTabs() {
                 </button>
                 {open && (
                   <div id={`bcba-panel-${tab.id}`} className="border-t border-teal-50 px-4 pb-5 pt-2">
-                    <TabPanelContent tabId={tab.id} />
+                    <TabPanelContent
+                      tabId={tab.id}
+                      bcbaTabOverview={bcbaTabOverview}
+                      bcbaResponsibilitiesDetailed={bcbaResponsibilitiesDetailed}
+                      bcbaSkillCategories={bcbaSkillCategories}
+                      bcbaSupervisionModel={bcbaSupervisionModel}
+                      bcbaGrowthLadderDetailed={bcbaGrowthLadderDetailed}
+                      bcbaInterviewTips={bcbaInterviewTips}
+                      bcbaFaqItems={bcbaFaqItems}
+                    />
                   </div>
                 )}
               </div>
@@ -146,7 +164,16 @@ export default function BcbaCareersTabs() {
             exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
             transition={{ duration: reduceMotion ? 0 : 0.28, ease: EASE_OUT }}
           >
-            <TabPanelContent tabId={activeTab} />
+            <TabPanelContent
+              tabId={activeTab}
+              bcbaTabOverview={bcbaTabOverview}
+              bcbaResponsibilitiesDetailed={bcbaResponsibilitiesDetailed}
+              bcbaSkillCategories={bcbaSkillCategories}
+              bcbaSupervisionModel={bcbaSupervisionModel}
+              bcbaGrowthLadderDetailed={bcbaGrowthLadderDetailed}
+              bcbaInterviewTips={bcbaInterviewTips}
+              bcbaFaqItems={bcbaFaqItems}
+            />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -154,14 +181,32 @@ export default function BcbaCareersTabs() {
   );
 }
 
-function TabPanelContent({ tabId }: { tabId: TabId }) {
+function TabPanelContent({
+  tabId,
+  bcbaTabOverview,
+  bcbaResponsibilitiesDetailed,
+  bcbaSkillCategories,
+  bcbaSupervisionModel,
+  bcbaGrowthLadderDetailed,
+  bcbaInterviewTips,
+  bcbaFaqItems,
+}: {
+  tabId: TabId;
+  bcbaTabOverview: typeof BCBA_TAB_OVERVIEW;
+  bcbaResponsibilitiesDetailed: typeof BCBA_RESPONSIBILITIES_DETAILED;
+  bcbaSkillCategories: typeof BCBA_SKILL_CATEGORIES;
+  bcbaSupervisionModel: typeof BCBA_SUPERVISION_MODEL;
+  bcbaGrowthLadderDetailed: typeof BCBA_GROWTH_LADDER_DETAILED;
+  bcbaInterviewTips: typeof BCBA_INTERVIEW_TIPS;
+  bcbaFaqItems: typeof BCBA_FAQ_ITEMS;
+}) {
   switch (tabId) {
     case "overview":
       return (
         <>
-          <p className="text-base leading-8 text-slate-600">{BCBA_TAB_OVERVIEW.summary}</p>
+          <p className="text-base leading-8 text-slate-600">{bcbaTabOverview.summary}</p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {BCBA_TAB_OVERVIEW.highlights.map((item) => (
+            {bcbaTabOverview.highlights.map((item) => (
               <li
                 key={item}
                 className="flex gap-2 rounded-xl bg-teal-50/80 px-4 py-3 text-sm font-semibold leading-6 text-slate-700"
@@ -176,7 +221,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "responsibilities":
       return (
         <ul className="space-y-3">
-          {BCBA_RESPONSIBILITIES_DETAILED.map((item, i) => (
+          {bcbaResponsibilitiesDetailed.map((item, i) => (
             <li key={item.title} className="rounded-xl border border-teal-100 px-4 py-3">
               <p className="text-sm font-extrabold text-slate-900">
                 {i + 1}. {item.title}
@@ -189,7 +234,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "skills":
       return (
         <div className="grid gap-4 sm:grid-cols-2">
-          {BCBA_SKILL_CATEGORIES.map((cat) => (
+          {bcbaSkillCategories.map((cat) => (
             <div key={cat.title} className="rounded-xl border border-teal-100 bg-teal-50/30 p-4">
               <h3 className="text-sm font-extrabold text-slate-900">{cat.title}</h3>
               <ul className="mt-2 space-y-1">
@@ -206,9 +251,9 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "supervision":
       return (
         <>
-          <p className="text-base leading-8 text-slate-600">{BCBA_SUPERVISION_MODEL.summary}</p>
+          <p className="text-base leading-8 text-slate-600">{bcbaSupervisionModel.summary}</p>
           <ul className="mt-4 space-y-2">
-            {BCBA_SUPERVISION_MODEL.points.map((point) => (
+            {bcbaSupervisionModel.points.map((point) => (
               <li key={point} className="flex gap-2 text-sm leading-7 text-slate-600">
                 <span className="font-black text-teal-700" aria-hidden="true">
                   •
@@ -222,7 +267,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "growth":
       return (
         <ol className="space-y-3">
-          {BCBA_GROWTH_LADDER_DETAILED.map((step) => (
+          {bcbaGrowthLadderDetailed.map((step) => (
             <li key={step.title} className="rounded-xl border border-teal-100 px-4 py-3">
               <p className="font-extrabold text-slate-900">{step.title}</p>
               <p className="mt-1 text-sm text-slate-600">{step.description}</p>
@@ -233,7 +278,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "interview":
       return (
         <ul className="space-y-3">
-          {BCBA_INTERVIEW_TIPS.map((tip) => (
+          {bcbaInterviewTips.map((tip) => (
             <li key={tip} className="flex gap-3 rounded-xl border border-teal-100 px-4 py-3 text-sm leading-7 text-slate-600">
               <span className="font-black text-teal-700" aria-hidden="true">
                 •
@@ -244,7 +289,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
         </ul>
       );
     case "faq":
-      return <FAQAccordion title="" items={BCBA_FAQ_ITEMS} />;
+      return <FAQAccordion title="" items={bcbaFaqItems} />;
     default:
       return null;
   }

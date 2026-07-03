@@ -19,6 +19,7 @@ import {
 import { motion, useReducedMotion } from "framer-motion";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import ContactUsPageSchema from "@/components/about/contact-us/ContactUsPageSchema";
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import AboutContactForm from "@/components/about/contact-us/AboutContactForm";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "@/components/about/shared";
 import FAQAccordion from "@/components/careers/hub/FAQAccordion";
@@ -86,6 +87,12 @@ function ContactFormSection() {
 }
 
 export default function ContactUsPage() {
+  const pathwayCards = useLocalizedContent("CONTACT_PATHWAY_CARDS", CONTACT_PATHWAY_CARDS);
+  const contactFaq = useLocalizedContent("CONTACT_US_FAQ", CONTACT_US_FAQ);
+  const referralPartnerTypes = useLocalizedContent("REFERRAL_PARTNER_TYPES", REFERRAL_PARTNER_TYPES);
+  const responseTime = useLocalizedContent("RESPONSE_TIME", RESPONSE_TIME);
+  const officeHours = useLocalizedContent("OFFICE_HOURS_DISPLAY", OFFICE_HOURS_DISPLAY);
+  const parkingInfo = useLocalizedContent("PARKING_INFO", PARKING_INFO);
   const reduceMotion = useReducedMotion();
 
   const cardMotion = (index: number) =>
@@ -179,7 +186,7 @@ export default function ContactUsPage() {
             viewport={{ once: true, margin: "-40px" }}
             className="mt-10 grid gap-5 sm:grid-cols-2"
           >
-            {CONTACT_PATHWAY_CARDS.map((card, index) => {
+            {pathwayCards.map((card, index) => {
               const Icon = PATHWAY_ICONS[card.id];
               const href =
                 card.ctaHref === "/intake" || card.ctaHref === "/careers/open-roles"
@@ -255,7 +262,7 @@ export default function ContactUsPage() {
                 <Navigation size={16} aria-hidden="true" />
                 Directions
               </h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{PARKING_INFO}</p>
+              <p className="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">{parkingInfo}</p>
               <a
                 href={EDEN_CONTACT.directionsUrl}
                 target="_blank"
@@ -290,7 +297,7 @@ export default function ContactUsPage() {
                 Office Hours
               </h3>
               <ul className="mt-4 space-y-3">
-                {[OFFICE_HOURS_DISPLAY.weekdays, OFFICE_HOURS_DISPLAY.saturday, OFFICE_HOURS_DISPLAY.sunday].map(
+                {[officeHours.weekdays, officeHours.saturday, officeHours.sunday].map(
                   (row) => (
                     <li key={row.label} className="flex justify-between gap-4 text-sm">
                       <span className="font-bold text-slate-900 dark:text-white">{row.label}</span>
@@ -309,14 +316,14 @@ export default function ContactUsPage() {
                       <Phone size={14} aria-hidden="true" />
                       Phone
                     </dt>
-                    <dd className="font-bold text-slate-900 dark:text-white">{RESPONSE_TIME.phone}</dd>
+                    <dd className="font-bold text-slate-900 dark:text-white">{responseTime.phone}</dd>
                   </div>
                   <div className="flex items-start justify-between gap-3">
                     <dt className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-200">
                       <Send size={14} aria-hidden="true" />
                       Online
                     </dt>
-                    <dd className="font-bold text-slate-900 dark:text-white">{RESPONSE_TIME.online}</dd>
+                    <dd className="font-bold text-slate-900 dark:text-white">{responseTime.online}</dd>
                   </div>
                 </dl>
               </div>
@@ -346,7 +353,7 @@ export default function ContactUsPage() {
           </div>
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {REFERRAL_PARTNER_TYPES.map((partner, index) => (
+            {referralPartnerTypes.map((partner, index) => (
               <motion.li
                 key={partner}
                 initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -363,7 +370,7 @@ export default function ContactUsPage() {
         </section>
 
         <section className="rounded-[2rem] border border-emerald-100 bg-white p-8 dark:border-slate-700 dark:bg-slate-900 sm:p-10">
-          <FAQAccordion title="Frequently Asked Questions" items={CONTACT_US_FAQ} />
+          <FAQAccordion title="Frequently Asked Questions" items={contactFaq} />
         </section>
       </div>
       </div>

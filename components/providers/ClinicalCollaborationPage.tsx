@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { ArrowRight } from "lucide-react";
 import ProviderComplianceNote from "@/components/providers/ProviderComplianceNote";
 import ProviderFAQ from "@/components/providers/ProviderFAQ";
@@ -19,6 +20,10 @@ import {
 import "./providers-pages.css";
 
 export default function ClinicalCollaborationPage() {
+  const clinicalCollaborationPoints = useLocalizedContent("CLINICAL_COLLABORATION_POINTS", CLINICAL_COLLABORATION_POINTS);
+  const familyCommunicationWorkflow = useLocalizedContent("FAMILY_COMMUNICATION_WORKFLOW", FAMILY_COMMUNICATION_WORKFLOW);
+  const schoolIepCoordination = useLocalizedContent("SCHOOL_IEP_COORDINATION", SCHOOL_IEP_COORDINATION);
+
   return (
     <ProviderPageShell
       breadcrumbs={[
@@ -40,7 +45,7 @@ export default function ClinicalCollaborationPage() {
         description="Collaboration may include school teams, medical providers, therapists, and community partners when families consent to information sharing and when coordination may support treatment goals."
       >
         <div className="eden-providers-grid eden-providers-grid--2">
-          {CLINICAL_COLLABORATION_POINTS.map((point) => (
+          {clinicalCollaborationPoints.map((point) => (
             <article key={point.title} className="eden-providers-card">
               <h3 className="eden-providers-card__title">{point.title}</h3>
               <p className="eden-providers-card__text">{point.description}</p>
@@ -51,12 +56,12 @@ export default function ClinicalCollaborationPage() {
 
       <ProviderSection
         eyebrow="School coordination"
-        title={SCHOOL_IEP_COORDINATION.title}
-        description={SCHOOL_IEP_COORDINATION.intro}
+        title={schoolIepCoordination.title}
+        description={schoolIepCoordination.intro}
         variant="muted"
       >
         <ul className="eden-providers-checklist">
-          {SCHOOL_IEP_COORDINATION.points.map((point) => (
+          {schoolIepCoordination.points.map((point) => (
             <li key={point}>{point}</li>
           ))}
         </ul>
@@ -74,7 +79,7 @@ export default function ClinicalCollaborationPage() {
         variant="soft"
       >
         <ol className="eden-providers-steps-list">
-          {FAMILY_COMMUNICATION_WORKFLOW.map((step, index) => (
+          {familyCommunicationWorkflow.map((step, index) => (
             <li key={step.step} className="eden-providers-steps-list__item">
               <span className="eden-providers-steps-list__index">{String(index + 1).padStart(2, "0")}</span>
               <div>

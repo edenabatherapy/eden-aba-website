@@ -3,12 +3,12 @@
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { fadeUp, staggerContainer, staggerItem } from "./shared";
 
 export default function ApproachHero() {
-  const content = OUR_APPROACH_PAGE.hero;
+  const content = useOurApproachPage().hero;
 
   return (
     <section

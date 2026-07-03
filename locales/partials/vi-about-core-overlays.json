@@ -1,0 +1,947 @@
+{
+  "OUR_STORY_PAGE": {
+    "hero": {
+      "eyebrow": "Câu chuyện của chúng tôi",
+      "headline": "Thay đổi cuộc sống qua chăm sóc tự kỷ nhân văn",
+      "body": [
+        "Tại Eden ABA Therapy, câu chuyện của chúng tôi bắt nguồn từ cam kết sâu sắc với trẻ em, gia đình và cộng đồng bị ảnh hưởng bởi rối loạn phổ tự kỷ.",
+        "Từ sứ mệnh hỗ trợ có ý nghĩa cho một số gia đình, chúng tôi đã phát triển thành tổ chức toàn diện cung cấp dịch vụ Phân tích Hành vi Ứng dụng xuất sắc.",
+        "Mỗi trẻ đều có điểm mạnh, tài năng, sở thích và tiềm năng riêng. Mỗi gia đình đều xứng đáng được hỗ trợ, hướng dẫn và hy vọng.",
+        "Qua liệu pháp ABA cá nhân hóa, điều trị dựa trên bằng chứng và chăm sóc lấy gia đình làm trung tâm, chúng tôi giúp trẻ xây dựng giao tiếp, độc lập, tự tin và thành công lâu dài."
+      ],
+      "primaryCta": "Bắt đầu",
+      "secondaryCta": "Liên hệ đội ngũ"
+    },
+    "foundation": {
+      "eyebrow": "Nền tảng của chúng tôi",
+      "headline": "Lấy cảm hứng từ gia đình. Xây dựng cho thay đổi bền vững.",
+      "body": [
+        "Eden ABA Therapy được thành lập trên niềm tin đơn giản nhưng mạnh mẽ: mọi trẻ đều xứng đáng tiếp cận chăm sóc tự kỷ nhân văn, chất lượng cao.",
+        "Những người sáng lập nhận ra nhiều gia đình gặp khó khăn khi tìm dịch vụ ABA cân bằng giữa xuất sắc lâm sàng và kết nối con người thực sự.",
+        "Danh sách chờ dài, giao tiếp không nhất quán và mô hình điều trị một kiểu cho tất cả thường khiến gia đình cảm thấy thiếu hỗ trợ.",
+        "Chúng tôi quyết định tạo ra điều khác biệt.",
+        "Một nơi trẻ được tôn vinh vì con là ai, gia đình là đối tác thực sự trong chăm sóc, và liệu pháp dựa trên bằng chứng tạo kết quả có ý nghĩa, lâu dài.",
+        "Hôm nay, cam kết đó vẫn dẫn dắt mọi quyết định của chúng tôi."
+      ]
+    },
+    "mission": {
+      "headline": "Trao quyền cho trẻ. Hỗ trợ gia đình. Xây dựng tương lai.",
+      "statement": "Sứ mệnh của chúng tôi là cải thiện cuộc sống trẻ tự kỷ và khác biệt phát triển qua liệu pháp ABA nhân văn, dựa trên bằng chứng, thúc đẩy độc lập, giao tiếp, tự tin và thành công lâu dài."
+    },
+    "values": {
+      "items": [
+        {
+          "title": "Lòng trắc ẩn",
+          "description": "Chúng tôi tiếp cận mỗi trẻ và gia đình với sự đồng cảm, tôn trọng, kiên nhẫn và thấu hiểu."
+        },
+        {
+          "title": "Xuất sắc lâm sàng",
+          "description": "Chúng tôi sử dụng thực hành đã được chứng minh, dựa trên khoa học và phát triển chuyên môn liên tục."
+        },
+        {
+          "title": "Đối tác gia đình",
+          "description": "Gia đình là người tham gia tích cực và cộng tác viên được trân trọng trong suốt hành trình điều trị."
+        },
+        {
+          "title": "Chính trực",
+          "description": "Chúng tôi duy trì minh bạch, trách nhiệm, đạo đức và niềm tin trong mọi việc làm."
+        },
+        {
+          "title": "Hòa nhập",
+          "description": "Chúng tôi tôn vinh neurodiversity và nuôi dưỡng môi trường nơi mỗi trẻ cảm thấy được trân trọng."
+        },
+        {
+          "title": "Phát triển",
+          "description": "Chúng tôi tin mỗi trẻ đều có thể học, phát triển kỹ năng có ý nghĩa và đạt độc lập cao hơn."
+        }
+      ]
+    },
+    "approach": {
+      "headline": "Chăm sóc dựa trên bằng chứng với sự ấm áp con người",
+      "features": [
+        "Củng cố tích cực",
+        "Dạy trong môi trường tự nhiên",
+        "Học qua trò chơi",
+        "Huấn luyện giao tiếp chức năng",
+        "Phát triển kỹ năng xã hội",
+        "Huấn luyện phụ huynh",
+        "Quyết định dựa trên dữ liệu",
+        "Chương trình cá nhân hóa",
+        "Chiến lược giảm hành vi",
+        "Hợp tác trường học",
+        "Lập kế hoạch chuyển tiếp",
+        "Phát triển kỹ năng sống"
+      ],
+      "body": [
+        "ABA hiện đại rất cá nhân hóa, nhân văn và lấy gia đình làm trung tâm.",
+        "Mục tiêu của chúng tôi không phải thay đổi con trẻ là ai.",
+        "Mục tiêu là trao quyền cho trẻ với kỹ năng cần thiết để điều hướng thế giới với tự tin, độc lập và thành công."
+      ]
+    },
+    "timeline": {
+      "title": "Sự phát triển của liệu pháp ABA",
+      "intro": "Phân tích Hành vi Ứng dụng đã phát triển qua nhiều thập kỷ nghiên cứu, đổi mới và thực hành lâm sàng nhân văn.",
+      "events": [
+        {
+          "year": "1913",
+          "text": "John B. Watson giới thiệu chủ nghĩa hành vi."
+        },
+        {
+          "year": "1938",
+          "text": "B.F. Skinner phát triển điều kiện hóa hoạt động."
+        },
+        {
+          "year": "1950s",
+          "text": "Khoa học hành vi mở rộng sang giáo dục và trị liệu."
+        },
+        {
+          "year": "1960s",
+          "text": "Các chương trình can thiệp sớm tự kỷ xuất hiện."
+        },
+        {
+          "year": "1970s",
+          "text": "ABA trở nên cá nhân hóa hơn."
+        },
+        {
+          "year": "1980s–1990s",
+          "text": "Phương pháp dạy tự nhiên được ưa chuộng."
+        },
+        {
+          "year": "1998",
+          "text": "BACB thiết lập tiêu chuẩn chứng nhận chuyên môn."
+        },
+        {
+          "year": "2000s",
+          "text": "Nghiên cứu củng cố cơ sở bằng chứng ABA."
+        },
+        {
+          "year": "2010s",
+          "text": "Cải cách bảo hiểm mở rộng tiếp cận ABA toàn quốc."
+        },
+        {
+          "year": "Hôm nay",
+          "text": "Liệu pháp ABA nhân văn, cá nhân hóa, lấy trẻ làm trung tâm."
+        }
+      ]
+    },
+    "team": {
+      "headline": "Chuyên gia tận tâm. Tác động phi thường.",
+      "body": "Phía sau mỗi câu chuyện thành công là đội ngũ cam kết giúp trẻ phát triển. Đội lâm sàng của chúng tôi bao gồm:",
+      "roles": [
+        "Board Certified Behavior Analysts (BCBA)",
+        "Registered Behavior Technicians (RBT)",
+        "Giám đốc Lâm sàng",
+        "Giám sát Chương trình",
+        "Điều phối viên Chăm sóc Khách hàng",
+        "Chuyên viên Hỗ trợ Gia đình"
+      ]
+    },
+    "future": {
+      "headline": "Xây dựng tương lai tươi sáng hơn cho mọi gia đình",
+      "body": [
+        "Câu chuyện của chúng tôi tiếp tục qua mỗi trẻ được phục vụ và mỗi cột mốc đạt được.",
+        "Khi chúng tôi phát triển, sứ mệnh không đổi:"
+      ],
+      "commitments": [
+        "Mở rộng tiếp cận chăm sóc",
+        "Hỗ trợ gia đình với lòng trắc ẩn",
+        "Nâng cao xuất sắc lâm sàng",
+        "Đầu tư vào chuyên gia tài năng",
+        "Cải thiện kết quả cho trẻ trên toàn quốc"
+      ]
+    },
+    "impact": {
+      "title": "Tác động chúng ta tạo ra cùng nhau",
+      "stats": [
+        {
+          "label": "Gia đình được phục vụ"
+        },
+        {
+          "label": "Giờ liệu pháp"
+        },
+        {
+          "label": "Nhân viên lâm sàng"
+        },
+        {
+          "label": "Mức hài lòng"
+        },
+        {
+          "label": "Mục tiêu điều trị đạt được"
+        },
+        {
+          "label": "Đối tác cộng đồng"
+        }
+      ]
+    },
+    "finalCta": {
+      "headline": "Hãy cùng xây dựng tương lai",
+      "body": "Dù gia đình bạn vừa nhận chẩn đoán tự kỷ hay đang tìm hiểu liệu pháp ABA, đội ngũ của chúng tôi sẵn sàng hỗ trợ. Từ xác minh bảo hiểm và đánh giá đến lập kế hoạch điều trị cá nhân hóa và hỗ trợ liên tục, chúng tôi sẽ đồng hành từng bước.",
+      "primaryCta": "Bắt đầu hôm nay",
+      "secondaryCta": "Đặt lịch tư vấn"
+    }
+  },
+  "OUR_TEAM_PAGE": {
+    "hero": {
+      "eyebrow": "Đội ngũ của Chúng tôi",
+      "headline": "Xây dựng Quanh Những Người Quan tâm",
+      "subheadline": "Chăm sóc tự kỷ xuất sắc bắt đầu với con người xuất sắc.",
+      "body": [
+        "Tại Eden ABA Therapy, chúng tôi xây dựng đội ngũ chuyên gia đam mê, tận tâm giúp trẻ phát triển, hỗ trợ gia đình tự tin và tạo kết quả có ý nghĩa qua liệu pháp ABA dựa trên bằng chứng.",
+        "Đằng sau mỗi buổi trị liệu, mỗi cột mốc và mỗi câu chuyện thành công là đội ngũ cam kết tạo ra sự khác biệt.",
+        "Tổ chức được thành lập trên lòng trắc ẩn, chính trực, hợp tác và niềm tin chung rằng mọi trẻ xứng đáng cơ hội phát triển."
+      ],
+      "primaryCta": "Gặp Ban Lãnh đạo",
+      "secondaryCta": "Gia nhập Đội ngũ",
+      "trustBadges": [
+        "Chăm sóc Lấy Gia đình làm Trung tâm",
+        "Xuất sắc Lâm sàng",
+        "Thực hành ABA Đạo đức",
+        "Nơi làm việc Hỗ trợ",
+        "Văn hóa Hướng Phát triển"
+      ]
+    },
+    "founders": {
+      "eyebrow": "Người Sáng lập",
+      "headline": "Tầm nhìn Đằng sau Eden ABA Therapy",
+      "members": [
+        {
+          "title": "Người Sáng lập & Giám đốc Điều hành",
+          "bio": [
+            "Naveen Omari thành lập Eden ABA Therapy với tầm nhìn làm dịch vụ tự kỷ nhân văn, chất lượng cao dễ tiếp cận hơn cho gia đình.",
+            "Với cam kết cải thiện cuộc sống trẻ và gia đình, Naveen tập trung tạo tổ chức nơi xuất sắc lâm sàng, chăm sóc đạo đức, đổi mới và hợp tác gia đình kết hợp tạo kết quả có ý nghĩa.",
+            "Tầm nhìn của ông là xây dựng tổ chức không chỉ cung cấp liệu pháp ABA xuất sắc mà còn hỗ trợ gia đình suốt mọi giai đoạn hành trình."
+          ]
+        },
+        {
+          "title": "Người Sáng lập & Đối tác Phát triển Chiến lược",
+          "bio": [
+            "Steve Dang mang lại lãnh đạo doanh nghiệp, chuyên môn phát triển chiến lược và cam kết phát triển tổ chức dài hạn.",
+            "Ông tập trung giúp Eden ABA Therapy mở rộng tiếp cận dịch vụ tự kỷ chất lượng đồng thời xây dựng hệ thống hỗ trợ xuất sắc lâm sàng, hiệu quả vận hành và trải nghiệm gia đình tích cực.",
+            "Cùng Naveen, Steve đang giúp định hình tương lai nơi nhiều trẻ và gia đình có thể tiếp cận hỗ trợ họ cần."
+          ]
+        }
+      ]
+    },
+    "leadershipVision": {
+      "headline": "Xây dựng Đội ngũ Thiết kế cho Xuất sắc",
+      "paragraphs": [
+        "Eden ABA Therapy cam kết xây dựng đội ngũ đa ngành chuyên gia đủ điều kiện, đam mê giúp trẻ và gia đình phát triển.",
+        "Khi phát triển, đội lãnh đạo tập trung tuyển dụng bác sĩ lâm sàng có kinh nghiệm, phát triển lãnh đạo tương lai và tạo môi trường để chuyên gia làm việc tốt nhất."
+      ],
+      "goals": [
+        "Cung cấp chăm sóc xuất sắc.",
+        "Hỗ trợ nhân viên của chúng tôi.",
+        "Trao quyền cho gia đình.",
+        "Cải thiện kết quả."
+      ]
+    },
+    "clinicalStructure": {
+      "eyebrow": "Xuất sắc Lâm sàng",
+      "headline": "Cấu trúc Đội ngũ Hỗ trợ Chăm sóc Chất lượng",
+      "roles": [
+        {
+          "title": "Board Certified Behavior Analyst (BCBA)",
+          "description": "Tạo kế hoạch điều trị cá nhân hóa, giám sát chương trình ABA, xem xét dữ liệu, đào tạo thành viên đội ngũ và hợp tác với gia đình."
+        },
+        {
+          "title": "Giám đốc Lâm sàng Khu vực",
+          "description": "Cung cấp giám sát lâm sàng, cố vấn, đảm bảo chất lượng và lãnh đạo trên các chương trình và địa điểm."
+        },
+        {
+          "title": "Director of RBT Development",
+          "description": "Hỗ trợ đào tạo Registered Behavior Technician, phát triển chuyên môn, huấn luyện và tính nhất quán lâm sàng."
+        },
+        {
+          "title": "Registered Behavior Technician (RBT)",
+          "description": "Cung cấp liệu pháp ABA trực tiếp đồng thời triển khai kế hoạch điều trị dưới giám sát BCBA."
+        },
+        {
+          "title": "Behavior Technician (BT)",
+          "description": "Hỗ trợ học kỹ năng và chương trình hỗ trợ hành vi đồng thời xây dựng mối quan hệ tích cực với trẻ và gia đình."
+        },
+        {
+          "title": "Điều phối viên Dịch vụ Khách hàng",
+          "description": "Hướng dẫn gia đình qua intake, lên lịch, onboarding và hỗ trợ liên tục."
+        }
+      ]
+    },
+    "recruiting": {
+      "eyebrow": "Phát triển Đội ngũ",
+      "headline": "Giúp Định hình Tương lai Eden ABA Therapy",
+      "intro": "Chúng tôi đang tích cực xây dựng đội ngũ chuyên gia tài năng đam mê giúp trẻ và gia đình thành công.",
+      "roles": [
+        {
+          "title": "Giám đốc Lâm sàng Khu vực",
+          "description": "Vai trò lãnh đạo tương lai hỗ trợ giám sát lâm sàng, cố vấn và chất lượng chương trình tại Eden ABA Therapy."
+        },
+        {
+          "title": "Board Certified Behavior Analyst (BCBA)",
+          "description": "Vai trò lãnh đạo lâm sàng tương lai thiết kế kế hoạch điều trị cá nhân hóa và giám sát chương trình ABA."
+        },
+        {
+          "title": "Director of RBT Development",
+          "description": "Vai trò tương lai tập trung đào tạo RBT, huấn luyện, phát triển chuyên môn và tính nhất quán lâm sàng."
+        },
+        {
+          "title": "Lead Registered Behavior Technician",
+          "description": "Vai trò chăm sóc trực tiếp cấp cao tương lai hỗ trợ điều phối đội ngũ và cung cấp trị liệu chất lượng cao."
+        },
+        {
+          "title": "Registered Behavior Technician",
+          "description": "Vai trò chăm sóc trực tiếp tương lai cung cấp liệu pháp ABA dựa trên bằng chứng dưới giám sát BCBA."
+        },
+        {
+          "title": "Behavior Technician",
+          "description": "Vai trò hỗ trợ lâm sàng cấp đầu vào tương lai giúp trẻ xây dựng kỹ năng qua buổi trị liệu có cấu trúc."
+        },
+        {
+          "title": "Điều phối viên Dịch vụ Khách hàng",
+          "description": "Vai trò hướng gia đình tương lai hỗ trợ intake, lên lịch, onboarding và điều phối liên tục."
+        },
+        {
+          "title": "Điều phối viên Chăm sóc",
+          "description": "Vai trò tương lai giúp gia đình điều hướng dịch vụ, giao tiếp và lập kế hoạch chăm sóc trong tổ chức."
+        },
+        {
+          "title": "Quản lý Vận hành",
+          "description": "Vai trò tương lai hỗ trợ vận hành hiệu quả, quy trình đội ngũ và phát triển tổ chức."
+        },
+        {
+          "title": "Nhà Tuyển dụng Lâm sàng",
+          "description": "Vai trò tương lai giúp Eden ABA Therapy thu hút và onboarding chuyên gia lâm sàng xuất sắc."
+        }
+      ]
+    },
+    "whyJoin": {
+      "headline": "Tại sao Chuyên gia Chọn Eden ABA Therapy",
+      "cards": [
+        {
+          "title": "Văn hóa Theo Sứ mệnh",
+          "description": "Gia nhập tổ chức tập trung giúp trẻ và gia đình phát triển qua chăm sóc tự kỷ nhân văn, đạo đức."
+        },
+        {
+          "title": "Cơ hội Phát triển Lâm sàng",
+          "description": "Phát triển chuyên môn qua giám sát, cố vấn, lộ trình đào tạo và trách nhiệm lâm sàng có ý nghĩa."
+        },
+        {
+          "title": "Lãnh đạo Hỗ trợ",
+          "description": "Làm việc với lãnh đạo tập trung minh bạch, hợp tác và tạo môi trường để đội ngũ thành công."
+        },
+        {
+          "title": "Chăm sóc Lấy Gia đình làm Trung tâm",
+          "description": "Trở thành phần của mô hình trân trọng hợp tác gia đình, hỗ trợ thực tế và tiến bộ thực tế cho trẻ."
+        },
+        {
+          "title": "Đổi mới & Học hỏi",
+          "description": "Đóng góp vào tổ chức đón nhận cải tiến liên tục, học hỏi và thực hành ABA hiện đại."
+        },
+        {
+          "title": "Tác động Có ý nghĩa",
+          "description": "Tạo sự khác biệt trong cuộc sống trẻ, gia đình và cộng đồng qua công việc thực sự có ý nghĩa."
+        }
+      ]
+    },
+    "teamValues": {
+      "headline": "Giá trị Định nghĩa Đội ngũ",
+      "intro": "Văn hóa đội ngũ được định hình bởi cùng nguyên tắc dẫn dắt chăm sóc trẻ và gia đình của Eden ABA Therapy.",
+      "items": [
+        {
+          "title": "Lòng trắc ẩn",
+          "shortDescription": "Chúng tôi gặp mỗi trẻ và gia đình với sự đồng cảm, kiên nhẫn và tôn trọng.",
+          "fullDescription": "Lòng trắc ẩn là trung tâm của chăm sóc. Chúng tôi hiểu hành trình mỗi trẻ khác nhau và trải nghiệm mỗi gia đình là duy nhất. Đội ngũ tạo môi trường trị liệu an toàn, hỗ trợ nơi trẻ cảm thấy được khuyến khích, thấu hiểu và chấp nhận. Chúng tôi tập trung vào niềm tin, kết nối và mối quan hệ tích cực vì tiến bộ có ý nghĩa bắt đầu khi trẻ cảm thấy an toàn và được hỗ trợ."
+        },
+        {
+          "title": "Chính trực",
+          "shortDescription": "Chúng tôi làm điều đúng với trung thực, minh bạch và chuyên nghiệp.",
+          "fullDescription": "Gia đình tin tưởng chúng tôi với chăm sóc con, và chúng tôi coi trọng trách nhiệm đó. Chính trực nghĩa là giao tiếp rõ ràng, đặt kỳ vọng thực tế, bảo vệ phẩm giá và ra quyết định vì lợi ích tốt nhất của từng trẻ. Khuyến nghị lâm sàng được hướng dẫn bởi đạo đức, dữ liệu, tiêu chuẩn chuyên môn và tôn trọng mục tiêu gia đình."
+        },
+        {
+          "title": "Hợp tác",
+          "shortDescription": "Chúng tôi tin tiến bộ mạnh nhất khi gia đình và đội chăm sóc làm việc cùng nhau.",
+          "fullDescription": "Liệu pháp ABA hiệu quả nhất khi mở rộng ra ngoài phòng trị liệu. Chúng tôi hợp tác với phụ huynh, người chăm sóc, nhà giáo dục và các chuyên gia khác để hỗ trợ tính nhất quán giữa nhà, trường, phòng khám và cộng đồng. Làm việc cùng nhau, chúng tôi giúp trẻ khái quát hóa kỹ năng và thành công hơn trong cuộc sống hàng ngày."
+        },
+        {
+          "title": "Xuất sắc Lâm sàng",
+          "shortDescription": "Chúng tôi cam kết liệu pháp ABA chất lượng cao, dựa trên bằng chứng.",
+          "fullDescription": "Xuất sắc lâm sàng nghĩa là sử dụng chiến lược ABA đã được chứng minh, giám sát liên tục, xem xét dữ liệu, lập trình cá nhân hóa và phát triển chuyên môn liên tục. Đội ngũ cam kết cung cấp chăm sóc chu đáo, đo lường được, đạo đức và đáp ứng nhu cầu thay đổi của từng trẻ."
+        },
+        {
+          "title": "Hòa nhập",
+          "shortDescription": "Chúng tôi tôn vinh neurodiversity và tạo không gian nơi trẻ cảm thấy được trân trọng.",
+          "fullDescription": "Chúng tôi tin trẻ nên được hỗ trợ mà không bị yêu cầu mất đi con người mình. Hòa nhập nghĩa là tôn trọng tính cách, sở thích, phong cách giao tiếp, văn hóa và điểm mạnh từng trẻ. Mục tiêu là giúp trẻ xây dựng kỹ năng cải thiện chất lượng cuộc sống đồng thời tôn vinh cá tính."
+        },
+        {
+          "title": "Đổi mới",
+          "shortDescription": "Chúng tôi tiếp tục học hỏi, cải thiện và phát triển để phục vụ gia đình tốt hơn.",
+          "fullDescription": "Lĩnh vực ABA tiếp tục phát triển, và chúng tôi cũng vậy. Eden ABA Therapy đón nhận học hỏi, thực hành dựa trên nghiên cứu, công nghệ, phát triển đội ngũ và giải quyết vấn đề sáng tạo. Chúng tôi luôn tìm cách tốt hơn để cải thiện chăm sóc, củng cố kết quả và hỗ trợ gia đình với xuất sắc."
+        }
+      ]
+    },
+    "growthTimeline": {
+      "headline": "Lộ trình Phát triển",
+      "phases": [
+        {
+          "phase": "Phase 1",
+          "title": "Nền tảng",
+          "items": [
+            "Đội Sáng lập",
+            "Hạ tầng Vận hành",
+            "Cấp phép & Tuân thủ",
+            "Hệ thống Intake Gia đình"
+          ]
+        },
+        {
+          "phase": "Phase 2",
+          "title": "Xây dựng Đội Lâm sàng",
+          "items": [
+            "Tuyển Giám đốc Lâm sàng",
+            "Tuyển BCBA",
+            "Tuyển Đội RBT",
+            "Mở rộng Dịch vụ Gia đình"
+          ]
+        },
+        {
+          "phase": "Phase 3",
+          "title": "Mở rộng Khu vực",
+          "items": [
+            "Phát triển Khu vực",
+            "Mở rộng Lãnh đạo",
+            "Chương trình Lâm sàng Tiên tiến",
+            "Đối tác Cộng đồng"
+          ]
+        },
+        {
+          "phase": "Phase 4",
+          "title": "Tầm nhìn Dài hạn",
+          "items": [
+            "Đội Lâm sàng Đa Địa điểm",
+            "Dịch vụ Tự kỷ Mở rộng",
+            "Chương trình Phát triển Chuyên môn",
+            "Lãnh đạo Ngành"
+          ]
+        }
+      ]
+    },
+    "finalCta": {
+      "headline": "Cùng Xây dựng Điều Có ý nghĩa",
+      "body": "Dù bạn là gia đình tìm hỗ trợ hay chuyên gia muốn tạo tác động, Eden ABA Therapy cam kết tạo tương lai nơi trẻ và gia đình nhận chăm sóc xuất sắc.",
+      "primaryCta": "Bắt đầu",
+      "secondaryCta": "Khám phá Tuyển dụng"
+    }
+  },
+  "OUR_APPROACH_PAGE": {
+    "hero": {
+      "eyebrow": "Phương pháp của Chúng tôi",
+      "headline": "Thiết kế Hỗ trợ Phát triển Trọn đời của Trẻ Tự kỷ",
+      "subheadline": "Tại Eden ABA Therapy, chúng tôi không chỉ dạy kỹ năng cho hôm nay. Chúng tôi giúp trẻ và gia đình xây dựng tự tin, độc lập, giao tiếp và tiến bộ có ý nghĩa cho ngày mai.",
+      "body": [
+        "Phương pháp của chúng tôi lấy trẻ làm trung tâm, hướng gia đình và dẫn dắt lâm sàng. Chúng tôi tạo trải nghiệm trị liệu an toàn, khuyến khích nơi trẻ học qua kết nối, chơi, thói quen và củng cố tích cực.",
+        "Mỗi trẻ khác nhau, nên mỗi chương trình ABA nên khác nhau. Đội ngũ dành thời gian hiểu điểm mạnh, sở thích, phong cách giao tiếp, nhu cầu học tập và mục tiêu gia đình trước khi thiết kế kế hoạch điều trị cá nhân hóa."
+      ],
+      "primaryCta": "Bắt đầu",
+      "secondaryCta": "Liên hệ Đội ngũ",
+      "trustBadges": [
+        "ABA Lấy Trẻ làm Trung tâm",
+        "Hợp tác Gia đình",
+        "Củng cố Tích cực",
+        "Chương trình do BCBA Dẫn dắt",
+        "Xây dựng Kỹ năng Thực tế"
+      ]
+    },
+    "philosophy": {
+      "eyebrow": "Triết lý của Chúng tôi",
+      "headline": "Liệu pháp ABA Nhân văn Xây dựng Quanh Toàn bộ Trẻ",
+      "paragraphs": [
+        "Eden ABA Therapy tin ABA hiệu quả bắt đầu bằng hiểu trẻ, không chỉ hành vi.",
+        "Mục tiêu của chúng tôi không bao giờ là thay đổi con trẻ là ai. Mục tiêu là giúp mỗi trẻ xây dựng kỹ năng thực tế cải thiện giao tiếp, độc lập, mối quan hệ, an toàn, thói quen hàng ngày và chất lượng cuộc sống.",
+        "Chúng tôi sử dụng chiến lược ABA dựa trên bằng chứng theo cách tôn trọng và hỗ trợ, kết hợp cấu trúc lâm sàng với sự ấm áp, kiên nhẫn và niềm tin."
+      ],
+      "cards": [
+        "Hiểu Trước",
+        "Dạy với Mục đích",
+        "Ăn mừng Tiến bộ",
+        "Hỗ trợ Gia đình"
+      ],
+      "cta": "Bắt đầu Hành trình của Con"
+    },
+    "personalized": {
+      "eyebrow": "Cá nhân hóa & Hợp tác",
+      "headline": "Liệu pháp ABA Lấy Trẻ làm Trung tâm, Hướng Gia đình",
+      "paragraphs": [
+        "Liệu pháp ABA hiệu quả xây dựng trên tôn trọng cá tính từng trẻ và hợp tác mạnh mẽ với gia đình.",
+        "Trước khi trị liệu bắt đầu, đội lâm sàng tìm hiểu điểm mạnh, sở thích, thói quen, thách thức, kỹ năng giao tiếp và ưu tiên gia đình của trẻ. Điều này giúp chúng tôi thiết kế kế hoạch có ý nghĩa, thực tế và khả thi.",
+        "Board Certified Behavior Analyst của chúng tôi tạo kế hoạch điều trị cá nhân hóa có thể tập trung giao tiếp, kỹ năng sinh hoạt hàng ngày, tương tác xã hội, sẵn sàng đi học, điều hòa cảm xúc, an toàn và giảm hành vi cản trở học tập.",
+        "Phụ huynh và người chăm sóc được bao gồm mọi bước. Qua huấn luyện phụ huynh và giao tiếp nhất quán, gia đình học chiến lược sử dụng trong bữa ăn, giờ ngủ, chuyển tiếp, đi chơi cộng đồng, giờ chơi và thói quen trường học."
+      ],
+      "features": [
+        "Kế hoạch Điều trị Cá nhân hóa",
+        "Đào tạo & Huấn luyện Phụ huynh",
+        "Thiết lập Mục tiêu Gia đình",
+        "Giao tiếp với Người chăm sóc",
+        "Hợp tác Trường & Cộng đồng",
+        "Thực hành Kỹ năng Thực tế"
+      ],
+      "cta": "Bắt đầu"
+    },
+    "childFocused": {
+      "eyebrow": "Học tập Lấy Trẻ làm Trung tâm",
+      "headline": "Học tập Hiệu quả Nhất Khi Trẻ Cảm thấy An toàn, Có Động lực và Được Thấu hiểu",
+      "paragraphs": [
+        "Trẻ học tốt nhất khi trị liệu cảm thấy hỗ trợ, hấp dẫn và gắn với sở thích của mình.",
+        "Tại Eden ABA Therapy, đội ngũ sử dụng học qua trò chơi, dạy trong môi trường tự nhiên, dạy có cấu trúc, mô hình hóa, gợi ý, củng cố và hoạt động xây dựng kỹ năng phù hợp với nhu cầu từng trẻ.",
+        "Chúng tôi tạo cơ hội học suốt thói quen hàng ngày để trẻ luyện tập kỹ năng theo cách có ý nghĩa."
+      ],
+      "examples": [
+        "Yêu cầu đồ chơi yêu thích",
+        "Chờ lượt khi chơi",
+        "Làm theo thói quen buổi sáng",
+        "Luyện tập chuyển tiếp an toàn",
+        "Sử dụng công cụ giao tiếp",
+        "Học kỹ năng tự chăm sóc",
+        "Xây dựng tương tác bạn bè",
+        "Thử hoạt động mới"
+      ]
+    },
+    "positiveReinforcement": {
+      "eyebrow": "Khuyến khích & Truyền cảm hứng",
+      "headline": "Củng cố Tích cực cho Kết quả Tích cực",
+      "paragraphs": [
+        "Tại Eden ABA Therapy, chúng tôi sử dụng củng cố tích cực để khuyến khích tiến bộ có ý nghĩa và xây dựng tự tin.",
+        "Chúng tôi ăn mừng nỗ lực, tham gia, giao tiếp, độc lập và phát triển kỹ năng. Khi trẻ trải nghiệm thành công, họ có khả năng duy trì tham gia, thử lại và xây dựng động lực học tập cao hơn.",
+        "Chiến lược củng cố được cá nhân hóa. Điều thúc đẩy một trẻ có thể không thúc đẩy trẻ khác, nên chúng tôi xác định phần thưởng, hoạt động, khen ngợi, chơi và tương tác có ý nghĩa với từng trẻ.",
+        "Chúng tôi không sử dụng phương pháp dựa trên xấu hổ hoặc sợ hãi. Phương pháp tôn trọng, khuyến khích và tập trung giúp trẻ thành công."
+      ],
+      "highlights": [
+        "Học tập Dựa trên Động lực",
+        "Khuyến khích Dựa trên Điểm mạnh",
+        "Xây dựng Tự tin",
+        "Ăn mừng Những Thành công Nhỏ",
+        "Dạy học Tôn trọng",
+        "Khái quát hóa Kỹ năng"
+      ],
+      "cta": "Tìm hiểu Thêm về Liệu pháp ABA"
+    },
+    "holistic": {
+      "eyebrow": "Toàn diện & Chân thành",
+      "headline": "Phương pháp toàn diện cho chăm sóc tự kỷ nhân văn",
+      "intro": "Liệu pháp ABA nên hỗ trợ hơn cả hành vi. Nó nên hỗ trợ toàn bộ sự phát triển của trẻ. Eden ABA Therapy tập trung vào kỹ năng thực tế, có ý nghĩa giúp trẻ tham gia đầy đủ hơn trong đời sống gia đình, trường học và cộng đồng.",
+      "areas": [
+        {
+          "title": "Giao tiếp",
+          "description": "Giúp trẻ bày tỏ nhu cầu, đưa ra lựa chọn, trả lời câu hỏi và sử dụng giao tiếp chức năng."
+        },
+        {
+          "title": "Kỹ năng Xã hội",
+          "description": "Hỗ trợ chơi, chờ lượt, tương tác bạn bè, hợp tác và xây dựng mối quan hệ."
+        },
+        {
+          "title": "Kỹ năng Sinh hoạt Hàng ngày",
+          "description": "Xây dựng độc lập với mặc quần áo, ăn uống, vệ sinh, dọn dẹp, an toàn và thói quen."
+        },
+        {
+          "title": "Điều hòa Cảm xúc",
+          "description": "Dạy chiến lược đối phó, linh hoạt, chuyển tiếp, chờ đợi và phản hồi an toàn với thất vọng."
+        },
+        {
+          "title": "Sẵn sàng Đi học",
+          "description": "Hỗ trợ chú ý, làm theo hướng dẫn, tham gia nhóm, chuyển tiếp và thói quen học tập."
+        },
+        {
+          "title": "Thói quen Gia đình",
+          "description": "Giúp gia đình củng cố giờ ngủ, bữa ăn, đi chơi, chơi với anh chị em và chuyển tiếp hàng ngày."
+        }
+      ]
+    },
+    "clinicalProcess": {
+      "eyebrow": "Quy trình Lâm sàng",
+      "headline": "Lộ trình rõ ràng, hỗ trợ từ Intake đến Tiến bộ",
+      "intro": "Gia đình không bao giờ nên cảm thấy lạc lối trong quy trình trị liệu. Eden ABA Therapy cung cấp lộ trình rõ ràng từ cuộc trò chuyện đầu tiên đến chăm sóc liên tục.",
+      "steps": [
+        {
+          "step": "Step 1",
+          "title": "Liên hệ Ban đầu",
+          "description": "Đội intake tìm hiểu về trẻ, mối quan ngại và mục tiêu gia đình của bạn."
+        },
+        {
+          "step": "Step 2",
+          "title": "Hỗ trợ Bảo hiểm & Đủ điều kiện",
+          "description": "Chúng tôi giúp xem xét quyền lợi và giải thích bước tiếp theo rõ ràng."
+        },
+        {
+          "step": "Step 3",
+          "title": "Đánh giá",
+          "description": "BCBA hoàn tất đánh giá chi tiết về điểm mạnh, nhu cầu, giao tiếp, hành vi, thói quen và mục tiêu phát triển."
+        },
+        {
+          "step": "Step 4",
+          "title": "Kế hoạch Điều trị Cá nhân hóa",
+          "description": "Đội lâm sàng tạo kế hoạch tùy chỉnh với mục tiêu đo lường được và dịch vụ được đề xuất."
+        },
+        {
+          "step": "Step 5",
+          "title": "Trị liệu Bắt đầu",
+          "description": "RBT và nhân viên lâm sàng cung cấp trị liệu trực tiếp theo kế hoạch điều trị của BCBA."
+        },
+        {
+          "step": "Step 6",
+          "title": "Huấn luyện Phụ huynh",
+          "description": "Gia đình nhận chiến lược thực tế hỗ trợ học tập ngoài buổi trị liệu."
+        },
+        {
+          "step": "Step 7",
+          "title": "Xem xét Dữ liệu Liên tục",
+          "description": "Tiến bộ được theo dõi và điều trị được điều chỉnh dựa trên dữ liệu và phản hồi gia đình."
+        },
+        {
+          "step": "Step 8",
+          "title": "Lập kế hoạch Phát triển Dài hạn",
+          "description": "Mục tiêu phát triển khi trẻ đạt kỹ năng, độc lập và tự tin."
+        }
+      ]
+    },
+    "treatmentSettings": {
+      "eyebrow": "Hỗ trợ Linh hoạt",
+      "headline": "Chăm sóc Đáp ứng Nơi Trẻ Học Tốt Nhất",
+      "intro": "Liệu pháp ABA có thể diễn ra ở nhiều môi trường khác nhau tùy theo nhu cầu của trẻ, mục tiêu gia đình và khuyến nghị lâm sàng.",
+      "settings": [
+        {
+          "title": "Liệu pháp ABA Tại Nhà",
+          "description": "Hỗ trợ học trong thói quen tự nhiên của trẻ, như bữa ăn, chơi, chuyển tiếp và tự chăm sóc."
+        },
+        {
+          "title": "Liệu pháp ABA Tại Trung tâm",
+          "description": "Cung cấp môi trường có cấu trúc cho học tập tập trung, cơ hội xã hội, sẵn sàng đi học và tương tác bạn bè."
+        },
+        {
+          "title": "Hỗ trợ Tại Trường",
+          "description": "Giúp trẻ luyện tập giao tiếp, chú ý, chuyển tiếp, thói quen lớp học và kỹ năng bạn bè."
+        },
+        {
+          "title": "Thực hành Trong Cộng đồng",
+          "description": "Hỗ trợ kỹ năng thực tế như an toàn, chờ đợi, mua sắm, đi chơi và tham gia cộng đồng."
+        },
+        {
+          "title": "Đào tạo Phụ huynh",
+          "description": "Trang bị cho người chăm sóc chiến lược thực tế sử dụng trong thói quen hàng ngày."
+        },
+        {
+          "title": "Hỗ trợ Telehealth",
+          "description": "Khi phù hợp, tư vấn ảo có thể hỗ trợ huấn luyện phụ huynh và điều phối chăm sóc."
+        }
+      ],
+      "cta": "Tìm Hỗ trợ Phù hợp"
+    },
+    "dataDriven": {
+      "eyebrow": "Chăm sóc Dựa trên Dữ liệu",
+      "headline": "Quyết định Lâm sàng Dựa trên Tiến bộ, Không Phỏng đoán",
+      "intro": "Liệu pháp ABA hiệu quả nhất khi điều trị được hướng dẫn bởi mục tiêu rõ ràng, dữ liệu nhất quán và xem xét lâm sàng liên tục. Tại Eden ABA Therapy, đội ngũ theo dõi tiến bộ trong buổi trị liệu, xem xét mô hình, điều chỉnh chiến lược và cập nhật mục tiêu khi cần.",
+      "questions": [
+        "Trẻ có đang học kỹ năng không?",
+        "Chiến lược có hiệu quả không?",
+        "Trẻ có thể sử dụng kỹ năng trong môi trường mới không?",
+        "Gia đình có thấy tiến bộ tại nhà không?",
+        "Mục tiêu có nên điều chỉnh không?",
+        "Hỗ trợ nào cần tiếp theo?"
+      ],
+      "highlights": [
+        "Theo dõi tiến bộ từng buổi",
+        "Xem xét và giám sát lâm sàng BCBA",
+        "Cập nhật mục tiêu dựa trên kết quả thực tế",
+        "Phản hồi gia đình tích hợp vào chăm sóc"
+      ]
+    },
+    "lifelongGrowth": {
+      "eyebrow": "Phát triển Trọn đời",
+      "headline": "Hỗ trợ Kỹ năng Hôm nay và Độc lập Ngày mai",
+      "paragraphs": [
+        "Kỹ năng trẻ học hôm nay có thể định hình tự tin trong nhiều năm tới.",
+        "Phương pháp hỗ trợ phát triển ở mọi giai đoạn bằng cách tập trung giao tiếp, độc lập, linh hoạt, giải quyết vấn đề, kết nối xã hội, an toàn và tham gia đời sống hàng ngày.",
+        "Chúng tôi giúp trẻ xây dựng kỹ năng phát triển cùng họ khi đi qua thói quen nhà, trải nghiệm trường học, tình bạn, hoạt động cộng đồng và cột mốc tương lai."
+      ],
+      "pillars": [
+        "Giao tiếp Sớm",
+        "Kỹ năng Tự giúp đỡ",
+        "Tự tin Xã hội",
+        "Linh hoạt Cảm xúc",
+        "Sẵn sàng Đi học",
+        "Độc lập Cộng đồng"
+      ],
+      "cta": "Bắt đầu với Eden ABA"
+    },
+    "valuesPreview": {
+      "eyebrow": "Giá trị của Chúng tôi",
+      "headline": "Dẫn dắt bởi Nguyên tắc. Thúc đẩy bởi Tác động Có ý nghĩa.",
+      "intro": "Phương pháp được định hình bởi giá trị xác định Eden ABA Therapy: lòng trắc ẩn, chính trực, hợp tác, hòa nhập, đổi mới và xuất sắc lâm sàng.",
+      "values": [
+        "Lòng trắc ẩn",
+        "Chính trực",
+        "Hợp tác",
+        "Hòa nhập",
+        "Đổi mới",
+        "Xuất sắc Lâm sàng"
+      ],
+      "cta": "Khám phá Sứ mệnh & Giá trị"
+    },
+    "faq": {
+      "items": [
+        {
+          "question": "Điều gì làm phương pháp Eden ABA Therapy khác biệt?",
+          "answer": "Eden ABA Therapy kết hợp chiến lược ABA dựa trên bằng chứng với hỗ trợ nhân văn, lấy gia đình làm trung tâm. Mỗi kế hoạch điều trị được cá nhân hóa theo điểm mạnh, nhu cầu, phong cách giao tiếp và mục tiêu gia đình của trẻ."
+        },
+        {
+          "question": "Liệu pháp ABA có được cá nhân hóa không?",
+          "answer": "Có. Liệu pháp ABA nên được cá nhân hóa. Eden ABA Therapy tạo kế hoạch điều trị dựa trên đánh giá, quan sát, ý kiến gia đình và xem xét dữ liệu liên tục."
+        },
+        {
+          "question": "Phụ huynh có tham gia trị liệu không?",
+          "answer": "Có. Đào tạo phụ huynh và hợp tác người chăm sóc là phần quan trọng của phương pháp. Gia đình nhận chiến lược thực tế hỗ trợ tiến bộ tại nhà và cộng đồng."
+        },
+        {
+          "question": "Liệu pháp ABA có thể hỗ trợ kỹ năng gì?",
+          "answer": "Liệu pháp ABA có thể hỗ trợ giao tiếp, kỹ năng xã hội, kỹ năng sinh hoạt hàng ngày, điều hòa cảm xúc, an toàn, chuyển tiếp, sẵn sàng đi học và độc lập."
+        },
+        {
+          "question": "Eden ABA có sử dụng củng cố tích cực không?",
+          "answer": "Có. Eden ABA Therapy nhấn mạnh củng cố tích cực, khuyến khích, động lực và dạy dựa trên điểm mạnh."
+        },
+        {
+          "question": "Liệu pháp ABA có thể diễn ra ở đâu?",
+          "answer": "Tùy nhu cầu của trẻ và dịch vụ có sẵn, ABA có thể diễn ra tại nhà, trung tâm, trường học, cộng đồng hoặc qua huấn luyện phụ huynh."
+        }
+      ]
+    },
+    "finalCta": {
+      "headline": "Một phương pháp chu đáo có thể giúp hành trình rõ ràng hơn",
+      "body": "Dù con bạn vừa nhận chẩn đoán tự kỷ hay gia đình đang tìm nhà cung cấp ABA đáng tin, Eden ABA Therapy sẵn sàng giúp. Đội ngũ có thể trả lời câu hỏi, giải thích quy trình đánh giá, xem xét bước bảo hiểm và giúp bạn bắt đầu chăm sóc tự tin.",
+      "primaryCta": "Bắt đầu Hôm nay",
+      "secondaryCta": "Liên hệ Đội Intake"
+    }
+  },
+  "MISSION_VALUES_PAGE": {
+    "hero": {
+      "eyebrow": "Sứ mệnh & Giá trị",
+      "headline": "Chăm sóc Theo Sứ mệnh. Hỗ trợ Theo Giá trị. Tương lai Tươi sáng cho Mọi Trẻ.",
+      "subheadline": "Tại Eden ABA Therapy, sứ mệnh và giá trị dẫn dắt mọi việc chúng tôi làm—từ cách hỗ trợ trẻ và gia đình đến cách cung cấp liệu pháp ABA nhân văn, dựa trên bằng chứng.",
+      "body": [
+        "Chúng tôi tin mọi trẻ tự kỷ xứng đáng chăm sóc cá nhân hóa, tôn trọng và bắt nguồn từ khả năng. Công việc tập trung giúp trẻ xây dựng kỹ năng có ý nghĩa, hỗ trợ gia đình với hướng dẫn thực tế và tạo trải nghiệm trị liệu tôn vinh cá tính từng trẻ.",
+        "Sứ mệnh không chỉ cung cấp liệu pháp ABA. Đó là đồng hành bên gia đình, ăn mừng mỗi cột mốc và giúp trẻ phát triển tự tin, giao tiếp, độc lập và kỹ năng học tập trọn đời."
+      ],
+      "primaryCta": "Bắt đầu",
+      "secondaryCta": "Liên hệ Đội ngũ",
+      "trustBadges": [
+        "ABA Dựa trên Bằng chứng",
+        "Chăm sóc Lấy Gia đình làm Trung tâm",
+        "Chương trình do BCBA Dẫn dắt",
+        "Kế hoạch Điều trị Cá nhân hóa",
+        "Hỗ trợ Tự kỷ Nhân văn"
+      ]
+    },
+    "mission": {
+      "eyebrow": "Sứ mệnh của Chúng tôi",
+      "headline": "Trao quyền cho Trẻ. Hỗ trợ Gia đình. Xây dựng Tương lai Có ý nghĩa.",
+      "paragraphs": [
+        "Sứ mệnh là cung cấp liệu pháp Phân tích Hành vi Ứng dụng chất lượng cao giúp trẻ tự kỷ và khác biệt phát triển đạt kỹ năng thực tế cho đời sống hàng ngày.",
+        "Chúng tôi gặp mỗi trẻ ở nơi họ đang ở, xác định điểm mạnh, hiểu nhu cầu và tạo kế hoạch điều trị cá nhân hóa hỗ trợ giao tiếp, phát triển xã hội, điều hòa cảm xúc, kỹ năng sinh hoạt hàng ngày và độc lập lớn hơn.",
+        "Tại Eden ABA Therapy, tiến bộ là cá nhân. Chúng tôi không đo thành công bằng so sánh. Chúng tôi đo thành công bằng sự phát triển có ý nghĩa—khi trẻ giao tiếp nhu cầu, hoàn thành thói quen, tham gia chơi, chuyển tiếp tự tin hơn hoặc tham gia nhiều hơn tại nhà, trường và cộng đồng.",
+        "Chúng tôi hợp tác chặt chẽ với phụ huynh và người chăm sóc vì gia đình thiết yếu cho tiến bộ dài hạn. Qua đào tạo phụ huynh, giao tiếp nhất quán và chiến lược thực tế, chúng tôi giúp gia đình cảm thấy được hỗ trợ trong và ngoài buổi trị liệu."
+      ],
+      "highlights": [
+        "Liệu pháp ABA Cá nhân hóa",
+        "Điều trị Dựa trên Bằng chứng",
+        "Đối tác Gia đình",
+        "Tiến bộ Có ý nghĩa"
+      ],
+      "cta": "Bắt đầu Hành trình của Con"
+    },
+    "vision": {
+      "eyebrow": "Tầm nhìn của Chúng tôi",
+      "headline": "Biến Thách thức thành Cơ hội",
+      "paragraphs": [
+        "Chúng tôi hình dung tương lai nơi mọi chẩn đoán tự kỷ được đáp ứng bằng thấu hiểu, chấp nhận, hỗ trợ và cơ hội.",
+        "Tầm nhìn là tạo trải nghiệm trị liệu giúp trẻ phát triển theo cách riêng. Chúng tôi tin trẻ phát triển tốt nhất khi được hỗ trợ với kiên nhẫn, nhất quán, lòng trắc ẩn và chiến lược thiết kế quanh cách học độc đáo của mình.",
+        "Tại Eden ABA Therapy, chúng tôi hướng tới thế giới nơi gia đình cảm thấy được thông tin thay vì quá tải, trẻ cảm thấy được trân trọng thay vì bị hiểu lầm, và cộng đồng trở nên hòa nhập, hỗ trợ và nhận thức hơn."
+      ],
+      "pillars": [
+        "Thấu hiểu",
+        "Cơ hội",
+        "Độc lập",
+        "Tự tin",
+        "Thuộc về"
+      ],
+      "cta": "Tìm hiểu Phương pháp của Chúng tôi"
+    },
+    "values": {
+      "eyebrow": "Giá trị Cốt lõi",
+      "headline": "Nguyên tắc Dẫn dắt Chăm sóc",
+      "intro": "Giá trị là nền tảng của Eden ABA Therapy. Chúng định hình cách chúng tôi hỗ trợ trẻ, hợp tác với gia đình, giao tiếp với nhau và ra quyết định lâm sàng.",
+      "items": [
+        {
+          "title": "Lòng trắc ẩn",
+          "shortDescription": "Chúng tôi gặp mỗi trẻ và gia đình với sự đồng cảm, kiên nhẫn và tôn trọng.",
+          "fullDescription": "Lòng trắc ẩn là trung tâm của chăm sóc. Chúng tôi hiểu hành trình mỗi trẻ khác nhau và trải nghiệm mỗi gia đình là duy nhất. Đội ngũ tạo môi trường trị liệu an toàn, hỗ trợ nơi trẻ cảm thấy được khuyến khích, thấu hiểu và chấp nhận. Chúng tôi tập trung vào niềm tin, kết nối và mối quan hệ tích cực vì tiến bộ có ý nghĩa bắt đầu khi trẻ cảm thấy an toàn và được hỗ trợ."
+        },
+        {
+          "title": "Chính trực",
+          "shortDescription": "Chúng tôi làm điều đúng với trung thực, minh bạch và chuyên nghiệp.",
+          "fullDescription": "Gia đình tin tưởng chúng tôi với chăm sóc con, và chúng tôi coi trọng trách nhiệm đó. Chính trực nghĩa là giao tiếp rõ ràng, đặt kỳ vọng thực tế, bảo vệ phẩm giá và ra quyết định vì lợi ích tốt nhất của từng trẻ. Khuyến nghị lâm sàng được hướng dẫn bởi đạo đức, dữ liệu, tiêu chuẩn chuyên môn và tôn trọng mục tiêu gia đình."
+        },
+        {
+          "title": "Hợp tác",
+          "shortDescription": "Chúng tôi tin tiến bộ mạnh nhất khi gia đình và đội chăm sóc làm việc cùng nhau.",
+          "fullDescription": "Liệu pháp ABA hiệu quả nhất khi mở rộng ra ngoài phòng trị liệu. Chúng tôi hợp tác với phụ huynh, người chăm sóc, nhà giáo dục và các chuyên gia khác để hỗ trợ tính nhất quán giữa nhà, trường, phòng khám và cộng đồng. Làm việc cùng nhau, chúng tôi giúp trẻ khái quát hóa kỹ năng và thành công hơn trong cuộc sống hàng ngày."
+        },
+        {
+          "title": "Xuất sắc Lâm sàng",
+          "shortDescription": "Chúng tôi cam kết liệu pháp ABA chất lượng cao, dựa trên bằng chứng.",
+          "fullDescription": "Xuất sắc lâm sàng nghĩa là sử dụng chiến lược ABA đã được chứng minh, giám sát liên tục, xem xét dữ liệu, lập trình cá nhân hóa và phát triển chuyên môn liên tục. Đội ngũ cam kết cung cấp chăm sóc chu đáo, đo lường được, đạo đức và đáp ứng nhu cầu thay đổi của từng trẻ."
+        },
+        {
+          "title": "Hòa nhập",
+          "shortDescription": "Chúng tôi tôn vinh neurodiversity và tạo không gian nơi trẻ cảm thấy được trân trọng.",
+          "fullDescription": "Chúng tôi tin trẻ nên được hỗ trợ mà không bị yêu cầu mất đi con người mình. Hòa nhập nghĩa là tôn trọng tính cách, sở thích, phong cách giao tiếp, văn hóa và điểm mạnh từng trẻ. Mục tiêu là giúp trẻ xây dựng kỹ năng cải thiện chất lượng cuộc sống đồng thời tôn vinh cá tính."
+        },
+        {
+          "title": "Đổi mới",
+          "shortDescription": "Chúng tôi tiếp tục học hỏi, cải thiện và phát triển để phục vụ gia đình tốt hơn.",
+          "fullDescription": "Lĩnh vực ABA tiếp tục phát triển, và chúng tôi cũng vậy. Eden ABA Therapy đón nhận học hỏi, thực hành dựa trên nghiên cứu, công nghệ, phát triển đội ngũ và giải quyết vấn đề sáng tạo. Chúng tôi luôn tìm cách tốt hơn để cải thiện chăm sóc, củng cố kết quả và hỗ trợ gia đình với xuất sắc."
+        }
+      ]
+    },
+    "impact": {
+      "eyebrow": "Tác động của Chúng tôi",
+      "headline": "Thay đổi Cuộc sống qua Tiến bộ Hàng ngày Có ý nghĩa",
+      "intro": "Tác động của liệu pháp ABA thấy trong khoảnh khắc thực: trẻ yêu cầu giúp đỡ, chơi với anh chị em, làm theo thói quen, sử dụng từ hoặc công cụ giao tiếp, chịu đựng chuyển tiếp, xây dựng tình bạn hoặc độc lập hơn. Tại Eden ABA Therapy, chúng tôi tập trung kỹ năng quan trọng trong đời sống hàng ngày và tạo thay đổi tích cực cho cả gia đình.",
+      "cards": [
+        {
+          "title": "Phát triển Giao tiếp",
+          "description": "Giúp trẻ bày tỏ nhu cầu, đưa ra lựa chọn, yêu cầu giúp đỡ và giao tiếp hiệu quả hơn."
+        },
+        {
+          "title": "Độc lập",
+          "description": "Hỗ trợ kỹ năng sinh hoạt hàng ngày như mặc quần áo, ăn uống, vệ sinh, an toàn và thói quen."
+        },
+        {
+          "title": "Phát triển Xã hội",
+          "description": "Giúp trẻ xây dựng kỹ năng chơi, hợp tác, tương tác bạn bè và tự tin xã hội."
+        },
+        {
+          "title": "Điều hòa Cảm xúc",
+          "description": "Dạy kỹ năng đối phó, linh hoạt, chuyển tiếp và cách phản hồi an toàn với thất vọng."
+        },
+        {
+          "title": "Tự tin Gia đình",
+          "description": "Trang bị cho phụ huynh công cụ thực tế sử dụng tại nhà và cộng đồng."
+        },
+        {
+          "title": "Tham gia Cộng đồng",
+          "description": "Giúp trẻ sử dụng kỹ năng trong môi trường thực tế, không chỉ trong buổi trị liệu."
+        }
+      ]
+    },
+    "outcomes": {
+      "eyebrow": "Kết quả của Chúng tôi",
+      "headline": "Hỗ trợ Mạnh hơn. Tiến bộ Lớn hơn. Thành công Dài hạn.",
+      "intro": "Mô hình lâm sàng xây dựng quanh đánh giá, lập kế hoạch cá nhân hóa, trị liệu nhất quán, quyết định dựa trên dữ liệu, hợp tác phụ huynh và khái quát hóa kỹ năng. Kế hoạch mỗi trẻ phát triển với mục tiêu có ý nghĩa phản ánh điểm mạnh, nhu cầu và ưu tiên gia đình. Tiến bộ được xem xét thường xuyên để trị liệu phát triển theo trẻ.",
+      "pillars": [
+        {
+          "title": "Đánh giá Cá nhân hóa",
+          "description": "Chúng tôi bắt đầu bằng tìm hiểu điểm mạnh, nhu cầu, giao tiếp, mô hình hành vi, thói quen và mục tiêu gia đình của trẻ."
+        },
+        {
+          "title": "Lập Kế hoạch Điều trị do BCBA Dẫn dắt",
+          "description": "Board Certified Behavior Analyst (BCBA) xây dựng kế hoạch điều trị cá nhân hóa với các mục tiêu có thể đo lường."
+        },
+        {
+          "title": "Trị liệu Dựa trên Dữ liệu",
+          "description": "Tiến bộ được theo dõi để đội lâm sàng điều chỉnh chiến lược dựa trên điều hiệu quả."
+        },
+        {
+          "title": "Đào tạo Phụ huynh",
+          "description": "Gia đình nhận huấn luyện và hỗ trợ thực tế để củng cố học tập ngoài buổi trị liệu."
+        },
+        {
+          "title": "Khái quát hóa",
+          "description": "Trẻ được hỗ trợ sử dụng kỹ năng qua nhiều người, địa điểm, thói quen và môi trường."
+        },
+        {
+          "title": "Chăm sóc Đạo đức",
+          "description": "Điều trị được hướng dẫn bởi phẩm giá, tôn trọng, minh bạch và lợi ích tốt nhất của trẻ."
+        }
+      ]
+    },
+    "difference": {
+      "eyebrow": "Sự Khác biệt của Eden",
+      "headline": "Liệu pháp ABA Tiên tiến với Lòng trắc ẩn làm Trung tâm",
+      "intro": "Gia đình xứng đáng hơn giờ trị liệu. Họ xứng đáng đội ngũ lắng nghe, giải thích, thích ứng và thực sự quan tâm. Eden ABA Therapy kết hợp khoa học phân tích hành vi với phương pháp ấm áp, hiện đại, lấy trẻ làm trung tâm. Chúng tôi tập trung xây dựng niềm tin trước, sau đó giúp trẻ phát triển kỹ năng cải thiện đời sống hàng ngày.",
+      "cards": [
+        {
+          "title": "Kế hoạch Chăm sóc Cá nhân hóa",
+          "description": "Mỗi kế hoạch được điều chỉnh theo điểm mạnh, nhu cầu, mục tiêu và phong cách học của trẻ."
+        },
+        {
+          "title": "Đối tác Gia đình",
+          "description": "Phụ huynh và người chăm sóc được bao gồm như thành viên thiết yếu của đội trị liệu."
+        },
+        {
+          "title": "Củng cố Tích cực",
+          "description": "Chúng tôi sử dụng khuyến khích, động lực và chiến lược dựa trên điểm mạnh để hỗ trợ học tập."
+        },
+        {
+          "title": "Học tập Tự nhiên",
+          "description": "Kỹ năng được thực hành qua thói quen, chơi và tình huống thực tế."
+        },
+        {
+          "title": "Giám sát Lâm sàng",
+          "description": "Chương trình được giám sát và điều chỉnh bởi chuyên gia lâm sàng đủ điều kiện."
+        },
+        {
+          "title": "Mục tiêu Có ý nghĩa",
+          "description": "Chúng tôi ưu tiên kỹ năng cải thiện giao tiếp, độc lập, an toàn và chất lượng cuộc sống."
+        }
+      ]
+    },
+    "missionInAction": {
+      "eyebrow": "Sứ mệnh Trong Hành động",
+      "headline": "Sứ mệnh Được Thể hiện Mỗi Ngày",
+      "intro": "Sứ mệnh được thể hiện qua cách chúng tôi đón tiếp gia đình, thiết kế kế hoạch điều trị, hỗ trợ bác sĩ lâm sàng, ăn mừng tiến bộ và tiếp tục cải thiện dịch vụ.",
+      "steps": [
+        {
+          "step": "Step 1",
+          "title": "Lắng nghe Trước",
+          "description": "Chúng tôi bắt đầu bằng việc hiểu mối quan ngại, ưu tiên, thói quen và hy vọng của gia đình."
+        },
+        {
+          "step": "Step 2",
+          "title": "Đánh giá Chu đáo",
+          "description": "Chúng tôi đánh giá điểm mạnh, nhu cầu, giao tiếp, hành vi và mục tiêu phát triển."
+        },
+        {
+          "step": "Step 3",
+          "title": "Lập kế hoạch Cá nhân",
+          "description": "Chúng tôi tạo kế hoạch điều trị ABA cá nhân hóa dựa trên phát hiện lâm sàng và ý kiến gia đình."
+        },
+        {
+          "step": "Step 4",
+          "title": "Dạy với Sự Quan tâm",
+          "description": "Trị liệu được cung cấp bằng chiến lược tích cực, dựa trên bằng chứng hỗ trợ học tập có ý nghĩa."
+        },
+        {
+          "step": "Step 5",
+          "title": "Đo Tiến bộ",
+          "description": "Dữ liệu giúp hướng dẫn quyết định, theo dõi phát triển và tinh chỉnh mục tiêu."
+        },
+        {
+          "step": "Step 6",
+          "title": "Hỗ trợ Ngoài Buổi trị liệu",
+          "description": "Chúng tôi huấn luyện gia đình để tiến bộ tiếp tục tại nhà, trường và cộng đồng."
+        }
+      ]
+    },
+    "finalCta": {
+      "headline": "Bắt đầu với Hỗ trợ. Tiếp tục với Tự tin.",
+      "body": "Dù gia đình vừa nhận chẩn đoán tự kỷ hay bạn đang tìm nhà cung cấp liệu pháp ABA đáng tin, Eden ABA Therapy sẵn sàng giúp. Đội intake có thể trả lời câu hỏi, xác minh bảo hiểm, giải thích quy trình đánh giá và giúp xác định bước tiếp theo phù hợp cho con.",
+      "primaryCta": "Bắt đầu Hôm nay",
+      "secondaryCta": "Liên hệ Đội Intake"
+    }
+  }
+}

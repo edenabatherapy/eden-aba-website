@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import CtaLink from "@/components/about/CtaLink";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, GlassPanel } from "./shared";
 
 export default function ApproachFinalCTA() {
-  const content = OUR_APPROACH_PAGE.finalCta;
+  const content = useOurApproachPage().finalCta;
 
   return (
     <section className="px-4 pb-28 lg:px-8 dark:bg-slate-950" aria-labelledby="approach-final-cta-heading">

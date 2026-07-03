@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -36,6 +37,23 @@ import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 const FRAME = "rounded-[2rem] border border-lime-200 bg-white p-8 shadow-sm sm:p-10";
 
 export default function BtCareersPage() {
+  const btConfidenceCards = useLocalizedContent("BT_CONFIDENCE_CARDS", BT_CONFIDENCE_CARDS);
+  const btDayTimeline = useLocalizedContent("BT_DAY_TIMELINE", BT_DAY_TIMELINE);
+  const btDevelopmentSupports = useLocalizedContent("BT_DEVELOPMENT_SUPPORTS", BT_DEVELOPMENT_SUPPORTS);
+  const btEducationalNotice = useLocalizedContent("BT_EDUCATIONAL_NOTICE", BT_EDUCATIONAL_NOTICE);
+  const btFocusItems = useLocalizedContent("BT_FOCUS_ITEMS", BT_FOCUS_ITEMS);
+  const btInterviewPrepCards = useLocalizedContent("BT_INTERVIEW_PREP_CARDS", BT_INTERVIEW_PREP_CARDS);
+  const btJourneyTimeline = useLocalizedContent("BT_JOURNEY_TIMELINE", BT_JOURNEY_TIMELINE);
+  const btLearningPathway = useLocalizedContent("BT_LEARNING_PATHWAY", BT_LEARNING_PATHWAY);
+  const btMotivationStats = useLocalizedContent("BT_MOTIVATION_STATS", BT_MOTIVATION_STATS);
+  const btPhotoGallery = useLocalizedContent("BT_PHOTO_GALLERY", BT_PHOTO_GALLERY);
+  const btResponsibilitiesDetailed = useLocalizedContent("BT_RESPONSIBILITIES_DETAILED", BT_RESPONSIBILITIES_DETAILED);
+  const btRoleSnapshot = useLocalizedContent("BT_ROLE_SNAPSHOT", BT_ROLE_SNAPSHOT);
+  const btSampleInterviewQuestions = useLocalizedContent("BT_SAMPLE_INTERVIEW_QUESTIONS", BT_SAMPLE_INTERVIEW_QUESTIONS);
+  const btSkillCategories = useLocalizedContent("BT_SKILL_CATEGORIES", BT_SKILL_CATEGORIES);
+  const btSupportCards = useLocalizedContent("BT_SUPPORT_CARDS", BT_SUPPORT_CARDS);
+  const btSupportDisclaimer = useLocalizedContent("BT_SUPPORT_DISCLAIMER", BT_SUPPORT_DISCLAIMER);
+
   const reduceMotion = useReducedMotion();
 
   return (
@@ -64,7 +82,7 @@ export default function BtCareersPage() {
             </p>
           </RbtScrollReveal>
           <RbtStaggerGrid className="mt-10 grid gap-4 sm:grid-cols-3">
-            {BT_MOTIVATION_STATS.map((stat) => (
+            {btMotivationStats.map((stat) => (
               <RbtStaggerItem key={stat.title}>
                 <div className="h-full rounded-[1.5rem] border border-lime-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                   <div className="h-1 w-10 rounded-full bg-emerald-600" aria-hidden="true" />
@@ -85,7 +103,7 @@ export default function BtCareersPage() {
               Your BT journey at Eden
             </h2>
             <ol className="relative mt-10 space-y-0">
-              {BT_JOURNEY_TIMELINE.map((item, index) => (
+              {btJourneyTimeline.map((item, index) => (
                 <motion.li
                   key={item.title}
                   initial={reduceMotion ? false : { opacity: 0, x: -16 }}
@@ -94,7 +112,7 @@ export default function BtCareersPage() {
                   transition={{ duration: 0.45, delay: index * 0.07, ease: EASE_OUT }}
                   className="relative flex gap-5 pb-10 last:pb-0"
                 >
-                  {index < BT_JOURNEY_TIMELINE.length - 1 && (
+                  {index < btJourneyTimeline.length - 1 && (
                     <span className="absolute left-4 top-10 h-[calc(100%-0.5rem)] w-0.5 bg-lime-200" aria-hidden="true" />
                   )}
                   <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-black text-white">
@@ -117,7 +135,7 @@ export default function BtCareersPage() {
               What you&apos;ll focus on
             </h2>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {BT_FOCUS_ITEMS.map((item) => (
+              {btFocusItems.map((item) => (
                 <li
                   key={item}
                   className="flex gap-2 rounded-xl border border-lime-200 bg-lime-50/50 px-4 py-3 text-sm font-semibold leading-7 text-slate-700"
@@ -139,7 +157,7 @@ export default function BtCareersPage() {
               BT development supports
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-3">
-              {BT_DEVELOPMENT_SUPPORTS.map((card) => (
+              {btDevelopmentSupports.map((card) => (
                 <RbtStaggerItem key={card.title}>
                   <div className="h-full rounded-[1.5rem] border border-lime-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-slate-900">{card.title}</h3>
@@ -159,12 +177,12 @@ export default function BtCareersPage() {
             </h2>
             <dl className="mt-8 grid gap-4 sm:grid-cols-2">
               {[
-                ["Role Type", BT_ROLE_SNAPSHOT.roleType],
-                ["Supervision", BT_ROLE_SNAPSHOT.supervision],
-                ["Service Setting", BT_ROLE_SNAPSHOT.serviceSetting],
-                ["Focus Areas", BT_ROLE_SNAPSHOT.focusAreas],
-                ["Growth Path", BT_ROLE_SNAPSHOT.growthPath],
-                ["Best Fit", BT_ROLE_SNAPSHOT.bestFit],
+                ["Role Type", btRoleSnapshot.roleType],
+                ["Supervision", btRoleSnapshot.supervision],
+                ["Service Setting", btRoleSnapshot.serviceSetting],
+                ["Focus Areas", btRoleSnapshot.focusAreas],
+                ["Growth Path", btRoleSnapshot.growthPath],
+                ["Best Fit", btRoleSnapshot.bestFit],
               ].map(([label, value]) => (
                 <div key={label} className="rounded-xl border border-lime-200 bg-white px-4 py-3">
                   <dt className="text-xs font-black uppercase tracking-[0.12em] text-emerald-700">{label}</dt>
@@ -182,7 +200,7 @@ export default function BtCareersPage() {
               Skill areas that matter
             </h2>
             <RbtStaggerGrid className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BT_SKILL_CATEGORIES.map((cat) => (
+              {btSkillCategories.map((cat) => (
                 <RbtStaggerItem key={cat.title}>
                   <div className="h-full rounded-[1.5rem] border border-lime-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                     <h3 className="text-lg font-extrabold text-emerald-800">{cat.title}</h3>
@@ -211,7 +229,7 @@ export default function BtCareersPage() {
             </h2>
             <p className="mt-3 text-base leading-8 text-slate-600">You&apos;ll build confidence in:</p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {BT_LEARNING_PATHWAY.map((item) => (
+              {btLearningPathway.map((item) => (
                 <li
                   key={item}
                   className="rounded-xl bg-lime-50/70 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-lime-100/80"
@@ -230,7 +248,7 @@ export default function BtCareersPage() {
               What BTs do
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {BT_RESPONSIBILITIES_DETAILED.map((item, index) => (
+              {btResponsibilitiesDetailed.map((item, index) => (
                 <motion.li
                   key={item.title}
                   whileHover={reduceMotion ? undefined : { y: -4, scale: 1.01 }}
@@ -265,7 +283,7 @@ export default function BtCareersPage() {
               Strong Behavior Technicians grow through consistency, practice, feedback, and teamwork.
             </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BT_CONFIDENCE_CARDS.map((card) => (
+              {btConfidenceCards.map((card) => (
                 <li key={card.title} className="rounded-xl border border-lime-200 bg-white p-5 shadow-sm">
                   <h3 className="font-extrabold text-slate-900">{card.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{card.description}</p>
@@ -277,7 +295,7 @@ export default function BtCareersPage() {
 
         <RbtScrollReveal>
           <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-7 text-slate-600">
-            {BT_EDUCATIONAL_NOTICE}
+            {btEducationalNotice}
           </p>
         </RbtScrollReveal>
 
@@ -294,7 +312,7 @@ export default function BtCareersPage() {
               How to stand out in your BT interview
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-              {BT_INTERVIEW_PREP_CARDS.map((card) => (
+              {btInterviewPrepCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-lime-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -305,7 +323,7 @@ export default function BtCareersPage() {
               ))}
             </ul>
             <div className="mt-10">
-              <FAQAccordion title="Sample interview questions to prepare for" items={BT_SAMPLE_INTERVIEW_QUESTIONS} />
+              <FAQAccordion title="Sample interview questions to prepare for" items={btSampleInterviewQuestions} />
             </div>
           </section>
         </RbtScrollReveal>
@@ -317,7 +335,7 @@ export default function BtCareersPage() {
               A day in the life
             </h2>
             <ol className="relative mt-10 space-y-0 border-l-2 border-lime-200 pl-8">
-              {BT_DAY_TIMELINE.map((item, index) => (
+              {btDayTimeline.map((item, index) => (
                 <li key={item.step} className="relative pb-8 last:pb-0">
                   <span
                     className="absolute -left-[2.35rem] flex h-8 w-8 items-center justify-center rounded-full bg-emerald-700 text-xs font-black text-white"
@@ -340,7 +358,7 @@ export default function BtCareersPage() {
               BT care in action
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BT_PHOTO_GALLERY.map((photo) => (
+              {btPhotoGallery.map((photo) => (
                 <li
                   key={photo.src}
                   className="overflow-hidden rounded-[1.5rem] border border-lime-200 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -362,7 +380,7 @@ export default function BtCareersPage() {
               Support designed for new ABA professionals
             </h2>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {BT_SUPPORT_CARDS.map((card) => (
+              {btSupportCards.map((card) => (
                 <li
                   key={card.title}
                   className="rounded-[1.25rem] border border-lime-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
@@ -372,7 +390,7 @@ export default function BtCareersPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-7 text-slate-500">{BT_SUPPORT_DISCLAIMER}</p>
+            <p className="mt-6 text-sm leading-7 text-slate-500">{btSupportDisclaimer}</p>
           </section>
         </RbtScrollReveal>
 

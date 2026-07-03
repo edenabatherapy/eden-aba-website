@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -8,6 +9,9 @@ import { getButtonClasses } from "@/lib/button-styles";
 import { EASE_OUT } from "@/components/careers/rbt/rbt-motion";
 
 export default function BtHeroSection() {
+  const btHeroBadges = useLocalizedContent("BT_HERO_BADGES", BT_HERO_BADGES);
+  const btHeroJourneySteps = useLocalizedContent("BT_HERO_JOURNEY_STEPS", BT_HERO_JOURNEY_STEPS);
+
   const reduceMotion = useReducedMotion();
 
   const fade = (delay: number) =>
@@ -51,7 +55,7 @@ export default function BtHeroSection() {
             impact, and a clear growth pathway.
           </motion.p>
           <motion.ul {...fade(0.24)} className="mt-6 flex flex-wrap gap-2">
-            {BT_HERO_BADGES.map((badge) => (
+            {btHeroBadges.map((badge) => (
               <li
                 key={badge}
                 className="rounded-full border border-lime-300/70 bg-white/90 px-3 py-1.5 text-xs font-bold text-emerald-800 shadow-sm"
@@ -87,7 +91,7 @@ export default function BtHeroSection() {
                 style={{ transformOrigin: "top" }}
               />
             </div>
-            {BT_HERO_JOURNEY_STEPS.map((item, index) => (
+            {btHeroJourneySteps.map((item, index) => (
               <motion.li
                 key={item.label}
                 initial={reduceMotion ? false : { opacity: 0, x: 12 }}

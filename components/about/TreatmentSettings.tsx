@@ -5,13 +5,13 @@ import { ArrowRight, Building2, GraduationCap, Home, MapPin, Monitor, Users } fr
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const SETTING_ICONS = [Home, Building2, GraduationCap, MapPin, Users, Monitor];
 
 export default function TreatmentSettings() {
-  const content = OUR_APPROACH_PAGE.treatmentSettings;
+  const content = useOurApproachPage().treatmentSettings;
 
   return (
     <section className="bg-slate-50 px-4 py-20 dark:bg-slate-900/50 lg:px-8" aria-labelledby="treatment-settings-heading">

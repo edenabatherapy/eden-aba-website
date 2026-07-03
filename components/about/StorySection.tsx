@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { OUR_STORY_PAGE } from "@/lib/our-story-content";
+import { useOurStoryPage } from "@/contexts/OurStoryContent";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { fadeUp, SectionEyebrow } from "./shared";
 
 export default function StorySection() {
-  const content = OUR_STORY_PAGE.foundation;
+  const content = useOurStoryPage().foundation;
 
   return (
     <section className="px-4 py-20 lg:px-8 dark:bg-slate-950" aria-labelledby="our-foundation-heading">

@@ -4,13 +4,13 @@ import { ArrowRight, Award, Heart, Sparkles, Star, Target, TrendingUp } from "lu
 import { motion } from "framer-motion";
 import CtaLink from "@/components/about/CtaLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_APPROACH_PAGE } from "@/lib/our-approach-content";
+import { useOurApproachPage } from "@/contexts/OurApproachContent";
 import { fadeUp, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 const HIGHLIGHT_ICONS = [Star, TrendingUp, Award, Sparkles, Heart, Target];
 
 export default function PositiveReinforcement() {
-  const content = OUR_APPROACH_PAGE.positiveReinforcement;
+  const content = useOurApproachPage().positiveReinforcement;
 
   return (
     <section

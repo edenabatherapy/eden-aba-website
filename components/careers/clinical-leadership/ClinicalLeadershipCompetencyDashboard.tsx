@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -22,9 +23,11 @@ const ICONS = {
 } as const;
 
 export default function ClinicalLeadershipCompetencyDashboard() {
-  const [activeId, setActiveId] = useState(CL_COMPETENCY_DASHBOARDS[0].id);
+  const clCompetencyDashboards = useLocalizedContent("CL_COMPETENCY_DASHBOARDS", CL_COMPETENCY_DASHBOARDS);
+
+  const [activeId, setActiveId] = useState(clCompetencyDashboards[0].id);
   const reduceMotion = useReducedMotion();
-  const active = CL_COMPETENCY_DASHBOARDS.find((d) => d.id === activeId) ?? CL_COMPETENCY_DASHBOARDS[0];
+  const active = clCompetencyDashboards.find((d) => d.id === activeId) ?? clCompetencyDashboards[0];
   const ActiveIcon = ICONS[active.id as keyof typeof ICONS] ?? Sparkles;
 
   return (
@@ -44,7 +47,7 @@ export default function ClinicalLeadershipCompetencyDashboard() {
             aria-label="Leadership competency domains"
             className="flex flex-row gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible"
           >
-            {CL_COMPETENCY_DASHBOARDS.map((domain) => {
+            {clCompetencyDashboards.map((domain) => {
               const Icon = ICONS[domain.id as keyof typeof ICONS] ?? Sparkles;
               const selected = activeId === domain.id;
               return (

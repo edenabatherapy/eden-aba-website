@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { OUR_TEAM_PAGE } from "@/lib/our-team-content";
+import { useOurTeamPage } from "@/contexts/OurTeamContent";
 import { fadeUp, GlassPanel, SectionEyebrow, staggerContainer, staggerItem } from "./shared";
 
 export default function RecruitingSection() {
-  const content = OUR_TEAM_PAGE.recruiting;
+  const content = useOurTeamPage().recruiting;
 
   return (
     <section

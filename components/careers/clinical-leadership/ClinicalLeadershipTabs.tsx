@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocalizedContent } from "@/hooks/useLocalizedContent";
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -153,13 +154,20 @@ export default function ClinicalLeadershipTabs() {
 }
 
 function TabPanelContent({ tabId }: { tabId: TabId }) {
+  const clCompetencyDashboards = useLocalizedContent("CL_COMPETENCY_DASHBOARDS", CL_COMPETENCY_DASHBOARDS);
+  const clFaqItems = useLocalizedContent("CL_FAQ_ITEMS", CL_FAQ_ITEMS);
+  const clInterviewPrepCards = useLocalizedContent("CL_INTERVIEW_PREP_CARDS", CL_INTERVIEW_PREP_CARDS);
+  const clLeadershipLadder = useLocalizedContent("CL_LEADERSHIP_LADDER", CL_LEADERSHIP_LADDER);
+  const clRoleCategories = useLocalizedContent("CL_ROLE_CATEGORIES", CL_ROLE_CATEGORIES);
+  const clTabOverview = useLocalizedContent("CL_TAB_OVERVIEW", CL_TAB_OVERVIEW);
+
   switch (tabId) {
     case "overview":
       return (
         <>
-          <p className="text-base leading-8 text-slate-600">{CL_TAB_OVERVIEW.summary}</p>
+          <p className="text-base leading-8 text-slate-600">{clTabOverview.summary}</p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {CL_TAB_OVERVIEW.highlights.map((item) => (
+            {clTabOverview.highlights.map((item) => (
               <li
                 key={item}
                 className="flex gap-2 rounded-xl bg-teal-50/80 px-4 py-3 text-sm font-semibold leading-6 text-slate-700"
@@ -174,7 +182,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "roles":
       return (
         <ul className="space-y-3">
-          {CL_ROLE_CATEGORIES.map((role) => (
+          {clRoleCategories.map((role) => (
             <li key={role.title} className="rounded-xl border border-teal-100 px-4 py-3">
               <p className="text-sm font-extrabold text-slate-900">{role.title}</p>
               <p className="mt-1 text-sm leading-7 text-slate-600">{role.description}</p>
@@ -185,7 +193,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "competencies":
       return (
         <div className="grid gap-4 sm:grid-cols-2">
-          {CL_COMPETENCY_DASHBOARDS.map((domain) => (
+          {clCompetencyDashboards.map((domain) => (
             <div key={domain.id} className="rounded-xl border border-teal-100 bg-teal-50/30 p-4">
               <h3 className="text-sm font-extrabold text-slate-900">{domain.title}</h3>
               <ul className="mt-2 space-y-1">
@@ -202,7 +210,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "growth":
       return (
         <ol className="space-y-3">
-          {CL_LEADERSHIP_LADDER.map((level) => (
+          {clLeadershipLadder.map((level) => (
             <li key={level.title} className="rounded-xl border border-teal-100 px-4 py-3">
               <p className="font-extrabold text-slate-900">{level.title}</p>
               <p className="mt-1 text-sm text-slate-600">{level.primaryResponsibilities}</p>
@@ -213,7 +221,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
     case "interview":
       return (
         <ul className="space-y-3">
-          {CL_INTERVIEW_PREP_CARDS.map((card) => (
+          {clInterviewPrepCards.map((card) => (
             <li key={card.title} className="rounded-xl border border-teal-100 px-4 py-3">
               <p className="text-sm font-extrabold text-slate-900">{card.title}</p>
               <p className="mt-1 text-sm leading-7 text-slate-600">{card.description}</p>
@@ -222,7 +230,7 @@ function TabPanelContent({ tabId }: { tabId: TabId }) {
         </ul>
       );
     case "faq":
-      return <FAQAccordion title="" items={CL_FAQ_ITEMS} />;
+      return <FAQAccordion title="" items={clFaqItems} />;
     default:
       return null;
   }
