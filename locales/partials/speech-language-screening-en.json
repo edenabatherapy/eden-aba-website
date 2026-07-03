@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Speech & Language Therapy Screening | Eden ABA Therapy",
+    "description": "Complete Eden ABA Therapy's speech and language screening form. Share family concerns for intake review. This screening does not diagnose and does not replace evaluation by a licensed Speech-Language Pathologist."
+  },
+  "eyebrow": "Eden ABA Therapy · Intake Screening",
+  "title": "Speech & Language Therapy Screening Form",
+  "intro": "Share your family's concerns so Eden's intake team can review screening information and help determine appropriate next steps. This form does not diagnose and does not replace evaluation by a licensed Speech-Language Pathologist.",
+  "sections": {
+    "childInfo": "Child Information",
+    "parentGuardian": "Parent / Guardian Information",
+    "contact": "Contact Information",
+    "primaryConcerns": "Primary Concerns",
+    "speechLanguage": "Speech & Language Questions",
+    "socialCommunication": "Social Communication Questions",
+    "aac": "AAC Needs",
+    "fluencyVoice": "Fluency / Voice Concerns",
+    "feedingSwallowing": "Feeding / Swallowing Red Flags",
+    "medicalHistory": "Medical & Developmental History",
+    "insurance": "Insurance Information",
+    "consentPrivacy": "Consent & Privacy"
+  },
+  "fields": {
+    "childName": "Child Full Name *",
+    "childDob": "Date of Birth *",
+    "primaryLanguage": "Primary Language at Home",
+    "school": "School / Daycare",
+    "parentName": "Parent / Guardian Name *",
+    "relationship": "Relationship to Child",
+    "phone": "Phone *",
+    "email": "Email *",
+    "preferredContact": "Preferred Contact Method",
+    "aacDetails": "Additional AAC details (optional)",
+    "hearingTest": "Recent Hearing Test?",
+    "diagnosis": "Diagnosis, if any",
+    "developmentalHistory": "Developmental or medical history (optional)",
+    "insuranceType": "Insurance Type",
+    "referral": "Physician Referral?",
+    "policyHolder": "Policy holder name (optional)",
+    "signature": "Parent / Guardian Signature (type full legal name) *"
+  },
+  "placeholders": {
+    "primaryLanguage": "English, Dari, Vietnamese, etc.",
+    "school": "Optional",
+    "relationship": "Mother, father, guardian, etc.",
+    "phone": "(703) 000-0000",
+    "concerns": "Few words, unclear speech, difficulty following directions, stuttering, social communication, AAC needs, feeding concerns...",
+    "aacDetails": "Current device, picture system, sign use, etc.",
+    "diagnosis": "Autism, ADHD, developmental delay, etc.",
+    "developmentalHistory": "Prematurity, NICU stay, ear infections, prior therapy, medications, etc."
+  },
+  "concernsLabel": "What made you request speech or language support?",
+  "scoringNote": "Scoring: No = 0, Sometimes = 1, Often = 2. This screening is not a diagnosis.",
+  "subsections": {
+    "understandingLanguage": "Understanding Language",
+    "expressiveLanguage": "Expressive Language",
+    "speechClarity": "Speech Clarity"
+  },
+  "questions": {
+    "followDirections": "Difficulty following simple directions?",
+    "understanding": "Difficulty understanding questions, routines, or daily instructions?",
+    "fewWords": "Uses fewer words or shorter phrases than expected?",
+    "frustration": "Frustration, crying, or behavior because communication is hard?",
+    "clarity": "Unfamiliar people have trouble understanding your child?",
+    "sounds": "Leaves off sounds, substitutes sounds, or speaks unclearly?",
+    "social": "Difficulty with conversation, turn-taking, play, or peer interaction?",
+    "gestures": "Difficulty using gestures, shared attention, or communication repair?",
+    "aac": "Needs pictures, signs, gestures, or a communication device?",
+    "fluency": "Repeats sounds/words, gets stuck, or shows stuttering concerns?",
+    "voice": "Voice sounds hoarse, weak, strained, or unusual?",
+    "swallowSafety": "Coughing, choking, wet voice, or breathing changes during meals?",
+    "feedingConcern": "Very limited foods, gagging, vomiting, weight concerns, or texture refusal?"
+  },
+  "options": {
+    "frequency": {
+      "0": "No",
+      "1": "Sometimes",
+      "2": "Often"
+    },
+    "yesNo": {
+      "0": "No",
+      "2": "Yes"
+    },
+    "preferredContact": {
+      "Phone": "Phone",
+      "Email": "Email",
+      "Text message": "Text message"
+    },
+    "hearingTest": {
+      "Not sure": "Not sure",
+      "Yes": "Yes",
+      "No": "No"
+    },
+    "insuranceType": {
+      "Select": "Select",
+      "Virginia Medicaid": "Virginia Medicaid",
+      "Commercial Insurance": "Commercial Insurance",
+      "Private Pay": "Private Pay",
+      "Not sure": "Not sure"
+    },
+    "referral": {
+      "Not yet": "Not yet",
+      "Yes": "Yes",
+      "No": "No"
+    }
+  },
+  "redFlagAlert": "Because feeding or swallowing safety concerns were reported, Eden recommends prompt review by a qualified medical provider or licensed Speech-Language Pathologist.",
+  "consentPrivacyText": "Information submitted through this form is used only to help Eden coordinate intake and screening follow-up. It is handled with privacy-conscious practices and is not shared for marketing purposes. Submission does not guarantee service approval or insurance authorization.",
+  "consentCheckbox": "I understand this screening does not diagnose and does not replace evaluation by a licensed Speech-Language Pathologist. *",
+  "disclaimerLabel": "Disclaimer:",
+  "disclaimerText": "This form does not diagnose a speech, language, feeding, or swallowing disorder. Feeding or swallowing safety concerns should be reviewed promptly by qualified medical professionals.",
+  "sidebar": {
+    "scoreLabel": "Live Screening Score",
+    "submit": "Submit Screening to Eden Intake Team",
+    "submitting": "Submitting securely...",
+    "verifying": "Verifying…",
+    "requiredFields": "Please complete all required fields."
+  },
+  "errors": {
+    "childName": "Child full name is required.",
+    "childDob": "Date of birth is required.",
+    "parentName": "Parent or guardian name is required.",
+    "phone": "Phone number is required.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Enter a valid email address.",
+    "consent": "You must acknowledge that this screening does not replace evaluation by a licensed Speech-Language Pathologist.",
+    "signature": "Parent or guardian signature is required.",
+    "recaptchaIncomplete": "Please complete the reCAPTCHA verification.",
+    "recaptchaFailed": "Security verification failed. Please try again.",
+    "submitFailed": "Unable to submit your screening. Please try again."
+  },
+  "success": {
+    "title": "Screening received",
+    "message": "Thank you. Eden intake coordinator received your screening.",
+    "confirmationLabel": "Confirmation ID:",
+    "disclaimer": "This screening does not diagnose a speech, language, feeding, or swallowing disorder and does not replace evaluation by a licensed Speech-Language Pathologist. Submission does not guarantee service approval or insurance authorization."
+  },
+  "risk": {
+    "low": {
+      "level": "Low concern",
+      "recommendation": "Parent education and monitoring may be appropriate."
+    },
+    "moderate": {
+      "level": "Moderate concern",
+      "recommendation": "A speech-language screening is recommended to determine if full evaluation is needed."
+    },
+    "high": {
+      "level": "High concern",
+      "recommendation": "A full speech-language evaluation is recommended based on reported concerns."
+    },
+    "highSafety": {
+      "level": "High priority / safety review",
+      "recommendation": "Because feeding or swallowing safety concerns were reported, Eden recommends prompt review by a qualified medical provider or licensed Speech-Language Pathologist."
+    }
+  }
+}

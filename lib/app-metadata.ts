@@ -92,6 +92,19 @@ const ROUTE_METADATA: RouteMetaEntry[] = [
     },
   },
   {
+    path: "/services/speech-language-therapy/screening",
+    en: {
+      title: "Speech & Language Therapy Screening | Eden ABA Therapy",
+      description:
+        "Complete Eden ABA Therapy's speech and language screening form. Share family concerns for intake review. This screening does not diagnose and does not replace evaluation by a licensed Speech-Language Pathologist.",
+    },
+    vi: {
+      title: "Sàng lọc Trị liệu Ngôn ngữ & Lời nói | Eden ABA Therapy",
+      description:
+        "Hoàn thành biểu mẫu sàng lọc ngôn ngữ và lời nói của Eden ABA Therapy. Chia sẻ mối quan tâm của gia đình để đội intake xem xét. Sàng lọc này không chẩn đoán và không thay thế đánh giá bởi Chuyên gia Ngôn ngữ & Lời nói có giấy phép.",
+    },
+  },
+  {
     path: "/about/our-story",
     en: {
       title: "Our Story | Eden ABA Therapy",

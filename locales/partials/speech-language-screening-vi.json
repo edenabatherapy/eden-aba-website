@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Sàng lọc Trị liệu Ngôn ngữ & Lời nói | Eden ABA Therapy",
+    "description": "Hoàn thành biểu mẫu sàng lọc ngôn ngữ và lời nói của Eden ABA Therapy. Chia sẻ mối quan tâm của gia đình để đội intake xem xét. Sàng lọc này không chẩn đoán và không thay thế đánh giá bởi Chuyên gia Ngôn ngữ & Lời nói có giấy phép."
+  },
+  "eyebrow": "Eden ABA Therapy · Sàng lọc Intake",
+  "title": "Biểu mẫu Sàng lọc Trị liệu Ngôn ngữ & Lời nói",
+  "intro": "Chia sẻ mối quan tâm của gia đình để đội intake của Eden xem xét thông tin sàng lọc và hỗ trợ xác định các bước tiếp theo phù hợp. Biểu mẫu này không chẩn đoán và không thay thế đánh giá bởi Chuyên gia Ngôn ngữ & Lời nói có giấy phép.",
+  "sections": {
+    "childInfo": "Thông tin Trẻ",
+    "parentGuardian": "Thông tin Phụ huynh / Người giám hộ",
+    "contact": "Thông tin Liên hệ",
+    "primaryConcerns": "Mối quan tâm Chính",
+    "speechLanguage": "Câu hỏi về Ngôn ngữ & Lời nói",
+    "socialCommunication": "Câu hỏi về Giao tiếp Xã hội",
+    "aac": "Nhu cầu AAC",
+    "fluencyVoice": "Mối quan tâm về Lưu loát / Giọng nói",
+    "feedingSwallowing": "Cờ đỏ Ăn uống / Nuốt",
+    "medicalHistory": "Tiền sử Y khoa & Phát triển",
+    "insurance": "Thông tin Bảo hiểm",
+    "consentPrivacy": "Đồng ý & Quyền riêng tư"
+  },
+  "fields": {
+    "childName": "Họ và tên trẻ *",
+    "childDob": "Ngày sinh *",
+    "primaryLanguage": "Ngôn ngữ chính tại nhà",
+    "school": "Trường / Nhà trẻ",
+    "parentName": "Tên phụ huynh / người giám hộ *",
+    "relationship": "Mối quan hệ với trẻ",
+    "phone": "Số điện thoại *",
+    "email": "Email *",
+    "preferredContact": "Cách liên hệ ưu tiên",
+    "aacDetails": "Chi tiết AAC bổ sung (tùy chọn)",
+    "hearingTest": "Kiểm tra thính lực gần đây?",
+    "diagnosis": "Chẩn đoán, nếu có",
+    "developmentalHistory": "Tiền sử phát triển hoặc y khoa (tùy chọn)",
+    "insuranceType": "Loại bảo hiểm",
+    "referral": "Giới thiệu từ bác sĩ?",
+    "policyHolder": "Tên chủ hợp đồng bảo hiểm (tùy chọn)",
+    "signature": "Chữ ký phụ huynh / người giám hộ (nhập họ tên đầy đủ) *"
+  },
+  "placeholders": {
+    "primaryLanguage": "Tiếng Anh, Dari, Tiếng Việt, v.v.",
+    "school": "Tùy chọn",
+    "relationship": "Mẹ, cha, người giám hộ, v.v.",
+    "phone": "(703) 000-0000",
+    "concerns": "Ít từ, nói không rõ, khó làm theo hướng dẫn, nói lắp, giao tiếp xã hội, nhu cầu AAC, mối quan tâm ăn uống...",
+    "aacDetails": "Thiết bị hiện tại, hệ thống hình ảnh, sử dụng ký hiệu, v.v.",
+    "diagnosis": "Tự kỷ, ADHD, chậm phát triển, v.v.",
+    "developmentalHistory": "Sinh non, ở NICU, viêm tai, trị liệu trước đây, thuốc, v.v."
+  },
+  "concernsLabel": "Điều gì khiến bạn yêu cầu hỗ trợ ngôn ngữ hoặc lời nói?",
+  "scoringNote": "Chấm điểm: Không = 0, Đôi khi = 1, Thường xuyên = 2. Sàng lọc này không phải chẩn đoán.",
+  "subsections": {
+    "understandingLanguage": "Hiểu Ngôn ngữ",
+    "expressiveLanguage": "Ngôn ngữ Biểu đạt",
+    "speechClarity": "Độ rõ Lời nói"
+  },
+  "questions": {
+    "followDirections": "Khó làm theo hướng dẫn đơn giản?",
+    "understanding": "Khó hiểu câu hỏi, thói quen hàng ngày hoặc hướng dẫn trong sinh hoạt?",
+    "fewWords": "Dùng ít từ hoặc cụm từ ngắn hơn mong đợi?",
+    "frustration": "Bực bội, khóc hoặc hành vi vì giao tiếp khó khăn?",
+    "clarity": "Người lạ khó hiểu con bạn nói?",
+    "sounds": "Bỏ âm, thay âm hoặc nói không rõ?",
+    "social": "Khó trong hội thoại, chờ lượt, chơi hoặc tương tác bạn bè?",
+    "gestures": "Khó dùng cử chỉ, chú ý chung hoặc sửa lỗi giao tiếp?",
+    "aac": "Cần hình ảnh, ký hiệu, cử chỉ hoặc thiết bị giao tiếp?",
+    "fluency": "Lặp âm/từ, bị kẹt hoặc có dấu hiệu nói lắp?",
+    "voice": "Giọng khàn, yếu, căng hoặc bất thường?",
+    "swallowSafety": "Ho, sặc, giọng ướt hoặc thay đổi hô hấp khi ăn?",
+    "feedingConcern": "Rất ít loại thực phẩm, nôn mửa, lo ngại cân nặng hoặc từ chối kết cấu?"
+  },
+  "options": {
+    "frequency": {
+      "0": "Không",
+      "1": "Đôi khi",
+      "2": "Thường xuyên"
+    },
+    "yesNo": {
+      "0": "Không",
+      "2": "Có"
+    },
+    "preferredContact": {
+      "Phone": "Gọi điện",
+      "Email": "Email",
+      "Text message": "Tin nhắn"
+    },
+    "hearingTest": {
+      "Not sure": "Không chắc",
+      "Yes": "Có",
+      "No": "Không"
+    },
+    "insuranceType": {
+      "Select": "Chọn",
+      "Virginia Medicaid": "Virginia Medicaid",
+      "Commercial Insurance": "Bảo hiểm Thương mại",
+      "Private Pay": "Tự chi trả",
+      "Not sure": "Không chắc"
+    },
+    "referral": {
+      "Not yet": "Chưa có",
+      "Yes": "Có",
+      "No": "Không"
+    }
+  },
+  "redFlagAlert": "Vì có báo cáo mối quan tâm về an toàn ăn uống hoặc nuốt, Eden khuyến nghị xem xét kịp thời bởi nhà cung cấp y tế đủ điều kiện hoặc Chuyên gia Ngôn ngữ & Lời nói có giấy phép.",
+  "consentPrivacyText": "Thông tin gửi qua biểu mẫu này chỉ được dùng để giúp Eden phối hợp intake và theo dõi sàng lọc. Thông tin được xử lý theo thực hành bảo mật và không chia sẻ cho mục đích tiếp thị. Gửi biểu mẫu không đảm bảo phê duyệt dịch vụ hoặc ủy quyền bảo hiểm.",
+  "consentCheckbox": "Tôi hiểu sàng lọc này không chẩn đoán và không thay thế đánh giá bởi Chuyên gia Ngôn ngữ & Lời nói có giấy phép. *",
+  "disclaimerLabel": "Tuyên bố miễn trừ:",
+  "disclaimerText": "Biểu mẫu này không chẩn đoán rối loạn ngôn ngữ, lời nói, ăn uống hoặc nuốt. Mối quan tâm về an toàn ăn uống hoặc nuốt nên được xem xét kịp thời bởi chuyên gia y tế đủ điều kiện.",
+  "sidebar": {
+    "scoreLabel": "Điểm Sàng lọc Trực tiếp",
+    "submit": "Gửi Sàng lọc cho Đội Intake Eden",
+    "submitting": "Đang gửi an toàn...",
+    "verifying": "Đang xác minh…",
+    "requiredFields": "Vui lòng hoàn thành tất cả trường bắt buộc."
+  },
+  "errors": {
+    "childName": "Họ và tên trẻ là bắt buộc.",
+    "childDob": "Ngày sinh là bắt buộc.",
+    "parentName": "Tên phụ huynh hoặc người giám hộ là bắt buộc.",
+    "phone": "Số điện thoại là bắt buộc.",
+    "emailRequired": "Email là bắt buộc.",
+    "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+    "consent": "Bạn phải xác nhận sàng lọc này không thay thế đánh giá bởi Chuyên gia Ngôn ngữ & Lời nói có giấy phép.",
+    "signature": "Chữ ký phụ huynh hoặc người giám hộ là bắt buộc.",
+    "recaptchaIncomplete": "Vui lòng hoàn thành xác minh reCAPTCHA.",
+    "recaptchaFailed": "Xác minh bảo mật không thành công. Vui lòng thử lại.",
+    "submitFailed": "Không thể gửi sàng lọc của bạn. Vui lòng thử lại."
+  },
+  "success": {
+    "title": "Đã nhận sàng lọc",
+    "message": "Cảm ơn bạn. Điều phối viên intake của Eden đã nhận sàng lọc của bạn.",
+    "confirmationLabel": "Mã xác nhận:",
+    "disclaimer": "Sàng lọc này không chẩn đoán rối loạn ngôn ngữ, lời nói, ăn uống hoặc nuốt và không thay thế đánh giá bởi Chuyên gia Ngôn ngữ & Lời nói có giấy phép. Gửi biểu mẫu không đảm bảo phê duyệt dịch vụ hoặc ủy quyền bảo hiểm."
+  },
+  "risk": {
+    "low": {
+      "level": "Mức quan tâm thấp",
+      "recommendation": "Giáo dục phụ huynh và theo dõi có thể phù hợp."
+    },
+    "moderate": {
+      "level": "Mức quan tâm trung bình",
+      "recommendation": "Nên sàng lọc ngôn ngữ và lời nói để xác định có cần đánh giá đầy đủ hay không."
+    },
+    "high": {
+      "level": "Mức quan tâm cao",
+      "recommendation": "Nên đánh giá ngôn ngữ và lời nói đầy đủ dựa trên các mối quan tâm đã báo cáo."
+    },
+    "highSafety": {
+      "level": "Ưu tiên cao / xem xét an toàn",
+      "recommendation": "Vì có báo cáo mối quan tâm về an toàn ăn uống hoặc nuốt, Eden khuyến nghị xem xét kịp thời bởi nhà cung cấp y tế đủ điều kiện hoặc Chuyên gia Ngôn ngữ & Lời nói có giấy phép."
+    }
+  }
+}
