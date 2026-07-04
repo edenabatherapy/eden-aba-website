@@ -151,7 +151,6 @@ const nextConfig = {
     return {
       beforeFiles: [
         { source: "/what-is-autism", destination: "/" },
-        { source: "/resources/:path*", destination: "/" },
         { source: "/m-chat-r", destination: "/" },
         { source: "/cast", destination: "/" },
         { source: "/m-chat-r-online-screener", destination: "/" },
