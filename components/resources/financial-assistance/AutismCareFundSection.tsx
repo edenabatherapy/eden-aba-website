@@ -5,6 +5,7 @@ import {
   AlertCircle,
   CreditCard,
   Heart,
+  Loader2,
   PiggyBank,
   TrendingUp,
   Users,
@@ -19,6 +20,7 @@ import {
 import type { DonorWallEntry, MonthlyReport, PublicFundStats } from "@/lib/autism-care-fund/types";
 import type { PlatformDashboard, TransparencyDonationRow } from "@/lib/financial-platform/types";
 import { DONATION_TYPE_LABELS, LEGAL_DISCLAIMER } from "@/lib/financial-platform/constants";
+import { STRIPE_DONATION_PRESETS_CENTS } from "@/lib/stripe/schema";
 import type { DonationType } from "@/lib/financial-platform/types";
 
 const EMPTY_STATS: PublicFundStats = {
@@ -110,11 +112,14 @@ export default function AutismCareFundSection() {
   const [donationAmount, setDonationAmount] = useState(5000);
   const [donationType, setDonationType] = useState<DonationType>("one_time");
   const [customAmount, setCustomAmount] = useState("");
+  const [donorName, setDonorName] = useState("");
   const [anonymous, setAnonymous] = useState(true);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState<"stripe" | "paypal">("stripe");
   const [submitting, setSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<string | null>(null);
+  const [stripeRedirecting, setStripeRedirecting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const loadDashboard = useCallback(async () => {
     try {
@@ -157,33 +162,66 @@ export default function AutismCareFundSection() {
   const progress = computeProgressPercent(stats.raisedAmountCents, stats.goalAmountCents);
   const estimatedHours = computeEstimatedHoursSupported(donationAmount);
 
-  const handleDonateIntent = useCallback(async () => {
+  const handleContribute = useCallback(async () => {
+    if (donationAmount < 500) {
+      setSubmitError("Minimum community support payment is $5.");
+      return;
+    }
+
     setSubmitting(true);
-    setSubmitResult(null);
+    setSubmitError(null);
+
+    const payload = {
+      amountCents: donationAmount,
+      donationType,
+      anonymous,
+      email: email.trim() || undefined,
+      message: message.trim() || undefined,
+    };
 
     try {
-      const res = await fetch("/api/financial-platform/donations", {
+      if (paymentMethod === "stripe") {
+        setStripeRedirecting(true);
+        const res = await fetch("/api/stripe/create-checkout-session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            amountCents: donationAmount,
+            donorName: donorName.trim() || undefined,
+            email: email.trim() || undefined,
+            anonymous,
+            message: message.trim() || undefined,
+          }),
+        });
+        const data = await res.json();
+        if (!data.ok || !data.checkoutUrl) {
+          setStripeRedirecting(false);
+          setSubmitError(data.message ?? "Unable to start Stripe Checkout. Please try again.");
+          return;
+        }
+        window.location.href = data.checkoutUrl;
+        return;
+      }
+
+      const res = await fetch("/api/autism-care-fund/paypal/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          amountCents: donationAmount,
-          donationType,
-          anonymous,
-          email: email.trim() || undefined,
-          message: message.trim() || undefined,
-        }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
-      setSubmitResult(data.message ?? "Thank you for your interest in supporting the Autism Care Fund.");
-      if (data.ok) loadDashboard();
+      if (!data.ok || !data.approvalUrl) {
+        setSubmitError(data.message ?? "Unable to start PayPal checkout. Please try again.");
+        return;
+      }
+      window.location.href = data.approvalUrl;
     } catch {
-      setSubmitResult(
-        "We could not save your donation intent right now. Please contact Eden ABA Therapy to learn about contribution options.",
+      setSubmitError(
+        "We could not start your Autism Care Fund contribution right now. Please contact Eden ABA Therapy.",
       );
     } finally {
       setSubmitting(false);
     }
-  }, [anonymous, donationAmount, donationType, email, loadDashboard, message]);
+  }, [anonymous, donationAmount, donorName, email, message, paymentMethod]);
 
   const reveal = reduceMotion
     ? {}
@@ -501,17 +539,102 @@ export default function AutismCareFundSection() {
           <div className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-950/80 to-slate-900 p-6">
             <h3 className="flex items-center gap-2 text-lg font-extrabold">
               <CreditCard size={20} aria-hidden />
-              How to donate
+              Make an Autism Care Fund contribution
             </h3>
             <p className="mt-2 text-sm text-slate-300">
-              Online payment processing is coming soon. Express your intent below and Eden will share available
-              contribution options.
+              Submit a community support payment by card or PayPal. Contributions support eligible families
+              through the Eden Autism Care Fund.
             </p>
 
             <div className="mt-4 space-y-4">
               <div>
+                <p className="text-xs font-bold uppercase text-slate-400">Contribution amount</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {STRIPE_DONATION_PRESETS_CENTS.map((cents) => (
+                    <button
+                      key={`donate-${cents}`}
+                      type="button"
+                      aria-pressed={donationAmount === cents && !customAmount}
+                      onClick={() => {
+                        setDonationAmount(cents);
+                        setCustomAmount("");
+                      }}
+                      className={`rounded-full px-4 py-2 text-sm font-extrabold transition ${
+                        donationAmount === cents && !customAmount
+                          ? "bg-emerald-500 text-white"
+                          : "border border-white/20 text-slate-200 hover:bg-white/10"
+                      }`}
+                    >
+                      {formatCurrency(cents)}
+                    </button>
+                  ))}
+                  <button
+                    type="button"
+                    aria-pressed={Boolean(customAmount)}
+                    onClick={() => {
+                      if (!customAmount) setCustomAmount(String(donationAmount / 100));
+                    }}
+                    className={`rounded-full px-4 py-2 text-sm font-extrabold transition ${
+                      customAmount
+                        ? "bg-emerald-500 text-white"
+                        : "border border-white/20 text-slate-200 hover:bg-white/10"
+                    }`}
+                  >
+                    Custom
+                  </button>
+                </div>
+                {customAmount ? (
+                  <label htmlFor="acf-donate-custom-amount" className="mt-3 block text-xs font-bold uppercase text-slate-400">
+                    Custom amount (USD, minimum $5)
+                  </label>
+                ) : null}
+                {customAmount ? (
+                  <input
+                    id="acf-donate-custom-amount"
+                    type="number"
+                    min={5}
+                    max={50000}
+                    value={customAmount}
+                    onChange={(e) => {
+                      setCustomAmount(e.target.value);
+                      const dollars = Number(e.target.value);
+                      if (Number.isFinite(dollars) && dollars >= 5) {
+                        setDonationAmount(Math.round(dollars * 100));
+                      }
+                    }}
+                    placeholder="e.g. 75"
+                    className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white outline-none focus:border-emerald-400"
+                  />
+                ) : null}
+              </div>
+
+              <fieldset>
+                <legend className="text-xs font-bold uppercase text-slate-400">Payment method</legend>
+                <div className="mt-3 grid grid-cols-2 gap-3">
+                  {[
+                    { id: "stripe" as const, label: "Stripe card payment" },
+                    { id: "paypal" as const, label: "PayPal" },
+                  ].map((option) => (
+                    <button
+                      key={option.id}
+                      type="button"
+                      aria-pressed={paymentMethod === option.id}
+                      onClick={() => setPaymentMethod(option.id)}
+                      className={`rounded-xl px-4 py-3 text-sm font-bold transition ${
+                        paymentMethod === option.id
+                          ? "bg-emerald-500 text-white"
+                          : "border border-white/20 text-slate-200 hover:bg-white/10"
+                      }`}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+
+              <div>
                 <label htmlFor="acf-donation-type" className="text-xs font-bold uppercase text-slate-400">
-                  Donation type
+                  Contribution type
                 </label>
                 <select
                   id="acf-donation-type"
@@ -534,12 +657,28 @@ export default function AutismCareFundSection() {
                   onChange={(e) => setAnonymous(e.target.checked)}
                   className="h-4 w-4 rounded border-white/30"
                 />
-                Give anonymously on the donor wall
+                List this contribution anonymously on the donor wall
               </label>
+
+              {!anonymous ? (
+                <div>
+                  <label htmlFor="acf-donor-name" className="text-xs font-bold uppercase text-slate-400">
+                    Donor name
+                  </label>
+                  <input
+                    id="acf-donor-name"
+                    type="text"
+                    value={donorName}
+                    onChange={(e) => setDonorName(e.target.value)}
+                    className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white outline-none focus:border-emerald-400"
+                    autoComplete="name"
+                  />
+                </div>
+              ) : null}
 
               <div>
                 <label htmlFor="acf-email" className="text-xs font-bold uppercase text-slate-400">
-                  Email (optional — for receipt when payments launch)
+                  Email (optional — for payment confirmation)
                 </label>
                 <input
                   id="acf-email"
@@ -566,30 +705,34 @@ export default function AutismCareFundSection() {
 
               <button
                 type="button"
-                disabled={submitting}
-                onClick={handleDonateIntent}
-                className="w-full rounded-full bg-emerald-500 px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-emerald-400 disabled:opacity-60"
+                disabled={submitting || stripeRedirecting || donationAmount < 500}
+                onClick={handleContribute}
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 py-3.5 text-sm font-extrabold text-white transition hover:bg-emerald-400 disabled:opacity-60"
               >
-                {submitting ? "Saving…" : `Express interest — ${formatCurrency(donationAmount)}`}
+                {stripeRedirecting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                    Redirecting to Stripe Checkout…
+                  </>
+                ) : submitting ? (
+                  "Starting secure checkout…"
+                ) : paymentMethod === "stripe" ? (
+                  `Donate with Stripe — ${formatCurrency(donationAmount)}`
+                ) : (
+                  `Contribute ${formatCurrency(donationAmount)} via PayPal`
+                )}
               </button>
 
-              {submitResult ? (
-                <p className="text-sm text-emerald-200" role="status">
-                  {submitResult}
+              {submitError ? (
+                <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200" role="alert">
+                  {submitError}
                 </p>
               ) : null}
 
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                {["Stripe", "PayPal"].map((provider) => (
-                  <div
-                    key={provider}
-                    className="flex items-center justify-center rounded-xl border border-dashed border-white/20 px-4 py-3 text-xs font-bold uppercase tracking-wide text-slate-500"
-                    aria-disabled="true"
-                  >
-                    {provider} — coming soon
-                  </div>
-                ))}
-              </div>
+              <p className="text-xs leading-6 text-slate-400">
+                Payments are processed securely by {paymentMethod === "stripe" ? "Stripe" : "PayPal"}. Eden ABA
+                Therapy does not store card numbers on this website.
+              </p>
             </div>
           </div>
         </div>
