@@ -1853,3 +1853,57 @@ body {
     display: none;
   }
 }
+
+/* Financial Assistance — hero aurora (respects reduced motion) */
+@keyframes faAuroraDrift1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12%, 8%) scale(1.08);
+  }
+}
+
+@keyframes faAuroraDrift2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-10%, -6%) scale(1.05);
+  }
+}
+
+@keyframes faAuroraDrift3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(6%, -10%);
+    opacity: 1;
+  }
+}
+
+.fa-aurora--1 {
+  animation: faAuroraDrift1 18s ease-in-out infinite;
+}
+
+.fa-aurora--2 {
+  animation: faAuroraDrift2 22s ease-in-out infinite;
+}
+
+.fa-aurora--3 {
+  animation: faAuroraDrift3 16s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-aurora,
+  .fa-aurora--1,
+  .fa-aurora--2,
+  .fa-aurora--3 {
+    animation: none !important;
+  }
+}

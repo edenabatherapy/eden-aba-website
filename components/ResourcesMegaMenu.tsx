@@ -192,6 +192,13 @@ export const resourcesSections: ResourcesSection[] = [
         animationType: "eden",
       },
       {
+        title: "Financial Assistance",
+        href: menuHref("Financial Assistance"),
+        description:
+          "Explore government, insurance, grant, and community financial assistance for autism and ABA therapy, plus the Autism Care Fund.",
+        animationType: "community-impact",
+      },
+      {
         title: "Admissions Process",
         href: menuHref("Admissions Process"),
         description:
