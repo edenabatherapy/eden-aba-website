@@ -3,7 +3,10 @@
 import { useCallback, useState } from "react";
 import { ClipboardCheck, Search } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
+import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
+import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { APPLICATION_STATUS_LABELS, LEGAL_DISCLAIMER } from "@/lib/financial-platform/constants";
+import { RECAPTCHA_INCOMPLETE_MESSAGE } from "@/lib/recaptcha/messages";
 
 const SERVICE_OPTIONS = [
   "ABA therapy subsidy",
@@ -16,6 +19,18 @@ const SERVICE_OPTIONS = [
 
 export default function AssistanceApplicationSection() {
   const reduceMotion = useReducedMotion();
+  const {
+    optional: recaptchaOptional,
+    recaptchaRef,
+    recaptchaError,
+    canSubmit: recaptchaReady,
+    verifying,
+    handleTokenChange,
+    handleExpired,
+    resetRecaptcha,
+    requireRecaptcha,
+    verifyRecaptchaWithServer,
+  } = useReCaptchaV2();
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<{ trackingCode?: string; error?: string } | null>(null);
   const [trackCode, setTrackCode] = useState("");
@@ -64,10 +79,21 @@ export default function AssistanceApplicationSection() {
         return;
       }
 
+      if (!requireRecaptcha()) {
+        setResult({ error: RECAPTCHA_INCOMPLETE_MESSAGE });
+        return;
+      }
+
       setSubmitting(true);
       setResult(null);
 
       try {
+        const recaptcha = await verifyRecaptchaWithServer();
+        if (!recaptcha.success) {
+          setResult({ error: recaptchaError || RECAPTCHA_INCOMPLETE_MESSAGE });
+          return;
+        }
+
         const res = await fetch("/api/financial-platform/applications", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -88,21 +114,31 @@ export default function AssistanceApplicationSection() {
             emergencyNeed: form.emergencyNeed,
             consentSigned: true,
             signatureData: form.signatureData || form.applicantName,
+            captchaToken: recaptcha.token ?? undefined,
           }),
         });
         const data = await res.json();
         if (!data.ok) {
           setResult({ error: data.message ?? "Unable to submit application." });
+          resetRecaptcha();
           return;
         }
         setResult({ trackingCode: data.application.trackingCode });
+        resetRecaptcha();
       } catch {
         setResult({ error: "Unable to submit application. Please contact Eden ABA Therapy." });
+        resetRecaptcha();
       } finally {
         setSubmitting(false);
       }
     },
-    [form],
+    [
+      form,
+      recaptchaError,
+      requireRecaptcha,
+      resetRecaptcha,
+      verifyRecaptchaWithServer,
+    ],
   );
 
   const handleTrack = useCallback(async () => {
@@ -209,8 +245,25 @@ export default function AssistanceApplicationSection() {
             </span>
           </label>
 
-          <button type="submit" disabled={submitting} className="w-full rounded-full bg-[#0b4f4f] px-6 py-3.5 text-sm font-extrabold text-white disabled:opacity-60">
-            {submitting ? "Submitting…" : "Submit application"}
+          {recaptchaOptional ? (
+            <p className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-100" role="note">
+              Security verification (CAPTCHA) is disabled in this development environment. Submissions proceed
+              without CAPTCHA here only.
+            </p>
+          ) : (
+            <ReCaptchaVerification
+              ref={recaptchaRef}
+              onTokenChange={handleTokenChange}
+              onExpired={handleExpired}
+              error={recaptchaError}
+              disabled={submitting}
+              showNotice
+              className="mt-2"
+            />
+          )}
+
+          <button type="submit" disabled={submitting || !recaptchaReady} className="w-full rounded-full bg-[#0b4f4f] px-6 py-3.5 text-sm font-extrabold text-white disabled:opacity-60">
+            {submitting ? "Submitting…" : verifying ? "Verifying…" : "Submit application"}
           </button>
 
           {result?.trackingCode ? (

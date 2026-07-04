@@ -32,14 +32,34 @@ export function isRecaptchaWidgetEnabled(siteKey = getRecaptchaSiteKey()) {
   return isRecaptchaClientConfigured(siteKey);
 }
 
-/** Skip the widget when bypass is enabled or the public site key is unavailable. */
-export function shouldBypassRecaptchaOnClient(siteKey = getRecaptchaSiteKey()) {
-  return isRecaptchaBypassFlagEnabled() || !isRecaptchaSiteKeyConfigured(siteKey);
+function isDevelopmentEnvironment() {
+  return process.env.NODE_ENV === "development";
 }
 
-/** Server skips token verification when keys are incomplete or bypass is enabled. */
+/** Skip the widget when bypass is enabled, or in development when the site key is absent. */
+export function shouldBypassRecaptchaOnClient(siteKey = getRecaptchaSiteKey()) {
+  if (isRecaptchaBypassFlagEnabled()) {
+    return true;
+  }
+
+  if (!isRecaptchaSiteKeyConfigured(siteKey)) {
+    return isDevelopmentEnvironment();
+  }
+
+  return false;
+}
+
+/** Server skips token verification when bypass is enabled, or in development when keys are incomplete. */
 export function shouldBypassRecaptchaVerificationOnServer() {
-  return isRecaptchaBypassFlagEnabled() || !isRecaptchaServerConfigured();
+  if (isRecaptchaBypassFlagEnabled()) {
+    return true;
+  }
+
+  if (!isRecaptchaServerConfigured()) {
+    return isDevelopmentEnvironment();
+  }
+
+  return false;
 }
 
 /**

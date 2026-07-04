@@ -4,8 +4,9 @@ import {
   submitAssistanceApplication,
 } from "@/lib/financial-platform/repository/applications";
 import { assistanceApplicationSchema } from "@/lib/financial-platform/schemas";
-import { checkApplicationRateLimit, verifyCaptchaToken } from "@/lib/financial-platform/security";
+import { checkApplicationRateLimit } from "@/lib/financial-platform/security";
 import { notifyAdmins, sendPlatformEmail } from "@/lib/financial-platform/email";
+import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 
 export const dynamic = "force-dynamic";
 
@@ -33,8 +34,9 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!verifyCaptchaToken(parsed.data.captchaToken)) {
-    return NextResponse.json({ ok: false, message: "CAPTCHA verification required." }, { status: 400 });
+  const recaptcha = await verifyRecaptchaV2Token(parsed.data.captchaToken);
+  if (recaptcha.ok === false) {
+    return recaptchaV2FailureResponse(recaptcha);
   }
 
   try {
