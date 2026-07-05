@@ -16,6 +16,10 @@ import {
 } from "lucide-react";
 import InsuranceProviderLogoGrid from "@/components/InsuranceProviderLogoGrid";
 import InsuranceVerificationForm from "@/components/InsuranceVerificationForm";
+import {
+  INSURANCE_COVERAGE_PAGE_DISCLAIMER,
+  INSURANCE_COVERAGE_PAGE_LOGOS,
+} from "@/lib/insurance-coverage-logos";
 import { getButtonClasses } from "@/lib/button-styles";
 import { SITE_IMAGES } from "@/lib/site-images";
 
@@ -218,10 +222,9 @@ export default function InsuranceCoveragePage({ t, onSchedule, onHome, onStart }
           <InsuranceProviderLogoGrid
             title={va.plansTitle}
             subtitle={va.plansIntro}
-            disclaimer={
-              va.plansDisclaimer ||
-              "Listed insurance plans do not guarantee coverage, authorization, or in-network status. Coverage depends on the member's plan, eligibility, medical necessity, authorization requirements, and payer rules."
-            }
+            disclaimer={INSURANCE_COVERAGE_PAGE_DISCLAIMER}
+            logos={INSURANCE_COVERAGE_PAGE_LOGOS}
+            variant="homepage"
           />
         </div>
       </section>

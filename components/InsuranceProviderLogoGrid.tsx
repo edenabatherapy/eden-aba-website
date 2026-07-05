@@ -13,9 +13,39 @@ type InsuranceProviderLogoGridProps = {
   subtitle?: string;
   disclaimer?: string;
   logos?: InsuranceCoverageLogo[];
+  /** Homepage ticker style — equal square cards, no name labels below logos */
+  variant?: "grid" | "homepage";
 };
 
-function LogoCard({ provider, index }: { provider: InsuranceCoverageLogo; index: number }) {
+function HomepageLogoCard({ provider, index }: { provider: InsuranceCoverageLogo; index: number }) {
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.li
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.4, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={reduceMotion ? undefined : { y: -4, transition: { duration: 0.2 } }}
+      className="eden-insurance-ticker__logo-item"
+    >
+      <article className="eden-insurance-ticker__logo-card !h-auto min-h-[104px] aspect-square" aria-label={provider.name}>
+        <Image
+          src={provider.src}
+          alt={`${provider.name} logo`}
+          width={220}
+          height={80}
+          className={`eden-insurance-ticker__logo-image ${
+            provider.contrastBoost ? "contrast-125 saturate-110" : ""
+          }`}
+          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 16vw"
+        />
+      </article>
+    </motion.li>
+  );
+}
+
+function GridLogoCard({ provider, index }: { provider: InsuranceCoverageLogo; index: number }) {
   const reduceMotion = useReducedMotion();
 
   return (
@@ -52,7 +82,41 @@ export default function InsuranceProviderLogoGrid({
   subtitle = "Eden ABA Therapy can help Virginia families review benefits, authorization requirements, and next steps. If your plan is not listed, our team may still be able to review your benefits.",
   disclaimer = "Listed insurance plans do not guarantee coverage, authorization, or in-network status. Coverage depends on the member's plan, eligibility, medical necessity, authorization requirements, and payer rules.",
   logos = INSURANCE_COVERAGE_LOGOS,
+  variant = "grid",
 }: InsuranceProviderLogoGridProps) {
+  if (variant === "homepage") {
+    return (
+      <div className="eden-insurance-ticker" aria-labelledby="insurance-providers-heading">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-emerald-800">
+            {badge}
+          </div>
+
+          <h2
+            id="insurance-providers-heading"
+            className="eden-insurance-ticker__title mt-5 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl"
+          >
+            {title}
+          </h2>
+
+          <p className="eden-insurance-ticker__description mt-4 text-base leading-7 text-slate-600 sm:text-lg">
+            {subtitle}
+          </p>
+        </div>
+
+        <ul className="eden-insurance-ticker__logo-grid" aria-label="Insurance plans Eden ABA Therapy is preparing to work with">
+          {logos.map((provider, index) => (
+            <HomepageLogoCard key={provider.id} provider={provider} index={index} />
+          ))}
+        </ul>
+
+        <p className="eden-insurance-ticker__disclaimer rounded-2xl border border-amber-100 bg-amber-50/80 px-5 py-4 text-center text-sm font-medium leading-7 text-amber-950">
+          {disclaimer}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div
       className="rounded-[2rem] border border-emerald-100 bg-gradient-to-br from-white via-emerald-50/30 to-white p-6 shadow-lg shadow-emerald-900/5 sm:p-10"
@@ -75,7 +139,7 @@ export default function InsuranceProviderLogoGrid({
 
       <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-5">
         {logos.map((provider, index) => (
-          <LogoCard key={provider.name} provider={provider} index={index} />
+          <GridLogoCard key={provider.id} provider={provider} index={index} />
         ))}
       </ul>
 
