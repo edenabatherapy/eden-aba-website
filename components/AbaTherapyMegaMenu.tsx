@@ -200,18 +200,7 @@ export default function AbaTherapyMegaMenu({
             onNavigate={handleSelect}
           />
         </div>
-      ) : (
-        <div key={activeItem.id}>
-          <PreviewCard
-            item={activeItem}
-            displayTitle={activeDisplayTitle}
-            learnMoreText={localizedLabels.learnMoreText}
-            servicePreviewLabel={localizedLabels.servicePreviewLabel}
-            compact
-            onNavigate={handleSelect}
-          />
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }

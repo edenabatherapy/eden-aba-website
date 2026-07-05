@@ -363,6 +363,12 @@
   font-weight: 900;
 }
 
+.aba-mega-menu--mobile .aba-menu-mobile-preview,
+.aba-mega-menu--mobile .aba-menu-right {
+  display: none !important;
+  pointer-events: none !important;
+}
+
 .aba-menu-mobile-preview {
   padding: 14px;
   border-radius: 16px;

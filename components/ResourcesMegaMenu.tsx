@@ -480,15 +480,16 @@ export default function ResourcesMegaMenu({
         ))}
       </div>
 
-      <div className="resources-mega-menu__preview" key={previewKey}>
-        <FeaturedCard
-          preview={preview}
-          displayTitle={displayTitle}
-          previewLabel={resolvedPreviewLabel}
-          learnMoreText={previewCta}
-          compact={isMobile}
-        />
-      </div>
+      {!isMobile ? (
+        <div className="resources-mega-menu__preview" key={previewKey}>
+          <FeaturedCard
+            preview={preview}
+            displayTitle={displayTitle}
+            previewLabel={resolvedPreviewLabel}
+            learnMoreText={previewCta}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

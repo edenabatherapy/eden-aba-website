@@ -120,7 +120,8 @@
 }
 
 .resources-mega-menu--mobile .resources-mega-menu__preview {
-  margin-top: 2px;
+  display: none !important;
+  pointer-events: none !important;
 }
 
 .resources-featured-card {

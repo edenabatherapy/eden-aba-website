@@ -212,18 +212,7 @@ export default function ProvidersMegaMenu({
             animationType={animationType}
           />
         </div>
-      ) : (
-        <div key={previewKey}>
-          <PreviewCard
-            preview={preview}
-            displayTitle={displayTitle}
-            previewLabel={previewLabel}
-            learnMoreText={learnMoreText}
-            animationType={animationType}
-            compact
-          />
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }

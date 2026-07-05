@@ -221,17 +221,7 @@ export default function CareersMegaMenu({
             learnMoreText={learnMoreText}
           />
         </div>
-      ) : (
-        <div key={previewKey}>
-          <PreviewCard
-            preview={preview}
-            displayTitle={displayTitle}
-            previewLabel={previewLabel}
-            learnMoreText={learnMoreText}
-            compact
-          />
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }

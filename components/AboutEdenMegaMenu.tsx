@@ -264,17 +264,7 @@ export default function AboutEdenMegaMenu({
             learnMoreText={previewCta}
           />
         </div>
-      ) : (
-        <div key={previewKey}>
-          <PreviewCard
-            preview={preview}
-            displayTitle={displayTitle}
-            previewLabel={resolvedPreviewLabel}
-            learnMoreText={previewCta}
-            compact
-          />
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }
