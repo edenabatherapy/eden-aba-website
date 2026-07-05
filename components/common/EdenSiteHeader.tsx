@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import AbaTherapyMegaMenu from "@/components/AbaTherapyMegaMenu";
@@ -28,32 +28,26 @@ import {
 import {
   buildMenuDisplayTitleResolver,
   buildSectionTitleResolver,
-  parseMenuLinkEntry,
 } from "@/lib/site-header-utils";
 
-function MenuLinkBadge({ badge }: { badge: string | null }) {
-  if (!badge) return null;
-  return (
-    <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold leading-snug tracking-wide text-emerald-700/80">
-      {badge}
-    </span>
-  );
-}
+type MenuGroup = ReturnType<typeof getMenu>[number];
 
 export default function EdenSiteHeader() {
   const pathname = usePathname();
   const scrolled = useHeaderScrolled();
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const { language } = useSiteLanguage();
   const t = getTranslation(language);
   const menuItems = getMenu(language);
   const enMenu = getMenu("en");
 
-  const closeMenus = () => {
+  const closeMenus = useCallback(() => {
     setOpenDropdown(null);
+    setOpenMobileSection(null);
     setOpen(false);
-  };
+  }, []);
 
   const navigate = (page: string, options?: { path?: string; scrollTo?: string }) => {
     closeMenus();
@@ -100,6 +94,18 @@ export default function EdenSiteHeader() {
     setOpenDropdown((current) => (current === menuKey ? null : menuKey));
   };
 
+  const toggleMobileSection = (menuKey: string) => {
+    setOpenMobileSection((current) => (current === menuKey ? null : menuKey));
+  };
+
+  const toggleMobileMenu = () => {
+    if (open) {
+      closeMenus();
+      return;
+    }
+    setOpen(true);
+  };
+
   useEffect(() => {
     if (!openDropdown) return undefined;
 
@@ -118,6 +124,22 @@ export default function EdenSiteHeader() {
       document.removeEventListener("keydown", handleEscape);
     };
   }, [openDropdown]);
+
+  useEffect(() => {
+    if (!open) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) {
+      setOpenMobileSection(null);
+    }
+  }, [open]);
 
   const navItemClass =
     "shrink-0 whitespace-nowrap rounded-full px-1.5 py-1.5 text-[10px] font-extrabold leading-tight text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800 lg:px-2 lg:py-1.5 lg:text-[11px] xl:px-2.5 xl:text-xs 2xl:px-3 2xl:py-2 2xl:text-sm";
@@ -150,6 +172,91 @@ export default function EdenSiteHeader() {
   const resourcesDefaultDescription =
     t.resourcesMegaMenuDefaultDescription || resourcesDefaultPreview.description;
   const resourcesDefaultTitle = t.resourcesMegaMenuDefaultTitle || resourcesDefaultPreview.title;
+
+  const renderMegaMenuPanel = (
+    enGroup: MenuGroup | undefined,
+    variant: "desktop" | "mobile",
+    onClose?: () => void,
+  ) => {
+    const isServicesMenu = isServicesMegaMenuGroup(enGroup);
+    const isAboutEden = isAboutMegaMenuGroup(enGroup);
+    const isCareers = enGroup?.label === "Careers";
+    const isProviders = enGroup?.label === "For Providers";
+    const isResources = enGroup?.label === "Resources";
+
+    if (isServicesMenu) {
+      return (
+        <AbaTherapyMegaMenu
+          variant={variant}
+          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+          getDisplayTitle={getAbaDisplayTitle}
+          getSectionTitle={getAbaSectionTitle}
+          servicesLabel={abaServicesLabel}
+          onClose={onClose}
+        />
+      );
+    }
+
+    if (isAboutEden) {
+      return (
+        <AboutEdenMegaMenu
+          variant={variant}
+          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+          onStart={() => {
+            window.location.assign("/intake");
+            onClose?.();
+          }}
+          getDisplayTitle={getAboutDisplayTitle}
+          sectionLabel={aboutSectionLabel}
+          defaultTitle={aboutMenuGroup?.label || "About Eden"}
+          defaultPreview={{
+            ...aboutEdenDefaultPreview,
+            description: aboutDefaultDescription,
+          }}
+          onClose={onClose}
+        />
+      );
+    }
+
+    if (isCareers) {
+      return (
+        <CareersMegaMenu
+          variant={variant}
+          onNavigate={onCareersNavigate}
+          onClose={onClose}
+        />
+      );
+    }
+
+    if (isProviders) {
+      return (
+        <ProvidersMegaMenu
+          variant={variant}
+          onNavigate={onProvidersNavigate}
+          onClose={onClose}
+        />
+      );
+    }
+
+    if (isResources) {
+      return (
+        <ResourcesMegaMenu
+          variant={variant}
+          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
+          getDisplayTitle={getResourcesDisplayTitle}
+          getSectionTitle={getResourcesSectionTitle}
+          defaultTitle={resourcesDefaultTitle}
+          defaultPreview={{
+            ...resourcesDefaultPreview,
+            description: resourcesDefaultDescription,
+          }}
+          onClose={onClose}
+        />
+      );
+    }
+
+    return null;
+  };
 
   return (
     <header
@@ -202,41 +309,7 @@ export default function EdenSiteHeader() {
                       isMegaMenu ? "w-auto" : "w-[560px] rounded-[1.4rem] border border-slate-100 bg-white p-5 shadow-2xl shadow-slate-900/10"
                     }`}
                   >
-                    {isServicesMenu ? (
-                      <AbaTherapyMegaMenu
-                        onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                        getDisplayTitle={getAbaDisplayTitle}
-                        getSectionTitle={getAbaSectionTitle}
-                        servicesLabel={abaServicesLabel}
-                      />
-                    ) : isAboutEden ? (
-                      <AboutEdenMegaMenu
-                        onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                        onStart={() => window.location.assign("/intake")}
-                        getDisplayTitle={getAboutDisplayTitle}
-                        sectionLabel={aboutSectionLabel}
-                        defaultTitle={aboutMenuGroup?.label || "About Eden"}
-                        defaultPreview={{
-                          ...aboutEdenDefaultPreview,
-                          description: aboutDefaultDescription,
-                        }}
-                      />
-                    ) : isCareers ? (
-                      <CareersMegaMenu onNavigate={onCareersNavigate} />
-                    ) : isProviders ? (
-                      <ProvidersMegaMenu onNavigate={onProvidersNavigate} />
-                    ) : isResources ? (
-                      <ResourcesMegaMenu
-                        onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                        getDisplayTitle={getResourcesDisplayTitle}
-                        getSectionTitle={getResourcesSectionTitle}
-                        defaultTitle={resourcesDefaultTitle}
-                        defaultPreview={{
-                          ...resourcesDefaultPreview,
-                          description: resourcesDefaultDescription,
-                        }}
-                      />
-                    ) : null}
+                    {renderMegaMenuPanel(enGroup, "desktop")}
                   </div>
                 </div>
               );
@@ -248,8 +321,10 @@ export default function EdenSiteHeader() {
           <LanguageSwitcher comfortable className="hidden sm:inline-flex" />
           <button
             type="button"
-            onClick={() => setOpen(!open)}
-            className="relative z-[21] rounded-full border border-emerald-100 p-2 lg:hidden"
+            onClick={toggleMobileMenu}
+            className="relative z-[21] touch-manipulation rounded-full border border-emerald-100 p-2 lg:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav-panel"
             aria-label={open ? (t.ariaLabels?.closeMenu ?? "Close menu") : (t.ariaLabels?.openMenu ?? "Open menu")}
           >
             {open ? <X /> : <Menu />}
@@ -260,127 +335,57 @@ export default function EdenSiteHeader() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-nav-panel"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="relative z-[60] border-t border-emerald-100 bg-white lg:hidden dark:border-slate-800 dark:bg-slate-950"
           >
-            <div className="grid gap-2 p-4">
+            <div className="grid max-h-[calc(100dvh-4.5rem)] gap-2 overflow-y-auto overscroll-contain p-4">
               <Link
                 href="/"
-                className="rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950 dark:bg-slate-900 dark:text-white"
+                className="touch-manipulation rounded-2xl bg-emerald-50/50 p-3 text-left font-black text-emerald-950 dark:bg-slate-900 dark:text-white"
                 onClick={closeMenus}
               >
                 {t.navHome}
               </Link>
               {menuItems.map((group, groupIdx) => {
                 const enGroup = enMenu[groupIdx];
-                const isServicesMenu = isServicesMegaMenuGroup(enGroup);
-                const isAboutEden = isAboutMegaMenuGroup(enGroup);
-                const isCareers = enGroup?.label === "Careers";
-                const isProviders = enGroup?.label === "For Providers";
-                const isResources = enGroup?.label === "Resources";
+                const menuKey = enGroup?.label || group.label;
+                const isSectionOpen = openMobileSection === menuKey;
+                const panelId = `mobile-nav-section-${menuKey.replace(/\s+/g, "-").toLowerCase()}`;
 
                 return (
-                  <details key={group.label} className="rounded-2xl bg-emerald-50/50 p-3 dark:bg-slate-900">
-                    <summary className="cursor-pointer font-black text-emerald-950 dark:text-white">{group.label}</summary>
-                    {isServicesMenu ? (
-                      <div className="pt-3">
-                        <AbaTherapyMegaMenu
-                          variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getAbaDisplayTitle}
-                          getSectionTitle={getAbaSectionTitle}
-                          servicesLabel={abaServicesLabel}
-                          onClose={() => setOpen(false)}
-                        />
+                  <div
+                    key={group.label}
+                    className="rounded-2xl bg-emerald-50/50 p-3 dark:bg-slate-900"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileSection(menuKey)}
+                      aria-expanded={isSectionOpen}
+                      aria-controls={panelId}
+                      className="flex w-full touch-manipulation items-center justify-between text-left font-black text-emerald-950 dark:text-white"
+                    >
+                      {group.label}
+                      <ChevronDown
+                        size={16}
+                        className={`shrink-0 opacity-70 transition-transform duration-200 ${isSectionOpen ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    {isSectionOpen && (
+                      <div
+                        id={panelId}
+                        role="region"
+                        aria-label={group.label}
+                        className="pointer-events-auto pt-3"
+                      >
+                        {renderMegaMenuPanel(enGroup, "mobile", closeMenus)}
                       </div>
-                    ) : isAboutEden ? (
-                      <div className="pt-3">
-                        <AboutEdenMegaMenu
-                          variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          onStart={() => {
-                            window.location.assign("/intake");
-                            setOpen(false);
-                          }}
-                          getDisplayTitle={getAboutDisplayTitle}
-                          sectionLabel={aboutSectionLabel}
-                          defaultTitle={aboutMenuGroup?.label || "About Eden"}
-                          defaultPreview={{
-                            ...aboutEdenDefaultPreview,
-                            description: aboutDefaultDescription,
-                          }}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isCareers ? (
-                      <div className="pt-3">
-                        <CareersMegaMenu
-                          variant="mobile"
-                          onNavigate={onCareersNavigate}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isProviders ? (
-                      <div className="pt-3">
-                        <ProvidersMegaMenu
-                          variant="mobile"
-                          onNavigate={onProvidersNavigate}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : isResources ? (
-                      <div className="pt-3">
-                        <ResourcesMegaMenu
-                          variant="mobile"
-                          onNavigate={(menuLinkLabel) => onMenuLink(menuLinkLabel)}
-                          getDisplayTitle={getResourcesDisplayTitle}
-                          getSectionTitle={getResourcesSectionTitle}
-                          defaultTitle={resourcesDefaultTitle}
-                          defaultPreview={{
-                            ...resourcesDefaultPreview,
-                            description: resourcesDefaultDescription,
-                          }}
-                          onClose={() => setOpen(false)}
-                        />
-                      </div>
-                    ) : (
-                      group.columns.flatMap((col, colIdx) =>
-                        col.links.map((link, linkIdx) => {
-                          const enLink = enGroup.columns[colIdx].links[linkIdx];
-                          const { key, displayLabel, badge, comingSoon } = parseMenuLinkEntry(link, enLink);
-
-                          if (comingSoon) {
-                            return (
-                              <div
-                                key={String(key)}
-                                aria-disabled="true"
-                                className="block w-full cursor-default rounded-xl px-2 py-2.5 text-left"
-                              >
-                                <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                                  <span className="text-sm font-black text-slate-600">{String(displayLabel)}</span>
-                                  <MenuLinkBadge badge={badge} />
-                                </span>
-                              </div>
-                            );
-                          }
-
-                          return (
-                            <button
-                              key={String(key)}
-                              type="button"
-                              onClick={() => onMenuLink(String(enLink))}
-                              className="block w-full rounded-xl px-2 py-2.5 text-left text-sm font-black text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800"
-                            >
-                              {String(displayLabel)}
-                            </button>
-                          );
-                        }),
-                      )
                     )}
-                  </details>
+                  </div>
                 );
               })}
               <LanguageSwitcher comfortable className="justify-center" />
