@@ -434,29 +434,37 @@
   pointer-events: none;
 }
 
-.eden-commitment-card:hover,
+@media (hover: hover) and (pointer: fine) {
+  .eden-commitment-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(73, 184, 200, 0.34);
+    background:
+      linear-gradient(152deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.02) 100%);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.28),
+      0 32px 64px rgba(0, 0, 0, 0.24),
+      0 0 0 1px rgba(73, 184, 200, 0.1),
+      0 0 40px rgba(18, 140, 140, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  .eden-commitment-card:hover .eden-commitment-card__shine {
+    transform: translateX(125%);
+  }
+
+  .eden-commitment-card:hover .eden-commitment-card__icon-glow {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
 .eden-commitment-card:focus-within {
-  transform: translateY(-6px);
   border-color: rgba(73, 184, 200, 0.34);
-  background:
-    linear-gradient(152deg, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.02) 100%);
+  outline: none;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.28),
-    0 32px 64px rgba(0, 0, 0, 0.24),
-    0 0 0 1px rgba(73, 184, 200, 0.1),
-    0 0 40px rgba(18, 140, 140, 0.08),
+    0 0 0 2px rgba(126, 232, 216, 0.35),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
-}
-
-.eden-commitment-card:hover .eden-commitment-card__shine,
-.eden-commitment-card:focus-within .eden-commitment-card__shine {
-  transform: translateX(125%);
-}
-
-.eden-commitment-card:hover .eden-commitment-card__icon-glow,
-.eden-commitment-card:focus-within .eden-commitment-card__icon-glow {
-  opacity: 1;
-  transform: scale(1.15);
 }
 
 .eden-commitment-card__icon-wrap {
@@ -709,17 +717,23 @@
   pointer-events: none;
 }
 
-.eden-commitment-approach-btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(126, 232, 216, 0.45);
-  box-shadow:
-    0 6px 28px rgba(14, 107, 79, 0.45),
-    0 18px 40px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-}
+@media (hover: hover) and (pointer: fine) {
+  .eden-commitment-approach-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(126, 232, 216, 0.45);
+    box-shadow:
+      0 6px 28px rgba(14, 107, 79, 0.45),
+      0 18px 40px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
 
-.eden-commitment-approach-btn:hover .eden-commitment-approach-btn__shine {
-  transform: translateX(130%);
+  .eden-commitment-approach-btn:hover .eden-commitment-approach-btn__shine {
+    transform: translateX(130%);
+  }
+
+  .eden-commitment-approach-btn:hover .eden-commitment-approach-btn__icon {
+    transform: translateX(3px);
+  }
 }
 
 .eden-commitment-approach-btn:active {
@@ -762,10 +776,6 @@
   transition: transform 0.35s ease;
 }
 
-.eden-commitment-approach-btn:hover .eden-commitment-approach-btn__icon {
-  transform: translateX(3px);
-}
-
 /* ── Reduced motion ── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -790,13 +800,11 @@
   }
 
   .eden-commitment-card:hover,
-  .eden-commitment-card:focus-within,
   .eden-commitment-approach-btn:hover {
     transform: none;
   }
 
   .eden-commitment-card:hover .eden-commitment-card__shine,
-  .eden-commitment-card:focus-within .eden-commitment-card__shine,
   .eden-commitment-approach-btn:hover .eden-commitment-approach-btn__shine {
     transform: none;
     display: none;
