@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, type ReactNode } from "react";
 import {
   ArrowRight,
@@ -129,11 +130,16 @@ export default function InsuranceCoveragePage({ t, onSchedule, onHome, onStart }
           </div>
           <div className="relative">
             <div className="absolute -left-8 -top-8 h-36 w-36 rounded-full bg-[#f7c72f]" aria-hidden />
-            <img
-              src={SITE_IMAGES.insurance.hero}
-              alt={ins.hero.imageAlt}
-              className="relative h-[360px] w-full rounded-[2rem] object-cover shadow-2xl ring-8 ring-white sm:h-[440px] sm:rounded-[3rem]"
-            />
+            <div className="relative h-[360px] w-full overflow-hidden rounded-[2rem] shadow-2xl ring-8 ring-white sm:h-[440px] sm:rounded-[3rem]">
+              <Image
+                src={SITE_IMAGES.insurance.hero}
+                alt={ins.hero.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -235,11 +241,15 @@ export default function InsuranceCoveragePage({ t, onSchedule, onHome, onStart }
           <div className="relative order-2 lg:order-1">
             <div className="absolute -left-6 -top-6 h-28 w-28 rounded-full bg-[#f7c72f]/70" aria-hidden />
             <div className="absolute -bottom-6 -right-6 h-32 w-32 rounded-[2.5rem] bg-[#49b8c8]/20" aria-hidden />
-            <img
-              src={SITE_IMAGES.insurance.priorAuth}
-              alt={pa.imageAlt}
-              className="relative h-[360px] w-full rounded-[2rem] object-cover shadow-2xl ring-8 ring-white sm:h-[420px] sm:rounded-[2.5rem]"
-            />
+            <div className="relative h-[360px] w-full overflow-hidden rounded-[2rem] shadow-2xl ring-8 ring-white sm:h-[420px] sm:rounded-[2.5rem]">
+              <Image
+                src={SITE_IMAGES.insurance.priorAuth}
+                alt={pa.imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
           </div>
 
           <article className={`order-1 lg:order-2 ${cardClass}`}>
