@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
+import ServiceFeatureImage from "@/components/services/ServiceFeatureImage";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { getButtonClasses } from "@/lib/button-styles";
 
@@ -65,13 +65,12 @@ export default function BasicServicePage({ serviceIndex }: BasicServicePageProps
             </div>
           </motion.div>
           <motion.div {...heroMotion} transition={{ duration: 0.65, delay: 0.1 }}>
-            <Image
+            <ServiceFeatureImage
               src={heroImage}
               alt={imageAlt}
-              width={800}
-              height={640}
+              variant="hero"
+              tone="onDark"
               priority
-              className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-2xl ring-4 ring-white/20"
             />
           </motion.div>
         </div>

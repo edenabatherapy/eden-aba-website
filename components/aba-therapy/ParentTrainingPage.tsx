@@ -31,6 +31,8 @@ import {
   WHAT_IS_PARENT_TRAINING,
   WHY_PARENT_INVOLVEMENT,
 } from "@/lib/aba-therapy/parent-training-data";
+import ServiceFeatureImage from "@/components/services/ServiceFeatureImage";
+import { SITE_IMAGES } from "@/lib/site-images";
 import { getButtonClasses } from "@/lib/button-styles";
 import { EDEN_CARD } from "@/lib/eden-design-system";
 
@@ -100,14 +102,13 @@ export default function ParentTrainingPage() {
             </div>
           </motion.div>
           <motion.div {...reveal(0.08)} className="relative">
-            <div className="aspect-[5/4] w-full overflow-hidden rounded-[2rem] bg-gradient-to-br from-white/20 to-white/5 shadow-2xl ring-4 ring-white/20">
-              <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center">
-                <HeartHandshake className="text-[#FACC15]" size={64} aria-hidden />
-                <p className="max-w-sm text-lg font-bold leading-8 text-white/95">
-                  Caregiver coaching that fits your family&apos;s daily life
-                </p>
-              </div>
-            </div>
+            <ServiceFeatureImage
+              src={SITE_IMAGES.home.services[7]}
+              alt={hero.imageAlt}
+              variant="hero"
+              tone="onDark"
+              priority
+            />
           </motion.div>
         </div>
       </section>

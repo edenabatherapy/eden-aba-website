@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ServiceFeatureImage from "@/components/services/ServiceFeatureImage";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
@@ -153,7 +154,13 @@ export default function SchoolBasedAbaPage() {
             </div>
           </motion.div>
           <motion.div {...heroMotion} transition={{ duration: 0.65, delay: 0.1 }}>
-            <Image src={img.hero} alt={schoolHero.imageAlt} width={800} height={640} priority className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-2xl ring-4 ring-white/20" />
+            <ServiceFeatureImage
+              src={img.hero}
+              alt={schoolHero.imageAlt}
+              variant="hero"
+              tone="onDark"
+              priority
+            />
           </motion.div>
         </div>
       </section>

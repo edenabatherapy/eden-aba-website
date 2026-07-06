@@ -15,6 +15,7 @@ import {
   Users,
 } from "lucide-react";
 import EdenButton from "@/components/EdenButton";
+import ServiceFeatureImage from "@/components/services/ServiceFeatureImage";
 import { SITE_IMAGES } from "@/lib/site-images";
 
 const fadeUp = {
@@ -236,10 +237,12 @@ export default function CenterBasedAbaTherapyPage({
             </EdenButton>
           </motion.div>
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }} className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -left-6 top-8 h-28 w-28 rounded-full bg-[#49b8c8]/25 blur-2xl" aria-hidden="true" />
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl ring-4 ring-white/80">
-              <img src={img.hero} alt={p.hero.imageAlt} className="aspect-[4/5] w-full object-cover" loading="eager" />
-            </div>
+            <ServiceFeatureImage
+              src={img.hero}
+              alt={p.hero.imageAlt}
+              variant="heroTall"
+              priority
+            />
           </motion.div>
         </div>
       </section>

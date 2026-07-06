@@ -97,6 +97,7 @@ import {
 import { applyPageToBrowserUrl, getPagePath, KNOWN_PAGES, resolveActivePage } from "@/lib/site-routes";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { HOME_SERVICE_CARD_HREFS } from "@/lib/services/service-card-links";
+import ServiceFeatureImage from "@/components/services/ServiceFeatureImage";
 
 import AiIntakeAssistantSkeleton from "@/components/home/ai-intake/AiIntakeAssistantSkeleton";
 
@@ -2056,7 +2057,7 @@ function ServiceExplorer({ t }) {
               className="group block cursor-pointer overflow-hidden rounded-[1.8rem] bg-white shadow-xl shadow-[#128c8c]/10 ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c8c]"
             >
               <article className="h-full crystal-light-border-glow">
-                <img src={card.image} alt={card.alt} className="h-44 w-full object-cover" />
+                <ServiceFeatureImage src={card.image} alt={card.alt} variant="card" />
                 <div className="min-h-[230px] bg-gradient-to-br from-[#1f7a2e] via-[#128c8c] to-[#0b4f4f] p-6 text-white">
                   <h3 className="text-2xl font-black leading-tight">{card.title}</h3>
                   <p className="mt-4 text-sm font-semibold leading-7 text-white/90">{card.text}</p>
