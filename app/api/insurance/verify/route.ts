@@ -1,13 +1,12 @@
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
+import { formatDOBForDisplay } from "@/lib/insurance/dates";
 import { logVerificationAudit } from "@/lib/insurance/auditLog";
 import { createVerificationRecord } from "@/lib/insurance/db/repository";
 import { encryptPhiField } from "@/lib/insurance/encryptField";
-import {
-  INSURANCE_VERIFICATION_ERROR_MESSAGES,
-  validateAndNormalizeInsuranceVerificationRequest,
-} from "@/lib/insurance/normalize-verification-request";
+import { validateAndNormalizeInsuranceVerificationRequest } from "@/lib/insurance/normalize-verification-request";
 import { notifyNewVerificationRequest } from "@/lib/insurance/notifications";
+import { MANUAL_PENDING_NOTES } from "@/lib/insurance/providers/ManualVerificationProvider";
 import { storeVerificationRequest } from "@/lib/insurance/storeVerificationRequest";
 import {
   getVerificationMode,
@@ -19,12 +18,125 @@ import {
   insertInsuranceVerificationRequest,
   isInsuranceVerificationInsertFailure,
 } from "@/lib/supabase/insert-insurance-verification-request";
-import type { InsuranceVerificationRequest } from "@/types/insurance";
+import type { InsuranceVerificationRequest, InsuranceVerificationResponse } from "@/types/insurance";
 
-function logDevInsuranceRoute(message: string, meta?: Record<string, unknown>) {
-  if (process.env.NODE_ENV === "development") {
-    console.info(`[api/insurance/verify] ${message}`, meta ?? {});
+const PUBLIC_ERRORS = {
+  recaptcha: "Please complete the reCAPTCHA verification.",
+  validation: "Invalid or missing required form information.",
+  save: "Unable to save your insurance verification request. Please try again later.",
+  process: "Unable to process verification request at this time.",
+} as const;
+
+function logInsuranceVerifyFailure(branch: string, meta: Record<string, unknown>) {
+  console.error(`[api/insurance/verify] ${branch}`, meta);
+}
+
+function logInsurancePostInsertError(error: unknown) {
+  console.error("Insurance verification post-insert error:", technicalError(error));
+}
+
+function technicalError(error: unknown): Record<string, unknown> {
+  if (error instanceof Error) {
+    const errno = error as NodeJS.ErrnoException;
+    return {
+      message: error.message,
+      name: error.name,
+      code: errno.code,
+    };
   }
+  return { message: String(error) };
+}
+
+function buildPendingVerificationResponse(
+  request: InsuranceVerificationRequest,
+  requestId: string,
+): InsuranceVerificationResponse {
+  return {
+    success: true,
+    verified: false,
+    verificationStatus: "Pending Staff Review",
+    memberName: request.fullName,
+    dateOfBirth: formatDOBForDisplay(request.dateOfBirth),
+    eligibilityStatus: "Pending Staff Review",
+    notes: MANUAL_PENDING_NOTES,
+    verificationMode: getVerificationMode(),
+    liveVerificationAvailable: isLiveVerificationEnabled(),
+    requestId,
+  };
+}
+
+async function runPostInsertSteps(params: {
+  request: InsuranceVerificationRequest;
+  consentTimestamp: string;
+  normalizedDob: string;
+  requestId: string;
+  mode: ReturnType<typeof getVerificationMode>;
+}): Promise<InsuranceVerificationResponse> {
+  const { request, consentTimestamp, normalizedDob, requestId, mode } = params;
+
+  try {
+    const { stored, record } = await createVerificationRecord({
+      request,
+      consentTimestamp,
+      normalizedDob,
+      id: requestId,
+    });
+
+    if (stored && record) {
+      try {
+        await storeVerificationRequest({
+          request,
+          consentTimestamp,
+          normalizedDob,
+          queueRecord: record,
+        });
+      } catch (storageError) {
+        logInsurancePostInsertError(storageError);
+      }
+    }
+  } catch (queueError) {
+    logInsurancePostInsertError(queueError);
+  }
+
+  try {
+    await notifyNewVerificationRequest({
+      requestId,
+      submittedAt: consentTimestamp,
+      verificationType: request.verificationType,
+      insuranceProvider: request.insuranceProvider,
+      status: "Pending Staff Review",
+    });
+  } catch (notificationError) {
+    logInsurancePostInsertError(notificationError);
+  }
+
+  let verificationResponse: InsuranceVerificationResponse;
+  try {
+    verificationResponse = await verifyInsurance(request, requestId);
+  } catch (verificationError) {
+    logInsurancePostInsertError(verificationError);
+    verificationResponse = buildPendingVerificationResponse(request, requestId);
+  }
+
+  try {
+    await logVerificationAudit({
+      action: verificationResponse.verified ? "verification_completed" : "verification_submitted",
+      verificationType: request.verificationType,
+      mode,
+      outcome: verificationResponse.verificationStatus,
+      verified: verificationResponse.verified,
+      consentTimestamp,
+      memberName: "[redacted]",
+      verificationStatus: verificationResponse.verificationStatus,
+      eligibilityStatus: verificationResponse.eligibilityStatus,
+      requestId,
+      timestamp: new Date().toISOString(),
+    });
+  } catch (auditError) {
+    logInsurancePostInsertError(auditError);
+  }
+
+  return verificationResponse;
 }
 
 export async function GET() {
@@ -44,25 +156,34 @@ export async function POST(req: Request) {
 
     try {
       body = (await req.json()) as InsuranceVerificationRequest & { recaptchaToken?: string };
-    } catch {
-      return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    } catch (parseError) {
+      logInsuranceVerifyFailure("request-body-parse", technicalError(parseError));
+      return NextResponse.json({ error: PUBLIC_ERRORS.validation }, { status: 400 });
     }
 
     const recaptcha = await verifyRecaptchaV2Token(body.recaptchaToken ?? null);
     if (recaptcha.ok === false) {
-      logDevInsuranceRoute("reCAPTCHA verification failed", { reason: recaptcha.reason });
-      if (recaptcha.reason === "missing-token" || recaptcha.reason === "expired") {
-        return NextResponse.json(
-          { error: INSURANCE_VERIFICATION_ERROR_MESSAGES.recaptcha },
-          { status: recaptcha.status },
-        );
+      logInsuranceVerifyFailure("recaptcha-verification", {
+        reason: recaptcha.reason,
+        status: recaptcha.status,
+      });
+      if (
+        recaptcha.reason === "missing-token" ||
+        recaptcha.reason === "expired" ||
+        recaptcha.reason === "invalid-token"
+      ) {
+        return NextResponse.json({ error: PUBLIC_ERRORS.recaptcha }, { status: recaptcha.status });
       }
       return recaptchaV2FailureResponse(recaptcha);
     }
 
     const normalized = validateAndNormalizeInsuranceVerificationRequest(body);
     if (normalized.ok === false) {
-      return NextResponse.json({ error: normalized.error }, { status: normalized.status });
+      logInsuranceVerifyFailure("validation", {
+        error: normalized.error,
+        status: normalized.status,
+      });
+      return NextResponse.json({ error: PUBLIC_ERRORS.validation }, { status: normalized.status });
     }
 
     const sanitizedRequest: InsuranceVerificationRequest = {
@@ -83,7 +204,6 @@ export async function POST(req: Request) {
     };
 
     const normalizedDob = normalized.data.dateOfBirth;
-
     const requestId = randomUUID();
     const recaptchaVerified = recaptcha.ok && !recaptcha.skipped;
 
@@ -107,6 +227,10 @@ export async function POST(req: Request) {
 
     if (isInsuranceVerificationInsertFailure(supabaseResult)) {
       if (supabaseResult.reason === "missing-config") {
+        logInsuranceVerifyFailure("supabase-insert", {
+          reason: "missing-config",
+          message: supabaseResult.message,
+        });
         return NextResponse.json(
           {
             error:
@@ -126,79 +250,34 @@ export async function POST(req: Request) {
 
       return NextResponse.json(
         {
-          error: "Unable to save your insurance verification request. Please try again later.",
+          error: PUBLIC_ERRORS.save,
           details:
-            process.env.NODE_ENV === "development"
-              ? supabaseResult.message
-              : undefined,
+            process.env.NODE_ENV === "development" ? supabaseResult.message : undefined,
         },
         { status: 500 },
       );
     }
 
-    logDevInsuranceRoute("Supabase insert succeeded", { requestId });
+    const savedRequestId = supabaseResult.id;
 
-    const { stored, record } = await createVerificationRecord({
+    const verificationResponse = await runPostInsertSteps({
       request: sanitizedRequest,
       consentTimestamp,
       normalizedDob,
-      id: requestId,
+      requestId: savedRequestId,
+      mode,
     });
 
-    if (stored && record) {
-      try {
-        await storeVerificationRequest({
-          request: sanitizedRequest,
-          consentTimestamp,
-          normalizedDob,
-          queueRecord: record,
-        });
-      } catch (storageError) {
-        logDevInsuranceRoute("encrypted file backup skipped", {
-          message: storageError instanceof Error ? storageError.message : "unknown",
-        });
-      }
-
-      void notifyNewVerificationRequest({
-        requestId: record.id,
-        submittedAt: record.submittedAt,
-        verificationType: sanitizedRequest.verificationType,
-        insuranceProvider: sanitizedRequest.insuranceProvider,
-        status: record.status,
-      });
-    }
-
-    const response = await verifyInsurance(sanitizedRequest, requestId);
-
-    try {
-      await logVerificationAudit({
-        action: response.verified ? "verification_completed" : "verification_submitted",
-        verificationType: sanitizedRequest.verificationType,
-        mode,
-        outcome: response.verificationStatus,
-        verified: response.verified,
-        consentTimestamp,
-        memberName: "[redacted]",
-        verificationStatus: response.verificationStatus,
-        eligibilityStatus: response.eligibilityStatus,
-        requestId,
-        timestamp: new Date().toISOString(),
-      });
-    } catch (auditError) {
-      logDevInsuranceRoute("audit log write skipped", {
-        message: auditError instanceof Error ? auditError.message : "unknown",
-      });
-    }
-
-    return NextResponse.json({
-      ...response,
-      requestId,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        requestId: savedRequestId,
+        ...verificationResponse,
+      },
+      { status: 200 },
+    );
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "Unable to process verification request.";
-
-    logDevInsuranceRoute("unhandled verification error", { message });
+    logInsuranceVerifyFailure("unhandled", technicalError(error));
 
     try {
       await logVerificationAudit({
@@ -208,8 +287,8 @@ export async function POST(req: Request) {
         outcome: "error",
         verified: false,
         consentTimestamp,
-        memberName: "unknown",
-        error: message,
+        memberName: "[redacted]",
+        error: error instanceof Error ? error.message : "unknown",
         timestamp: new Date().toISOString(),
       });
     } catch {
@@ -219,9 +298,9 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          process.env.NODE_ENV === "development"
-            ? message
-            : "Unable to process verification request at this time.",
+          process.env.NODE_ENV === "development" && error instanceof Error
+            ? error.message
+            : PUBLIC_ERRORS.process,
       },
       { status: 500 },
     );

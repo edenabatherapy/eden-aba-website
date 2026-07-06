@@ -6991,6 +6991,7 @@
       "recaptchaIncomplete": "Please complete the reCAPTCHA",
       "recaptchaFailed": "Security verification failed. Please refresh the page and try again, or contact Eden ABA Therapy for help."
     },
+    "submitSuccess": "Thank you. Your insurance verification request has been submitted successfully. Our team will review it and contact you with next steps.",
     "submitLoading": "Verifying eligibility…",
     "submitLoadingManual": "Submitting request…",
     "submitButton": "Verify Insurance",

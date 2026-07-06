@@ -42,6 +42,7 @@ export interface InsuranceVerificationResponse {
     | "Unable To Verify";
   notes: string;
   requestId?: string;
+  success?: boolean;
   /** Server verification adapter mode (manual, clearinghouse, mes_provider_api). */
   verificationMode?: "manual" | "clearinghouse" | "mes_provider_api";
   /** True only when an approved live eligibility API is connected and returns data. */

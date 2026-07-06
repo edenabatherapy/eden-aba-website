@@ -180,6 +180,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
   const submit = async (event) => {
     event.preventDefault();
+    if (loading || result) return;
     setTouched(true);
     setError("");
     setResult(null);
@@ -321,9 +322,16 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
+      const data = (await response.json()) as InsuranceVerificationResponse & {
+        success?: boolean;
+        error?: string;
+        message?: string;
+      };
 
-      if (!response.ok) {
+      const saved =
+        data.success === true && typeof data.requestId === "string" && data.requestId.length > 0;
+
+      if (!saved && !response.ok) {
         const failureMessage =
           data.error ||
           data.message ||
@@ -337,7 +345,17 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         return;
       }
 
-      setResult(data as InsuranceVerificationResponse);
+      if (saved || (response.ok && data.requestId)) {
+        setResult({
+          ...data,
+          success: true,
+          requestId: data.requestId,
+        });
+        resetRecaptcha();
+        return;
+      }
+
+      setError(formT.errors?.submitRetry || "Something went wrong. Please try again.");
       resetRecaptcha();
     } catch {
       setError(formT.errors?.submitRetry || "Something went wrong. Please try again.");
@@ -572,7 +590,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
         <Button
           type="submit"
-          disabled={!complete || !recaptchaReady || loading || verifying}
+          disabled={!complete || !recaptchaReady || loading || verifying || Boolean(result)}
           className="mt-6 w-full"
         >
           {loading || verifying
@@ -590,6 +608,12 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
       {result && (
         <div className="mt-8 rounded-[1.5rem] bg-slate-950 p-5 text-white shadow-2xl sm:mt-10 sm:rounded-[2rem] sm:p-8 md:p-10">
+          {result.success ? (
+            <p className="mb-6 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-5 text-sm font-semibold leading-7 text-emerald-100">
+              {formT.submitSuccess ||
+                "Thank you. Your insurance verification request has been submitted successfully. Our team will review it and contact you with next steps."}
+            </p>
+          ) : null}
           <div className={`mb-5 inline-flex rounded-full px-5 py-2 text-sm font-extrabold ${badgeClass}`}>
             {displayStatus || resultLabels.pendingBadge || "Pending Staff Review"}
           </div>
