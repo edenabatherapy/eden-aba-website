@@ -1,9 +1,12 @@
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
 import { logVerificationAudit } from "@/lib/insurance/auditLog";
-import { validateDOB, normalizeDOB } from "@/lib/insurance/dates";
 import { createVerificationRecord } from "@/lib/insurance/db/repository";
 import { encryptPhiField } from "@/lib/insurance/encryptField";
+import {
+  INSURANCE_VERIFICATION_ERROR_MESSAGES,
+  validateAndNormalizeInsuranceVerificationRequest,
+} from "@/lib/insurance/normalize-verification-request";
 import { notifyNewVerificationRequest } from "@/lib/insurance/notifications";
 import { storeVerificationRequest } from "@/lib/insurance/storeVerificationRequest";
 import {
@@ -48,74 +51,38 @@ export async function POST(req: Request) {
     const recaptcha = await verifyRecaptchaV2Token(body.recaptchaToken ?? null);
     if (recaptcha.ok === false) {
       logDevInsuranceRoute("reCAPTCHA verification failed", { reason: recaptcha.reason });
+      if (recaptcha.reason === "missing-token" || recaptcha.reason === "expired") {
+        return NextResponse.json(
+          { error: INSURANCE_VERIFICATION_ERROR_MESSAGES.recaptcha },
+          { status: recaptcha.status },
+        );
+      }
       return recaptchaV2FailureResponse(recaptcha);
     }
 
-    if (!body.verificationType) {
-      return NextResponse.json({ error: "Verification type is required." }, { status: 400 });
-    }
-
-    if (!body.fullName?.trim()) {
-      return NextResponse.json({ error: "Full name is required." }, { status: 400 });
-    }
-
-    const dobValidation = validateDOB(body.dateOfBirth || "");
-    if (!dobValidation.valid) {
-      return NextResponse.json({ error: dobValidation.error }, { status: 400 });
-    }
-
-    const normalizedDob = normalizeDOB(body.dateOfBirth)!;
-
-    if (!body.medicaidId?.trim() && !body.ssn?.trim()) {
-      return NextResponse.json(
-        { error: "Please enter either Medicaid ID or Social Security Number." },
-        { status: 400 },
-      );
-    }
-
-    if (!body.email?.trim() || !body.phone?.trim()) {
-      return NextResponse.json({ error: "Email and phone number are required." }, { status: 400 });
-    }
-
-    if (!body.zipCode?.trim()) {
-      return NextResponse.json({ error: "ZIP code is required." }, { status: 400 });
-    }
-
-    if (!body.insuranceProvider?.trim()) {
-      return NextResponse.json({ error: "Insurance provider is required." }, { status: 400 });
-    }
-
-    if (!body.consent) {
-      return NextResponse.json(
-        { error: "Consent is required before verification." },
-        { status: 400 },
-      );
-    }
-
-    if (body.verificationType === "child") {
-      if (!body.parentFirstName?.trim() || !body.parentLastName?.trim()) {
-        return NextResponse.json(
-          { error: "Parent/guardian name is required for child verification." },
-          { status: 400 },
-        );
-      }
+    const normalized = validateAndNormalizeInsuranceVerificationRequest(body);
+    if (normalized.ok === false) {
+      return NextResponse.json({ error: normalized.error }, { status: normalized.status });
     }
 
     const sanitizedRequest: InsuranceVerificationRequest = {
-      ...body,
-      fullName: body.fullName.trim(),
-      dateOfBirth: normalizedDob,
-      email: body.email.trim(),
-      phone: body.phone.trim(),
-      zipCode: body.zipCode.trim(),
-      insuranceProvider: body.insuranceProvider.trim(),
-      medicaidId: body.medicaidId?.trim() || undefined,
-      ssn: body.ssn?.trim() || undefined,
-      ...(body.verificationType === "child" && {
-        parentFirstName: body.parentFirstName?.trim(),
-        parentLastName: body.parentLastName?.trim(),
+      verificationType: normalized.data.verificationType,
+      fullName: normalized.data.fullName,
+      dateOfBirth: normalized.data.dateOfBirth,
+      email: normalized.data.email,
+      phone: normalized.data.phone,
+      zipCode: normalized.data.zipCode,
+      insuranceProvider: normalized.data.insuranceProvider,
+      medicaidId: normalized.data.medicaidId ?? undefined,
+      ssn: normalized.data.ssn ?? undefined,
+      consent: normalized.data.consent,
+      ...(normalized.data.verificationType === "child" && {
+        parentFirstName: normalized.data.parentFirstName ?? undefined,
+        parentLastName: normalized.data.parentLastName ?? undefined,
       }),
     };
+
+    const normalizedDob = normalized.data.dateOfBirth;
 
     const requestId = randomUUID();
     const recaptchaVerified = recaptcha.ok && !recaptcha.skipped;
@@ -123,17 +90,17 @@ export async function POST(req: Request) {
     const supabaseResult = await insertInsuranceVerificationRequest({
       id: requestId,
       applicantType: sanitizedRequest.verificationType,
-      parentFirstName: sanitizedRequest.parentFirstName ?? null,
-      parentLastName: sanitizedRequest.parentLastName ?? null,
-      email: sanitizedRequest.email,
-      phone: sanitizedRequest.phone,
-      childName: sanitizedRequest.fullName,
+      parentFirstName: normalized.data.parentFirstName,
+      parentLastName: normalized.data.parentLastName,
+      email: normalized.data.email,
+      phone: normalized.data.phone,
+      childName: normalized.data.fullName,
       childDob: normalizedDob,
-      zipCode: sanitizedRequest.zipCode,
-      insuranceProvider: sanitizedRequest.insuranceProvider,
-      memberId: encryptPhiField(sanitizedRequest.medicaidId || "") || null,
-      ssn: encryptPhiField(sanitizedRequest.ssn || "") || null,
-      consent: sanitizedRequest.consent,
+      zipCode: normalized.data.zipCode,
+      insuranceProvider: normalized.data.insuranceProvider,
+      memberId: encryptPhiField(normalized.data.medicaidId || "") || null,
+      ssn: encryptPhiField(normalized.data.ssn || "") || null,
+      consent: normalized.data.consent,
       recaptchaVerified,
       status: "new",
     });
@@ -186,7 +153,7 @@ export async function POST(req: Request) {
       void notifyNewVerificationRequest({
         requestId: record.id,
         submittedAt: record.submittedAt,
-        verificationType: body.verificationType,
+        verificationType: sanitizedRequest.verificationType,
         insuranceProvider: sanitizedRequest.insuranceProvider,
         status: record.status,
       });
@@ -197,16 +164,14 @@ export async function POST(req: Request) {
     try {
       await logVerificationAudit({
         action: response.verified ? "verification_completed" : "verification_submitted",
-        verificationType: body.verificationType,
+        verificationType: sanitizedRequest.verificationType,
         mode,
         outcome: response.verificationStatus,
         verified: response.verified,
         consentTimestamp,
-        memberName: body.fullName,
+        memberName: "[redacted]",
         verificationStatus: response.verificationStatus,
         eligibilityStatus: response.eligibilityStatus,
-        medicaidId: body.medicaidId,
-        ssn: body.ssn,
         requestId,
         timestamp: new Date().toISOString(),
       });

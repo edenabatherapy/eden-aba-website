@@ -43,14 +43,6 @@ function logDevInsuranceInsert(message: string, meta?: Record<string, unknown>) 
   }
 }
 
-function logInsuranceInsertError(message: string, meta?: Record<string, unknown>) {
-  if (process.env.NODE_ENV === "development") {
-    console.error(`[insurance-verification] ${message}`, meta ?? {});
-  } else {
-    console.error(`[insurance-verification] ${message}`);
-  }
-}
-
 export async function insertInsuranceVerificationRequest(
   submission: InsuranceVerificationRequestInsert,
 ): Promise<InsuranceVerificationInsertResult> {
@@ -80,10 +72,7 @@ export async function insertInsuranceVerificationRequest(
     supabase = getSupabaseAdminClient();
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
-    logInsuranceInsertError("Supabase client unavailable", {
-      reason: "missing-config",
-      message,
-    });
+    console.error("Insurance verification insert failed:", error);
 
     return {
       ok: false,
@@ -102,12 +91,7 @@ export async function insertInsuranceVerificationRequest(
     .single();
 
   if (error) {
-    logInsuranceInsertError("Supabase insert failed", {
-      message: error.message,
-      code: error.code,
-      details: error.details,
-      hint: error.hint,
-    });
+    console.error("Insurance verification insert failed:", error);
 
     return {
       ok: false,

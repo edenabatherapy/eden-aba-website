@@ -8,6 +8,15 @@ import type {
   VerificationType,
 } from "@/types/insurance";
 import { formatDOBForDisplay, validateDOB } from "@/lib/insurance/dates";
+import {
+  formatInsurancePhoneInput,
+  formatInsuranceSsnInput,
+  formatInsuranceZipInput,
+  isValidInsuranceEmail,
+  isValidInsurancePhone,
+  isValidInsuranceZip,
+  INSURANCE_VERIFICATION_ERROR_MESSAGES,
+} from "@/lib/insurance/normalize-verification-request";
 import EdenLogo from "@/components/EdenLogo";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import InsuranceStatusTracker from "@/components/insurance/InsuranceStatusTracker";
@@ -114,15 +123,17 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
   }, []);
 
   const isChild = form.verificationType === "child";
-  const emailValid = form.email.includes("@") && form.email.includes(".");
+  const emailValid = isValidInsuranceEmail(form.email);
+  const phoneValid = isValidInsurancePhone(form.phone);
+  const zipValid = isValidInsuranceZip(form.zipCode);
   const dobValid = validateDOB(form.dateOfBirth).valid;
 
   const complete =
     form.fullName.trim() &&
     dobValid &&
     emailValid &&
-    form.phone.trim() &&
-    form.zipCode.trim() &&
+    phoneValid &&
+    zipValid &&
     form.insuranceProvider.trim() &&
     (form.medicaidId?.trim() || form.ssn?.trim()) &&
     form.consent &&
@@ -140,15 +151,17 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
   const update = (key, value) => {
     if (key === "phone") {
-      const digits = value.replace(/[^0-9]/g, "").slice(0, 10);
-      const formatted =
-        digits.length > 6
-          ? `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
-          : digits.length > 3
-            ? `(${digits.slice(0, 3)}) ${digits.slice(3)}`
-            : digits;
+      setForm((old) => ({ ...old, phone: formatInsurancePhoneInput(value) }));
+      return;
+    }
 
-      setForm((old) => ({ ...old, phone: formatted }));
+    if (key === "zipCode") {
+      setForm((old) => ({ ...old, zipCode: formatInsuranceZipInput(value) }));
+      return;
+    }
+
+    if (key === "ssn") {
+      setForm((old) => ({ ...old, ssn: formatInsuranceSsnInput(value) }));
       return;
     }
 
@@ -172,24 +185,85 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     setResult(null);
 
     if (!form.dateOfBirth) {
-      setError(formT.errors?.dobRequired || "Please enter the date of birth.");
+      setError(formT.errors?.invalidDob || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidDob);
       return;
     }
 
     const dobCheck = validateDOB(form.dateOfBirth);
     if (!dobCheck.valid) {
-      setError(dobCheck.error || formT.errors?.dobRequired || "Please enter a valid date of birth.");
+      setError(formT.errors?.invalidDob || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidDob);
       return;
     }
 
     if (!form.fullName.trim()) {
-      setError(formT.errors?.nameRequired || "Full name is required.");
+      setError(
+        isChild
+          ? formT.errors?.nameRequired || "Child name is required."
+          : formT.errors?.nameRequired || "Full name is required.",
+      );
+      return;
+    }
+
+    if (isChild && !form.parentFirstName?.trim()) {
+      setError("Parent/guardian first name is required.");
+      return;
+    }
+
+    if (isChild && !form.parentLastName?.trim()) {
+      setError("Parent/guardian last name is required.");
+      return;
+    }
+
+    if (!form.email.trim()) {
+      setError(formT.errors?.invalidEmail || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidEmail);
+      return;
+    }
+
+    if (!emailValid) {
+      setError(formT.errors?.invalidEmail || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidEmail);
+      return;
+    }
+
+    if (!form.phone.trim()) {
+      setError(formT.errors?.invalidPhone || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidPhone);
+      return;
+    }
+
+    if (!phoneValid) {
+      setError(formT.errors?.invalidPhone || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidPhone);
+      return;
+    }
+
+    if (!form.zipCode.trim()) {
+      setError(formT.errors?.invalidZip || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidZip);
+      return;
+    }
+
+    if (!zipValid) {
+      setError(formT.errors?.invalidZip || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidZip);
+      return;
+    }
+
+    if (!form.insuranceProvider.trim()) {
+      setError(formT.errors?.incomplete || "Insurance provider is required.");
       return;
     }
 
     if (!form.medicaidId?.trim() && !form.ssn?.trim()) {
-      setError(formT.errors?.idRequired || "Please enter either Medicaid ID or Social Security Number.");
+      setError(
+        formT.errors?.idRequired || INSURANCE_VERIFICATION_ERROR_MESSAGES.memberIdOrSsn,
+      );
       return;
+    }
+
+    if (!form.medicaidId?.trim() && form.ssn?.trim()) {
+      const ssnDigits = form.ssn.replace(/\D/g, "");
+      if (ssnDigits.length !== 9) {
+        setError(
+          formT.errors?.idRequired || INSURANCE_VERIFICATION_ERROR_MESSAGES.memberIdOrSsn,
+        );
+        return;
+      }
     }
 
     if (!form.consent) {
@@ -203,7 +277,9 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     }
 
     if (!requireRecaptcha()) {
-      setError(formT.errors?.recaptchaIncomplete || "Please complete the security verification.");
+      setError(
+        formT.errors?.recaptchaIncomplete || INSURANCE_VERIFICATION_ERROR_MESSAGES.recaptcha,
+      );
       return;
     }
 
@@ -212,7 +288,9 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     const recaptcha = await verifyRecaptchaWithServer();
     if (!recaptcha.success) {
       setLoading(false);
-      setError(formT.errors?.recaptchaIncomplete || "Please complete the security verification.");
+      setError(
+        formT.errors?.recaptchaIncomplete || INSURANCE_VERIFICATION_ERROR_MESSAGES.recaptcha,
+      );
       return;
     }
 
