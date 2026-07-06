@@ -37,7 +37,7 @@ import dynamic from "next/dynamic";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import Footer from "@/components/common/Footer";
 import HomeCareersHero from "@/components/home/HomeCareersHero";
-import ClientReviewsSection from "@/components/home/ClientReviewsSection";
+import FamilyCommitmentSection from "@/components/home/FamilyCommitmentSection";
 import LocationsMapEmbed from "@/components/LocationsMapEmbed";
 import LocationsSearchBar from "@/components/LocationsSearchBar";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -3450,7 +3450,7 @@ export default function EdenABAWebsite() {
       />
       <ParentResourcesSection id="parent-resources" t={t} onStart={() => goToPage("intake")} />
       <HomeCareersHero />
-      <ClientReviewsSection
+      <FamilyCommitmentSection
         copy={t.pages.clientReviews}
         onStart={() => goToPage("intake")}
         onVerifyInsurance={() => goToPage("insurance-coverage")}
