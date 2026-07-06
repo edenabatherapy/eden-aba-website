@@ -1,13 +1,9 @@
 "use client";
 
-import { type ButtonHTMLAttributes, useCallback, useEffect, useState } from "react";
-import type {
-  InsuranceVerificationRequest,
-  InsuranceVerificationResponse,
-  PublicVerificationStatus,
-  VerificationType,
-} from "@/types/insurance";
-import { formatDOBForDisplay, validateDOB } from "@/lib/insurance/dates";
+import { type ButtonHTMLAttributes, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import type { InsuranceVerificationRequest, VerificationType } from "@/types/insurance";
+import { validateDOB } from "@/lib/insurance/dates";
 import {
   formatInsurancePhoneInput,
   formatInsuranceSsnInput,
@@ -19,7 +15,6 @@ import {
 } from "@/lib/insurance/normalize-verification-request";
 import EdenLogo from "@/components/EdenLogo";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
-import InsuranceStatusTracker from "@/components/insurance/InsuranceStatusTracker";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { getButtonClasses } from "@/lib/button-styles";
 
@@ -40,16 +35,8 @@ function Button({ children, variant = "primary", className = "", type = "button"
   );
 }
 
-function ResultItem({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-2xl bg-white/10 p-5">
-      <p className="text-xs font-extrabold uppercase tracking-widest text-emerald-300">{label}</p>
-      <p className="mt-2 text-lg font-bold">{value}</p>
-    </div>
-  );
-}
-
 function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
+  const router = useRouter();
   const formT = t.insuranceForm || t;
 
   const emptyForm: InsuranceVerificationRequest = {
@@ -69,10 +56,9 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
   const [form, setForm] = useState<InsuranceVerificationRequest>(emptyForm);
   const [loading, setLoading] = useState(false);
+  const [redirecting, setRedirecting] = useState(false);
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState("");
-  const [result, setResult] = useState<InsuranceVerificationResponse | null>(null);
-  const [publicStatus, setPublicStatus] = useState<PublicVerificationStatus | null>(null);
   const [liveVerificationAvailable, setLiveVerificationAvailable] = useState(false);
   const {
     recaptchaRef,
@@ -87,33 +73,6 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     verifyRecaptchaWithServer,
     setRecaptchaError,
   } = useReCaptchaV2();
-
-  const fetchPublicStatus = useCallback(async (requestId: string) => {
-    try {
-      const response = await fetch(`/api/insurance/verify/${requestId}`, {
-        cache: "no-store",
-      });
-      if (!response.ok) return;
-      const data = (await response.json()) as PublicVerificationStatus;
-      setPublicStatus(data);
-    } catch {
-      /* ignore — keep last known status */
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!result?.requestId) {
-      setPublicStatus(null);
-      return;
-    }
-
-    fetchPublicStatus(result.requestId);
-    const intervalId = window.setInterval(() => {
-      fetchPublicStatus(result.requestId!);
-    }, 5000);
-
-    return () => window.clearInterval(intervalId);
-  }, [result?.requestId, fetchPublicStatus]);
 
   useEffect(() => {
     fetch("/api/insurance/verify")
@@ -180,10 +139,9 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
   const submit = async (event) => {
     event.preventDefault();
-    if (loading || result) return;
+    if (loading || redirecting) return;
     setTouched(true);
     setError("");
-    setResult(null);
 
     if (!form.dateOfBirth) {
       setError(formT.errors?.invalidDob || INSURANCE_VERIFICATION_ERROR_MESSAGES.invalidDob);
@@ -322,8 +280,9 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         body: JSON.stringify(payload),
       });
 
-      const data = (await response.json()) as InsuranceVerificationResponse & {
+      const data = (await response.json()) as {
         success?: boolean;
+        requestId?: string;
         error?: string;
         message?: string;
       };
@@ -346,12 +305,10 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
       }
 
       if (saved || (response.ok && data.requestId)) {
-        setResult({
-          ...data,
-          success: true,
-          requestId: data.requestId,
-        });
-        resetRecaptcha();
+        setRedirecting(true);
+        const submittedAt = encodeURIComponent(new Date().toISOString());
+        const ref = encodeURIComponent(data.requestId!);
+        router.push(`/insurance/verification-received?ref=${ref}&submitted=${submittedAt}`);
         return;
       }
 
@@ -361,52 +318,17 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
       setError(formT.errors?.submitRetry || "Something went wrong. Please try again.");
       resetRecaptcha();
     } finally {
-      setLoading(false);
+      if (!redirecting) {
+        setLoading(false);
+      }
     }
   };
 
-  const resetVerification = () => {
-    setForm(emptyForm);
-    setResult(null);
-    setPublicStatus(null);
-    setError("");
-    setTouched(false);
-
-    window.scrollTo({
-      top: document.getElementById("insurance-request")?.offsetTop || 0,
-      behavior: "smooth",
-    });
-
-    setTimeout(() => {
-      (document.querySelector('input[name="parentFirstName"]') as HTMLInputElement | null)?.focus();
-    }, 100);
-  };
-
-  const resultLabels = formT.result || {};
   const placeholders = formT.placeholders || {};
   const fullNamePlaceholder = isChild
     ? placeholders.childFullName
     : placeholders.adultFullName;
   const dobPlaceholder = isChild ? placeholders.childDob : placeholders.adultDob;
-
-  const displayStatus = publicStatus?.status || result?.verificationStatus || "";
-  const isCoverageActive = displayStatus === "Coverage Active";
-  const isCoverageInactive = displayStatus === "Coverage Inactive";
-  const isUnableToVerify = displayStatus === "Unable To Verify";
-  const isPendingReview = displayStatus === "Pending Staff Review";
-
-  const badgeClass = isCoverageActive
-    ? "bg-emerald-500"
-    : isCoverageInactive
-      ? "bg-slate-400 text-slate-950"
-      : isUnableToVerify
-        ? "bg-red-500"
-        : "bg-yellow-500 text-slate-950";
-
-  const formatUpdatedAt = (value: string | null | undefined) => {
-    if (!value) return "";
-    return new Date(value).toLocaleString();
-  };
 
   return (
     <div id="insurance-request">
@@ -590,11 +512,13 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
         <Button
           type="submit"
-          disabled={!complete || !recaptchaReady || loading || verifying || Boolean(result)}
+          disabled={!complete || !recaptchaReady || loading || verifying || redirecting}
           className="mt-6 w-full"
         >
-          {loading || verifying
-            ? verifying
+          {loading || verifying || redirecting
+            ? redirecting
+              ? "Redirecting…"
+              : verifying
               ? "Verifying…"
               : liveVerificationAvailable
                 ? formT.submitLoading
@@ -605,137 +529,6 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         </Button>
 
       </form>
-
-      {result && (
-        <div className="mt-8 rounded-[1.5rem] bg-slate-950 p-5 text-white shadow-2xl sm:mt-10 sm:rounded-[2rem] sm:p-8 md:p-10">
-          {result.success ? (
-            <p className="mb-6 rounded-2xl border border-emerald-400/30 bg-emerald-500/10 p-5 text-sm font-semibold leading-7 text-emerald-100">
-              {formT.submitSuccess ||
-                "Thank you. Your insurance verification request has been submitted successfully. Our team will review it and contact you with next steps."}
-            </p>
-          ) : null}
-          <div className={`mb-5 inline-flex rounded-full px-5 py-2 text-sm font-extrabold ${badgeClass}`}>
-            {displayStatus || resultLabels.pendingBadge || "Pending Staff Review"}
-          </div>
-
-          {publicStatus?.timeline?.length ? (
-            <InsuranceStatusTracker timeline={publicStatus.timeline} />
-          ) : null}
-
-          <h3 className="text-2xl font-extrabold sm:text-3xl">
-            {isCoverageActive
-              ? resultLabels.title || "Verification Results"
-              : isPendingReview
-                ? resultLabels.titlePending || "Verification Request Received"
-                : resultLabels.title || "Verification Results"}
-          </h3>
-
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <ResultItem
-              label={resultLabels.verificationStatus || "Verification Status"}
-              value={displayStatus}
-            />
-            <ResultItem label={resultLabels.memberName || "Member Name"} value={result.memberName} />
-            <ResultItem
-              label={resultLabels.dateOfBirth || "Date of Birth"}
-              value={formatDOBForDisplay(result.dateOfBirth)}
-            />
-            <ResultItem
-              label={resultLabels.eligibilityStatus || "Eligibility Status"}
-              value={displayStatus}
-            />
-
-            {isCoverageActive && publicStatus ? (
-              <>
-                <ResultItem
-                  label={resultLabels.programType || "Program Type"}
-                  value={publicStatus.programType || resultLabels.noneListed || "None listed"}
-                />
-                <ResultItem
-                  label={resultLabels.subprogramType || "Subprogram Type"}
-                  value={publicStatus.subprogramType || resultLabels.noneListed || "None listed"}
-                />
-                <ResultItem
-                  label={resultLabels.currentEnrollmentChoice || "Plan Name"}
-                  value={publicStatus.planName || resultLabels.noneListed || "None listed"}
-                />
-                <ResultItem
-                  label={resultLabels.effectiveDate || "Effective Date"}
-                  value={publicStatus.effectiveDate || resultLabels.noneListed || "None listed"}
-                />
-              </>
-            ) : null}
-          </div>
-
-          {publicStatus?.updatedAt ? (
-            <p className="mt-4 text-sm font-semibold text-slate-400">
-              Last updated: {formatUpdatedAt(publicStatus.updatedAt)}
-            </p>
-          ) : null}
-
-          {isPendingReview ? (
-            <p className="mt-4 rounded-2xl border border-amber-400/30 bg-amber-500/10 p-5 text-sm font-semibold leading-7 text-amber-100">
-              {resultLabels.pendingExplanation ||
-                "Your request has been received. Eden ABA Therapy staff will verify eligibility through approved Medicaid verification workflows."}
-            </p>
-          ) : null}
-
-          {isPendingReview ? (
-            <p className="mt-4 rounded-2xl bg-white/10 p-5 text-sm font-semibold leading-7 text-slate-300">
-              {resultLabels.pendingDetailsMessage ||
-                "Medicaid plan details will appear here after Eden staff complete verification through an approved provider portal, clearinghouse, or MediCall workflow."}
-            </p>
-          ) : null}
-
-          {isCoverageInactive ? (
-            <p className="mt-4 rounded-2xl bg-white/10 p-5 text-sm font-semibold leading-7 text-slate-300">
-              Staff review indicates coverage is currently inactive. Eden ABA Therapy will contact your family with secure next steps.
-            </p>
-          ) : null}
-
-          {isUnableToVerify ? (
-            <p className="mt-4 rounded-2xl bg-white/10 p-5 text-sm font-semibold leading-7 text-slate-300">
-              Staff were unable to verify eligibility with the information provided. Eden ABA Therapy will contact your family to help complete verification.
-            </p>
-          ) : null}
-
-          {isPendingReview ? (
-            <div className="mt-6 rounded-2xl bg-white/10 p-5">
-              <p className="font-extrabold text-emerald-300">{resultLabels.notes || "Notes"}</p>
-              <p className="mt-2 leading-7 text-slate-200">{result.notes}</p>
-            </div>
-          ) : null}
-
-          {result.requestId ? (
-            <div className="mt-6 rounded-2xl border border-[#49b8c8]/30 bg-[#128c8c]/10 p-4 sm:p-5">
-              <p className="text-sm font-extrabold text-emerald-200">Family Self-Service Portal</p>
-              <p className="mt-2 text-sm font-semibold leading-6 text-slate-300">
-                Track status, upload documents, and update contact information anytime.
-              </p>
-              <a
-                href={`/insurance/status?ref=${encodeURIComponent(result.requestId)}`}
-                className="mt-4 inline-flex min-h-[44px] items-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-emerald-400"
-              >
-                Verify Identity & View Status →
-              </a>
-            </div>
-          ) : null}
-
-          {isCoverageActive ? (
-            <Button className="mt-8 w-full" onClick={onStart || onSchedule}>
-              {resultLabels.continueIntake || "Continue Intake →"}
-            </Button>
-          ) : null}
-
-          <button
-            type="button"
-            onClick={resetVerification}
-            className="mt-4 w-full rounded-full border-2 border-emerald-500 bg-transparent px-8 py-4 font-extrabold text-emerald-400 transition hover:bg-emerald-500 hover:text-white"
-          >
-            {resultLabels.verifyAnotherClient || "Verify Another Client"}
-          </button>
-        </div>
-      )}
     </div>
   );
 }
