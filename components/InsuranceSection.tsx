@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import InsuranceProviderLogoGrid from "@/components/InsuranceProviderLogoGrid";
 
-const HERO_IMAGE = "/images/insurance-verification-hero.png";
+const HERO_IMAGE = "/images/services/insurance-support.webp";
 
 const CTA_LABEL = "Verify My Insurance";
 
