@@ -17,6 +17,10 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const contentType = req.headers.get("content-type") || "";
+  console.info("[insurance/verify] POST received", {
+    contentType: contentType.split(";")[0] || "(missing)",
+    isMultipart: contentType.includes("multipart/form-data"),
+  });
 
   if (contentType.includes("multipart/form-data")) {
     const parsed = await parseInsuranceVerificationMultipart(req);

@@ -13,6 +13,51 @@ export type InsuranceDocumentUrls = Partial<
   Record<InsuranceDocumentColumnKey, string | null>
 >;
 
+export async function inspectInsuranceDocumentSchema(): Promise<{
+  ready: boolean;
+  message?: string;
+  code?: string;
+}> {
+  const supabase = getSupabaseAdminClient();
+  const { error } = await supabase
+    .from("insurance_verification_requests")
+    .select("insurance_front_url, insurance_back_url")
+    .limit(0);
+
+  if (error) {
+    return {
+      ready: false,
+      message: error.message,
+      code: error.code,
+    };
+  }
+
+  return { ready: true };
+}
+
+export async function inspectInsuranceDocumentsBucket(): Promise<{
+  exists: boolean;
+  buckets: string[];
+  error?: string;
+}> {
+  const supabase = getSupabaseAdminClient();
+  const { data, error } = await supabase.storage.listBuckets();
+
+  if (error) {
+    return {
+      exists: false,
+      buckets: [],
+      error: error.message,
+    };
+  }
+
+  const buckets = (data || []).map((bucket) => bucket.id);
+  return {
+    exists: buckets.includes(INSURANCE_DOCUMENT_BUCKET),
+    buckets,
+  };
+}
+
 export async function uploadInsuranceDocumentToStorage(params: {
   requestId: string;
   fieldKey: InsuranceDocumentFieldKey;
@@ -33,7 +78,16 @@ export async function uploadInsuranceDocumentToStorage(params: {
   const ext = path.extname(validated.safeName).toLowerCase();
   const objectPath = `${params.requestId}/${validated.fieldKey}__${randomUUID()}${ext}`;
 
-  const { error } = await supabase.storage
+  console.info("[insurance/verify][storage] upload start", {
+    bucket: INSURANCE_DOCUMENT_BUCKET,
+    fieldKey: params.fieldKey,
+    requestId: params.requestId,
+    objectPath,
+    size: params.size,
+    contentType: validated.contentType,
+  });
+
+  const { data, error } = await supabase.storage
     .from(INSURANCE_DOCUMENT_BUCKET)
     .upload(objectPath, validated.buffer, {
       contentType: validated.contentType,
@@ -41,8 +95,24 @@ export async function uploadInsuranceDocumentToStorage(params: {
     });
 
   if (error) {
+    console.error("[insurance/verify][storage] upload failed", {
+      bucket: INSURANCE_DOCUMENT_BUCKET,
+      fieldKey: params.fieldKey,
+      requestId: params.requestId,
+      objectPath,
+      message: error.message,
+      name: error.name,
+    });
     throw new Error(error.message);
   }
+
+  console.info("[insurance/verify][storage] upload success", {
+    bucket: INSURANCE_DOCUMENT_BUCKET,
+    fieldKey: params.fieldKey,
+    requestId: params.requestId,
+    objectPath,
+    storageId: data?.id ?? null,
+  });
 
   return objectPath;
 }

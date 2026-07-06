@@ -39,7 +39,13 @@ function postInsuranceVerificationWithProgress(
   onProgress: (percent: number) => void,
 ): Promise<{
   response: { ok: boolean; status: number };
-  data: { success?: boolean; requestId?: string; error?: string; message?: string };
+  data: {
+    success?: boolean;
+    requestId?: string;
+    error?: string;
+    message?: string;
+    details?: unknown;
+  };
 }> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -50,11 +56,22 @@ function postInsuranceVerificationWithProgress(
       }
     };
     xhr.onload = () => {
-      let data: { success?: boolean; requestId?: string; error?: string; message?: string };
-      try {
-        data = JSON.parse(xhr.responseText) as typeof data;
-      } catch {
-        reject(new Error("Invalid response"));
+      const contentType = xhr.getResponseHeader("content-type") || "";
+      let data: { success?: boolean; requestId?: string; error?: string; message?: string; details?: unknown };
+      if (contentType.includes("application/json") && xhr.responseText) {
+        try {
+          data = JSON.parse(xhr.responseText) as typeof data;
+        } catch {
+          reject(new Error(`Invalid JSON response (HTTP ${xhr.status}).`));
+          return;
+        }
+      } else {
+        reject(
+          new Error(
+            xhr.responseText?.slice(0, 240) ||
+              `Unexpected response (HTTP ${xhr.status}).`,
+          ),
+        );
         return;
       }
       resolve({
@@ -383,6 +400,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         const failureMessage =
           data.error ||
           data.message ||
+          (typeof data.details === "string" ? data.details : undefined) ||
           formT.errors?.submitFailed ||
           "Verification failed.";
         setError(failureMessage);
@@ -401,10 +419,21 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
         return;
       }
 
-      setError(formT.errors?.submitRetry || "Something went wrong. Please try again.");
+      setError(
+        data.error ||
+          data.message ||
+          (typeof data.details === "string" ? data.details : undefined) ||
+          formT.errors?.submitRetry ||
+          "Something went wrong. Please try again.",
+      );
       resetRecaptcha();
-    } catch {
-      setError(formT.errors?.submitRetry || "Something went wrong. Please try again.");
+    } catch (submitError) {
+      console.error("[InsuranceVerificationForm] submit failed", submitError);
+      setError(
+        submitError instanceof Error
+          ? submitError.message
+          : formT.errors?.submitRetry || "Something went wrong. Please try again.",
+      );
       resetRecaptcha();
     } finally {
       setUploadProgress(null);

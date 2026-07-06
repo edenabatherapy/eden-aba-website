@@ -19,6 +19,8 @@ import {
 } from "@/lib/insurance/verifyInsurance";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
 import {
+  inspectInsuranceDocumentSchema,
+  inspectInsuranceDocumentsBucket,
   updateInsuranceVerificationDocumentUrls,
   uploadInsuranceVerificationDocuments,
 } from "@/lib/supabase/insurance-document-storage";
@@ -148,57 +150,112 @@ async function runPostInsertSteps(params: {
   return verificationResponse;
 }
 
+type UploadableFormFile = {
+  name: string;
+  type: string;
+  size: number;
+  arrayBuffer(): Promise<ArrayBuffer>;
+};
+
+function isUploadableFormFile(value: unknown): value is UploadableFormFile {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "arrayBuffer" in value &&
+    typeof (value as UploadableFormFile).arrayBuffer === "function" &&
+    "size" in value &&
+    typeof (value as UploadableFormFile).size === "number" &&
+    (value as UploadableFormFile).size > 0 &&
+    "name" in value &&
+    typeof (value as UploadableFormFile).name === "string"
+  );
+}
+
 async function uploadVerificationDocumentsAfterInsert(
   requestId: string,
-  files: Partial<Record<InsuranceDocumentFieldKey, File>>,
-): Promise<void> {
+  files: Partial<Record<InsuranceDocumentFieldKey, UploadableFormFile>>,
+): Promise<{ ok: true } | { ok: false; message: string; code?: string }> {
   const entries = Object.entries(files).filter(
-    (entry): entry is [InsuranceDocumentFieldKey, File] => entry[1] instanceof File && entry[1].size > 0,
+    (entry): entry is [InsuranceDocumentFieldKey, UploadableFormFile] =>
+      isUploadableFormFile(entry[1]),
   );
 
   if (entries.length === 0) {
-    return;
+    console.warn("[insurance/verify][documents] no uploadable files after insert", { requestId });
+    return { ok: false, message: "No uploadable files were received." };
   }
 
-  try {
-    const prepared: Partial<
-      Record<
-        InsuranceDocumentFieldKey,
-        { fileName: string; mimeType: string; size: number; buffer: Buffer }
-      >
-    > = {};
+  const bucketStatus = await inspectInsuranceDocumentsBucket();
+  console.info("[insurance/verify][storage] bucket lookup", {
+    requestId,
+    bucket: "insurance-documents",
+    exists: bucketStatus.exists,
+    buckets: bucketStatus.buckets,
+    lookupError: bucketStatus.error,
+  });
 
-    for (const [fieldKey, file] of entries) {
-      const buffer = Buffer.from(await file.arrayBuffer());
-      prepared[fieldKey] = {
-        fileName: file.name,
-        mimeType: file.type,
-        size: file.size,
-        buffer,
-      };
-    }
-
-    const urls = await uploadInsuranceVerificationDocuments({
-      requestId,
-      files: prepared,
-    });
-
-    const updateResult = await updateInsuranceVerificationDocumentUrls(requestId, urls);
-    if (updateResult.ok === false) {
-      logInsurancePostInsertError(new Error(updateResult.message));
-    }
-  } catch (error) {
-    logInsurancePostInsertError(error);
+  if (!bucketStatus.exists) {
+    const message =
+      bucketStatus.error ||
+      'Storage bucket "insurance-documents" was not found. Run supabase/insurance_verification_documents.sql.';
+    return { ok: false, message, code: "bucket_not_found" };
   }
+
+  const prepared: Partial<
+    Record<
+      InsuranceDocumentFieldKey,
+      { fileName: string; mimeType: string; size: number; buffer: Buffer }
+    >
+  > = {};
+
+  for (const [fieldKey, file] of entries) {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    prepared[fieldKey] = {
+      fileName: file.name,
+      mimeType: file.type,
+      size: file.size,
+      buffer,
+    };
+  }
+
+  console.info("[insurance/verify][documents] upload batch start", {
+    requestId,
+    fieldKeys: Object.keys(prepared),
+    fileCount: Object.keys(prepared).length,
+  });
+
+  const urls = await uploadInsuranceVerificationDocuments({
+    requestId,
+    files: prepared,
+  });
+
+  console.info("[insurance/verify][documents] storage upload complete", {
+    requestId,
+    uploadedColumns: Object.keys(urls),
+  });
+
+  const updateResult = await updateInsuranceVerificationDocumentUrls(requestId, urls);
+  console.info("[insurance/verify][documents] url update result", {
+    requestId,
+    ok: updateResult.ok,
+    code: updateResult.ok === false ? updateResult.code : undefined,
+    message: updateResult.ok === false ? updateResult.message : undefined,
+  });
+
+  if (updateResult.ok === false) {
+    return updateResult;
+  }
+
+  return { ok: true };
 }
 
 function validateRequiredInsuranceDocuments(
-  files?: Partial<Record<InsuranceDocumentFieldKey, File>>,
+  files?: Partial<Record<InsuranceDocumentFieldKey, UploadableFormFile>>,
 ): string | null {
   const requiredFields = INSURANCE_DOCUMENT_FIELDS.filter((field) => field.required);
   for (const field of requiredFields) {
     const file = files?.[field.key];
-    if (!(file instanceof File) || file.size <= 0) {
+    if (!isUploadableFormFile(file)) {
       return PUBLIC_ERRORS.documents;
     }
   }
@@ -207,7 +264,7 @@ function validateRequiredInsuranceDocuments(
 
 export async function submitInsuranceVerificationRequest(params: {
   body: InsuranceVerificationRequest & { recaptchaToken?: string };
-  files?: Partial<Record<InsuranceDocumentFieldKey, File>>;
+  files?: Partial<Record<InsuranceDocumentFieldKey, UploadableFormFile>>;
   requireDocuments?: boolean;
 }): Promise<NextResponse> {
   const consentTimestamp = new Date().toISOString();
@@ -215,7 +272,34 @@ export async function submitInsuranceVerificationRequest(params: {
   const { body, files, requireDocuments = false } = params;
 
   try {
+    console.info("[insurance/verify] submission start", {
+      requireDocuments,
+      fileFieldCount: files ? Object.keys(files).length : 0,
+      fileFields: files ? Object.keys(files) : [],
+    });
+
     if (requireDocuments) {
+      const schemaStatus = await inspectInsuranceDocumentSchema();
+      console.info("[insurance/verify] document schema check", {
+        ready: schemaStatus.ready,
+        code: schemaStatus.code,
+        message: schemaStatus.message,
+      });
+      if (!schemaStatus.ready) {
+        return NextResponse.json(
+          {
+            error:
+              schemaStatus.message ||
+              "Insurance document columns are missing. Run supabase/insurance_verification_documents.sql in Supabase.",
+            details:
+              process.env.NODE_ENV === "development"
+                ? { code: schemaStatus.code, stage: "schema-check" }
+                : undefined,
+          },
+          { status: 503 },
+        );
+      }
+
       const documentError = validateRequiredInsuranceDocuments(files);
       if (documentError) {
         logInsuranceVerifyFailure("document-validation", { error: documentError });
@@ -287,6 +371,13 @@ export async function submitInsuranceVerificationRequest(params: {
       status: "new",
     });
 
+    console.info("[insurance/verify] insert result", {
+      ok: !isInsuranceVerificationInsertFailure(supabaseResult),
+      reason: isInsuranceVerificationInsertFailure(supabaseResult) ? supabaseResult.reason : undefined,
+      code: isInsuranceVerificationInsertFailure(supabaseResult) ? supabaseResult.code : undefined,
+      requestId: isInsuranceVerificationInsertFailure(supabaseResult) ? undefined : supabaseResult.id,
+    });
+
     if (isInsuranceVerificationInsertFailure(supabaseResult)) {
       if (supabaseResult.reason === "missing-config") {
         logInsuranceVerifyFailure("supabase-insert", {
@@ -323,7 +414,45 @@ export async function submitInsuranceVerificationRequest(params: {
     const savedRequestId = supabaseResult.id;
 
     if (files && Object.keys(files).length > 0) {
-      await uploadVerificationDocumentsAfterInsert(savedRequestId, files);
+      try {
+        const uploadResult = await uploadVerificationDocumentsAfterInsert(savedRequestId, files);
+        if (uploadResult.ok === false) {
+          console.error("[insurance/verify][documents] upload pipeline failed after insert", {
+            requestId: savedRequestId,
+            message: uploadResult.message,
+            code: uploadResult.code,
+          });
+          return NextResponse.json(
+            {
+              error: uploadResult.message,
+              requestId: savedRequestId,
+              details:
+                process.env.NODE_ENV === "development"
+                  ? { code: uploadResult.code, stage: "document-upload" }
+                  : undefined,
+            },
+            { status: 500 },
+          );
+        }
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Document upload failed.";
+        console.error("[insurance/verify][documents] upload exception after insert", {
+          requestId: savedRequestId,
+          message,
+          stack: error instanceof Error ? error.stack : undefined,
+        });
+        return NextResponse.json(
+          {
+            error: message,
+            requestId: savedRequestId,
+            details:
+              process.env.NODE_ENV === "development"
+                ? { stage: "document-upload", stack: error instanceof Error ? error.stack : undefined }
+                : undefined,
+          },
+          { status: 500 },
+        );
+      }
     }
 
     const verificationResponse = await runPostInsertSteps({
@@ -343,7 +472,10 @@ export async function submitInsuranceVerificationRequest(params: {
       { status: 200 },
     );
   } catch (error) {
-    logInsuranceVerifyFailure("unhandled", technicalError(error));
+    logInsuranceVerifyFailure("unhandled", {
+      ...technicalError(error),
+      stack: error instanceof Error ? error.stack : undefined,
+    });
 
     try {
       await logVerificationAudit({
