@@ -46,19 +46,24 @@ function logDevInsuranceInsert(message: string, meta?: Record<string, unknown>) 
 export async function insertInsuranceVerificationRequest(
   submission: InsuranceVerificationRequestInsert,
 ): Promise<InsuranceVerificationInsertResult> {
+  const parentFirstName = submission.parentFirstName?.trim() || "";
+  const parentLastName = submission.parentLastName?.trim() || "";
+  const memberId = submission.memberId?.trim() ? submission.memberId.trim() : null;
+  const ssn = submission.ssn?.trim() ? submission.ssn.trim() : null;
+
   const insertPayload = {
     ...(submission.id ? { id: submission.id } : {}),
     applicant_type: submission.applicantType,
-    parent_first_name: submission.parentFirstName ?? null,
-    parent_last_name: submission.parentLastName ?? null,
+    parent_first_name: parentFirstName,
+    parent_last_name: parentLastName,
     email: submission.email,
     phone: submission.phone,
     child_name: submission.childName,
     child_dob: submission.childDob,
     zip_code: submission.zipCode,
     insurance_provider: submission.insuranceProvider,
-    member_id: submission.memberId ?? null,
-    ssn: submission.ssn ?? null,
+    member_id: memberId,
+    ssn,
     consent: submission.consent,
     recaptcha_verified: submission.recaptchaVerified,
     status: submission.status ?? "new",
@@ -91,7 +96,12 @@ export async function insertInsuranceVerificationRequest(
     .single();
 
   if (error) {
-    console.error("Insurance verification insert failed:", error);
+    console.error("Insurance verification insert failed:", {
+      message: error?.message,
+      details: error?.details,
+      hint: error?.hint,
+      code: error?.code,
+    });
 
     return {
       ok: false,

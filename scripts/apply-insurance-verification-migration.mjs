@@ -35,10 +35,12 @@ function loadEnvFile(filePath) {
 
 loadEnvFile(envPath);
 loadEnvFile(resolve(root, ".env.vercel.production"));
+loadEnvFile(resolve(root, ".env.vercel.prod"));
 
+const passwordArg = process.argv[2]?.trim();
 const databaseUrl =
   process.env.DATABASE_URL?.trim() ||
-  buildDatabaseUrlFromPassword(process.env.SUPABASE_DB_PASSWORD?.trim());
+  buildDatabaseUrlFromPassword(process.env.SUPABASE_DB_PASSWORD?.trim() || passwordArg);
 
 function buildDatabaseUrlFromPassword(password) {
   if (!password) return "";

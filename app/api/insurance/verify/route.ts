@@ -117,6 +117,13 @@ export async function POST(req: Request) {
         );
       }
 
+      console.error("Insurance verification insert failed:", {
+        message: supabaseResult.message,
+        details: supabaseResult.details,
+        hint: supabaseResult.hint,
+        code: supabaseResult.code,
+      });
+
       return NextResponse.json(
         {
           error: "Unable to save your insurance verification request. Please try again later.",
@@ -128,6 +135,8 @@ export async function POST(req: Request) {
         { status: 500 },
       );
     }
+
+    logDevInsuranceRoute("Supabase insert succeeded", { requestId });
 
     const { stored, record } = await createVerificationRecord({
       request: sanitizedRequest,
