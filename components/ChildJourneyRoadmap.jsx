@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import Image from "next/image";
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Brain,
@@ -10,9 +11,12 @@ import {
   ShieldCheck,
   TrendingUp,
 } from "lucide-react";
-import { SITE_IMAGES } from "@/lib/site-images";
 import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
 import "./ChildJourneyRoadmap.css";
+
+const JOURNEY_IMAGE_SRC = "/images/clinical-milestones-journey-girl.jpg";
+const JOURNEY_IMAGE_WIDTH = 1024;
+const JOURNEY_IMAGE_HEIGHT = 682;
 
 const STEP_ICONS = [ClipboardCheck, Brain, ShieldCheck, Heart, TrendingUp];
 
@@ -133,10 +137,19 @@ function MobileTimelineStep({ step, index, accentClass, bottomAccent, isLast, ti
 export default function ChildJourneyRoadmap({ t, onCtaClick }) {
   const pathRef = useRef(null);
   const mobileTimelineRef = useRef(null);
+  const imageWrapRef = useRef(null);
   const pathInView = useInView(pathRef, { once: true, margin: "-80px" });
   const mobileInView = useInView(mobileTimelineRef, { once: true, margin: "-40px" });
   const reduceMotion = useReducedMotion();
-  const imageSrc = SITE_IMAGES.abaTherapy?.hero ?? "/images/aba-therapy-hero-session.jpg";
+  const { scrollYProgress } = useScroll({
+    target: imageWrapRef,
+    offset: ["start end", "end start"],
+  });
+  const parallaxY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduceMotion ? [0, 0] : [10, -10],
+  );
 
   return (
     <section
@@ -157,15 +170,27 @@ export default function ChildJourneyRoadmap({ t, onCtaClick }) {
           </motion.div>
 
           <motion.div
+            ref={imageWrapRef}
             {...fadeUp(0.1, reduceMotion)}
             className="child-journey-image-wrap crystal-light-border-glow ring-1 ring-[#49b8c8]/20"
           >
-            <img
-              src={imageSrc}
-              alt={t.imageAlt}
-              className="aspect-[4/3] h-full w-full object-cover"
-              loading="lazy"
-            />
+            <div className="child-journey-image-glow" aria-hidden="true" />
+            <motion.div style={{ y: parallaxY }} className="child-journey-image-parallax">
+              <div
+                className={`child-journey-image-inner${reduceMotion ? "" : " child-journey-image-inner--float"}`}
+              >
+                <Image
+                  src={JOURNEY_IMAGE_SRC}
+                  alt={t.imageAlt}
+                  width={JOURNEY_IMAGE_WIDTH}
+                  height={JOURNEY_IMAGE_HEIGHT}
+                  sizes="(max-width: 1023px) 100vw, 48vw"
+                  className="child-journey-image"
+                  loading="lazy"
+                  quality={90}
+                />
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 

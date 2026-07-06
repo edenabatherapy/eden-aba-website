@@ -42,21 +42,68 @@
 .child-journey-image-wrap {
   position: relative;
   margin-inline: auto;
-  display: none;
   width: 100%;
-  max-width: 28rem;
-  overflow: hidden;
-  border-radius: 2rem;
-  box-shadow: 0 25px 50px -12px rgba(18, 140, 140, 0.15);
+  max-width: 100%;
+  overflow: visible;
+  border-radius: 28px;
+  box-shadow:
+    0 28px 60px -20px rgba(18, 140, 140, 0.28),
+    0 12px 24px -12px rgba(11, 79, 79, 0.12);
 }
 
-.child-journey-image-wrap::before {
-  content: "";
+.child-journey-image-glow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top right, rgba(11, 79, 79, 0.25), transparent, rgba(247, 199, 47, 0.1));
+  inset: -14px;
+  border-radius: 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(31, 122, 46, 0.09) 0%,
+    rgba(18, 140, 140, 0.1) 48%,
+    rgba(73, 184, 200, 0.09) 100%
+  );
+  filter: blur(26px);
+  z-index: 0;
   pointer-events: none;
+}
+
+.child-journey-image-parallax {
+  position: relative;
   z-index: 1;
+}
+
+.child-journey-image-inner {
+  overflow: hidden;
+  border-radius: 28px;
+  background: #eef9f4;
+}
+
+.child-journey-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 682;
+  object-fit: cover;
+}
+
+.child-journey-image-inner--float {
+  animation: childJourneyImageFloat 6.5s ease-in-out infinite;
+}
+
+@keyframes childJourneyImageFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (min-width: 768px) {
+  .child-journey-image-wrap {
+    max-width: 36rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -64,6 +111,14 @@
     display: block;
     margin-inline: 0 0 0 auto;
     max-width: none;
+    width: 100%;
+    align-self: center;
+  }
+
+  .child-journey-image {
+    min-height: 18rem;
+    max-height: 28rem;
+    height: 100%;
   }
 }
 
@@ -215,7 +270,8 @@
 @media (prefers-reduced-motion: reduce) {
   .journey-path-glow,
   .journey-step-node::after,
-  .mobile-journey-line::after {
+  .mobile-journey-line::after,
+  .child-journey-image-inner--float {
     animation: none !important;
   }
 
