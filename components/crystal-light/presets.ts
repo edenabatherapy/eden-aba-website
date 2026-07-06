@@ -1,6 +1,7 @@
 export type CrystalLightPreset =
   | "dark-emerald"
   | "light-mint"
+  | "healthcare-light"
   | "navy-teal"
   | "warm-ivory"
   | "deep-forest";
@@ -50,6 +51,25 @@ export const CRYSTAL_LIGHT_PRESETS: Record<CrystalLightPreset, CrystalLightPrese
   "light-mint": {
     id: "light-mint",
     label: "Light Mint",
+    layers: {
+      mesh: true,
+      aurora: true,
+      lightRays: true,
+      particles: true,
+      crystals: true,
+      vignette: false,
+      glassOverlay: true,
+      glowLines: false,
+    },
+    particleCount: 5,
+    crystalCount: 2,
+    auroraCount: 2,
+    glowLineCount: 0,
+    lightRayCount: 1,
+  },
+  "healthcare-light": {
+    id: "healthcare-light",
+    label: "Healthcare Light",
     layers: {
       mesh: true,
       aurora: true,

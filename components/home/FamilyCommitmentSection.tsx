@@ -96,10 +96,10 @@ export default function FamilyCommitmentSection({
 
   return (
     <section
-      className={`eden-commitment-section ${getCrystalLightSectionClass("dark-emerald")} px-4 py-16 sm:py-20 lg:px-8 lg:py-24`}
+      className={`eden-commitment-section ${getCrystalLightSectionClass("healthcare-light")} px-4 py-16 sm:py-20 lg:px-8 lg:py-24`}
       aria-labelledby="family-commitment-heading"
     >
-      <CrystalLightAmbient preset="dark-emerald" />
+      <CrystalLightAmbient preset="healthcare-light" />
 
       <div className="eden-commitment-inner crystal-light-inner mx-auto max-w-7xl">
         <div className="eden-commitment-hero">
@@ -111,7 +111,7 @@ export default function FamilyCommitmentSection({
             <motion.div className="eden-commitment-eyebrow" variants={headerEyebrow}>
               <span className="eden-commitment-eyebrow__line" aria-hidden="true" />
               {eyebrow}
-              <Heart size={14} className="text-teal-300/80" aria-hidden="true" />
+              <Heart size={14} className="text-emerald-600/85" aria-hidden="true" />
             </motion.div>
 
             <motion.h2

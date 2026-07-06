@@ -39,6 +39,46 @@
   color: #0b4f4f;
 }
 
+.crystal-light-section--healthcare-light {
+  background:
+    radial-gradient(ellipse 82% 58% at 14% -4%, rgba(73, 184, 200, 0.14), transparent 52%),
+    radial-gradient(ellipse 68% 48% at 92% 6%, rgba(125, 211, 252, 0.11), transparent 50%),
+    radial-gradient(ellipse 62% 42% at 48% 102%, rgba(247, 199, 47, 0.07), transparent 46%),
+    radial-gradient(ellipse 55% 38% at 8% 68%, rgba(18, 140, 140, 0.08), transparent 44%),
+    linear-gradient(
+      180deg,
+      #f4fbf8 0%,
+      #ffffff 24%,
+      #f5faff 56%,
+      #fffdf7 88%,
+      #f4fbf8 100%
+    );
+  color: #0b4f4f;
+}
+
+.crystal-light-section--healthcare-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+.crystal-light-section--healthcare-light .crystal-light-glass-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(244, 251, 248, 0.18) 100%
+  );
+  opacity: 0.7;
+}
+
 .crystal-light-section--navy-teal {
   background:
     radial-gradient(ellipse 75% 50% at 50% 0%, rgba(15, 159, 143, 0.12), transparent 40%),
@@ -92,6 +132,20 @@
   --cl-particle: rgba(18, 140, 140, 0.45);
   --cl-vignette: rgba(248, 252, 250, 0.4);
   --cl-glow: rgba(73, 184, 200, 0.22);
+}
+
+.crystal-light-ambient--healthcare-light {
+  --cl-mesh-a: rgba(73, 184, 200, 0.1);
+  --cl-mesh-b: rgba(31, 122, 46, 0.07);
+  --cl-mesh-c: rgba(125, 211, 252, 0.08);
+  --cl-mesh-d: rgba(247, 199, 47, 0.05);
+  --cl-aurora-a: rgba(73, 184, 200, 0.2);
+  --cl-aurora-b: rgba(125, 211, 252, 0.14);
+  --cl-aurora-c: rgba(18, 140, 140, 0.1);
+  --cl-ray: rgba(125, 211, 252, 0.1);
+  --cl-particle: rgba(18, 140, 140, 0.32);
+  --cl-vignette: transparent;
+  --cl-glow: rgba(73, 184, 200, 0.16);
 }
 
 .crystal-light-ambient--navy-teal {

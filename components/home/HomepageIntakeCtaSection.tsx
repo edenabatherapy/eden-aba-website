@@ -19,15 +19,15 @@ type HomepageIntakeCtaSectionProps = {
 export default function HomepageIntakeCtaSection({ t }: HomepageIntakeCtaSectionProps) {
   return (
     <section
-      className={`homepage-intake-cta ${getCrystalLightSectionClass("dark-emerald")} px-4 py-24 lg:px-8`}
+      className={`homepage-intake-cta ${getCrystalLightSectionClass("healthcare-light")} px-4 py-24 lg:px-8`}
       aria-labelledby="homepage-intake-heading"
     >
-      <CrystalLightAmbient preset="dark-emerald" />
+      <CrystalLightAmbient preset="healthcare-light" />
 
       <div className="crystal-light-inner mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="homepage-intake-cta__copy pt-4 lg:sticky lg:top-28">
           <div className="homepage-intake-cta__badge">
-            <HeartHandshake size={18} className="text-lime-300" aria-hidden="true" />
+            <HeartHandshake size={18} className="text-emerald-600" aria-hidden="true" />
             {t.intakeBadge}
           </div>
 
