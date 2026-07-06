@@ -19,6 +19,7 @@ import {
   type InsuranceDocumentFieldKey,
   hasAtLeastOneInsuranceDocument,
   validateInsuranceDocumentClient,
+  validateInsuranceDocumentsTotalClient,
 } from "@/lib/insurance/insurance-document-fields";
 import EdenLogo from "@/components/EdenLogo";
 import { InsuranceDocumentUploadField } from "@/components/insurance/InsuranceDocumentUploadField";
@@ -49,23 +50,6 @@ function postInsuranceVerificationWithProgress(
     details?: unknown;
   };
 }> {
-  const fileKeys = Array.from(formData.keys()).filter(
-    (key) => key.includes("Document") || key.includes("insurance") || key.includes("file"),
-  );
-  let fileCount = 0;
-  for (const key of fileKeys) {
-    const value = formData.get(key);
-    if (value instanceof File && value.size > 0) {
-      fileCount += 1;
-    }
-  }
-
-  console.log("Insurance upload debug:", {
-    hasFormData: true,
-    fileKeys,
-    fileCount,
-  });
-
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/insurance/verify");
@@ -352,6 +336,12 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
       setError(
         formT.errors?.documentsRequired || INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR,
       );
+      return;
+    }
+
+    const totalSizeError = validateInsuranceDocumentsTotalClient(documents);
+    if (totalSizeError) {
+      setError(totalSizeError);
       return;
     }
 

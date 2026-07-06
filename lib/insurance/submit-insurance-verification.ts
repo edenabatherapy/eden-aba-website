@@ -6,6 +6,8 @@ import { createVerificationRecord } from "@/lib/insurance/db/repository";
 import { encryptPhiField } from "@/lib/insurance/encryptField";
 import {
   INSURANCE_DOCUMENT_FIELDS,
+  INSURANCE_DOCUMENT_MAX_BYTES,
+  INSURANCE_DOCUMENT_MAX_TOTAL_BYTES,
   INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR,
   type InsuranceDocumentFieldKey,
 } from "@/lib/insurance/insurance-document-fields";
@@ -289,6 +291,15 @@ function validatePresentInsuranceDocuments(
     } catch {
       return `Invalid file for ${field.key}.`;
     }
+  }
+
+  const totalBytes = uploadedFields.reduce((sum, field) => {
+    const file = files?.[field.key];
+    return sum + (isUploadableFormFile(file) ? file.size : 0);
+  }, 0);
+
+  if (totalBytes > INSURANCE_DOCUMENT_MAX_TOTAL_BYTES) {
+    return "This file is still too large after optimization. Please upload a smaller image or PDF.";
   }
 
   return null;

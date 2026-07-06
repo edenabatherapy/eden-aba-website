@@ -45,7 +45,7 @@ export function validateInsuranceUploadMetadata(params: {
     throw new Error("Invalid file upload.");
   }
   if (params.size > INSURANCE_DOCUMENT_MAX_BYTES) {
-    throw new Error("File exceeds 10 MB limit.");
+    throw new Error("File exceeds 3 MB limit.");
   }
 
   sanitizeInsuranceFilename(params.fileName);
@@ -67,7 +67,7 @@ export function validateInsuranceUploadFile(params: {
     throw new Error("Invalid file upload.");
   }
   if (params.size > INSURANCE_DOCUMENT_MAX_BYTES) {
-    throw new Error("File exceeds 10 MB limit.");
+    throw new Error("File exceeds 3 MB limit.");
   }
 
   const safeName = sanitizeInsuranceFilename(params.fileName);
