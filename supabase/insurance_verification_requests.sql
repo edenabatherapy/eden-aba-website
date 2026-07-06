@@ -33,3 +33,5 @@ grant select, insert, update, delete on public.insurance_verification_requests t
 alter table public.insurance_verification_requests enable row level security;
 
 -- No public policies: inserts use SUPABASE_SERVICE_ROLE_KEY from API routes only.
+
+-- Document URL columns and private storage bucket: supabase/insurance_verification_documents.sql

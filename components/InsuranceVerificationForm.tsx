@@ -13,7 +13,13 @@ import {
   isValidInsuranceZip,
   INSURANCE_VERIFICATION_ERROR_MESSAGES,
 } from "@/lib/insurance/normalize-verification-request";
+import {
+  INSURANCE_DOCUMENT_FIELDS,
+  type InsuranceDocumentFieldKey,
+  validateInsuranceDocumentClient,
+} from "@/lib/insurance/insurance-document-fields";
 import EdenLogo from "@/components/EdenLogo";
+import { InsuranceDocumentUploadField } from "@/components/insurance/InsuranceDocumentUploadField";
 import ReCaptchaVerification from "@/components/security/ReCaptchaVerification";
 import { useReCaptchaV2 } from "@/hooks/useReCaptchaV2";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -21,6 +27,45 @@ import { getButtonClasses } from "@/lib/button-styles";
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary";
 };
+
+function createEmptyDocuments(): Record<InsuranceDocumentFieldKey, File | null> {
+  return Object.fromEntries(
+    INSURANCE_DOCUMENT_FIELDS.map((field) => [field.key, null]),
+  ) as Record<InsuranceDocumentFieldKey, File | null>;
+}
+
+function postInsuranceVerificationWithProgress(
+  formData: FormData,
+  onProgress: (percent: number) => void,
+): Promise<{
+  response: { ok: boolean; status: number };
+  data: { success?: boolean; requestId?: string; error?: string; message?: string };
+}> {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/insurance/verify");
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        onProgress(Math.round((event.loaded / event.total) * 100));
+      }
+    };
+    xhr.onload = () => {
+      let data: { success?: boolean; requestId?: string; error?: string; message?: string };
+      try {
+        data = JSON.parse(xhr.responseText) as typeof data;
+      } catch {
+        reject(new Error("Invalid response"));
+        return;
+      }
+      resolve({
+        response: { ok: xhr.status >= 200 && xhr.status < 300, status: xhr.status },
+        data,
+      });
+    };
+    xhr.onerror = () => reject(new Error("Network error"));
+    xhr.send(formData);
+  });
+}
 
 function Button({ children, variant = "primary", className = "", type = "button", ...props }: ButtonProps) {
   const variantMap = {
@@ -55,6 +100,11 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
   };
 
   const [form, setForm] = useState<InsuranceVerificationRequest>(emptyForm);
+  const [documents, setDocuments] = useState(createEmptyDocuments);
+  const [documentErrors, setDocumentErrors] = useState<
+    Partial<Record<InsuranceDocumentFieldKey, string>>
+  >({});
+  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
   const [touched, setTouched] = useState(false);
@@ -87,6 +137,10 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
   const zipValid = isValidInsuranceZip(form.zipCode);
   const dobValid = validateDOB(form.dateOfBirth).valid;
 
+  const documentsComplete = INSURANCE_DOCUMENT_FIELDS.filter((field) => field.required).every(
+    (field) => documents[field.key] instanceof File,
+  );
+
   const complete =
     form.fullName.trim() &&
     dobValid &&
@@ -96,6 +150,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     form.insuranceProvider.trim() &&
     (form.medicaidId?.trim() || form.ssn?.trim()) &&
     form.consent &&
+    documentsComplete &&
     (!isChild || (form.parentFirstName?.trim() && form.parentLastName?.trim()));
 
   const fieldClass =
@@ -125,6 +180,15 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     }
 
     setForm((old) => ({ ...old, [key]: value }));
+  };
+
+  const setDocument = (key: InsuranceDocumentFieldKey, file: File | null) => {
+    setDocuments((old) => ({ ...old, [key]: file }));
+    setDocumentErrors((old) => {
+      const next = { ...old };
+      delete next[key];
+      return next;
+    });
   };
 
   const setVerificationType = (verificationType: VerificationType) => {
@@ -230,6 +294,31 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
       return;
     }
 
+    const nextDocumentErrors: Partial<Record<InsuranceDocumentFieldKey, string>> = {};
+    for (const field of INSURANCE_DOCUMENT_FIELDS) {
+      const file = documents[field.key];
+      if (field.required && !file) {
+        nextDocumentErrors[field.key] =
+          formT.errors?.documentRequired || "This document is required.";
+        continue;
+      }
+      if (file) {
+        const validationError = validateInsuranceDocumentClient(file);
+        if (validationError) {
+          nextDocumentErrors[field.key] = validationError;
+        }
+      }
+    }
+
+    if (Object.keys(nextDocumentErrors).length > 0) {
+      setDocumentErrors(nextDocumentErrors);
+      setError(
+        formT.errors?.documentsRequired ||
+          "Please upload required insurance card images (front and back).",
+      );
+      return;
+    }
+
     if (!complete) {
       setError(formT.errors?.incomplete || "Please complete all required fields before submitting.");
       return;
@@ -243,10 +332,12 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     }
 
     setLoading(true);
+    setUploadProgress(0);
 
     const recaptcha = await verifyRecaptchaWithServer();
     if (!recaptcha.success) {
       setLoading(false);
+      setUploadProgress(null);
       setError(
         formT.errors?.recaptchaIncomplete || INSURANCE_VERIFICATION_ERROR_MESSAGES.recaptcha,
       );
@@ -271,21 +362,19 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
       recaptchaToken: recaptcha.token,
     };
 
-    try {
-      const response = await fetch("/api/insurance/verify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+    const formData = new FormData();
+    formData.append("payload", JSON.stringify(payload));
+    for (const field of INSURANCE_DOCUMENT_FIELDS) {
+      const file = documents[field.key];
+      if (file) {
+        formData.append(field.key, file);
+      }
+    }
 
-      const data = (await response.json()) as {
-        success?: boolean;
-        requestId?: string;
-        error?: string;
-        message?: string;
-      };
+    try {
+      const { response, data } = await postInsuranceVerificationWithProgress(formData, (percent) => {
+        setUploadProgress(percent);
+      });
 
       const saved =
         data.success === true && typeof data.requestId === "string" && data.requestId.length > 0;
@@ -318,6 +407,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
       setError(formT.errors?.submitRetry || "Something went wrong. Please try again.");
       resetRecaptcha();
     } finally {
+      setUploadProgress(null);
       if (!redirecting) {
         setLoading(false);
       }
@@ -478,6 +568,45 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
           />
         </div>
 
+        <div className="mt-8">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#128c8c]">
+            {formT.documents?.sectionTitle || "Supporting Documents"}
+          </p>
+          <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">
+            {formT.documents?.sectionIntro ||
+              "Upload clear photos or PDFs of your insurance card and any optional supporting documents."}
+          </p>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {INSURANCE_DOCUMENT_FIELDS.map((field) => {
+              const labels = formT.documents?.fields || {};
+              return (
+                <InsuranceDocumentUploadField
+                  key={field.key}
+                  label={labels[field.key] || field.label}
+                  required={field.required}
+                  optionalLabel={formT.documents?.optionalLabel || "(optional)"}
+                  file={documents[field.key]}
+                  onFileChange={(file) => setDocument(field.key, file)}
+                  error={documentErrors[field.key]}
+                />
+              );
+            })}
+          </div>
+          {uploadProgress !== null ? (
+            <div className="mt-4">
+              <div className="h-2 overflow-hidden rounded-full bg-slate-200">
+                <div
+                  className="h-full bg-[#128c8c] transition-all duration-200"
+                  style={{ width: `${uploadProgress}%` }}
+                />
+              </div>
+              <p className="mt-2 text-sm font-bold text-slate-600">
+                {(formT.documents?.uploading || "Uploading documents…")} {uploadProgress}%
+              </p>
+            </div>
+          ) : null}
+        </div>
+
         <div className="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50 p-4 text-sm font-bold leading-6 text-slate-700">
           {formT.securityNotice}
         </div>
@@ -520,6 +649,8 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
               ? "Redirecting…"
               : verifying
               ? "Verifying…"
+              : uploadProgress !== null
+                ? formT.documents?.uploading || "Uploading documents…"
               : liveVerificationAvailable
                 ? formT.submitLoading
                 : formT.submitLoadingManual || "Submitting…"

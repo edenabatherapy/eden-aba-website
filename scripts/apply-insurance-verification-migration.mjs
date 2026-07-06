@@ -76,6 +76,13 @@ const sql = postgres(databaseUrl, {
 try {
   await sql.unsafe(migrationSql);
   console.log("Applied insurance_verification_requests migration successfully.");
+
+  const documentsMigrationPath = resolve(root, "supabase/insurance_verification_documents.sql");
+  if (existsSync(documentsMigrationPath)) {
+    const documentsSql = readFileSync(documentsMigrationPath, "utf8");
+    await sql.unsafe(documentsSql);
+    console.log("Applied insurance_verification_documents migration successfully.");
+  }
 } finally {
   await sql.end({ timeout: 5 });
 }

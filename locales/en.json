@@ -6975,9 +6975,25 @@
       "Other"
     ],
     "securityNotice": "Your information is submitted securely to Eden ABA Therapy for insurance verification and benefit review.",
+    "documents": {
+      "sectionTitle": "Supporting Documents",
+      "sectionIntro": "Upload clear photos or PDFs of your insurance card and any optional supporting documents.",
+      "optionalLabel": "(optional)",
+      "uploading": "Uploading documents…",
+      "fields": {
+        "insurance_front": "Insurance Card Front",
+        "insurance_back": "Insurance Card Back",
+        "parent_id": "Parent/Guardian Photo ID",
+        "diagnosis_report": "Autism Diagnosis Report",
+        "referral": "Physician Referral",
+        "iep_document": "IEP or School Documents"
+      }
+    },
     "consent": "I agree to be contacted by Eden ABA Therapy about insurance verification and services.",
     "errors": {
       "incomplete": "Please complete all required fields before submitting.",
+      "documentsRequired": "Please upload required insurance card images (front and back).",
+      "documentRequired": "This document is required.",
       "dobRequired": "Invalid date of birth",
       "invalidDob": "Invalid date of birth",
       "invalidEmail": "Invalid email format",
