@@ -6992,7 +6992,7 @@
     "consent": "I agree to be contacted by Eden ABA Therapy about insurance verification and services.",
     "errors": {
       "incomplete": "Please complete all required fields before submitting.",
-      "documentsRequired": "Please upload required insurance card images (front and back).",
+      "documentsRequired": "Please upload at least one document to continue. You may upload an insurance card, photo ID, diagnosis report, referral, or school document.",
       "documentRequired": "This document is required.",
       "dobRequired": "Invalid date of birth",
       "invalidDob": "Invalid date of birth",

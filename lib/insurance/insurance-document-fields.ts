@@ -31,18 +31,21 @@ export type InsuranceDocumentFieldConfig = {
   required: boolean;
 };
 
+export const INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR =
+  "Please upload at least one document to continue. You may upload an insurance card, photo ID, diagnosis report, referral, or school document.";
+
 export const INSURANCE_DOCUMENT_FIELDS: InsuranceDocumentFieldConfig[] = [
   {
     key: "insurance_front",
     column: "insurance_front_url",
     label: "Insurance Card Front",
-    required: true,
+    required: false,
   },
   {
     key: "insurance_back",
     column: "insurance_back_url",
     label: "Insurance Card Back",
-    required: true,
+    required: false,
   },
   {
     key: "parent_id",
@@ -79,6 +82,15 @@ export const INSURANCE_DOCUMENT_COLUMN_BY_FIELD: Record<
 
 export function isInsuranceDocumentFieldKey(value: string): value is InsuranceDocumentFieldKey {
   return (INSURANCE_DOCUMENT_FIELD_KEYS as readonly string[]).includes(value);
+}
+
+export function hasAtLeastOneInsuranceDocument(
+  documents: Partial<Record<InsuranceDocumentFieldKey, File | null>>,
+): boolean {
+  return INSURANCE_DOCUMENT_FIELDS.some((field) => {
+    const file = documents[field.key];
+    return file instanceof File && file.size > 0;
+  });
 }
 
 export function validateInsuranceDocumentClient(file: File): string | null {

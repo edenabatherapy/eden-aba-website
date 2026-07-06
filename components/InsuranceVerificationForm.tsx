@@ -15,7 +15,9 @@ import {
 } from "@/lib/insurance/normalize-verification-request";
 import {
   INSURANCE_DOCUMENT_FIELDS,
+  INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR,
   type InsuranceDocumentFieldKey,
+  hasAtLeastOneInsuranceDocument,
   validateInsuranceDocumentClient,
 } from "@/lib/insurance/insurance-document-fields";
 import EdenLogo from "@/components/EdenLogo";
@@ -177,9 +179,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
   const zipValid = isValidInsuranceZip(form.zipCode);
   const dobValid = validateDOB(form.dateOfBirth).valid;
 
-  const documentsComplete = INSURANCE_DOCUMENT_FIELDS.filter((field) => field.required).every(
-    (field) => documents[field.key] instanceof File,
-  );
+  const hasUploadedDocument = hasAtLeastOneInsuranceDocument(documents);
 
   const complete =
     form.fullName.trim() &&
@@ -190,7 +190,7 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     form.insuranceProvider.trim() &&
     (form.medicaidId?.trim() || form.ssn?.trim()) &&
     form.consent &&
-    documentsComplete &&
+    hasUploadedDocument &&
     (!isChild || (form.parentFirstName?.trim() && form.parentLastName?.trim()));
 
   const fieldClass =
@@ -337,38 +337,27 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     const nextDocumentErrors: Partial<Record<InsuranceDocumentFieldKey, string>> = {};
     for (const field of INSURANCE_DOCUMENT_FIELDS) {
       const file = documents[field.key];
-      if (field.required) {
-        if (!(file instanceof File) || file.size <= 0) {
-          nextDocumentErrors[field.key] =
-            formT.errors?.documentRequired || "This document is required.";
-        } else {
-          const validationError = validateInsuranceDocumentClient(file);
-          if (validationError) {
-            nextDocumentErrors[field.key] = validationError;
-          }
-        }
+      if (!(file instanceof File) || file.size <= 0) {
         continue;
       }
 
-      if (file instanceof File && file.size > 0) {
-        const validationError = validateInsuranceDocumentClient(file);
-        if (validationError) {
-          nextDocumentErrors[field.key] = validationError;
-        }
+      const validationError = validateInsuranceDocumentClient(file);
+      if (validationError) {
+        nextDocumentErrors[field.key] = validationError;
       }
+    }
+
+    if (!hasAtLeastOneInsuranceDocument(documents)) {
+      setDocumentErrors({});
+      setError(
+        formT.errors?.documentsRequired || INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR,
+      );
+      return;
     }
 
     if (Object.keys(nextDocumentErrors).length > 0) {
       setDocumentErrors(nextDocumentErrors);
-      const onlyRequiredMissing = Object.keys(nextDocumentErrors).every((key) =>
-        INSURANCE_DOCUMENT_FIELDS.find((field) => field.key === key)?.required,
-      );
-      setError(
-        onlyRequiredMissing
-          ? formT.errors?.documentsRequired ||
-              "Please upload required insurance card images (front and back)."
-          : formT.errors?.submitFailed || "One or more uploaded documents are invalid.",
-      );
+      setError(formT.errors?.submitFailed || "One or more uploaded documents are invalid.");
       return;
     }
 

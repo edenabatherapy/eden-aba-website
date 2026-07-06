@@ -6,6 +6,7 @@ import { createVerificationRecord } from "@/lib/insurance/db/repository";
 import { encryptPhiField } from "@/lib/insurance/encryptField";
 import {
   INSURANCE_DOCUMENT_FIELDS,
+  INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR,
   type InsuranceDocumentFieldKey,
 } from "@/lib/insurance/insurance-document-fields";
 import { validateInsuranceUploadMetadata } from "@/lib/insurance/validate-insurance-upload";
@@ -36,7 +37,7 @@ const PUBLIC_ERRORS = {
   validation: "Invalid or missing required form information.",
   save: "Unable to save your insurance verification request. Please try again later.",
   process: "Unable to process verification request at this time.",
-  documents: "Please upload required insurance card images (front and back).",
+  documents: "Please upload at least one document to continue. You may upload an insurance card, photo ID, diagnosis report, referral, or school document.",
 } as const;
 
 function logInsuranceVerifyFailure(branch: string, meta: Record<string, unknown>) {
@@ -264,12 +265,17 @@ async function uploadVerificationDocumentsAfterInsert(
 function validatePresentInsuranceDocuments(
   files?: Partial<Record<InsuranceDocumentFieldKey, UploadableFormFile>>,
 ): string | null {
-  for (const field of INSURANCE_DOCUMENT_FIELDS) {
+  const uploadedFields = INSURANCE_DOCUMENT_FIELDS.filter((field) =>
+    isUploadableFormFile(files?.[field.key]),
+  );
+
+  if (uploadedFields.length === 0) {
+    return INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR;
+  }
+
+  for (const field of uploadedFields) {
     const file = files?.[field.key];
     if (!isUploadableFormFile(file)) {
-      if (field.required) {
-        return PUBLIC_ERRORS.documents;
-      }
       continue;
     }
 

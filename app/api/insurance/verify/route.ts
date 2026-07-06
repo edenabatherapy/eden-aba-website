@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { parseInsuranceVerificationMultipart } from "@/app/api/insurance/verify/parse-multipart";
-import { INSURANCE_DOCUMENT_FIELDS } from "@/lib/insurance/insurance-document-fields";
+import { INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR } from "@/lib/insurance/insurance-document-fields";
 import { submitInsuranceVerificationRequest } from "@/lib/insurance/submit-insurance-verification";
 import {
   getVerificationMode,
@@ -34,19 +34,12 @@ export async function POST(req: Request) {
       return parsed.response;
     }
 
-    const missingRequired = INSURANCE_DOCUMENT_FIELDS.filter((field) => field.required).filter(
-      (field) => !parsed.data.files[field.key],
-    );
-
-    if (missingRequired.length > 0) {
-      console.error("[insurance/verify] missing required insurance card uploads", {
-        missing: missingRequired.map((field) => field.key),
-        received: Object.keys(parsed.data.files),
+    const uploadedFileCount = Object.keys(parsed.data.files).length;
+    if (uploadedFileCount === 0) {
+      console.error("[insurance/verify] multipart request had no document files", {
+        contentType: contentType.split(";")[0] || "(missing)",
       });
-      return NextResponse.json(
-        { error: "Insurance card front and back are required." },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: INSURANCE_DOCUMENT_MIN_UPLOAD_ERROR }, { status: 400 });
     }
 
     return submitInsuranceVerificationRequest({
