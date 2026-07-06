@@ -5,6 +5,7 @@ import { ArrowRight, Heart, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { getButtonClasses } from "@/lib/button-styles";
 import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
+import EdenStage10AnimatedLogo from "@/components/eden-logo/EdenStage10AnimatedLogo";
 import { FAMILY_COMMITMENT_CONTENT } from "@/lib/home/family-commitment-content";
 import "./FamilyCommitmentSection.css";
 
@@ -101,34 +102,40 @@ export default function FamilyCommitmentSection({
       <CrystalLightAmbient preset="dark-emerald" />
 
       <div className="eden-commitment-inner crystal-light-inner mx-auto max-w-7xl">
-        <motion.header
-          className="eden-commitment-header max-w-3xl"
-          variants={headerContainer}
-          {...motionProps}
-        >
-          <motion.div className="eden-commitment-eyebrow" variants={headerEyebrow}>
-            <span className="eden-commitment-eyebrow__line" aria-hidden="true" />
-            {eyebrow}
-            <Heart size={14} className="text-teal-300/80" aria-hidden="true" />
-          </motion.div>
-
-          <motion.h2
-            id="family-commitment-heading"
-            className="eden-commitment-title"
-            variants={headerTitle}
+        <div className="eden-commitment-hero">
+          <motion.header
+            className="eden-commitment-header eden-commitment-hero__copy"
+            variants={headerContainer}
+            {...motionProps}
           >
-            {title}
-            <motion.span
-              className="eden-commitment-title__underline"
-              variants={headerUnderline}
-              aria-hidden="true"
-            />
-          </motion.h2>
+            <motion.div className="eden-commitment-eyebrow" variants={headerEyebrow}>
+              <span className="eden-commitment-eyebrow__line" aria-hidden="true" />
+              {eyebrow}
+              <Heart size={14} className="text-teal-300/80" aria-hidden="true" />
+            </motion.div>
 
-          <motion.p className="eden-commitment-intro" variants={headerIntro}>
-            {intro}
-          </motion.p>
-        </motion.header>
+            <motion.h2
+              id="family-commitment-heading"
+              className="eden-commitment-title"
+              variants={headerTitle}
+            >
+              {title}
+              <motion.span
+                className="eden-commitment-title__underline"
+                variants={headerUnderline}
+                aria-hidden="true"
+              />
+            </motion.h2>
+
+            <motion.p className="eden-commitment-intro" variants={headerIntro}>
+              {intro}
+            </motion.p>
+          </motion.header>
+
+          <div className="eden-commitment-hero__logo">
+            <EdenStage10AnimatedLogo />
+          </div>
+        </div>
 
         <motion.div
           className="eden-commitment-grid mt-12 sm:mt-14 lg:mt-16"

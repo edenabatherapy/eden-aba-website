@@ -9,6 +9,40 @@
   z-index: 1;
 }
 
+/* ── Hero: copy + Stage 10 logo ── */
+
+.eden-commitment-hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.eden-commitment-hero__copy {
+  min-width: 0;
+}
+
+.eden-commitment-hero__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+  max-height: 420px;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+@media (min-width: 1024px) {
+  .eden-commitment-hero {
+    grid-template-columns: 55fr 45fr;
+    gap: clamp(1.5rem, 3vw, 2.75rem);
+  }
+
+  .eden-commitment-hero__logo {
+    justify-content: flex-end;
+    padding-right: clamp(0rem, 1.5vw, 1rem);
+  }
+}
+
 .eden-commitment-eyebrow {
   display: inline-flex;
   align-items: center;

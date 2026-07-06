@@ -1,0 +1,311 @@
+/* Eden Stage 10 — logo-only cinematic medallion (max 420px / 340px) */
+
+.eden-stage10-logo {
+  --eden-s10-size: min(100%, 420px);
+  --eden-s10-medallion: min(81%, 340px);
+  position: relative;
+  width: var(--eden-s10-size);
+  height: var(--eden-s10-size);
+  max-width: 420px;
+  max-height: 420px;
+  margin-inline: auto;
+  contain: layout paint style;
+  pointer-events: none;
+  user-select: none;
+}
+
+.eden-stage10-logo__stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  isolation: isolate;
+}
+
+/* ── Shader background ── */
+
+.eden-stage10-logo__shader {
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(6, 78, 59, 0.55) 0deg,
+      rgba(18, 140, 140, 0.42) 72deg,
+      rgba(15, 118, 110, 0.38) 144deg,
+      rgba(31, 122, 46, 0.48) 216deg,
+      rgba(73, 184, 200, 0.32) 288deg,
+      rgba(6, 78, 59, 0.55) 360deg
+    ),
+    radial-gradient(circle at 42% 38%, rgba(188, 235, 218, 0.22) 0%, transparent 52%),
+    radial-gradient(circle at 62% 68%, rgba(20, 184, 166, 0.14) 0%, transparent 48%),
+    radial-gradient(circle at 50% 50%, rgba(4, 47, 46, 0.92) 0%, rgba(2, 26, 24, 0.98) 100%);
+  filter: blur(0.5px);
+  will-change: transform;
+  animation: edenS10ShaderSpin 28s linear infinite;
+}
+
+/* ── Volumetric lighting ── */
+
+.eden-stage10-logo__volumetric {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.eden-stage10-logo__volumetric--a {
+  inset: 6%;
+  background: radial-gradient(
+    ellipse 68% 52% at 38% 28%,
+    rgba(167, 243, 208, 0.28) 0%,
+    rgba(73, 184, 200, 0.1) 42%,
+    transparent 72%
+  );
+  animation: edenS10VolumetricPulse 7s ease-in-out infinite;
+}
+
+.eden-stage10-logo__volumetric--b {
+  inset: 10%;
+  background: radial-gradient(
+    ellipse 58% 68% at 68% 72%,
+    rgba(45, 212, 191, 0.18) 0%,
+    rgba(16, 185, 129, 0.08) 45%,
+    transparent 70%
+  );
+  animation: edenS10VolumetricPulse 9s ease-in-out infinite 1.8s;
+}
+
+/* ── Particle system ── */
+
+.eden-stage10-logo__particles {
+  position: absolute;
+  inset: 0;
+}
+
+.eden-stage10-logo__particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(188, 235, 218, 0.85);
+  box-shadow: 0 0 10px rgba(73, 184, 200, 0.45);
+  will-change: transform, opacity;
+  animation: edenS10ParticleOrbit 14s ease-in-out infinite;
+}
+
+.eden-stage10-logo__particle--1 { top: 14%; left: 50%; animation-delay: 0s; }
+.eden-stage10-logo__particle--2 { top: 28%; right: 16%; animation-delay: 1.4s; width: 3px; height: 3px; }
+.eden-stage10-logo__particle--3 { bottom: 22%; right: 22%; animation-delay: 2.8s; }
+.eden-stage10-logo__particle--4 { bottom: 14%; left: 46%; animation-delay: 4.2s; width: 3px; height: 3px; }
+.eden-stage10-logo__particle--5 { bottom: 30%; left: 14%; animation-delay: 5.6s; }
+.eden-stage10-logo__particle--6 { top: 42%; left: 10%; animation-delay: 7s; width: 2px; height: 2px; }
+.eden-stage10-logo__particle--7 { top: 20%; left: 24%; animation-delay: 8.4s; width: 3px; height: 3px; }
+.eden-stage10-logo__particle--8 { top: 52%; right: 10%; animation-delay: 9.8s; width: 2px; height: 2px; }
+
+/* ── Rotating energy rings ── */
+
+.eden-stage10-logo__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  will-change: transform;
+}
+
+.eden-stage10-logo__ring--outer {
+  inset: 2%;
+  border-color: rgba(73, 184, 200, 0.22);
+  border-top-color: rgba(167, 243, 208, 0.55);
+  border-right-color: rgba(45, 212, 191, 0.35);
+  box-shadow:
+    0 0 24px rgba(73, 184, 200, 0.12),
+    inset 0 0 20px rgba(16, 185, 129, 0.08);
+  animation: edenS10RingSpin 18s linear infinite;
+}
+
+.eden-stage10-logo__ring--mid {
+  inset: 10%;
+  border-color: rgba(18, 140, 140, 0.18);
+  border-bottom-color: rgba(94, 234, 212, 0.42);
+  border-left-color: rgba(52, 211, 153, 0.28);
+  animation: edenS10RingSpin 12s linear infinite reverse;
+}
+
+.eden-stage10-logo__ring--inner {
+  inset: 18%;
+  border-color: rgba(250, 204, 21, 0.12);
+  border-top-color: rgba(167, 243, 208, 0.38);
+  animation: edenS10RingSpin 9s linear infinite;
+}
+
+/* ── Glow halos ── */
+
+.eden-stage10-logo__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: edenS10GlowPulse 6s ease-in-out infinite;
+}
+
+.eden-stage10-logo__glow--emerald {
+  inset: 14%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.34) 0%, transparent 70%);
+}
+
+.eden-stage10-logo__glow--teal {
+  inset: 22%;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.26) 0%, transparent 68%);
+  animation-delay: 1.4s;
+}
+
+.eden-stage10-logo__glow--gold {
+  inset: 30%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.14) 0%, transparent 65%);
+  animation-delay: 2.8s;
+}
+
+/* ── Medallion ── */
+
+.eden-stage10-logo__medallion {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: var(--eden-s10-medallion);
+  height: var(--eden-s10-medallion);
+  max-width: 340px;
+  max-height: 340px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(94, 234, 212, 0.28);
+  background:
+    linear-gradient(145deg, rgba(236, 253, 245, 0.14) 0%, rgba(6, 78, 59, 0.42) 48%, rgba(4, 47, 46, 0.72) 100%);
+  box-shadow:
+    0 0 40px rgba(16, 185, 129, 0.22),
+    0 0 80px rgba(18, 140, 140, 0.12),
+    inset 0 2px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2px 12px rgba(0, 0, 0, 0.28);
+  will-change: transform;
+  animation: edenS10MedallionFloat 7s ease-in-out infinite;
+}
+
+.eden-stage10-logo__reflection {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.06) 28%,
+    transparent 52%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  pointer-events: none;
+}
+
+.eden-stage10-logo__shimmer {
+  position: absolute;
+  inset: -45%;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.42) 48%,
+    rgba(167, 243, 208, 0.28) 52%,
+    transparent 62%
+  );
+  animation: edenS10Shimmer 6.5s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+.eden-stage10-logo__image {
+  position: relative;
+  z-index: 1;
+  width: 58% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(6, 78, 59, 0.35));
+}
+
+/* ── Keyframes ── */
+
+@keyframes edenS10ShaderSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes edenS10RingSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes edenS10VolumetricPulse {
+  0%, 100% { opacity: 0.72; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes edenS10GlowPulse {
+  0%, 100% { opacity: 0.42; transform: scale(1); }
+  50% { opacity: 0.72; transform: scale(1.08); }
+}
+
+@keyframes edenS10MedallionFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes edenS10ParticleOrbit {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translate(0, 0) scale(0.85);
+  }
+  25% {
+    opacity: 0.95;
+    transform: translate(4px, -6px) scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: translate(-3px, 4px) scale(0.9);
+  }
+  75% {
+    opacity: 0.85;
+    transform: translate(5px, 2px) scale(1.05);
+  }
+}
+
+@keyframes edenS10Shimmer {
+  0% {
+    transform: translateX(-140%) translateY(-40%) rotate(25deg);
+    opacity: 0;
+  }
+  18% { opacity: 0.5; }
+  45% { opacity: 0.18; }
+  100% {
+    transform: translateX(160%) translateY(40%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eden-stage10-logo__shader,
+  .eden-stage10-logo__volumetric,
+  .eden-stage10-logo__particle,
+  .eden-stage10-logo__ring,
+  .eden-stage10-logo__glow,
+  .eden-stage10-logo__medallion,
+  .eden-stage10-logo__shimmer {
+    animation: none !important;
+  }
+
+  .eden-stage10-logo__medallion {
+    transform: none;
+  }
+}
