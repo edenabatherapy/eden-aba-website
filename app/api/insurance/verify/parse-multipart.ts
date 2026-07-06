@@ -45,6 +45,24 @@ export async function parseInsuranceVerificationMultipart(
     };
   }
 
+  const allKeys = Array.from(formData.keys());
+  const fileKeys = allKeys.filter(
+    (key) => key.includes("Document") || key.includes("insurance") || key.includes("file"),
+  );
+  let fileCount = 0;
+  for (const key of allKeys) {
+    const value = formData.get(key);
+    if (isFormDataUpload(value)) {
+      fileCount += 1;
+    }
+  }
+
+  console.log("Insurance upload debug:", {
+    hasFormData: true,
+    fileKeys,
+    fileCount,
+  });
+
   const payloadRaw = formData.get("payload");
   if (typeof payloadRaw !== "string") {
     console.error("[insurance/verify][multipart] missing payload field", {
@@ -89,6 +107,10 @@ export async function parseInsuranceVerificationMultipart(
       isFileInstance: value instanceof File,
       isBlobInstance: typeof Blob !== "undefined" && value instanceof Blob,
       size: isFormDataUpload(value) ? value.size : null,
+      hasName:
+        value && typeof value === "object" && "name" in value
+          ? Boolean(String((value as File).name || "").trim())
+          : false,
     });
 
     if (!isFormDataUpload(value)) continue;

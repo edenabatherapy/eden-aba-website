@@ -95,15 +95,13 @@ export async function uploadInsuranceDocumentToStorage(params: {
     });
 
   if (error) {
-    console.error("[insurance/verify][storage] upload failed", {
-      bucket: INSURANCE_DOCUMENT_BUCKET,
+    const storageError = error as { message?: string; statusCode?: number | string };
+    console.error("Insurance document upload failed:", {
       fieldKey: params.fieldKey,
-      requestId: params.requestId,
-      objectPath,
-      message: error.message,
-      name: error.name,
+      message: storageError.message,
+      statusCode: storageError.statusCode,
     });
-    throw new Error(error.message);
+    throw new Error(storageError.message || "Storage upload failed.");
   }
 
   console.info("[insurance/verify][storage] upload success", {
@@ -130,16 +128,43 @@ export async function updateInsuranceVerificationDocumentUrls(
   }
 
   const supabase = getSupabaseAdminClient();
-  const { error } = await supabase
+  console.info("[insurance/verify][storage] db update payload", {
+    requestId,
+    columns: Object.keys(payload),
+  });
+
+  const { data, error } = await supabase
     .from("insurance_verification_requests")
     .update(payload)
-    .eq("id", requestId);
+    .eq("id", requestId)
+    .select("id, insurance_front_url, insurance_back_url, parent_id_url, diagnosis_report_url, referral_url, iep_document_url");
 
   if (error) {
+    console.error("[insurance/verify][storage] db update failed", {
+      requestId,
+      message: error.message,
+      code: error.code,
+      details: error.details,
+      hint: error.hint,
+    });
     return {
       ok: false,
       message: error.message,
       code: error.code,
+    };
+  }
+
+  console.info("[insurance/verify][storage] db update success", {
+    requestId,
+    rowsReturned: data?.length ?? 0,
+    row: data?.[0] ?? null,
+  });
+
+  if (!data?.length) {
+    return {
+      ok: false,
+      message: "Document URL update matched zero rows.",
+      code: "update_zero_rows",
     };
   }
 

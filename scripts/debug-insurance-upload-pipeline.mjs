@@ -1,11 +1,11 @@
 /**
- * Debug insurance document upload pipeline (no PHI logged).
- * Usage: node scripts/debug-insurance-upload-pipeline.mjs
+ * End-to-end insurance document upload debug (no PHI logged).
+ * Usage: DEBUG_API_BASE=http://localhost:3000 node scripts/debug-insurance-upload-pipeline.mjs
  */
-import { createReadStream, existsSync, readFileSync, writeFileSync } from "fs";
+import { createClient } from "@supabase/supabase-js";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
-import { createClient } from "@supabase/supabase-js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -54,65 +54,40 @@ const DOCUMENT_COLUMNS = [
   "iep_document_url",
 ];
 
-function logSection(title) {
-  console.log(`\n=== ${title} ===`);
+function section(title) {
+  console.log(`\n${"=".repeat(72)}\n${title}\n${"=".repeat(72)}`);
+}
+
+function createTinyPng(filePath) {
+  const base64 =
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
+  writeFileSync(filePath, Buffer.from(base64, "base64"));
 }
 
 async function checkBucket() {
-  logSection("1. Supabase Storage bucket lookup");
+  section("STEP 1-3 PRECHECK: bucket + schema");
   const { data, error } = await supabase.storage.listBuckets();
   if (error) {
-    console.error("listBuckets error:", { message: error.message, name: error.name });
+    console.error("listBuckets error:", error.message);
     return false;
   }
-
   const bucket = data?.find((item) => item.id === "insurance-documents");
-  console.log("Buckets found:", data?.map((item) => item.id).join(", ") || "(none)");
+  console.log("Buckets:", data?.map((b) => b.id).join(", ") || "(none)");
   console.log("insurance-documents exists:", Boolean(bucket));
-  if (bucket) {
-    console.log("Bucket metadata:", {
-      public: bucket.public,
-      file_size_limit: bucket.file_size_limit,
-    });
-  }
-  return Boolean(bucket);
-}
 
-async function checkColumns() {
-  logSection("6. insurance_verification_requests *_url columns");
-  const { data, error } = await supabase
+  const { error: schemaError } = await supabase
     .from("insurance_verification_requests")
     .select(DOCUMENT_COLUMNS.join(", "))
-    .limit(1);
-
-  if (error) {
-    console.error("Column check failed:", {
-      message: error.message,
-      code: error.code,
-      hint: error.hint,
-    });
-    return false;
-  }
-
-  console.log("Column select succeeded. Sample row keys:", data?.[0] ? Object.keys(data[0]) : "(no rows)");
-  return true;
-}
-
-function createTinyPng(path) {
-  // 1x1 PNG
-  const base64 =
-    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";
-  writeFileSync(path, Buffer.from(base64, "base64"));
+    .limit(0);
+  console.log("Document columns selectable:", schemaError ? `NO (${schemaError.message})` : "YES");
+  return Boolean(bucket) && !schemaError;
 }
 
 async function submitMultipart() {
-  logSection("7-8. Local multipart POST /api/insurance/verify");
+  section("STEP 1-2: POST /api/insurance/verify multipart submission");
 
   const tmpDir = resolve(root, ".tmp-debug-upload");
-  if (!existsSync(tmpDir)) {
-    const { mkdirSync } = await import("fs");
-    mkdirSync(tmpDir, { recursive: true });
-  }
+  if (!existsSync(tmpDir)) mkdirSync(tmpDir, { recursive: true });
 
   const frontPath = resolve(tmpDir, "front.png");
   const backPath = resolve(tmpDir, "back.png");
@@ -125,7 +100,7 @@ async function submitMultipart() {
     parentLastName: "Upload",
     fullName: "Test Child",
     dateOfBirth: "02/04/2019",
-    email: "debug-upload@example.com",
+    email: `debug-upload-${Date.now()}@example.com`,
     phone: "(571) 478-0089",
     zipCode: "22041",
     insuranceProvider: "Virginia Medicaid / Cardinal Care",
@@ -136,46 +111,141 @@ async function submitMultipart() {
 
   const formData = new FormData();
   formData.append("payload", JSON.stringify(payload));
-  formData.append("insurance_front", new Blob([readFileSync(frontPath)], { type: "image/png" }), "front.png");
-  formData.append("insurance_back", new Blob([readFileSync(backPath)], { type: "image/png" }), "back.png");
+  formData.append(
+    "insurance_front",
+    new Blob([readFileSync(frontPath)], { type: "image/png" }),
+    "front.png",
+  );
+  formData.append(
+    "insurance_back",
+    new Blob([readFileSync(backPath)], { type: "image/png" }),
+    "back.png",
+  );
 
   console.log("POST", `${apiBase}/api/insurance/verify`);
-  console.log("Content-Type will include multipart boundary (set by fetch)");
+  console.log("Multipart fields: payload, insurance_front, insurance_back");
 
-  let response;
-  let responseText = "";
-  try {
-    response = await fetch(`${apiBase}/api/insurance/verify`, {
-      method: "POST",
-      body: formData,
-    });
-    responseText = await response.text();
-  } catch (error) {
-    console.error("Fetch failed:", error instanceof Error ? error.message : String(error));
-    return;
-  }
+  const response = await fetch(`${apiBase}/api/insurance/verify`, {
+    method: "POST",
+    body: formData,
+  });
+  const responseText = await response.text();
 
   console.log("HTTP status:", response.status, response.statusText);
   console.log("Response content-type:", response.headers.get("content-type"));
-  console.log("Raw response (first 2000 chars):", responseText.slice(0, 2000));
+  console.log("Raw response:", responseText);
 
+  let json;
   try {
-    const json = JSON.parse(responseText);
-    console.log("Parsed JSON keys:", Object.keys(json));
-    console.log("success:", json.success, "requestId:", json.requestId, "error:", json.error, "details:", json.details);
-  } catch (parseError) {
-    console.error("Response is not valid JSON:", parseError instanceof Error ? parseError.message : String(parseError));
+    json = JSON.parse(responseText);
+  } catch {
+    json = null;
+  }
+
+  return { response, json, payload };
+}
+
+async function verifyDatabaseRow(requestId) {
+  section("STEP 5: Database row URL columns after submission");
+  console.log("requestId:", requestId);
+
+  const { data, error } = await supabase
+    .from("insurance_verification_requests")
+    .select(
+      [
+        "id",
+        "created_at",
+        "status",
+        ...DOCUMENT_COLUMNS,
+      ].join(", "),
+    )
+    .eq("id", requestId)
+    .maybeSingle();
+
+  if (error) {
+    console.error("SELECT error:", {
+      message: error.message,
+      code: error.code,
+      details: error.details,
+      hint: error.hint,
+    });
+    return;
+  }
+
+  if (!data) {
+    console.error("No row found for requestId");
+    return;
+  }
+
+  console.log("Row found:");
+  for (const column of DOCUMENT_COLUMNS) {
+    console.log(`  ${column}:`, data[column] ?? null);
+  }
+}
+
+async function verifyStorageObjects(requestId) {
+  section("STEP 3-4: Storage objects in insurance-documents bucket");
+  console.log("Listing prefix:", `${requestId}/`);
+
+  const { data, error } = await supabase.storage.from("insurance-documents").list(requestId, {
+    limit: 100,
+    sortBy: { column: "name", order: "asc" },
+  });
+
+  if (error) {
+    console.error("Storage list error:", {
+      message: error.message,
+      name: error.name,
+    });
+    return;
+  }
+
+  if (!data?.length) {
+    console.log("No objects found under request folder.");
+    return;
+  }
+
+  for (const item of data) {
+    const objectPath = `${requestId}/${item.name}`;
+    console.log("Object:", objectPath, "| size:", item.metadata?.size ?? "unknown");
   }
 }
 
 async function main() {
-  console.log("Insurance upload pipeline debug");
-  console.log("Supabase URL:", supabaseUrl);
+  console.log("Insurance upload pipeline — full debug run");
   console.log("API base:", apiBase);
+  console.log("Supabase:", supabaseUrl);
 
-  await checkBucket();
-  await checkColumns();
-  await submitMultipart();
+  const ready = await checkBucket();
+  if (!ready) {
+    console.error("\nPrecheck failed. Aborting submission.");
+    process.exit(1);
+  }
+
+  const { response, json } = await submitMultipart();
+  const requestId = json?.requestId;
+
+  if (!requestId) {
+    console.error("\nNo requestId in API response. Check dev server terminal for upload logs.");
+    process.exit(1);
+  }
+
+  await verifyStorageObjects(requestId);
+  await verifyDatabaseRow(requestId);
+
+  section("SUMMARY");
+  const allNull =
+    json?.success === true
+      ? "Will verify from DB query above"
+      : "API did not return success:true";
+
+  console.log("API success:", json?.success);
+  console.log("API error:", json?.error ?? null);
+  console.log("requestId:", requestId);
+  console.log(allNull);
+  console.log(
+    "\nCheck the Next.js dev server terminal for lines prefixed with [insurance/verify]",
+  );
 }
 
 main().catch((error) => {

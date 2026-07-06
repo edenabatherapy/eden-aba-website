@@ -165,10 +165,21 @@ function isUploadableFormFile(value: unknown): value is UploadableFormFile {
     typeof (value as UploadableFormFile).arrayBuffer === "function" &&
     "size" in value &&
     typeof (value as UploadableFormFile).size === "number" &&
-    (value as UploadableFormFile).size > 0 &&
-    "name" in value &&
-    typeof (value as UploadableFormFile).name === "string"
+    (value as UploadableFormFile).size > 0
   );
+}
+
+function resolveUploadFileName(
+  fieldKey: InsuranceDocumentFieldKey,
+  file: UploadableFormFile,
+): string {
+  const trimmed = String(file.name || "").trim();
+  if (trimmed) return trimmed;
+
+  const mime = (file.type || "").toLowerCase();
+  if (mime === "application/pdf") return `${fieldKey}.pdf`;
+  if (mime === "image/png") return `${fieldKey}.png`;
+  return `${fieldKey}.jpg`;
 }
 
 async function uploadVerificationDocumentsAfterInsert(
@@ -211,7 +222,7 @@ async function uploadVerificationDocumentsAfterInsert(
   for (const [fieldKey, file] of entries) {
     const buffer = Buffer.from(await file.arrayBuffer());
     prepared[fieldKey] = {
-      fileName: file.name,
+      fileName: resolveUploadFileName(fieldKey, file),
       mimeType: file.type,
       size: file.size,
       buffer,
@@ -413,9 +424,20 @@ export async function submitInsuranceVerificationRequest(params: {
 
     const savedRequestId = supabaseResult.id;
 
-    if (files && Object.keys(files).length > 0) {
+    const shouldUploadDocuments = Boolean(requireDocuments || (files && Object.keys(files).length > 0));
+    console.info("[insurance/verify] document upload gate", {
+      requestId: savedRequestId,
+      requireDocuments,
+      fileFieldCount: files ? Object.keys(files).length : 0,
+      shouldUploadDocuments,
+    });
+
+    if (shouldUploadDocuments) {
       try {
-        const uploadResult = await uploadVerificationDocumentsAfterInsert(savedRequestId, files);
+        const uploadResult = await uploadVerificationDocumentsAfterInsert(
+          savedRequestId,
+          files || {},
+        );
         if (uploadResult.ok === false) {
           console.error("[insurance/verify][documents] upload pipeline failed after insert", {
             requestId: savedRequestId,

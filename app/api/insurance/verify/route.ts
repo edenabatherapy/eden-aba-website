@@ -5,7 +5,9 @@ import {
   getVerificationMode,
   isLiveVerificationEnabled,
 } from "@/lib/insurance/verifyInsurance";
-import type { InsuranceVerificationRequest } from "@/types/insurance";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   const mode = getVerificationMode();
@@ -22,10 +24,24 @@ export async function POST(req: Request) {
     isMultipart: contentType.includes("multipart/form-data"),
   });
 
-  if (contentType.includes("multipart/form-data")) {
+  const isMultipart =
+    contentType.includes("multipart/form-data") || contentType.includes("multipart/");
+
+  if (isMultipart) {
     const parsed = await parseInsuranceVerificationMultipart(req);
     if (parsed.ok === false) {
       return parsed.response;
+    }
+
+    const fileCount = Object.keys(parsed.data.files).length;
+    if (fileCount === 0) {
+      console.error("[insurance/verify] multipart request had no document files", {
+        contentType: contentType.split(";")[0] || "(missing)",
+      });
+      return NextResponse.json(
+        { error: "Insurance card front and back documents are required." },
+        { status: 400 },
+      );
     }
 
     return submitInsuranceVerificationRequest({
@@ -35,18 +51,15 @@ export async function POST(req: Request) {
     });
   }
 
-  let body: InsuranceVerificationRequest & { recaptchaToken?: string };
-  try {
-    body = (await req.json()) as InsuranceVerificationRequest & { recaptchaToken?: string };
-  } catch (parseError) {
-    console.error("[api/insurance/verify] request-body-parse", {
-      message: parseError instanceof Error ? parseError.message : String(parseError),
-    });
-    return NextResponse.json(
-      { error: "Invalid or missing required form information." },
-      { status: 400 },
-    );
-  }
+  console.error("[insurance/verify] JSON submission rejected — documents require multipart/form-data", {
+    contentType: contentType.split(";")[0] || "(missing)",
+  });
 
-  return submitInsuranceVerificationRequest({ body });
+  return NextResponse.json(
+    {
+      error:
+        "Insurance verification with documents must be submitted as multipart/form-data. Please refresh and try again.",
+    },
+    { status: 415 },
+  );
 }

@@ -47,6 +47,23 @@ function postInsuranceVerificationWithProgress(
     details?: unknown;
   };
 }> {
+  const fileKeys = Array.from(formData.keys()).filter(
+    (key) => key.includes("Document") || key.includes("insurance") || key.includes("file"),
+  );
+  let fileCount = 0;
+  for (const key of fileKeys) {
+    const value = formData.get(key);
+    if (value instanceof File && value.size > 0) {
+      fileCount += 1;
+    }
+  }
+
+  console.log("Insurance upload debug:", {
+    hasFormData: true,
+    fileKeys,
+    fileCount,
+  });
+
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/insurance/verify");
@@ -57,7 +74,13 @@ function postInsuranceVerificationWithProgress(
     };
     xhr.onload = () => {
       const contentType = xhr.getResponseHeader("content-type") || "";
-      let data: { success?: boolean; requestId?: string; error?: string; message?: string; details?: unknown };
+      let data: {
+        success?: boolean;
+        requestId?: string;
+        error?: string;
+        message?: string;
+        details?: unknown;
+      };
       if (contentType.includes("application/json") && xhr.responseText) {
         try {
           data = JSON.parse(xhr.responseText) as typeof data;
@@ -383,8 +406,8 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     formData.append("payload", JSON.stringify(payload));
     for (const field of INSURANCE_DOCUMENT_FIELDS) {
       const file = documents[field.key];
-      if (file) {
-        formData.append(field.key, file);
+      if (file instanceof File && file.size > 0) {
+        formData.append(field.key, file, file.name);
       }
     }
 
