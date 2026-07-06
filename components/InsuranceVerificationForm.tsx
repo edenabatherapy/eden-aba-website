@@ -337,12 +337,20 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
     const nextDocumentErrors: Partial<Record<InsuranceDocumentFieldKey, string>> = {};
     for (const field of INSURANCE_DOCUMENT_FIELDS) {
       const file = documents[field.key];
-      if (field.required && !file) {
-        nextDocumentErrors[field.key] =
-          formT.errors?.documentRequired || "This document is required.";
+      if (field.required) {
+        if (!(file instanceof File) || file.size <= 0) {
+          nextDocumentErrors[field.key] =
+            formT.errors?.documentRequired || "This document is required.";
+        } else {
+          const validationError = validateInsuranceDocumentClient(file);
+          if (validationError) {
+            nextDocumentErrors[field.key] = validationError;
+          }
+        }
         continue;
       }
-      if (file) {
+
+      if (file instanceof File && file.size > 0) {
         const validationError = validateInsuranceDocumentClient(file);
         if (validationError) {
           nextDocumentErrors[field.key] = validationError;
@@ -352,9 +360,14 @@ function InsuranceVerificationForm({ t, onSchedule, onHome, onStart }) {
 
     if (Object.keys(nextDocumentErrors).length > 0) {
       setDocumentErrors(nextDocumentErrors);
+      const onlyRequiredMissing = Object.keys(nextDocumentErrors).every((key) =>
+        INSURANCE_DOCUMENT_FIELDS.find((field) => field.key === key)?.required,
+      );
       setError(
-        formT.errors?.documentsRequired ||
-          "Please upload required insurance card images (front and back).",
+        onlyRequiredMissing
+          ? formT.errors?.documentsRequired ||
+              "Please upload required insurance card images (front and back)."
+          : formT.errors?.submitFailed || "One or more uploaded documents are invalid.",
       );
       return;
     }

@@ -8,6 +8,7 @@ import {
   INSURANCE_DOCUMENT_FIELDS,
   type InsuranceDocumentFieldKey,
 } from "@/lib/insurance/insurance-document-fields";
+import { validateInsuranceUploadMetadata } from "@/lib/insurance/validate-insurance-upload";
 import { validateAndNormalizeInsuranceVerificationRequest } from "@/lib/insurance/normalize-verification-request";
 import { notifyNewVerificationRequest } from "@/lib/insurance/notifications";
 import { MANUAL_PENDING_NOTES } from "@/lib/insurance/providers/ManualVerificationProvider";
@@ -260,17 +261,37 @@ async function uploadVerificationDocumentsAfterInsert(
   return { ok: true };
 }
 
+function validatePresentInsuranceDocuments(
+  files?: Partial<Record<InsuranceDocumentFieldKey, UploadableFormFile>>,
+): string | null {
+  for (const field of INSURANCE_DOCUMENT_FIELDS) {
+    const file = files?.[field.key];
+    if (!isUploadableFormFile(file)) {
+      if (field.required) {
+        return PUBLIC_ERRORS.documents;
+      }
+      continue;
+    }
+
+    try {
+      validateInsuranceUploadMetadata({
+        fieldKey: field.key,
+        fileName: resolveUploadFileName(field.key, file),
+        mimeType: file.type,
+        size: file.size,
+      });
+    } catch {
+      return `Invalid file for ${field.key}.`;
+    }
+  }
+
+  return null;
+}
+
 function validateRequiredInsuranceDocuments(
   files?: Partial<Record<InsuranceDocumentFieldKey, UploadableFormFile>>,
 ): string | null {
-  const requiredFields = INSURANCE_DOCUMENT_FIELDS.filter((field) => field.required);
-  for (const field of requiredFields) {
-    const file = files?.[field.key];
-    if (!isUploadableFormFile(file)) {
-      return PUBLIC_ERRORS.documents;
-    }
-  }
-  return null;
+  return validatePresentInsuranceDocuments(files);
 }
 
 export async function submitInsuranceVerificationRequest(params: {

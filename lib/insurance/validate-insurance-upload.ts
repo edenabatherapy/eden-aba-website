@@ -35,6 +35,27 @@ function sanitizeInsuranceFilename(originalName: string): string {
   return `${stem || "document"}${ext}`.slice(0, 180);
 }
 
+export function validateInsuranceUploadMetadata(params: {
+  fieldKey: InsuranceDocumentFieldKey;
+  fileName: string;
+  mimeType: string;
+  size: number;
+}): void {
+  if (params.size <= 0) {
+    throw new Error("Invalid file upload.");
+  }
+  if (params.size > INSURANCE_DOCUMENT_MAX_BYTES) {
+    throw new Error("File exceeds 10 MB limit.");
+  }
+
+  sanitizeInsuranceFilename(params.fileName);
+
+  const mimeType = (params.mimeType || "").toLowerCase();
+  if (mimeType && !ALLOWED_MIME.has(mimeType)) {
+    throw new Error("File type is not allowed.");
+  }
+}
+
 export function validateInsuranceUploadFile(params: {
   fieldKey: InsuranceDocumentFieldKey;
   fileName: string;
