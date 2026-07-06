@@ -1,0 +1,37 @@
+.eden-careers-hero--crystal.eden-careers-hero {
+  background: none;
+}
+
+.eden-careers-hero--crystal .eden-careers-hero__shell {
+  position: relative;
+  z-index: 1;
+}
+
+.eden-careers-hero--crystal .eden-careers-panel {
+  position: relative;
+  border: 1px solid rgba(8, 122, 61, 0.12);
+  box-shadow:
+    0 24px 60px rgba(8, 122, 61, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.eden-careers-hero--crystal .eden-careers-reason {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .eden-careers-hero--crystal .eden-careers-reason:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eden-careers-hero--crystal .eden-careers-reason {
+    transition: none;
+  }
+
+  .eden-careers-hero--crystal .eden-careers-reason:hover {
+    transform: none;
+  }
+}

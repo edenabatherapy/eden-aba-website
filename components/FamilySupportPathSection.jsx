@@ -11,6 +11,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import "./FamilySupportPathSection.css";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
 
 const STEP_ICONS = [Search, FileCheck2, CalendarDays, ClipboardList];
 
@@ -173,14 +174,12 @@ export default function FamilySupportPathSection({
   return (
     <section
       id="getting-started"
-      className="family-path-section scroll-mt-28 px-4 py-20 lg:px-8 lg:py-28"
+      className={`family-path-section ${getCrystalLightSectionClass("deep-forest")} scroll-mt-28 px-4 py-20 lg:px-8 lg:py-28`}
     >
+      <CrystalLightAmbient preset="deep-forest" />
       <div className="family-path-grid" aria-hidden="true" />
-      <div className="family-path-blob family-path-blob--1" aria-hidden="true" />
-      <div className="family-path-blob family-path-blob--2" aria-hidden="true" />
-      <div className="family-path-blob family-path-blob--3" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="crystal-light-inner relative mx-auto max-w-7xl">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}

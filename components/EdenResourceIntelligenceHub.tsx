@@ -4,13 +4,12 @@ import Image from "next/image";
 import { useMemo } from "react";
 import { ExternalLink } from "lucide-react";
 import { PROFESSIONAL_ORGANIZATIONS } from "@/lib/professional-organizations";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
+import "./EdenResourceIntelligenceHub.css";
 
 function OrganizationResourceCard({ org, visitWebsiteLabel }) {
   return (
-    <article
-      title={org.summary}
-      className="group flex h-[180px] w-[160px] shrink-0 flex-col items-center overflow-hidden rounded-[18px] border border-slate-100/90 bg-white p-4 text-center shadow-[0_8px_24px_-12px_rgba(11,79,79,0.18)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_12px_28px_-14px_rgba(18,140,140,0.22)]"
-    >
+    <article title={org.summary} className="eden-resource-hub__card group">
       <div className="flex h-[55px] w-full shrink-0 items-center justify-center">
         <Image
           src={org.logo}
@@ -56,74 +55,31 @@ export default function EdenResourceIntelligenceHub({ t }) {
   return (
     <section
       id="eden-resource-intelligence-hub"
-      className="relative w-full overflow-hidden bg-[#f4faf8] pt-12 pb-6"
+      className={`eden-resource-hub ${getCrystalLightSectionClass("warm-ivory")}`}
       aria-labelledby="professional-organizations-title"
     >
-      <style>{`
-        @keyframes orgCarouselPingPong {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        .hub-orgs-track {
-          animation: orgCarouselPingPong 48s ease-in-out infinite alternate;
-          will-change: transform;
-        }
-        .hub-orgs-carousel:hover .hub-orgs-track {
-          animation-play-state: paused;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .hub-orgs-track {
-            animation: none !important;
-            transform: none !important;
-          }
-          .hub-orgs-card--loop {
-            display: none !important;
-          }
-        }
-        @media (max-width: 767px) {
-          .hub-orgs-track {
-            animation-duration: 56s;
-          }
-        }
-      `}</style>
+      <CrystalLightAmbient preset="warm-ivory" />
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #2D9C9C 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div aria-hidden="true" className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-[#A8D86A]/25 blur-3xl" />
-      <div aria-hidden="true" className="pointer-events-none absolute -right-32 bottom-0 h-[28rem] w-[28rem] rounded-full bg-[#6EC6C4]/20 blur-3xl" />
-
-      <div className="relative mx-auto w-full max-w-7xl px-4 lg:px-8">
-        <header className="mx-auto max-w-4xl text-center">
-          <h2
-            id="professional-organizations-title"
-            className="text-2xl font-extrabold tracking-tight text-[#0b4f4f] md:text-[30px] lg:text-[36px]"
-          >
+      <div className="crystal-light-inner relative mx-auto w-full max-w-7xl px-4 lg:px-8">
+        <header className="eden-resource-hub__header">
+          {hub.eyebrow ? (
+            <p className="eden-resource-hub__eyebrow">{hub.eyebrow}</p>
+          ) : null}
+          <h2 id="professional-organizations-title" className="eden-resource-hub__title">
             {hub.zone2Title || "Professional Organizations & Community Resources"}
           </h2>
-          <p className="mx-auto mt-3 max-w-[800px] text-base font-medium leading-[1.6] text-slate-600">
+          <p className="eden-resource-hub__subtitle">
             {hub.zone2Subtitle ||
               "Trusted autism, ABA, advocacy, research, and family-support organizations."}
           </p>
         </header>
 
         <div
-          className="hub-orgs-carousel relative mx-auto mt-5 w-full overflow-hidden"
+          className="hub-orgs-carousel eden-resource-hub__carousel"
           aria-label={hub.zone2Title || "Professional Organizations & Community Resources"}
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-[#f4faf8] to-transparent sm:w-12"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-[#f4faf8] to-transparent sm:w-12"
-          />
+          <div aria-hidden="true" className="eden-resource-hub__fade-left" />
+          <div aria-hidden="true" className="eden-resource-hub__fade-right" />
 
           <div className="hub-orgs-viewport w-full overflow-hidden">
             <div className="hub-orgs-track flex w-max flex-nowrap items-center gap-3 sm:gap-4">
@@ -147,7 +103,7 @@ export default function EdenResourceIntelligenceHub({ t }) {
           </div>
         </div>
 
-        <p className="mx-auto mt-5 max-w-3xl text-center text-xs font-medium leading-5 text-[#173B2F]/55">
+        <p className="eden-resource-hub__disclaimer">
           {hub.disclaimer ||
             "Professional organization logos are shown as educational and resource references. Display does not imply endorsement, partnership, accreditation, or membership unless formally confirmed."}
         </p>

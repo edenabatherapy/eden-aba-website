@@ -38,6 +38,8 @@ import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import Footer from "@/components/common/Footer";
 import HomeCareersHero from "@/components/home/HomeCareersHero";
 import FamilyCommitmentSection from "@/components/home/FamilyCommitmentSection";
+import HomepageIntakeCtaSection from "@/components/home/HomepageIntakeCtaSection";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
 import LocationsMapEmbed from "@/components/LocationsMapEmbed";
 import LocationsSearchBar from "@/components/LocationsSearchBar";
 import { getButtonClasses } from "@/lib/button-styles";
@@ -2038,10 +2040,11 @@ function ServiceExplorer({ t }) {
   }));
 
   return (
-    <section className="bg-white px-4 py-20 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className={`service-explorer-section ${getCrystalLightSectionClass("navy-teal")} px-4 py-20 lg:px-8`}>
+      <CrystalLightAmbient preset="navy-teal" />
+      <div className="crystal-light-inner mx-auto max-w-7xl">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-black italic tracking-tight text-[#128c8c] md:text-5xl">{t.serviceHeadline}</h2>
+          <h2 className="text-4xl font-black italic tracking-tight text-[#0f766e] md:text-5xl">{t.serviceHeadline}</h2>
           <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{t.serviceSubtitle}</p>
         </div>
 
@@ -2052,7 +2055,7 @@ function ServiceExplorer({ t }) {
               href={card.href}
               className="group block cursor-pointer overflow-hidden rounded-[1.8rem] bg-white shadow-xl shadow-[#128c8c]/10 ring-1 ring-slate-100 transition hover:-translate-y-1 hover:shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#128c8c]"
             >
-              <article className="h-full">
+              <article className="h-full crystal-light-border-glow">
                 <img src={card.image} alt={card.alt} className="h-44 w-full object-cover" />
                 <div className="min-h-[230px] bg-gradient-to-br from-[#1f7a2e] via-[#128c8c] to-[#0b4f4f] p-6 text-white">
                   <h3 className="text-2xl font-black leading-tight">{card.title}</h3>
@@ -2073,15 +2076,15 @@ function ParentResourcesSection({ t, onStart, id }) {
   const resources = pr.cards.map(([title, text], i) => [RESOURCE_ICONS[i], title, text]);
 
   return (
-    <section id={id} className="bg-white px-4 py-20 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id={id} className={`parent-resources-section ${getCrystalLightSectionClass("warm-ivory")} px-4 py-20 lg:px-8`}>
+      <CrystalLightAmbient preset="warm-ivory" />
+      <div className="crystal-light-inner mx-auto max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.25em] text-[#128c8c]">{pr.eyebrow}</p>
           <h2 className="mt-3 text-4xl font-black text-[#0b4f4f] md:text-5xl">{pr.title}</h2>
           <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{pr.intro}</p>
         </div>
-        {/* TODO: Replace with final brand photo — parent reading caregiver education resources. */}
-        <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-slate-100">
+        <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-slate-100 crystal-light-border-glow">
           <img
             src={IMG.parentResources.banner}
             alt={pr.bannerImageAlt}
@@ -2090,7 +2093,7 @@ function ParentResourcesSection({ t, onStart, id }) {
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {resources.map(([Icon, title, text]) => (
-            <article key={title} className="rounded-[2rem] border border-slate-100 bg-gradient-to-br from-white to-[#ddf4f4]/40 p-7 shadow-xl shadow-[#128c8c]/5">
+            <article key={title} className="rounded-[2rem] border border-slate-100 bg-white/90 p-7 shadow-xl shadow-[#128c8c]/5 crystal-light-border-glow backdrop-blur-sm">
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#fff8df] text-[#ff8a1f]"><Icon size={28} /></div>
               <h3 className="mt-5 text-xl font-black text-[#0b4f4f]">{title}</h3>
               <p className="mt-3 text-sm font-semibold leading-7 text-slate-700">{text}</p>
@@ -3455,43 +3458,7 @@ export default function EdenABAWebsite() {
         onStart={() => goToPage("intake")}
         onVerifyInsurance={() => goToPage("insurance-coverage")}
       />
-      <section className="bg-gradient-to-br from-[#128c8c] via-[#1f7a2e] to-[#0b4f4f] px-4 py-24 lg:px-8">
-        <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="pt-4 text-white lg:sticky lg:top-28">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-black backdrop-blur-md">
-              <HeartHandshake size={18} className="text-lime-300" /> {t.intakeBadge}
-            </div>
-
-            <h2 className="mt-7 max-w-xl text-5xl font-black leading-tight tracking-tight md:text-6xl">
-              {t.intakeTitle}
-            </h2>
-
-            <p className="mt-6 max-w-xl text-lg leading-8 text-teal-50/95">
-              {t.intakeSubtitle}
-            </p>
-
-            <div className="mt-8 grid gap-4">
-              {t.benefits.map((item) => (
-                <div key={item} className="flex items-center gap-4 rounded-2xl border border-white/15 bg-white/10 p-4 shadow-lg shadow-emerald-950/10 backdrop-blur-md">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-lime-400 text-emerald-950">
-                    <Check size={20} />
-                  </div>
-                  <p className="text-base font-black text-white">{item}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8 rounded-[1.8rem] border border-white/15 bg-white/10 p-5 backdrop-blur-md">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-lime-300">{t.whatNext}</p>
-              <p className="mt-3 leading-7 text-teal-50">
-                {t.whatNextText}
-              </p>
-            </div>
-          </div>
-
-          <HomepageInterestForm t={t} />
-        </div>
-      </section>
+      <HomepageIntakeCtaSection t={t} />
       <NewsletterBanner t={t} />
       <Footer />
     </main>

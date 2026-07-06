@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Heart, Sparkles } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import { getButtonClasses } from "@/lib/button-styles";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
 import { FAMILY_COMMITMENT_CONTENT } from "@/lib/home/family-commitment-content";
 import "./FamilyCommitmentSection.css";
 
@@ -94,32 +95,12 @@ export default function FamilyCommitmentSection({
 
   return (
     <section
-      className="eden-commitment-section px-4 py-16 sm:py-20 lg:px-8 lg:py-24"
+      className={`eden-commitment-section ${getCrystalLightSectionClass("dark-emerald")} px-4 py-16 sm:py-20 lg:px-8 lg:py-24`}
       aria-labelledby="family-commitment-heading"
     >
-      <div className="eden-commitment-section__ambient" aria-hidden="true">
-        <div className="eden-commitment-mesh" />
-        <div className="eden-commitment-vignette" />
-        <div className="eden-commitment-glass-overlay" />
-        <div className="eden-commitment-light-ray eden-commitment-light-ray--1" />
-        <div className="eden-commitment-light-ray eden-commitment-light-ray--2" />
-        <div className="eden-commitment-aurora eden-commitment-aurora--1" />
-        <div className="eden-commitment-aurora eden-commitment-aurora--2" />
-        <div className="eden-commitment-aurora eden-commitment-aurora--3" />
-        <div className="eden-commitment-glow-line eden-commitment-glow-line--top" />
-        <div className="eden-commitment-glow-line eden-commitment-glow-line--mid" />
-        <div className="eden-commitment-glow-line eden-commitment-glow-line--bottom" />
-        <div className="eden-commitment-particle eden-commitment-particle--1" />
-        <div className="eden-commitment-particle eden-commitment-particle--2" />
-        <div className="eden-commitment-particle eden-commitment-particle--3" />
-        <div className="eden-commitment-particle eden-commitment-particle--4" />
-        <div className="eden-commitment-particle eden-commitment-particle--5" />
-        <div className="eden-commitment-particle eden-commitment-particle--6" />
-        <div className="eden-commitment-crystal eden-commitment-crystal--1" />
-        <div className="eden-commitment-crystal eden-commitment-crystal--2" />
-      </div>
+      <CrystalLightAmbient preset="dark-emerald" />
 
-      <div className="eden-commitment-inner mx-auto max-w-7xl">
+      <div className="eden-commitment-inner crystal-light-inner mx-auto max-w-7xl">
         <motion.header
           className="eden-commitment-header max-w-3xl"
           variants={headerContainer}

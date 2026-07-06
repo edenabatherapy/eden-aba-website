@@ -54,8 +54,8 @@
     "abaRightForMe": "Is ABA therapy right for me?",
     "asdSupport": "Get ASD evaluation support",
     "call": "Call",
-    "serviceHeadline": "Let's Talk About ABA Therapy.",
-    "serviceSubtitle": "Our team provides personalized ABA therapy designed to meet every child's unique needs. From communication and social skills to daily routines and positive behaviors, Eden ABA Therapy creates supportive care plans that help children grow with confidence.",
+    "serviceHeadline": "ABA Services Built Around Your Child.",
+    "serviceSubtitle": "Explore home, clinic, school, and community settings — each designed to build communication, daily living skills, and confidence in the environment where your child learns best.",
     "services": [
       [
         "School Support ABA Therapy",
@@ -104,9 +104,9 @@
     "gettingStartedP1": "If your child already has an autism diagnosis and you want to get started with ABA therapy, you can contact us to schedule an intake.",
     "gettingStartedP2": "If your child has many of the early signs of autism and does not yet have a diagnosis, we can help guide you through diagnostic support options.",
     "familySupportPath": {
-      "eyebrow": "Your Path to Support",
-      "title": "Four Simple Steps to Begin",
-      "subtitle": "From early screening to intake, Eden helps families move forward with clarity, confidence, and compassionate guidance.",
+      "eyebrow": "Getting Started",
+      "title": "A Clear Path From Questions to Care",
+      "subtitle": "Whether you are exploring early signs or ready to enroll, Eden maps each milestone — screening, evaluation, consultation, and intake — so families always know what comes next.",
       "outcomesLabel": "What this step helps with",
       "journeyLabel": "Screening → Evaluation → Consultation → Intake",
       "stepOneNote": "M-CHAT-R is commonly used for toddlers around 16–30 months. CAST may be useful for older children. Screening results should be reviewed with a qualified professional.",
@@ -204,12 +204,12 @@
       }
     },
     "resourceIntelligenceHub": {
-      "eyebrow": "Resource intelligence",
+      "eyebrow": "Trusted connections",
       "title": "Eden Resource Intelligence Hub",
-      "subtitle": "A smart, interactive resource center combining trusted autism organizations, family guidance, care navigation, and Eden ABA Therapy impact insights.",
+      "subtitle": "Explore respected autism, ABA, advocacy, and research organizations that families and clinicians reference for evidence-informed guidance.",
       "zone1Title": "Animated Impact Analytics",
-      "zone2Title": "Professional Organizations & Community Resources",
-      "zone2Subtitle": "Trusted autism, ABA, advocacy, research, and family-support organizations.",
+      "zone2Title": "National & Regional Autism Organizations",
+      "zone2Subtitle": "Curated links to professional bodies, advocacy groups, and research foundations in the autism community.",
       "zone3Title": "Smart Family Resource Matcher",
       "zone3Subtitle": "Select your child's age, main concern, and what your family needs most.",
       "analyticsBadge": "Presentation metrics",
@@ -327,16 +327,16 @@
     "submitRequest": "Submit Request",
     "bookAnother": "Book Another",
     "requiredNotice": "Please complete all required fields before continuing.",
-    "intakeBadge": "Family-centered support",
-    "intakeTitle": "Help your child thrive with ABA therapy.",
-    "intakeSubtitle": "Complete our online interest form and our team will contact you to guide you through the next steps.",
+    "intakeBadge": "Ready when you are",
+    "intakeTitle": "Share your family's story — we'll guide the rest.",
+    "intakeSubtitle": "Our interest form takes just a few minutes. An intake coordinator will reach out to review your child's needs, insurance, and scheduling options.",
     "benefits": [
-      "Personalized ABA therapy plans",
-      "Support for families and caregivers",
-      "Compassionate care from intake to services"
+      "Dedicated intake coordinator assigned to your family",
+      "Insurance and documentation review before your first session",
+      "Personalized service recommendations based on your child's profile"
     ],
     "whatNext": "What happens next?",
-    "whatNextText": "Eden ABA Therapy reviews your information, contacts you for intake, discusses insurance or documentation needs, and helps schedule the next appropriate step.",
+    "whatNextText": "After you submit the form, Eden reviews your information, contacts you within one business day, and walks you through benefits verification, required documents, and scheduling.",
     "intakeFormTitle": "Start ABA Therapy",
     "parentName": "Parent's Name (Required)",
     "childFirstName": "Child's First Name",
@@ -1008,13 +1008,13 @@
     "autismAwareness": {
       "title": "Autism Awareness Counter",
       "titleParts": [
+        "Live",
         "Autism",
-        "Awareness",
-        "Counter"
+        "Statistics"
       ],
       "cdcBadge": "CDC estimate: 1 in 31 children identified with autism",
-      "intro": "A live educational estimate created to promote autism awareness, early support, and compassionate care for children and families.",
-      "tagline": "Eden ABA Therapy | Awareness, Guidance, and Family-Centered Support",
+      "intro": "Real-time estimates based on CDC prevalence data — a visual reminder of why early identification and access to care matter for families nationwide.",
+      "tagline": "Data-informed awareness supports earlier support for children and families",
       "currentTimePrefix": "Current Time:",
       "updatesInRealtime": "Updates in real-time",
       "liveClockLabel": "Current Time",
@@ -1117,68 +1117,68 @@
       }
     },
     "parentResources": {
-      "eyebrow": "Parent Resources",
-      "title": "Autism resources and screening support for families",
-      "intro": "Helpful tools for families exploring autism support, ABA therapy, insurance coverage, and the intake process.",
+      "eyebrow": "Family Learning Hub",
+      "title": "Guides, tools, and answers for caregivers",
+      "intro": "Practical education on autism, ABA strategies, insurance workflows, and what to expect during enrollment — written for parents, not clinicians.",
       "bannerImageAlt": "Parent reviewing autism education and caregiver support resources",
       "cards": [
         [
-          "Autism screening tools",
-          "Parent-friendly M-CHAT-R and CAST screening pathways for early questions and next steps."
+          "Screening pathways",
+          "Age-appropriate M-CHAT-R and CAST tools with plain-language guidance on interpreting results."
         ],
         [
-          "Caregiver guides",
-          "Simple guides for routines, communication, behavior support, insurance, and preparing documents."
+          "Caregiver playbooks",
+          "Routine builders, communication tips, and behavior-support strategies you can use at home today."
         ],
         [
-          "Insurance verification",
-          "A clear workflow for benefits checks, authorizations, and documents needed before ABA starts."
+          "Coverage walkthroughs",
+          "Step-by-step explainers for benefits checks, prior authorization, and documents insurers typically request."
         ],
         [
-          "Parent support",
-          "Live chat, appointment requests, and intake guidance so families know what to do next."
+          "Live family support",
+          "Chat, appointment requests, and intake guidance when you need a real person to point you in the right direction."
         ]
       ],
-      "cta": "Start with an intake form"
+      "cta": "Begin intake"
     },
     "childJourney": {
       "eyebrowIcon": "♡",
-      "eyebrow": "Your Child's Journey",
-      "title": "Your Child's Journey to Success",
-      "subtitle": "From the first screening to ongoing therapy progress, Eden ABA guides your family through every step with clarity, care, and support.",
+      "eyebrow": "Clinical Milestones",
+      "title": "Five Milestones on the Path to Progress",
+      "subtitle": "From first screening through ongoing therapy, Eden coordinates each clinical step so your family always knows where you are and what comes next.",
       "imageAlt": "Therapist supporting a child during ABA therapy session",
       "steps": [
         {
-          "title": "Free Autism Screening",
-          "description": "Start with a free online screening tool to better understand your child's developmental needs."
+          "title": "Developmental Screening",
+          "description": "Age-appropriate screening tools help identify patterns in communication, social interaction, and behavior that may warrant a closer look."
         },
         {
-          "title": "Comprehensive Assessment",
-          "description": "Meet with experienced specialists for a detailed autism evaluation and personalized recommendations."
+          "title": "Clinical Assessment",
+          "description": "Licensed specialists conduct a comprehensive evaluation and deliver personalized recommendations for therapy and support."
         },
         {
-          "title": "Insurance Verification & Approval",
-          "description": "Our team helps verify your benefits and supports the authorization process."
+          "title": "Benefits & Authorization",
+          "description": "Our team verifies insurance coverage and manages the authorization process so families can focus on their child."
         },
         {
-          "title": "Begin ABA Therapy",
-          "description": "Your child begins a personalized ABA therapy plan designed around their unique goals."
+          "title": "Personalized Treatment",
+          "description": "A BCBA-led plan targets your child's unique communication, social, and daily living goals in the setting that fits best."
         },
         {
-          "title": "Progress Tracking & Growth",
-          "description": "Track milestones, review progress, and celebrate meaningful developmental gains."
+          "title": "Ongoing Progress Review",
+          "description": "Regular data reviews, caregiver updates, and milestone tracking keep therapy aligned with your family's priorities."
         }
       ],
       "cta": {
-        "line1": "Every step brings your child closer to a brighter future.",
-        "line2": "We're here for your family.",
-        "button": "Start Your Child's Journey"
+        "line1": "Every milestone builds toward meaningful, lasting growth.",
+        "line2": "Let us walk alongside your family.",
+        "button": "Schedule consultation"
       },
       "trustBadges": [
-        "Compassionate Care",
-        "Expert Clinicians",
-        "Family-Centered Approach",
-        "Proven Results"
+        "BCBA-Supervised",
+        "Evidence-Based Methods",
+        "Family Partnership",
+        "Measurable Outcomes"
       ]
     },
     "clientReviews": {

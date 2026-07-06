@@ -11,6 +11,7 @@ import { useBirthsPerMinuteAnimation } from "@/lib/use-births-per-minute-animati
 import { useInViewport } from "@/lib/use-in-viewport";
 import { useLiveAutismAwarenessMetrics } from "@/lib/use-live-autism-awareness-metrics";
 import ChildClockPanel from "@/components/ChildClockPanel";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
 import "./ImpactDataChartSection.css";
 
 export {
@@ -201,9 +202,12 @@ export default function ImpactDataChartSection({ t }: ImpactDataChartSectionProp
     <>
       <section
         ref={sectionRef}
-        className="eden-awareness-section"
+        className={`eden-awareness-section ${getCrystalLightSectionClass("navy-teal")}`}
         aria-labelledby="autism-awareness-title"
       >
+        <CrystalLightAmbient preset="navy-teal" />
+
+        <div className="crystal-light-inner">
         <header className="eden-awareness-header">
           <p className="eden-awareness-eyebrow">{a.cdcBadge}</p>
 
@@ -231,6 +235,7 @@ export default function ImpactDataChartSection({ t }: ImpactDataChartSectionProp
         </div>
 
         <p className="eden-cdc-source">{a.sourceFooter}</p>
+        </div>
       </section>
 
     </>

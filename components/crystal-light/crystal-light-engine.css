@@ -1,0 +1,469 @@
+/* Crystal Light Engine — reusable ambient visual system (GPU: transform + opacity only) */
+
+.crystal-light-section {
+  position: relative;
+  overflow: hidden;
+  overflow-x: clip;
+  contain: layout style;
+  isolation: isolate;
+}
+
+.crystal-light-ambient {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.crystal-light-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Preset: section backgrounds ── */
+
+.crystal-light-section--dark-emerald {
+  background:
+    radial-gradient(ellipse 90% 60% at 12% -8%, rgba(14, 107, 79, 0.22), transparent 52%),
+    radial-gradient(ellipse 70% 50% at 88% 6%, rgba(11, 79, 79, 0.18), transparent 48%),
+    linear-gradient(168deg, #040a10 0%, #07121f 28%, #0a1a2e 52%, #082218 78%, #050c0a 100%);
+  color: #e8f4f0;
+}
+
+.crystal-light-section--light-mint {
+  background:
+    radial-gradient(ellipse 80% 55% at 15% 0%, rgba(73, 184, 200, 0.14), transparent 50%),
+    radial-gradient(ellipse 65% 45% at 90% 8%, rgba(31, 122, 46, 0.1), transparent 46%),
+    linear-gradient(180deg, #f8fcfa 0%, #ffffff 42%, #eef9f4 100%);
+  color: #0b4f4f;
+}
+
+.crystal-light-section--navy-teal {
+  background:
+    radial-gradient(ellipse 75% 50% at 50% 0%, rgba(15, 159, 143, 0.12), transparent 40%),
+    radial-gradient(ellipse 60% 40% at 8% 80%, rgba(11, 79, 79, 0.08), transparent 44%),
+    linear-gradient(180deg, #f0f6fa 0%, #e8f2f8 55%, #eef4f8 100%);
+  color: #0f172a;
+}
+
+.crystal-light-section--warm-ivory {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 10%, rgba(247, 199, 47, 0.1), transparent 48%),
+    radial-gradient(ellipse 60% 45% at 85% 20%, rgba(18, 140, 140, 0.08), transparent 44%),
+    linear-gradient(180deg, #fffdf8 0%, #f4faf8 50%, #faf6ef 100%);
+  color: #173b2f;
+}
+
+.crystal-light-section--deep-forest {
+  background:
+    radial-gradient(ellipse 70% 50% at 12% 18%, rgba(167, 243, 208, 0.22), transparent 34%),
+    radial-gradient(ellipse 60% 40% at 88% 12%, rgba(125, 211, 252, 0.14), transparent 30%),
+    radial-gradient(ellipse 55% 35% at 50% 100%, rgba(254, 243, 199, 0.2), transparent 42%),
+    linear-gradient(180deg, #f8fffb 0%, #fffdf8 48%, #f4fbf8 100%);
+  color: #0f172a;
+}
+
+/* ── Preset: ambient token overrides ── */
+
+.crystal-light-ambient--dark-emerald {
+  --cl-mesh-a: rgba(18, 140, 140, 0.14);
+  --cl-mesh-b: rgba(31, 122, 46, 0.1);
+  --cl-mesh-c: rgba(73, 184, 200, 0.08);
+  --cl-mesh-d: rgba(11, 79, 79, 0.12);
+  --cl-aurora-a: rgba(18, 140, 140, 0.5);
+  --cl-aurora-b: rgba(14, 107, 79, 0.38);
+  --cl-aurora-c: rgba(73, 184, 200, 0.26);
+  --cl-ray: rgba(126, 232, 216, 0.18);
+  --cl-particle: rgba(188, 235, 218, 0.6);
+  --cl-vignette: rgba(2, 6, 10, 0.72);
+  --cl-glow: rgba(18, 140, 140, 0.32);
+}
+
+.crystal-light-ambient--light-mint {
+  --cl-mesh-a: rgba(73, 184, 200, 0.12);
+  --cl-mesh-b: rgba(31, 122, 46, 0.08);
+  --cl-mesh-c: rgba(247, 199, 47, 0.06);
+  --cl-mesh-d: rgba(18, 140, 140, 0.1);
+  --cl-aurora-a: rgba(73, 184, 200, 0.28);
+  --cl-aurora-b: rgba(31, 122, 46, 0.2);
+  --cl-aurora-c: rgba(247, 199, 47, 0.16);
+  --cl-ray: rgba(73, 184, 200, 0.14);
+  --cl-particle: rgba(18, 140, 140, 0.45);
+  --cl-vignette: rgba(248, 252, 250, 0.4);
+  --cl-glow: rgba(73, 184, 200, 0.22);
+}
+
+.crystal-light-ambient--navy-teal {
+  --cl-mesh-a: rgba(15, 159, 143, 0.1);
+  --cl-mesh-b: rgba(59, 130, 246, 0.06);
+  --cl-mesh-c: rgba(11, 79, 79, 0.08);
+  --cl-mesh-d: rgba(14, 107, 79, 0.06);
+  --cl-aurora-a: rgba(15, 159, 143, 0.22);
+  --cl-aurora-b: rgba(59, 130, 246, 0.14);
+  --cl-aurora-c: rgba(11, 79, 79, 0.12);
+  --cl-ray: rgba(15, 159, 143, 0.12);
+  --cl-particle: rgba(15, 159, 143, 0.4);
+  --cl-vignette: rgba(15, 23, 42, 0.06);
+  --cl-glow: rgba(15, 159, 143, 0.24);
+}
+
+.crystal-light-ambient--warm-ivory {
+  --cl-mesh-a: rgba(247, 199, 47, 0.1);
+  --cl-mesh-b: rgba(18, 140, 140, 0.08);
+  --cl-mesh-c: rgba(255, 138, 31, 0.06);
+  --cl-mesh-d: rgba(168, 216, 106, 0.08);
+  --cl-aurora-a: rgba(247, 199, 47, 0.18);
+  --cl-aurora-b: rgba(18, 140, 140, 0.14);
+  --cl-aurora-c: rgba(255, 138, 31, 0.1);
+  --cl-ray: rgba(247, 199, 47, 0.12);
+  --cl-particle: rgba(18, 140, 140, 0.35);
+  --cl-vignette: rgba(255, 253, 248, 0.3);
+  --cl-glow: rgba(247, 199, 47, 0.2);
+}
+
+.crystal-light-ambient--deep-forest {
+  --cl-mesh-a: rgba(52, 211, 153, 0.14);
+  --cl-mesh-b: rgba(99, 102, 241, 0.1);
+  --cl-mesh-c: rgba(245, 158, 11, 0.08);
+  --cl-mesh-d: rgba(22, 101, 52, 0.1);
+  --cl-aurora-a: rgba(52, 211, 153, 0.2);
+  --cl-aurora-b: rgba(99, 102, 241, 0.14);
+  --cl-aurora-c: rgba(245, 158, 11, 0.12);
+  --cl-ray: rgba(52, 211, 153, 0.12);
+  --cl-particle: rgba(15, 118, 110, 0.4);
+  --cl-vignette: rgba(248, 255, 251, 0.35);
+  --cl-glow: rgba(52, 211, 153, 0.22);
+}
+
+/* ── Shared ambient layers ── */
+
+.crystal-light-mesh {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 20% 30%, var(--cl-mesh-a) 0%, transparent 42%),
+    radial-gradient(circle at 78% 22%, var(--cl-mesh-b) 0%, transparent 38%),
+    radial-gradient(circle at 52% 78%, var(--cl-mesh-c) 0%, transparent 44%),
+    radial-gradient(circle at 8% 68%, var(--cl-mesh-d) 0%, transparent 36%);
+  opacity: 0.85;
+  will-change: transform, opacity;
+  animation: crystalLightMeshDrift 32s ease-in-out infinite;
+}
+
+.crystal-light-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 85% 75% at 50% 45%, transparent 42%, var(--cl-vignette) 100%);
+  opacity: 0.9;
+}
+
+.crystal-light-glass-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 28%,
+    transparent 72%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  opacity: 0.8;
+}
+
+.crystal-light-light-ray {
+  position: absolute;
+  width: 140%;
+  height: 1px;
+  left: -20%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(126, 232, 216, 0.04) 30%,
+    var(--cl-ray) 50%,
+    rgba(126, 232, 216, 0.04) 70%,
+    transparent 100%
+  );
+  transform-origin: center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.crystal-light-light-ray--1 {
+  top: 24%;
+  transform: rotate(-8deg);
+  animation: crystalLightRaySweep1 24s ease-in-out infinite;
+}
+
+.crystal-light-light-ray--2 {
+  top: 62%;
+  transform: rotate(5deg);
+  animation: crystalLightRaySweep2 28s ease-in-out infinite;
+}
+
+.crystal-light-aurora {
+  position: absolute;
+  border-radius: 999px;
+  will-change: transform, opacity;
+}
+
+.crystal-light-aurora--1 {
+  top: -10%;
+  left: -8%;
+  width: min(54vw, 440px);
+  height: min(54vw, 440px);
+  background: radial-gradient(circle, var(--cl-aurora-a) 0%, transparent 68%);
+  opacity: 0.42;
+  animation: crystalLightAurora1 24s ease-in-out infinite;
+}
+
+.crystal-light-aurora--2 {
+  top: 16%;
+  right: -12%;
+  width: min(50vw, 400px);
+  height: min(50vw, 400px);
+  background: radial-gradient(circle, var(--cl-aurora-b) 0%, transparent 70%);
+  opacity: 0.38;
+  animation: crystalLightAurora2 28s ease-in-out infinite;
+}
+
+.crystal-light-aurora--3 {
+  bottom: -14%;
+  left: 24%;
+  width: min(58vw, 480px);
+  height: min(42vw, 340px);
+  background: radial-gradient(circle, var(--cl-aurora-c) 0%, transparent 72%);
+  opacity: 0.32;
+  animation: crystalLightAurora3 22s ease-in-out infinite;
+}
+
+.crystal-light-glow-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(73, 184, 200, 0.06) 20%,
+    var(--cl-glow) 50%,
+    rgba(73, 184, 200, 0.06) 80%,
+    transparent 100%
+  );
+  will-change: transform, opacity;
+  animation: crystalLightGlowLine 10s ease-in-out infinite;
+}
+
+.crystal-light-glow-line--1 { top: 14%; }
+.crystal-light-glow-line--2 { top: 50%; animation-delay: 3s; }
+.crystal-light-glow-line--3 { bottom: 16%; animation-delay: 5.5s; }
+
+.crystal-light-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--cl-particle);
+  box-shadow: 0 0 8px rgba(73, 184, 200, 0.3);
+  will-change: transform, opacity;
+  animation: crystalLightParticleFloat 16s ease-in-out infinite;
+}
+
+.crystal-light-particle--1 { top: 20%; left: 10%; }
+.crystal-light-particle--2 { top: 36%; right: 16%; animation-delay: 2.5s; }
+.crystal-light-particle--3 { bottom: 34%; left: 20%; animation-delay: 5s; }
+.crystal-light-particle--4 { top: 56%; right: 8%; animation-delay: 1.2s; }
+.crystal-light-particle--5 { bottom: 22%; right: 30%; animation-delay: 4s; }
+.crystal-light-particle--6 { top: 72%; left: 42%; animation-delay: 6.5s; }
+
+.crystal-light-crystal {
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(73, 184, 200, 0.05) 40%,
+    transparent 72%
+  );
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  will-change: transform, opacity;
+}
+
+.crystal-light-crystal--1 {
+  width: 110px;
+  height: 110px;
+  top: 7%;
+  right: 5%;
+  opacity: 0.4;
+  animation: crystalLightCrystalShift 18s ease-in-out infinite;
+}
+
+.crystal-light-crystal--2 {
+  width: 72px;
+  height: 72px;
+  bottom: 18%;
+  left: 6%;
+  opacity: 0.28;
+  animation: crystalLightCrystalShift 22s ease-in-out infinite reverse;
+  animation-delay: 4s;
+}
+
+/* ── Animated gradient border utility ── */
+
+.crystal-light-border-glow {
+  position: relative;
+  border-radius: inherit;
+}
+
+.crystal-light-border-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(73, 184, 200, 0.45),
+    rgba(18, 140, 140, 0.15),
+    rgba(247, 199, 47, 0.25),
+    rgba(73, 184, 200, 0.35)
+  );
+  background-size: 300% 300%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: crystalLightBorderShift 8s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+/* ── Keyframes (transform + opacity only) ── */
+
+@keyframes crystalLightMeshDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translate(2%, -1.5%) scale(1.03);
+    opacity: 0.95;
+  }
+}
+
+@keyframes crystalLightRaySweep1 {
+  0%, 100% {
+    transform: rotate(-8deg) translateX(-8%);
+    opacity: 0;
+  }
+  35%, 65% {
+    transform: rotate(-8deg) translateX(6%);
+    opacity: 0.55;
+  }
+}
+
+@keyframes crystalLightRaySweep2 {
+  0%, 100% {
+    transform: rotate(5deg) translateX(8%);
+    opacity: 0;
+  }
+  40%, 60% {
+    transform: rotate(5deg) translateX(-5%);
+    opacity: 0.4;
+  }
+}
+
+@keyframes crystalLightAurora1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate(5%, 7%) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes crystalLightAurora2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-7%, 4%) scale(1.04);
+    opacity: 0.45;
+  }
+}
+
+@keyframes crystalLightAurora3 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translate(3%, -5%);
+    opacity: 0.42;
+  }
+}
+
+@keyframes crystalLightGlowLine {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scaleX(0.82);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes crystalLightParticleFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(6px, -12px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes crystalLightCrystalShift {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translateY(10px) rotate(3deg);
+    opacity: 0.48;
+  }
+}
+
+@keyframes crystalLightBorderShift {
+  0%, 100% {
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+}
+
+/* ── Reduced motion ── */
+
+@media (prefers-reduced-motion: reduce) {
+  .crystal-light-ambient [class*="crystal-light-aurora"],
+  .crystal-light-ambient [class*="crystal-light-glow-line"],
+  .crystal-light-ambient [class*="crystal-light-particle"],
+  .crystal-light-ambient [class*="crystal-light-crystal"],
+  .crystal-light-ambient .crystal-light-mesh,
+  .crystal-light-ambient .crystal-light-light-ray,
+  .crystal-light-border-glow::before {
+    animation: none !important;
+  }
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   Brain,
@@ -11,6 +11,8 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { SITE_IMAGES } from "@/lib/site-images";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
+import "./ChildJourneyRoadmap.css";
 
 const STEP_ICONS = [ClipboardCheck, Brain, ShieldCheck, Heart, TrendingUp];
 
@@ -35,17 +37,20 @@ const NODE_POSITIONS = [
 const JOURNEY_PATH =
   "M 60 108 C 150 40, 220 150, 300 62 S 440 160, 540 118 S 680 30, 780 68 S 900 150, 1020 98 L 1140 88";
 
-const fadeUp = (delay = 0) => ({
-  initial: false,
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-40px" },
-  transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
-});
+const fadeUp = (delay = 0, reduceMotion = false) =>
+  reduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 28 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-40px" },
+        transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
+      };
 
-function JourneyNode({ stepNumber, accentClass, delay = 0 }) {
+function JourneyNode({ stepNumber, accentClass, delay = 0, reduceMotion = false }) {
   return (
     <motion.div
-      {...fadeUp(delay)}
+      {...fadeUp(delay, reduceMotion)}
       className={`journey-step-node step-${stepNumber} group/node relative flex flex-col items-center`}
     >
       <div
@@ -61,12 +66,12 @@ function JourneyNode({ stepNumber, accentClass, delay = 0 }) {
   );
 }
 
-function JourneyStepCard({ step, index, accentClass, bottomAccent }) {
+function JourneyStepCard({ step, index, accentClass, bottomAccent, reduceMotion = false }) {
   const Icon = STEP_ICONS[index] ?? ClipboardCheck;
 
   return (
     <motion.article
-      {...fadeUp(0.08 + index * 0.08)}
+      {...fadeUp(0.08 + index * 0.08, reduceMotion)}
       className="group/card relative flex h-full flex-col rounded-[1.75rem] border border-[#49b8c8]/15 bg-white p-6 shadow-lg shadow-[#128c8c]/8 transition duration-300 hover:-translate-y-1.5 hover:border-[#128c8c]/35 hover:shadow-xl hover:shadow-[#128c8c]/15 md:p-7"
     >
       <div
@@ -87,11 +92,11 @@ function JourneyStepCard({ step, index, accentClass, bottomAccent }) {
   );
 }
 
-function MobileTimelineStep({ step, index, accentClass, bottomAccent, isLast, timelineActive }) {
+function MobileTimelineStep({ step, index, accentClass, bottomAccent, isLast, timelineActive, reduceMotion = false }) {
   const Icon = STEP_ICONS[index] ?? ClipboardCheck;
 
   return (
-    <motion.li {...fadeUp(0.06 + index * 0.07)} className="relative flex gap-5">
+    <motion.li {...fadeUp(0.06 + index * 0.07, reduceMotion)} className="relative flex gap-5">
       <div className="relative shrink-0">
         <div
           className={`journey-step-node step-${index + 1} ${timelineActive ? "journey-step-node--active" : ""} relative`}
@@ -125,210 +130,36 @@ function MobileTimelineStep({ step, index, accentClass, bottomAccent, isLast, ti
   );
 }
 
-const JOURNEY_ANIMATION_STYLES = `
-  .journey-path-base {
-    stroke: rgba(22, 163, 74, 0.22);
-    stroke-width: 6;
-    fill: none;
-    stroke-linecap: round;
-  }
-
-  .journey-path-glow {
-    stroke: url(#journeyGradient);
-    stroke-width: 7;
-    fill: none;
-    stroke-linecap: round;
-    stroke-dasharray: 120 900;
-    filter: url(#journeyGlow);
-    opacity: 0;
-  }
-
-  .journey-roadmap--active .journey-path-glow {
-    animation: journeyLightMove 6s ease-in-out infinite;
-  }
-
-  .journey-roadmap:hover .journey-path-glow {
-    filter: url(#journeyGlowStrong);
-  }
-
-  @keyframes journeyLightMove {
-    0% {
-      stroke-dashoffset: 950;
-      opacity: 0;
-    }
-    8% {
-      opacity: 1;
-    }
-    20% {
-      stroke-dashoffset: 760;
-    }
-    40% {
-      stroke-dashoffset: 560;
-    }
-    60% {
-      stroke-dashoffset: 360;
-    }
-    80% {
-      stroke-dashoffset: 160;
-    }
-    92% {
-      opacity: 1;
-    }
-    100% {
-      stroke-dashoffset: -120;
-      opacity: 0;
-    }
-  }
-
-  .journey-step-node::after {
-    content: "";
-    position: absolute;
-    inset: -10px;
-    border-radius: 9999px;
-    background: rgba(34, 197, 94, 0.25);
-    opacity: 0;
-    transform: scale(0.7);
-    pointer-events: none;
-  }
-
-  .journey-roadmap--active .journey-step-node::after,
-  .journey-step-node--active::after {
-    animation: nodePulse 6s infinite;
-  }
-
-  .journey-step-node.step-1::after {
-    animation-delay: 0.4s;
-  }
-
-  .journey-step-node.step-2::after {
-    animation-delay: 1.5s;
-  }
-
-  .journey-step-node.step-3::after {
-    animation-delay: 2.7s;
-  }
-
-  .journey-step-node.step-4::after {
-    animation-delay: 3.9s;
-  }
-
-  .journey-step-node.step-5::after {
-    animation-delay: 5.1s;
-  }
-
-  @keyframes nodePulse {
-    0%, 12%, 100% {
-      opacity: 0;
-      transform: scale(0.7);
-    }
-    5% {
-      opacity: 1;
-      transform: scale(1.25);
-    }
-  }
-
-  .mobile-journey-line {
-    position: absolute;
-    left: 1.65rem;
-    top: 1.75rem;
-    bottom: 1.75rem;
-    width: 4px;
-    border-radius: 9999px;
-    background: rgba(22, 163, 74, 0.18);
-    overflow: hidden;
-    transform: translateX(-50%);
-  }
-
-  .mobile-journey-line::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 90px;
-    border-radius: 9999px;
-    background: linear-gradient(to bottom, transparent, #22c55e, #14b8a6, transparent);
-    opacity: 0;
-  }
-
-  .mobile-journey-timeline--active .mobile-journey-line::after {
-    animation: mobileJourneyLight 5.5s ease-in-out infinite;
-  }
-
-  @keyframes mobileJourneyLight {
-    0% {
-      transform: translateY(-100px);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(1000px);
-      opacity: 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .journey-path-glow,
-    .journey-step-node::after,
-    .mobile-journey-line::after {
-      animation: none !important;
-    }
-
-    .journey-roadmap--active .journey-path-glow {
-      opacity: 0.65;
-      stroke-dashoffset: 0;
-    }
-  }
-`;
-
 export default function ChildJourneyRoadmap({ t, onCtaClick }) {
   const pathRef = useRef(null);
   const mobileTimelineRef = useRef(null);
   const pathInView = useInView(pathRef, { once: true, margin: "-80px" });
   const mobileInView = useInView(mobileTimelineRef, { once: true, margin: "-40px" });
+  const reduceMotion = useReducedMotion();
   const imageSrc = SITE_IMAGES.abaTherapy?.hero ?? "/images/aba-therapy-hero-session.jpg";
 
   return (
     <section
       id="child-journey"
-      className="relative scroll-mt-28 overflow-hidden bg-gradient-to-b from-[#f8fcfa] via-white to-[#eef9f4] px-4 pt-10 pb-16 lg:px-8 lg:py-28"
+      className={`child-journey-section ${getCrystalLightSectionClass("light-mint")} relative overflow-hidden px-4 lg:px-8`}
     >
-      <style>{JOURNEY_ANIMATION_STYLES}</style>
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, #49b8c8 1px, transparent 0)",
-          backgroundSize: "28px 28px",
-        }}
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-[#49b8c8]/15 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-10 h-80 w-80 rounded-full bg-[#f7c72f]/20 blur-3xl" />
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-56 w-56 -translate-x-1/2 rounded-full bg-[#128c8c]/10 blur-3xl" />
+      <CrystalLightAmbient preset="light-mint" />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="crystal-light-inner relative mx-auto max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
-          <motion.div {...fadeUp(0)} className="max-w-2xl">
-            <p className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.22em] text-[#128c8c]">
+          <motion.div {...fadeUp(0, reduceMotion)} className="max-w-2xl">
+            <p className="child-journey-eyebrow">
               <span aria-hidden="true">{t.eyebrowIcon}</span>
               {t.eyebrow}
             </p>
-            <h2 className="mt-4 text-4xl font-black leading-tight tracking-tight text-[#0b4f4f] md:text-5xl lg:text-[3.35rem]">
-              {t.title}
-            </h2>
-            <p className="mt-5 text-lg font-semibold leading-8 text-slate-600">{t.subtitle}</p>
+            <h2 className="child-journey-title">{t.title}</h2>
+            <p className="child-journey-subtitle">{t.subtitle}</p>
           </motion.div>
 
           <motion.div
-            {...fadeUp(0.1)}
-            className="relative mx-auto hidden w-full max-w-md overflow-hidden rounded-[2rem] shadow-2xl shadow-[#128c8c]/15 ring-1 ring-[#49b8c8]/20 lg:mx-0 lg:ml-auto lg:block lg:max-w-none"
+            {...fadeUp(0.1, reduceMotion)}
+            className="child-journey-image-wrap crystal-light-border-glow ring-1 ring-[#49b8c8]/20"
           >
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#0b4f4f]/25 via-transparent to-[#f7c72f]/10" />
             <img
               src={imageSrc}
               alt={t.imageAlt}
@@ -391,6 +222,7 @@ export default function ChildJourneyRoadmap({ t, onCtaClick }) {
                 stepNumber={index + 1}
                 accentClass={STEP_ACCENTS[index]}
                 delay={0.15 + index * 0.1}
+                reduceMotion={reduceMotion}
               />
             </div>
           ))}
@@ -404,6 +236,7 @@ export default function ChildJourneyRoadmap({ t, onCtaClick }) {
               index={index}
               accentClass={STEP_ACCENTS[index]}
               bottomAccent={BOTTOM_ACCENTS[index]}
+              reduceMotion={reduceMotion}
             />
           ))}
         </div>
@@ -423,19 +256,17 @@ export default function ChildJourneyRoadmap({ t, onCtaClick }) {
               bottomAccent={BOTTOM_ACCENTS[index]}
               isLast={index === t.steps.length - 1}
               timelineActive={mobileInView}
+              reduceMotion={reduceMotion}
             />
           ))}
         </ol>
 
         <motion.div
-          {...fadeUp(0.2)}
-          className="relative mt-16 overflow-hidden rounded-[2rem] border border-[#49b8c8]/20 bg-gradient-to-br from-white via-[#f8fcfa] to-[#ddf4f4]/60 p-8 text-center shadow-xl shadow-[#128c8c]/10 md:p-12"
+          {...fadeUp(0.2, reduceMotion)}
+          className="child-journey-cta crystal-light-border-glow"
         >
-          <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#f7c72f]/20 blur-2xl" />
-          <p className="mx-auto max-w-2xl text-2xl font-black leading-snug text-[#0b4f4f] md:text-3xl">
-            {t.cta.line1}
-          </p>
-          <p className="mx-auto mt-3 max-w-xl text-lg font-semibold text-slate-600">{t.cta.line2}</p>
+          <p className="child-journey-cta__line1">{t.cta.line1}</p>
+          <p className="child-journey-cta__line2">{t.cta.line2}</p>
           <button
             type="button"
             onClick={onCtaClick}
@@ -445,10 +276,7 @@ export default function ChildJourneyRoadmap({ t, onCtaClick }) {
           </button>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             {t.trustBadges.map((badge) => (
-              <span
-                key={badge}
-                className="rounded-full border border-[#128c8c]/20 bg-white/80 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#0b4f4f] shadow-sm"
-              >
+              <span key={badge} className="child-journey-trust-badge">
                 {badge}
               </span>
             ))}

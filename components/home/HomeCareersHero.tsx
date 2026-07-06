@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import CrystalLightAmbient, { getCrystalLightSectionClass } from "@/components/crystal-light/CrystalLightAmbient";
+import "./HomeCareersHero.css";
 
 const reasons = [
   {
@@ -92,8 +94,13 @@ function CareerIcon({ name }: { name: string }) {
 
 export function HomeCareersHero() {
   return (
-    <section className="eden-careers-hero" aria-labelledby="eden-careers-title">
-      <div className="eden-careers-hero__shell">
+    <section
+      className={`eden-careers-hero eden-careers-hero--crystal ${getCrystalLightSectionClass("light-mint")}`}
+      aria-labelledby="eden-careers-title"
+    >
+      <CrystalLightAmbient preset="light-mint" />
+
+      <div className="eden-careers-hero__shell crystal-light-inner">
         <div>
           <h2 className="eden-careers-hero__title" id="eden-careers-title">
             Join the Eden ABA Therapy Team
