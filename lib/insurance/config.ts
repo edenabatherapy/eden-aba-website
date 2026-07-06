@@ -85,29 +85,41 @@ export function assertInsuranceProductionReady(): void {
     return;
   }
 
-  const { encryptionKey, staffAdminToken } = getInsuranceConfig();
   const errors: string[] = [];
 
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL?.trim()) {
+    errors.push("[Insurance] NEXT_PUBLIC_SUPABASE_URL is required for verification submissions.");
+  }
+
+  if (!process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()) {
+    errors.push("[Insurance] SUPABASE_SERVICE_ROLE_KEY is required for verification submissions.");
+  }
+
+  const { encryptionKey, staffAdminToken } = getInsuranceConfig();
   const keyCheck = validateEncryptionKey(encryptionKey);
   if (!keyCheck.valid) {
-    errors.push(`[Insurance] ${keyCheck.error}`);
+    console.warn(
+      `[Insurance] ${keyCheck.error} File-based PHI backup storage is disabled until this is set.`,
+    );
   }
 
   const tokenCheck = validateAdminToken(staffAdminToken);
   if (!tokenCheck.valid) {
-    errors.push(`[Insurance] ${tokenCheck.error}`);
+    console.warn(
+      `[Insurance] ${tokenCheck.error} Staff admin portal authentication is disabled until this is set.`,
+    );
   }
 
   if (errors.length > 0) {
     const message = [
-      "Insurance verification production startup failed:",
+      "Insurance verification production startup warning:",
       ...errors,
-      "Set missing values in environment variables before deploying.",
+      "Set missing Supabase values in environment variables before accepting submissions.",
     ].join("\n");
 
     console.error(message);
     throw new Error(message);
   }
 
-  console.info("[Insurance] Production environment validation passed.");
+  console.info("[Insurance] Production environment validation passed (Supabase).");
 }

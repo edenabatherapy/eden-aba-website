@@ -35,6 +35,7 @@ export async function createVerificationRecord(params: {
   request: InsuranceVerificationRequest;
   consentTimestamp: string;
   normalizedDob: string;
+  id?: string;
 }): Promise<{ stored: boolean; record: InsuranceVerificationRecord | null }> {
   const encryptionKey =
     process.env.INSURANCE_ENCRYPTION_KEY?.trim() ||
@@ -46,7 +47,7 @@ export async function createVerificationRecord(params: {
 
   await ensureQueueDir();
 
-  const id = randomUUID();
+  const id = params.id || randomUUID();
   const submittedAt = new Date().toISOString();
 
   const record: InsuranceVerificationRecord = {

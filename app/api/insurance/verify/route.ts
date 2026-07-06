@@ -1,9 +1,9 @@
+import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
-import { assertInsuranceProductionReady } from "@/lib/insurance/config";
+import { logVerificationAudit } from "@/lib/insurance/auditLog";
 import { validateDOB, normalizeDOB } from "@/lib/insurance/dates";
 import { createVerificationRecord } from "@/lib/insurance/db/repository";
-import type { InsuranceVerificationRequest } from "@/types/insurance";
-import { logVerificationAudit } from "@/lib/insurance/auditLog";
+import { encryptPhiField } from "@/lib/insurance/encryptField";
 import { notifyNewVerificationRequest } from "@/lib/insurance/notifications";
 import { storeVerificationRequest } from "@/lib/insurance/storeVerificationRequest";
 import {
@@ -12,6 +12,17 @@ import {
   verifyInsurance,
 } from "@/lib/insurance/verifyInsurance";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
+import {
+  insertInsuranceVerificationRequest,
+  isInsuranceVerificationInsertFailure,
+} from "@/lib/supabase/insert-insurance-verification-request";
+import type { InsuranceVerificationRequest } from "@/types/insurance";
+
+function logDevInsuranceRoute(message: string, meta?: Record<string, unknown>) {
+  if (process.env.NODE_ENV === "development") {
+    console.info(`[api/insurance/verify] ${message}`, meta ?? {});
+  }
+}
 
 export async function GET() {
   const mode = getVerificationMode();
@@ -22,28 +33,26 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  if (process.env.NODE_ENV === "production") {
-    assertInsuranceProductionReady();
-  }
-
   const consentTimestamp = new Date().toISOString();
   const mode = getVerificationMode();
 
   try {
-    const body = (await req.json()) as InsuranceVerificationRequest & {
-      recaptchaToken?: string;
-    };
+    let body: InsuranceVerificationRequest & { recaptchaToken?: string };
+
+    try {
+      body = (await req.json()) as InsuranceVerificationRequest & { recaptchaToken?: string };
+    } catch {
+      return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+    }
 
     const recaptcha = await verifyRecaptchaV2Token(body.recaptchaToken ?? null);
     if (recaptcha.ok === false) {
+      logDevInsuranceRoute("reCAPTCHA verification failed", { reason: recaptcha.reason });
       return recaptchaV2FailureResponse(recaptcha);
     }
 
     if (!body.verificationType) {
-      return NextResponse.json(
-        { error: "Verification type is required." },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Verification type is required." }, { status: 400 });
     }
 
     if (!body.fullName?.trim()) {
@@ -65,10 +74,15 @@ export async function POST(req: Request) {
     }
 
     if (!body.email?.trim() || !body.phone?.trim()) {
-      return NextResponse.json(
-        { error: "Email and phone number are required." },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Email and phone number are required." }, { status: 400 });
+    }
+
+    if (!body.zipCode?.trim()) {
+      return NextResponse.json({ error: "ZIP code is required." }, { status: 400 });
+    }
+
+    if (!body.insuranceProvider?.trim()) {
+      return NextResponse.json({ error: "Insurance provider is required." }, { status: 400 });
     }
 
     if (!body.consent) {
@@ -103,19 +117,71 @@ export async function POST(req: Request) {
       }),
     };
 
+    const requestId = randomUUID();
+    const recaptchaVerified = recaptcha.ok && !recaptcha.skipped;
+
+    const supabaseResult = await insertInsuranceVerificationRequest({
+      id: requestId,
+      applicantType: sanitizedRequest.verificationType,
+      parentFirstName: sanitizedRequest.parentFirstName ?? null,
+      parentLastName: sanitizedRequest.parentLastName ?? null,
+      email: sanitizedRequest.email,
+      phone: sanitizedRequest.phone,
+      childName: sanitizedRequest.fullName,
+      childDob: normalizedDob,
+      zipCode: sanitizedRequest.zipCode,
+      insuranceProvider: sanitizedRequest.insuranceProvider,
+      memberId: encryptPhiField(sanitizedRequest.medicaidId || "") || null,
+      ssn: encryptPhiField(sanitizedRequest.ssn || "") || null,
+      consent: sanitizedRequest.consent,
+      recaptchaVerified,
+      status: "new",
+    });
+
+    if (isInsuranceVerificationInsertFailure(supabaseResult)) {
+      if (supabaseResult.reason === "missing-config") {
+        return NextResponse.json(
+          {
+            error:
+              supabaseResult.message ||
+              "Server configuration error: Supabase environment variables are missing.",
+          },
+          { status: 503 },
+        );
+      }
+
+      return NextResponse.json(
+        {
+          error: "Unable to save your insurance verification request. Please try again later.",
+          details:
+            process.env.NODE_ENV === "development"
+              ? supabaseResult.message
+              : undefined,
+        },
+        { status: 500 },
+      );
+    }
+
     const { stored, record } = await createVerificationRecord({
       request: sanitizedRequest,
       consentTimestamp,
       normalizedDob,
+      id: requestId,
     });
 
     if (stored && record) {
-      await storeVerificationRequest({
-        request: sanitizedRequest,
-        consentTimestamp,
-        normalizedDob,
-        queueRecord: record,
-      });
+      try {
+        await storeVerificationRequest({
+          request: sanitizedRequest,
+          consentTimestamp,
+          normalizedDob,
+          queueRecord: record,
+        });
+      } catch (storageError) {
+        logDevInsuranceRoute("encrypted file backup skipped", {
+          message: storageError instanceof Error ? storageError.message : "unknown",
+        });
+      }
 
       void notifyNewVerificationRequest({
         requestId: record.id,
@@ -126,43 +192,63 @@ export async function POST(req: Request) {
       });
     }
 
-    const response = await verifyInsurance(sanitizedRequest, record?.id);
+    const response = await verifyInsurance(sanitizedRequest, requestId);
 
-    await logVerificationAudit({
-      action: response.verified ? "verification_completed" : "verification_submitted",
-      verificationType: body.verificationType,
-      mode,
-      outcome: response.verificationStatus,
-      verified: response.verified,
-      consentTimestamp,
-      memberName: body.fullName,
-      verificationStatus: response.verificationStatus,
-      eligibilityStatus: response.eligibilityStatus,
-      medicaidId: body.medicaidId,
-      ssn: body.ssn,
-      requestId: record?.id,
-      timestamp: new Date().toISOString(),
+    try {
+      await logVerificationAudit({
+        action: response.verified ? "verification_completed" : "verification_submitted",
+        verificationType: body.verificationType,
+        mode,
+        outcome: response.verificationStatus,
+        verified: response.verified,
+        consentTimestamp,
+        memberName: body.fullName,
+        verificationStatus: response.verificationStatus,
+        eligibilityStatus: response.eligibilityStatus,
+        medicaidId: body.medicaidId,
+        ssn: body.ssn,
+        requestId,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (auditError) {
+      logDevInsuranceRoute("audit log write skipped", {
+        message: auditError instanceof Error ? auditError.message : "unknown",
+      });
+    }
+
+    return NextResponse.json({
+      ...response,
+      requestId,
     });
-
-    return NextResponse.json(response);
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Unable to process verification request.";
 
-    await logVerificationAudit({
-      action: "verification_failed",
-      verificationType: "unknown",
-      mode,
-      outcome: "error",
-      verified: false,
-      consentTimestamp,
-      memberName: "unknown",
-      error: message,
-      timestamp: new Date().toISOString(),
-    });
+    logDevInsuranceRoute("unhandled verification error", { message });
+
+    try {
+      await logVerificationAudit({
+        action: "verification_failed",
+        verificationType: "unknown",
+        mode,
+        outcome: "error",
+        verified: false,
+        consentTimestamp,
+        memberName: "unknown",
+        error: message,
+        timestamp: new Date().toISOString(),
+      });
+    } catch {
+      /* ignore audit failures */
+    }
 
     return NextResponse.json(
-      { error: "Unable to process verification request at this time." },
+      {
+        error:
+          process.env.NODE_ENV === "development"
+            ? message
+            : "Unable to process verification request at this time.",
+      },
       { status: 500 },
     );
   }

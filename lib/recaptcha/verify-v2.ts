@@ -100,7 +100,13 @@ export async function verifyRecaptchaV2Token(
 
 export function recaptchaV2FailureResponse(result: Extract<RecaptchaV2VerifyResult, { ok: false }>) {
   return NextResponse.json(
-    { ok: false, success: false, message: result.message },
+    {
+      ok: false,
+      success: false,
+      error: result.message,
+      message: result.message,
+      reason: result.reason,
+    },
     { status: result.status },
   );
 }
