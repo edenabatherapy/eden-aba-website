@@ -217,6 +217,51 @@ body {
   animation: edenGradientShift 18s ease infinite;
 }
 
+@keyframes afterSchoolFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes afterSchoolLineGrow {
+  from {
+    transform: scaleX(0);
+    opacity: 0.4;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.after-school-float {
+  animation: afterSchoolFloat 9s ease-in-out infinite;
+}
+
+.after-school-float-slow {
+  animation: afterSchoolFloat 14s ease-in-out infinite;
+}
+
+.after-school-hero-line {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #facc15, #49b8c8, transparent);
+  transform-origin: center;
+  animation: afterSchoolLineGrow 1.2s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .after-school-float,
+  .after-school-float-slow,
+  .after-school-hero-line {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .eden-reveal {
     animation: none;

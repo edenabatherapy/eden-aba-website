@@ -6672,21 +6672,19 @@
       },
       "afterschool-programs": {
         "meta": {
-          "title": "Chương trình Sau giờ học | Eden ABA Therapy",
-          "description": "Thông tin về chương trình ABA sau giờ học tại Eden ABA Therapy."
+          "title": "Chương trình ABA Sau giờ học | Eden ABA Therapy",
+          "description": "Hỗ trợ ABA sau giờ học giám sát bởi BCBA về giao tiếp, tham gia xã hội, bài tập về nhà và chuyển tiếp an toàn."
         },
-        "breadcrumb": "Chương trình Sau giờ học",
-        "title": "Chương trình Sau giờ học",
-        "intro": "Thông tin về chương trình ABA sau giờ học tại Eden ABA Therapy.",
-        "comingSoonLabel": "Sắp ra mắt",
-        "comingSoon": "Nội dung này đang được hoàn thiện. Vui lòng quay lại sau.",
+        "breadcrumb": "Dịch vụ / Chương trình Sau giờ học",
+        "title": "Chương trình ABA Sau giờ học",
+        "intro": "Hỗ trợ ABA có cấu trúc, giám sát bởi BCBA, giúp trẻ cần hỗ trợ giao tiếp, tham gia xã hội, thói quen bài tập về nhà, điều chỉnh cảm xúc và chuyển tiếp an toàn sau giờ học.",
         "highlights": [
-          "Hướng dẫn thân thiện với gia đình",
-          "Thông tin dựa trên bằng chứng",
-          "Hỗ trợ từ Eden ABA Therapy"
+          "Xây dựng kỹ năng xã hội và giao tiếp sau giờ học",
+          "Thói quen bài tập về nhà và chuyển tiếp có cấu trúc",
+          "Chương trình cá nhân hóa giám sát bởi BCBA"
         ],
-        "primaryCta": "Bắt đầu Intake",
-        "secondaryCta": "Liên hệ Eden"
+        "primaryCta": "Bắt đầu Liệu pháp ABA",
+        "secondaryCta": "Liên hệ Eden ABA Therapy"
       },
       "resources-blog": {
         "meta": {

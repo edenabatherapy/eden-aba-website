@@ -85,7 +85,7 @@ const SERVICE_SECTIONS: ServicesMegaMenuSection[] = [
         title: "After School Programs",
         href: "/services/after-school-programs",
         description:
-          "Structured after school ABA programs that support social skills, homework routines, communication, and safe participation after the school day.",
+          "BCBA-supervised after-school ABA supporting communication, homework routines, emotional regulation, and safe transitions when clinically appropriate.",
         animationType: "school",
         sectionId: "aba-services",
       },

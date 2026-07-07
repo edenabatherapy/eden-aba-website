@@ -6667,18 +6667,16 @@
       },
       "afterschool-programs": {
         "meta": {
-          "title": "After School Programs | Eden ABA Therapy",
-          "description": "Learn about Eden ABA Therapy after school programs supporting social skills, routines, and meaningful progress after the school day."
+          "title": "After School ABA Programs | Eden ABA Therapy",
+          "description": "BCBA-supervised after-school ABA support for communication, social participation, homework routines, emotional regulation, and safe transitions from school to home."
         },
         "breadcrumb": "Services / After School Programs",
-        "title": "After School Programs",
-        "intro": "Eden ABA Therapy after school programs provide structured support for communication, social participation, homework routines, and safe transitions after school.",
-        "comingSoonLabel": "Program details coming soon",
-        "comingSoon": "Expanded after school program information, enrollment guidance, and scheduling details are being prepared for this section.",
+        "title": "After School ABA Programs",
+        "intro": "Structured, BCBA-supervised ABA support for children who need help with communication, social participation, homework routines, emotional regulation, and safe transitions after the school day.",
         "highlights": [
           "Social and communication skill-building after school",
-          "Structured routines for homework and transitions",
-          "BCBA-supervised, individualized support"
+          "Structured homework and transition routines",
+          "BCBA-supervised individualized programming"
         ],
         "primaryCta": "Start ABA Therapy",
         "secondaryCta": "Contact Eden ABA Therapy"

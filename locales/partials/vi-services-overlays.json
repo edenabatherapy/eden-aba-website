@@ -1070,5 +1070,18 @@
       "title": "IDEA và Hỗ trợ Tại Trường",
       "summary": "Tổng quan quyền giáo dục đặc biệt và cách hỗ trợ trường học liên quan đến lập kế hoạch trị liệu lâm sàng."
     }
-  ]
+  ],
+  "AFTER_SCHOOL_HERO": {
+    "eyebrow": "Dịch vụ / Chương trình Sau giờ học",
+    "title": "Chương trình ABA Sau giờ học",
+    "subtitle": "Hỗ trợ ABA có cấu trúc, giám sát bởi BCBA, giúp trẻ cần hỗ trợ giao tiếp, tham gia xã hội, thói quen bài tập về nhà, điều chỉnh cảm xúc và chuyển tiếp an toàn sau giờ học.",
+    "primaryCta": "Bắt đầu Liệu pháp ABA",
+    "secondaryCta": "Liên hệ Eden ABA Therapy"
+  },
+  "AFTER_SCHOOL_CTA": {
+    "title": "Tìm hiểu Hỗ trợ ABA Sau giờ học cho Con bạn",
+    "subtitle": "Liên hệ Eden để thảo luận đánh giá, mục tiêu cá nhân hóa và liệu ABA sau giờ học có phù hợp lịch trình và ủy quyền của gia đình bạn.",
+    "primaryCta": "Bắt đầu Liệu pháp ABA",
+    "secondaryCta": "Liên hệ Eden ABA Therapy"
+  }
 }
