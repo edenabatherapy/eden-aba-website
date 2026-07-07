@@ -254,10 +254,67 @@ body {
   animation: afterSchoolLineGrow 1.2s ease forwards;
 }
 
+.after-school-geo {
+  pointer-events: none;
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(2px);
+}
+
+.after-school-geo--1 {
+  top: 12%;
+  left: 8%;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 1rem;
+  transform: rotate(12deg);
+  animation: afterSchoolFloat 11s ease-in-out infinite;
+}
+
+.after-school-geo--2 {
+  top: 20%;
+  right: 10%;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  animation: afterSchoolFloat 8s ease-in-out infinite reverse;
+}
+
+.after-school-geo--3 {
+  bottom: 18%;
+  left: 15%;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  transform: rotate(-18deg);
+  animation: afterSchoolFloat 13s ease-in-out infinite;
+}
+
+.after-school-journey-step:not(:last-child)::after {
+  content: "";
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .after-school-journey-step:not(:last-child)::after {
+    display: block;
+    position: absolute;
+    top: 2.25rem;
+    right: -0.5rem;
+    width: 1rem;
+    height: 2px;
+    background: linear-gradient(90deg, #49b8c8, #0e6b4f);
+    z-index: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .after-school-float,
   .after-school-float-slow,
-  .after-school-hero-line {
+  .after-school-hero-line,
+  .after-school-geo--1,
+  .after-school-geo--2,
+  .after-school-geo--3 {
     animation: none;
   }
 }
