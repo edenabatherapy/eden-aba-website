@@ -205,6 +205,99 @@
         }
       ]
     },
+    "clinicalExpansion": {
+      "skillDomains": {
+        "title": "Assessment Methods & Clinical Tools",
+        "intro": "Eden's BCBAs select assessment methods based on age, communication level, safety needs, and family priorities—not a single fixed protocol applied to every child.",
+        "items": [
+          {
+            "title": "Clinical interview & developmental history",
+            "text": "Structured caregiver conversations capture routines, medical history, prior services, cultural context, and family goals."
+          },
+          {
+            "title": "Record review",
+            "text": "With consent, the team reviews diagnostic evaluations, school reports, and prior therapy summaries to inform planning."
+          },
+          {
+            "title": "Direct observation",
+            "text": "Observation in home, clinic, or community settings helps clinicians see how skills and behaviors function in real contexts."
+          },
+          {
+            "title": "Functional behavior assessment (FBA)",
+            "text": "When interfering behavior is a concern, FBA methods identify likely functions so interventions teach replacement skills and adjust environments supportively."
+          },
+          {
+            "title": "Skill assessments when appropriate",
+            "text": "Curriculum-based tools such as VB-MAPP, ABLLS-R, or AFLS may be used when clinically indicated to map communication, learning, and adaptive skill profiles."
+          },
+          {
+            "title": "Preference assessments",
+            "text": "Identifying motivating items and activities supports engagement, reinforcement planning, and ethical treatment design."
+          }
+        ]
+      },
+      "medicalNecessity": {
+        "title": "Medical Necessity & Authorization Documentation",
+        "intro": "Virginia Medicaid and many commercial plans require documentation that ABA services address functional impairment—not diagnosis labels alone.",
+        "bullets": [
+          "Assessment summarizes how communication, behavior, safety, or adaptive deficits affect daily participation.",
+          "Baseline data establish measurable starting points for authorization requests when required.",
+          "BCBA supervision structure and recommended intensity reflect clinical complexity documented during assessment.",
+          "Caregiver training priorities are linked to goals that support generalization outside the therapy setting.",
+          "Records distinguish clinically recommended services from services a family may choose but payers may not authorize."
+        ],
+        "note": "Medical necessity determinations are made by payers based on plan rules. Eden provides clinically accurate documentation; approval is never guaranteed."
+      },
+      "evidenceBased": {
+        "title": "Evidence-Based Assessment Practices",
+        "intro": "Professional behavior analysis emphasizes individualized assessment, objective measurement, and ethical practice standards.",
+        "bullets": [
+          "Assessment informs function-based intervention rather than punishment-based or one-size-fits-all programming.",
+          "Data collection methods are selected to match each goal's measurable definition.",
+          "Ongoing reassessment occurs when progress stalls, needs change, or new safety concerns emerge.",
+          "Treatment recommendations align with BACB Professional and Ethical Compliance Code principles.",
+          "Families receive plain-language explanations of findings and recommended next steps."
+        ]
+      },
+      "referralGuidance": {
+        "title": "When Additional Evaluations May Be Appropriate",
+        "intro": "Behavior assessment focuses within the scope of applied behavior analysis. Eden may recommend complementary evaluations when clinical findings suggest other specialists should be involved.",
+        "referrals": [
+          {
+            "title": "Pediatrician or developmental pediatrician",
+            "text": "Medical rule-out, growth concerns, sleep issues, or medication questions benefit from physician involvement."
+          },
+          {
+            "title": "Psychologist or neuropsychologist",
+            "text": "Cognitive testing, emotional regulation concerns, or diagnostic clarification may require psychology referral."
+          },
+          {
+            "title": "Speech-language pathologist",
+            "text": "Speech, language, AAC, pragmatics, or swallowing concerns warrant licensed SLP evaluation beyond ABA communication goals."
+          },
+          {
+            "title": "Occupational therapist",
+            "text": "Fine motor, sensory processing, or self-care barriers may need OT assessment and treatment."
+          },
+          {
+            "title": "Feeding or swallowing specialist",
+            "text": "Unsafe swallowing, severe food refusal, or dysphagia symptoms require medical and SLP coordination—ABA alone does not treat swallowing disorders."
+          }
+        ],
+        "note": "Referrals are recommendations based on clinical observation and family concerns. Eden coordinates with consent but does not replace medical diagnosis or specialty treatment."
+      },
+      "ethicalPractice": {
+        "title": "Ethics, Quality & Clinical Supervision",
+        "intro": "Assessment quality depends on ethical practice, BCBA oversight, and transparent communication with families.",
+        "bullets": [
+          "BCBAs supervise assessment design, data interpretation, and treatment recommendations.",
+          "Families provide informed consent before records are obtained or observations occur.",
+          "Interventions emphasize skill-building, positive support, and dignity—not coercion.",
+          "Programs are adjusted when data indicate a skill is not progressing as expected.",
+          "Cultural responsiveness and family choice guide which goals are prioritized."
+        ]
+      }
+    },
     "insurance": {
       "title": "Insurance & Medicaid Readiness",
       "intro": "Many families use private insurance or Virginia Medicaid for ABA services. Assessment documentation often plays a key role in authorization.",
@@ -460,6 +553,64 @@
           "text": "If an intervention is not producing change, the BCBA modifies teaching methods rather than continuing ineffective procedures."
         }
       ]
+    },
+    "clinicalExpansion": {
+      "medicalNecessity": {
+        "title": "Medical Necessity in Individualized ABA",
+        "intro": "Individualized programs document how ABA addresses functional needs that affect health, safety, learning, or daily participation.",
+        "bullets": [
+          "Treatment plans describe measurable goals tied to documented skill deficits or interfering behaviors.",
+          "Service intensity recommendations reflect clinical complexity, supervision needs, and family context.",
+          "Caregiver training goals support generalization when included in the authorized treatment plan.",
+          "Progress data demonstrate whether authorized services continue to meet medical-necessity criteria at review.",
+          "Virginia Medicaid and MCO plans may require specific documentation formats—Eden aligns records to applicable payer guidance."
+        ],
+        "note": "Coverage and authorization decisions are made by insurers and Medicaid managed care organizations. Eden does not guarantee approval."
+      },
+      "evidenceBased": {
+        "title": "Evidence-Based ABA Practices",
+        "intro": "Applied behavior analysis is recognized as an evidence-based approach for autism when delivered with appropriate clinical oversight.",
+        "bullets": [
+          "Programs use reinforcement, prompting, task analysis, and natural environment teaching matched to each goal.",
+          "Functional communication training may reduce challenging behavior by teaching alternative ways to meet needs.",
+          "Generalization and maintenance are planned—not assumed—through caregiver coaching and multi-setting practice.",
+          "BCBAs monitor treatment integrity so RBT implementation matches the written program.",
+          "Outcomes vary by child; Eden measures specific behaviors and skills rather than promising uniform results."
+        ]
+      },
+      "interdisciplinaryCollaboration": {
+        "title": "Interdisciplinary & Care Coordination",
+        "intro": "Comprehensive care often involves coordination with physicians, schools, and allied health providers—with family consent.",
+        "items": [
+          {
+            "title": "Pediatricians & medical providers",
+            "text": "Share relevant clinical updates when families authorize communication about safety, medication, or medical factors affecting therapy."
+          },
+          {
+            "title": "Speech-language pathologists",
+            "text": "Coordinate communication goals, AAC use, and pragmatic language targets. ABA supports but does not replace licensed speech therapy."
+          },
+          {
+            "title": "Occupational therapists",
+            "text": "Align sensory, motor, and self-care goals when children receive OT alongside ABA."
+          },
+          {
+            "title": "School teams",
+            "text": "With consent, share strategies that support IEP goals, classroom participation, and consistent expectations across settings."
+          }
+        ]
+      },
+      "ethicalPractice": {
+        "title": "Ethical Behavior Analysis & Quality Assurance",
+        "intro": "Eden emphasizes ethical, individualized care with ongoing BCBA supervision and family-centered decision-making.",
+        "bullets": [
+          "Programs prioritize skill acquisition, positive behavior support, and client dignity.",
+          "Families participate in goal selection and may decline targets that do not fit their values.",
+          "Data drive clinical decisions—programs change when progress data indicate a need.",
+          "RBTs receive training and supervision aligned with BACB requirements.",
+          "Quality assurance includes regular BCBA review of session notes, graphs, and treatment integrity."
+        ]
+      }
     },
     "insurance": {
       "title": "Insurance & Medicaid Readiness",
@@ -717,6 +868,65 @@
         }
       ]
     },
+    "clinicalExpansion": {
+      "medicalNecessity": {
+        "title": "Why Early Intervention Matters",
+        "intro": "Research supports intervening when developmental concerns first appear. Early ABA can support communication, social engagement, and adaptive skills during a period of rapid brain development—while outcomes remain individualized.",
+        "bullets": [
+          "Early services target foundational skills such as joint attention, imitation, communication, and play.",
+          "Documentation links early deficits to functional impact on family routines and participation.",
+          "Virginia Medicaid EPSDT may cover early intervention services when medically necessary and authorized.",
+          "Intensity and settings are matched to clinical need—not a predetermined hour count for every child.",
+          "Caregiver coaching is often central so families can embed learning in daily routines."
+        ],
+        "note": "Early intervention does not guarantee specific developmental outcomes. Eden tracks measurable goals and adjusts programs based on data."
+      },
+      "evidenceBased": {
+        "title": "Evidence-Based Early Intervention",
+        "intro": "Professional guidance from CDC, AAP, and behavior analysis literature supports early identification and intervention for developmental delays.",
+        "bullets": [
+          "Naturalistic teaching strategies embed learning in play and daily routines.",
+          "Reinforcement and prompting are used to build communication and social engagement.",
+          "Programs emphasize functional skills families can practice between sessions.",
+          "BCBA supervision ensures programs remain developmentally appropriate as children grow.",
+          "Reassessment occurs when children master early targets or when new concerns emerge."
+        ]
+      },
+      "referralGuidance": {
+        "title": "When Additional Evaluations May Be Appropriate",
+        "intro": "Early intervention teams may recommend complementary specialists when concerns fall outside the BCBA scope of practice.",
+        "referrals": [
+          {
+            "title": "Developmental pediatrician",
+            "text": "Diagnostic clarification, medical workup, or concerns about global development."
+          },
+          {
+            "title": "Speech-language evaluation",
+            "text": "Late talking, feeding concerns, or AAC needs benefit from licensed SLP assessment."
+          },
+          {
+            "title": "Occupational therapy evaluation",
+            "text": "Sensory, fine motor, or self-care delays may require OT in addition to ABA."
+          },
+          {
+            "title": "Audiology",
+            "text": "Hearing screening or evaluation when communication delays may have auditory causes."
+          }
+        ],
+        "note": "Eden supports warm handoffs with family consent but does not provide medical diagnosis or specialty therapy outside each clinician's license."
+      },
+      "ethicalPractice": {
+        "title": "Family-Centered Early Intervention",
+        "intro": "Early services work best when families are partners—not passive observers.",
+        "bullets": [
+          "Parents choose which routines and goals are highest priority.",
+          "Coaching respects cultural practices around meals, sleep, and community life.",
+          "Interventions avoid unnecessary rigidity that does not fit the child's age or family context.",
+          "BCBAs explain strategies in accessible language with Vietnamese and English support available.",
+          "Programs celebrate small, measurable gains without comparing children to generic timelines."
+        ]
+      }
+    },
     "insurance": {
       "title": "Insurance & Medicaid Readiness",
       "intro": "Early intervention services may be covered through private insurance or Virginia Medicaid EPSDT when clinically necessary and authorized.",
@@ -972,6 +1182,113 @@
           "text": "Progress summaries provided to payers when re-authorization is required."
         }
       ]
+    },
+    "clinicalExpansion": {
+      "skillDomains": {
+        "title": "Social Skill Domains We Teach",
+        "intro": "Social skills are broken into teachable components and practiced with reinforcement, prompting, and natural environment opportunities—not worksheets alone.",
+        "items": [
+          {
+            "title": "Conversation & reciprocity",
+            "text": "Greetings, questions, comments, topic maintenance, and ending conversations appropriately for the child's developmental level."
+          },
+          {
+            "title": "Friendships & peer interaction",
+            "text": "Approaching peers, maintaining play, sharing interests, and building relationships at a pace the child and family choose."
+          },
+          {
+            "title": "Play & cooperative learning",
+            "text": "Parallel play through cooperative games, turn-taking, shared imagination, and group activity participation."
+          },
+          {
+            "title": "Shared attention & turn-taking",
+            "text": "Coordinating attention during activities, waiting for turns, and responding to social bids from others."
+          },
+          {
+            "title": "Emotional awareness & perspective taking",
+            "text": "Recognizing feelings in self and others, coping with disappointment, and understanding that others may think differently."
+          },
+          {
+            "title": "Conflict resolution & problem solving",
+            "text": "Negotiating turns, handling rejection, asking for help, and using words instead of aggression when frustrated."
+          },
+          {
+            "title": "School & community participation",
+            "text": "Cafeteria, recess, group work, stores, and family gatherings where unwritten social rules apply."
+          },
+          {
+            "title": "Social flexibility",
+            "text": "Adapting when plans change, tolerating unexpected events, and practicing recovery strategies after social mistakes."
+          }
+        ]
+      },
+      "evidenceBased": {
+        "title": "Evidence-Based Social Skills Instruction",
+        "intro": "ABA-based social skills training uses task analysis, reinforcement, modeling, and data collection—practices supported in behavior analysis literature.",
+        "bullets": [
+          "Skills are defined with measurable criteria so progress is visible to families and clinicians.",
+          "Practice moves from structured settings to natural environments with peers when clinically appropriate.",
+          "Generalization probes verify skills occur with new people and locations—not only with one therapist.",
+          "Programs respect neurodiversity; goals reflect skills the child and family want—not forced conformity.",
+          "Eden does not promise specific friendship outcomes; incremental behavioral gains are tracked objectively."
+        ]
+      },
+      "interdisciplinaryCollaboration": {
+        "title": "Collaboration With Allied Professionals",
+        "intro": "Social communication often overlaps with speech pathology and psychology. Eden coordinates when families receive multiple services.",
+        "items": [
+          {
+            "title": "Speech-language pathologists",
+            "text": "Align pragmatic language, AAC, and conversation targets. Licensed SLPs provide speech therapy; ABA may support generalization of agreed-upon communication goals."
+          },
+          {
+            "title": "Psychologists & counselors",
+            "text": "Anxiety, mood, or trauma-related concerns may benefit from psychology referral alongside social skills practice."
+          },
+          {
+            "title": "Occupational therapists",
+            "text": "Sensory or motor factors affecting participation in group activities may be addressed collaboratively with OT."
+          },
+          {
+            "title": "School teams",
+            "text": "With consent, share recess and group-work strategies that align with IEP social goals."
+          }
+        ]
+      },
+      "referralGuidance": {
+        "title": "When Referral to Another Specialist May Help",
+        "intro": "Social skills training within ABA does not replace evaluation by other licensed professionals when clinical concerns suggest it.",
+        "referrals": [
+          {
+            "title": "Speech-language evaluation",
+            "text": "When pragmatic language, articulation, or AAC needs exceed ABA communication programming."
+          },
+          {
+            "title": "Psychology or psychiatry",
+            "text": "When social avoidance stems from significant anxiety, mood symptoms, or trauma requiring mental health treatment."
+          },
+          {
+            "title": "Occupational therapy",
+            "text": "When sensory processing or fine motor barriers limit participation in peer activities."
+          },
+          {
+            "title": "Neurology",
+            "text": "When medical factors such as seizures or neurological conditions may affect social behavior—physician input is appropriate."
+          }
+        ],
+        "note": "Referrals are clinical recommendations. Families and physicians make final decisions about additional evaluations."
+      },
+      "ethicalPractice": {
+        "title": "Ethical, Dignity-Centered Social Teaching",
+        "intro": "Eden teaches social participation while respecting autonomy, culture, and the child's comfort.",
+        "bullets": [
+          "Children are not forced into social situations without gradual preparation and choice when possible.",
+          "Families decide which social goals matter—including when rest or solitude is appropriate.",
+          "Programs avoid shaming or masking-focused language; skills are framed as tools for connection the child wants.",
+          "BCBA supervision ensures data-based program adjustments.",
+          "Peer practice uses ethical reinforcement—not coercion or withheld affection."
+        ]
+      }
     },
     "insurance": {
       "title": "Insurance & Medicaid Readiness",

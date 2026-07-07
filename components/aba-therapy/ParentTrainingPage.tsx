@@ -11,6 +11,7 @@ import {
   HeartHandshake,
   Home,
   MessageCircle,
+  ShieldCheck,
   Sparkles,
   Target,
   Users,
@@ -20,14 +21,24 @@ import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
 import FAQAccordion from "@/components/getting-started/FAQAccordion";
 import ParentTrainingPageSchema from "@/components/aba-therapy/ParentTrainingPageSchema";
 import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import ClinicalGlassSection, {
+  ClinicalBulletPanel,
+  ClinicalCardGrid,
+} from "@/components/clinical/ClinicalGlassSection";
 import {
+  BEHAVIOR_PREVENTION_SECTION,
+  CAREGIVER_COACHING_SECTION,
+  CLINICAL_PROCESS_TIMELINE,
+  DAILY_ROUTINES_SECTION,
   DOWNLOADABLE_RESOURCES,
   FAMILY_TRAINING_SECTION,
+  MEDICAL_NECESSITY_PARENT_TRAINING,
   PARENT_GUIDES_SECTION,
   PARENT_TRAINING_CTA,
   PARENT_TRAINING_HERO,
   PARENT_TRAINING_RELATED_LINKS,
   PARENT_TRAINING_FAQ,
+  SCHOOL_COLLABORATION_SECTION,
   WHAT_IS_PARENT_TRAINING,
   WHY_PARENT_INVOLVEMENT,
 } from "@/lib/aba-therapy/parent-training-data";
@@ -39,6 +50,9 @@ import { EDEN_CARD } from "@/lib/eden-design-system";
 const GUIDE_ICONS = [Target, Sparkles, BookOpen, MessageCircle, Calendar, Home] as const;
 const FAMILY_ICONS = [Calendar, Home, Users, BookOpen, HeartHandshake, MessageCircle] as const;
 const BENEFIT_ICONS = [Sparkles, Users, HeartHandshake, MessageCircle, CheckCircle2] as const;
+const ROUTINE_ICONS = [Calendar, Home, HeartHandshake, Users, Sparkles, CheckCircle2] as const;
+const COACHING_ICONS = [Users, MessageCircle, Target, HeartHandshake, BookOpen, Sparkles] as const;
+const SCHOOL_ICONS = [BookOpen, Target, Users, MessageCircle, ShieldCheck, CheckCircle2] as const;
 
 const cardClass = EDEN_CARD;
 
@@ -48,6 +62,12 @@ export default function ParentTrainingPage() {
   const whyInvolve = useLocalizedContent("WHY_PARENT_INVOLVEMENT", WHY_PARENT_INVOLVEMENT);
   const guides = useLocalizedContent("PARENT_GUIDES_SECTION", PARENT_GUIDES_SECTION);
   const familyTraining = useLocalizedContent("FAMILY_TRAINING_SECTION", FAMILY_TRAINING_SECTION);
+  const caregiverCoaching = useLocalizedContent("CAREGIVER_COACHING_SECTION", CAREGIVER_COACHING_SECTION);
+  const dailyRoutines = useLocalizedContent("DAILY_ROUTINES_SECTION", DAILY_ROUTINES_SECTION);
+  const behaviorPrevention = useLocalizedContent("BEHAVIOR_PREVENTION_SECTION", BEHAVIOR_PREVENTION_SECTION);
+  const schoolCollaboration = useLocalizedContent("SCHOOL_COLLABORATION_SECTION", SCHOOL_COLLABORATION_SECTION);
+  const clinicalTimeline = useLocalizedContent("CLINICAL_PROCESS_TIMELINE", CLINICAL_PROCESS_TIMELINE);
+  const medicalNecessity = useLocalizedContent("MEDICAL_NECESSITY_PARENT_TRAINING", MEDICAL_NECESSITY_PARENT_TRAINING);
   const downloads = useLocalizedContent("DOWNLOADABLE_RESOURCES", DOWNLOADABLE_RESOURCES);
   const faq = useLocalizedContent("PARENT_TRAINING_FAQ", PARENT_TRAINING_FAQ);
   const relatedLinks = useLocalizedContent("PARENT_TRAINING_RELATED_LINKS", PARENT_TRAINING_RELATED_LINKS);
@@ -148,6 +168,47 @@ export default function ParentTrainingPage() {
         </div>
       </section>
 
+      {/* Caregiver Coaching */}
+      <ClinicalGlassSection title={caregiverCoaching.title} intro={caregiverCoaching.intro} tone="mint">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {caregiverCoaching.cards.map((card, i) => {
+            const Icon = COACHING_ICONS[i] ?? Users;
+            return (
+              <motion.article key={card.title} {...reveal(i * 0.05)} className={`${cardClass} eden-clinical-card border-emerald-100/60`}>
+                <div className="inline-flex rounded-2xl bg-emerald-50 p-3 text-[#0E6B4F]">
+                  <Icon size={24} aria-hidden />
+                </div>
+                <h3 className="mt-4 text-lg font-black text-[#0F172A]">{card.title}</h3>
+                <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{card.text}</p>
+              </motion.article>
+            );
+          })}
+        </div>
+      </ClinicalGlassSection>
+
+      {/* Daily Routines */}
+      <ClinicalGlassSection title={dailyRoutines.title} intro={dailyRoutines.intro} tone="warm">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {dailyRoutines.cards.map((card, i) => {
+            const Icon = ROUTINE_ICONS[i] ?? Calendar;
+            return (
+              <motion.article key={card.title} {...reveal(i * 0.05)} className={`${cardClass} eden-clinical-card border-emerald-100/60`}>
+                <div className="inline-flex rounded-2xl bg-teal-50 p-3 text-teal-700">
+                  <Icon size={24} aria-hidden />
+                </div>
+                <h3 className="mt-4 text-lg font-black text-[#0F172A]">{card.title}</h3>
+                <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{card.text}</p>
+              </motion.article>
+            );
+          })}
+        </div>
+      </ClinicalGlassSection>
+
+      {/* Behavior Prevention */}
+      <ClinicalGlassSection title={behaviorPrevention.title} intro={behaviorPrevention.intro} tone="white">
+        <ClinicalCardGrid items={behaviorPrevention.cards} />
+      </ClinicalGlassSection>
+
       {/* Parent Guides */}
       <section className="bg-gradient-to-br from-[#e8f8f2] via-white to-[#fff8df] px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
@@ -195,6 +256,53 @@ export default function ParentTrainingPage() {
           </div>
         </div>
       </section>
+
+      {/* School Collaboration */}
+      <ClinicalGlassSection title={schoolCollaboration.title} intro={schoolCollaboration.intro} tone="mint">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {schoolCollaboration.cards.map((card, i) => {
+            const Icon = SCHOOL_ICONS[i] ?? BookOpen;
+            return (
+              <motion.article key={card.title} {...reveal(i * 0.05)} className={`${cardClass} eden-clinical-card border-emerald-100/60`}>
+                <div className="inline-flex rounded-2xl bg-sky-50 p-3 text-sky-700">
+                  <Icon size={24} aria-hidden />
+                </div>
+                <h3 className="mt-4 text-lg font-black text-[#0F172A]">{card.title}</h3>
+                <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{card.text}</p>
+              </motion.article>
+            );
+          })}
+        </div>
+      </ClinicalGlassSection>
+
+      {/* Clinical Process Timeline */}
+      <section className="eden-section eden-section--warm px-4 py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-4xl">
+          <motion.div {...reveal()} className="text-center">
+            <h2 className="text-3xl font-black text-[#0F172A] md:text-4xl">{clinicalTimeline.title}</h2>
+            <p className="mt-5 text-lg font-semibold leading-8 text-slate-700">{clinicalTimeline.intro}</p>
+          </motion.div>
+          <ol className="relative mt-12 space-y-0 border-l-2 border-emerald-200 pl-8">
+            {clinicalTimeline.steps.map((step, i) => (
+              <motion.li key={step.title} {...reveal(i * 0.06)} className="relative pb-10 last:pb-0">
+                <span
+                  className="absolute -left-[2.55rem] flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#0E6B4F] to-[#10B981] text-sm font-black text-white shadow-lg shadow-emerald-900/20"
+                  aria-hidden
+                >
+                  {i + 1}
+                </span>
+                <h3 className="text-lg font-black text-[#0E6B4F]">{step.title}</h3>
+                <p className="mt-2 text-sm font-semibold leading-7 text-slate-600">{step.text}</p>
+              </motion.li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Medical Necessity */}
+      <ClinicalGlassSection title={medicalNecessity.title} intro={medicalNecessity.intro} tone="white">
+        <ClinicalBulletPanel title="Documentation & payer alignment" bullets={medicalNecessity.bullets} note={medicalNecessity.note} />
+      </ClinicalGlassSection>
 
       {/* Downloadable Resources */}
       <section className="eden-section eden-section--white px-4 py-16 lg:px-8 lg:py-20">

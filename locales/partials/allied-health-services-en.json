@@ -85,6 +85,16 @@
         }
       ]
     },
+    "professionalScope": {
+      "title": "Professional Scope & Licensed Care",
+      "statements": [
+        "Occupational therapy at Eden is provided by licensed Occupational Therapists who practice within the OT scope of practice in Virginia.",
+        "OT addresses fine motor, visual motor, sensory processing, emotional regulation, self-care, and adaptive participation goals.",
+        "ABA therapy is delivered separately by BCBAs and RBTs. When families receive both services, teams coordinate with consent while each discipline maintains its own clinical scope.",
+        "OT does not replace medical care, psychology, or speech-language therapy when those services are clinically indicated."
+      ],
+      "note": "Environmental modifications, sensory strategies, and daily living skill training are selected based on individualized OT evaluation—not generic protocols."
+    },
     "whoBenefits": {
       "title": "Who Benefits from Occupational Therapy?",
       "intro": "OT supports infants through young adults whose motor, sensory, or self-care needs affect participation at home, school, or in the community. Many children we serve also have autism, ADHD, or developmental differences—and some receive OT alongside ABA therapy.",
@@ -749,6 +759,16 @@
         }
       ]
     },
+    "professionalScope": {
+      "title": "Licensed Speech-Language Pathology",
+      "statements": [
+        "Speech-language therapy at Eden is provided by licensed Speech-Language Pathologists (SLPs).",
+        "SLPs evaluate and treat expressive language, receptive language, speech sound disorders, fluency, voice, pragmatics, and augmentative communication within their licensure scope.",
+        "ABA therapy may support generalization of communication goals agreed upon with the SLP, but ABA does not replace speech-language therapy.",
+        "When swallowing concerns arise, qualified SLPs coordinate with physicians for medically appropriate evaluation and treatment."
+      ],
+      "note": "Play-based communication, family coaching, and school collaboration are part of comprehensive SLP care—not optional add-ons."
+    },
     "whoBenefits": {
       "title": "Who Benefits from Speech & Language Therapy?",
       "intro": "Infants through teenagers who have difficulty being understood, following language, or connecting socially may benefit from SLP services. Many Eden families also receive ABA therapy for overlapping goals.",
@@ -1412,6 +1432,16 @@
           "text": "When behavior or sensory needs overlap, teams align on reinforcement, seating, and step-by-step mealtime plans."
         }
       ]
+    },
+    "professionalScope": {
+      "title": "Feeding, Swallowing & Scope of Practice",
+      "statements": [
+        "Feeding therapy at Eden is delivered by qualified feeding clinicians, including licensed SLPs and OTs with appropriate pediatric feeding training.",
+        "Swallowing evaluations and dysphagia treatment are performed by qualified Speech-Language Pathologists and coordinated with physicians when medically appropriate.",
+        "ABA may support behavioral aspects of mealtimes when coordinated with feeding clinicians, but ABA does not independently treat swallowing disorders.",
+        "Medical concerns about aspiration, growth, hydration, or gastrointestinal conditions require physician involvement."
+      ],
+      "note": "Seek prompt medical evaluation for signs of unsafe swallowing—such as recurring coughing, choking, or wet vocal quality after eating or drinking."
     },
     "whoBenefits": {
       "title": "Who Benefits from Feeding & Swallowing Therapy?",

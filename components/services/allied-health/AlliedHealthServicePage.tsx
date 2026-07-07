@@ -71,6 +71,9 @@ export default function AlliedHealthServicePage({ slug }: AlliedHealthServicePag
     whyMatters: string;
     benefits: { title: string; text: string }[];
   };
+  const professionalScope = content.professionalScope as
+    | { title: string; statements: string[]; note?: string }
+    | undefined;
   const whoBenefits = content.whoBenefits as {
     title: string;
     intro: string;
@@ -266,6 +269,32 @@ export default function AlliedHealthServicePage({ slug }: AlliedHealthServicePag
                   );
                 })}
               </div>
+              {professionalScope ? (
+                <motion.div
+                  {...reveal(0.1)}
+                  className="eden-clinical-panel mt-10 rounded-[1.75rem] border border-emerald-200/60 p-8"
+                >
+                  <div className="flex items-start gap-3">
+                    <ShieldCheck className="mt-1 shrink-0 text-emerald-600" size={28} aria-hidden />
+                    <div>
+                      <h3 className="text-xl font-black text-[#0b4f4f]">{professionalScope.title}</h3>
+                      <ul className="mt-4 space-y-3">
+                        {professionalScope.statements.map((statement) => (
+                          <li key={statement} className="flex gap-3 text-sm font-semibold leading-7 text-slate-700">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" aria-hidden />
+                            {statement}
+                          </li>
+                        ))}
+                      </ul>
+                      {professionalScope.note ? (
+                        <p className="mt-5 rounded-xl border border-amber-200/80 bg-amber-50/60 p-4 text-sm font-semibold leading-7 text-slate-700">
+                          {professionalScope.note}
+                        </p>
+                      ) : null}
+                    </div>
+                  </div>
+                </motion.div>
+              ) : null}
             </section>
 
             {/* Who benefits */}

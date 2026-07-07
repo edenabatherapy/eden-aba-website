@@ -147,6 +147,179 @@ export const DOWNLOADABLE_RESOURCES = {
   ],
 } as const;
 
+export const CAREGIVER_COACHING_SECTION = {
+  title: "Caregiver Coaching Approach",
+  intro:
+    "Eden's parent training is hands-on coaching—not a lecture. Your BCBA or clinical supervisor models strategies, watches you practice, and gives feedback you can use the same day.",
+  cards: [
+    {
+      title: "Modeling & guided practice",
+      text: "Clinicians demonstrate prompting, reinforcement, and transition strategies during real routines so caregivers see exactly what to do.",
+    },
+    {
+      title: "Feedback in the moment",
+      text: "Coaching includes gentle correction, praise for caregiver attempts, and adjustments matched to your child's responses.",
+    },
+    {
+      title: "Problem-solving together",
+      text: "When a strategy is not working, your team reviews data, environment, and motivation—not blame—to refine the plan.",
+    },
+    {
+      title: "Building caregiver confidence",
+      text: "Short, achievable practice goals help families feel prepared for meals, outings, and bedtime—not overwhelmed by a long skill list.",
+    },
+    {
+      title: "Home programming support",
+      text: "Between sessions, families receive clear priorities for practice so progress continues without requiring caregivers to run full therapy sessions.",
+    },
+    {
+      title: "Stress reduction for families",
+      text: "Predictable strategies and shared language often reduce daily conflict, helping caregivers respond calmly and consistently.",
+    },
+  ],
+} as const;
+
+export const DAILY_ROUTINES_SECTION = {
+  title: "Coaching for Daily Routines",
+  intro:
+    "Most learning happens during everyday life. Eden coaches caregivers to embed ABA strategies into routines your family already has.",
+  cards: [
+    {
+      title: "Morning routines",
+      text: "Visual schedules, first-then boards, and step-by-step teaching for dressing, breakfast, and getting out the door.",
+    },
+    {
+      title: "Mealtime routines",
+      text: "Seating, prompting, reinforcement for trying foods or using utensils, and calm expectations—coordinated with feeding specialists when applicable.",
+    },
+    {
+      title: "Bedtime & sleep routines",
+      text: "Consistent sequences, transition warnings, and reinforcement for independent sleep skills within your family's cultural practices.",
+    },
+    {
+      title: "Community outings",
+      text: "Preparation, visual supports, and reinforcement for stores, parks, appointments, and family events.",
+    },
+    {
+      title: "Toilet training support",
+      text: "When clinically appropriate, structured toilet training plans with data collection, scheduled sits, and celebration of small steps.",
+    },
+    {
+      title: "Hygiene & self-care",
+      text: "Task analysis for tooth brushing, hand washing, and dressing with fading prompts as independence grows.",
+    },
+  ],
+} as const;
+
+export const BEHAVIOR_PREVENTION_SECTION = {
+  title: "Behavior Prevention & Positive Support",
+  intro:
+    "Parent training emphasizes preventing challenging behavior by teaching skills and adjusting environments—not only reacting after problems occur.",
+  cards: [
+    {
+      title: "Antecedent strategies",
+      text: "Learn to adjust triggers, offer choices, and set up environments so success is more likely before behavior escalates.",
+    },
+    {
+      title: "Functional communication",
+      text: "Teach requesting, protesting, and commenting so children can meet needs without challenging behavior.",
+    },
+    {
+      title: "Positive reinforcement",
+      text: "Use praise, preferred activities, and natural rewards to strengthen cooperation, communication, and new skills.",
+    },
+    {
+      title: "Replacement skills",
+      text: "Practice what to do instead of challenging behavior—with the same function (attention, escape, access, sensory).",
+    },
+    {
+      title: "Consistent responses",
+      text: "Align responses across caregivers so children receive predictable consequences for both appropriate and inappropriate behavior.",
+    },
+    {
+      title: "Safety planning",
+      text: "When aggression or elopement is a concern, families receive clear safety steps and when to seek emergency support.",
+    },
+  ],
+} as const;
+
+export const SCHOOL_COLLABORATION_SECTION = {
+  title: "School Collaboration & IEP Support",
+  intro:
+    "With your written consent, Eden can help align home and school strategies so children hear consistent expectations.",
+  cards: [
+    {
+      title: "Sharing effective strategies",
+      text: "Reinforcement, visual supports, and communication approaches that work at home may support classroom participation.",
+    },
+    {
+      title: "IEP goal alignment",
+      text: "Discuss how ABA goals relate to school goals without duplicating or contradicting the IEP.",
+    },
+    {
+      title: "Transition planning",
+      text: "Prepare for new grades, teachers, or school settings with practice and caregiver communication.",
+    },
+    {
+      title: "Meeting participation",
+      text: "BCBAs may attend school meetings when authorized to answer clinical questions about behavior support.",
+    },
+    {
+      title: "Respecting school boundaries",
+      text: "School-based ABA may require separate agreements. Eden clarifies which services occur where.",
+    },
+    {
+      title: "Data sharing with consent",
+      text: "Progress summaries are shared only when families authorize release of information.",
+    },
+  ],
+} as const;
+
+export const MEDICAL_NECESSITY_PARENT_TRAINING = {
+  title: "Parent Training & Medical Necessity",
+  intro:
+    "Caregiver training is a recognized component of comprehensive ABA when it supports treatment goals and generalization. Payers including Virginia Medicaid often expect documentation of family involvement.",
+  bullets: [
+    "Parent training goals are tied to the child's individualized treatment plan—not generic workshops.",
+    "Coaching addresses skills that affect daily functioning, safety, communication, or behavior at home and in the community.",
+    "Session notes document caregiver participation, strategies taught, and follow-up assignments when required.",
+    "Medical necessity is determined by each payer; Eden provides accurate clinical documentation without guaranteeing authorization.",
+    "Families may decline specific coaching topics while remaining engaged in other aspects of care.",
+  ],
+  note: "Virginia Medicaid and MCO plans emphasize individualized treatment, family involvement, and evidence-based services. Eden aligns documentation to applicable requirements when ABA is authorized.",
+} as const;
+
+export const CLINICAL_PROCESS_TIMELINE = {
+  title: "What Families Can Expect",
+  intro: "Parent training unfolds over time as trust, skills, and your child's needs evolve.",
+  steps: [
+    {
+      title: "Orientation & goal review",
+      text: "Your BCBA explains which caregiver skills connect to your child's current treatment goals.",
+    },
+    {
+      title: "Modeling during routines",
+      text: "Clinicians demonstrate strategies during meals, play, or transitions in your home or clinic.",
+    },
+    {
+      title: "Caregiver practice with feedback",
+      text: "You try strategies while the team coaches—building confidence through repetition.",
+    },
+    {
+      title: "Between-session assignments",
+      text: "Short, realistic practice targets keep momentum without overwhelming the family.",
+    },
+    {
+      title: "Progress review & adjustment",
+      text: "Data and caregiver report inform whether strategies should continue, fade, or change.",
+    },
+    {
+      title: "Expanded caregivers",
+      text: "Grandparents, babysitters, or siblings may join when families want broader consistency.",
+    },
+  ],
+} as const;
+
 export const PARENT_TRAINING_FAQ = [
   {
     question: "How often does parent training happen?",
@@ -177,6 +350,21 @@ export const PARENT_TRAINING_FAQ = [
     question: "Is parent training part of ABA therapy?",
     answer:
       "Yes. Caregiver training is a recognized component of comprehensive ABA services when clinically appropriate. Eden includes family collaboration and coaching as part of individualized, family-centered care.",
+  },
+  {
+    question: "How is parent training documented for insurance?",
+    answer:
+      "When caregiver training is part of an authorized ABA plan, session notes may document topics covered, caregiver participation, and clinical rationale. Requirements vary by payer. Eden does not guarantee that any specific coaching format will be authorized.",
+  },
+  {
+    question: "Can parent training help with toilet training?",
+    answer:
+      "When toilet training is a clinical goal on your child's plan, your BCBA can coach structured, data-based approaches. Medical or developmental factors may require physician input before intensive training begins.",
+  },
+  {
+    question: "What if I feel overwhelmed during coaching?",
+    answer:
+      "Tell your BCBA. Coaching should be paced to your capacity. Teams can simplify goals, shorten assignments, or focus on one routine at a time.",
   },
 ] as const;
 

@@ -31,6 +31,10 @@ import { ENTERPRISE_SERVICE_THEMES } from "@/lib/services/enterprise-service-the
 import ServiceFeatureImage from "@/components/services/ServiceFeatureImage";
 import { SITE_IMAGES } from "@/lib/site-images";
 import { getButtonClasses } from "@/lib/button-styles";
+import ClinicalGlassSection, {
+  ClinicalBulletPanel,
+  ClinicalCardGrid,
+} from "@/components/clinical/ClinicalGlassSection";
 import { EDEN_CARD } from "@/lib/eden-design-system";
 
 const cardClass = EDEN_CARD;
@@ -61,6 +65,14 @@ type ServiceContent = {
   insurance: { title: string; intro: string; bullets: string[]; note: string };
   faq: { title: string; items: { question: string; answer: string }[] };
   cta: { title: string; subtitle: string; primaryLabel: string; secondaryLabel: string };
+  clinicalExpansion?: {
+    skillDomains?: { title: string; intro: string; items: { title: string; text: string }[] };
+    medicalNecessity?: { title: string; intro: string; bullets: string[]; note?: string };
+    evidenceBased?: { title: string; intro: string; bullets: string[] };
+    interdisciplinaryCollaboration?: { title: string; intro: string; items: { title: string; text: string }[] };
+    referralGuidance?: { title: string; intro: string; referrals: { title: string; text: string }[]; note?: string };
+    ethicalPractice?: { title: string; intro: string; bullets: string[] };
+  };
 };
 
 type EnterpriseServicesBundle = {
@@ -341,6 +353,81 @@ export default function EnterpriseServicePage({ slug }: EnterpriseServicePagePro
           </div>
         </div>
       </section>
+
+      {content.clinicalExpansion?.skillDomains ? (
+        <ClinicalGlassSection
+          id="clinical-skill-domains"
+          title={content.clinicalExpansion.skillDomains.title}
+          intro={content.clinicalExpansion.skillDomains.intro}
+          tone="warm"
+        >
+          <ClinicalCardGrid items={content.clinicalExpansion.skillDomains.items} />
+        </ClinicalGlassSection>
+      ) : null}
+
+      {content.clinicalExpansion?.medicalNecessity ? (
+        <ClinicalGlassSection
+          id="medical-necessity"
+          title={content.clinicalExpansion.medicalNecessity.title}
+          intro={content.clinicalExpansion.medicalNecessity.intro}
+          tone="mint"
+        >
+          <ClinicalBulletPanel
+            title="Clinical documentation focus"
+            bullets={content.clinicalExpansion.medicalNecessity.bullets}
+            note={content.clinicalExpansion.medicalNecessity.note}
+          />
+        </ClinicalGlassSection>
+      ) : null}
+
+      {content.clinicalExpansion?.evidenceBased ? (
+        <ClinicalGlassSection
+          id="evidence-based-practices"
+          title={content.clinicalExpansion.evidenceBased.title}
+          intro={content.clinicalExpansion.evidenceBased.intro}
+          tone="white"
+        >
+          <ClinicalBulletPanel title="Evidence-informed approach" bullets={content.clinicalExpansion.evidenceBased.bullets} />
+        </ClinicalGlassSection>
+      ) : null}
+
+      {content.clinicalExpansion?.interdisciplinaryCollaboration ? (
+        <ClinicalGlassSection
+          id="interdisciplinary-collaboration"
+          title={content.clinicalExpansion.interdisciplinaryCollaboration.title}
+          intro={content.clinicalExpansion.interdisciplinaryCollaboration.intro}
+          tone="warm"
+        >
+          <ClinicalCardGrid items={content.clinicalExpansion.interdisciplinaryCollaboration.items} columns={2} />
+        </ClinicalGlassSection>
+      ) : null}
+
+      {content.clinicalExpansion?.referralGuidance ? (
+        <ClinicalGlassSection
+          id="referral-guidance"
+          title={content.clinicalExpansion.referralGuidance.title}
+          intro={content.clinicalExpansion.referralGuidance.intro}
+          tone="mint"
+        >
+          <ClinicalCardGrid items={content.clinicalExpansion.referralGuidance.referrals} columns={2} />
+          {content.clinicalExpansion.referralGuidance.note ? (
+            <p className="mx-auto mt-8 max-w-4xl rounded-2xl border border-amber-200/80 bg-amber-50/70 p-5 text-center text-sm font-semibold leading-7 text-slate-700">
+              {content.clinicalExpansion.referralGuidance.note}
+            </p>
+          ) : null}
+        </ClinicalGlassSection>
+      ) : null}
+
+      {content.clinicalExpansion?.ethicalPractice ? (
+        <ClinicalGlassSection
+          id="ethical-practice"
+          title={content.clinicalExpansion.ethicalPractice.title}
+          intro={content.clinicalExpansion.ethicalPractice.intro}
+          tone="white"
+        >
+          <ClinicalBulletPanel title="Professional standards" bullets={content.clinicalExpansion.ethicalPractice.bullets} />
+        </ClinicalGlassSection>
+      ) : null}
 
       {/* Insurance / Medicaid */}
       <section className="bg-slate-900 px-4 py-16 text-white lg:px-8 lg:py-20">
