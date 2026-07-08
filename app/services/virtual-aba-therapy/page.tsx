@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import VirtualAbaServiceRoutePage from "@/components/services/VirtualAbaServiceRoutePage";
+import VirtualAbaTherapyServicePage from "@/components/services/VirtualAbaTherapyServicePage";
+import { VIRTUAL_ABA_META } from "@/lib/services/virtual-aba-therapy-data";
 
 export const metadata: Metadata = {
-  title: "Virtual ABA Therapy | Eden ABA Therapy",
-  description:
-    "Virtual ABA therapy and parent coaching through secure telehealth sessions for Northern Virginia families who need flexible access to Eden ABA Therapy services.",
+  title: VIRTUAL_ABA_META.title,
+  description: VIRTUAL_ABA_META.description,
+  keywords: [...VIRTUAL_ABA_META.keywords],
   alternates: {
     canonical: "/services/virtual-aba-therapy",
   },
 };
 
 export default function Page() {
-  return <VirtualAbaServiceRoutePage />;
+  return <VirtualAbaTherapyServicePage />;
 }

@@ -308,6 +308,44 @@ body {
   }
 }
 
+.virtual-aba-glow {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(48px);
+}
+
+.virtual-aba-glow--1 {
+  top: 10%;
+  left: 5%;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(73, 184, 200, 0.22);
+  animation: afterSchoolFloat 12s ease-in-out infinite;
+}
+
+.virtual-aba-glow--2 {
+  bottom: 5%;
+  right: 8%;
+  width: 14rem;
+  height: 14rem;
+  background: rgba(250, 204, 21, 0.12);
+  animation: afterSchoolFloat 9s ease-in-out infinite reverse;
+}
+
+.virtual-aba-connection-lines {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(30, 90, 138, 0.06) 0, transparent 45%),
+    radial-gradient(circle at 80% 50%, rgba(14, 107, 79, 0.06) 0, transparent 45%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .virtual-aba-glow--1,
+  .virtual-aba-glow--2 {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .after-school-float,
   .after-school-float-slow,

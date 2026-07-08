@@ -76,7 +76,7 @@ const SERVICE_SECTIONS: ServicesMegaMenuSection[] = [
         title: "Virtual ABA Therapy",
         href: "/services/virtual-aba-therapy",
         description:
-          "Remote ABA support, parent coaching, and consultation through secure virtual sessions for families needing flexible access to care.",
+          "Clinically appropriate virtual ABA—caregiver coaching, BCBA consultation, and secure telehealth when authorized and appropriate.",
         animationType: "virtual",
         sectionId: "aba-services",
       },

@@ -1083,5 +1083,20 @@
     "subtitle": "Liên hệ Eden để thảo luận đánh giá, mục tiêu cá nhân hóa và liệu ABA sau giờ học có phù hợp lịch trình và ủy quyền của gia đình bạn.",
     "primaryCta": "Bắt đầu Liệu pháp ABA",
     "secondaryCta": "Liên hệ Eden ABA Therapy"
+  },
+  "VIRTUAL_ABA_HERO": {
+    "eyebrow": "Dịch vụ / ABA Ảo",
+    "title": "Liệu pháp ABA Ảo",
+    "subtitle": "Hỗ trợ ABA an toàn, có hướng dẫn lâm sàng cho gia đình khi chăm sóc trực tiếp không phải là lựa chọn duy nhất.",
+    "primaryCta": "Bắt đầu Liệu pháp ABA",
+    "verifyCta": "Xác minh Bảo hiểm",
+    "secondaryCta": "Liên hệ Eden ABA Therapy"
+  },
+  "VIRTUAL_ABA_FINAL_CTA": {
+    "title": "Không chắc ABA ảo có phù hợp với con bạn?",
+    "subtitle": "Eden ABA Therapy có thể xem xét nhu cầu của con bạn và giúp xác định liệu hỗ trợ ảo, ABA tại nhà, ABA tại trường hay mô hình kết hợp có phù hợp.",
+    "primaryCta": "Bắt đầu Liệu pháp ABA",
+    "verifyCta": "Xác minh Bảo hiểm",
+    "callCta": "Gọi Eden ABA Therapy"
   }
 }
