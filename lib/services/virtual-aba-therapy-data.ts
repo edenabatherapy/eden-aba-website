@@ -501,6 +501,18 @@ export const VIRTUAL_ABA_RELATED_SERVICES = {
   ],
 } as const;
 
+export const VIRTUAL_ABA_LIVE_VIDEO = {
+  title: "Speak with an Eden Intake Coordinator",
+  text: "Have questions about virtual ABA, insurance, or whether telehealth may be appropriate for your child? Connect with Eden's intake team through a secure live video room when staff are available.",
+  availability:
+    "Live video support is available when an Eden intake coordinator is online. If no one is available, please submit the form or call our office.",
+  disclaimer:
+    "Live video intake support is for general questions, scheduling, insurance guidance, and intake assistance. Clinical recommendations are provided only after appropriate review by qualified clinical staff.",
+  startLiveVideoCta: "Start Live Video",
+  callCta: "Call (703) 587-5238",
+  phoneHref: "tel:+17035875238",
+} as const;
+
 export const VIRTUAL_ABA_FINAL_CTA = {
   title: "Not sure if virtual ABA is right for your child?",
   subtitle:

@@ -26,11 +26,14 @@ import {
 } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import AboutPremiumLayout from "@/components/about/AboutPremiumLayout";
+import LiveVideoIntakeModals from "@/components/home/ai-intake/LiveVideoIntakeModals";
 import FAQAccordion from "@/components/getting-started/FAQAccordion";
 import { TelehealthHeroIllustration } from "@/components/illustrations/VirtualAbaIllustrations";
 import VirtualAbaHomeTelehealthVisual from "@/components/services/virtual-aba/VirtualAbaHomeTelehealthVisual";
+import VirtualAbaLiveVideoSupport from "@/components/services/virtual-aba/VirtualAbaLiveVideoSupport";
 import VirtualAbaPageSchema from "@/components/services/virtual-aba/VirtualAbaPageSchema";
 import { useLocalizedContent } from "@/hooks/useLocalizedContent";
+import { useLiveVideoIntake } from "@/hooks/useLiveVideoIntake";
 import {
   VIRTUAL_ABA_CARE_TIMELINE,
   VIRTUAL_ABA_COMPARISON,
@@ -41,6 +44,7 @@ import {
   VIRTUAL_ABA_FINAL_CTA,
   VIRTUAL_ABA_HERO,
   VIRTUAL_ABA_INSURANCE,
+  VIRTUAL_ABA_LIVE_VIDEO,
   VIRTUAL_ABA_LIMITATIONS,
   VIRTUAL_ABA_MEANING,
   VIRTUAL_ABA_PARENT_COACHING,
@@ -142,7 +146,14 @@ export default function VirtualAbaTherapyServicePage() {
   const faq = useLocalizedContent("VIRTUAL_ABA_FAQ", VIRTUAL_ABA_FAQ);
   const finalCta = useLocalizedContent("VIRTUAL_ABA_FINAL_CTA", VIRTUAL_ABA_FINAL_CTA);
   const relatedServices = useLocalizedContent("VIRTUAL_ABA_RELATED_SERVICES", VIRTUAL_ABA_RELATED_SERVICES);
+  const liveVideoSupport = useLocalizedContent("VIRTUAL_ABA_LIVE_VIDEO", VIRTUAL_ABA_LIVE_VIDEO);
   const reduceMotion = useReducedMotion();
+
+  const liveVideo = useLiveVideoIntake({
+    onScheduleCall: () => {
+      window.location.assign("/about/contact-us");
+    },
+  });
 
   const reveal: RevealFn = (delay = 0) =>
     reduceMotion
@@ -191,9 +202,9 @@ export default function VirtualAbaTherapyServicePage() {
               <Link href="/insurance-coverage" className={getButtonClasses("gold")}>
                 {hero.verifyCta}
               </Link>
-              <Link href="/about/contact-us" className={getButtonClasses("secondaryOnDark")}>
+              <button type="button" className={getButtonClasses("secondaryOnDark")} onClick={liveVideo.openPreCallModal}>
                 {hero.secondaryCta}
-              </Link>
+              </button>
             </motion.div>
           </div>
           <motion.div
@@ -658,6 +669,18 @@ export default function VirtualAbaTherapyServicePage() {
         </motion.div>
       </section>
 
+      <VirtualAbaLiveVideoSupport
+        title={liveVideoSupport.title}
+        text={liveVideoSupport.text}
+        availability={liveVideoSupport.availability}
+        disclaimer={liveVideoSupport.disclaimer}
+        startLiveVideoCta={liveVideoSupport.startLiveVideoCta}
+        callCta={liveVideoSupport.callCta}
+        phoneHref={liveVideoSupport.phoneHref}
+        onStartLiveVideo={liveVideo.openPreCallModal}
+        reveal={reveal}
+      />
+
       {/* FAQ */}
       <section className="eden-section eden-section--mint px-4 py-16 lg:px-8 lg:py-20">
         <div className="mx-auto max-w-3xl">
@@ -716,6 +739,8 @@ export default function VirtualAbaTherapyServicePage() {
           <p className="mt-4 text-sm font-semibold text-white/75">{finalCta.phoneDisplay}</p>
         </motion.div>
       </section>
+
+      <LiveVideoIntakeModals {...liveVideo} />
     </AboutPremiumLayout>
   );
 }

@@ -3,6 +3,7 @@
 import { FormEvent, useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import { MessageCircle, Send, X } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
+import { EDEN_START_AI_CHAT_EVENT } from "@/components/home/ai-intake/ai-intake-config";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
 import { getTranslation } from "@/lib/i18n";
 import "./EdenChatWidget.css";
@@ -82,6 +83,12 @@ export default function EdenChatWidget() {
     if (!isOpen) return;
     inputRef.current?.focus();
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleStartChat = () => setIsOpen(true);
+    window.addEventListener(EDEN_START_AI_CHAT_EVENT, handleStartChat);
+    return () => window.removeEventListener(EDEN_START_AI_CHAT_EVENT, handleStartChat);
+  }, []);
 
   useEffect(() => {
     const container = messagesRef.current;

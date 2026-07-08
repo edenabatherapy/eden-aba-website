@@ -105,7 +105,7 @@ export function buildLiveVideoLeadMessage(params: {
   const { intake, pageUrl, roomName, joinUrl } = params;
 
   return [
-    "Source: Homepage Live Video Intake (Speak with a Person)",
+    `Source: Live Video Intake (${pageUrl})`,
     `Preferred Language: ${getLiveVideoPreferredLanguageLabel(intake.preferredLanguage)}`,
     `Reason for Call: ${getLiveVideoReasonLabel(intake.reasonForCall)}`,
     intake.childAge ? `Child's Age: ${intake.childAge}` : "",

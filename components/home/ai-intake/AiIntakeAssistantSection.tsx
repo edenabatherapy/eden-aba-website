@@ -3,25 +3,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { useSiteLanguage } from "@/hooks/useSiteLanguage";
-import type { LiveVideoPreCallIntake } from "@/lib/daily/live-video-intake-payload";
+import { useLiveVideoIntake } from "@/hooks/useLiveVideoIntake";
 import AiIntakeActionButtons from "./AiIntakeActionButtons";
 import AiReceptionistVideoPanel from "./AiReceptionistVideoPanel";
 import { EDEN_START_AI_CHAT_EVENT } from "./ai-intake-config";
-import LiveCoordinatorModal from "./LiveCoordinatorModal";
-import LiveVideoPreCallFormModal from "./LiveVideoPreCallFormModal";
-import IntakeCallbackMessageModal from "./IntakeCallbackMessageModal";
+import LiveVideoIntakeModals from "./LiveVideoIntakeModals";
 import { getAiIntakeSection } from "./ai-intake-i18n";
-import type { AiIntakeAssistantHandlers, AiIntakeActionId, LiveCoordinatorModalPhase } from "./types";
+import type { AiIntakeAssistantHandlers, AiIntakeActionId } from "./types";
 import "./ai-intake-assistant.css";
 
 type AiIntakeAssistantSectionProps = AiIntakeAssistantHandlers;
-
-type CreateDailyRoomResponse = {
-  ok?: boolean;
-  joinUrl?: string;
-  emailNotificationSent?: boolean;
-  message?: string;
-};
 
 export default function AiIntakeAssistantSection({
   onAskQuestion,
@@ -36,14 +27,14 @@ export default function AiIntakeAssistantSection({
   const copy = useMemo(() => getAiIntakeSection(language), [language]);
 
   const sectionRef = useRef<HTMLElement>(null);
-  const speakWithPersonInFlightRef = useRef(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [preCallModalOpen, setPreCallModalOpen] = useState(false);
-  const [connectModalOpen, setConnectModalOpen] = useState(false);
-  const [connectModalPhase, setConnectModalPhase] = useState<LiveCoordinatorModalPhase>("loading");
-  const [dailyJoinUrl, setDailyJoinUrl] = useState<string | null>(null);
-  const [callbackModalOpen, setCallbackModalOpen] = useState(false);
   const [chatActive, setChatActive] = useState(false);
+
+  const liveVideo = useLiveVideoIntake({
+    onSpeakWithPerson,
+    onScheduleCall,
+    scrollToChatSelector: ".eden-ai-video",
+  });
 
   useEffect(() => {
     const node = sectionRef.current;
@@ -62,72 +53,6 @@ export default function AiIntakeAssistantSection({
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
-
-  const openPreCallModal = useCallback(() => {
-    setPreCallModalOpen(true);
-    onSpeakWithPerson?.();
-  }, [onSpeakWithPerson]);
-
-  const closePreCallModal = useCallback(() => {
-    setPreCallModalOpen(false);
-  }, []);
-
-  const closeConnectModal = useCallback(() => {
-    setConnectModalOpen(false);
-    setConnectModalPhase("loading");
-    setDailyJoinUrl(null);
-  }, []);
-
-  const joinDailyVideoCall = useCallback(() => {
-    if (!dailyJoinUrl) return;
-    window.open(dailyJoinUrl, "_blank", "noopener,noreferrer");
-  }, [dailyJoinUrl]);
-
-  const openDailyVideoRoom = useCallback((joinUrl: string) => {
-    window.open(joinUrl, "_blank", "noopener,noreferrer");
-  }, []);
-
-  const submitPreCallAndStartVideo = useCallback(
-    async (intake: LiveVideoPreCallIntake) => {
-      if (speakWithPersonInFlightRef.current) return;
-
-      speakWithPersonInFlightRef.current = true;
-      setPreCallModalOpen(false);
-      setConnectModalOpen(true);
-      setConnectModalPhase("loading");
-      setDailyJoinUrl(null);
-
-      try {
-        const response = await fetch("/api/daily/create-room", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            pageUrl: typeof window !== "undefined" ? window.location.href : "",
-            intake,
-          }),
-        });
-
-        const result = (await response.json().catch(() => ({}))) as CreateDailyRoomResponse;
-
-        if (!response.ok || !result.ok || !result.joinUrl) {
-          setConnectModalPhase("unavailable");
-          return;
-        }
-
-        setDailyJoinUrl(result.joinUrl);
-        setConnectModalPhase(result.emailNotificationSent ? "notified" : "emailFailed");
-        openDailyVideoRoom(result.joinUrl);
-      } catch {
-        setConnectModalPhase("unavailable");
-      } finally {
-        speakWithPersonInFlightRef.current = false;
-      }
-    },
-    [openDailyVideoRoom],
-  );
 
   const handleAction = useCallback(
     (actionId: AiIntakeActionId) => {
@@ -153,35 +78,21 @@ export default function AiIntakeAssistantSection({
           onProviderReferral?.();
           break;
         case "speak-with-person":
-          openPreCallModal();
+          liveVideo.openPreCallModal();
           break;
         default:
           break;
       }
     },
     [
+      liveVideo.openPreCallModal,
       onAskQuestion,
       onCheckInsurance,
       onSchedule,
       onStartIntake,
       onProviderReferral,
-      openPreCallModal,
     ],
   );
-
-  const handleContinueChat = useCallback(() => {
-    closeConnectModal();
-    setChatActive(true);
-    window.dispatchEvent(new CustomEvent(EDEN_START_AI_CHAT_EVENT));
-    sectionRef.current
-      ?.querySelector<HTMLElement>(".eden-ai-video")
-      ?.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [closeConnectModal]);
-
-  const handleLeaveMessage = useCallback(() => {
-    closeConnectModal();
-    setCallbackModalOpen(true);
-  }, [closeConnectModal]);
 
   return (
     <section
@@ -224,7 +135,7 @@ export default function AiIntakeAssistantSection({
               <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--secondary" onClick={() => handleAction("ask-question")}>
                 {copy.cta.askQuestion}
               </button>
-              <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={openPreCallModal}>
+              <button type="button" className="eden-ai-intake__cta eden-ai-intake__cta--ghost" onClick={liveVideo.openPreCallModal}>
                 {copy.cta.speakWithPerson}
               </button>
             </div>
@@ -232,30 +143,7 @@ export default function AiIntakeAssistantSection({
         </div>
       </div>
 
-      <LiveVideoPreCallFormModal
-        open={preCallModalOpen}
-        onClose={closePreCallModal}
-        onSubmit={submitPreCallAndStartVideo}
-      />
-
-      <LiveCoordinatorModal
-        open={connectModalOpen}
-        phase={connectModalPhase}
-        joinUrl={dailyJoinUrl}
-        onClose={closeConnectModal}
-        onJoinVideoCall={joinDailyVideoCall}
-        onScheduleCall={() => {
-          closeConnectModal();
-          onScheduleCall?.();
-        }}
-        onContinueChat={handleContinueChat}
-        onLeaveMessage={handleLeaveMessage}
-      />
-
-      <IntakeCallbackMessageModal
-        open={callbackModalOpen}
-        onClose={() => setCallbackModalOpen(false)}
-      />
+      <LiveVideoIntakeModals {...liveVideo} />
     </section>
   );
 }
