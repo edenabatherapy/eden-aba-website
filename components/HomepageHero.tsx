@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import EdenLogo from "@/components/EdenLogo";
@@ -8,7 +7,6 @@ import { getTranslation } from "@/lib/i18n";
 import "./HomepageHero.css";
 
 const HOMEPAGE_HERO_VIDEO = "/videos/hero-video.mp4";
-const HOMEPAGE_HERO_POSTER = "/images/hero-child-poster.jpg";
 
 const HERO_ROTATION_ITEMS = [
   { word: "thrive", symbol: "🌱", label: "thrive" },
@@ -126,7 +124,7 @@ function EdenHeroVisual({
 
     const attemptPlay = () => {
       void video.play().catch(() => {
-        // Autoplay blocked or deferred — keep poster visible until user interaction.
+        // Autoplay blocked or deferred — keep gradient frame until playback starts.
       });
     };
 
@@ -142,20 +140,9 @@ function EdenHeroVisual({
     };
   }, [handleVideoError, handleVideoPlaying, videoFailed]);
 
-  const showPoster = !videoPlaying || videoFailed;
-
   return (
     <div className="eden-hero-visual">
       <div className="eden-hero-media-frame">
-        <Image
-          src={HOMEPAGE_HERO_POSTER}
-          alt={imageAlt}
-          fill
-          priority
-          sizes="(max-width: 640px) 100vw, (max-width: 1100px) 760px, 42vw"
-          className={`eden-hero-poster${showPoster ? "" : " eden-hero-poster--hidden"}`}
-        />
-
         {!videoFailed ? (
           <video
             ref={videoRef}

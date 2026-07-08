@@ -781,17 +781,6 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.28);
 }
 
-.eden-hero-poster {
-  object-fit: cover;
-  object-position: center center;
-  z-index: 1;
-  transition: opacity 0.45s ease;
-}
-
-.eden-hero-poster--hidden {
-  opacity: 0;
-}
-
 .eden-hero-video {
   position: absolute;
   inset: 0;
@@ -820,9 +809,7 @@
   gap: 0.65rem;
   padding: 2rem;
   text-align: center;
-  background:
-    linear-gradient(145deg, rgba(238, 249, 244, 0.96) 0%, rgba(255, 248, 223, 0.94) 100%),
-    url("/images/hero-child-poster.jpg") center / cover no-repeat;
+  background: linear-gradient(145deg, rgba(238, 249, 244, 0.96) 0%, rgba(255, 248, 223, 0.94) 100%);
 }
 
 .eden-hero-fallback__brand {
