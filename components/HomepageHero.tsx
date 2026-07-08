@@ -104,41 +104,70 @@ function EdenHeroVisual({
 }: EdenHeroVisualProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
 
   const handleVideoPlaying = useCallback(() => {
     setVideoPlaying(true);
+    setVideoReady(true);
+  }, []);
+
+  const handleVideoReady = useCallback(() => {
+    setVideoReady(true);
   }, []);
 
   const handleVideoError = useCallback(() => {
     setVideoFailed(true);
     setVideoPlaying(false);
+    setVideoReady(false);
   }, []);
+
+  const attemptPlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || videoFailed) return;
+
+    video.muted = true;
+    video.playsInline = true;
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+
+    void video.play().catch(() => {
+      // Autoplay may be blocked on mobile until a gesture or retry — first frame still shows when ready.
+    });
+  }, [videoFailed]);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video || videoFailed) return undefined;
 
     video.addEventListener("playing", handleVideoPlaying);
+    video.addEventListener("loadeddata", handleVideoReady);
+    video.addEventListener("canplay", handleVideoReady);
     video.addEventListener("error", handleVideoError);
 
-    const attemptPlay = () => {
-      void video.play().catch(() => {
-        // Autoplay blocked or deferred — keep gradient frame until playback starts.
-      });
+    attemptPlay();
+
+    if (video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+      video.addEventListener("loadeddata", attemptPlay, { once: true });
+      video.addEventListener("canplay", attemptPlay, { once: true });
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") attemptPlay();
     };
 
-    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-      attemptPlay();
-    } else {
-      video.addEventListener("loadeddata", attemptPlay, { once: true });
-    }
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       video.removeEventListener("playing", handleVideoPlaying);
+      video.removeEventListener("loadeddata", handleVideoReady);
+      video.removeEventListener("canplay", handleVideoReady);
       video.removeEventListener("error", handleVideoError);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [handleVideoError, handleVideoPlaying, videoFailed]);
+  }, [attemptPlay, handleVideoError, handleVideoPlaying, handleVideoReady, videoFailed]);
+
+  const showVideo = videoPlaying || videoReady;
 
   return (
     <div className="eden-hero-visual">
@@ -146,7 +175,7 @@ function EdenHeroVisual({
         {!videoFailed ? (
           <video
             ref={videoRef}
-            className={`eden-hero-video${videoPlaying ? " eden-hero-video--active" : ""}`}
+            className={`eden-hero-video${showVideo ? " eden-hero-video--active" : ""}`}
             autoPlay
             muted
             loop
