@@ -2,6 +2,7 @@
 export const SIMPLE_NEWSLETTER_SOURCES = new Set([
   "family-newsletter",
   "homepage-banner",
+  "homepage_newsletter",
   "privacy-policy-newsletter",
   "admissions-newsletter",
 ]);

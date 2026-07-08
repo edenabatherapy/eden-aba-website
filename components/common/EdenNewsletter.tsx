@@ -25,12 +25,26 @@ export default function EdenNewsletter({ source = "eden-newsletter", className =
 
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const { submitting, error, success, submit, honeypot, setHoneypot, formDisabled } =
+  const { submitting, error, success, successMessage, submit, setError, honeypot, setHoneypot, formDisabled } =
     useSimpleNewsletterSignup();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!fullName.trim() || !email.trim() || !isValidEmail(email.trim())) return;
+
+    if (!fullName.trim()) {
+      setError(t.newsletterNameRequired || "Please enter your full name.");
+      return;
+    }
+
+    if (!email.trim()) {
+      setError(t.newsletterEmailRequired || "Please enter your email address.");
+      return;
+    }
+
+    if (!isValidEmail(email.trim())) {
+      setError(t.newsletterEmailInvalid || "Please enter a valid email address.");
+      return;
+    }
 
     await submit({
       fullName: fullName.trim(),
@@ -108,7 +122,7 @@ export default function EdenNewsletter({ source = "eden-newsletter", className =
             aria-live="polite"
             className="eden-newsletter-banner__feedback eden-newsletter-banner__feedback--success"
           >
-            {t.newsletterThanks}, {fullName}! {t.newsletterThanksEnd}
+            {successMessage || t.newsletterSuccess || "Thank you for joining our family newsletter."}
           </p>
         ) : null}
       </div>

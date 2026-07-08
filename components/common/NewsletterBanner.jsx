@@ -2,5 +2,5 @@
 import EdenNewsletter from "@/components/common/EdenNewsletter";
 
 export default function NewsletterBanner({ t: _t }) {
-  return <EdenNewsletter source="homepage-banner" />;
+  return <EdenNewsletter source="homepage_newsletter" />;
 }

@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
+import { normalizeNewsletterSource } from "@/lib/newsletter/normalize-source";
 import { isSimpleNewsletterSource } from "@/lib/newsletter/simple-sources";
+import {
+  insertNewsletterSubscriber,
+  isNewsletterInsertFailure,
+} from "@/lib/supabase/insert-newsletter-subscriber";
 import { recaptchaV2FailureResponse, verifyRecaptchaV2Token } from "@/lib/recaptcha/verify-v2";
+
+const SUCCESS_MESSAGE = "Thank you for joining our family newsletter.";
 
 function isNonEmpty(value: unknown) {
   return typeof value === "string" && value.trim().length > 0;
@@ -19,14 +26,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "Invalid request body." }, { status: 400 });
   }
 
-  const source = body.source ? String(body.source).trim() : "website";
-  const isSimpleSignup = isSimpleNewsletterSource(source);
+  const source = normalizeNewsletterSource(body.source ? String(body.source).trim() : "website");
+  const isSimpleSignup = isSimpleNewsletterSource(source) || isSimpleNewsletterSource(String(body.source ?? "").trim());
 
   // Honeypot for simple newsletter signups — silently accept bot submissions.
   if (isSimpleSignup && typeof body.website === "string" && body.website.trim()) {
     return NextResponse.json({
       ok: true,
-      message: "Thank you for joining our newsletter.",
+      message: SUCCESS_MESSAGE,
       submittedAt: new Date().toISOString(),
     });
   }
@@ -50,16 +57,16 @@ export async function POST(request: Request) {
           .join(" ")
           .trim();
 
-  if (!isNonEmpty(email) || !isValidEmail(email)) {
+  if (!fullName) {
     return NextResponse.json(
-      { ok: false, message: "Please enter a valid email address." },
+      { ok: false, message: "Please enter your full name." },
       { status: 400 },
     );
   }
 
-  if (!fullName) {
+  if (!isNonEmpty(email) || !isValidEmail(email)) {
     return NextResponse.json(
-      { ok: false, message: "Please enter your name." },
+      { ok: false, message: "Please enter a valid email address." },
       { status: 400 },
     );
   }
@@ -71,22 +78,39 @@ export async function POST(request: Request) {
     );
   }
 
-  const submission = {
+  const insertResult = await insertNewsletterSubscriber({
     fullName,
     email,
     source,
-    type: body.type ? String(body.type).trim() : "",
-    submittedAt: new Date().toISOString(),
-  };
+  });
 
-  /*
-    TODO: Persist newsletter signups to Eden ABA Therapy secure backend / ESP.
-    Do not log PII in application logs.
-  */
+  if (isNewsletterInsertFailure(insertResult)) {
+    if (insertResult.reason === "duplicate-email") {
+      return NextResponse.json(
+        {
+          ok: false,
+          message: insertResult.message ?? "This email is already subscribed to our family newsletter.",
+        },
+        { status: 409 },
+      );
+    }
+
+    const status = insertResult.reason === "missing-config" ? 503 : 500;
+    return NextResponse.json(
+      {
+        ok: false,
+        message:
+          insertResult.reason === "missing-config"
+            ? "Newsletter signup is temporarily unavailable. Please try again later."
+            : "Unable to save your newsletter signup. Please try again.",
+      },
+      { status },
+    );
+  }
 
   return NextResponse.json({
     ok: true,
-    message: "Thank you for joining our newsletter.",
-    submittedAt: submission.submittedAt,
+    message: SUCCESS_MESSAGE,
+    submittedAt: new Date().toISOString(),
   });
 }

@@ -13,10 +13,12 @@ export function useSimpleNewsletterSignup() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [honeypot, setHoneypot] = useState("");
 
   const submit = useCallback(async (payload: SimpleNewsletterPayload) => {
     setError("");
+    setSuccessMessage("");
     setSubmitting(true);
 
     try {
@@ -38,6 +40,11 @@ export function useSimpleNewsletterSignup() {
       }
 
       setSuccess(true);
+      setSuccessMessage(
+        typeof result.message === "string" && result.message.trim()
+          ? result.message
+          : "Thank you for joining our family newsletter.",
+      );
       return true;
     } catch {
       setError("Unable to join the newsletter. Please try again.");
@@ -51,6 +58,7 @@ export function useSimpleNewsletterSignup() {
     submitting,
     error,
     success,
+    successMessage,
     submit,
     setError,
     honeypot,
