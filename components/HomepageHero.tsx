@@ -7,7 +7,7 @@ import EdenLogo from "@/components/EdenLogo";
 import { getTranslation } from "@/lib/i18n";
 import "./HomepageHero.css";
 
-const HOMEPAGE_HERO_VIDEO = "/videos/eden-hero-child.mp4";
+const HOMEPAGE_HERO_VIDEO = "/videos/hero-video.mp4";
 const HOMEPAGE_HERO_POSTER = "/images/hero-child-poster.jpg";
 
 const HERO_ROTATION_ITEMS = [
